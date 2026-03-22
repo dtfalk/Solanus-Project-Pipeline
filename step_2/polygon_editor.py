@@ -8,7 +8,7 @@ When you save, the polygon JSON file for that page is updated in place.
 Controls:
   - Drag a corner handle to move one vertex
   - Drag inside the polygon to move the whole polygon
-  - Save button or S key to write changes back to JSON
+    - Previous / Next / Go automatically write changes back to JSON
   - Previous / Next buttons or Left / Right arrow keys to change pages
 
 Usage:
@@ -32,7 +32,6 @@ if str(BOOTSTRAP_ROOT_DIR) not in sys.path:
 from step_2.config import (
     POLYGON_CONFIG_DIR,
     POLYGON_EDITOR_DOCUMENT,
-    POLYGON_EDITOR_MAX_PREVIEW_DIMENSION,
     POLYGON_EDITOR_START_PAGE,
     POLYGON_INPUT_DIR,
     RENDER_DPI,
@@ -47,17 +46,6 @@ CONFIG_DIR  = ROOT_DIR / POLYGON_CONFIG_DIR
 
 
 HANDLE_RADIUS = 6
-
-
-def scale_polygon(polygon, scale_factor):
-    """Scale a polygon by the given scale factor."""
-    return [
-        {
-            "x": point["x"] * scale_factor,
-            "y": point["y"] * scale_factor,
-        }
-        for point in polygon
-    ]
 
 
 def point_in_polygon(x_coordinate, y_coordinate, polygon):
@@ -80,6 +68,27 @@ def point_in_polygon(x_coordinate, y_coordinate, polygon):
     return inside
 
 
+def upgrade_polygon_to_eight_points(polygon):
+    """Convert a 4-point polygon to an 8-point polygon by adding edge midpoints."""
+    if len(polygon) != 4:
+        return polygon
+
+    upgraded_polygon = []
+    for point_index in range(4):
+        current_point = polygon[point_index]
+        next_point = polygon[(point_index + 1) % 4]
+
+        upgraded_polygon.append({"x": current_point["x"], "y": current_point["y"]})
+        upgraded_polygon.append(
+            {
+                "x": (current_point["x"] + next_point["x"]) / 2.0,
+                "y": (current_point["y"] + next_point["y"]) / 2.0,
+            }
+        )
+
+    return upgraded_polygon
+
+
 class PolygonEditorApp:
     def __init__(self):
         self.document_path = self._get_document_path()
@@ -100,8 +109,7 @@ class PolygonEditorApp:
         controls.pack(fill = tk.X, padx = 8, pady = 8)
 
         ttk.Button(controls, text = "Previous", command = self.previous_page).pack(side = tk.LEFT)
-        ttk.Button(controls, text = "Save", command = self.save_current_polygon).pack(side = tk.LEFT, padx = 8)
-        ttk.Button(controls, text = "Next", command = self.next_page).pack(side = tk.LEFT)
+        ttk.Button(controls, text = "Next", command = self.next_page).pack(side = tk.LEFT, padx = (8, 0))
 
         ttk.Label(controls, text = "Page:").pack(side = tk.LEFT, padx = (12, 4))
         self.page_entry = ttk.Entry(controls, width = 8)
@@ -114,16 +122,19 @@ class PolygonEditorApp:
         self.root.bind("<Left>", lambda event: self.previous_page())
         self.root.bind("<Right>", lambda event: self.next_page())
         self.root.bind("<Return>", lambda event: self.go_to_page())
-        self.root.bind("<s>", lambda event: self.save_current_polygon())
-        self.root.bind("<S>", lambda event: self.save_current_polygon())
 
         self.canvas.bind("<ButtonPress-1>", self.on_mouse_down)
         self.canvas.bind("<B1-Motion>", self.on_mouse_drag)
         self.canvas.bind("<ButtonRelease-1>", self.on_mouse_up)
+        self.canvas.bind("<Configure>", self.on_canvas_resize)
 
         self.tk_image = None
-        self.preview_polygon = []
-        self.scale_factor = 1.0
+        self.current_polygon = []
+        self.display_scale = 1.0
+        self.image_offset_x = 0
+        self.image_offset_y = 0
+        self.rendered_width = 0
+        self.rendered_height = 0
         self.drag_vertex_index = None
         self.drag_polygon = False
         self.last_drag_position = None
@@ -170,30 +181,100 @@ class PolygonEditorApp:
         with open(polygon_path, "r", encoding = "utf-8") as file:
             return json.load(file), polygon_path
 
-    def _fit_preview_scale(self, width, height):
-        max_dimension = max(width, height)
-        if max_dimension <= POLYGON_EDITOR_MAX_PREVIEW_DIMENSION:
-            return 1.0
-        return POLYGON_EDITOR_MAX_PREVIEW_DIMENSION / max_dimension
-
-    def _flatten_polygon(self):
+    def _flatten_polygon(self, polygon):
         flattened = []
-        for point in self.preview_polygon:
+        for point in polygon:
             flattened.extend([point["x"], point["y"]])
         return flattened
 
+    def _to_display_polygon(self):
+        return [
+            {
+                "x": point["x"] * self.display_scale + self.image_offset_x,
+                "y": point["y"] * self.display_scale + self.image_offset_y,
+            }
+            for point in self.current_polygon
+        ]
+
+    def _canvas_to_original(self, x_coordinate, y_coordinate):
+        original_x = (x_coordinate - self.image_offset_x) / self.display_scale
+        original_y = (y_coordinate - self.image_offset_y) / self.display_scale
+        return original_x, original_y
+
+    def _clamp_original_point(self, point):
+        point["x"] = max(0, min(self.original_width - 1, point["x"]))
+        point["y"] = max(0, min(self.original_height - 1, point["y"]))
+
+    def _normalize_polygon_within_bounds(self):
+        """Shift polygon back onto the page if any points drift outside bounds."""
+        if not self.current_polygon:
+            return
+
+        min_x = min(point["x"] for point in self.current_polygon)
+        max_x = max(point["x"] for point in self.current_polygon)
+        min_y = min(point["y"] for point in self.current_polygon)
+        max_y = max(point["y"] for point in self.current_polygon)
+
+        delta_x = 0.0
+        delta_y = 0.0
+
+        if min_x < 0:
+            delta_x = -min_x
+        elif max_x > self.original_width - 1:
+            delta_x = (self.original_width - 1) - max_x
+
+        if min_y < 0:
+            delta_y = -min_y
+        elif max_y > self.original_height - 1:
+            delta_y = (self.original_height - 1) - max_y
+
+        if delta_x != 0.0 or delta_y != 0.0:
+            for point in self.current_polygon:
+                point["x"] += delta_x
+                point["y"] += delta_y
+
+        for point in self.current_polygon:
+            self._clamp_original_point(point)
+
+    def _update_render_metrics(self):
+        canvas_width = max(1, self.canvas.winfo_width())
+        canvas_height = max(1, self.canvas.winfo_height())
+
+        horizontal_padding = 16
+        vertical_padding = 16
+        available_width = max(1, canvas_width - horizontal_padding)
+        available_height = max(1, canvas_height - vertical_padding)
+
+        scale_x = available_width / self.original_width
+        scale_y = available_height / self.original_height
+        self.display_scale = min(scale_x, scale_y)
+
+        self.rendered_width = max(1, int(round(self.original_width * self.display_scale)))
+        self.rendered_height = max(1, int(round(self.original_height * self.display_scale)))
+
+        self.image_offset_x = max(0, (canvas_width - self.rendered_width) // 2)
+        self.image_offset_y = max(0, (canvas_height - self.rendered_height) // 2)
+
+    def _refresh_rendered_image(self):
+        self._update_render_metrics()
+        preview_image = self.page_image.resize((self.rendered_width, self.rendered_height))
+        self.tk_image = ImageTk.PhotoImage(preview_image)
+
     def _draw_scene(self):
+        self._normalize_polygon_within_bounds()
         self.canvas.delete("all")
-        self.canvas.create_image(0, 0, anchor = tk.NW, image = self.tk_image)
+        self.canvas.create_image(self.image_offset_x, self.image_offset_y, anchor = tk.NW, image = self.tk_image)
+
+        display_polygon = self._to_display_polygon()
         self.canvas.create_polygon(
-            self._flatten_polygon(),
+            self._flatten_polygon(display_polygon),
             fill = "#00ffff",
             stipple = "gray25",
             outline = "#00ffff",
             width = 2,
         )
 
-        for point in self.preview_polygon:
+        for point in display_polygon:
             self.canvas.create_oval(
                 point["x"] - HANDLE_RADIUS,
                 point["y"] - HANDLE_RADIUS,
@@ -205,14 +286,11 @@ class PolygonEditorApp:
             )
 
     def _find_handle_index(self, x_coordinate, y_coordinate):
-        for point_index, point in enumerate(self.preview_polygon):
+        display_polygon = self._to_display_polygon()
+        for point_index, point in enumerate(display_polygon):
             if abs(point["x"] - x_coordinate) <= HANDLE_RADIUS * 2 and abs(point["y"] - y_coordinate) <= HANDLE_RADIUS * 2:
                 return point_index
         return None
-
-    def _clamp_preview_point(self, point):
-        point["x"] = max(0, min(self.preview_width - 1, point["x"]))
-        point["y"] = max(0, min(self.preview_height - 1, point["y"]))
 
     def load_page(self, page_number):
         self.current_page = page_number
@@ -222,35 +300,37 @@ class PolygonEditorApp:
 
         self.original_width = self.page_image.width
         self.original_height = self.page_image.height
-        self.scale_factor = self._fit_preview_scale(self.original_width, self.original_height)
-        self.preview_width = int(round(self.original_width * self.scale_factor))
-        self.preview_height = int(round(self.original_height * self.scale_factor))
+        self.current_polygon = [
+            {"x": float(point["x"]), "y": float(point["y"])}
+            for point in self.current_polygon_record["polygon"]
+        ]
+        self.current_polygon = upgrade_polygon_to_eight_points(self.current_polygon)
 
-        preview_image = self.page_image.resize((self.preview_width, self.preview_height))
-        self.tk_image = ImageTk.PhotoImage(preview_image)
-        self.preview_polygon = scale_polygon(self.current_polygon_record["polygon"], self.scale_factor)
-
-        self.canvas.config(width = self.preview_width, height = self.preview_height)
+        self._refresh_rendered_image()
         self._draw_scene()
         self.page_entry.delete(0, tk.END)
         self.page_entry.insert(0, str(self.current_page))
+        self._set_status_text()
+
+    def _set_status_text(self, autosaved = False):
+        prefix = "Auto-saved" if autosaved else "Page"
         self.status_label.config(
             text = (
-                f"Page {self.current_page}/{self.total_pages}   "
+                f"{prefix} {self.current_page}/{self.total_pages}   "
                 f"Original: {self.original_width} x {self.original_height}   "
-                f"Preview: {self.preview_width} x {self.preview_height}"
+                f"Preview: {self.rendered_width} x {self.rendered_height}"
             )
         )
 
     def save_current_polygon(self):
         saved_polygon = []
-        inverse_scale = 1.0 / self.scale_factor
-
-        for point in self.preview_polygon:
+        for point in self.current_polygon:
+            clamped_point = {"x": point["x"], "y": point["y"]}
+            self._clamp_original_point(clamped_point)
             saved_polygon.append(
                 {
-                    "x": int(round(point["x"] * inverse_scale)),
-                    "y": int(round(point["y"] * inverse_scale)),
+                    "x": int(round(clamped_point["x"])),
+                    "y": int(round(clamped_point["y"])),
                 }
             )
 
@@ -259,13 +339,7 @@ class PolygonEditorApp:
         with open(self.current_polygon_path, "w", encoding = "utf-8") as file:
             json.dump(self.current_polygon_record, file, indent = 2)
 
-        self.status_label.config(
-            text = (
-                f"Saved page {self.current_page}/{self.total_pages}   "
-                f"Original: {self.original_width} x {self.original_height}   "
-                f"Preview: {self.preview_width} x {self.preview_height}"
-            )
-        )
+        self._set_status_text(autosaved = True)
 
     def previous_page(self):
         self.save_current_polygon()
@@ -291,29 +365,32 @@ class PolygonEditorApp:
     def on_mouse_down(self, event):
         self.drag_vertex_index = self._find_handle_index(event.x, event.y)
         self.drag_polygon = False
-        self.last_drag_position = {"x": event.x, "y": event.y}
+        original_x, original_y = self._canvas_to_original(event.x, event.y)
+        self.last_drag_position = {"x": original_x, "y": original_y}
 
-        if self.drag_vertex_index is None and point_in_polygon(event.x, event.y, self.preview_polygon):
+        if self.drag_vertex_index is None and point_in_polygon(event.x, event.y, self._to_display_polygon()):
             self.drag_polygon = True
 
     def on_mouse_drag(self, event):
         if self.drag_vertex_index is not None:
-            self.preview_polygon[self.drag_vertex_index]["x"] = event.x
-            self.preview_polygon[self.drag_vertex_index]["y"] = event.y
-            self._clamp_preview_point(self.preview_polygon[self.drag_vertex_index])
+            original_x, original_y = self._canvas_to_original(event.x, event.y)
+            self.current_polygon[self.drag_vertex_index]["x"] = original_x
+            self.current_polygon[self.drag_vertex_index]["y"] = original_y
+            self._clamp_original_point(self.current_polygon[self.drag_vertex_index])
             self._draw_scene()
             return
 
         if self.drag_polygon and self.last_drag_position is not None:
-            delta_x = event.x - self.last_drag_position["x"]
-            delta_y = event.y - self.last_drag_position["y"]
+            original_x, original_y = self._canvas_to_original(event.x, event.y)
+            delta_x = original_x - self.last_drag_position["x"]
+            delta_y = original_y - self.last_drag_position["y"]
 
-            for point in self.preview_polygon:
+            for point in self.current_polygon:
                 point["x"] += delta_x
                 point["y"] += delta_y
-                self._clamp_preview_point(point)
+                self._clamp_original_point(point)
 
-            self.last_drag_position = {"x": event.x, "y": event.y}
+            self.last_drag_position = {"x": original_x, "y": original_y}
             self._draw_scene()
 
     def on_mouse_up(self, event):
@@ -325,6 +402,14 @@ class PolygonEditorApp:
         """Save the current polygon before closing the editor window."""
         self.save_current_polygon()
         self.root.destroy()
+
+    def on_canvas_resize(self, event):
+        """Re-render preview image and polygon overlay to fit current window size."""
+        if event.width <= 1 or event.height <= 1:
+            return
+        self._refresh_rendered_image()
+        self._draw_scene()
+        self._set_status_text()
 
     def run(self):
         self.root.mainloop()

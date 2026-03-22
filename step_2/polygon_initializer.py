@@ -87,7 +87,7 @@ def convert_points_to_pixels(points, dpi):
 
 
 def build_default_polygon(page_width, page_height):
-    """Build the default crop polygon from the configured page insets."""
+    """Build an 8-point default crop polygon from the configured page insets."""
     left_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["left"]))
     top_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["top"]))
     right_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["right"]))
@@ -101,11 +101,18 @@ def build_default_polygon(page_width, page_height):
     right = min(page_width - 1, right)
     bottom = min(page_height - 1, bottom)
 
+    mid_x = (left + right) // 2
+    mid_y = (top + bottom) // 2
+
     return [
         {"x": left, "y": top},
+        {"x": mid_x, "y": top},
         {"x": right, "y": top},
+        {"x": right, "y": mid_y},
         {"x": right, "y": bottom},
+        {"x": mid_x, "y": bottom},
         {"x": left, "y": bottom},
+        {"x": left, "y": mid_y},
     ]
 
 

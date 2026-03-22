@@ -16,6 +16,10 @@ SOURCE_DATA_FOLDER = "source_data"
 # Always manually review and if you notice that pages are tilted weirdly or something feels "clearly wrong", then set this to False.
 DESKEW_FLAG = True
 
+# Choose whether or not to run the cleaning in parallel. If you have a lot of documents and/or pages, then it is recommended to set this to True.
+# If you have a small number of documents and/or pages, then it is recommended to set this to False to save on system resources and avoid potential issues with parallel processing.
+CONCURRENT_FLAG = False
+
 
 # -----------------------------------------------------
 # FILE CHOICES

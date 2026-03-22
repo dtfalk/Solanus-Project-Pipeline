@@ -52,4 +52,4 @@ POLYGON_EDITOR_MAX_PREVIEW_DIMENSION = 1200
 # ── Image Processing Settings ───────────────────────────────────────────────────
 
 # DPI for rendering PDF pages as images.
-RENDER_DPI = 300
+RENDER_DPI = 150

@@ -8,7 +8,7 @@ from pathlib import Path
 from pdf2image import convert_from_path
 from PIL import Image
 from concurrent.futures import ProcessPoolExecutor, as_completed
-from config import SOURCE_DATA_FOLDER, FILES_TO_RUN, FILES_TO_EXCLUDE, DESKEW_FLAG
+from config import SOURCE_DATA_FOLDER, FILES_TO_RUN, FILES_TO_EXCLUDE, DESKEW_FLAG, CONCURRENT_FLAG
 
 
 def get_poppler_path():
@@ -117,9 +117,9 @@ def clean_pdf(pdf_path, output_folder):
 
     # Extract document name and log it
     document_name = pdf_path.stem
-    logging.info(f"\n{'=' * 70}")
+    logging.info(f"\n{'-' * 70}")
     logging.info(f"Cleaning {document_name}")
-    logging.info(f"{'=' * 70}\n")
+    logging.info(f"{'-' * 70}\n")
 
     # Convert PDFs to images
     page_images = convert_from_path(
@@ -149,20 +149,27 @@ def clean_pdf(pdf_path, output_folder):
 
     logging.info(f"Saved cleaned PDF to {save_path}")
     logging.info(f"Time taken: {time() - start_time:.2f} seconds\n")
-    logging.info(f"{'=' * 70}")
-    logging.info(f"{'=' * 70}\n")
+
 
 
 def main():
 
-    # Set logging config
+    # Set logging config and grab start time for logging.
+    start_time = time()
     logging.basicConfig(level=logging.INFO, format="%(message)s", force = True)
+
+    logging.info(f"\n{'=' * 70}")
+    logging.info(f"Step 1: PDF Cleaner")
+    logging.info(f"{'=' * 70}\n")
+
     
     # Construct the path to the data folder
     pdf_folder = Path(__file__).resolve().parent.parent / SOURCE_DATA_FOLDER
 
     # Get the paths to the pdfs
     pdf_paths = get_pdf_paths(pdf_folder)
+    logging.info(f"Found {len(pdf_paths)} PDFs to process.\n")
+    logging.info(f"PDFs: {[pdf_path.name for pdf_path in pdf_paths]}\n")
 
     # Get the path to directory where we save outputs and create output folder if necessary
     output_folder = Path(__file__).parent / "cleaned_pdfs"
@@ -170,19 +177,28 @@ def main():
 
     # Use a process pool to clean multiple PDFs in parallel. We use a process pool because the cleaning is CPU intensive.
     # max_workers = min(4, os.cpu_count())
-    max_workers = os.cpu_count()
-    logging.info(f"Using {max_workers} workers for PDF cleaning.")
+    if CONCURRENT_FLAG:
+        max_workers = os.cpu_count() - 1 if os.cpu_count() > 1 else 1
+        logging.info(f"Using {max_workers} workers for PDF cleaning.")
+    
+        # Iterate over all of the pdf files and clean them
+        with ProcessPoolExecutor(max_workers = max_workers) as executor:
+            futures = [executor.submit(clean_pdf, pdf_path, output_folder) for pdf_path in pdf_paths]
+    
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as e:
+                    logging.error(f"Error processing file: {e}")
+    else:
+        logging.info("Concurrent processing disabled. Processing files sequentially.")
+        for pdf_path in pdf_paths:
+            clean_pdf(pdf_path, output_folder)
+    
 
-    # Iterate over all of the pdf files and clean them
-    with ProcessPoolExecutor(max_workers = max_workers) as executor:
-        futures = [executor.submit(clean_pdf, pdf_path, output_folder) for pdf_path in pdf_paths]
-
-        for future in as_completed(futures):
-            try:
-                future.result()
-            except Exception as e:
-                logging.error(f"Error processing file: {e}")
-
+    logging.info(f"\nAll done! Total time taken: {time() - start_time:.2f} seconds\n")
+    logging.info(f"{'=' * 70}")
+    logging.info(f"{'=' * 70}\n")
 
 if __name__ == "__main__":
     main()
