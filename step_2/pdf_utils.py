@@ -11,10 +11,17 @@ from pdf2image import convert_from_path
 from pypdf import PdfReader, PdfWriter
 
 
-def pdf_to_images(pdf_path, dpi):
-    """Render a PDF into a list of 1-indexed page images."""
-    pil_images = convert_from_path(pdf_path, dpi = dpi)
-    return [(page_number, image) for page_number, image in enumerate(pil_images, start = 1)]
+def pdf_to_images(pdf_path, dpi, first_page = None, last_page = None):
+    """Render a PDF (or page range) into a list of 1-indexed page images."""
+    pil_images = convert_from_path(
+        pdf_path,
+        dpi = dpi,
+        first_page = first_page,
+        last_page = last_page,
+    )
+
+    start_page = 1 if first_page is None else first_page
+    return [(page_number, image) for page_number, image in enumerate(pil_images, start = start_page)]
 
 
 def save_image_as_pdf(image, output_path, resolution):

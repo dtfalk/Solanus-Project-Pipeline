@@ -88,32 +88,32 @@ def convert_points_to_pixels(points, dpi):
 
 def build_default_polygon(page_width, page_height):
     """Build an 8-point default crop polygon from the configured page insets."""
-    left_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["left"]))
-    top_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["top"]))
-    right_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["right"]))
-    bottom_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["bottom"]))
+    # left_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["left"]))
+    # top_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["top"]))
+    # right_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["right"]))
+    # bottom_inset = max(0, int(DEFAULT_CROP_POLYGON_INSET["bottom"]))
 
-    left = min(left_inset, max(0, page_width - 2))
-    top = min(top_inset, max(0, page_height - 2))
-    right = max(left + 1, page_width - right_inset)
-    bottom = max(top + 1, page_height - bottom_inset)
+    # left = min(left_inset, max(0, page_width - 2))
+    # top = min(top_inset, max(0, page_height - 2))
+    # right = max(left + 1, page_width - right_inset)
+    # bottom = max(top + 1, page_height - bottom_inset)
 
-    right = min(page_width - 1, right)
-    bottom = min(page_height - 1, bottom)
+    # right = min(page_width - 1, right)
+    # bottom = min(page_height - 1, bottom)
 
-    mid_x = (left + right) // 2
-    mid_y = (top + bottom) // 2
-
+    # mid_x = (left + right) // 2
+    # mid_y = (top + bottom) // 2
     return [
-        {"x": left, "y": top},
-        {"x": mid_x, "y": top},
-        {"x": right, "y": top},
-        {"x": right, "y": mid_y},
-        {"x": right, "y": bottom},
-        {"x": mid_x, "y": bottom},
-        {"x": left, "y": bottom},
-        {"x": left, "y": mid_y},
+        {"x": 31, "y": 895},
+        {"x": 2655,"y": 874},
+        {"x": 5273, "y": 833},
+        {"x": 5288, "y": 6001},
+        {"x": 3403, "y": 6011},
+        {"x": 3409, "y": 6812},
+        {"x": 40, "y": 6835},
+        {"x": 40, "y": 3438}
     ]
+
 
 
 def write_page_size_json(page_sizes_dir, page_number, page_size_record):

@@ -19,10 +19,12 @@ Usage:
 import json
 import sys
 import logging
+import argparse
 from time import time
 from pathlib import Path
 
 from PIL import Image, ImageDraw
+from pypdf import PdfReader
 
 BOOTSTRAP_SCRIPT_DIR = Path(__file__).resolve().parent
 BOOTSTRAP_ROOT_DIR = BOOTSTRAP_SCRIPT_DIR.parent
@@ -35,6 +37,7 @@ from step_2.config import (
     POLYGON_FILES_TO_EXCLUDE,
     POLYGON_FILES_TO_RUN,
     POLYGON_INPUT_DIR,
+    POLYGON_PAGE_CHUNK_SIZE,
     POLYGON_TARGET_PAGES,
     RENDER_DPI,
 )
@@ -90,6 +93,46 @@ def get_target_pages(total_pages):
             log.warning(f"Skipping invalid target page {page_number}. Document only has {total_pages} pages.")
 
     return valid_pages
+
+
+def get_requested_page_scope(total_pages, page_start = None, page_end = None):
+    """Return the page numbers requested by CLI range arguments."""
+    if page_start is None and page_end is None:
+        return set(range(1, total_pages + 1))
+
+    start = 1 if page_start is None else page_start
+    end = total_pages if page_end is None else page_end
+
+    if start > end:
+        start, end = end, start
+
+    start = max(1, start)
+    end = min(total_pages, end)
+
+    return set(range(start, end + 1))
+
+
+def build_page_chunks(page_numbers, chunk_size):
+    """Group page numbers into contiguous chunks with bounded size."""
+    if not page_numbers:
+        return []
+
+    ordered_pages = sorted(page_numbers)
+    chunks = []
+    current_chunk = [ordered_pages[0]]
+
+    for page_number in ordered_pages[1:]:
+        is_consecutive = page_number == current_chunk[-1] + 1
+        has_capacity = len(current_chunk) < chunk_size
+
+        if is_consecutive and has_capacity:
+            current_chunk.append(page_number)
+        else:
+            chunks.append(current_chunk)
+            current_chunk = [page_number]
+
+    chunks.append(current_chunk)
+    return chunks
 
 
 def load_polygon_record(document_name, page_number):
@@ -197,7 +240,7 @@ def process_single_page(page_number, page_image, document_name, output_base_dir)
     return output_path
 
 
-def process_single_document(pdf_path):
+def process_single_document(pdf_path, page_start = None, page_end = None, chunk_size = POLYGON_PAGE_CHUNK_SIZE):
     """
     Process an entire PDF document using its per-page polygon JSON files.
 
@@ -210,39 +253,85 @@ def process_single_document(pdf_path):
     output_base_dir = OUTPUT_DIR / document_name
     output_base_dir.mkdir(parents = True, exist_ok = True)
 
-    log.info(f"[{document_name}] converting PDF to images at {RENDER_DPI} DPI...")
     try:
-        page_images = pdf_to_images(pdf_path, dpi = RENDER_DPI)
+        pdf_reader = PdfReader(pdf_path)
+        total_pages = len(pdf_reader.pages)
     except Exception as exception:
-        log.error(f"[{document_name}] failed to convert PDF to images: {exception}")
+        log.error(f"[{document_name}] failed to read PDF: {exception}")
         return None
 
-    log.info(f"[{document_name}] found {len(page_images)} pages")
+    log.info(f"[{document_name}] found {total_pages} pages")
 
-    target_pages = get_target_pages(len(page_images))
+    target_pages = get_target_pages(total_pages)
     if POLYGON_TARGET_PAGES:
         log.info(f"[{document_name}] overwriting target pages: {sorted(target_pages)}")
+
+    requested_scope = get_requested_page_scope(total_pages, page_start = page_start, page_end = page_end)
+    if page_start is not None or page_end is not None:
+        log.info(f"[{document_name}] requested page scope: {min(requested_scope)}-{max(requested_scope)}")
 
     pages_dir = output_base_dir / "pages"
     pages_dir.mkdir(parents = True, exist_ok = True)
 
-    page_paths = []
-    for page_number, page_image in page_images:
+    pages_to_render = []
+    page_paths_by_number = {}
+    missing_pages = []
+
+    for page_number in range(1, total_pages + 1):
         existing_page_path = pages_dir / f"page_{page_number:03d}.pdf"
-        should_write_page = page_number in target_pages or not existing_page_path.exists()
+        should_write_page = (page_number in target_pages or not existing_page_path.exists()) and page_number in requested_scope
 
         if should_write_page:
-            page_path = process_single_page(page_number, page_image, document_name, output_base_dir)
-            if page_path is not None:
-                page_paths.append(page_path)
+            pages_to_render.append(page_number)
+        elif existing_page_path.exists():
+            page_paths_by_number[page_number] = existing_page_path
         else:
-            page_paths.append(existing_page_path)
+            missing_pages.append(page_number)
+
+    if pages_to_render:
+        chunks = build_page_chunks(pages_to_render, max(1, int(chunk_size)))
+        log.info(f"[{document_name}] rendering {len(pages_to_render)} page(s) in {len(chunks)} chunk(s) at {RENDER_DPI} DPI")
+
+        for chunk in chunks:
+            first_page = chunk[0]
+            last_page = chunk[-1]
+
+            try:
+                page_images = pdf_to_images(pdf_path, dpi = RENDER_DPI, first_page = first_page, last_page = last_page)
+            except Exception as exception:
+                log.error(
+                    f"[{document_name}] failed to render pages {first_page}-{last_page}: {exception}"
+                )
+                continue
+
+            for page_number, page_image in page_images:
+                if page_number not in chunk:
+                    page_image.close()
+                    continue
+
+                try:
+                    page_path = process_single_page(page_number, page_image, document_name, output_base_dir)
+                    if page_path is not None:
+                        page_paths_by_number[page_number] = page_path
+                    else:
+                        missing_pages.append(page_number)
+                finally:
+                    page_image.close()
+
+    page_paths = [page_paths_by_number.get(page_number) for page_number in range(1, total_pages + 1)]
+    page_paths = [page_path for page_path in page_paths if page_path is not None]
 
     if not page_paths:
         log.error(f"[{document_name}] no pages were successfully processed!")
         return None
 
-    page_paths.sort()
+    if missing_pages:
+        missing_pages = sorted(set(missing_pages))
+        log.warning(
+            f"[{document_name}] skipping merge; still missing {len(missing_pages)} page(s): {missing_pages[:12]}"
+            + (" ..." if len(missing_pages) > 12 else "")
+        )
+        return pages_dir
 
     final_pdf_path = output_base_dir / f"{document_name}.pdf"
     log.info(f"[{document_name}] merging pages into final PDF...")
@@ -258,6 +347,17 @@ def process_single_document(pdf_path):
 
 def main():
     """Entry point: run the polygon crop pipeline from the saved JSON files."""
+    parser = argparse.ArgumentParser(description = "Crop PDF pages using saved polygon JSON files")
+    parser.add_argument("--page-start", type = int, default = None, help = "First page to process (1-indexed)")
+    parser.add_argument("--page-end", type = int, default = None, help = "Last page to process (1-indexed)")
+    parser.add_argument(
+        "--chunk-size",
+        type = int,
+        default = POLYGON_PAGE_CHUNK_SIZE,
+        help = "Pages to render per chunk to limit memory use",
+    )
+    args = parser.parse_args()
+
     start_time = time()
 
     if not INPUT_DIR.exists():
@@ -274,11 +374,20 @@ def main():
     log.info(f"Config directory: {CONFIG_DIR}")
     log.info(f"Output directory: {OUTPUT_DIR}")
     log.info(f"Target pages: {POLYGON_TARGET_PAGES if POLYGON_TARGET_PAGES else 'all'}")
+    log.info(f"Chunk size: {max(1, int(args.chunk_size))}")
+    if args.page_start is not None or args.page_end is not None:
+        log.info(f"CLI page scope: {args.page_start if args.page_start is not None else 1}-"
+                 f"{args.page_end if args.page_end is not None else 'end'}")
     log.info("")
 
     successful_documents = 0
     for pdf_path in pdf_files:
-        if process_single_document(pdf_path) is not None:
+        if process_single_document(
+            pdf_path,
+            page_start = args.page_start,
+            page_end = args.page_end,
+            chunk_size = max(1, int(args.chunk_size)),
+        ) is not None:
             successful_documents += 1
 
     log.info("")

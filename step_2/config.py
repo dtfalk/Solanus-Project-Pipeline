@@ -21,7 +21,7 @@ POLYGON_CONFIG_DIR = Path("step_2") / "polygon_page_data"
 POLYGON_CROP_OUTPUT_DIR = Path("step_2") / "polygon_cropped_pdfs"
 
 # Optional: restrict the polygon workflow to a subset of PDFs.
-POLYGON_FILES_TO_RUN = []
+POLYGON_FILES_TO_RUN = ["Volume_3.pdf"]
 
 # Optional: exclude specific PDFs from the polygon workflow.
 POLYGON_FILES_TO_EXCLUDE = []
@@ -29,6 +29,10 @@ POLYGON_FILES_TO_EXCLUDE = []
 # Optional: if you only want to overwrite specific pages in the crop pipeline,
 # list them here. Page numbers are 1-indexed. Leave blank to process every page.
 POLYGON_TARGET_PAGES = []
+
+# Render pages in chunks to reduce memory use on large PDFs.
+# Lower values use less memory but may run a bit slower.
+POLYGON_PAGE_CHUNK_SIZE = 50
 
 # Default inset for the initial polygon that is generated for each page.
 # Units are PIXELS at the render DPI specified below in RENDER_DPI.
@@ -44,7 +48,7 @@ DEFAULT_CROP_POLYGON_INSET = {
 POLYGON_OVERWRITE_EXISTING = False
 
 # Editor settings for the interactive polygon editor.
-POLYGON_EDITOR_DOCUMENT = "Appendix_1.pdf"
+POLYGON_EDITOR_DOCUMENT = "Volume_3.pdf"
 POLYGON_EDITOR_START_PAGE = 1
 POLYGON_EDITOR_MAX_PREVIEW_DIMENSION = 1200
 
