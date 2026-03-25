@@ -9,7 +9,7 @@ from pathlib import Path
 # ── Polygon Crop Workflow Settings ─────────────────────────────────────────────
 
 # Input directory for the polygon crop workflow.
-POLYGON_INPUT_DIR = Path("step_1") / "cleaned_pdfs"
+POLYGON_INPUT_DIR = Path("step_1") / "cleaned_pdfs_docs_only"
 
 # Directory where the per-page JSON files are stored.
 # For each document, this workflow creates:
@@ -21,7 +21,7 @@ POLYGON_CONFIG_DIR = Path("step_2") / "polygon_page_data"
 POLYGON_CROP_OUTPUT_DIR = Path("step_2") / "polygon_cropped_pdfs"
 
 # Optional: restrict the polygon workflow to a subset of PDFs.
-POLYGON_FILES_TO_RUN = ["Volume_4.pdf"]
+POLYGON_FILES_TO_RUN = ["Appendix_3.pdf"]
 
 # Optional: exclude specific PDFs from the polygon workflow.
 POLYGON_FILES_TO_EXCLUDE = []
@@ -48,7 +48,7 @@ DEFAULT_CROP_POLYGON_INSET = {
 POLYGON_OVERWRITE_EXISTING = False
 
 # Editor settings for the interactive polygon editor.
-POLYGON_EDITOR_DOCUMENT = "Volume_4.pdf"
+POLYGON_EDITOR_DOCUMENT = "Appendix_3.pdf"
 POLYGON_EDITOR_START_PAGE = 1
 POLYGON_EDITOR_MAX_PREVIEW_DIMENSION = 1200
 
