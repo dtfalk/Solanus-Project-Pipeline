@@ -1,0 +1,363 @@
+{
+  "page_number": 28,
+  "source_file": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Appendix_1/Appendix_1.pdf",
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 2,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 871,
+              "y": 2172
+            },
+            {
+              "x": 871,
+              "y": 3836
+            },
+            {
+              "x": 4845,
+              "y": 3836
+            },
+            {
+              "x": 4845,
+              "y": 2172
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_date",
+              "id": "3a506b71-6ab4-48f6-b4a5-1a315499e100"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_greeting",
+              "id": "5347de01-8f4e-42b3-a5c2-33c86fa8f473"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_recipient",
+              "id": "d82b1ff2-2c4b-4e73-b347-540a37ca14fe"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_location_recipient",
+              "id": "b0738dbf-6a88-4fab-9c05-d97bca8084e4"
+            }
+          ],
+          "id": "dfac6f94-fea8-4fa4-b176-46ebcf1e1f4e"
+        }
+      ],
+      "src_origin": [
+        {
+          "vertices": [
+            {
+              "x": 1897,
+              "y": 914
+            },
+            {
+              "x": 1897,
+              "y": 1018
+            },
+            {
+              "x": 3326,
+              "y": 1018
+            },
+            {
+              "x": 3326,
+              "y": 914
+            }
+          ],
+          "connections": [],
+          "id": "4b677a5e-55d4-4c9d-8cbc-8dbdbfefc18b"
+        }
+      ],
+      "src_recipient": [
+        {
+          "vertices": [
+            {
+              "x": 861,
+              "y": 1664
+            },
+            {
+              "x": 861,
+              "y": 1767
+            },
+            {
+              "x": 2173,
+              "y": 1767
+            },
+            {
+              "x": 2173,
+              "y": 1664
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "dfac6f94-fea8-4fa4-b176-46ebcf1e1f4e"
+            }
+          ],
+          "id": "d82b1ff2-2c4b-4e73-b347-540a37ca14fe"
+        }
+      ],
+      "src_location_recipient": [
+        {
+          "vertices": [
+            {
+              "x": 861,
+              "y": 1767
+            },
+            {
+              "x": 861,
+              "y": 1863
+            },
+            {
+              "x": 1812,
+              "y": 1863
+            },
+            {
+              "x": 1812,
+              "y": 1767
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "dfac6f94-fea8-4fa4-b176-46ebcf1e1f4e"
+            }
+          ],
+          "id": "b0738dbf-6a88-4fab-9c05-d97bca8084e4"
+        }
+      ],
+      "src_location_sender": [
+        {
+          "vertices": [
+            {
+              "x": 2056,
+              "y": 1066
+            },
+            {
+              "x": 2056,
+              "y": 1169
+            },
+            {
+              "x": 3060,
+              "y": 1169
+            },
+            {
+              "x": 3060,
+              "y": 1066
+            }
+          ],
+          "connections": [],
+          "id": "592d76fb-ea67-474e-b598-bb29be330651"
+        }
+      ],
+      "src_date": [
+        {
+          "vertices": [
+            {
+              "x": 2258,
+              "y": 1251
+            },
+            {
+              "x": 2258,
+              "y": 1354
+            },
+            {
+              "x": 2938,
+              "y": 1354
+            },
+            {
+              "x": 2938,
+              "y": 1251
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "dfac6f94-fea8-4fa4-b176-46ebcf1e1f4e"
+            }
+          ],
+          "id": "3a506b71-6ab4-48f6-b4a5-1a315499e100"
+        }
+      ],
+      "src_greeting": [
+        {
+          "vertices": [
+            {
+              "x": 861,
+              "y": 1980
+            },
+            {
+              "x": 861,
+              "y": 2083
+            },
+            {
+              "x": 3140,
+              "y": 2083
+            },
+            {
+              "x": 3140,
+              "y": 1980
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "dfac6f94-fea8-4fa4-b176-46ebcf1e1f4e"
+            }
+          ],
+          "id": "5347de01-8f4e-42b3-a5c2-33c86fa8f473"
+        }
+      ],
+      "src_farewell": [],
+      "src_signature": [],
+      "src_other": [
+        {
+          "vertices": [
+            {
+              "x": 861,
+              "y": 1251
+            },
+            {
+              "x": 861,
+              "y": 1354
+            },
+            {
+              "x": 1339,
+              "y": 1354
+            },
+            {
+              "x": 1339,
+              "y": 1251
+            }
+          ],
+          "connections": [],
+          "id": "6b899465-17d3-49db-813d-1e2ce5f50c51"
+        },
+        {
+          "vertices": [
+            {
+              "x": 861,
+              "y": 1444
+            },
+            {
+              "x": 861,
+              "y": 1547
+            },
+            {
+              "x": 4107,
+              "y": 1547
+            },
+            {
+              "x": 4107,
+              "y": 1444
+            }
+          ],
+          "connections": [],
+          "id": "81782079-5eee-40cc-a2fe-aeb8a2d48520"
+        }
+      ],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [],
+      "struct_doc": [],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": []
+    },
+    "doc_2": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 893,
+              "y": 4166
+            },
+            {
+              "x": 893,
+              "y": 5603
+            },
+            {
+              "x": 4877,
+              "y": 5603
+            },
+            {
+              "x": 4877,
+              "y": 4166
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_2",
+              "type": "src_date",
+              "id": "74ad676a-be92-4454-af38-9426d185dd26"
+            }
+          ],
+          "id": "ce88c20b-a28a-4cda-9d63-64983634bcc0"
+        }
+      ],
+      "src_origin": [],
+      "src_recipient": [],
+      "src_location_recipient": [],
+      "src_location_sender": [],
+      "src_date": [
+        {
+          "vertices": [
+            {
+              "x": 893,
+              "y": 3974
+            },
+            {
+              "x": 893,
+              "y": 4077
+            },
+            {
+              "x": 1992,
+              "y": 4077
+            },
+            {
+              "x": 1992,
+              "y": 3974
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_2",
+              "type": "src_content",
+              "id": "ce88c20b-a28a-4cda-9d63-64983634bcc0"
+            }
+          ],
+          "id": "74ad676a-be92-4454-af38-9426d185dd26"
+        }
+      ],
+      "src_greeting": [],
+      "src_farewell": [],
+      "src_signature": [],
+      "src_other": [],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [],
+      "struct_doc": [],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": []
+    }
+  }
+}

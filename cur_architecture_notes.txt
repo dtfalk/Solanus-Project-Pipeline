@@ -1,0 +1,21 @@
+step_1: 
+    For some reason i started with the cleaning of the pdfs.
+    
+    File manifest:
+        - config.py:      config values for pdf_cleaner.py
+        - pdf_cleaner.py: the actual pdf cleaning engine
+
+    pdf_cleaner.py includes the following cleaning steps:
+        1. cast to greyscale so it is esaier to see where chars start and end
+        2. denoise pdf via gaussian blurring
+        3. increase contrast to make it easier to see where chars start and end
+        4. fix lighting via adaptive thresholding thru the cv2 package
+        5. deskew the pdfs so they are vertically oriented as well as possible.
+
+    The goal in step 1 is to prep the pdfs such that they are ready for visual processing by some LLM or computer vision pipeline
+    Notes: this should honestly be the last stage of the document prep pipeline. This bloats the pdfs before we have any need to be doing so.
+
+    Step Inputs:  raw pdf data
+    Step Outputs: cleaned pdfs
+
+step_2: 

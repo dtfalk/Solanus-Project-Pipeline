@@ -1,0 +1,1383 @@
+"""
+Step 3: Normalized Editor — interactive editor for normalized sample pages.
+
+Reads label + polygon JSONs from step_3/normalized/ and saves edited
+output to step_3/final/ on page change or exit.
+
+Only pages present in the normalized directory are available for editing.
+If a page has already been saved to step_3/final/, the editor loads from
+there instead (preserving previous edits).
+
+For each page you can:
+  - Set how many documents appear on the page (top toolbar spinner).
+  - Select each document from the left panel.
+  - For the active document, click an info type in the right panel to make it
+    active, then use "+ Add Polygon" to draw a new polygon for that type.
+  - Drag individual vertices or the whole polygon of the selected polygon.
+  - Delete the selected polygon with "Delete Selected".
+
+Canvas controls:
+  - Click to add vertices while in draw mode.
+  - Right-click or press Enter to close the current polygon (≥ 3 vertices).
+  - Press Escape to cancel drawing.
+  - Click a polygon to select it (auto-switches info type if needed).
+  - Drag a red handle to move a vertex.
+  - Drag inside the selected polygon to move it.
+  - Left / Right arrow keys navigate pages (auto-saves).
+
+Usage:
+    python step_3/normalized_editor.py
+"""
+
+import json
+import os
+import sys
+import tkinter as tk
+from tkinter import ttk, messagebox
+from pathlib import Path
+from uuid import uuid4
+
+from pdf2image import convert_from_path
+from PIL import ImageTk
+
+BOOTSTRAP_SCRIPT_DIR = Path(__file__).resolve().parent
+BOOTSTRAP_ROOT_DIR   = BOOTSTRAP_SCRIPT_DIR.parent
+if str(BOOTSTRAP_ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(BOOTSTRAP_ROOT_DIR))
+
+from step_x.config import (
+    LABEL_DEFAULT_COLOR,
+    LABEL_INFO_TYPE_COLORS,
+    LABEL_INFO_TYPES,
+    RENDER_DPI,
+)
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT_DIR   = SCRIPT_DIR.parent
+
+
+def _get_env_path(env_name, default_path):
+    """Return a path override from environment, or the provided default path.
+
+    Args:
+        env_name: Environment variable name to inspect.
+        default_path: Fallback path used when variable is not set.
+
+    Returns:
+        Path from environment override or default_path.
+    """
+    env_value = os.getenv(env_name, "").strip()
+    if not env_value:
+        return default_path
+    return Path(env_value).expanduser().resolve()
+
+
+def _get_env_int(env_name, default_value):
+    """Return integer override from environment with safe fallback.
+
+    Args:
+        env_name: Environment variable name to inspect.
+        default_value: Fallback integer or None when unset/invalid.
+
+    Returns:
+        Integer override or default_value when parsing fails.
+    """
+    env_value = os.getenv(env_name, "").strip()
+    if not env_value:
+        return default_value
+
+    try:
+        return int(env_value)
+    except ValueError:
+        print(f"WARNING: Invalid integer for {env_name}: {env_value}")
+        return default_value
+
+
+# ── Paths ──────────────────────────────────────────────────────────────────────
+
+# Source of normalized label JSONs (read-only reference data).
+NORMALIZED_DIR = _get_env_path(
+    env_name     = "NORMALIZED_EDITOR_NORMALIZED_DIR",
+    default_path = ROOT_DIR / "step_3" / "normalized",
+)
+
+# Destination for edited label JSONs (read-write output).
+FINAL_DIR = _get_env_path(
+    env_name     = "NORMALIZED_EDITOR_FINAL_DIR",
+    default_path = ROOT_DIR / "step_3" / "final",
+)
+
+# Location of the per-page source PDFs used for rendering.
+# Each page lives at {PDF_SOURCE_DIR}/{doc}/pages/page_XXX.pdf
+PDF_SOURCE_DIR = _get_env_path(
+    env_name     = "NORMALIZED_EDITOR_PDF_SOURCE_DIR",
+    default_path = ROOT_DIR / "step_2" / "polygon_cropped_pdfs",
+)
+
+# ── Editor Settings (edit these) ──────────────────────────────────────────────
+
+# Folder name inside normalized/ to edit (e.g. "Volume_4", "Appendix_1").
+EDITOR_DOCUMENT = os.getenv("NORMALIZED_EDITOR_DOCUMENT", "Volume_4").strip() or "Volume_4"
+
+# Starting page number. None = start at the first available page.
+EDITOR_START_PAGE = _get_env_int(
+    env_name      = "NORMALIZED_EDITOR_START_PAGE",
+    default_value = None,
+)
+
+HANDLE_RADIUS   = 7   # px — hit radius for vertex handles on canvas
+DRAW_DOT_RADIUS = 4   # px — dot drawn at each vertex while in draw mode
+
+
+# ── Geometry helpers ───────────────────────────────────────────────────────────
+
+def _point_in_polygon(x, y, polygon):
+    """Ray-cast test: True if (x, y) lies inside the polygon (list of {x,y} dicts)."""
+    inside = False
+    n = len(polygon)
+    for i in range(n):
+        x1, y1 = polygon[i]["x"], polygon[i]["y"]
+        x2, y2 = polygon[(i + 1) % n]["x"], polygon[(i + 1) % n]["y"]
+        if ((y1 > y) != (y2 > y)) and (
+            x < (x2 - x1) * (y - y1) / (y2 - y1 + 1e-9) + x1
+        ):
+            inside = not inside
+    return inside
+
+
+# ── Main application ───────────────────────────────────────────────────────────
+
+class NormalizedEditorApp:
+    def __init__(self):
+        self.document_name = EDITOR_DOCUMENT
+
+        # Directory where normalized JSONs live for this document.
+        self.normalized_doc_dir = NORMALIZED_DIR / self.document_name
+
+        # Directory where edited JSONs are saved for this document.
+        self.final_doc_dir = FINAL_DIR / self.document_name
+
+        # Discover which pages are available in normalized/.
+        # This is the authoritative list — only these pages can be edited.
+        self.page_numbers = self._discover_pages()
+        self.total_pages  = len(self.page_numbers)
+
+        if self.total_pages == 0:
+            raise FileNotFoundError(
+                f"No page directories found in {self.normalized_doc_dir}"
+            )
+
+        # Determine starting position in the page list.
+        if EDITOR_START_PAGE is not None and EDITOR_START_PAGE in self.page_numbers:
+            self.page_index = self.page_numbers.index(EDITOR_START_PAGE)
+        else:
+            self.page_index = 0
+        self.current_page = self.page_numbers[self.page_index]
+
+        self.current_doc           = "doc_1"
+        self.current_info_type     = LABEL_INFO_TYPES[0]
+        self.selected_polygon_idx  = None   # index within current doc+type polygon list
+
+        # Draw mode state
+        self.draw_mode     = False
+        self.draw_vertices = []   # list of {"x": float, "y": float}
+        self.mouse_x       = 0
+        self.mouse_y       = 0
+
+        # Drag state
+        self.drag_mode       = None   # "vertex" | "polygon"
+        self.drag_vertex_idx = None
+        self.drag_last_x     = None
+        self.drag_last_y     = None
+
+        # Connect mode state.
+        # connect_from holds the address {"doc", "type", "id", "index"} of the first
+        # polygon picked when building a connection edge.
+        self.connect_mode = False
+        self.connect_from = None
+
+        # Page / render state
+        self.page_data      = {}
+        self.page_image     = None
+        self.tk_image       = None
+        self.original_width  = 1
+        self.original_height = 1
+        self.display_scale   = 1.0
+        self.image_offset_x  = 0
+        self.image_offset_y  = 0
+        self.rendered_width  = 1
+        self.rendered_height = 1
+
+        self._build_ui()
+        self.load_page(self.current_page)
+
+    # ── Bootstrap helpers ──────────────────────────────────────────────────────
+
+    def _discover_pages(self):
+        """Scan the normalized directory for page_* folders and return sorted page numbers."""
+        if not self.normalized_doc_dir.exists():
+            return []
+        page_dirs = sorted(self.normalized_doc_dir.glob("page_*"))
+        numbers = []
+        for d in page_dirs:
+            if d.is_dir():
+                try:
+                    num = int(d.name.split("_", 1)[1])
+                    numbers.append(num)
+                except (ValueError, IndexError):
+                    continue
+        return sorted(numbers)
+
+    def _resolve_page_pdf(self, page_number):
+        """Return the path to the single-page PDF for the given page number.
+
+        Checks step_3/final/ first (setup script copies them there), then
+        falls back to the source at step_2/polygon_cropped_pdfs/{doc}/pages/.
+        """
+        page_name = f"page_{page_number:03d}"
+        final_pdf  = self.final_doc_dir / page_name / f"{page_name}.pdf"
+        source_pdf = PDF_SOURCE_DIR / self.document_name / "pages" / f"{page_name}.pdf"
+
+        if final_pdf.exists():
+            return final_pdf
+        if source_pdf.exists():
+            return source_pdf
+        raise FileNotFoundError(
+            f"Page PDF not found for {page_name} in final/ or source."
+        )
+
+    # ── UI construction ────────────────────────────────────────────────────────
+
+    def _build_ui(self):
+        self.root = tk.Tk()
+        self.root.title(f"Normalized Editor — {self.document_name}")
+        self.root.protocol("WM_DELETE_WINDOW", self._on_close)
+        self.root.configure(bg="#1e1e1e")
+        self.root.geometry("1400x900")
+
+        self._build_top_toolbar()
+        self._build_main_area()
+        self._bind_keys()
+
+    def _build_top_toolbar(self):
+        top = tk.Frame(self.root, bg="#2d2d2d", pady=5)
+        top.pack(side=tk.TOP, fill=tk.X)
+
+        ttk.Button(top, text="◀ Prev", command=self.previous_page).pack(side=tk.LEFT, padx=(8, 2))
+        ttk.Button(top, text="Next ▶", command=self.next_page).pack(side=tk.LEFT, padx=2)
+
+        tk.Label(top, text="Page:", bg="#2d2d2d", fg="#cccccc").pack(side=tk.LEFT, padx=(14, 3))
+        self.page_entry = ttk.Entry(top, width=6)
+        self.page_entry.pack(side=tk.LEFT)
+        ttk.Button(top, text="Go", command=self.go_to_page).pack(side=tk.LEFT, padx=(3, 16))
+
+        tk.Label(top, text="Docs on page:", bg="#2d2d2d", fg="#cccccc").pack(side=tk.LEFT, padx=(0, 3))
+        self.num_docs_var = tk.IntVar(value=1)
+        self.num_docs_spinbox = ttk.Spinbox(
+            top, from_=1, to=20, width=4,
+            textvariable=self.num_docs_var,
+            command=self._on_num_docs_changed,
+        )
+        self.num_docs_spinbox.pack(side=tk.LEFT)
+        self.num_docs_spinbox.bind("<FocusOut>", lambda e: self._on_num_docs_changed())
+
+        self.mode_label = tk.Label(top, text="", bg="#2d2d2d", fg="#ffaa00",
+                                   font=("TkDefaultFont", 10, "bold"))
+        self.mode_label.pack(side=tk.LEFT, padx=14)
+
+        self.status_label = tk.Label(top, text="", bg="#2d2d2d", fg="#888888")
+        self.status_label.pack(side=tk.RIGHT, padx=10)
+
+    def _build_main_area(self):
+        main = tk.Frame(self.root, bg="#1e1e1e")
+        main.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+
+        # ── Left panel: document selector ─────────────────────────────────────
+        self.left_panel = tk.Frame(main, bg="#252526", width=100)
+        self.left_panel.pack(side=tk.LEFT, fill=tk.Y, padx=(4, 0), pady=4)
+        self.left_panel.pack_propagate(False)
+
+        tk.Label(self.left_panel, text="Documents", bg="#252526", fg="#aaaaaa",
+                 font=("TkDefaultFont", 8, "bold")).pack(pady=(8, 4))
+        self.doc_buttons_frame = tk.Frame(self.left_panel, bg="#252526")
+        self.doc_buttons_frame.pack(fill=tk.BOTH, expand=True, pady=2)
+
+        # ── Canvas ────────────────────────────────────────────────────────────
+        self.canvas = tk.Canvas(main, bg="#1e1e1e", highlightthickness=0)
+        self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        # ── Right panel: info type selector ───────────────────────────────────
+        self.right_panel = tk.Frame(main, bg="#252526", width=168)
+        self.right_panel.pack(side=tk.LEFT, fill=tk.Y, padx=(0, 4), pady=4)
+        self.right_panel.pack_propagate(False)
+
+        tk.Label(self.right_panel, text="Label Type", bg="#252526", fg="#aaaaaa",
+                 font=("TkDefaultFont", 8, "bold")).pack(pady=(8, 4))
+
+        self.info_type_frame = tk.Frame(self.right_panel, bg="#252526")
+        self.info_type_frame.pack(fill=tk.X, padx=4)
+        self.info_type_buttons = {}
+        self._rebuild_info_type_buttons()
+
+        ttk.Separator(self.right_panel, orient=tk.HORIZONTAL).pack(fill=tk.X, padx=6, pady=10)
+
+        ttk.Button(self.right_panel, text="+ Add Polygon",
+                   command=self._start_draw_mode).pack(fill=tk.X, padx=6, pady=2)
+        ttk.Button(self.right_panel, text="Delete Selected",
+                   command=self._delete_selected_polygon).pack(fill=tk.X, padx=6, pady=2)
+        ttk.Button(self.right_panel, text="Connect",
+                   command=self._start_connect_mode).pack(fill=tk.X, padx=6, pady=2)
+
+        ttk.Separator(self.right_panel, orient=tk.HORIZONTAL).pack(fill=tk.X, padx=6, pady=10)
+
+        hint_lines = [
+            "Draw mode hints:",
+            "• Click → add vertex",
+            "• Right-click / Enter",
+            "  → close polygon",
+            "• Escape → cancel",
+            "",
+            "Shortcuts:",
+            "• 1-9 → switch label type",
+            "• Shift+W → add polygon",
+            "• Shift+C → connect",
+        ]
+        for line in hint_lines:
+            tk.Label(self.right_panel, text=line, bg="#252526",
+                     fg="#555555", font=("TkDefaultFont", 8),
+                     anchor=tk.W, justify=tk.LEFT).pack(fill=tk.X, padx=8)
+
+    def _rebuild_info_type_buttons(self):
+        for w in self.info_type_frame.winfo_children():
+            w.destroy()
+        self.info_type_buttons = {}
+        for info_type in LABEL_INFO_TYPES:
+            color = LABEL_INFO_TYPE_COLORS.get(info_type, LABEL_DEFAULT_COLOR)
+            row = tk.Frame(self.info_type_frame, bg="#333333", cursor="hand2")
+            row.pack(fill=tk.X, pady=1)
+
+            # Color swatch
+            tk.Label(row, bg=color, width=2).pack(side=tk.LEFT)
+            label = tk.Label(
+                row,
+                text=info_type.replace("_", " "),
+                bg="#333333",
+                fg="#cccccc",
+                anchor=tk.W,
+                padx=6,
+                pady=4,
+                font=("TkDefaultFont", 9),
+            )
+            label.pack(side=tk.LEFT, fill=tk.X, expand=True)
+
+            for widget in (row, label):
+                widget.bind("<Button-1>", lambda e, t=info_type: self._select_info_type(t))
+
+            self.info_type_buttons[info_type] = row
+        self._highlight_info_type_button()
+
+    def _rebuild_doc_buttons(self):
+        for w in self.doc_buttons_frame.winfo_children():
+            w.destroy()
+        num_docs = self.page_data.get("num_documents", 1)
+        for i in range(1, num_docs + 1):
+            doc_key    = f"doc_{i}"
+            is_active  = doc_key == self.current_doc
+            bg = "#0066cc" if is_active else "#3a3a3a"
+            fg = "white"
+            font_weight = "bold" if is_active else "normal"
+            btn = tk.Button(
+                self.doc_buttons_frame,
+                text=f"Doc {i}",
+                bg=bg, fg=fg,
+                activebackground="#0077dd",
+                activeforeground="white",
+                relief=tk.FLAT,
+                pady=10,
+                font=("TkDefaultFont", 9, font_weight),
+                cursor="hand2",
+                command=lambda k=doc_key: self._select_doc(k),
+            )
+            btn.pack(fill=tk.X, padx=4, pady=2)
+
+    def _highlight_info_type_button(self):
+        for info_type, row in self.info_type_buttons.items():
+            bg = "#444444" if info_type == self.current_info_type else "#333333"
+            row.configure(bg=bg)
+            for child in row.winfo_children():
+                if isinstance(child, tk.Label) and child.cget("width") != 2:
+                    child.configure(bg=bg)
+
+    def _bind_keys(self):
+        self.root.bind("<Left>",  lambda e: self.previous_page())
+        self.root.bind("<Right>", lambda e: self.next_page())
+        self.root.bind("<Return>", self._on_enter_key)
+        self.root.bind("<Escape>", self._on_escape_key)
+        self.root.bind("<Shift-W>", self._on_shift_w)
+        self.root.bind("<Shift-w>", self._on_shift_w)
+        self.root.bind("<Shift-C>", self._on_shift_c)
+        self.root.bind("<Shift-c>", self._on_shift_c)
+
+        # Number shortcuts: 1-9 select label type by configured order.
+        for n in range(1, 10):
+            self.root.bind(f"<KeyPress-{n}>", lambda e, i=n: self._on_info_type_number(i))
+            self.root.bind(f"<KP_{n}>", lambda e, i=n: self._on_info_type_number(i))
+
+        self.canvas.bind("<ButtonPress-1>",   self._on_canvas_click)
+        self.canvas.bind("<ButtonPress-3>",   self._on_canvas_right_click)
+        self.canvas.bind("<B1-Motion>",       self._on_canvas_drag)
+        self.canvas.bind("<ButtonRelease-1>", self._on_canvas_release)
+        self.canvas.bind("<Motion>",          self._on_canvas_motion)
+        self.canvas.bind("<Configure>",       self._on_canvas_resize)
+
+    # ── Page loading / saving ──────────────────────────────────────────────────
+
+    def load_page(self, page_number):
+        self.current_page = page_number
+        self.page_index   = self.page_numbers.index(page_number)
+        self._load_page_data(page_number)
+        self._load_page_image(page_number)
+
+        # Keep current_doc valid
+        num_docs = self.page_data.get("num_documents", 1)
+        valid_keys = {f"doc_{i}" for i in range(1, num_docs + 1)}
+        if self.current_doc not in valid_keys:
+            self.current_doc = "doc_1"
+
+        self.selected_polygon_idx = None
+        self.draw_mode    = False
+        self.draw_vertices = []
+        self.drag_mode    = None
+        self.connect_mode = False
+        self.connect_from = None
+
+        self.num_docs_var.set(num_docs)
+        self._rebuild_doc_buttons()
+        self._highlight_info_type_button()
+        self._refresh_render_metrics()
+        self._refresh_image()
+        self._draw_scene()
+
+        self.page_entry.delete(0, tk.END)
+        self.page_entry.insert(0, str(page_number))
+        self.mode_label.configure(text="")
+        self._update_status()
+
+    def _load_page_data(self, page_number):
+        # If an edited version already exists in final/, load that so previous
+        # edits are preserved.  Otherwise fall back to the normalized source.
+        final_path = self.final_doc_dir / f"page_{page_number:03d}" / f"page_{page_number:03d}.json"
+        norm_path  = self.normalized_doc_dir / f"page_{page_number:03d}" / f"page_{page_number:03d}.json"
+
+        if final_path.exists():
+            path = final_path
+        elif norm_path.exists():
+            path = norm_path
+        else:
+            raise FileNotFoundError(
+                f"Label JSON not found for page {page_number} in normalized or final."
+            )
+
+        with open(path, "r", encoding="utf-8") as f:
+            self.page_data = json.load(f)
+
+        legacy_key_map = {
+            "document_content": "src_content",
+            "header_data": "src_metadata",
+            "commentary": "archv_commentary",
+            "possessor_notes": "possessor",
+        }
+
+        # Ensure every info type exists in every document record
+        for doc_record in self.page_data.get("documents", {}).values():
+            # Backward compatibility: surface legacy polygons under the new keys.
+            for legacy_key, new_key in legacy_key_map.items():
+                legacy_polys = doc_record.get(legacy_key, [])
+                new_polys = doc_record.get(new_key, [])
+                if legacy_polys and not new_polys:
+                    doc_record[new_key] = legacy_polys
+            for info_type in LABEL_INFO_TYPES:
+                if info_type not in doc_record:
+                    doc_record[info_type] = []
+
+        # Migrate polygons from the old flat vertex-list format to the current
+        # {"vertices": [...], "connections": [...]} format.  This runs on every
+        # load so both normalized source files and older final/ output files are
+        # handled transparently without any manual conversion step.
+        for doc_record in self.page_data.get("documents", {}).values():
+            for info_type in LABEL_INFO_TYPES:
+                polys = doc_record.get(info_type, [])
+                for i, poly in enumerate(polys):
+                    if isinstance(poly, list):
+                        polys[i] = {"vertices": poly, "connections": []}
+
+        # Upgrade polygon identity + connection addressing so links stay stable
+        # even when polygon list indices change after insertions/deletions.
+        self._upgrade_polygon_identity_and_connections()
+
+    def _upgrade_polygon_identity_and_connections(self):
+        """Ensure each polygon has a stable id and normalize connections to id refs.
+
+        Why this exists:
+        - The original connection format used {doc, type, index}, which breaks when
+          a polygon is deleted because list indices shift.
+        - Stable polygon ids prevent edges from accidentally sliding to a different
+          polygon after edits.
+        """
+        docs = self.page_data.get("documents", {})
+
+        # First pass: ensure every polygon has an id and record index→id mapping.
+        index_to_id = {}
+        for doc_key, doc_record in docs.items():
+            for info_type in LABEL_INFO_TYPES:
+                polys = doc_record.get(info_type, [])
+                for idx, poly in enumerate(polys):
+                    if not poly.get("id"):
+                        poly["id"] = str(uuid4())
+                    index_to_id[(doc_key, info_type, idx)] = poly["id"]
+
+        # Second pass: migrate old connection entries that only had an index.
+        # We preserve doc/type and add id whenever the indexed target exists.
+        for doc_key, doc_record in docs.items():
+            for info_type in LABEL_INFO_TYPES:
+                polys = doc_record.get(info_type, [])
+                for poly in polys:
+                    migrated = []
+                    for conn in poly.get("connections", []):
+                        c_doc  = conn.get("doc")
+                        c_type = conn.get("type")
+                        c_id   = conn.get("id")
+                        c_idx  = conn.get("index")
+
+                        if c_id:
+                            migrated.append({"doc": c_doc, "type": c_type, "id": c_id})
+                            continue
+
+                        if c_doc is None or c_type is None or c_idx is None:
+                            continue
+
+                        target_id = index_to_id.get((c_doc, c_type, c_idx))
+                        if target_id:
+                            migrated.append({"doc": c_doc, "type": c_type, "id": target_id})
+
+                    # Remove duplicates while preserving order.
+                    seen = set()
+                    deduped = []
+                    for conn in migrated:
+                        key = (conn["doc"], conn["type"], conn["id"])
+                        if key in seen:
+                            continue
+                        seen.add(key)
+                        deduped.append(conn)
+                    poly["connections"] = deduped
+
+    def _load_page_image(self, page_number):
+        page_pdf = self._resolve_page_pdf(page_number)
+        images = convert_from_path(
+            page_pdf,
+            dpi        = RENDER_DPI,
+            first_page = 1,
+            last_page  = 1,
+        )
+        if self.page_image:
+            self.page_image.close()
+        self.page_image = images[0]
+        self.original_width  = self.page_image.width
+        self.original_height = self.page_image.height
+
+    def save_page_data(self):
+        self._prepare_page_data_for_save()
+        page_dir = self.final_doc_dir / f"page_{self.current_page:03d}"
+        page_dir.mkdir(parents=True, exist_ok=True)
+        path = page_dir / f"page_{self.current_page:03d}.json"
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(self.page_data, f, indent=2)
+
+    def _prepare_page_data_for_save(self):
+        """Normalize page data before writing JSON.
+
+        Order of operations:
+        1) Persist the current number of documents.
+        2) Remove document entries above that count.
+        """
+        try:
+            num_docs = int(self.num_docs_var.get())
+        except (ValueError, tk.TclError):
+            num_docs = int(self.page_data.get("num_documents", 1))
+        num_docs = max(1, min(20, num_docs))
+        self.page_data["num_documents"] = num_docs
+
+        docs = self.page_data.setdefault("documents", {})
+        max_allowed_idx = num_docs
+        for doc_key in list(docs.keys()):
+            if not doc_key.startswith("doc_"):
+                continue
+            try:
+                idx = int(doc_key.split("_", 1)[1])
+            except ValueError:
+                continue
+            if idx > max_allowed_idx:
+                del docs[doc_key]
+
+    # ── Navigation ─────────────────────────────────────────────────────────────
+
+    def previous_page(self):
+        self._cancel_draw_if_active()
+        self.save_page_data()
+        if self.page_index > 0:
+            self.load_page(self.page_numbers[self.page_index - 1])
+
+    def next_page(self):
+        self._cancel_draw_if_active()
+        self.save_page_data()
+        if self.page_index < self.total_pages - 1:
+            self.load_page(self.page_numbers[self.page_index + 1])
+
+    def go_to_page(self):
+        self._cancel_draw_if_active()
+        try:
+            requested = int(self.page_entry.get())
+        except ValueError:
+            return
+
+        # If the exact page exists in our list, jump to it.
+        # Otherwise jump to the nearest available page.
+        if requested in self.page_numbers:
+            target = requested
+        else:
+            target = min(self.page_numbers, key=lambda p: abs(p - requested))
+
+        self.save_page_data()
+        self.load_page(target)
+
+    # ── Selection: doc / info type ─────────────────────────────────────────────
+
+    def _select_doc(self, doc_key):
+        if doc_key == self.current_doc:
+            return
+        self._cancel_draw_if_active()
+        self.current_doc = doc_key
+        self.selected_polygon_idx = None
+        self._rebuild_doc_buttons()
+        self._draw_scene()
+        self._update_status()
+
+    def _select_info_type(self, info_type):
+        self._cancel_draw_if_active()
+        self.current_info_type    = info_type
+        self.selected_polygon_idx = None
+        self._highlight_info_type_button()
+        self._draw_scene()
+        self._update_status()
+
+    def _select_info_type_by_number(self, number):
+        idx = number - 1
+        if 0 <= idx < len(LABEL_INFO_TYPES):
+            self._select_info_type(LABEL_INFO_TYPES[idx])
+
+    def _on_num_docs_changed(self, *_):
+        try:
+            num_docs = int(self.num_docs_var.get())
+        except (ValueError, tk.TclError):
+            return
+        num_docs = max(1, min(20, num_docs))
+        self.num_docs_var.set(num_docs)
+        self.page_data["num_documents"] = num_docs
+
+        docs = self.page_data.setdefault("documents", {})
+        for i in range(1, num_docs + 1):
+            key = f"doc_{i}"
+            if key not in docs:
+                docs[key] = {info_type: [] for info_type in LABEL_INFO_TYPES}
+
+        # Keep current_doc within the new range
+        valid_keys = {f"doc_{i}" for i in range(1, num_docs + 1)}
+        if self.current_doc not in valid_keys:
+            self.current_doc = "doc_1"
+
+        self._rebuild_doc_buttons()
+        self._draw_scene()
+        self._update_status()
+
+    # ── Polygon management ─────────────────────────────────────────────────────
+
+    def _current_polygons(self):
+        """Return the mutable list of polygons for the active doc + info type."""
+        return (
+            self.page_data
+            .get("documents", {})
+            .get(self.current_doc, {})
+            .get(self.current_info_type, [])
+        )
+
+    def _start_draw_mode(self):
+        self.draw_mode    = True
+        self.draw_vertices = []
+        self.selected_polygon_idx = None
+        self.mode_label.configure(text="DRAW MODE")
+        self._draw_scene()
+
+    def _cancel_draw_if_active(self):
+        if self.draw_mode:
+            self._cancel_draw()
+
+    def _cancel_draw(self):
+        self.draw_mode    = False
+        self.draw_vertices = []
+        self.mode_label.configure(text="")
+        self._draw_scene()
+
+    def _close_polygon(self):
+        if len(self.draw_vertices) < 3:
+            return
+        vertices = [{"x": int(round(v["x"])), "y": int(round(v["y"]))}
+                    for v in self.draw_vertices]
+        polygon  = {"id": str(uuid4()), "vertices": vertices, "connections": []}
+        polygons = self._current_polygons()
+        polygons.append(polygon)
+        self.selected_polygon_idx = len(polygons) - 1
+        self.draw_mode    = False
+        self.draw_vertices = []
+        self.mode_label.configure(text="")
+        self._draw_scene()
+        self._update_status()
+
+    def _delete_selected_polygon(self):
+        if self.selected_polygon_idx is None:
+            return
+        polygons = self._current_polygons()
+        if 0 <= self.selected_polygon_idx < len(polygons):
+            # Remove all incoming/outgoing edges for the polygon before deleting it.
+            doomed = polygons[self.selected_polygon_idx]
+            doomed_addr = {
+                "doc": self.current_doc,
+                "type": self.current_info_type,
+                "id": doomed.get("id"),
+                "index": self.selected_polygon_idx,
+            }
+            self._remove_all_references_to_addr(doomed_addr)
+
+            polygons.pop(self.selected_polygon_idx)
+            self.selected_polygon_idx = None
+
+            # If connect mode was waiting on this polygon as source, clear it.
+            if self.connect_from is not None and self._addr_equal(self.connect_from, doomed_addr):
+                self.connect_from = None
+                self.mode_label.configure(text="CONNECT — click first polygon")
+
+            self._draw_scene()
+            self._update_status()
+
+    # ── Connections ────────────────────────────────────────────────────────────
+    # Each polygon is stored as {"vertices": [...], "connections": [...]}.
+    # A connection entry is {"doc": "doc_1", "type": "src_content", "id": "..."},
+    # which is the address of the OTHER endpoint.  Every connection is stored
+    # bidirectionally, so both polygons record the edge.
+
+    def _addr_equal(self, a, b):
+        """True when two polygon addresses point to the same polygon.
+
+        Prefers stable id matching.  Falls back to index matching only when one
+        or both addresses do not carry ids (legacy compatibility path).
+        """
+        if a.get("doc") != b.get("doc") or a.get("type") != b.get("type"):
+            return False
+
+        a_id = a.get("id")
+        b_id = b.get("id")
+        if a_id and b_id:
+            return a_id == b_id
+
+        return a.get("index") == b.get("index")
+
+    def _start_connect_mode(self):
+        self._cancel_draw_if_active()
+        self.connect_mode = True
+        self.connect_from = None
+        self.mode_label.configure(text="CONNECT — click first polygon")
+        self._draw_scene()
+
+    def _cancel_connect(self):
+        self.connect_mode = False
+        self.connect_from = None
+        self.mode_label.configure(text="")
+        self._draw_scene()
+
+    def _get_polygon_by_addr(self, addr):
+        """Return the polygon dict at address {"doc", "type", "id"|"index"}, or None."""
+        polys = (
+            self.page_data
+            .get("documents", {})
+            .get(addr["doc"], {})
+            .get(addr["type"], [])
+        )
+
+        # Prefer id lookup so references remain valid across list reordering.
+        target_id = addr.get("id")
+        if target_id:
+            for poly in polys:
+                if poly.get("id") == target_id:
+                    return poly
+
+        # Legacy fallback for old in-memory addresses that still use index.
+        idx = addr.get("index")
+        if isinstance(idx, int) and 0 <= idx < len(polys):
+            return polys[idx]
+        return None
+
+    def _find_polygon_at(self, ex, ey):
+        """Return the address {"doc", "type", "id", "index"} of whichever polygon in the
+        currently visible document contains canvas point (ex, ey), or None.
+        Only the current doc is searched because the other docs are not rendered.
+        """
+        doc_record = self.page_data.get("documents", {}).get(self.current_doc, {})
+        for info_type in LABEL_INFO_TYPES:
+            for idx, polygon in enumerate(doc_record.get(info_type, [])):
+                vertices = polygon["vertices"]
+                if len(vertices) < 3:
+                    continue
+                if _point_in_polygon(ex, ey, self._poly_to_canvas(vertices)):
+                    return {
+                        "doc": self.current_doc,
+                        "type": info_type,
+                        "id": polygon.get("id"),
+                        "index": idx,
+                    }
+        return None
+
+    def _remove_all_references_to_addr(self, doomed_addr):
+        """Remove every connection edge pointing to the provided polygon address."""
+        docs = self.page_data.get("documents", {})
+        for doc_record in docs.values():
+            for info_type in LABEL_INFO_TYPES:
+                for poly in doc_record.get(info_type, []):
+                    conns = poly.get("connections", [])
+                    poly["connections"] = [
+                        c for c in conns
+                        if not self._addr_equal(c, doomed_addr)
+                    ]
+
+    def _toggle_connection(self, addr_a, addr_b):
+        """Add a bidirectional edge between two polygon addresses, or remove it if
+        it already exists (toggle).  The connection is recorded in each polygon's
+        own connections list so the graph can be traversed from either endpoint.
+        """
+        poly_a = self._get_polygon_by_addr(addr_a)
+        poly_b = self._get_polygon_by_addr(addr_b)
+        if poly_a is None or poly_b is None:
+            return
+
+        conns_a = poly_a.setdefault("connections", [])
+        conns_b = poly_b.setdefault("connections", [])
+        already = any(self._addr_equal(c, addr_b) for c in conns_a)
+
+        if already:
+            # Remove the edge from both sides.
+            poly_a["connections"] = [c for c in conns_a if not self._addr_equal(c, addr_b)]
+            poly_b["connections"] = [c for c in conns_b if not self._addr_equal(c, addr_a)]
+        else:
+            # Add the edge to both sides.
+            conns_a.append({"doc": addr_b["doc"], "type": addr_b["type"], "id": addr_b.get("id")})
+            conns_b.append({"doc": addr_a["doc"], "type": addr_a["type"], "id": addr_a.get("id")})
+
+    def _handle_connect_click(self, event):
+        """Handle a canvas click while in connect mode.
+        First click picks the source polygon; second click creates/toggles the edge.
+        Clicking the same polygon twice deselects it.  Stays in connect mode after
+        each successful connection so the user can link multiple pairs in a row.
+        """
+        clicked = self._find_polygon_at(event.x, event.y)
+        if clicked is None:
+            return  # clicked empty space — nothing to do
+
+        # Keep the UI selection synchronized with whatever polygon the user just
+        # clicked in connect mode.  This ensures connection lines are drawn for
+        # the polygon currently being operated on, not a stale prior selection.
+        self.current_doc          = clicked["doc"]
+        self.current_info_type    = clicked["type"]
+        self.selected_polygon_idx = clicked["index"]
+        self._rebuild_doc_buttons()
+        self._highlight_info_type_button()
+
+        if self.connect_from is None:
+            # First click: mark this polygon as the source.
+            self.connect_from = clicked
+            self.mode_label.configure(text="CONNECT — click second polygon")
+            self._draw_scene()
+            self._update_status()
+            return
+
+        # Check for same polygon (cancel source selection without creating an edge).
+        if self._addr_equal(clicked, self.connect_from):
+            self.connect_from = None
+            self.mode_label.configure(text="CONNECT — click first polygon")
+            self._draw_scene()
+            self._update_status()
+            return
+
+        # Second click on a different polygon — toggle the connection.
+        self._toggle_connection(self.connect_from, clicked)
+        self.connect_from = None
+        self.mode_label.configure(text="CONNECT — click first polygon")
+        self._draw_scene()
+        self._update_status()
+
+    def _centroid_canvas(self, vertices):
+        """Return the canvas-space (cx, cy) centroid of a list of original-coord vertices."""
+        n  = len(vertices)
+        ox = sum(v["x"] for v in vertices) / n
+        oy = sum(v["y"] for v in vertices) / n
+        return self._original_to_canvas(ox, oy)
+
+    def _draw_connections(self):
+        """Draw connection lines for the currently selected polygon.
+        Lines run between centroids.  Only connections whose target polygon is also
+        in the currently visible document are rendered (since other docs are hidden).
+        """
+        if self.selected_polygon_idx is None:
+            return
+        polygons = self._current_polygons()
+        if self.selected_polygon_idx >= len(polygons):
+            return
+
+        active_polygon = polygons[self.selected_polygon_idx]
+        connections    = active_polygon.get("connections", [])
+        if not connections:
+            return
+
+        src_cx, src_cy = self._centroid_canvas(active_polygon["vertices"])
+
+        for conn in connections:
+            target = self._get_polygon_by_addr(conn)
+            if target is None:
+                continue
+            vertices = target.get("vertices", [])
+            if len(vertices) < 3:
+                continue
+            tgt_cx, tgt_cy = self._centroid_canvas(vertices)
+
+            # Dashed line between the two polygon centroids.
+            self.canvas.create_line(
+                src_cx, src_cy, tgt_cx, tgt_cy,
+                fill="#00ffcc", width=2, dash=(6, 4),
+            )
+            # Small dot at each endpoint so it is clear where the line terminates.
+            r = 5
+            for cx, cy in ((src_cx, src_cy), (tgt_cx, tgt_cy)):
+                self.canvas.create_oval(
+                    cx - r, cy - r, cx + r, cy + r,
+                    fill="#00ffcc", outline="white", width=1,
+                )
+
+    def _draw_connect_rubber_band(self):
+        """While in connect mode with a first polygon already chosen, draw a live
+        dashed line from that polygon's centroid to the mouse cursor so the user
+        can see what they are about to connect.
+        """
+        poly = self._get_polygon_by_addr(self.connect_from)
+        if poly is None:
+            return
+        vertices = poly.get("vertices", [])
+        if len(vertices) < 3:
+            return
+        src_cx, src_cy = self._centroid_canvas(vertices)
+        self.canvas.create_line(
+            src_cx, src_cy, self.mouse_x, self.mouse_y,
+            fill="#00ffcc", width=1, dash=(4, 4),
+        )
+
+    # ── Coordinate conversion ──────────────────────────────────────────────────
+
+    def _canvas_to_original(self, cx, cy):
+        return (
+            (cx - self.image_offset_x) / self.display_scale,
+            (cy - self.image_offset_y) / self.display_scale,
+        )
+
+    def _original_to_canvas(self, ox, oy):
+        return (
+            ox * self.display_scale + self.image_offset_x,
+            oy * self.display_scale + self.image_offset_y,
+        )
+
+    def _poly_to_canvas(self, polygon):
+        return [
+            {
+                "x": p["x"] * self.display_scale + self.image_offset_x,
+                "y": p["y"] * self.display_scale + self.image_offset_y,
+            }
+            for p in polygon
+        ]
+
+    def _clamp(self, ox, oy):
+        return (
+            max(0.0, min(float(self.original_width  - 1), ox)),
+            max(0.0, min(float(self.original_height - 1), oy)),
+        )
+
+    # ── Render metrics ─────────────────────────────────────────────────────────
+
+    def _refresh_render_metrics(self):
+        cw = max(1, self.canvas.winfo_width())
+        ch = max(1, self.canvas.winfo_height())
+        scale_x = (cw - 16) / max(1, self.original_width)
+        scale_y = (ch - 16) / max(1, self.original_height)
+        self.display_scale   = min(scale_x, scale_y)
+        self.rendered_width  = max(1, int(round(self.original_width  * self.display_scale)))
+        self.rendered_height = max(1, int(round(self.original_height * self.display_scale)))
+        self.image_offset_x  = max(0, (cw - self.rendered_width)  // 2)
+        self.image_offset_y  = max(0, (ch - self.rendered_height) // 2)
+
+    def _refresh_image(self):
+        self._refresh_render_metrics()
+        resized = self.page_image.resize((self.rendered_width, self.rendered_height))
+        self.tk_image = ImageTk.PhotoImage(resized)
+
+    # ── Drawing ────────────────────────────────────────────────────────────────
+
+    def _flatten(self, canvas_poly):
+        flat = []
+        for p in canvas_poly:
+            flat.extend([p["x"], p["y"]])
+        return flat
+
+    def _draw_scene(self):
+        self.canvas.delete("all")
+        if self.tk_image:
+            self.canvas.create_image(
+                self.image_offset_x, self.image_offset_y,
+                anchor=tk.NW, image=self.tk_image,
+            )
+        self._draw_all_polygons()
+        self._draw_connections()
+        if self.draw_mode:
+            self._draw_in_progress()
+        if self.connect_mode and self.connect_from is not None:
+            self._draw_connect_rubber_band()
+
+    def _draw_all_polygons(self):
+        docs = self.page_data.get("documents", {})
+        doc_record = docs.get(self.current_doc, {})
+
+        # Only render polygons for the active document so other documents stay hidden.
+        for info_type in LABEL_INFO_TYPES:
+            color = LABEL_INFO_TYPE_COLORS.get(info_type, LABEL_DEFAULT_COLOR)
+            polygons = doc_record.get(info_type, [])
+            is_active_type = info_type == self.current_info_type
+
+            for poly_idx, polygon in enumerate(polygons):
+                vertices = polygon["vertices"]
+                if len(vertices) < 3:
+                    continue
+
+                is_selected = is_active_type and poly_idx == self.selected_polygon_idx
+                canvas_poly = self._poly_to_canvas(vertices)
+                flat = self._flatten(canvas_poly)
+
+                # Keep selected polygon obvious without fully covering underlying text.
+                if is_selected:
+                    stipple = "gray50"
+                    outline_col = "white"
+                    width = 3
+                elif is_active_type:
+                    stipple = "gray50"
+                    outline_col = color
+                    width = 2
+                else:
+                    stipple = "gray25"
+                    outline_col = "#555555"
+                    width = 1
+
+                self.canvas.create_polygon(
+                    flat,
+                    fill=color,
+                    stipple=stipple,
+                    outline=outline_col,
+                    width=width,
+                )
+
+                # Vertex handles only for the selected polygon
+                if is_selected:
+                    for pt in canvas_poly:
+                        self.canvas.create_oval(
+                            pt["x"] - HANDLE_RADIUS, pt["y"] - HANDLE_RADIUS,
+                            pt["x"] + HANDLE_RADIUS, pt["y"] + HANDLE_RADIUS,
+                            fill="#ff5f5f", outline="white", width=1,
+                        )
+
+                # Bright outline on the connect_from polygon so the user can see
+                # which polygon they picked as the source of the pending connection.
+                if (self.connect_mode and self.connect_from is not None
+                        and self.connect_from["doc"]   == self.current_doc
+                        and self.connect_from["type"]  == info_type
+                        and self._addr_equal(self.connect_from, {
+                            "doc": self.current_doc,
+                            "type": info_type,
+                            "id": polygon.get("id"),
+                            "index": poly_idx,
+                        })):
+                    self.canvas.create_polygon(
+                        flat,
+                        fill="",
+                        outline="#00ffcc",
+                        width=3,
+                    )
+
+    def _draw_in_progress(self):
+        color = LABEL_INFO_TYPE_COLORS.get(self.current_info_type, LABEL_DEFAULT_COLOR)
+        canvas_verts = [
+            self._original_to_canvas(v["x"], v["y"])
+            for v in self.draw_vertices
+        ]
+
+        # Dots and connecting lines for placed vertices
+        if len(canvas_verts) >= 2:
+            flat = []
+            for cx, cy in canvas_verts:
+                flat.extend([cx, cy])
+            self.canvas.create_line(flat, fill=color, width=2, dash=(4, 3))
+
+        for cx, cy in canvas_verts:
+            self.canvas.create_oval(
+                cx - DRAW_DOT_RADIUS, cy - DRAW_DOT_RADIUS,
+                cx + DRAW_DOT_RADIUS, cy + DRAW_DOT_RADIUS,
+                fill=color, outline="white",
+            )
+
+        # Rubber-band line to mouse cursor
+        if canvas_verts:
+            lx, ly = canvas_verts[-1]
+            self.canvas.create_line(
+                lx, ly, self.mouse_x, self.mouse_y,
+                fill=color, width=1, dash=(2, 4),
+            )
+
+        # Closing-hint circle on first vertex (when ≥ 3 vertices placed)
+        if len(canvas_verts) >= 3:
+            fx, fy = canvas_verts[0]
+            self.canvas.create_oval(
+                fx - HANDLE_RADIUS, fy - HANDLE_RADIUS,
+                fx + HANDLE_RADIUS, fy + HANDLE_RADIUS,
+                fill="white", outline=color, width=2,
+            )
+
+    # ── Canvas event handlers ──────────────────────────────────────────────────
+
+    def _on_canvas_motion(self, event):
+        self.mouse_x = event.x
+        self.mouse_y = event.y
+        if self.draw_mode or (self.connect_mode and self.connect_from is not None):
+            self._draw_scene()
+
+    def _on_canvas_click(self, event):
+        if self.draw_mode:
+            self._handle_draw_click(event)
+        elif self.connect_mode:
+            self._handle_connect_click(event)
+        else:
+            ox, oy = self._canvas_to_original(event.x, event.y)
+            self._handle_normal_click(event, ox, oy)
+
+    def _handle_draw_click(self, event):
+        # Clicking near the first vertex closes the polygon
+        if len(self.draw_vertices) >= 3:
+            fx, fy = self._original_to_canvas(
+                self.draw_vertices[0]["x"], self.draw_vertices[0]["y"]
+            )
+            if abs(event.x - fx) <= HANDLE_RADIUS * 2 and abs(event.y - fy) <= HANDLE_RADIUS * 2:
+                self._close_polygon()
+                return
+
+        ox, oy = self._canvas_to_original(event.x, event.y)
+        ox, oy = self._clamp(ox, oy)
+        self.draw_vertices.append({"x": ox, "y": oy})
+        self._draw_scene()
+
+    def _handle_normal_click(self, event, ox, oy):
+        polygons = self._current_polygons()
+
+        # 1. Check vertex handles of the currently selected polygon
+        if self.selected_polygon_idx is not None:
+            idx = self.selected_polygon_idx
+            if idx < len(polygons):
+                canvas_poly = self._poly_to_canvas(polygons[idx]["vertices"])
+                for vi, pt in enumerate(canvas_poly):
+                    if (abs(pt["x"] - event.x) <= HANDLE_RADIUS * 2 and
+                            abs(pt["y"] - event.y) <= HANDLE_RADIUS * 2):
+                        self.drag_mode       = "vertex"
+                        self.drag_vertex_idx = vi
+                        self.drag_last_x, self.drag_last_y = ox, oy
+                        return
+
+                # 2. Click inside the selected polygon → drag it
+                if _point_in_polygon(event.x, event.y, canvas_poly):
+                    self.drag_mode   = "polygon"
+                    self.drag_last_x = ox
+                    self.drag_last_y = oy
+                    return
+
+        # 3. Try to select another polygon in current doc + type
+        for poly_idx, polygon in enumerate(polygons):
+            if len(polygon["vertices"]) < 3:
+                continue
+            if _point_in_polygon(event.x, event.y, self._poly_to_canvas(polygon["vertices"])):
+                self.selected_polygon_idx = poly_idx
+                self.drag_mode   = "polygon"
+                self.drag_last_x = ox
+                self.drag_last_y = oy
+                self._draw_scene()
+                self._update_status()
+                return
+
+        # 4. Try to select from other info types in the same doc (auto-switch type)
+        docs       = self.page_data.get("documents", {})
+        doc_record = docs.get(self.current_doc, {})
+        for info_type in LABEL_INFO_TYPES:
+            if info_type == self.current_info_type:
+                continue
+            for poly_idx, polygon in enumerate(doc_record.get(info_type, [])):
+                if len(polygon["vertices"]) < 3:
+                    continue
+                if _point_in_polygon(event.x, event.y, self._poly_to_canvas(polygon["vertices"])):
+                    self.current_info_type    = info_type
+                    self.selected_polygon_idx = poly_idx
+                    self._highlight_info_type_button()
+                    self.drag_mode   = "polygon"
+                    self.drag_last_x = ox
+                    self.drag_last_y = oy
+                    self._draw_scene()
+                    self._update_status()
+                    return
+
+        # 5. Nothing hit — deselect
+        self.selected_polygon_idx = None
+        self.drag_mode = None
+        self._draw_scene()
+
+    def _on_canvas_drag(self, event):
+        if self.drag_mode is None or self.selected_polygon_idx is None:
+            return
+
+        ox, oy = self._canvas_to_original(event.x, event.y)
+        ox, oy = self._clamp(ox, oy)
+
+        polygons = self._current_polygons()
+        if self.selected_polygon_idx >= len(polygons):
+            return
+        polygon  = polygons[self.selected_polygon_idx]
+        vertices = polygon["vertices"]
+
+        if self.drag_mode == "vertex" and self.drag_vertex_idx is not None:
+            if self.drag_vertex_idx < len(vertices):
+                vertices[self.drag_vertex_idx]["x"] = ox
+                vertices[self.drag_vertex_idx]["y"] = oy
+
+        elif self.drag_mode == "polygon" and self.drag_last_x is not None:
+            dx = ox - self.drag_last_x
+            dy = oy - self.drag_last_y
+            for pt in vertices:
+                pt["x"], pt["y"] = self._clamp(pt["x"] + dx, pt["y"] + dy)
+
+        self.drag_last_x = ox
+        self.drag_last_y = oy
+        self._draw_scene()
+
+    def _on_canvas_release(self, event):
+        self.drag_mode       = None
+        self.drag_vertex_idx = None
+        self.drag_last_x     = None
+        self.drag_last_y     = None
+
+    def _on_canvas_right_click(self, event):
+        if self.draw_mode:
+            self._close_polygon()
+
+    def _on_canvas_resize(self, event):
+        if event.width <= 1 or event.height <= 1:
+            return
+        if self.page_image:
+            self._refresh_image()
+            self._draw_scene()
+        self._update_status()
+
+    # ── Key handlers ───────────────────────────────────────────────────────────
+
+    def _on_enter_key(self, event):
+        focused = self.root.focus_get()
+        if focused == self.page_entry:
+            self.go_to_page()
+        elif focused == self.num_docs_spinbox:
+            self._on_num_docs_changed()
+        elif self.draw_mode:
+            self._close_polygon()
+
+    def _on_escape_key(self, event):
+        if self.draw_mode:
+            self._cancel_draw()
+        elif self.connect_mode:
+            self._cancel_connect()
+
+    def _focus_is_text_input(self):
+        focused = self.root.focus_get()
+        return isinstance(focused, (tk.Entry, ttk.Entry, tk.Spinbox, ttk.Spinbox))
+
+    def _on_info_type_number(self, number):
+        if self._focus_is_text_input():
+            return
+        self._select_info_type_by_number(number)
+
+    def _on_shift_w(self, event):
+        if self._focus_is_text_input():
+            return
+        self._start_draw_mode()
+
+    def _on_shift_c(self, event):
+        if self._focus_is_text_input():
+            return
+        self._start_connect_mode()
+
+    # ── Status ─────────────────────────────────────────────────────────────────
+
+    def _update_status(self):
+        num_polys = len(self._current_polygons())
+        conn_info = ""
+        if self.selected_polygon_idx is not None:
+            polygons = self._current_polygons()
+            if self.selected_polygon_idx < len(polygons):
+                num_conns = len(polygons[self.selected_polygon_idx].get("connections", []))
+                if num_conns:
+                    conn_info = f"  │  {num_conns} connection(s)"
+        self.status_label.configure(
+            text=(
+                f"Page {self.current_page} ({self.page_index + 1}/{self.total_pages})  │  "
+                f"{self.current_doc}  │  "
+                f"{self.current_info_type.replace('_', ' ')}  │  "
+                f"{num_polys} polygon(s){conn_info}"
+            )
+        )
+
+    # ── Close ──────────────────────────────────────────────────────────────────
+
+    def _on_close(self):
+        self._cancel_draw_if_active()
+        self.save_page_data()
+        self.root.destroy()
+
+    def run(self):
+        self.root.mainloop()
+
+
+def main():
+    try:
+        app = NormalizedEditorApp()
+        app.run()
+    except Exception as exc:
+        root = tk.Tk()
+        root.withdraw()
+        messagebox.showerror("Normalized Editor Error", str(exc))
+        root.destroy()
+        raise
+
+
+if __name__ == "__main__":
+    main()

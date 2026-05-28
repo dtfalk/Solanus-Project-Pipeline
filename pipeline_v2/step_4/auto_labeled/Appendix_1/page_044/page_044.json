@@ -1,0 +1,157 @@
+{
+  "page_number": 44,
+  "source_file": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Appendix_1/Appendix_1.pdf",
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 1,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 850,
+              "y": 1011
+            },
+            {
+              "x": 850,
+              "y": 3321
+            },
+            {
+              "x": 4771,
+              "y": 3321
+            },
+            {
+              "x": 4771,
+              "y": 1011
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "1c00d5e5-2e19-4b14-adc6-6c2549581e8c"
+            }
+          ],
+          "id": "250df5a9-c652-44ba-aa14-16a4b24d3cf3"
+        },
+        {
+          "vertices": [
+            {
+              "x": 850,
+              "y": 3424
+            },
+            {
+              "x": 850,
+              "y": 4455
+            },
+            {
+              "x": 4771,
+              "y": 4455
+            },
+            {
+              "x": 4771,
+              "y": 3424
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "250df5a9-c652-44ba-aa14-16a4b24d3cf3"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_farewell",
+              "id": "50ee7191-0186-46c0-9bc9-9583cb7a4cc0"
+            }
+          ],
+          "id": "1c00d5e5-2e19-4b14-adc6-6c2549581e8c"
+        }
+      ],
+      "src_origin": [],
+      "src_recipient": [],
+      "src_location_recipient": [],
+      "src_location_sender": [],
+      "src_date": [],
+      "src_greeting": [],
+      "src_farewell": [
+        {
+          "vertices": [
+            {
+              "x": 850,
+              "y": 4572
+            },
+            {
+              "x": 850,
+              "y": 4661
+            },
+            {
+              "x": 3905,
+              "y": 4661
+            },
+            {
+              "x": 3905,
+              "y": 4572
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "1c00d5e5-2e19-4b14-adc6-6c2549581e8c"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_signature",
+              "id": "d930b2c1-0ea1-40ec-82dc-4149a4f7c01b"
+            }
+          ],
+          "id": "50ee7191-0186-46c0-9bc9-9583cb7a4cc0"
+        }
+      ],
+      "src_signature": [
+        {
+          "vertices": [
+            {
+              "x": 2471,
+              "y": 4764
+            },
+            {
+              "x": 2471,
+              "y": 4868
+            },
+            {
+              "x": 3746,
+              "y": 4868
+            },
+            {
+              "x": 3746,
+              "y": 4764
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_farewell",
+              "id": "50ee7191-0186-46c0-9bc9-9583cb7a4cc0"
+            }
+          ],
+          "id": "d930b2c1-0ea1-40ec-82dc-4149a4f7c01b"
+        }
+      ],
+      "src_other": [],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [],
+      "struct_doc": [],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": []
+    }
+  }
+}

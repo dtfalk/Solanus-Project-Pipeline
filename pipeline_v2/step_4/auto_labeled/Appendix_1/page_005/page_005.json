@@ -1,0 +1,227 @@
+{
+  "page_number": 5,
+  "source_file": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Appendix_1/Appendix_1.pdf",
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 1,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 887,
+              "y": 2599
+            },
+            {
+              "x": 887,
+              "y": 5507
+            },
+            {
+              "x": 4782,
+              "y": 5507
+            },
+            {
+              "x": 4782,
+              "y": 2599
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_recipient",
+              "id": "7f579c9d-c35e-4c18-8664-99c0d2448ef2"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_date",
+              "id": "3403730b-7174-4f8f-8c61-c2ee4b33e269"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_greeting",
+              "id": "76ed8b5a-4fc6-4594-bd62-2344e180f42a"
+            }
+          ],
+          "id": "1d51c390-76ba-4745-a2d3-caf109bed95f"
+        }
+      ],
+      "src_origin": [
+        {
+          "vertices": [
+            {
+              "x": 2178,
+              "y": 1100
+            },
+            {
+              "x": 2178,
+              "y": 1684
+            },
+            {
+              "x": 3108,
+              "y": 1684
+            },
+            {
+              "x": 3108,
+              "y": 1100
+            }
+          ],
+          "connections": [],
+          "id": "4cda3ecf-f82b-4fb3-9869-200b2096a64b"
+        }
+      ],
+      "src_recipient": [
+        {
+          "vertices": [
+            {
+              "x": 877,
+              "y": 2097
+            },
+            {
+              "x": 877,
+              "y": 2269
+            },
+            {
+              "x": 1727,
+              "y": 2269
+            },
+            {
+              "x": 1727,
+              "y": 2097
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "1d51c390-76ba-4745-a2d3-caf109bed95f"
+            }
+          ],
+          "id": "7f579c9d-c35e-4c18-8664-99c0d2448ef2"
+        }
+      ],
+      "src_location_recipient": [
+        {
+          "vertices": [
+            {
+              "x": 877,
+              "y": 2166
+            },
+            {
+              "x": 877,
+              "y": 2269
+            },
+            {
+              "x": 1727,
+              "y": 2269
+            },
+            {
+              "x": 1727,
+              "y": 2166
+            }
+          ],
+          "connections": [],
+          "id": "b27e0e9c-30f7-44b0-a962-84a0ce7cdaac"
+        }
+      ],
+      "src_location_sender": [
+        {
+          "vertices": [
+            {
+              "x": 2178,
+              "y": 1788
+            },
+            {
+              "x": 2178,
+              "y": 1891
+            },
+            {
+              "x": 4649,
+              "y": 1891
+            },
+            {
+              "x": 4649,
+              "y": 1788
+            }
+          ],
+          "connections": [],
+          "id": "133487ef-714e-46f4-bfd5-dc575d3d91f3"
+        }
+      ],
+      "src_date": [
+        {
+          "vertices": [
+            {
+              "x": 3188,
+              "y": 1788
+            },
+            {
+              "x": 3188,
+              "y": 1891
+            },
+            {
+              "x": 4649,
+              "y": 1891
+            },
+            {
+              "x": 4649,
+              "y": 1788
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "1d51c390-76ba-4745-a2d3-caf109bed95f"
+            }
+          ],
+          "id": "3403730b-7174-4f8f-8c61-c2ee4b33e269"
+        }
+      ],
+      "src_greeting": [
+        {
+          "vertices": [
+            {
+              "x": 877,
+              "y": 2372
+            },
+            {
+              "x": 877,
+              "y": 2509
+            },
+            {
+              "x": 2391,
+              "y": 2509
+            },
+            {
+              "x": 2391,
+              "y": 2372
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "1d51c390-76ba-4745-a2d3-caf109bed95f"
+            }
+          ],
+          "id": "76ed8b5a-4fc6-4594-bd62-2344e180f42a"
+        }
+      ],
+      "src_farewell": [],
+      "src_signature": [],
+      "src_other": [],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [],
+      "struct_doc": [],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": []
+    }
+  }
+}
