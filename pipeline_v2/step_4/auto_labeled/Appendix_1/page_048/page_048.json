@@ -11,211 +11,144 @@
         {
           "vertices": [
             {
-              "x": 1371,
-              "y": 2186
+              "x": 1332,
+              "y": 2148
             },
             {
-              "x": 1371,
-              "y": 3424
+              "x": 4248,
+              "y": 2148
             },
             {
-              "x": 4208,
-              "y": 3424
+              "x": 4248,
+              "y": 3578
             },
             {
-              "x": 4208,
-              "y": 2186
+              "x": 1332,
+              "y": 3578
             }
           ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_origin",
-              "id": "7e659df9-d7a3-4746-97cb-6d8a1c4fd756"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_recipient",
-              "id": "2648320d-23ee-4347-a6c2-cdd780d8c853"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_location_sender",
-              "id": "63559099-5f07-4fa2-8bc1-58f68c3b3398"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "32dfc9e7-a619-411e-9ed8-345c9264b2f1"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_greeting",
-              "id": "168ec32c-229a-4a04-beca-bb01cc51c180"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_signature",
-              "id": "fa2e48dc-1654-4822-a0ef-83a309bc07a5"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_other",
-              "id": "f9adec4d-8e60-4a84-b198-af7c60aa86eb"
-            }
-          ],
-          "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
+          "connections": [],
+          "id": "c9068ad0-1c51-463c-8db6-d84e7af01449"
         }
       ],
       "src_origin": [
         {
           "vertices": [
             {
-              "x": 1371,
-              "y": 1361
+              "x": 1326,
+              "y": 1316
             },
             {
-              "x": 1371,
-              "y": 1458
+              "x": 2419,
+              "y": 1316
             },
             {
-              "x": 4155,
-              "y": 1458
+              "x": 2419,
+              "y": 1488
             },
             {
-              "x": 4155,
-              "y": 1361
+              "x": 1326,
+              "y": 1488
             }
           ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
-            }
-          ],
-          "id": "7e659df9-d7a3-4746-97cb-6d8a1c4fd756"
+          "connections": [],
+          "id": "49794c8b-c59d-403c-a7a3-4921d0d6fa8d"
         }
       ],
-      "src_recipient": [
-        {
-          "vertices": [
-            {
-              "x": 1923,
-              "y": 1980
-            },
-            {
-              "x": 1923,
-              "y": 2076
-            },
-            {
-              "x": 3214,
-              "y": 2076
-            },
-            {
-              "x": 3214,
-              "y": 1980
-            }
-          ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
-            }
-          ],
-          "id": "2648320d-23ee-4347-a6c2-cdd780d8c853"
-        }
-      ],
+      "src_recipient": [],
       "src_location_recipient": [],
       "src_location_sender": [
         {
           "vertices": [
             {
-              "x": 3145,
-              "y": 1361
+              "x": 2583,
+              "y": 1309
             },
             {
-              "x": 3145,
-              "y": 1458
+              "x": 4201,
+              "y": 1309
             },
             {
-              "x": 4155,
-              "y": 1458
+              "x": 4201,
+              "y": 1482
             },
             {
-              "x": 4155,
-              "y": 1361
+              "x": 2583,
+              "y": 1482
             }
           ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
-            }
-          ],
-          "id": "63559099-5f07-4fa2-8bc1-58f68c3b3398"
+          "connections": [],
+          "id": "c38f4d97-dd68-49a5-b428-4277601d9e61"
         }
       ],
       "src_date": [
         {
           "vertices": [
             {
-              "x": 1371,
-              "y": 1568
+              "x": 1322,
+              "y": 1522
             },
             {
-              "x": 1371,
-              "y": 1664
+              "x": 2253,
+              "y": 1522
             },
             {
-              "x": 2205,
-              "y": 1664
+              "x": 2253,
+              "y": 1711
             },
             {
-              "x": 2205,
-              "y": 1568
+              "x": 1322,
+              "y": 1711
             }
           ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
-            }
-          ],
-          "id": "32dfc9e7-a619-411e-9ed8-345c9264b2f1"
+          "connections": [],
+          "id": "f05be3d8-ef28-4d7c-91fd-c6774898c305"
         }
       ],
       "src_greeting": [
         {
           "vertices": [
             {
-              "x": 1371,
-              "y": 1980
+              "x": 2895,
+              "y": 1518
             },
             {
-              "x": 1371,
-              "y": 2076
+              "x": 3883,
+              "y": 1518
             },
             {
-              "x": 1886,
-              "y": 2076
+              "x": 3883,
+              "y": 1797
             },
             {
-              "x": 1886,
-              "y": 1980
+              "x": 2895,
+              "y": 1797
             }
           ],
-          "connections": [
+          "connections": [],
+          "id": "c19b2bbb-cdc9-4fdd-849d-79a6a53b33b0"
+        },
+        {
+          "vertices": [
             {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
+              "x": 1326,
+              "y": 1939
+            },
+            {
+              "x": 3251,
+              "y": 1939
+            },
+            {
+              "x": 3251,
+              "y": 2116
+            },
+            {
+              "x": 1326,
+              "y": 2116
             }
           ],
-          "id": "168ec32c-229a-4a04-beca-bb01cc51c180"
+          "connections": [],
+          "id": "9841b80f-92d2-47bc-8d58-983648de253c"
         }
       ],
       "src_farewell": [],
@@ -223,62 +156,27 @@
         {
           "vertices": [
             {
-              "x": 2789,
-              "y": 3747
+              "x": 2750,
+              "y": 3716
             },
             {
-              "x": 2789,
-              "y": 3850
+              "x": 4041,
+              "y": 3716
             },
             {
-              "x": 4011,
-              "y": 3850
+              "x": 4041,
+              "y": 3887
             },
             {
-              "x": 4011,
-              "y": 3747
+              "x": 2750,
+              "y": 3887
             }
           ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
-            }
-          ],
-          "id": "fa2e48dc-1654-4822-a0ef-83a309bc07a5"
+          "connections": [],
+          "id": "a5b65ae2-5db5-4abe-8bc8-77a605f3ca1e"
         }
       ],
-      "src_other": [
-        {
-          "vertices": [
-            {
-              "x": 2949,
-              "y": 1568
-            },
-            {
-              "x": 2949,
-              "y": 1753
-            },
-            {
-              "x": 3799,
-              "y": 1753
-            },
-            {
-              "x": 3799,
-              "y": 1568
-            }
-          ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "src_content",
-              "id": "f1471da4-670d-48a7-beff-9907c30ea6ed"
-            }
-          ],
-          "id": "f9adec4d-8e60-4a84-b198-af7c60aa86eb"
-        }
-      ],
+      "src_other": [],
       "archv_commentary": [],
       "archv_format_note": [],
       "archv_date": [],

@@ -24,6 +24,8 @@ from pdf2image import convert_from_path
 from google import genai
 from google.genai import types
 
+from auto_labeler import EXCLUDED_EXAMPLES  # keep the few-shot pool consistent
+
 SCRIPT_DIR           = Path(__file__).resolve().parent
 LABELED_EXAMPLES_DIR = SCRIPT_DIR / "labeled_examples"
 ENV_PATH             = SCRIPT_DIR / ".env"
@@ -70,6 +72,7 @@ def main() -> None:
         p for doc in sorted(LABELED_EXAMPLES_DIR.iterdir()) if doc.is_dir()
         for p in sorted(doc.glob("page_*"))
         if (p / f"{p.name}.pdf").exists()
+        and f"{doc.name}/{p.name}" not in EXCLUDED_EXAMPLES
     )
     print(f"Uploading {len(page_dirs)} examples at width={args.image_width}…")
 
