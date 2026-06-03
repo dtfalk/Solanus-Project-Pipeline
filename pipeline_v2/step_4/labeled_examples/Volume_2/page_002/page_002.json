@@ -11,28 +11,6 @@
         {
           "vertices": [
             {
-              "x": 2721,
-              "y": 860
-            },
-            {
-              "x": 2721,
-              "y": 1001
-            },
-            {
-              "x": 4253,
-              "y": 1001
-            },
-            {
-              "x": 4232,
-              "y": 850
-            }
-          ],
-          "connections": [],
-          "id": "999b4da9-321d-4192-9859-f4194a1fa047"
-        },
-        {
-          "vertices": [
-            {
               "x": 792,
               "y": 2179
             },
@@ -53,7 +31,30 @@
           "id": "f04d6fdb-84d1-4630-9b25-9613d05cf2bc"
         }
       ],
-      "src_origin": [],
+      "src_origin": [
+        {
+          "vertices": [
+            {
+              "x": 2721,
+              "y": 860
+            },
+            {
+              "x": 2721,
+              "y": 1001
+            },
+            {
+              "x": 4253,
+              "y": 1001
+            },
+            {
+              "x": 4232,
+              "y": 850
+            }
+          ],
+          "connections": [],
+          "id": "999b4da9-321d-4192-9859-f4194a1fa047"
+        }
+      ],
       "src_recipient": [
         {
           "vertices": [
@@ -294,8 +295,7 @@
           "id": "0873a856-c577-4bdc-af04-f48bb95ab595"
         }
       ],
-      "archv_possessor": [],
-      "archv_other": [
+      "archv_possessor": [
         {
           "vertices": [
             {
@@ -319,6 +319,7 @@
           "id": "f78db5b1-bb4b-4b00-924f-811e077f69e1"
         }
       ],
+      "archv_other": [],
       "struct_id": [],
       "struct_doc": [],
       "struct_commentary": [],

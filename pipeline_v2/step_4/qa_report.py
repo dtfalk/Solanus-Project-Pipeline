@@ -135,7 +135,8 @@ def check_schema(documents: dict, num_documents, W: int, H: int) -> list[dict]:
             flags.append({"type": "empty_document", "detail": doc_id})
     # connection edges: endpoints must exist and the category-pair must be allowed
     for doc_id, cat, box, bb in _iter_boxes(documents):
-        for other_id in box.get("connections", []):
+        for conn in box.get("connections", []):
+            other_id = conn.get("id") if isinstance(conn, dict) else conn
             if other_id not in ids:
                 flags.append({"type": "bad_edge", "category": cat, "bbox": bb,
                               "detail": f"edge to unknown id {other_id}"})
@@ -149,17 +150,36 @@ def check_schema(documents: dict, num_documents, W: int, H: int) -> list[dict]:
 
 def check_overlap_loose(documents: dict, ink: Image.Image, W: int, H: int) -> list[dict]:
     flags = []
-    boxes = [(cat, bb) for _d, cat, _b, bb in _iter_boxes(documents)]
+    boxes = [(doc_id, cat, bb) for doc_id, cat, _b, bb in _iter_boxes(documents)]
+    heights = sorted(b[3] - b[1] for _d, _c, b in boxes)
+    line_h = heights[len(heights) // 2] if heights else max(1, int(0.015 * H))
     for i in range(len(boxes)):
-        ci, bi = boxes[i]
+        di, ci, bi = boxes[i]
         for j in range(i + 1, len(boxes)):
-            cj, bj = boxes[j]
-            iom = _inter_over_min(bi, bj)
-            if iom > OVERLAP_THRESH:
+            dj, cj, bj = boxes[j]
+            if _inter_over_min(bi, bj) <= OVERLAP_THRESH:
+                continue
+            # Only flag a "real" overlap: the SHARED region must hold a full word of
+            # ink (>= ~half a text line tall AND wide) that belongs to a DIFFERENT box
+            # (different category or document) — i.e. cropping this box would capture
+            # text that isn't its own. Whitespace and clipped-character (thin-band)
+            # overlaps are benign (a text-extraction prompt weeds out half-words), and
+            # a box's own sub-line inside its same-category same-doc neighbour is fine.
+            if (di, ci) == (dj, cj):
+                continue
+            ix0, iy0 = int(max(bi[0], bj[0])), int(max(bi[1], bj[1]))
+            ix1, iy1 = int(min(bi[2], bj[2])), int(min(bi[3], bj[3]))
+            if ix1 <= ix0 or iy1 <= iy0:
+                continue
+            inkbb = ink.crop((ix0, iy0, ix1, iy1)).getbbox()
+            if not inkbb:
+                continue
+            h_ink, w_ink = inkbb[3] - inkbb[1], inkbb[2] - inkbb[0]
+            if h_ink >= 0.5 * line_h and w_ink >= 0.5 * line_h:
                 flags.append({"type": "overlap", "category": f"{ci}+{cj}",
                               "bbox": [min(bi[0], bj[0]), min(bi[1], bj[1]),
                                        max(bi[2], bj[2]), max(bi[3], bj[3])],
-                              "detail": f"{iom:.0%} of smaller box"})
+                              "detail": f"~{h_ink / line_h:.1f}-line of {cj}/{ci} text in the shared region"})
     # loose: a box edge sits far from its own ink (large blank band inside the box)
     slack = int(round(LOOSE_SLACK_FRAC * H))
     for _d, cat, _box, bb in _iter_boxes(documents):

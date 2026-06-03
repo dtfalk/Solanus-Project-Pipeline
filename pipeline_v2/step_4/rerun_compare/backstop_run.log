@@ -1,0 +1,815 @@
+14:43:14 [INFO] Loaded 71 uploaded file URIs from file_uris.json
+14:43:14 [INFO] Loaded 62 labeled examples for few-shot pool (11 multi-doc).
+14:43:14 [INFO] Pass 2 enabled: 24 examples in connection-fewshot pool.
+14:43:14 [INFO] Found 52 target pages to consider.
+14:43:14 [INFO] Labeling Appendix_1/page_001 (12 pass-1 + 6 pass-2 examples)
+14:43:19 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/bdhr87jsykv9 "HTTP/1.1 403 Forbidden"
+14:43:19 [WARNING] File URI files/bdhr87jsykv9 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File bdhr87jsykv9 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:20 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/c6kblyw6cpz2 "HTTP/1.1 403 Forbidden"
+14:43:20 [WARNING] File URI files/c6kblyw6cpz2 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File c6kblyw6cpz2 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:21 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/nc2pv27eipbv "HTTP/1.1 403 Forbidden"
+14:43:21 [WARNING] File URI files/nc2pv27eipbv unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File nc2pv27eipbv or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:22 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/6tn62ii49cpu "HTTP/1.1 403 Forbidden"
+14:43:22 [WARNING] File URI files/6tn62ii49cpu unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 6tn62ii49cpu or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:23 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/0zh4u7y433lf "HTTP/1.1 403 Forbidden"
+14:43:23 [WARNING] File URI files/0zh4u7y433lf unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 0zh4u7y433lf or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:24 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/07k91lrcrcoa "HTTP/1.1 403 Forbidden"
+14:43:24 [WARNING] File URI files/07k91lrcrcoa unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 07k91lrcrcoa or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:25 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/ilqyl2544z6t "HTTP/1.1 403 Forbidden"
+14:43:25 [WARNING] File URI files/ilqyl2544z6t unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File ilqyl2544z6t or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:26 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/4o26ytjyesaf "HTTP/1.1 403 Forbidden"
+14:43:26 [WARNING] File URI files/4o26ytjyesaf unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 4o26ytjyesaf or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:26 [INFO] AFC is enabled with max remote calls: 10.
+14:43:31 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:43:31 [INFO]   resolved 0 overlap(s); fit 2 polygon(s) to ink
+14:43:32 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/u5ppxjyrvrda "HTTP/1.1 403 Forbidden"
+14:43:32 [WARNING] File URI files/u5ppxjyrvrda unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File u5ppxjyrvrda or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:33 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/rt5y7z6qmlbx "HTTP/1.1 403 Forbidden"
+14:43:33 [WARNING] File URI files/rt5y7z6qmlbx unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File rt5y7z6qmlbx or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:34 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/1yn52lfoo0ly "HTTP/1.1 403 Forbidden"
+14:43:34 [WARNING] File URI files/1yn52lfoo0ly unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 1yn52lfoo0ly or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:35 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/06kk4r7w2e7x "HTTP/1.1 403 Forbidden"
+14:43:35 [WARNING] File URI files/06kk4r7w2e7x unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 06kk4r7w2e7x or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:36 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/v88ydcb4kbz4 "HTTP/1.1 403 Forbidden"
+14:43:36 [WARNING] File URI files/v88ydcb4kbz4 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File v88ydcb4kbz4 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:37 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/kun1nygsrg2f "HTTP/1.1 403 Forbidden"
+14:43:37 [WARNING] File URI files/kun1nygsrg2f unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File kun1nygsrg2f or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:37 [INFO] AFC is enabled with max remote calls: 10.
+14:43:39 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:43:39 [INFO]   pass 2: 0 edge(s) applied
+14:43:40 [INFO] Labeling Appendix_1/page_002 (12 pass-1 + 6 pass-2 examples)
+14:43:42 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/u2k313fcvh71 "HTTP/1.1 403 Forbidden"
+14:43:42 [WARNING] File URI files/u2k313fcvh71 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File u2k313fcvh71 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:42 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/m0z6ajco68ho "HTTP/1.1 403 Forbidden"
+14:43:42 [WARNING] File URI files/m0z6ajco68ho unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File m0z6ajco68ho or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:43 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/jli02pn0t17j "HTTP/1.1 403 Forbidden"
+14:43:43 [WARNING] File URI files/jli02pn0t17j unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File jli02pn0t17j or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:44 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/z68jbzxoa7jv "HTTP/1.1 403 Forbidden"
+14:43:44 [WARNING] File URI files/z68jbzxoa7jv unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File z68jbzxoa7jv or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:44 [INFO] AFC is enabled with max remote calls: 10.
+14:43:49 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:43:50 [INFO]   resolved 0 overlap(s); fit 2 polygon(s) to ink
+14:43:51 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/mugb021vanf9 "HTTP/1.1 403 Forbidden"
+14:43:51 [WARNING] File URI files/mugb021vanf9 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File mugb021vanf9 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:52 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/m31uqx0zgjpv "HTTP/1.1 403 Forbidden"
+14:43:52 [WARNING] File URI files/m31uqx0zgjpv unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File m31uqx0zgjpv or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:53 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/onin13c36bes "HTTP/1.1 403 Forbidden"
+14:43:53 [WARNING] File URI files/onin13c36bes unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File onin13c36bes or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:53 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/qsy6wdkaqiuh "HTTP/1.1 403 Forbidden"
+14:43:53 [WARNING] File URI files/qsy6wdkaqiuh unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File qsy6wdkaqiuh or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:53 [INFO] AFC is enabled with max remote calls: 10.
+14:43:56 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:43:56 [INFO]   pass 2: 0 edge(s) applied
+14:43:57 [INFO] Labeling Appendix_1/page_003 (12 pass-1 + 6 pass-2 examples)
+14:43:58 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/oxuwr4n6g9ex "HTTP/1.1 403 Forbidden"
+14:43:58 [WARNING] File URI files/oxuwr4n6g9ex unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File oxuwr4n6g9ex or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:59 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/umsrfnt3wxi4 "HTTP/1.1 403 Forbidden"
+14:43:59 [WARNING] File URI files/umsrfnt3wxi4 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File umsrfnt3wxi4 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:43:59 [INFO] AFC is enabled with max remote calls: 10.
+14:44:04 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:44:05 [INFO]   resolved 0 overlap(s); fit 1 polygon(s) to ink
+14:44:05 [INFO] AFC is enabled with max remote calls: 10.
+14:44:07 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:44:07 [INFO]   coverage backstop: added 1 box(es) for uncovered ink
+14:44:08 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/dyzskptmggk7 "HTTP/1.1 403 Forbidden"
+14:44:08 [WARNING] File URI files/dyzskptmggk7 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File dyzskptmggk7 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:09 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/lz1i5lfcfsc3 "HTTP/1.1 403 Forbidden"
+14:44:09 [WARNING] File URI files/lz1i5lfcfsc3 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File lz1i5lfcfsc3 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:10 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/onhjctzu3jaa "HTTP/1.1 403 Forbidden"
+14:44:10 [WARNING] File URI files/onhjctzu3jaa unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File onhjctzu3jaa or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:11 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/7ycfo8cw3oeb "HTTP/1.1 403 Forbidden"
+14:44:11 [WARNING] File URI files/7ycfo8cw3oeb unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 7ycfo8cw3oeb or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:11 [INFO] AFC is enabled with max remote calls: 10.
+14:44:13 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:44:13 [INFO]   pass 2: 0 edge(s) applied
+14:44:14 [INFO] Labeling Appendix_1/page_004 (12 pass-1 + 6 pass-2 examples)
+14:44:16 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/rr5ikdghjmga "HTTP/1.1 403 Forbidden"
+14:44:16 [WARNING] File URI files/rr5ikdghjmga unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File rr5ikdghjmga or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:17 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/j7b0hlkw1fqh "HTTP/1.1 403 Forbidden"
+14:44:17 [WARNING] File URI files/j7b0hlkw1fqh unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File j7b0hlkw1fqh or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:17 [INFO] AFC is enabled with max remote calls: 10.
+14:44:25 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:44:26 [INFO]   resolved 0 overlap(s); fit 14 polygon(s) to ink
+14:44:27 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/2a1cc8iiwpag "HTTP/1.1 403 Forbidden"
+14:44:27 [WARNING] File URI files/2a1cc8iiwpag unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 2a1cc8iiwpag or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:27 [INFO] AFC is enabled with max remote calls: 10.
+14:44:29 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:44:29 [INFO]   pass 2: 0 edge(s) applied
+14:44:30 [INFO] Labeling Appendix_1/page_005 (12 pass-1 + 6 pass-2 examples)
+14:44:32 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/tdmpuvr9ko0u "HTTP/1.1 403 Forbidden"
+14:44:32 [WARNING] File URI files/tdmpuvr9ko0u unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File tdmpuvr9ko0u or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:33 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/1mwucas0rqjt "HTTP/1.1 403 Forbidden"
+14:44:33 [WARNING] File URI files/1mwucas0rqjt unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 1mwucas0rqjt or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:33 [INFO] AFC is enabled with max remote calls: 10.
+14:44:38 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:44:38 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:44:39 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/u7oek1gnvy7e "HTTP/1.1 403 Forbidden"
+14:44:39 [WARNING] File URI files/u7oek1gnvy7e unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File u7oek1gnvy7e or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:39 [INFO] AFC is enabled with max remote calls: 10.
+14:44:46 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:44:46 [INFO]   pass 2: 0 edge(s) applied
+14:44:47 [INFO] Labeling Appendix_1/page_006 (12 pass-1 + 6 pass-2 examples)
+14:44:49 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/n8036rgh0pn0 "HTTP/1.1 403 Forbidden"
+14:44:49 [WARNING] File URI files/n8036rgh0pn0 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File n8036rgh0pn0 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:50 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/gdykm2zhtbvy "HTTP/1.1 403 Forbidden"
+14:44:50 [WARNING] File URI files/gdykm2zhtbvy unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File gdykm2zhtbvy or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:50 [INFO] AFC is enabled with max remote calls: 10.
+14:44:55 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:44:56 [INFO]   resolved 0 overlap(s); fit 6 polygon(s) to ink
+14:44:57 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/mir2w9yfj4vl "HTTP/1.1 403 Forbidden"
+14:44:57 [WARNING] File URI files/mir2w9yfj4vl unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File mir2w9yfj4vl or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:58 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/z6uf4s8yaxs5 "HTTP/1.1 403 Forbidden"
+14:44:58 [WARNING] File URI files/z6uf4s8yaxs5 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File z6uf4s8yaxs5 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:44:58 [INFO] AFC is enabled with max remote calls: 10.
+14:45:01 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:45:01 [INFO]   pass 2: 0 edge(s) applied
+14:45:02 [INFO] Labeling Appendix_1/page_007 (12 pass-1 + 6 pass-2 examples)
+14:45:04 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/npjbr2404hsd "HTTP/1.1 403 Forbidden"
+14:45:04 [WARNING] File URI files/npjbr2404hsd unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File npjbr2404hsd or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:45:04 [INFO] AFC is enabled with max remote calls: 10.
+14:45:09 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:45:10 [INFO]   resolved 0 overlap(s); fit 10 polygon(s) to ink
+14:45:11 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/uj37l0j1zo4q "HTTP/1.1 403 Forbidden"
+14:45:11 [WARNING] File URI files/uj37l0j1zo4q unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File uj37l0j1zo4q or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:45:12 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/1q1l2141t3ib "HTTP/1.1 403 Forbidden"
+14:45:12 [WARNING] File URI files/1q1l2141t3ib unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 1q1l2141t3ib or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:45:12 [INFO] AFC is enabled with max remote calls: 10.
+14:45:14 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:45:14 [INFO]   pass 2: 0 edge(s) applied
+14:45:15 [INFO] Labeling Appendix_1/page_008 (12 pass-1 + 6 pass-2 examples)
+14:45:17 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/hofkx3a1wvlw "HTTP/1.1 403 Forbidden"
+14:45:17 [WARNING] File URI files/hofkx3a1wvlw unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File hofkx3a1wvlw or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:45:17 [INFO] AFC is enabled with max remote calls: 10.
+14:45:23 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:45:24 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:45:25 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/qmvbbnlpzra8 "HTTP/1.1 403 Forbidden"
+14:45:25 [WARNING] File URI files/qmvbbnlpzra8 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File qmvbbnlpzra8 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:45:25 [INFO] AFC is enabled with max remote calls: 10.
+14:45:27 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:45:27 [INFO]   pass 2: 0 edge(s) applied
+14:45:28 [INFO] Labeling Appendix_1/page_009 (12 pass-1 + 6 pass-2 examples)
+14:45:28 [INFO] AFC is enabled with max remote calls: 10.
+14:45:34 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:45:35 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:45:35 [INFO] AFC is enabled with max remote calls: 10.
+14:45:36 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:45:36 [INFO]   pass 2: 0 edge(s) applied
+14:45:37 [INFO] Labeling Appendix_1/page_010 (12 pass-1 + 6 pass-2 examples)
+14:45:38 [INFO] AFC is enabled with max remote calls: 10.
+14:45:45 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:45:46 [INFO]   resolved 0 overlap(s); fit 13 polygon(s) to ink
+14:45:46 [INFO] AFC is enabled with max remote calls: 10.
+14:45:48 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:45:48 [INFO]   pass 2: 0 edge(s) applied
+14:45:49 [INFO] Labeling Appendix_1/page_011 (12 pass-1 + 6 pass-2 examples)
+14:45:50 [INFO] AFC is enabled with max remote calls: 10.
+14:45:55 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:45:56 [INFO]   resolved 0 overlap(s); fit 13 polygon(s) to ink
+14:45:56 [INFO] AFC is enabled with max remote calls: 10.
+14:45:59 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:45:59 [INFO]   pass 2: 0 edge(s) applied
+14:46:00 [INFO] Labeling Appendix_1/page_012 (12 pass-1 + 6 pass-2 examples)
+14:46:01 [INFO] AFC is enabled with max remote calls: 10.
+14:46:06 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:46:07 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:46:07 [INFO] AFC is enabled with max remote calls: 10.
+14:46:09 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:46:09 [INFO]   coverage backstop: added 1 box(es) for uncovered ink
+14:46:09 [INFO] AFC is enabled with max remote calls: 10.
+14:46:11 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:46:11 [INFO]   pass 2: 0 edge(s) applied
+14:46:12 [INFO] Labeling Appendix_1/page_013 (12 pass-1 + 6 pass-2 examples)
+14:46:13 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/yizketaalozy "HTTP/1.1 403 Forbidden"
+14:46:13 [WARNING] File URI files/yizketaalozy unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File yizketaalozy or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:46:13 [INFO] AFC is enabled with max remote calls: 10.
+14:46:20 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:46:21 [INFO]   resolved 0 overlap(s); fit 18 polygon(s) to ink
+14:46:21 [INFO] AFC is enabled with max remote calls: 10.
+14:46:23 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:46:23 [INFO]   pass 2: 0 edge(s) applied
+14:46:24 [INFO] Labeling Appendix_1/page_014 (12 pass-1 + 6 pass-2 examples)
+14:46:26 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/xgpsm2qqk3dm "HTTP/1.1 403 Forbidden"
+14:46:26 [WARNING] File URI files/xgpsm2qqk3dm unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File xgpsm2qqk3dm or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:46:26 [INFO] AFC is enabled with max remote calls: 10.
+14:46:30 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:46:30 [INFO]   resolved 0 overlap(s); fit 2 polygon(s) to ink
+14:46:30 [INFO] AFC is enabled with max remote calls: 10.
+14:46:33 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:46:33 [INFO]   pass 2: 0 edge(s) applied
+14:46:34 [INFO] Labeling Appendix_1/page_015 (12 pass-1 + 6 pass-2 examples)
+14:46:35 [INFO] AFC is enabled with max remote calls: 10.
+14:46:42 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:46:42 [INFO]   resolved 0 overlap(s); fit 16 polygon(s) to ink
+14:46:42 [INFO] AFC is enabled with max remote calls: 10.
+14:46:44 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:46:44 [INFO]   pass 2: 0 edge(s) applied
+14:46:45 [INFO] Labeling Appendix_1/page_016 (12 pass-1 + 6 pass-2 examples)
+14:46:47 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/a7bg3j1od2im "HTTP/1.1 403 Forbidden"
+14:46:47 [WARNING] File URI files/a7bg3j1od2im unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File a7bg3j1od2im or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:46:47 [INFO] AFC is enabled with max remote calls: 10.
+14:46:54 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:46:55 [INFO]   resolved 0 overlap(s); fit 12 polygon(s) to ink
+14:46:55 [INFO] AFC is enabled with max remote calls: 10.
+14:46:57 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:46:57 [INFO]   pass 2: 0 edge(s) applied
+14:46:58 [INFO] Labeling Appendix_1/page_017 (12 pass-1 + 6 pass-2 examples)
+14:46:59 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/y6szwq8jhh7e "HTTP/1.1 403 Forbidden"
+14:46:59 [WARNING] File URI files/y6szwq8jhh7e unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File y6szwq8jhh7e or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:46:59 [INFO] AFC is enabled with max remote calls: 10.
+14:47:06 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:47:06 [INFO]   resolved 0 overlap(s); fit 12 polygon(s) to ink
+14:47:07 [INFO] AFC is enabled with max remote calls: 10.
+14:47:08 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:47:08 [INFO]   pass 2: 0 edge(s) applied
+14:47:09 [INFO] Labeling Appendix_1/page_018 (12 pass-1 + 6 pass-2 examples)
+14:47:11 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/3nqtna5il3t5 "HTTP/1.1 403 Forbidden"
+14:47:11 [WARNING] File URI files/3nqtna5il3t5 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 3nqtna5il3t5 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:47:11 [INFO] AFC is enabled with max remote calls: 10.
+14:47:16 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:47:17 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:47:17 [INFO] AFC is enabled with max remote calls: 10.
+14:47:18 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:47:18 [INFO]   pass 2: 0 edge(s) applied
+14:47:19 [INFO] Labeling Appendix_1/page_019 (12 pass-1 + 6 pass-2 examples)
+14:47:21 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/jr3mvo0lk846 "HTTP/1.1 403 Forbidden"
+14:47:21 [WARNING] File URI files/jr3mvo0lk846 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File jr3mvo0lk846 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:47:21 [INFO] AFC is enabled with max remote calls: 10.
+14:47:27 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:47:28 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:47:28 [INFO] AFC is enabled with max remote calls: 10.
+14:47:30 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:47:30 [INFO]   coverage backstop: added 2 box(es) for uncovered ink
+14:47:30 [INFO] AFC is enabled with max remote calls: 10.
+14:47:32 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:47:32 [INFO]   pass 2: 0 edge(s) applied
+14:47:33 [INFO] Labeling Appendix_1/page_020 (12 pass-1 + 6 pass-2 examples)
+14:47:35 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/mtj9epbhrvbs "HTTP/1.1 403 Forbidden"
+14:47:35 [WARNING] File URI files/mtj9epbhrvbs unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File mtj9epbhrvbs or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:47:35 [INFO] AFC is enabled with max remote calls: 10.
+14:47:41 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:47:42 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:47:42 [INFO] AFC is enabled with max remote calls: 10.
+14:47:45 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:47:45 [INFO]   pass 2: 0 edge(s) applied
+14:47:46 [INFO] Labeling Appendix_1/page_021 (12 pass-1 + 6 pass-2 examples)
+14:47:47 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/p6meky2sn7yn "HTTP/1.1 403 Forbidden"
+14:47:47 [WARNING] File URI files/p6meky2sn7yn unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File p6meky2sn7yn or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:47:47 [INFO] AFC is enabled with max remote calls: 10.
+14:47:53 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:47:54 [INFO]   resolved 0 overlap(s); fit 5 polygon(s) to ink
+14:47:54 [INFO] AFC is enabled with max remote calls: 10.
+14:47:55 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:47:55 [INFO]   pass 2: 0 edge(s) applied
+14:47:56 [INFO] Labeling Appendix_1/page_022 (12 pass-1 + 6 pass-2 examples)
+14:47:57 [INFO] AFC is enabled with max remote calls: 10.
+14:48:01 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:48:02 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:48:02 [INFO] AFC is enabled with max remote calls: 10.
+14:48:04 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:04 [INFO]   coverage backstop: added 1 box(es) for uncovered ink
+14:48:04 [INFO] AFC is enabled with max remote calls: 10.
+14:48:06 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:06 [INFO]   pass 2: 0 edge(s) applied
+14:48:07 [INFO] Labeling Appendix_1/page_023 (12 pass-1 + 6 pass-2 examples)
+14:48:08 [INFO] AFC is enabled with max remote calls: 10.
+14:48:13 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:48:14 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:48:14 [INFO] AFC is enabled with max remote calls: 10.
+14:48:16 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:16 [INFO]   pass 2: 0 edge(s) applied
+14:48:17 [INFO] Labeling Appendix_1/page_024 (12 pass-1 + 6 pass-2 examples)
+14:48:19 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/9f2sq1s4ccyk "HTTP/1.1 403 Forbidden"
+14:48:19 [WARNING] File URI files/9f2sq1s4ccyk unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 9f2sq1s4ccyk or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:48:19 [INFO] AFC is enabled with max remote calls: 10.
+14:48:24 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:48:25 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:48:25 [INFO] AFC is enabled with max remote calls: 10.
+14:48:27 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:27 [INFO]   pass 2: 0 edge(s) applied
+14:48:28 [INFO] Labeling Appendix_1/page_025 (12 pass-1 + 6 pass-2 examples)
+14:48:30 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/t7y0neqwzpdg "HTTP/1.1 403 Forbidden"
+14:48:30 [WARNING] File URI files/t7y0neqwzpdg unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File t7y0neqwzpdg or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:48:30 [INFO] AFC is enabled with max remote calls: 10.
+14:48:34 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:48:34 [INFO]   resolved 0 overlap(s); fit 1 polygon(s) to ink
+14:48:35 [INFO] AFC is enabled with max remote calls: 10.
+14:48:37 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:37 [INFO]   pass 2: 0 edge(s) applied
+14:48:38 [INFO] Labeling Appendix_1/page_026 (12 pass-1 + 6 pass-2 examples)
+14:48:39 [INFO] AFC is enabled with max remote calls: 10.
+14:48:45 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:48:46 [INFO]   resolved 0 overlap(s); fit 10 polygon(s) to ink
+14:48:46 [INFO] AFC is enabled with max remote calls: 10.
+14:48:48 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:48 [INFO]   pass 2: 0 edge(s) applied
+14:48:49 [INFO] Labeling Appendix_1/page_027 (12 pass-1 + 6 pass-2 examples)
+14:48:50 [INFO] AFC is enabled with max remote calls: 10.
+14:48:55 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:48:56 [INFO]   resolved 0 overlap(s); fit 10 polygon(s) to ink
+14:48:56 [INFO] AFC is enabled with max remote calls: 10.
+14:48:58 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:48:58 [INFO]   pass 2: 0 edge(s) applied
+14:48:59 [INFO] Labeling Appendix_1/page_028 (12 pass-1 + 6 pass-2 examples)
+14:48:59 [INFO] AFC is enabled with max remote calls: 10.
+14:49:07 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:49:08 [INFO]   resolved 0 overlap(s); fit 10 polygon(s) to ink
+14:49:08 [INFO] AFC is enabled with max remote calls: 10.
+14:49:10 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:49:10 [INFO]   coverage backstop: added 2 box(es) for uncovered ink
+14:49:10 [INFO] AFC is enabled with max remote calls: 10.
+14:49:12 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:49:12 [INFO]   pass 2: 0 edge(s) applied
+14:49:13 [INFO] Labeling Appendix_1/page_029 (12 pass-1 + 6 pass-2 examples)
+14:49:14 [INFO] AFC is enabled with max remote calls: 10.
+14:49:19 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:49:20 [INFO]   resolved 0 overlap(s); fit 4 polygon(s) to ink
+14:49:20 [INFO] AFC is enabled with max remote calls: 10.
+14:49:22 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:49:22 [INFO]   pass 2: 0 edge(s) applied
+14:49:23 [INFO] Labeling Appendix_1/page_030 (12 pass-1 + 6 pass-2 examples)
+14:49:23 [INFO] AFC is enabled with max remote calls: 10.
+14:49:29 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:49:30 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:49:30 [INFO] AFC is enabled with max remote calls: 10.
+14:49:32 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:49:32 [INFO]   pass 2: 0 edge(s) applied
+14:49:33 [INFO] Labeling Appendix_1/page_031 (12 pass-1 + 6 pass-2 examples)
+14:49:33 [INFO] AFC is enabled with max remote calls: 10.
+14:49:40 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:49:40 [INFO]   resolved 0 overlap(s); fit 15 polygon(s) to ink
+14:49:40 [INFO] AFC is enabled with max remote calls: 10.
+14:49:42 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:49:42 [INFO]   pass 2: 1 edge(s) applied
+14:49:43 [INFO] Labeling Appendix_1/page_032 (12 pass-1 + 6 pass-2 examples)
+14:49:44 [INFO] AFC is enabled with max remote calls: 10.
+14:49:50 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:49:51 [INFO]   resolved 0 overlap(s); fit 8 polygon(s) to ink
+14:49:51 [INFO] AFC is enabled with max remote calls: 10.
+14:49:53 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:49:53 [INFO]   pass 2: 0 edge(s) applied
+14:49:54 [INFO] Labeling Appendix_1/page_033 (12 pass-1 + 6 pass-2 examples)
+14:49:55 [INFO] AFC is enabled with max remote calls: 10.
+14:50:01 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:50:02 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:50:02 [INFO] AFC is enabled with max remote calls: 10.
+14:50:05 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:50:05 [INFO]   coverage backstop: added 6 box(es) for uncovered ink
+14:50:05 [INFO] AFC is enabled with max remote calls: 10.
+14:50:06 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:50:06 [INFO]   pass 2: 0 edge(s) applied
+14:50:07 [INFO] Labeling Appendix_1/page_034 (12 pass-1 + 6 pass-2 examples)
+14:50:08 [INFO] AFC is enabled with max remote calls: 10.
+14:50:17 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:50:17 [INFO]   resolved 0 overlap(s); fit 14 polygon(s) to ink
+14:50:17 [INFO] AFC is enabled with max remote calls: 10.
+14:50:19 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:50:19 [INFO]   pass 2: 0 edge(s) applied
+14:50:20 [INFO] Labeling Appendix_1/page_035 (12 pass-1 + 6 pass-2 examples)
+14:50:21 [INFO] AFC is enabled with max remote calls: 10.
+14:50:28 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:50:29 [INFO]   resolved 0 overlap(s); fit 11 polygon(s) to ink
+14:50:29 [INFO] AFC is enabled with max remote calls: 10.
+14:50:31 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:50:31 [INFO]   pass 2: 0 edge(s) applied
+14:50:32 [INFO] Labeling Appendix_1/page_036 (12 pass-1 + 6 pass-2 examples)
+14:50:33 [INFO] AFC is enabled with max remote calls: 10.
+14:50:38 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:50:38 [INFO]   resolved 0 overlap(s); fit 12 polygon(s) to ink
+14:50:39 [INFO] AFC is enabled with max remote calls: 10.
+14:50:40 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:50:40 [INFO]   pass 2: 0 edge(s) applied
+14:50:41 [INFO] Labeling Appendix_1/page_037 (12 pass-1 + 6 pass-2 examples)
+14:50:42 [INFO] AFC is enabled with max remote calls: 10.
+14:50:47 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:50:48 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:50:48 [INFO] AFC is enabled with max remote calls: 10.
+14:50:50 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:50:50 [INFO]   pass 2: 0 edge(s) applied
+14:50:51 [INFO] Labeling Appendix_1/page_038 (12 pass-1 + 6 pass-2 examples)
+14:50:52 [INFO] AFC is enabled with max remote calls: 10.
+14:50:57 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:50:58 [INFO]   resolved 0 overlap(s); fit 7 polygon(s) to ink
+14:50:58 [INFO] AFC is enabled with max remote calls: 10.
+14:51:00 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:51:00 [INFO]   pass 2: 2 edge(s) applied
+14:51:01 [INFO] Labeling Appendix_1/page_039 (12 pass-1 + 6 pass-2 examples)
+14:51:02 [INFO] AFC is enabled with max remote calls: 10.
+14:51:07 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:51:08 [INFO]   resolved 0 overlap(s); fit 6 polygon(s) to ink
+14:51:08 [INFO] AFC is enabled with max remote calls: 10.
+14:51:10 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:51:10 [INFO]   pass 2: 0 edge(s) applied
+14:51:11 [INFO] Labeling Appendix_1/page_040 (12 pass-1 + 6 pass-2 examples)
+14:51:12 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/giwrdu3hym3h "HTTP/1.1 403 Forbidden"
+14:51:12 [WARNING] File URI files/giwrdu3hym3h unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File giwrdu3hym3h or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:51:12 [INFO] AFC is enabled with max remote calls: 10.
+14:51:18 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:51:18 [INFO]   resolved 0 overlap(s); fit 6 polygon(s) to ink
+14:51:18 [INFO] AFC is enabled with max remote calls: 10.
+14:51:20 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:51:20 [INFO]   pass 2: 0 edge(s) applied
+14:51:21 [INFO] Labeling Appendix_1/page_041 (12 pass-1 + 6 pass-2 examples)
+14:51:22 [INFO] AFC is enabled with max remote calls: 10.
+14:51:28 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:51:29 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:51:29 [INFO] AFC is enabled with max remote calls: 10.
+14:51:31 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:51:31 [INFO]   pass 2: 0 edge(s) applied
+14:51:32 [INFO] Labeling Appendix_1/page_042 (12 pass-1 + 6 pass-2 examples)
+14:51:33 [INFO] AFC is enabled with max remote calls: 10.
+14:51:39 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:51:39 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:51:40 [INFO] AFC is enabled with max remote calls: 10.
+14:51:42 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:51:42 [INFO]   pass 2: 0 edge(s) applied
+14:51:43 [INFO] Labeling Appendix_1/page_043 (12 pass-1 + 6 pass-2 examples)
+14:51:45 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/3e46s47xmx20 "HTTP/1.1 403 Forbidden"
+14:51:45 [WARNING] File URI files/3e46s47xmx20 unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File 3e46s47xmx20 or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:51:45 [INFO] AFC is enabled with max remote calls: 10.
+14:51:50 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:51:50 [INFO]   resolved 0 overlap(s); fit 8 polygon(s) to ink
+14:51:50 [INFO] AFC is enabled with max remote calls: 10.
+14:51:53 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:51:53 [INFO]   pass 2: 0 edge(s) applied
+14:51:54 [INFO] Labeling Appendix_1/page_044 (12 pass-1 + 6 pass-2 examples)
+14:51:54 [INFO] AFC is enabled with max remote calls: 10.
+14:52:00 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:52:01 [INFO]   resolved 0 overlap(s); fit 4 polygon(s) to ink
+14:52:01 [INFO] AFC is enabled with max remote calls: 10.
+14:52:03 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:52:03 [INFO]   pass 2: 0 edge(s) applied
+14:52:04 [INFO] Labeling Appendix_1/page_045 (12 pass-1 + 6 pass-2 examples)
+14:52:05 [INFO] AFC is enabled with max remote calls: 10.
+14:52:14 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:52:14 [INFO]   resolved 0 overlap(s); fit 17 polygon(s) to ink
+14:52:14 [INFO] AFC is enabled with max remote calls: 10.
+14:52:16 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:52:16 [INFO]   pass 2: 0 edge(s) applied
+14:52:17 [INFO] Labeling Appendix_1/page_046 (12 pass-1 + 6 pass-2 examples)
+14:52:18 [INFO] AFC is enabled with max remote calls: 10.
+14:52:23 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:52:24 [INFO]   resolved 0 overlap(s); fit 9 polygon(s) to ink
+14:52:24 [INFO] AFC is enabled with max remote calls: 10.
+14:52:26 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:52:26 [INFO]   pass 2: 0 edge(s) applied
+14:52:27 [INFO] Labeling Appendix_1/page_047 (12 pass-1 + 6 pass-2 examples)
+14:52:28 [INFO] AFC is enabled with max remote calls: 10.
+14:52:33 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:52:34 [INFO]   resolved 0 overlap(s); fit 11 polygon(s) to ink
+14:52:34 [INFO] AFC is enabled with max remote calls: 10.
+14:52:35 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:52:35 [INFO]   pass 2: 0 edge(s) applied
+14:52:36 [INFO] Labeling Appendix_1/page_048 (12 pass-1 + 6 pass-2 examples)
+14:52:38 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/c5csdu758pto "HTTP/1.1 403 Forbidden"
+14:52:38 [WARNING] File URI files/c5csdu758pto unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File c5csdu758pto or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:52:38 [INFO] AFC is enabled with max remote calls: 10.
+14:52:43 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:52:44 [INFO]   resolved 0 overlap(s); fit 6 polygon(s) to ink
+14:52:44 [INFO] AFC is enabled with max remote calls: 10.
+14:52:46 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:52:46 [INFO]   pass 2: 0 edge(s) applied
+14:52:47 [INFO] Labeling Appendix_1/page_049 (12 pass-1 + 6 pass-2 examples)
+14:52:48 [INFO] AFC is enabled with max remote calls: 10.
+14:52:54 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:52:55 [INFO]   resolved 0 overlap(s); fit 4 polygon(s) to ink
+14:52:55 [INFO] AFC is enabled with max remote calls: 10.
+14:52:56 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:52:56 [INFO]   pass 2: 0 edge(s) applied
+14:52:57 [INFO] Labeling Appendix_1/page_050 (12 pass-1 + 6 pass-2 examples)
+14:52:58 [INFO] AFC is enabled with max remote calls: 10.
+14:53:04 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:53:05 [INFO]   resolved 0 overlap(s); fit 11 polygon(s) to ink
+14:53:05 [INFO] AFC is enabled with max remote calls: 10.
+14:53:07 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:53:07 [INFO]   pass 2: 0 edge(s) applied
+14:53:08 [INFO] Labeling Appendix_1/page_051 (12 pass-1 + 6 pass-2 examples)
+14:53:09 [INFO] HTTP Request: GET https://generativelanguage.googleapis.com/v1beta/files/guvqryfi5ifd "HTTP/1.1 403 Forbidden"
+14:53:09 [WARNING] File URI files/guvqryfi5ifd unreachable (403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'You do not have permission to access the File guvqryfi5ifd or it may not exist.', 'status': 'PERMISSION_DENIED'}}); falling back to inline.
+14:53:09 [INFO] AFC is enabled with max remote calls: 10.
+14:53:15 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:53:16 [INFO]   resolved 0 overlap(s); fit 14 polygon(s) to ink
+14:53:16 [INFO] AFC is enabled with max remote calls: 10.
+14:53:18 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:53:18 [INFO]   pass 2: 0 edge(s) applied
+14:53:19 [INFO] Labeling Appendix_1/page_052 (12 pass-1 + 6 pass-2 examples)
+14:53:20 [INFO] AFC is enabled with max remote calls: 10.
+14:53:25 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1107: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  if (sum(ink.getdata()) / 255) / (cw * ch) < 0.003:
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1111: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
+/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeler.py:1112: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
+14:53:26 [INFO]   resolved 0 overlap(s); fit 2 polygon(s) to ink
+14:53:26 [INFO] AFC is enabled with max remote calls: 10.
+14:53:28 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+14:53:28 [INFO]   pass 2: 0 edge(s) applied
+14:53:29 [INFO] ============================================================
+14:53:29 [INFO] Done. Succeeded: 52  |  Failed: 0  |  Skipped: 0
+14:53:29 [INFO] Wrote run summary to usage.csv (52 pages, 2466097 in + 43619 out tokens)

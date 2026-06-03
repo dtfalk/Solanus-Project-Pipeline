@@ -4,7 +4,7 @@
   "page_width": 5312,
   "page_height": 6875,
   "render_dpi": 150,
-  "num_documents": 2,
+  "num_documents": 1,
   "documents": {
     "doc_1": {
       "src_content": [
@@ -29,99 +29,7 @@
           ],
           "connections": [],
           "id": "5f8a146c-9594-4803-85e4-1fad38b3ca20"
-        }
-      ],
-      "src_origin": [],
-      "src_recipient": [],
-      "src_location_recipient": [],
-      "src_location_sender": [],
-      "src_date": [],
-      "src_greeting": [],
-      "src_farewell": [],
-      "src_signature": [],
-      "src_other": [],
-      "archv_commentary": [],
-      "archv_format_note": [],
-      "archv_date": [
-        {
-          "vertices": [
-            {
-              "x": 3555,
-              "y": 318
-            },
-            {
-              "x": 3555,
-              "y": 532
-            },
-            {
-              "x": 4493,
-              "y": 532
-            },
-            {
-              "x": 4477,
-              "y": 297
-            }
-          ],
-          "connections": [],
-          "id": "62f32be5-04db-4fd2-a3ba-4b668482797c"
-        }
-      ],
-      "archv_possessor": [],
-      "archv_other": [],
-      "struct_id": [],
-      "struct_doc": [
-        {
-          "vertices": [
-            {
-              "x": 766.0,
-              "y": 553.0
-            },
-            {
-              "x": 771.0,
-              "y": 756.0
-            },
-            {
-              "x": 1308.0,
-              "y": 751.0
-            },
-            {
-              "x": 1298.0,
-              "y": 542.0
-            }
-          ],
-          "connections": [],
-          "id": "cc04851d-0868-4b7d-b180-f00aee7403f8"
-        }
-      ],
-      "struct_commentary": [],
-      "struct_other": [
-        {
-          "vertices": [
-            {
-              "x": 824,
-              "y": 777
-            },
-            {
-              "x": 824,
-              "y": 938
-            },
-            {
-              "x": 2267,
-              "y": 933
-            },
-            {
-              "x": 2246,
-              "y": 771
-            }
-          ],
-          "connections": [],
-          "id": "36211283-7025-4637-a9fa-4b97de1c9694"
-        }
-      ],
-      "other": []
-    },
-    "doc_2": {
-      "src_content": [
+        },
         {
           "vertices": [
             {
@@ -248,7 +156,30 @@
       ],
       "archv_commentary": [],
       "archv_format_note": [],
-      "archv_date": [],
+      "archv_date": [
+        {
+          "vertices": [
+            {
+              "x": 3555,
+              "y": 318
+            },
+            {
+              "x": 3555,
+              "y": 532
+            },
+            {
+              "x": 4493,
+              "y": 532
+            },
+            {
+              "x": 4477,
+              "y": 297
+            }
+          ],
+          "connections": [],
+          "id": "62f32be5-04db-4fd2-a3ba-4b668482797c"
+        }
+      ],
       "archv_possessor": [
         {
           "vertices": [
@@ -275,9 +206,55 @@
       ],
       "archv_other": [],
       "struct_id": [],
-      "struct_doc": [],
+      "struct_doc": [
+        {
+          "vertices": [
+            {
+              "x": 766.0,
+              "y": 553.0
+            },
+            {
+              "x": 771.0,
+              "y": 756.0
+            },
+            {
+              "x": 1308.0,
+              "y": 751.0
+            },
+            {
+              "x": 1298.0,
+              "y": 542.0
+            }
+          ],
+          "connections": [],
+          "id": "cc04851d-0868-4b7d-b180-f00aee7403f8"
+        }
+      ],
       "struct_commentary": [],
-      "struct_other": [],
+      "struct_other": [
+        {
+          "vertices": [
+            {
+              "x": 824,
+              "y": 777
+            },
+            {
+              "x": 824,
+              "y": 938
+            },
+            {
+              "x": 2267,
+              "y": 933
+            },
+            {
+              "x": 2246,
+              "y": 771
+            }
+          ],
+          "connections": [],
+          "id": "36211283-7025-4637-a9fa-4b97de1c9694"
+        }
+      ],
       "other": []
     }
   }

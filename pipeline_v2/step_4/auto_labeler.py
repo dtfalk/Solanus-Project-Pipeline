@@ -393,30 +393,24 @@ def render_page(pdf_path: Path, image_width: int | None) -> tuple[Image.Image, i
 
 # Pages excluded from the few-shot pool due to internally inconsistent or
 # contradictory labels that would confuse the model. Each entry is
-# "Volume_or_Appendix/page_NNN". 61 clean examples remain (pool of 71 minus 13).
+# "Volume_or_Appendix/page_NNN". Shrinks as gold is corrected — the label-agreement
+# review (2026-06-02) rehabilitated page_002 / page_001 / page_218 after fixing the
+# exact defects that had excluded them.
 EXCLUDED_EXAMPLES: frozenset[str] = frozenset({
     # Mass-card greeting/recipient mislabels
     "Appendix_1/page_028",
     "Appendix_1/page_042",
     "Appendix_3/page_019",
     "Volume_2/page_075",
-    # archv_possessor labeled archv_other; letterhead labeled src_content
-    "Volume_2/page_002",
     # Continuation-page structure merged/mislabeled
     "Volume_1/page_274",
     # Notebook entries merged across distinct explicit margin dates
     "Volume_4/page_001",
     "Volume_4/page_007",
-    # Feast of the Presentation labeled struct_doc (should be src_date)
-    "Volume_3/page_001",
-    # Continuous letter split into two docs at an in-body timestamp
-    "Appendix_1/page_006",
     # Same-page inconsistent treatment of identical closing elements
     "Appendix_2/page_020",
     # Idiosyncratic outline/RETREAT split; unlabeled C.I.
     "Volume_1/page_245",
-    # WANTED heading as other, creating degenerate other<->struct_doc edge
-    "Volume_3/page_218",
 })
 
 
@@ -463,6 +457,7 @@ def select_few_shot(
     num_fewshot:    int,
     min_multi_doc:  int,
     rng:            random.Random,
+    target_page:    str | None = None,
 ) -> list[Path]:
     """Pick few-shot examples with two simultaneous biases:
       1. Same volume as target_doc (visual style match).
@@ -472,6 +467,10 @@ def select_few_shot(
     Multi-doc quota is filled first (preferring same-volume multi). Remaining
     slots are filled biased toward same-volume regardless of doc count.
     """
+    # No leakage: hold out the exact page being labeled from its own few-shot set.
+    if target_page is not None:
+        all_examples = [p for p in all_examples
+                        if not (p.parent.name == target_doc and p.name == target_page)]
     # Split into four buckets: (same/other) × (multi/single)
     same_multi   = [p for p in all_examples if p.parent.name == target_doc and p in multi_doc_set]
     same_single  = [p for p in all_examples if p.parent.name == target_doc and p not in multi_doc_set]
@@ -833,10 +832,13 @@ def select_pass2_fewshot(
     target_doc:  str,
     num_fewshot: int,
     rng:         random.Random,
+    target_page: str | None = None,
 ) -> list[Path]:
     """Pick pass-2 examples biased toward same volume as target_doc."""
     if not pool:
         return []
+    if target_page is not None:
+        pool = [p for p in pool if not (p.parent.name == target_doc and p.name == target_page)]
     same_vol  = [p for p in pool if p.parent.name == target_doc]
     other_vol = [p for p in pool if p.parent.name != target_doc]
     rng.shuffle(same_vol)
@@ -1237,6 +1239,146 @@ def load_example(page_dir: Path, image_width: int | None):
     return (uploaded if uploaded is not None else img), payload
 
 
+# ── Coverage backstop (general, content-driven recall recovery) ───────────────
+
+BACKSTOP_PROMPT = """\
+You previously labeled this scanned archival page, but an automatic coverage check found written TEXT that no polygon encloses. Your job now is ONLY to box that missing text — do NOT relabel, move, or re-emit anything already correct.
+
+These regions (normalized [0,1000]; each given as top-left (x0,y0) to bottom-right (x1,y1)) currently contain UNBOXED ink:
+{regions}
+
+For EACH region that holds written source/letter/archival text, emit a polygon (EXACTLY 4 vertices, coordinates in [0,1000]) tightly bounding that text, tagged with its correct category. A region that is a wrapped continuation or trailing remainder of adjacent text should still get a box with the best-fit category of that adjacent text. Do NOT box non-text marks (ink stamps, library/call numbers, punch holes, stray specks) — skip those regions. Return the SAME schema; include ONLY the new boxes; assign each to the document (doc_1, doc_2, ...) it belongs to."""
+
+
+def build_backstop_prompt_parts(target_image: Image.Image, regions: list[dict]) -> list:
+    """Prompt the model to box only the regions a coverage check left uncovered."""
+    cats = "\n".join(f"  - {cat}: {CATEGORY_DESCRIPTIONS[cat]}" for cat in CATEGORIES)
+    reg = "\n".join(f"  - ({r['x0']},{r['y0']}) to ({r['x1']},{r['y1']})" for r in regions)
+    return [
+        "CATEGORIES:\n" + cats,
+        BACKSTOP_PROMPT.format(regions=reg),
+        "PAGE (already partially labeled):",
+        target_image,
+    ]
+
+
+def _box_bbox(b):
+    return _bbox_of(b["vertices"])
+
+
+def _union_quad(b1, b2):
+    xs = [v["x"] for v in b1["vertices"]] + [v["x"] for v in b2["vertices"]]
+    ys = [v["y"] for v in b1["vertices"]] + [v["y"] for v in b2["vertices"]]
+    x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
+    return [{"x": x0, "y": y0}, {"x": x1, "y": y0}, {"x": x1, "y": y1}, {"x": x0, "y": y1}]
+
+
+def _line_scale(documents) -> float:
+    """Median box height — the 'one line' scale for adjacency tests (corpus-agnostic)."""
+    hs = sorted(_box_bbox(b)[3] - _box_bbox(b)[1]
+                for doc in documents.values() for ps in doc.values() for b in ps)
+    return hs[len(hs) // 2] if hs else 40.0
+
+
+def abuts(R, B, near) -> bool:
+    """True if region bbox R abuts box bbox B within ~one line along a shared edge
+    (so R is the next line below/above, or a trailing word beside, box B)."""
+    rx0, ry0, rx1, ry1 = R
+    bx0, by0, bx1, by1 = B
+    rw, rh = max(rx1 - rx0, 1), max(ry1 - ry0, 1)
+    ix = max(0, min(rx1, bx1) - max(rx0, bx0))
+    iy = max(0, min(ry1, by1) - max(ry0, by0))
+    hov = ix / min(rw, bx1 - bx0) if min(rw, bx1 - bx0) > 0 else 0
+    vov = iy / min(rh, by1 - by0) if min(rh, by1 - by0) > 0 else 0
+    if hov >= 0.6 and (-0.5 * near <= ry0 - by1 < 1.3 * near or -0.5 * near <= by0 - ry1 < 1.3 * near):
+        return True
+    if vov >= 0.6 and (-0.5 * near <= rx0 - bx1 < 1.5 * near or -0.5 * near <= bx0 - rx1 < 1.5 * near):
+        return True
+    return False
+
+
+def _merge_added_boxes(documents: dict, new_docs: dict) -> tuple[int, int]:
+    """Merge model-found boxes into `documents`, CATEGORY-SAFELY. A new box that
+    abuts an existing box of the SAME category EXTENDS it (the original box was just
+    too short / narrow — your "extend" case); otherwise it is added as a NEW box
+    (assigned to the nearest document, never creating one — your "new label" case).
+
+    The category is always the model's, so this never changes a label — it only
+    decides whether a box grows or a new box appears. Adjacent same-category
+    additions coalesce (a wrapped block becomes one box, not slivers).
+    Returns (n_new_boxes_added, n_existing_boxes_extended)."""
+    if not documents:
+        return 0, 0
+    near = _line_scale(documents)
+    spans = {}
+    for dname, doc in documents.items():
+        ys = [v for _c, ps in doc.items() for b in ps
+              for v in (_box_bbox(b)[1], _box_bbox(b)[3])]
+        if ys:
+            spans[dname] = (min(ys), max(ys))
+    default_doc = next(iter(documents))
+    added = extended = 0
+    for _dn, ndoc in new_docs.items():
+        for cat, polys in ndoc.items():
+            for nb in polys:
+                if not nb.get("vertices"):
+                    continue
+                R = _box_bbox(nb)
+                host = None
+                for doc in documents.values():
+                    for b in doc.get(cat, []):           # SAME category only
+                        if abuts(R, _box_bbox(b), near):
+                            host = b
+                            break
+                    if host:
+                        break
+                if host is not None:
+                    host["vertices"] = _union_quad(host, nb)   # EXTEND in place
+                    extended += 1
+                else:
+                    yc = (R[1] + R[3]) / 2
+                    tgt, best = default_doc, None
+                    for dname, (y0, y1) in spans.items():
+                        dist = 0 if y0 <= yc <= y1 else min(abs(yc - y0), abs(yc - y1))
+                        if best is None or dist < best:
+                            best, tgt = dist, dname
+                    documents[tgt].setdefault(cat, []).append(nb)   # NEW box
+                    added += 1
+    return added, extended
+
+
+def coverage_backstop(
+    documents:   dict,
+    page_gray:   Image.Image,
+    target_img:  Image.Image,
+    client:      genai.Client,
+    model_name:  str,
+    page_width:  int,
+    page_height: int,
+) -> tuple[int, int, int, int]:
+    """Second-pass recall recovery: re-prompt the model to box any ink its OWN
+    output left uncovered. General and content-driven — fires only where real ink
+    is unboxed, with zero page-specific knowledge, and only ADDS boxes (existing
+    labels and num_documents are never touched). Each missing region either EXTENDS an
+    adjacent same-category box or becomes a new box. Returns (n_added, n_extended, in_tok, out_tok)."""
+    import qa_report  # lazy: qa_report imports this module at load time
+    ink = qa_report._ink_mask(page_gray)
+    W, H = page_gray.size
+    flags = qa_report.check_uncovered_ink(documents, ink, W, H)
+    if not flags:
+        return 0, 0, 0, 0
+    regions = [{
+        "x0": round(f["bbox"][0] / W * NORM_RANGE), "y0": round(f["bbox"][1] / H * NORM_RANGE),
+        "x1": round(f["bbox"][2] / W * NORM_RANGE), "y1": round(f["bbox"][3] / H * NORM_RANGE),
+    } for f in flags]
+    parts = build_backstop_prompt_parts(target_img, regions)
+    resp, in_tok, out_tok = call_gemini(client, model_name, parts)
+    new_docs = _scale_response_to_original(resp, 0, 0, page_width, page_height)
+    snap_all_polygons(new_docs, page_gray)   # snap ONLY the new boxes
+    added, extended = _merge_added_boxes(documents, new_docs)
+    return added, extended, in_tok, out_tok
+
+
 def process_page(
     pdf_path:           Path,
     doc_name:           str,
@@ -1248,6 +1390,7 @@ def process_page(
     output_path:        Path,
     pass2_fewshot_dirs: list[Path] | None = None,
     snap:               bool = True,
+    backstop:           bool = True,
 ) -> tuple[int, int, int, int]:
     """Label one page and save its JSON + copied PDF.
 
@@ -1277,6 +1420,19 @@ def process_page(
         full_gray = render_page(pdf_path, None)[0].convert("L")
         n_snapped = snap_all_polygons(documents, full_gray)
         log.info("  resolved %d overlap(s); fit %d polygon(s) to ink", n_trimmed, n_snapped)
+
+        # Coverage backstop: box any ink the model's own output left uncovered.
+        if backstop:
+            try:
+                n_add, n_ext, bs_in, bs_out = coverage_backstop(
+                    documents, full_gray, target_img, client, model_name, source_w, source_h)
+                input_tokens  += bs_in
+                output_tokens += bs_out
+                if n_add or n_ext:
+                    log.info("  coverage backstop: extended %d box(es), added %d new for uncovered ink",
+                             n_ext, n_add)
+            except Exception as exc:
+                log.warning("  coverage backstop failed: %s", exc)
 
     # ── Pass 2: connections (best-effort) ─────────────────────────────────────
     p2_input_tokens, p2_output_tokens = 0, 0
@@ -1383,6 +1539,8 @@ def parse_args() -> argparse.Namespace:
                    help="Number of few-shot examples for pass 2 (default: 6).")
     p.add_argument("--no-snap", action="store_true",
                    help="Skip snap-to-ink polygon tightening (keep raw model polygons).")
+    p.add_argument("--no-backstop", action="store_true",
+                   help="Skip the coverage-backstop second pass (no re-prompt on uncovered ink).")
     return p.parse_args()
 
 
@@ -1473,11 +1631,14 @@ def main() -> None:
             skipped.append((doc_name, page_num))
             continue
 
+        page_name = f"page_{page_num:03d}"
         fewshot_dirs = select_few_shot(
             all_examples, multi_doc_examples, doc_name,
             args.num_fewshot, args.min_fewshot_multi_doc, rng,
+            target_page=page_name,
         )
-        pass2_dirs   = (select_pass2_fewshot(pass2_pool, doc_name, args.num_fewshot_pass2, rng)
+        pass2_dirs   = (select_pass2_fewshot(pass2_pool, doc_name, args.num_fewshot_pass2, rng,
+                                             target_page=page_name)
                         if pass2_pool else None)
         log.info("Labeling %s/page_%03d (%d pass-1 + %d pass-2 examples)",
                  doc_name, page_num,
@@ -1496,6 +1657,7 @@ def main() -> None:
                 output_path        = out_path,
                 pass2_fewshot_dirs = pass2_dirs,
                 snap               = not args.no_snap,
+                backstop           = not args.no_backstop,
             )
             total_input_tokens  += in1 + in2
             total_output_tokens += out1 + out2

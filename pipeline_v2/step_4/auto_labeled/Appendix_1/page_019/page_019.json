@@ -11,24 +11,46 @@
         {
           "vertices": [
             {
-              "x": 827,
+              "x": 824,
               "y": 2689
             },
             {
-              "x": 4575,
+              "x": 4577,
               "y": 2689
             },
             {
-              "x": 4575,
+              "x": 4577,
+              "y": 3491
+            },
+            {
+              "x": 824,
+              "y": 3491
+            }
+          ],
+          "connections": [],
+          "id": "9c8eeb98-c35b-4846-9c38-78ddf3a60678"
+        },
+        {
+          "vertices": [
+            {
+              "x": 830,
+              "y": 3529
+            },
+            {
+              "x": 4475,
+              "y": 3529
+            },
+            {
+              "x": 4475,
               "y": 4014
             },
             {
-              "x": 827,
+              "x": 830,
               "y": 4014
             }
           ],
           "connections": [],
-          "id": "b6af895b-88d8-468b-bf19-fd9ebaf590b7"
+          "id": "08237206-9b46-42e7-a95b-39fb9087a26e"
         }
       ],
       "src_origin": [
@@ -52,7 +74,7 @@
             }
           ],
           "connections": [],
-          "id": "acb91d44-5752-4f2a-8660-79ff45b463c1"
+          "id": "5d0163fe-f71b-4810-b535-d7a1543da8bb"
         }
       ],
       "src_recipient": [
@@ -76,7 +98,7 @@
             }
           ],
           "connections": [],
-          "id": "b2194d9b-4843-4ee1-b686-8860a24abfe3"
+          "id": "f9fd6522-b149-480e-8881-1e386b60fbf6"
         }
       ],
       "src_location_recipient": [
@@ -100,7 +122,7 @@
             }
           ],
           "connections": [],
-          "id": "68cfd90c-572e-42fc-af65-bce77d67b0d7"
+          "id": "164369d3-7dc2-401f-b8c1-05604a435c4f"
         }
       ],
       "src_location_sender": [
@@ -108,14 +130,14 @@
           "vertices": [
             {
               "x": 2026,
-              "y": 1218
+              "y": 1219
             },
             {
-              "x": 3198,
-              "y": 1218
+              "x": 3200,
+              "y": 1219
             },
             {
-              "x": 3198,
+              "x": 3200,
               "y": 1394
             },
             {
@@ -124,7 +146,7 @@
             }
           ],
           "connections": [],
-          "id": "6ff6f7a9-c375-484a-bad1-84760978d79a"
+          "id": "8c10702d-9c13-44d2-8015-ffbf0d7d0224"
         },
         {
           "vertices": [
@@ -146,7 +168,7 @@
             }
           ],
           "connections": [],
-          "id": "e9e8d4ee-0300-4bef-8dcf-ecc03b5a262e"
+          "id": "64f0ceff-ac13-4c23-8b1a-bae6e328956b"
         }
       ],
       "src_date": [
@@ -170,7 +192,7 @@
             }
           ],
           "connections": [],
-          "id": "ca36f08f-f92c-4a71-815d-389a9b40389e"
+          "id": "f28e4611-4a7c-4ef0-a00b-d589ae37d098"
         }
       ],
       "src_greeting": [
@@ -194,7 +216,7 @@
             }
           ],
           "connections": [],
-          "id": "e3a968d7-3bd4-4185-bf42-6c0c60799132"
+          "id": "dc743de5-9e75-4e4d-b392-c7e48d573e7a"
         }
       ],
       "src_farewell": [],
@@ -219,7 +241,7 @@
             }
           ],
           "connections": [],
-          "id": "48da8c3f-ae07-45c4-ad2b-77686ebbcbc2"
+          "id": "d285f03f-1ad5-4753-a85a-38abc057e84b"
         }
       ],
       "src_other": [],
@@ -232,7 +254,30 @@
       "struct_doc": [],
       "struct_commentary": [],
       "struct_other": [],
-      "other": []
+      "other": [
+        {
+          "vertices": [
+            {
+              "x": 1091,
+              "y": 4044
+            },
+            {
+              "x": 2535,
+              "y": 4044
+            },
+            {
+              "x": 2535,
+              "y": 4222
+            },
+            {
+              "x": 1091,
+              "y": 4222
+            }
+          ],
+          "connections": [],
+          "id": "02c6fc52-9076-4050-8674-d7018f78b2aa"
+        }
+      ]
     }
   }
 }
