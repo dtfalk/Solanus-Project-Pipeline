@@ -15,12 +15,10 @@ Usage (run from any directory):
     python auto_labeler.py --num-fewshot 12
     python auto_labeler.py --model gemini-3-flash-preview
     python auto_labeler.py --delay 1.5
-    python auto_labeler.py --concurrency 8          # pages labeled in parallel (default 4)
 """
 from __future__ import annotations
 
 import argparse
-import concurrent.futures
 import json
 import logging
 import os
@@ -40,7 +38,7 @@ from tenacity import (
     retry,
     retry_if_exception_type,
     stop_after_attempt,
-    wait_random_exponential,
+    wait_exponential,
 )
 
 from google import genai
@@ -53,12 +51,6 @@ SCRIPT_DIR           = Path(__file__).resolve().parent
 LABELED_EXAMPLES_DIR = SCRIPT_DIR / "labeled_examples"
 POLYGON_PDFS_DIR     = SCRIPT_DIR / "polygon_cropped_pdfs"
 AUTO_LABELED_DIR     = SCRIPT_DIR / "auto_labeled"
-
-# Concurrency lever: how many pages are labeled in flight at once (override with
-# --concurrency). Few-shot selection stays deterministic regardless (it is
-# precomputed sequentially in the main thread), and every API call retries with
-# jittered exponential backoff, so rate-limit bursts degrade to waiting, not failures.
-MAX_CONCURRENCY      = 4
 ENV_PATH             = SCRIPT_DIR / ".env"
 USAGE_CSV            = SCRIPT_DIR / "usage.csv"
 URI_MAP_PATH         = SCRIPT_DIR / "file_uris.json"  # written by upload_examples.py
@@ -393,11 +385,7 @@ def render_page(pdf_path: Path, image_width: int | None) -> tuple[Image.Image, i
         rendered = full.resize((image_width, new_h), Image.LANCZOS)
 
     result = (rendered, rendered.width, rendered.height, source_w, source_h)
-    # Cache only DOWNSIZED renders (few-shot example images, reused across every
-    # page). Full-res renders (~110 MB each) are used once per page; caching them
-    # unbounded would OOM a 300+ page volume (52 pages already held ~5 GB).
-    if image_width is not None:
-        _render_cache[cache_key] = result
+    _render_cache[cache_key] = result
     return result
 
 
@@ -620,8 +608,8 @@ class TransientAPIError(Exception):
 
 @retry(
     retry=retry_if_exception_type(TransientAPIError),
-    stop=stop_after_attempt(6),
-    wait=wait_random_exponential(multiplier=2, max=60),
+    stop=stop_after_attempt(4),
+    wait=wait_exponential(multiplier=2, min=2, max=30),
     reraise=True,
 )
 def call_gemini(
@@ -890,8 +878,8 @@ def build_pass2_prompt_parts(
 
 @retry(
     retry=retry_if_exception_type(TransientAPIError),
-    stop=stop_after_attempt(6),
-    wait=wait_random_exponential(multiplier=2, max=60),
+    stop=stop_after_attempt(4),
+    wait=wait_exponential(multiplier=2, min=2, max=30),
     reraise=True,
 )
 def call_gemini_connections(
@@ -1539,8 +1527,6 @@ def parse_args() -> argparse.Namespace:
                         "Must match a key in pricing.PRICING for cost tracking.")
     p.add_argument("--delay",       type=float, default=1.0,
                    help="Seconds to sleep between API calls (default: 1.0).")
-    p.add_argument("--concurrency", type=int,   default=MAX_CONCURRENCY,
-                   help=f"Pages labeled in parallel (default: {MAX_CONCURRENCY}; 1 = serial).")
     p.add_argument("--api-key",     type=str,   default=None,
                    help="Override GEMINI_API_KEY from .env / environment.")
     p.add_argument("--seed",        type=int,   default=42,
@@ -1631,70 +1617,58 @@ def main() -> None:
     succeeded: list[tuple[str, int]] = []
     failed:    list[tuple[str, int, str]] = []
     skipped:   list[tuple[str, int]] = []
+    processed = 0
     total_input_tokens  = 0
     total_output_tokens = 0
 
-    # Build the work list FIRST: few-shot selection runs sequentially in the main
-    # thread (same rng order as a serial run), so seed reproducibility survives any
-    # concurrency setting.
-    work = []
     for doc_name, page_num, pdf_path in pages:
-        if args.dry_run is not None and len(work) >= args.dry_run:
-            log.info("Reached --dry-run limit (%d).", args.dry_run)
+        if args.dry_run is not None and processed >= args.dry_run:
+            log.info("Reached --dry-run limit (%d). Stopping.", args.dry_run)
             break
+
         out_path = AUTO_LABELED_DIR / doc_name / f"page_{page_num:03d}" / f"page_{page_num:03d}.json"
         if out_path.exists() and not args.overwrite:
             skipped.append((doc_name, page_num))
             continue
+
         page_name = f"page_{page_num:03d}"
         fewshot_dirs = select_few_shot(
             all_examples, multi_doc_examples, doc_name,
             args.num_fewshot, args.min_fewshot_multi_doc, rng,
             target_page=page_name,
         )
-        pass2_dirs = (select_pass2_fewshot(pass2_pool, doc_name, args.num_fewshot_pass2, rng,
-                                           target_page=page_name)
-                      if pass2_pool else None)
-        work.append((doc_name, page_num, pdf_path, fewshot_dirs, pass2_dirs, out_path))
-
-    concurrency = max(1, args.concurrency)
-    log.info("Processing %d page(s) with concurrency=%d.", len(work), concurrency)
-
-    def _label_one(item):
-        doc_name, page_num, pdf_path, fewshot_dirs, pass2_dirs, out_path = item
+        pass2_dirs   = (select_pass2_fewshot(pass2_pool, doc_name, args.num_fewshot_pass2, rng,
+                                             target_page=page_name)
+                        if pass2_pool else None)
         log.info("Labeling %s/page_%03d (%d pass-1 + %d pass-2 examples)",
-                 doc_name, page_num, len(fewshot_dirs),
+                 doc_name, page_num,
+                 len(fewshot_dirs),
                  len(pass2_dirs) if pass2_dirs else 0)
-        return process_page(
-            pdf_path           = pdf_path,
-            doc_name           = doc_name,
-            page_number        = page_num,
-            client             = client,
-            model_name         = args.model,
-            fewshot_dirs       = fewshot_dirs,
-            image_width        = image_width,
-            output_path        = out_path,
-            pass2_fewshot_dirs = pass2_dirs,
-            snap               = not args.no_snap,
-            backstop           = not args.no_backstop,
-        )
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as pool_exec:
-        futures = {}
-        for item in work:
-            futures[pool_exec.submit(_label_one, item)] = (item[0], item[1])
+        try:
+            in1, out1, in2, out2 = process_page(
+                pdf_path           = pdf_path,
+                doc_name           = doc_name,
+                page_number        = page_num,
+                client             = client,
+                model_name         = args.model,
+                fewshot_dirs       = fewshot_dirs,
+                image_width        = image_width,
+                output_path        = out_path,
+                pass2_fewshot_dirs = pass2_dirs,
+                snap               = not args.no_snap,
+                backstop           = not args.no_backstop,
+            )
+            total_input_tokens  += in1 + in2
+            total_output_tokens += out1 + out2
+            succeeded.append((doc_name, page_num))
+            processed += 1
             if args.delay > 0:
-                time.sleep(args.delay)      # stagger submissions: a gentle rate ramp
-        for fut in concurrent.futures.as_completed(futures):
-            doc_name, page_num = futures[fut]
-            try:
-                in1, out1, in2, out2 = fut.result()
-                total_input_tokens  += in1 + in2
-                total_output_tokens += out1 + out2
-                succeeded.append((doc_name, page_num))
-            except Exception as exc:
-                log.error("Failed %s/page_%03d: %s", doc_name, page_num, exc)
-                failed.append((doc_name, page_num, str(exc)))
+                time.sleep(args.delay)
+        except Exception as exc:
+            log.error("Failed %s/page_%03d: %s", doc_name, page_num, exc)
+            failed.append((doc_name, page_num, str(exc)))
+            processed += 1
 
     # ── Summary ───────────────────────────────────────────────────────────────
     log.info("=" * 60)

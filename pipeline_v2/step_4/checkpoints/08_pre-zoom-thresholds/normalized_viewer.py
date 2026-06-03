@@ -168,8 +168,6 @@ class ViewerApp:
         self.image_offset_y  = 0
         self.rendered_width  = 1
         self.rendered_height = 1
-        self.view            = None   # None => fit; ("custom", scale, off_x, off_y) => wheel/pan
-        self._pan_anchor     = None
 
         self._build_ui()
         self.load_page(self.current_page)
@@ -329,17 +327,10 @@ class ViewerApp:
             self.root.bind(f"<KP_{n}>",       lambda e, i=n: self._on_info_type_number(i))
         self.canvas.bind("<ButtonPress-1>", self._on_canvas_click)
         self.canvas.bind("<Configure>",     self._on_canvas_resize)
-        self.canvas.bind("<Button-4>",      lambda e: self._on_zoom_wheel(e, 1))   # X11 wheel up
-        self.canvas.bind("<Button-5>",      lambda e: self._on_zoom_wheel(e, -1))  # X11 wheel down
-        self.canvas.bind("<MouseWheel>",    self._on_zoom_wheel)                   # Win / macOS
-        self.canvas.bind("<ButtonPress-2>", self._on_pan_press)                    # middle-drag pan
-        self.canvas.bind("<B2-Motion>",     self._on_pan_motion)
-        self.root.bind("f",                 self._zoom_fit)                        # fit page
 
     # ── Page loading ──────────────────────────────────────────────────────────
 
     def load_page(self, page_number):
-        self.view         = None
         self.current_page = page_number
         self.page_index   = self.page_numbers.index(page_number)
         self._load_page_data(page_number)
@@ -467,61 +458,18 @@ class ViewerApp:
     def _refresh_render_metrics(self):
         cw = max(1, self.canvas.winfo_width())
         ch = max(1, self.canvas.winfo_height())
-        fit = min((cw - 16) / max(1, self.original_width),
-                  (ch - 16) / max(1, self.original_height))
-        cap = min(4000 / max(1, self.original_width),
-                  4000 / max(1, self.original_height))
-        view = getattr(self, "view", None)
-        if view and view[0] == "custom":
-            z = min(max(view[1], fit * 0.5), cap)
-            self.display_scale   = z
-            self.rendered_width  = max(1, int(round(self.original_width  * z)))
-            self.rendered_height = max(1, int(round(self.original_height * z)))
-            self.image_offset_x  = int(view[2])
-            self.image_offset_y  = int(view[3])
-        else:
-            self.display_scale   = fit
-            self.rendered_width  = max(1, int(round(self.original_width  * fit)))
-            self.rendered_height = max(1, int(round(self.original_height * fit)))
-            self.image_offset_x  = max(0, (cw - self.rendered_width)  // 2)
-            self.image_offset_y  = max(0, (ch - self.rendered_height) // 2)
+        scale_x = (cw - 16) / max(1, self.original_width)
+        scale_y = (ch - 16) / max(1, self.original_height)
+        self.display_scale   = min(scale_x, scale_y)
+        self.rendered_width  = max(1, int(round(self.original_width  * self.display_scale)))
+        self.rendered_height = max(1, int(round(self.original_height * self.display_scale)))
+        self.image_offset_x  = max(0, (cw - self.rendered_width)  // 2)
+        self.image_offset_y  = max(0, (ch - self.rendered_height) // 2)
 
     def _refresh_image(self):
         self._refresh_render_metrics()
         resized = self.page_image.resize((self.rendered_width, self.rendered_height))
         self.tk_image = ImageTk.PhotoImage(resized)
-
-    def _zoom_fit(self, event=None):
-        if self.view is not None:
-            self.view = None
-            self._refresh_image()
-            self._draw_scene()
-        return "break"
-
-    def _on_zoom_wheel(self, event, direction=None):
-        """Mouse-wheel zoom anchored on the cursor; 'f' fits the whole page."""
-        delta = direction if direction is not None else (1 if getattr(event, "delta", 0) > 0 else -1)
-        factor = 1.25 if delta > 0 else 0.8
-        old = self.display_scale
-        new = old * factor
-        px = (event.x - self.image_offset_x) / old
-        py = (event.y - self.image_offset_y) / old
-        self.view = ("custom", new, event.x - px * new, event.y - py * new)
-        self._refresh_image()
-        self._draw_scene()
-        return "break"
-
-    def _on_pan_press(self, event):
-        self._pan_anchor = (event.x, event.y, self.image_offset_x, self.image_offset_y)
-
-    def _on_pan_motion(self, event):
-        if not self._pan_anchor:
-            return
-        sx, sy, ox, oy = self._pan_anchor
-        self.image_offset_x = ox + (event.x - sx)
-        self.image_offset_y = oy + (event.y - sy)
-        self.view = ("custom", self.display_scale, self.image_offset_x, self.image_offset_y)
-        self._draw_scene()
 
     # ── Drawing ───────────────────────────────────────────────────────────────
 

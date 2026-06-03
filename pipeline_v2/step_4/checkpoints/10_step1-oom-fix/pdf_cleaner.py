@@ -2,22 +2,13 @@ import os
 import cv2
 import numpy as np
 import logging
-import shutil
-import subprocess
-import tempfile
 from time import time
 import platform
 from pathlib import Path
-from pdf2image import convert_from_path, pdfinfo_from_path
+from pdf2image import convert_from_path
 from PIL import Image
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from config import *
-
-# Pages rendered + cleaned in memory at once. A single 300-DPI page is ~400+ MB as an
-# RGB array, so holding a whole volume (the old behavior) needed tens of GB and swapped.
-# Chunking bounds peak memory to ~PAGES_PER_CHUNK pages regardless of document length;
-# finished chunks are written to disk immediately and merged with poppler's pdfunite.
-PAGES_PER_CHUNK = 8
 
 def get_poppler_path():
     if platform.system() == "Windows":
@@ -129,73 +120,50 @@ def clean_pdf(pdf_path, output_folder, max_workers):
     logging.info(f"Cleaning {document_name}")
     logging.info(f"{'-' * 70}\n")
 
-    # Page count up front (no rendering) so we can stream in bounded chunks.
-    info = pdfinfo_from_path(pdf_path, poppler_path = get_poppler_path())
-    n_pages = int(info["Pages"])
+    # Convert PDFs to images
+    page_images = convert_from_path(
+        pdf_path,
+        dpi = TARGET_DPI,
+        poppler_path = get_poppler_path()
+    )
 
+    
+    cleaned_images = []
+    unsorted_outputs = []
+
+    # Process all pages via process pool if concurrency flag is set
+    if CONCURRENT_FLAG:
+
+        # Submit pages to clean and distribute to cores
+        with ProcessPoolExecutor(max_workers = max_workers) as executor:
+            
+            # Generate the list of jobs to be distributed amongst the cores
+            futures = []
+            for page_index, page_image in enumerate(page_images):
+                futures.append(executor.submit(preprocess, page_image, document_name, page_index))
+
+            for future in as_completed(futures):
+                cleaned, page_index = future.result()
+                cleaned_image = Image.fromarray(cleaned)
+                unsorted_outputs.append((cleaned_image, page_index))
+                
+        cleaned_images = [img for img, _ in sorted(unsorted_outputs, key = lambda x: x[1])]
+    else:
+        for page_index, page_image in enumerate(page_images):
+            cleaned_page, _ = preprocess(page_image, document_name, page_index)
+            cleaned_images.append(Image.fromarray(cleaned_page))
+
+    # Save cleaned pages back into a single PDF
     save_path = output_folder / f"{document_name}.pdf"
-    chunk_paths = []
-
-    # One pool reused across all chunks (when concurrency is on).
-    executor = (ProcessPoolExecutor(max_workers = max_workers)
-                if CONCURRENT_FLAG and max_workers > 1 else None)
-
-    # Temp dir lives next to the output (same filesystem) and is auto-removed.
-    with tempfile.TemporaryDirectory(dir = output_folder) as tmp_dir:
-        try:
-            for chunk_start in range(1, n_pages + 1, PAGES_PER_CHUNK):
-                chunk_end = min(chunk_start + PAGES_PER_CHUNK - 1, n_pages)
-
-                # Render ONLY this chunk's pages
-                page_images = convert_from_path(
-                    pdf_path,
-                    dpi = TARGET_DPI,
-                    first_page = chunk_start,
-                    last_page = chunk_end,
-                    poppler_path = get_poppler_path()
-                )
-
-                # Clean the chunk (pool if available, else serially)
-                if executor is not None:
-                    futures = [executor.submit(preprocess, img, document_name, chunk_start + i)
-                               for i, img in enumerate(page_images)]
-                    unsorted_outputs = []
-                    for future in as_completed(futures):
-                        cleaned, page_index = future.result()
-                        unsorted_outputs.append((Image.fromarray(cleaned), page_index))
-                    cleaned_images = [img for img, _ in sorted(unsorted_outputs, key = lambda x: x[1])]
-                else:
-                    cleaned_images = []
-                    for i, page_image in enumerate(page_images):
-                        cleaned_page, _ = preprocess(page_image, document_name, chunk_start + i)
-                        cleaned_images.append(Image.fromarray(cleaned_page))
-
-                # Flush the finished chunk to disk and FREE it before the next one
-                chunk_path = Path(tmp_dir) / f"chunk_{chunk_start:05d}.pdf"
-                cleaned_images[0].save(
-                    chunk_path,
-                    save_all = True,
-                    append_images = cleaned_images[1:]
-                )
-                chunk_paths.append(chunk_path)
-                del page_images, cleaned_images
-                logging.info(f"  cleaned pages {chunk_start}-{chunk_end} / {n_pages}")
-        finally:
-            if executor is not None:
-                executor.shutdown()
-
-        if not chunk_paths:
-            logging.error(f"No pages processed for {document_name}. Please examine file manually.")
-            return
-
-        # Stitch the chunk PDFs (compressed, on disk) into the single output PDF.
-        if len(chunk_paths) == 1:
-            shutil.move(str(chunk_paths[0]), save_path)
-        else:
-            subprocess.run(
-                ["pdfunite", *[str(p) for p in chunk_paths], str(save_path)],
-                check = True
-            )
+    if not cleaned_images:
+        logging.error(f"No pages processed for {document_name}. Please examine file manually.")
+        return
+    
+    cleaned_images[0].save(
+        save_path,
+        save_all = True,
+        append_images = cleaned_images[1:]
+    )
 
     logging.info(f"Saved cleaned PDF to {save_path}")
     logging.info(f"Time taken: {time() - start_time:.2f} seconds\n")
@@ -211,9 +179,8 @@ def main():
     logging.info(f"Step 1: PDF Cleaner")
     logging.info(f"{'=' * 70}\n")
 
-    # Construct the path to the data folder (project root, per config.py docs:
-    # Solanus-Project-Pipeline/source_data — one level above pipeline_v2)
-    pdf_folder = Path(__file__).resolve().parent.parent.parent / SOURCE_DATA_FOLDER
+    # Construct the path to the data folder
+    pdf_folder = Path(__file__).resolve().parent.parent / SOURCE_DATA_FOLDER
 
     # Get the paths to the pdfs
     pdf_paths = get_pdf_paths(pdf_folder)

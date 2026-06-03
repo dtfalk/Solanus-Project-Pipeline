@@ -10,17 +10,8 @@ Only pages present in the source (auto_labeled) directory are available.
 If a page has already been saved to reviewed/, the editor loads from there
 instead (preserving previous edits).
 
-A per-page Review Queue (bottom panel) surfaces qa_report.py flags with a
-suggested action per flag: "Extend" grows the nearest box over uncovered ink
-(the box-too-short case), "Add box" creates a new one, and "Dismiss" persists
-across sessions (qa_output/<doc>/dismissed.json). Selecting a flag auto-zooms
-to it and shows a cyan ghost preview of the proposed fix. Queue keys:
-Up/Down navigate, Enter = suggested action, e/a/d = extend/add/dismiss, f = fit.
-
-Canvas: mouse-wheel zoom (anchored on the cursor), middle-drag pan, f = fit.
-Documents: "Merge ▲" folds the current doc into the previous one; "Split ▼"
-duplicates it into a new next doc for keep/delete partitioning (both renumber
-later documents and remap connection references).
+A per-page Review Queue (bottom panel) surfaces qa_report.py flags
+(missing boxes, overlaps, clips) so you can accept or dismiss each.
 
 For each page you can:
   - Set how many documents appear on the page (top toolbar spinner).
@@ -226,10 +217,7 @@ class NormalizedEditorApp:
         # Persisted dismissals (false-alarm flags the user chose to ignore) + zoom state.
         self.dismissed_path = QA_OUTPUT_DIR / self.document_name / "dismissed.json"
         self.dismissed_keys = self._load_dismissed()
-        # View state: None => fit whole page; ("flag", bbox) => auto-zoom to a QA flag;
-        # ("custom", scale, off_x, off_y) => user wheel-zoom / pan.
-        self.view = None
-        self._pan_anchor = None
+        self.zoom_target = None   # None => fit whole page; else a bbox to zoom/center on
         # Per-page Review Queue: {page_number: [flag dict, ...]} from qa_report.py.
         self.qa_flags_by_page = self._load_qa_flags()
         self.queue_flags    = []     # flags for the current page
@@ -368,10 +356,6 @@ class NormalizedEditorApp:
 
         tk.Label(self.left_panel, text="Documents", bg="#252526", fg="#aaaaaa",
                  font=("TkDefaultFont", 8, "bold")).pack(pady=(8, 4))
-        ttk.Button(self.left_panel, text="Merge ▲",
-                   command=self._merge_doc_into_previous).pack(side=tk.BOTTOM, pady=(2, 8))
-        ttk.Button(self.left_panel, text="Split ▼",
-                   command=self._split_doc_duplicate).pack(side=tk.BOTTOM, pady=(2, 2))
         self.doc_buttons_frame = tk.Frame(self.left_panel, bg="#252526")
         self.doc_buttons_frame.pack(fill=tk.BOTH, expand=True, pady=2)
 
@@ -502,12 +486,6 @@ class NormalizedEditorApp:
         self.canvas.bind("<ButtonRelease-1>", self._on_canvas_release)
         self.canvas.bind("<Motion>",          self._on_canvas_motion)
         self.canvas.bind("<Configure>",       self._on_canvas_resize)
-        self.canvas.bind("<Button-4>",        lambda e: self._on_zoom_wheel(e, 1))    # X11 wheel up
-        self.canvas.bind("<Button-5>",        lambda e: self._on_zoom_wheel(e, -1))   # X11 wheel down
-        self.canvas.bind("<MouseWheel>",      self._on_zoom_wheel)                    # Win / macOS
-        self.canvas.bind("<ButtonPress-2>",   self._on_pan_press)                     # middle-drag pan
-        self.canvas.bind("<B2-Motion>",       self._on_pan_motion)
-        self.root.bind("f",                   self._zoom_fit)                         # fit page
 
     # ── Page loading / saving ──────────────────────────────────────────────────
 
@@ -524,7 +502,7 @@ class NormalizedEditorApp:
             self.current_doc = "doc_1"
 
         self.selected_polygon_idx = None
-        self.view         = None
+        self.zoom_target  = None
         self.draw_mode    = False
         self.draw_vertices = []
         self.drag_mode    = None
@@ -776,138 +754,6 @@ class NormalizedEditorApp:
         if self.current_doc not in valid_keys:
             self.current_doc = "doc_1"
 
-        self._rebuild_doc_buttons()
-        self._draw_scene()
-        self._update_status()
-
-    def _merge_doc_into_previous(self):
-        """Merge the CURRENT document into the previous one (doc_N -> doc_N-1).
-
-        For pages over-split into documents (e.g. front/back of one card): all of
-        doc_N's boxes move into doc_N-1, every later document is renumbered down by
-        one, and connection {doc,...} references are remapped to match. Adjacent
-        merge only — to merge doc_2 and doc_3, select doc_3 and Merge ▲."""
-        try:
-            n = int(self.current_doc.split("_", 1)[1])
-        except (ValueError, IndexError):
-            return
-        if n <= 1:
-            messagebox.showinfo("Merge docs", "doc_1 has no previous document to merge into.")
-            return
-        docs = self.page_data.get("documents", {})
-        src_name, dst_name = f"doc_{n}", f"doc_{n - 1}"
-        if src_name not in docs:
-            return
-        if not messagebox.askyesno(
-                "Merge docs",
-                f"Merge {src_name} into {dst_name}?\n\nAll of its boxes move into {dst_name} "
-                f"and later documents are renumbered down by one."):
-            return
-        self._cancel_draw_if_active()
-        # 1) move every polygon into the previous document
-        dst = docs.setdefault(dst_name, {})
-        for cat, polys in (docs.get(src_name) or {}).items():
-            if isinstance(polys, list) and polys:
-                dst.setdefault(cat, []).extend(polys)
-        del docs[src_name]
-        # 2) renumber all later documents down by one
-        total = int(self.page_data.get("num_documents", len(docs) + 1))
-        rename = {src_name: dst_name}
-        for i in range(n + 1, total + 1):
-            old, new = f"doc_{i}", f"doc_{i - 1}"
-            if old in docs:
-                docs[new] = docs.pop(old)
-                rename[old] = new
-        # 3) remap connection doc references everywhere on the page
-        for doc in docs.values():
-            if not isinstance(doc, dict):
-                continue
-            for polys in doc.values():
-                if not isinstance(polys, list):
-                    continue
-                for p in polys:
-                    for cn in (p.get("connections") or []):
-                        if cn.get("doc") in rename:
-                            cn["doc"] = rename[cn["doc"]]
-        # 4) keep keys in doc_1..doc_N order for clean JSON
-        def _idx(k):
-            try:
-                return int(k.split("_", 1)[1])
-            except (ValueError, IndexError):
-                return 999
-        self.page_data["documents"] = {k: docs[k] for k in sorted(docs, key=_idx)}
-        # 5) bookkeeping
-        self.page_data["num_documents"] = max(1, total - 1)
-        self.num_docs_var.set(self.page_data["num_documents"])
-        self.current_doc = dst_name
-        self.selected_polygon_idx = None
-        self._rebuild_doc_buttons()
-        self._draw_scene()
-        self._update_status()
-
-    def _split_doc_duplicate(self):
-        """Dual of Merge ▲: insert a new doc_N+1 holding a COPY of every box in the
-        current doc_N (fresh ids, no connections). For a page that should be MORE
-        documents (two notes written on one thing): split, then in each of doc_N /
-        doc_N+1 just delete the boxes that belong to the other note — no redrawing.
-        Later documents are renumbered up by one (connection refs remapped)."""
-        try:
-            n = int(self.current_doc.split("_", 1)[1])
-        except (ValueError, IndexError):
-            return
-        docs = self.page_data.get("documents", {})
-        src_name = f"doc_{n}"
-        if src_name not in docs:
-            return
-        total = int(self.page_data.get("num_documents", len(docs)))
-        if total >= 20:
-            messagebox.showinfo("Split doc", "Max 20 documents per page.")
-            return
-        if not messagebox.askyesno(
-                "Split doc",
-                f"Duplicate {src_name} into a new doc_{n + 1}?\n\nEvery box is copied into "
-                f"both; delete from each until the two documents are partitioned."):
-            return
-        self._cancel_draw_if_active()
-        # 1) renumber later documents UP by one (descending, to avoid collisions)
-        rename = {}
-        for i in range(total, n, -1):
-            old, new = f"doc_{i}", f"doc_{i + 1}"
-            if old in docs:
-                docs[new] = docs.pop(old)
-                rename[old] = new
-        # 2) new doc_{n+1} = copy of doc_n with fresh ids and no connections
-        copy_doc = {}
-        for cat, polys in (docs.get(src_name) or {}).items():
-            if not isinstance(polys, list):
-                continue
-            copy_doc[cat] = [{"id": str(uuid4()),
-                              "vertices": [dict(v) for v in p.get("vertices", [])],
-                              "connections": []}
-                             for p in polys]
-        docs[f"doc_{n + 1}"] = copy_doc
-        # 3) remap connection doc references for the renumbered docs
-        for doc in docs.values():
-            if not isinstance(doc, dict):
-                continue
-            for polys in doc.values():
-                if not isinstance(polys, list):
-                    continue
-                for p in polys:
-                    for cn in (p.get("connections") or []):
-                        if cn.get("doc") in rename:
-                            cn["doc"] = rename[cn["doc"]]
-        # 4) keep keys ordered + bookkeeping
-        def _idx2(k):
-            try:
-                return int(k.split("_", 1)[1])
-            except (ValueError, IndexError):
-                return 999
-        self.page_data["documents"] = {k: docs[k] for k in sorted(docs, key=_idx2)}
-        self.page_data["num_documents"] = total + 1
-        self.num_docs_var.set(total + 1)
-        self.current_doc = f"doc_{n + 1}"
-        self.selected_polygon_idx = None
         self._rebuild_doc_buttons()
         self._draw_scene()
         self._update_status()
@@ -1235,26 +1081,18 @@ class NormalizedEditorApp:
         ch = max(1, self.canvas.winfo_height())
         fit = min((cw - 16) / max(1, self.original_width),
                   (ch - 16) / max(1, self.original_height))
-        cap = min(4000 / max(1, self.original_width),           # cap rendered image (~<16MP)
-                  4000 / max(1, self.original_height))
-        view = getattr(self, "view", None)
-        if view and view[0] == "flag":
-            bx0, by0, bx1, by1 = view[1]
+        if self.zoom_target:
+            bx0, by0, bx1, by1 = self.zoom_target
             bw, bh = max(bx1 - bx0, 1), max(by1 - by0, 1)
             z = min((cw * 0.45) / bw, (ch * 0.30) / bh)        # flag ~30-45% of the canvas
-            z = min(max(fit, min(z, fit * 8)), cap)             # never below fit
+            z = max(fit, min(z, fit * 8))                       # never below fit
+            z = min(z, 4000 / max(1, self.original_width),      # cap rendered image (~<16MP)
+                    4000 / max(1, self.original_height))
             self.display_scale   = z
             self.rendered_width  = max(1, int(round(self.original_width  * z)))
             self.rendered_height = max(1, int(round(self.original_height * z)))
             self.image_offset_x  = int(cw / 2 - (bx0 + bx1) / 2 * z)
             self.image_offset_y  = int(ch / 2 - (by0 + by1) / 2 * z)
-        elif view and view[0] == "custom":
-            z = min(max(view[1], fit * 0.5), cap)               # user wheel-zoom level
-            self.display_scale   = z
-            self.rendered_width  = max(1, int(round(self.original_width  * z)))
-            self.rendered_height = max(1, int(round(self.original_height * z)))
-            self.image_offset_x  = int(view[2])
-            self.image_offset_y  = int(view[3])
         else:
             self.display_scale   = fit
             self.rendered_width  = max(1, int(round(self.original_width  * fit)))
@@ -1268,42 +1106,16 @@ class NormalizedEditorApp:
         self.tk_image = ImageTk.PhotoImage(resized)
 
     def _zoom_to_flag(self, bbox):
-        self.view = ("flag", tuple(bbox))
+        self.zoom_target = tuple(bbox)
         self._refresh_image()
         self._draw_scene()
 
     def _zoom_fit(self, event=None):
-        if self.view is not None:
-            self.view = None
+        if self.zoom_target is not None:
+            self.zoom_target = None
             self._refresh_image()
             self._draw_scene()
         return "break"
-
-    def _on_zoom_wheel(self, event, direction=None):
-        """Mouse-wheel zoom, anchored on the cursor (the page point under the
-        pointer stays put). 'f' fits the whole page again."""
-        delta = direction if direction is not None else (1 if getattr(event, "delta", 0) > 0 else -1)
-        factor = 1.25 if delta > 0 else 0.8
-        old = self.display_scale
-        new = old * factor
-        px = (event.x - self.image_offset_x) / old
-        py = (event.y - self.image_offset_y) / old
-        self.view = ("custom", new, event.x - px * new, event.y - py * new)
-        self._refresh_image()
-        self._draw_scene()
-        return "break"
-
-    def _on_pan_press(self, event):
-        self._pan_anchor = (event.x, event.y, self.image_offset_x, self.image_offset_y)
-
-    def _on_pan_motion(self, event):
-        if not self._pan_anchor:
-            return
-        sx, sy, ox, oy = self._pan_anchor
-        self.image_offset_x = ox + (event.x - sx)
-        self.image_offset_y = oy + (event.y - sy)
-        self.view = ("custom", self.display_scale, self.image_offset_x, self.image_offset_y)
-        self._draw_scene()
 
     # ── Drawing ────────────────────────────────────────────────────────────────
 

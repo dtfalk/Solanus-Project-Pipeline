@@ -39,12 +39,8 @@ INK_MIN_FRAC      = 0.04    # a coarse cell counts as "ink" above this mean cove
 COVER_DILATE_FRAC = 0.004   # grow each box by this (frac of W) before subtracting -> ignores edge noise
 GRID_CELL_FRAC    = 0.010   # coarse-grid cell size as frac of W (uncovered-ink clustering)
 UNCOVERED_MIN_W   = 0.030   # an uncovered cluster must be at least this wide (frac of W) ...
-UNCOVERED_MIN_H   = 0.006   # ... OR this tall (frac of H) to be flagged
-UNCOVERED_MIN_INK = 0.00004 # ... and hold at least this many ink px (frac of W*H)
-# (MIN_H/MIN_INK lowered 2026-06-02: a short missed word — page_012's "etc.", 62px tall,
-#  ~2.5k ink px — fell under the old floors (0.012/0.00010) and was silently dropped, so
-#  neither QA nor the coverage backstop ever saw it. Floors now sit just above speck/
-#  punctuation noise instead of above short words.)
+UNCOVERED_MIN_H   = 0.012   # ... OR this tall (frac of H) to be flagged
+UNCOVERED_MIN_INK = 0.00010 # ... and hold at least this many ink px (frac of W*H)
 CLIP_BAND_FRAC    = 0.006   # width of the just-outside-edge band probed for clipped text (frac of W)
 CLIP_OUT_THRESH   = 0.18    # outer-band ink coverage above this (and ink inside) -> clipped edge
 CLIP_IN_THRESH    = 0.08    # require this much ink in the inner band (text actually reaches the edge)

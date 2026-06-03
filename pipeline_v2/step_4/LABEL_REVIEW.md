@@ -245,6 +245,29 @@ own few-shot). NOTE: the earlier clean re-run still used the old per-page leak o
 few-shot pages (001/004/006/015/019/031/035/045/047); the other 43 were already clean. A fresh run
 would now be fully leak-free on all 52.
 
+### Iter 6 — QA floors, doc Merge/Split, zoom, playbook (2026-06-03) · checkpoints `07`–`08`
+- **QA floor calibration** (user caught it): page_012's unboxed `etc.` (62px tall, ~2.5k ink px) fell
+  under `UNCOVERED_MIN_H/INK` — QA said 0, and the backstop only fixes what QA flags. Floors lowered
+  to sit just above speck noise → **5 hidden short-word misses surfaced** (pages 12, 26, 33, 34, 43),
+  now in the editor queue. Lesson → PLAYBOOK §3.4.
+- **Doc Merge ▲ / Split ▼** in the editor (user-designed, adjacent-only): merge folds doc_N into
+  doc_N−1; split duplicates doc_N into a new doc_N+1 (fresh ids, no edges) for keep/delete
+  partitioning; both renumber later docs and remap connection `{doc,…}` refs. Headless-verified;
+  **Merge ▲ field-validated** — the user merged page_031's front/back card 3→2 docs in production.
+- **Zoom everywhere**: editor + viewer now have cursor-anchored wheel zoom, middle-drag pan, `f`=fit
+  (render capped ~16MP); editor keeps flag-auto-zoom.
+- **Convention sync**: few-shot `page_031` copy synced to the 2-doc gold *while preserving* the
+  verifier-confirmed recipient→greeting relabel (backup `.bak-3docs`). NOTE: `reviewed/page_031`
+  itself still has the salutation as `src_recipient` — one editor click if the user wants gold to match.
+- **`PLAYBOOK.md` written** — the full distilled template (issue log §3 with 10 issue classes,
+  pre-flight checklist, the VLM audit flow, acceptable-bounds method, fast-human-pass design,
+  extraction/RAG rationale). Living doc: append new issues as they arise.
+- **Concurrency lever** (checkpoint `09`): `MAX_CONCURRENCY = 4` global + `--concurrency` flag;
+  pages labeled in a thread pool with `--delay` as a submission stagger; retries strengthened to
+  6 attempts with jittered exponential backoff (to 60s) for rate-limit bursts. Few-shot selection
+  stays precomputed sequentially → seed-42 determinism survives concurrency. Smoke: 4 pages in
+  22s vs ~56s serial, 0 failures.
+
 ### Deferred — next batch (precision edits / re-validation; not "stuck", just out of scope for a blind script)
 - **Geometric letterhead splits** (need a within-box y-cut → best done in `normalized_editor.py`):
   `Appendix_1/page_004` split `225 Jerome Street.`→src_location_sender; `Appendix_1/page_028` split
