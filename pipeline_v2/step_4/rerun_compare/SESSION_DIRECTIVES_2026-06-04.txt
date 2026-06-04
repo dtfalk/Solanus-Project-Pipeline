@@ -1,0 +1,12 @@
+USER DIRECTIVES (2026-06-04) — execute in this order:
+1. FIRST: deep, deep internet research guide — understand ALL aspects of the problem;
+   make the workflow REPRODUCIBLE for different scenarios; generalize to the case of
+   MORE AND MORE incoming documents (continuous ingestion) where gold-tier labels
+   accumulate and human labeling should iteratively shrink. Update ALL documentation.
+2. Goal NOW: improve CURRENT quality (not new volumes yet). Build the iterative
+   human-labeling-reduction + accumulating-gold flywheel -> the best auto-labeler.
+3. THEN execute: self-consistency A/B; ship free wins (disagreement triage + promote
+   mass_card/ledger few-shot); set up fine-tuning PLUMBING ONLY.
+   - Fine-tuning: TEST PLUMBING, do NOT leave a tuned model deployed overnight (cost).
+   - Do NOT quit iterating until the pipeline is in place and works.
+4. End state: best version of the auto-labeler + a GENERALIZED, reproducible workflow.

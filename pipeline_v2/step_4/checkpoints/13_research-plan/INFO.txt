@@ -1,0 +1,7 @@
+checkpoint 13 — research + planning phase (2026-06-04)
+new analysis tools (all offline, no production code touched):
+  rerun_compare/cluster_pages.py  — content-agnostic layout-feature clustering prototype (~70% purity)
+  rerun_compare/disagreement.py   — gold-free Query-by-Committee error triage (79% errors in top-half pages)
+  rerun_compare/fair_diff.py      — id-stripped fair OLD-vs-NEW comparison + IoU-threshold sweep
+deliverable: RESEARCH_AND_PLAN.md (error-ID redesign, clustering verdict, fine-tune roadmap, error-reduction menu)
+NO changes to auto_labeler.py / qa_report.py this phase; reviewed/ gold untouched.
