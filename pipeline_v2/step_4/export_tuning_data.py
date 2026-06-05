@@ -86,7 +86,12 @@ def main() -> None:
     args = ap.parse_args()
     image_width = resolve_image_width(args.image_width)
 
-    vols = args.volumes or sorted(p.name for p in REVIEW_ROOT.iterdir() if p.is_dir())
+    # HOLDOUT PIN (2026-06-04 directive: "completely held out, no training leakage"):
+    # Appendix_2 is the held-out TEST volume for the tuned-model eval. Default to the
+    # pinned training volumes instead of "everything under reviewed/", so a re-export
+    # after Appendix_2 is reviewed can never silently pull the test set into training.
+    TRAIN_VOLUMES = ["Appendix_1", "Appendix_3"]
+    vols = args.volumes or TRAIN_VOLUMES
     sys_prompt = _tuning_system_prompt()
 
     rows: list[tuple[str, str, dict]] = []   # (key, jsonl_line, meta)

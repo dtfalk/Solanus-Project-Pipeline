@@ -334,3 +334,15 @@ Split ▼), keyboard everything. And the iron rule: the editor reads model outpu
 
 ---
 _Append new issues to §3 with: symptom → root cause → fix → general rule._
+
+### 3.15 Box-vote self-consistency fails under boundary variance (measured negative result)
+- **Tried:** 3-sample cheap-model ensemble (diverse few-shot draws), same-category IoU≥0.5
+  clustering, keep ≥2/3-vote clusters, average coords — the literature's recipe for "small model
+  + self-consistency rivals big model."
+- **Result:** PQ collapsed 0.538 → 0.272; FN doubled. The cheap model's instability on dense pages
+  is segmentation *granularity* (where boundaries fall), so the same content rarely aligns across
+  samples at the vote threshold and gets dropped — the fusion deletes exactly the hard content.
+- **Rule:** before reaching for ensembles, identify WHAT varies across samples. Presence-variance →
+  voting helps. Boundary/granularity-variance → voting destroys recall; spend the lever on a more
+  capable model or same-type demonstrations instead. Publish negative results in the log — a
+  measured "no" prevents the next person from re-spending the same tokens.

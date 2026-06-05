@@ -58,3 +58,13 @@ see PLAYBOOK §3.6)._
    `tuning_data/` (95 examples today). Train a flash model on Vertex SFT, then benchmark tuned-flash vs
    few-shot-3.5-flash on a held-out volume (goal: drop the 12 few-shot images + shrink the prompt).
 4. Deferred batch in `LABEL_REVIEW.md` (letterhead splits, page_028 docs under the new card convention).
+
+## 2026-06-04 — machine-move reconciliation (back on Desktop machine)
+The other-machine session's work is fully synced here (checkpoints 11–14, new defaults, all docs/tools).
+**Fine-tune loop status:** job `5447888…` = SUCCEEDED (training proven, ~4 min). BUT the serving rung
+was never closed: the checkpoint lists endpoint `…/endpoints/1098148783113371648`, yet that endpoint
+AND the model registry entry both 404 — **nothing is deployed, nothing billing** (directive satisfied).
+GCP holds only: 2 tuning-job records (free) + the 13 MB dataset bucket
+`gs://solanus-project-vertex-tuning-389262253193` (keep — it accumulates). To fully prove the eval rung:
+re-run a small tune → explicitly deploy the checkpoint → call → teardown (~20 min, ~$1) — OR defer until
+the real tune at ~150–250 gold pages. `tuning_data/tuning_job.json` now records the (dead) endpoint name.

@@ -36,9 +36,18 @@ def _client():
     return genai.Client(vertexai=True, project=PROJECT, location=LOCATION)
 
 
-def _gold_pages():
+# HOLDOUT PIN (2026-06-04 directive: "completely held out, no training leakage"):
+# Appendix_2 is the held-out TEST volume. TRAINING data (cmd_prepare) is pinned to
+# these volumes; eval intentionally still sees everything (it scores against the
+# held-out gold once the user has reviewed it).
+TRAIN_VOLUMES = ("Appendix_1", "Appendix_3")
+
+
+def _gold_pages(volumes=None):
     items = []
     for vol in sorted(p.name for p in REVIEW.iterdir() if p.is_dir()):
+        if volumes is not None and vol not in volumes:
+            continue
         for pd in sorted((REVIEW / vol).glob("page_*")):
             pdf = _find_pdf(vol, pd.name)
             jp = pd / f"{pd.name}.json"
@@ -52,7 +61,7 @@ def _gold_pages():
 # ── prepare ────────────────────────────────────────────────────────────────────
 def cmd_prepare(args):
     from PIL import Image
-    items = _gold_pages()
+    items = _gold_pages(volumes=TRAIN_VOLUMES)   # holdout pin: never train on the test volume
     # stratify-ish split by page type, then optional subset
     rng = random.Random(42); rng.shuffle(items)
     if args.subset:
@@ -99,15 +108,26 @@ def cmd_prepare(args):
 def cmd_tune(args):
     from google.genai import types
     c = _client()
-    print(f"submitting SFT job: base={args.base} epochs={args.epochs}")
+    print(f"submitting SFT job: base={args.base} epochs={args.epochs} "
+          f"lr_mult={args.lr_mult} adapter={args.adapter}")
+    # v1 lesson: default LoRA on 86 examples learned the ontology but could NOT
+    # override the base model's native box_2d detection format — underfit. Stronger
+    # adapter + LR are needed for format override on small datasets.
+    cfg = dict(
+        epoch_count=args.epochs,
+        validation_dataset=types.TuningValidationDataset(gcs_uri=f"{BUCKET}/val.jsonl"),
+        tuned_model_display_name=args.name,
+        export_last_checkpoint_only=args.last_ckpt_only,
+    )
+    if args.lr_mult:
+        cfg["learning_rate_multiplier"] = args.lr_mult
+    if args.adapter:
+        words = {1: "ONE", 2: "TWO", 4: "FOUR", 8: "EIGHT", 16: "SIXTEEN", 32: "THIRTY_TWO"}
+        cfg["adapter_size"] = getattr(types.AdapterSize, f"ADAPTER_SIZE_{words[args.adapter]}")
     job = c.tunings.tune(
         base_model=args.base,
         training_dataset=types.TuningDataset(gcs_uri=f"{BUCKET}/train.jsonl"),
-        config=types.CreateTuningJobConfig(
-            epoch_count=args.epochs,
-            validation_dataset=types.TuningValidationDataset(gcs_uri=f"{BUCKET}/val.jsonl"),
-            tuned_model_display_name=args.name,
-        ),
+        config=types.CreateTuningJobConfig(**cfg),
     )
     STATE.parent.mkdir(exist_ok=True)
     STATE.write_text(json.dumps({"job": job.name, "base": args.base}))
@@ -200,6 +220,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("prepare"); p.add_argument("--subset",type=int,default=0); p.add_argument("--val",type=int,default=9); p.add_argument("--width",type=int,default=768)
     p = sub.add_parser("tune"); p.add_argument("--base",default="gemini-2.5-flash-lite"); p.add_argument("--epochs",type=int,default=1); p.add_argument("--name",default="solanus-labeler-test")
+    p.add_argument("--lr-mult",type=float,default=None); p.add_argument("--adapter",type=int,default=None,choices=[1,2,4,8,16,32]); p.add_argument("--last-ckpt-only",action="store_true")
     sub.add_parser("status")
     p = sub.add_parser("eval"); p.add_argument("--volume",default="Appendix_3"); p.add_argument("--max",type=int,default=6)
     sub.add_parser("teardown")

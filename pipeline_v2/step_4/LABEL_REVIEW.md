@@ -338,3 +338,48 @@ review hour. Prompting held (demos+model fixed granularity without new rules; §
 Built `export_tuning_data.py` → `tuning_data/` (95 gold pages, 86 train/9 val). **Defer the train** until
 ~300–500 pages & stable conventions; the payoff is dropping the 12 few-shot images + shrinking the
 ~50k-tok/page prompt → cheaper and more consistent. Then benchmark tuned-flash vs few-shot-3.5-flash.
+
+### Iter 8 — non-training integrations + held-out protocol (2026-06-04) · checkpoint `15_pre-integrations`
+**Holdout protocol (user directive: "completely held out, no training leakage"):** volume-level, not
+page-level. Training = Appendix_1 + Appendix_3 gold ONLY (pinned in `export_tuning_data.py` —
+`TRAIN_VOLUMES` — so a re-export after Appendix_2 review can't silently pull the test volume in).
+**Appendix_2 = the untouchable test volume**: not in training, not in the few-shot pool until after
+the tuned-model eval.
+**Integrated:**
+- **Promoted 6 hand-corrected hard ledger pages** (A3 023/025/031/033/034/037) into the few-shot pool
+  (72 clean: notebook 42 / letter 21 / mass_card 4 / other 5) — the hour-of-pain pages are now the
+  demonstrations. Mass-card gap can't be filled from A3 (only 2 exist; both already in). Schema-foreign
+  editor keys stripped on promote (§3.11). Uploads refreshed (72 @ 1024).
+- **`triage.py`** — production gold-free review triage: shadow-labels a volume with flash-lite,
+  ranks pages by model disagreement (top-half catches ~79% of real errors), writes
+  `qa_output/<vol>/triage.txt` with zero-disagreement auto-accept candidates. Verified offline on A3
+  (reproduces the known hard-page ranking; 12/43 zero-disagreement).
+- **Self-consistency A/B** (`rerun_compare/sc_ab.py`, running): 3-seed flash-lite ensemble (diversity
+  via few-shot draws at temp-0) + ≥2/3-vote box fusion vs single 3.5-flash, scored with panoptic ink-IoU.
+  LEAKAGE CONTROL: selection replays against the checkpoint-15 (pre-promotion) pool so the promoted
+  hard-page siblings can't serve as demos for their own test.
+- **Cost decisions:** Batch API integration SKIPPED (real complexity; bottleneck is review time, not
+  ~$4-7/volume API cost). NOTED: per-page few-shot variation defeats Gemini implicit prefix-caching;
+  fixed per-type example sets would unlock ~90%-off input pricing but change selection semantics —
+  deferred as a future A/B, not a silent change.
+**Phase B (running):** Appendix_2 labeled with the new defaults (3.5-flash + page-type routing +
+promoted pool) → qa_report → triage. **Phase C (next):** pinned-volume tune → deploy checkpoint →
+eval on val + the fully-held-out Appendix_2 → teardown same-session.
+
+**Iter 8 addendum — self-consistency A/B result: REJECTED (negative result, kept honest).**
+7 hard pages, panoptic ink-IoU: single lite PQ 0.538 / ensemble-3×lite PQ **0.272** / single
+3.5-flash PQ 0.582. The ≥2/3-vote box fusion halved recall (FN 66→128): flash-lite's variance on
+dense pages is segmentation GRANULARITY, so same-content boxes don't align across samples at
+IoU≥0.5 and get dropped. Box-vote self-consistency suits presence-variance, not boundary-variance.
+Not integrated; 3.5-flash stays the quality path. (Possible future variant, not pursued: fuse by
+ink-union / pick-best-sample-by-self-agreement.) Also: the honest hard-page gap lite→3.5-flash is
+0.538→0.582 PQ — real, but area-IoU's "138 vs 32" exaggerated it (§3.14 again).
+
+**Iter 8 — fine-tune v1 result: UNDERFIT (instructive failure).** Job SUCCEEDED (86 ex × 3 epochs,
+default LoRA) and the serving rung now works (checkpoint endpoints serve; v1 mystery solved — they're
+real dedicated deployments, `minReplicaCount: 1`, NOT serverless: never leave them up). But the tuned
+model exhibited **partial transfer**: it learned our ONTOLOGY (emits `struct_id`, `src_content`...)
+while keeping the base model's native `box_2d` detection FORMAT — default adapter/LR on 86 examples
+cannot override a strong RLHF'd format prior. Tuned-vs-base outputs differ only slightly (adapter
+loaded but too weak). **v2 (running):** epochs 8, `learning_rate_multiplier` 5, `adapter_size` 8,
+`export_last_checkpoint_only` (no endpoint sprawl). v1 model + all 3 endpoints torn down (0 left).
