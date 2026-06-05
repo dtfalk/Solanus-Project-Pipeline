@@ -68,3 +68,24 @@ GCP holds only: 2 tuning-job records (free) + the 13 MB dataset bucket
 `gs://solanus-project-vertex-tuning-389262253193` (keep — it accumulates). To fully prove the eval rung:
 re-run a small tune → explicitly deploy the checkpoint → call → teardown (~20 min, ~$1) — OR defer until
 the real tune at ~150–250 gold pages. `tuning_data/tuning_job.json` now records the (dead) endpoint name.
+
+## 2026-06-04 (later) — Phase C CLOSED (supersedes the reconciliation note above)
+The interrupted v2 fine-tune was picked up and finished safely:
+- **v2 evaluated:** format FIXED (emits our nested schema natively — 8ep/LR×5/adapter8 overrode the
+  base `box_2d` prior), but localization POOR at 95 pages — held-out val **panoptic PQ 0.159** vs
+  few-shot-3.5-flash **0.940**. A tuned flash-lite is NOT production-ready at 95 pages.
+- **Torn down:** undeploy → delete endpoint → delete model; **0 endpoints / 0 models / 0 running jobs**
+  verified. (Checkpoint endpoints are dedicated `minReplicaCount=1` deployments that bill hourly — the
+  earlier "serverless" belief was wrong; never leave one up.)
+- **Two GATE-1 bugs fixed (validated, not re-run to avoid an unattended billing endpoint):**
+  `_canonical_target` now normalizes vertices to **[0,1000]** + strips UUID ids/connections (was
+  source-pixel, contradicting the prompt); `tuned_eval` scales the output back to pixels. `finetune.py
+  teardown` rewritten to the working gcloud order. Round-trip verified (≤3px). Checkpoint `16`.
+- **Self-consistency A/B (machine A): REJECTED** — box-vote fusion halves recall on boundary-variance;
+  3.5-flash stays the quality path (LABEL_REVIEW Iter 8 addendum).
+
+**GATE-1 is now BLOCKED only on more gold.** Appendix_2 is labeled (76 pages, new defaults) with a
+triage worklist at `qa_output/Appendix_2/triage.txt` — review it (high-disagreement pages first) into
+`reviewed/Appendix_2/`. That takes the corpus to ~171 gold pages → then run the GATE-1 sequence above
+(re-`prepare` now emits correct [0,1000] targets). Until then, **few-shot-3.5-flash + page-type is the
+labeler.** Nothing deployed; pool = 72 (notebook 42 / letter 21 / mass_card 4 / other 5).

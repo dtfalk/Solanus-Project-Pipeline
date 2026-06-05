@@ -61,12 +61,41 @@ def _tuning_system_prompt() -> str:
 
 
 def _canonical_target(data: dict) -> str:
-    """The model's training target: the documents JSON, stripped to what the
-    response schema emits (num_documents + documents)."""
-    return json.dumps({
-        "num_documents": data.get("num_documents", len(data.get("documents", {}))),
-        "documents": data.get("documents", {}),
-    }, separators=(",", ":"))
+    """The model's training target: documents JSON with vertices NORMALIZED to
+    [0,1000] and stripped of UUIDs/connections.
+
+    WHY (Phase C / v2 finding): gold stores vertices in SOURCE PIXELS, but the
+    system prompt instructs the model to output [0,1000] — so an unnormalized target
+    contradicts the prompt AND makes the coordinate space resolution-dependent
+    (5340px wide here, different per scan). Normalizing matches the prompt and
+    production inference (`_scale_response_to_original` scales [0,1000]->pixels), and
+    gives the tuned model one clean bounded space to learn. Random UUID `id`s are
+    pure training noise (the model can't and shouldn't memorize them) and pass-1
+    emits empty connections, so we drop both from the target."""
+    W = data.get("page_width") or 1000
+    H = data.get("page_height") or 1000
+    docs: dict = {}
+    for dname, doc in data.get("documents", {}).items():
+        if not isinstance(doc, dict):
+            continue
+        nd: dict = {}
+        for cat, polys in doc.items():
+            if not isinstance(polys, list):
+                continue
+            boxes = []
+            for b in polys:
+                vs = b.get("vertices")
+                if not vs:
+                    continue
+                # normalize coords to [0,1000]; preserve the curator's vertices as-drawn
+                # (no squaring of L-shaped polygons — per directive 2026-06-05).
+                boxes.append({"vertices": [{"x": round(v["x"] / W * 1000),
+                                            "y": round(v["y"] / H * 1000)} for v in vs]})
+            if boxes:
+                nd[cat] = boxes
+        docs[dname] = nd
+    return json.dumps({"num_documents": data.get("num_documents", len(docs)),
+                       "documents": docs}, separators=(",", ":"))
 
 
 def _img_b64(pdf_path: Path, image_width: int | None) -> tuple[str, str]:

@@ -186,26 +186,91 @@ def cmd_eval(args):
 
 # ── teardown ─────────────────────────────────────────────────────────────────--
 def cmd_teardown(args):
-    """Delete the tuned model + any serving endpoint so NOTHING is left deployed
-    (per the directive). Gemini tuned models are serverless — no idle node cost —
-    but we delete the resources anyway to be clean."""
-    c = _client()
+    """Delete the tuned model + serving endpoint so NOTHING is left deployed.
+    IMPORTANT: tuned checkpoint endpoints are DEDICATED deployments
+    (minReplicaCount=1) that BILL per hour while up — NOT serverless. Correct,
+    validated order: undeploy model from endpoint -> delete endpoint -> delete
+    model. The genai SDK can't undeploy, so use gcloud ai (authed via ADC)."""
     st = json.loads(STATE.read_text()) if STATE.exists() else {}
     ep, model = st.get("endpoint"), st.get("model")
-    if ep:
-        try:
-            c.endpoints.delete(name=ep); print("deleted endpoint:", ep)
-        except Exception as e:
-            print("endpoint delete:", str(e)[:160], "(may need: gcloud ai endpoints delete)")
-    if model:
-        try:
-            c.models.delete(model=model.split("@")[0]); print("deleted tuned model:", model)
-        except Exception as e:
-            print("model delete:", str(e)[:160],
-                  "\n  fallback: gcloud ai models delete", model.split('/')[-1].split('@')[0],
-                  "--region=us-central1 --project=solanus-project")
+    ep_id = ep.split("/")[-1] if ep else None
+    model_id = model.split("/")[-1].split("@")[0] if model else None
+    base = ["--region", LOCATION, "--project", PROJECT]
+    if ep_id:
+        dmid = subprocess.run(["gcloud", "ai", "endpoints", "describe", ep_id, *base,
+                               "--format=value(deployedModels[0].id)"],
+                              capture_output=True, text=True).stdout.strip()
+        if dmid:
+            _sh(["gcloud", "ai", "endpoints", "undeploy-model", ep_id,
+                 f"--deployed-model-id={dmid}", *base, "--quiet"]); print("undeployed", dmid)
+        _sh(["gcloud", "ai", "endpoints", "delete", ep_id, *base, "--quiet"]); print("deleted endpoint", ep_id)
+    if model_id:
+        _sh(["gcloud", "ai", "models", "delete", model_id, *base, "--quiet"]); print("deleted model", model_id)
+    if not (ep_id or model_id):
+        print("nothing recorded to delete")
+
+
+def cmd_park(args):
+    """RESTORABLE teardown: delete the billing ENDPOINT but KEEP the tuned Model.
+    A registered Model has no idle cost; only a deployed endpoint (minReplica=1)
+    bills. So this stops all billing yet leaves the trained weights ready to bring
+    back with `redeploy` in minutes — no re-training. This is the default cheap
+    resting state."""
+    st = json.loads(STATE.read_text()) if STATE.exists() else {}
+    ep = st.get("endpoint")
+    base = ["--region", LOCATION, "--project", PROJECT]
+    if not ep:
+        print("no endpoint recorded — already parked (model kept:", st.get("model"), ")"); return
+    ep_id = ep.split("/")[-1]
+    dmid = subprocess.run(["gcloud", "ai", "endpoints", "describe", ep_id, *base,
+                           "--format=value(deployedModels[0].id)"],
+                          capture_output=True, text=True).stdout.strip()
+    if dmid:
+        _sh(["gcloud", "ai", "endpoints", "undeploy-model", ep_id,
+             f"--deployed-model-id={dmid}", *base, "--quiet"])
+    _sh(["gcloud", "ai", "endpoints", "delete", ep_id, *base, "--quiet"])
+    st["endpoint"] = None
+    STATE.write_text(json.dumps(st))
+    print(f"PARKED — endpoint deleted (0 billing); model KEPT (free): {st.get('model')}")
+    print("  NOTE: managed Gemini tuned models can't be manually redeployed (see `redeploy`).")
+    print("  To restore serving: re-run `prepare` + `tune` (~15 min, ~$0.50) — dataset+job persist.")
+
+
+def cmd_redeploy(args):
+    """Attempt to bring a parked tuned Model back online.
+
+    KNOWN LIMITATION (measured 2026-06-04): Gemini *managed*-tuning models are NOT
+    manually redeployable — `gcloud ai endpoints deploy-model` crashes
+    (KeyError 'supportedDeploymentResourcesTypes'; they carry no deployment resource
+    types), the genai SDK exposes no deploy, and the model isn't callable by resource
+    name without an endpoint (404). They auto-deploy ONLY at tune time. So the real
+    "set it back up" path is to RE-RUN `tune` (the dataset + tuning job persist, so
+    it's one cheap automated command). This stub tries anyway (in case Google adds
+    support / the console route applies) and self-cleans the empty endpoint on failure."""
+    st = json.loads(STATE.read_text()) if STATE.exists() else {}
+    model = st.get("model")
+    if not model:
+        raise SystemExit("no tuned model recorded to redeploy (state has no 'model')")
+    print("WARNING: managed Gemini tuned models generally can't be redeployed via API; "
+          "if this fails, just re-run `tune` (dataset+job persist).")
+    model_id = model.split("/")[-1].split("@")[0]
+    base = ["--region", LOCATION, "--project", PROJECT]
+    ep_id = subprocess.run(["gcloud", "ai", "endpoints", "create", *base,
+                            f"--display-name={args.name}-redeploy", "--format=value(name)"],
+                           capture_output=True, text=True).stdout.strip().split("/")[-1]
+    print("created endpoint:", ep_id, "— attempting deploy...")
+    ok = _sh(["gcloud", "ai", "endpoints", "deploy-model", ep_id, *base,
+              f"--model={model_id}", f"--display-name={args.name}-dm", "--min-replica-count=1"])
+    if ok:
+        full = subprocess.run(["gcloud", "ai", "endpoints", "describe", ep_id, *base,
+                               "--format=value(name)"], capture_output=True, text=True).stdout.strip()
+        st["endpoint"] = full
+        STATE.write_text(json.dumps(st))
+        print("REDEPLOYED — endpoint live:", full, "\n  (remember to `park` when done)")
     else:
-        print("no tuned model recorded; nothing to delete")
+        print("deploy-model failed (expected for managed Gemini models). Cleaning up empty endpoint...")
+        _sh(["gcloud", "ai", "endpoints", "delete", ep_id, *base, "--quiet"])
+        print("  -> re-run `tune` to get a fresh served model instead.")
 
 
 def _sh(cmd):
@@ -223,9 +288,12 @@ def main():
     p.add_argument("--lr-mult",type=float,default=None); p.add_argument("--adapter",type=int,default=None,choices=[1,2,4,8,16,32]); p.add_argument("--last-ckpt-only",action="store_true")
     sub.add_parser("status")
     p = sub.add_parser("eval"); p.add_argument("--volume",default="Appendix_3"); p.add_argument("--max",type=int,default=6)
-    sub.add_parser("teardown")
+    sub.add_parser("park")                                   # delete endpoint, KEEP model (restorable, 0 billing)
+    p = sub.add_parser("redeploy"); p.add_argument("--name",default="solanus-labeler")  # bring a parked model back
+    sub.add_parser("teardown")                              # full purge: delete endpoint AND model
     args = ap.parse_args()
-    {"prepare":cmd_prepare,"tune":cmd_tune,"status":cmd_status,"eval":cmd_eval,"teardown":cmd_teardown}[args.cmd](args)
+    {"prepare":cmd_prepare,"tune":cmd_tune,"status":cmd_status,"eval":cmd_eval,
+     "park":cmd_park,"redeploy":cmd_redeploy,"teardown":cmd_teardown}[args.cmd](args)
 
 
 if __name__ == "__main__":

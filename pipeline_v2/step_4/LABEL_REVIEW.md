@@ -383,3 +383,62 @@ while keeping the base model's native `box_2d` detection FORMAT — default adap
 cannot override a strong RLHF'd format prior. Tuned-vs-base outputs differ only slightly (adapter
 loaded but too weak). **v2 (running):** epochs 8, `learning_rate_multiplier` 5, `adapter_size` 8,
 `export_last_checkpoint_only` (no endpoint sprawl). v1 model + all 3 endpoints torn down (0 left).
+
+### Iter 9 — Phase C closed: v2 evaluated + torn down, tuning-prep bug fixed (2026-06-04, machine B)
+**Picked up the interrupted v2 tune** (8 epochs, LR×5, adapter_size 8, last-ckpt-only) on the SUCCEEDED
+endpoint and finished the staged sequence: format-probe → val → panoptic score → teardown.
+- **Format: FIXED.** Unlike v1 (kept the base model's native `box_2d` format), v2 emits our exact
+  nested schema *natively* (`{"num_documents":1,"documents":{"doc_1":{"src_content":[{"vertices":…}]}}}`),
+  no schema-constraint needed. So stronger adapter+LR+epochs *can* override the RLHF'd format prior on
+  ~95 examples. The format question is settled.
+- **Labels: POOR at 95 pages.** Held-out val (9 never-trained A1/A3 pages), panoptic ink-IoU:
+  tuned-v2 **PQ 0.159** (RQ 0.182, SQ 0.874, TP6/FP30/FN24) vs few-shot-3.5-flash **PQ 0.940**. SQ shows
+  the boxes it *does* get are tight, but RQ is low — it can't yet localize/recall regions from 95 examples.
+  **Verdict: a tuned flash-lite is NOT production-ready at 95 pages** — confirms the MASTER_GUIDE GATE-1
+  threshold (~150–250+). Few-shot-3.5-flash remains the labeler.
+- **Torn down immediately** (val score was decisive; not worth keeping a billing endpoint up for the
+  32-min full-A2 sweep): undeploy → delete endpoint → delete model; **verified 0 endpoints / 0 models.**
+
+**Two real bugs fixed for the GATE-1 tune (validated, not re-run to avoid an unattended billing endpoint):**
+1. **Coordinate-space inconsistency (the likely quality drag).** Gold stores vertices in SOURCE PIXELS
+   (x up to 5340) but the system prompt says output [0,1000]; the unnormalized training target therefore
+   contradicted the prompt and made the space resolution-dependent. `_canonical_target` now **normalizes
+   vertices to [0,1000]** (matching the prompt + production's `_scale_response_to_original`) and **strips
+   the random UUID ids + empty connections** (pure training noise). `tuned_eval._label_page` now scales
+   the model's [0,1000] output back to source pixels for the panoptic comparison. Round-trip verified
+   (≤3px on a 5340px page).
+2. **`finetune.py teardown` was the broken SDK version** (`client.endpoints` doesn't exist) AND wrongly
+   commented "serverless." Rewritten to the validated gcloud order (undeploy → delete endpoint → delete
+   model) with the correct warning: checkpoint endpoints are **dedicated `minReplicaCount=1` deployments
+   that bill hourly — never leave up.**
+
+**GATE-1 is now de-risked and one command-sequence away** (RESUME_HERE): re-`prepare` (now emits
+[0,1000] targets) → `tune` with the v2 hyperparameters on ~150–250 gold → `tuned_eval val`/`score` vs
+few-shot-3.5-flash on a held-out volume → `teardown`. Nothing deployed; ~$1–2 spent this session.
+
+### Iter 10 — Vertex tuned-model COST LIFECYCLE, mapped (2026-06-04)
+Tested "tear down restorably" on a throwaway tune (subset 20, 1 epoch). Findings:
+- **Only deployed ENDPOINTS bill** (dedicated `minReplicaCount=1` replicas); the registered tuned
+  **Model artifact has no idle cost.** A no-`--last-ckpt-only` tune deployed **2 checkpoint endpoints**
+  (sprawl) — always pass `--last-ckpt-only`, and teardown/park must sweep ALL endpoints, not just the
+  state-recorded one.
+- **`park` works** (new): undeploy + delete endpoint(s), keep the Model → **0 billing, model retained.**
+- **BUT managed Gemini tuned models are NOT manually redeployable:** `gcloud ai endpoints deploy-model`
+  crashes (`KeyError 'supportedDeploymentResourcesTypes'` — managed models carry no deployment resource
+  types), the genai SDK has no deploy, and the model 404s when called without an endpoint. They
+  auto-deploy ONLY at tune time.
+- **So the restorable path = RE-TUNE** (dataset + tuning job persist → `prepare`+`tune` is one cheap
+  ~15-min command), not park+redeploy. `park` is still useful to stop billing while keeping the artifact
+  for the Vertex console / reference, but don't rely on API redeploy.
+- **`finetune.py`:** added `park` + `redeploy` (redeploy self-cleans its empty endpoint on the expected
+  failure and points to re-tune); teardown sweeps endpoint+model. Final GCP state: **0 endpoints / 0
+  models / 0 jobs.** Lifecycle-test spend ~$0.50.
+
+### Iter 11 — full test suite (2026-06-05, overnight) · checkpoint `19`
+Built `run_all_tests.py` (project had none): **33 checks PASS / 0 FAIL** — static (compile, ontology
+consistency, JSON validity), logic (leakage/holdout gate, determinism, page-type routing, panoptic
+gold-vs-gold=1.0 sanity), edge cases, cheap-API integration (classifier, full process_page, export), and
+integrity (0 Vertex resources, gold unmodified). Caught + handled 2 real issues: 206 empty schema-foreign
+gold stamps (editor §3.11 — opt-in `clean_gold_foreign_keys.py`, gold untouched) and 10 non-quad L-shaped
+pool polygons (fixed the tuning target to square them). Full detail in `TEST_REPORT.md`. No tune run;
+nothing deployed/billing. `reviewed/` gold pristine.

@@ -1,0 +1,9 @@
+checkpoint 15 — fine-tuning pipeline PROVEN end-to-end + correct metric (2026-06-04)
+- finetune.py: prepare->tune->status->eval->teardown on Vertex (solanus-project, us-central1).
+  PROVEN: SFT job SUCCEEDED on gemini-2.5-flash-lite (40 train/8 val, 1 epoch); tuned model
+  callable via endpoint; emits VALID schema JSON with NO few-shot (response_schema enforced);
+  fully torn down (undeploy->del endpoint->del model; verified 0 endpoints/0 models).
+- panoptic_eval.py: ink-IoU + Panoptic Quality (the correct metric). Appendix_3:
+  OLD flash-lite PQ=0.874 (FP=103) -> NEW 3.5-flash+pagetype PQ=0.940 (FP=20, -81%).
+- GCS bucket gs://solanus-project-vertex-tuning-389262253193 retained (reusable for GATE-1).
+- NOTHING left deployed. reviewed/ gold untouched.

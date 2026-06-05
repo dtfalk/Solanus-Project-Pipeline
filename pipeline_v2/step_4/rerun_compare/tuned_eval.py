@@ -75,9 +75,22 @@ def _label_page(c, endpoint, vol, page):
                                            temperature=0.0,
                                            response_mime_type="application/json"))
     parsed = json.loads((r.text or "").strip())
+    # Tuned model outputs vertices in [0,1000] (matches the prompt + the normalized
+    # training target) -> scale back to SOURCE PIXELS so panoptic_eval (gold is in
+    # source pixels) compares apples-to-apples. Mirrors production's
+    # _scale_response_to_original.
+    docs = parsed.get("documents", {}) or {}
+    for doc in docs.values():
+        if isinstance(doc, dict):
+            for polys in doc.values():
+                if isinstance(polys, list):
+                    for b in polys:
+                        for v in (b.get("vertices") or []):
+                            v["x"] = round(v["x"] / 1000 * sw)
+                            v["y"] = round(v["y"] / 1000 * sh)
     full = {"page_number": int(page.split("_")[1]), "page_width": sw, "page_height": sh,
             "render_dpi": AL.RENDER_DPI, "num_documents": parsed.get("num_documents", 1),
-            "documents": parsed.get("documents", {})}
+            "documents": docs}
     od = OUT / vol / page
     od.mkdir(parents=True, exist_ok=True)
     json.dump(full, open(od / f"{page}.json", "w"), indent=2)
