@@ -414,7 +414,7 @@ EXCLUDED_EXAMPLES: frozenset[str] = frozenset({
     # Mass-card greeting/recipient mislabels
     "Appendix_1/page_028",
     "Appendix_1/page_042",
-    "Appendix_3/page_019",
+    "Appendix_3/page_021",   # was page_019 before the 2026-06-05 A3 renumbering (+2)
     "Volume_2/page_075",
     # Continuation-page structure merged/mislabeled
     "Volume_1/page_274",

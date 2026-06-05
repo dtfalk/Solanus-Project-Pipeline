@@ -6,6 +6,9 @@ only 1/6 cases; the 6 cross-role overlaps are precisely flagged for the editor i
 see PLAYBOOK §3.6)._
 
 ## Read these first
+- **`PIPELINE_FLOW.md`** — the concrete map of THIS folder: file-by-file code/data flow from
+  `polygon_cropped_pdfs/` input to the gold output in `reviewed/`, script inventory, the
+  standard per-volume loop. Start here for the what-lives-where.
 - **`MASTER_GUIDE.md`** — THE deep, research-grounded, generalized guide: the 3-gear data-flywheel that
   drives human labeling → 0 as gold accumulates (for a continuous document stream), measurement done
   right (ink-IoU/Panoptic Quality, NOT area-IoU), the fine-tune/distill loop, cost engineering,
@@ -83,6 +86,24 @@ The interrupted v2 fine-tune was picked up and finished safely:
   teardown` rewritten to the working gcloud order. Round-trip verified (≤3px). Checkpoint `16`.
 - **Self-consistency A/B (machine A): REJECTED** — box-vote fusion halves recall on boundary-variance;
   3.5-flash stays the quality path (LABEL_REVIEW Iter 8 addendum).
+
+## 2026-06-05 — Appendix_3 renumbered to the 46-page set (Desktop machine)
+This machine's `polygon_cropped_pdfs/Appendix_3/pages/` has **46 pages** (title, ToC, back title
+included); the labels were made against a **43-page** set = local pages 003–045. Fixed by shifting
+ALL A3 artifacts **+2** (reviewed/, auto_labeled/, labeled_examples/, shadow_labels/, file_uris.json
+keys, dismissed.json keys, EXCLUDED_EXAMPLES, test-suite page refs; page_type_cache/Appendix_3
+quarantined as `.stale-pre-renumber`). The 3 front-matter pages (001, 002, 046) were auto-labeled
+fresh → **review them in the editor** (`EDITOR_DOCUMENT=Appendix_3 EDITOR_START_PAGE=1`).
+Alignment verified: all 58 shifted label files match their PDFs' render dims exactly; overlays
+pixel-tight.
+
+**KNOWN GAP — stale A3 crop vintage on this machine:** the local A3 PDFs (volume + pages, both)
+are an older crop in which the archivists' top-margin annotations are whited out. ~96 gold boxes
+(`archv_date` 43, `struct_id` 23, `archv_commentary` 20, …) reference blank regions here. The
+other machine's A3 PDFs contain that ink (its B7 passed). **Test B7 fails on this machine for this
+reason — it is the canary, not a bug.** Fix: copy the other machine's 43 A3 page PDFs here,
+renaming +2 (003–045); keep local 001/002/046. Until then: A2 review unaffected; A3 few-shot
+demos slightly misleading for archv/struct categories; A3 eval/tuning-export undercount archv ink.
 
 **GATE-1 is now BLOCKED only on more gold.** Appendix_2 is labeled (76 pages, new defaults) with a
 triage worklist at `qa_output/Appendix_2/triage.txt` — review it (high-disagreement pages first) into

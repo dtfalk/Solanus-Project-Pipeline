@@ -134,14 +134,14 @@ def test_logic():
     check("B3b notebook target routed >=10/12 notebook demos", n_nb >= 10, f"got {n_nb}/12")
 
     # B4: infer_page_type sanity on a clearly-notebook gold page (many content+date)
-    nbjson = json.load(open(REVIEW/"Appendix_3"/"page_025"/"page_025.json"))
+    nbjson = json.load(open(REVIEW/"Appendix_3"/"page_027"/"page_027.json"))
     check("B4 infer_page_type(notebook page)==notebook", AL.infer_page_type_from_labels(nbjson) == "notebook",
           AL.infer_page_type_from_labels(nbjson))
 
     # B5: coordinate round-trip via export_tuning_data._canonical_target
     spec = importlib.util.spec_from_file_location("etd", HERE/"export_tuning_data.py")
     etd = importlib.util.module_from_spec(spec); spec.loader.exec_module(etd)
-    data = json.load(open(REVIEW/"Appendix_3"/"page_002"/"page_002.json"))
+    data = json.load(open(REVIEW/"Appendix_3"/"page_004"/"page_004.json"))
     W, H = data["page_width"], data["page_height"]
     tgt = json.loads(etd._canonical_target(data))
     allx = [v["x"] for d in tgt["documents"].values() for ps in d.values() for b in ps for v in b["vertices"]]
@@ -160,16 +160,16 @@ def test_logic():
           f"RQ={r['RQ']:.3f} FP={r['FP']} FN={r['FN']}")
 
     # B8: review_diff self-comparison == no changes
-    d = RD.diff_page(REVIEW/"Appendix_3"/"page_025"/"page_025.json",
-                     REVIEW/"Appendix_3"/"page_025"/"page_025.json")
+    d = RD.diff_page(REVIEW/"Appendix_3"/"page_027"/"page_027.json",
+                     REVIEW/"Appendix_3"/"page_027"/"page_027.json")
     check("B8 review_diff(gold,gold): 0 add/remove/recat",
           not d["added"] and not d["removed"] and not d["recat"])
 
     # B9: render + snap doesn't crash on a real page
     try:
-        pdf = AL.POLYGON_PDFS_DIR/"Appendix_3"/"pages"/"page_025.pdf"
+        pdf = AL.POLYGON_PDFS_DIR/"Appendix_3"/"pages"/"page_027.pdf"
         gray = AL.render_page(pdf, None)[0].convert("L")
-        docs = json.load(open(AUTOLAB/"Appendix_3"/"page_025"/"page_025.json"))["documents"]
+        docs = json.load(open(AUTOLAB/"Appendix_3"/"page_027"/"page_027.json"))["documents"]
         n = AL.snap_all_polygons(docs, gray); ok = True
     except Exception as e:
         ok = False; n = str(e)[:60]

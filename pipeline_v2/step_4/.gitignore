@@ -1,0 +1,10 @@
+# secrets — never commit
+.env
+
+# local-only / regenerable
+venv/
+__pycache__/
+
+# bulk PDFs travel outside git (3.9 GB) — sync manually between machines
+polygon_cropped_pdfs/
+polygon_cropped_pdfs.zip
