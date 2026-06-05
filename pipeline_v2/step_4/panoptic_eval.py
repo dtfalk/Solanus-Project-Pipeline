@@ -75,6 +75,7 @@ def eval_volume(volume, pred_root, gold_root, width, flat):
     gold_dir = gold_root/volume
     pages=sorted(p for p in gold_dir.glob("page_*") if p.is_dir())
     TP=FP=FN=0; sq_sum=0.0
+    sTP=sFP=sFN=0; ssq_sum=0.0
     confusion=Counter(); per_cat=defaultdict(lambda:[0,0,0])  # cat -> [tp,fp,fn]
     for pd in pages:
         name=pd.name
@@ -82,32 +83,56 @@ def eval_volume(volume, pred_root, gold_root, width, flat):
         pred_json=(pred_root/name/f"{name}.json") if flat else (pred_root/volume/name/f"{name}.json")
         pdf=AL.POLYGON_PDFS_DIR/volume/"pages"/f"{name}.pdf"
         if not (gold_json.exists() and pred_json.exists() and pdf.exists()): continue
-        gboxes,_,_=_boxes(gold_json); pboxes,_,_=_boxes(pred_json)
+        gboxes,gW,gH=_boxes(gold_json); pboxes,pW,pH=_boxes(pred_json)
         integ,w,h=_ink_integral(pdf,width)
-        gw=AL.render_page(pdf,None)[3]; sx=w/gw; sy=sx   # source->render scale
-        ink=lambda bx:_ink(integ,w,h,bx,sx,sy)
-        # greedy match preds to gold by ink-IoU
-        used=set()
-        for pcat,pb in pboxes:
-            best=None;best_iou=MATCH_INK_IOU
-            for i,(gcat,gb) in enumerate(gboxes):
-                if i in used: continue
-                it=_inter(pb,gb)
-                if not it: continue
-                inter=ink(it); uni=ink(pb)+ink(gb)-inter
-                iou=inter/uni if uni>0 else 0
-                if iou>=best_iou: best,best_iou=i,iou
-            if best is None:
+        # Scale each side by ITS OWN stored page dims — never assume the live render
+        # matches the JSON's pixel space (poppler versions / crop vintages differ).
+        src_w=AL.render_page(pdf,None)[3]
+        gsx=w/(gW or src_w); psx=w/(pW or src_w)
+        g_ink=lambda bx:_ink(integ,w,h,bx,gsx,gsx)
+        p_ink=lambda bx:_ink(integ,w,h,bx,psx,psx)
+        def _match(require_same_cat):
+            """Greedy match preds to gold by ink-IoU; returns (matches, fp_idx, fn_idx)
+            where matches is [(p_idx, g_idx, iou)]."""
+            used=set(); out=[]
+            for pi,(pcat,pb) in enumerate(pboxes):
+                pbs=(pb[0]*psx/gsx,pb[1]*psx/gsx,pb[2]*psx/gsx,pb[3]*psx/gsx)  # pred box in gold space
+                best=None;best_iou=MATCH_INK_IOU
+                for i,(gcat,gb) in enumerate(gboxes):
+                    if i in used: continue
+                    if require_same_cat and gcat!=pcat: continue
+                    it=_inter(pbs,gb)
+                    if not it: continue
+                    inter=_ink(integ,w,h,it,gsx,gsx); uni=p_ink(pb)+g_ink(gb)-inter
+                    iou=inter/uni if uni>0 else 0
+                    if iou>=best_iou: best,best_iou=i,iou
+                if best is None: out.append((pi,None,0.0))
+                else: used.add(best); out.append((pi,best,best_iou))
+            fns=[i for i in range(len(gboxes)) if i not in used]
+            return out,fns
+        # class-agnostic pass (the headline numbers + confusion table)
+        res,fns=_match(False)
+        for pi,gi,iou in res:
+            pcat=pboxes[pi][0]
+            if gi is None:
                 FP+=1; per_cat[pcat][1]+=1
             else:
-                used.add(best); TP+=1; sq_sum+=best_iou
-                gcat=gboxes[best][0]; per_cat[gcat][0]+=1
+                TP+=1; sq_sum+=iou
+                gcat=gboxes[gi][0]; per_cat[gcat][0]+=1
                 if gcat!=pcat: confusion[f"{pcat} -> {gcat}"]+=1
-        for i,(gcat,gb) in enumerate(gboxes):
-            if i not in used: FN+=1; per_cat[gcat][2]+=1
+        for i in fns: FN+=1; per_cat[gboxes[i][0]][2]+=1
+        # category-strict pass (a match must also agree on category)
+        sres,sfns=_match(True)
+        for pi,gi,iou in sres:
+            if gi is None: sFP+=1
+            else: sTP+=1; ssq_sum+=iou
+        sFN+=len(sfns)
     rq = TP/(TP+0.5*FP+0.5*FN) if (TP+FP+FN) else 0
     sq = sq_sum/TP if TP else 0
+    srq = sTP/(sTP+0.5*sFP+0.5*sFN) if (sTP+sFP+sFN) else 0
+    ssq = ssq_sum/sTP if sTP else 0
     return {"TP":TP,"FP":FP,"FN":FN,"RQ":rq,"SQ":sq,"PQ":sq*rq,
+            "sTP":sTP,"sFP":sFP,"sFN":sFN,"RQ_strict":srq,"SQ_strict":ssq,"PQ_strict":ssq*srq,
             "confusion":confusion,"per_cat":per_cat}
 
 
@@ -117,6 +142,9 @@ def main():
     ap.add_argument("--pred",default="auto_labeled"); ap.add_argument("--gold",default="reviewed")
     ap.add_argument("--width",type=int,default=1000)
     ap.add_argument("--flat",action="store_true",help="pred dir is <pred>/page_XXX/ (no volume level)")
+    ap.add_argument("--csv",default=None,help="append a result row to this CSV (created with header if missing)")
+    ap.add_argument("--arm",default=None,help="experiment-arm label for the CSV row (e.g. 'fewshot-3.5-flash')")
+    ap.add_argument("--notes",default="",help="free-text notes column for the CSV row")
     a=ap.parse_args()
     pred_root=Path(a.pred) if Path(a.pred).is_absolute() else SCRIPT/a.pred
     gold_root=Path(a.gold) if Path(a.gold).is_absolute() else SCRIPT/a.gold
@@ -126,6 +154,8 @@ def main():
     print(f"  RQ (recognition F1) = {r['RQ']:.3f}")
     print(f"  SQ (mean ink-IoU)   = {r['SQ']:.3f}")
     print(f"  PQ = SQ*RQ          = {r['PQ']:.3f}")
+    print(f"  PQ_strict (match must also agree on category) = {r['PQ_strict']:.3f}  "
+          f"(RQ {r['RQ_strict']:.3f} x SQ {r['SQ_strict']:.3f})")
     if r["confusion"]:
         print("  category confusions (pred -> gold) on matched regions:")
         for k,n in r["confusion"].most_common(8): print(f"     {n:>3}  {k}")
@@ -134,6 +164,22 @@ def main():
         if tp+fp+fn>=3:
             f1=tp/(tp+0.5*fp+0.5*fn) if (tp+fp+fn) else 0
             print(f"     {cat:24} TP{tp:>3} FP{fp:>3} FN{fn:>3}  RQ={f1:.2f}")
+    if a.csv:
+        import csv as _csv, datetime as _dt
+        csv_path=Path(a.csv) if Path(a.csv).is_absolute() else SCRIPT/a.csv
+        csv_path.parent.mkdir(parents=True, exist_ok=True)
+        new=not csv_path.exists()
+        with open(csv_path,"a",newline="") as f:
+            wcsv=_csv.writer(f)
+            if new: wcsv.writerow(["date","arm","volume","pred","gold","gold_regions",
+                                   "TP","FP","FN","RQ","SQ","PQ",
+                                   "sTP","sFP","sFN","RQ_strict","SQ_strict","PQ_strict","notes"])
+            wcsv.writerow([_dt.date.today().isoformat(),a.arm or a.pred,a.volume,a.pred,a.gold,
+                           r["TP"]+r["FN"],r["TP"],r["FP"],r["FN"],
+                           f"{r['RQ']:.4f}",f"{r['SQ']:.4f}",f"{r['PQ']:.4f}",
+                           r["sTP"],r["sFP"],r["sFN"],
+                           f"{r['RQ_strict']:.4f}",f"{r['SQ_strict']:.4f}",f"{r['PQ_strict']:.4f}",a.notes])
+        print(f"  → appended row to {csv_path}")
 
 
 if __name__=="__main__":

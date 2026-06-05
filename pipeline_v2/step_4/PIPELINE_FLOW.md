@@ -91,7 +91,7 @@ file's stored `page_width`/`page_height`**, never assume they match a fresh rend
 | `normalized_editor.py` | Tkinter review editor (`EDITOR_DOCUMENT=<Vol>`); writes gold. |
 | `normalized_viewer.py` | Read-only viewer (`VIEWER_DIR`/`VIEWER_DOCUMENT`). |
 | `review_diff.py` | auto_labeled vs reviewed correction-pattern report. |
-| `panoptic_eval.py` | Ink-IoU Panoptic Quality (RQ/SQ/PQ) of any pred dir vs gold. |
+| `panoptic_eval.py` | Ink-IoU Panoptic Quality (RQ/SQ/PQ + category-strict PQ) of any pred dir vs gold; `--csv` appends rows to `experiments/gate1_results.csv`. |
 | `export_tuning_data.py` | reviewed/ → `tuning_data/{train,val}.jsonl` (base64 images + [0,1000] targets). |
 | `finetune.py` | Vertex SFT lifecycle. Endpoints bill hourly — always `teardown`; verify 0 deployed. |
 | `rerun_compare/tuned_eval.py` | Tuned-model eval + A/B vs production few-shot. |
