@@ -240,7 +240,64 @@
       "src_farewell": [],
       "src_signature": [],
       "src_other": [],
-      "archv_commentary": [],
+      "archv_commentary": [
+        {
+          "id": "90366198-c424-43f4-90b6-c0efdf7fab72",
+          "vertices": [
+            {
+              "x": 966.721472392638,
+              "y": 2586.1865030674844
+            },
+            {
+              "x": 941.9337423312883,
+              "y": 2817.5386503067484
+            },
+            {
+              "x": 1876,
+              "y": 2793
+            },
+            {
+              "x": 1876,
+              "y": 2586
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "b9e9d9c9-dac6-4d85-a242-3c61458ab719"
+            }
+          ]
+        },
+        {
+          "id": "ebffe28b-9747-4e9d-b6fe-82acdac05ddb",
+          "vertices": [
+            {
+              "x": 925.0,
+              "y": 2990.7374233128835
+            },
+            {
+              "x": 925.0,
+              "y": 3536.7374233128835
+            },
+            {
+              "x": 4098.0,
+              "y": 3577.7374233128835
+            },
+            {
+              "x": 4098.0,
+              "y": 2982.7374233128835
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "1633bd48-b9fc-49b4-96be-d28987a9a613"
+            }
+          ]
+        }
+      ],
       "archv_format_note": [],
       "archv_date": [
         {
@@ -312,62 +369,6 @@
       ],
       "archv_possessor": [],
       "archv_other": [
-        {
-          "vertices": [
-            {
-              "x": 959.7310638297872,
-              "y": 2618.268936170213
-            },
-            {
-              "x": 1866.7310638297872,
-              "y": 2618.268936170213
-            },
-            {
-              "x": 1866.7310638297872,
-              "y": 2794.268936170213
-            },
-            {
-              "x": 959.7310638297872,
-              "y": 2794.268936170213
-            }
-          ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "b9e9d9c9-dac6-4d85-a242-3c61458ab719"
-            }
-          ],
-          "id": "3cd86994-7edc-4afd-8051-d78b931ad0e5"
-        },
-        {
-          "vertices": [
-            {
-              "x": 940.2689361702128,
-              "y": 3030.268936170213
-            },
-            {
-              "x": 4027.2689361702123,
-              "y": 3030.268936170213
-            },
-            {
-              "x": 4027.2689361702123,
-              "y": 3519.2689361702137
-            },
-            {
-              "x": 940.2689361702128,
-              "y": 3519.2689361702137
-            }
-          ],
-          "connections": [
-            {
-              "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "1633bd48-b9fc-49b4-96be-d28987a9a613"
-            }
-          ],
-          "id": "bfeabfad-ddfa-4169-b01e-50461cc98b9f"
-        },
         {
           "vertices": [
             {
@@ -481,8 +482,8 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "archv_other",
-              "id": "3cd86994-7edc-4afd-8051-d78b931ad0e5"
+              "type": "archv_commentary",
+              "id": "90366198-c424-43f4-90b6-c0efdf7fab72"
             }
           ],
           "id": "b9e9d9c9-dac6-4d85-a242-3c61458ab719"
@@ -509,8 +510,8 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "archv_other",
-              "id": "bfeabfad-ddfa-4169-b01e-50461cc98b9f"
+              "type": "archv_commentary",
+              "id": "ebffe28b-9747-4e9d-b6fe-82acdac05ddb"
             }
           ],
           "id": "1633bd48-b9fc-49b4-96be-d28987a9a613"
