@@ -1,3 +1,5 @@
 date,arm,volume,pred,gold,gold_regions,TP,FP,FN,RQ,SQ,PQ,sTP,sFP,sFN,RQ_strict,SQ_strict,PQ_strict,notes
 2026-06-05,fewshot-flash-lite-era (historical),Appendix_1,auto_labeled,reviewed,388,354,117,34,0.8242,0.9540,0.7863,312,159,76,0.7264,0.9565,0.6948,"auto_labeled vs gold; A1 labeled during iter1-6 era, mixed provenance"
 2026-06-05,fewshot-flash-lite (iter7) + 3 pages 3.5-flash,Appendix_3,auto_labeled,reviewed,843,709,116,134,0.8501,0.9777,0.8312,691,134,152,0.8285,0.9780,0.8103,"auto_labeled vs gold; ~96 archv/struct gold boxes unscoreable on this machine (stale crop vintage, see RESUME_HERE)"
+2026-06-06,fewshot-3.5-flash+pt (production),Appendix_2,auto_labeled,reviewed,986,864,21,122,0.9236,0.9837,0.9086,807,78,179,0.8626,0.9877,0.8521,"TRUE production baseline: A2 labeled with new defaults, scored vs fresh human gold"
+2026-06-06,base-bare,Appendix_2,rerun_compare/ab/base-bare,reviewed,986,832,51,154,0.8903,0.9769,0.8697,768,115,218,0.8218,0.9808,0.8060,"3.5-flash ZERO demos, snap+backstop; the no-few-shot floor"
