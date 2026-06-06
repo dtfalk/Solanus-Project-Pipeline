@@ -4,6 +4,7 @@
 # local-only / regenerable
 venv/
 __pycache__/
+.claude/scheduled_tasks.lock
 
 # bulk PDFs travel outside git (3.9 GB) — sync manually between machines
 polygon_cropped_pdfs/

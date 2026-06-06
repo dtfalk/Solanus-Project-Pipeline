@@ -1,0 +1,9 @@
+Checkpoint 21 — 2026-06-06 — Appendix_2 gold, archivist-catalog fix, GATE-1 executed
+
+Corpus 174 gold. GATE-1 matrix on cold A2 (CSV): production 0.909/0.852 > base-bare
+0.870/0.806 > tuned-bare 0.561/0.403 > tuned+demos 0.320/0.227. Few-shot 3.5-flash
+stays production; tune trajectory 0.159->0.561 supports retry at ~300+ gold.
+Teardown verified: 0 endpoints / 0 models.
+Prompt contradiction (archv_other contents-page rule) + pool drift fixed: ablation
+recats 40->6 on worst pages. 55-agent gold audit -> 21 verified findings
+(label_review/GOLD_CONSISTENCY_AUDIT_2026-06-06.md), gold untouched.
