@@ -123,22 +123,20 @@ Production (few-shot 3.5-flash + the now-fixed prompt/pool) keeps labeling volum
    d. Enlarge the val split: `prepare --val 17` (stratified across page types; cap 256 is far away).
    e. Run `run_all_tests.py --no-api` again after the edits — must stay green.
 
-### Phase 0.5 — Label agreement (the data-quality gate; David-dependent, $0)
-The training volumes (A1+A3) carry pre-A2 conventions while evaluation is against A2-convention
-gold — part of what any tune "learns" is that inconsistency. Two worklists reconcile it:
-1. `label_review/GOLD_CONSISTENCY_AUDIT_2026-06-06.md` — 21 verified one-click fixes (DAVID
-   approves/applies in the editor; the agent NEVER edits gold).
-2. The notebook-convention audit (A2's notebook handling as reference, all three appendices) —
-   if its report exists in `label_review/`, same treatment.
-**Agent behavior:** proceed with whatever gold state exists at run time — do NOT wait — but
-record in the run log which worklists were applied (count `git log reviewed/` since this plan's
-commit). If gold changed since the last tune, re-`prepare` picks it up automatically. ALSO:
-exclude from the tuning export any page with an UNRESOLVED audit finding (add a skip-list to
-`export_tuning_data.py` from the audit JSONs — the tuning-set analog of EXCLUDED_EXAMPLES) and
-log how many pages were skipped. **Quantify the cleanup (Phase 3 hook):** when David later applies
-a worklist, the next continuous-tuning round re-runs the SAME config on the cleaned gold — the
-before/after delta on the cold subset is the measured value of label agreement (arm
-`tuned-cont-cleangold`).
+### Phase 0.5 — Label agreement (RESOLVED 2026-06-06 by David — read, then move on)
+David personally re-checked Appendix_1 and Appendix_3 against the Appendix_2 conventions:
+**the gold is consistent as-is.** The agent-generated audit findings
+(`label_review/GOLD_CONSISTENCY_AUDIT_2026-06-06.md`) are **DISMISSED** — agents (including the
+one that wrote this plan) have proven unreliable at judging this labeling scheme.
+
+**STANDING INSTRUCTION for every agent on this project:**
+- `reviewed/` gold is ground truth, full stop. Do NOT audit, second-guess, or file findings about
+  label conventions, category choices, or box granularity in gold.
+- Do NOT exclude any page from the tuning export on label-quality grounds. Train on ALL of
+  `reviewed/` exactly as it stands.
+- If David edits gold himself, the next `prepare` picks it up automatically — nothing to do.
+- Convention questions that genuinely block execution → STOP and leave a question in the run log
+  for David; never resolve them yourself.
 
 ### Phase 1 — Gentle sweep on flash-lite (~3–4 h wall, ~$8–12)
 Four configs, SEQUENTIALLY (R1), each: `prepare` (same data) → `tune` → wait → score → record → clean.

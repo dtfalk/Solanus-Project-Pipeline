@@ -1,3 +1,5 @@
+# ⚠️ DISMISSED 2026-06-06 — David reviewed A1/A3 directly: the gold IS consistent. These agent findings are noise; retained for the record only. Do NOT treat as a worklist.
+
 # Gold-Consistency Audit — 2026-06-06 (multi-agent, 55 agents)
 
 Audited all 98 Appendix_1/Appendix_3 gold pages against the conventions David established

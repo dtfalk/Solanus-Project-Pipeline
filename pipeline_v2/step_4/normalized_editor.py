@@ -173,7 +173,7 @@ QA_OUTPUT_DIR = _get_env_path(
 # ── Editor Settings (edit these) ──────────────────────────────────────────────
 
 # Folder name inside auto_labeled/ to edit (e.g. "Volume_1", "Appendix_1").
-EDITOR_DOCUMENT = os.getenv("EDITOR_DOCUMENT", "Appendix_2").strip() or "Appendix_2"
+EDITOR_DOCUMENT = os.getenv("EDITOR_DOCUMENT", "Appendix_3").strip() or "Appendix_3"
 
 # Starting page number. None = start at the first available page.
 EDITOR_START_PAGE = _get_env_int(
