@@ -87,7 +87,7 @@ The interrupted v2 fine-tune was picked up and finished safely:
 - **Self-consistency A/B (machine A): REJECTED** — box-vote fusion halves recall on boundary-variance;
   3.5-flash stays the quality path (LABEL_REVIEW Iter 8 addendum).
 
-## 2026-06-05 — Appendix_3 renumbered to the 46-page set (Desktop machine)
+## 2026-06-05 — Appendix_3 renumbered to the 46-page set (Framework laptop — mislabeled "Desktop" until 2026-06-06)
 This machine's `polygon_cropped_pdfs/Appendix_3/pages/` has **46 pages** (title, ToC, back title
 included); the labels were made against a **43-page** set = local pages 003–045. Fixed by shifting
 ALL A3 artifacts **+2** (reviewed/, auto_labeled/, labeled_examples/, shadow_labels/, file_uris.json
@@ -97,7 +97,7 @@ fresh → **review them in the editor** (`EDITOR_DOCUMENT=Appendix_3 EDITOR_STAR
 Alignment verified: all 58 shifted label files match their PDFs' render dims exactly; overlays
 pixel-tight.
 
-**KNOWN GAP — stale A3 crop vintage on this machine:** the local A3 PDFs (volume + pages, both)
+**KNOWN GAP — stale A3 crop vintage on this machine (the LAPTOP):** the local A3 PDFs (volume + pages, both)
 are an older crop in which the archivists' top-margin annotations are whited out. ~96 gold boxes
 (`archv_date` 43, `struct_id` 23, `archv_commentary` 20, …) reference blank regions here. The
 other machine's A3 PDFs contain that ink (its B7 passed). **Test B7 fails on this machine for this
