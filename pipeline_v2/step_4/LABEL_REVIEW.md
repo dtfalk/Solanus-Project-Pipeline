@@ -477,3 +477,40 @@ findings excluded as stale-A3-PDF artifacts, not label errors). Gold NOT modifie
 
 **GATE-1 tune** launched on the corrected 98-page A1+A3 set (8ep/LR×5/adapter8, A2 fully held
 out as the cold test volume); arms base±demos × tuned±demos → `experiments/gate1_results.csv`.
+
+### Iter 13 — GENTLE_TUNING_PLAN executed end-to-end (2026-06-06, unattended) · checkpoint `22`
+**Machine-vintage repair first (Phase 0):** this machine's local A1/A2/A3 crops were a stale vintage
+(A2 gold-vs-gold RQ 0.709, 275 dead boxes). Swapped in the git-tracked desktop-vintage page PDFs from
+`auto_labeled/` → RQ **1.000**, B7 green, full suite 30/30. All scores below are desktop-comparable.
+
+**Phase 1 — gentle sweep (cold-20 A2, PQ_strict; val-selected checkpoints):**
+| arm | config | best ckpt (val PQs) | cold-20 PQ | cold-20 PQ_strict |
+|---|---|---|---|---|
+| **sweep-G1** | epochs **default→40**, LR default, adapter 4 | ep37 (0.793) | **0.782** | **0.669** |
+| sweep-G4 (control) | 8 / LR×5 / adapter 8 | ep8 (0.655) | 0.510 | 0.362 |
+| sweep-G2† | 6 / LR×2 / adapter 8 | ep6 (0.435) | 0.429 | 0.329 |
+| sweep-G3 | 6 / LR×2 / adapter 4 | ep6 (0.453) | 0.412 | 0.313 |
+
+†G2 redefined from the plan's default-epochs spec to the affordable mid-pole (budget: default
+epochs = 40 ≈ 32.8M tokens/job). **OVER-TUNING VERDICT: CONFIRMED** — G1 ≥ G4 by nearly 2× on cold
+strict-PQ. Nuance: "gentle" wins through default LR + small adapter + *many* epochs + **val-loss
+checkpoint selection** (G1's curve rises to ep37 then dips at 40); epochs 1–4 can't even emit the
+schema; adapter size is a minor factor (G2≈G3). **Phase 2 (flash base): SKIPPED per R3** — needs
+~30–40 epochs to be useful ⇒ $35–98 at unverifiable rates.
+
+**Phase 3 — continuous tuning works (the "fewer errors every round" loop):** `tune --from-model G1
+--from-ckpt 9` on an 85-line targeted top-up (struct_doc/archv_commentary pages + David's 21
+consistency-fix pages ×3). Val: +1ep **0.838** / +2ep 0.812 / +3ep 0.796 (val-selection caught the
+overfit knee). **Cold-20: PQ 0.807 / PQ_strict 0.692 = +0.023 over its base** — real, narrowly under
+the +0.03 bar (PARTIAL). Each future gold volume = one cheap continuation round (~$1–2).
+
+**Phase 4 — adoption rung 1 PASSED:** tuned shadow ranks David's actual edit pages better than the
+flash-lite shadow (Spearman **0.739 vs 0.644**). Shipped gated `triage.py --shadow-pred /
+--shadow-tuned-endpoint / --out-name` (defaults unchanged; endpoints can't persist so the tuned
+shadow runs from precomputed preds or a temporarily-live endpoint). Production untouched.
+
+**State:** 0 endpoints; parked models: `solanus-gentle-G1` (sweep winner) + `solanus-cont-r1`
+(current best, ckpt1 = the future continuation base). Gap to production (0.852 strict, full-A2):
+0.692 vs 0.852 on cold-20 — tuned is now within ~0.16 and climbing ~+0.02/round. Spend this run:
+~$17–22 (empirical basis; 2.5-tier tuning prices unpublished — David: verify in console).
+Full ledger + curves: `experiments/RUN_LOG_gentle.md`; all rows in `experiments/gate1_results.csv`.

@@ -149,3 +149,11 @@ triage worklist at `qa_output/Appendix_2/triage.txt` — review it (high-disagre
 `reviewed/Appendix_2/`. That takes the corpus to ~171 gold pages → then run the GATE-1 sequence above
 (re-`prepare` now emits correct [0,1000] targets). Until then, **few-shot-3.5-flash + page-type is the
 labeler.** Nothing deployed; pool = 72 (notebook 42 / letter 21 / mass_card 4 / other 5).
+
+## 2026-06-06 — GENTLE_TUNING_PLAN executed (see LABEL_REVIEW Iter 13)
+Over-tuning CONFIRMED (gentle G1 0.669 vs aggressive G4 0.362 cold strict-PQ); continuous tuning
+proven (+0.023/round, val-selected); tuned-shadow triage gate PASSED (0.739 vs 0.644) and gated
+routes shipped. 0 endpoints; parked: solanus-gentle-G1 + solanus-cont-r1 (continuation base).
+NEXT round when new gold lands: `finetune.py prepare` → `tune --from-model
+projects/389262253193/locations/us-central1/models/899066809741737984 --from-ckpt 1 --epochs 1-2`
+→ valpick → cold-20 → park. Phase-2 (flash base) deferred on budget; revisit if rates published.
