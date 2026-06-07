@@ -37,7 +37,12 @@ Canvas controls:
   - Click a polygon to select it (auto-switches info type if needed).
   - Drag a red handle to move a vertex.
   - Drag inside the selected polygon to move it.
-  - Left / Right arrow keys navigate pages (auto-saves).
+  - With a polygon selected, arrow keys pull one edge inward to tighten the box
+    (Up=bottom edge up, Down=top edge down, Left=right edge left, Right=left edge
+    right); Ctrl+arrow pushes the opposite edge outward to expand (Ctrl+Up=top
+    edge up, Ctrl+Down=bottom edge down, Ctrl+Left=left edge left, Ctrl+Right=
+    right edge right); Shift+arrow slides the whole box one step in that direction.
+  - With NO polygon selected, Left / Right arrow keys navigate pages (auto-saves).
 
 Usage:
     python step_3/normalized_editor.py
@@ -53,11 +58,18 @@ from uuid import uuid4
 from pdf2image import convert_from_path
 from PIL import ImageTk
 
+# Document we are intending to review/edit
+TARGET_DOCUMENT = "Volume_1"
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 # ── Inlined config (was in step_x/config.py; mirrors normalized_viewer.py) ─────
 
 RENDER_DPI = 150
+
+# Arrow-key box editing on the selected polygon (source-px per press).
+NUDGE_STEP = 15        # plain arrow shrinks an edge / Shift+arrow slides the box
+NUDGE_MIN_SIZE = 8     # never shrink a box below this width/height
 
 LABEL_INFO_TYPES = [
     "src_content",
@@ -171,9 +183,8 @@ QA_OUTPUT_DIR = _get_env_path(
 )
 
 # ── Editor Settings (edit these) ──────────────────────────────────────────────
-
-# Folder name inside auto_labeled/ to edit (e.g. "Volume_1", "Appendix_1").
-EDITOR_DOCUMENT = os.getenv("EDITOR_DOCUMENT", "Appendix_3").strip() or "Appendix_3"
+# name inside auto_labeled/ to edit (e.g. "Volume_1", "Appendix_1").
+EDITOR_DOCUMENT = os.getenv("EDITOR_DOCUMENT", f"{TARGET_DOCUMENT}").strip() or f"{TARGET_DOCUMENT}"
 
 # Starting page number. None = start at the first available page.
 EDITOR_START_PAGE = _get_env_int(
@@ -414,6 +425,15 @@ class NormalizedEditorApp:
             "• 1-9 → switch label type",
             "• Shift+W → add polygon",
             "• Shift+C → connect",
+            "",
+            "Selected box (arrows):",
+            "• Arrow → pull that edge in",
+            "  (↑ bottom, ↓ top,",
+            "   ← right, → left)",
+            "• Ctrl+Arrow → push edge out",
+            "  (↑ top, ↓ bottom,",
+            "   ← left, → right)",
+            "• Shift+Arrow → slide box",
         ]
         for line in hint_lines:
             tk.Label(self.right_panel, text=line, bg="#252526",
@@ -482,8 +502,18 @@ class NormalizedEditorApp:
                     child.configure(bg=bg)
 
     def _bind_keys(self):
-        self.root.bind("<Left>",  lambda e: self.previous_page())
-        self.root.bind("<Right>", lambda e: self.next_page())
+        self.root.bind("<Left>",  lambda e: self._on_arrow_key("left"))
+        self.root.bind("<Right>", lambda e: self._on_arrow_key("right"))
+        self.root.bind("<Up>",    lambda e: self._on_arrow_key("up"))
+        self.root.bind("<Down>",  lambda e: self._on_arrow_key("down"))
+        self.root.bind("<Shift-Left>",  lambda e: self._on_arrow_key("left",  move=True))
+        self.root.bind("<Shift-Right>", lambda e: self._on_arrow_key("right", move=True))
+        self.root.bind("<Shift-Up>",    lambda e: self._on_arrow_key("up",    move=True))
+        self.root.bind("<Shift-Down>",  lambda e: self._on_arrow_key("down",  move=True))
+        self.root.bind("<Control-Left>",  lambda e: self._on_arrow_key("left",  expand=True))
+        self.root.bind("<Control-Right>", lambda e: self._on_arrow_key("right", expand=True))
+        self.root.bind("<Control-Up>",    lambda e: self._on_arrow_key("up",    expand=True))
+        self.root.bind("<Control-Down>",  lambda e: self._on_arrow_key("down",  expand=True))
         self.root.bind("<Return>", self._on_enter_key)
         self.root.bind("<Escape>", self._on_escape_key)
         self.root.bind("<Shift-W>", self._on_shift_w)
@@ -980,6 +1010,105 @@ class NormalizedEditorApp:
 
             self._draw_scene()
             self._update_status()
+
+    # ── Arrow-key box editing ────────────────────────────────────────────────────
+    def _on_arrow_key(self, direction, move=False, expand=False):
+        """Arrow keys edit the SELECTED box:
+          • plain arrow  → shrink: pull the FAR edge inward toward the arrow
+            (up=bottom edge up, down=top edge down, left=right edge left,
+            right=left edge right);
+          • Ctrl+arrow   → expand: push the NEAR edge (the opposite pair) outward
+            in the arrow's direction (Ctrl+up=top edge up, Ctrl+down=bottom edge
+            down, Ctrl+left=left edge left, Ctrl+right=right edge right);
+          • Shift+arrow  → translate the whole box one step in that direction.
+        With no box selected, Left/Right still navigate pages (unchanged). Text
+        fields and the review-queue list keep their native arrow behavior."""
+        focused = self.root.focus_get()
+        if self._focus_is_text_input() or isinstance(focused, tk.Listbox):
+            return
+        polygons = self._current_polygons()
+        idx = self.selected_polygon_idx
+        if (idx is not None and 0 <= idx < len(polygons)
+                and len(polygons[idx]["vertices"]) >= 3 and not self.draw_mode):
+            if move:
+                self._translate_selected_polygon(direction)
+            else:
+                self._resize_selected_edge(direction, expand=expand)
+            return "break"
+        # No selection: preserve page navigation (only plain Left/Right).
+        if not move and not expand:
+            if direction == "left":
+                self.previous_page()
+            elif direction == "right":
+                self.next_page()
+        return "break"
+
+    def _resize_selected_edge(self, direction, expand=False):
+        """Move one edge of the selected box by NUDGE_STEP. Plain (expand=False)
+        pulls the far edge inward (shrink); expand=True pushes the near edge
+        outward (grow). Shrink is clamped to a minimum box size; expand is clamped
+        to the page bounds."""
+        verts = self._current_polygons()[self.selected_polygon_idx]["vertices"]
+        xs = [v["x"] for v in verts]; ys = [v["y"] for v in verts]
+        x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+        midx, midy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
+        maxx, maxy = self.original_width - 1, self.original_height - 1
+
+        if direction in ("up", "down"):
+            if expand:                               # near edge grows outward in arrow dir
+                if direction == "up":                # top pair up
+                    step = min(NUDGE_STEP, y0); near, d = lambda v: v["y"] < midy, -1
+                else:                                # bottom pair down
+                    step = min(NUDGE_STEP, maxy - y1); near, d = lambda v: v["y"] > midy, 1
+            else:                                    # far edge pulled in toward arrow
+                step = min(NUDGE_STEP, max(0.0, (y1 - y0) - NUDGE_MIN_SIZE))
+                if direction == "up":                # bottom pair up
+                    near, d = lambda v: v["y"] > midy, -1
+                else:                                # top pair down
+                    near, d = lambda v: v["y"] < midy, 1
+            if step <= 0:
+                return
+            for v in verts:
+                if near(v): v["y"] += d * step
+        else:
+            if expand:
+                if direction == "left":              # left pair left
+                    step = min(NUDGE_STEP, x0); near, d = lambda v: v["x"] < midx, -1
+                else:                                # right pair right
+                    step = min(NUDGE_STEP, maxx - x1); near, d = lambda v: v["x"] > midx, 1
+            else:
+                step = min(NUDGE_STEP, max(0.0, (x1 - x0) - NUDGE_MIN_SIZE))
+                if direction == "left":              # right pair left
+                    near, d = lambda v: v["x"] > midx, -1
+                else:                                # left pair right
+                    near, d = lambda v: v["x"] < midx, 1
+            if step <= 0:
+                return
+            for v in verts:
+                if near(v): v["x"] += d * step
+        self._draw_scene()
+        self._update_status()
+
+    def _translate_selected_polygon(self, direction):
+        verts = self._current_polygons()[self.selected_polygon_idx]["vertices"]
+        dx, dy = 0.0, 0.0
+        if   direction == "left":  dx = -NUDGE_STEP
+        elif direction == "right": dx =  NUDGE_STEP
+        elif direction == "up":    dy = -NUDGE_STEP
+        elif direction == "down":  dy =  NUDGE_STEP
+        # Clamp the slide so the whole box stays on the page (shape unchanged).
+        xs = [v["x"] for v in verts]; ys = [v["y"] for v in verts]
+        maxx, maxy = self.original_width - 1, self.original_height - 1
+        if dx < 0: dx = -min(-dx, min(xs))
+        if dx > 0: dx =  min(dx, maxx - max(xs))
+        if dy < 0: dy = -min(-dy, min(ys))
+        if dy > 0: dy =  min(dy, maxy - max(ys))
+        if dx == 0 and dy == 0:
+            return
+        for v in verts:
+            v["x"] += dx; v["y"] += dy
+        self._draw_scene()
+        self._update_status()
 
     # ── Connections ────────────────────────────────────────────────────────────
     # Each polygon is stored as {"vertices": [...], "connections": [...]}.
