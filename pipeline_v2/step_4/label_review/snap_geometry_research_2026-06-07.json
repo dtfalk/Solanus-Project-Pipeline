@@ -1,0 +1,268 @@
+{
+    "question": "Improving axis-aligned bounding-box accuracy for text-region labeling on scanned document images, for a VLM (Gemini 2.5) few-shot pipeline with deterministic snap-to-ink post-processing, June 2026. Three concrete failure modes to solve: (1) RIGHT-EDGE CLIPPING of long lines: a multi-line text block is boxed as a rectangle sized to typical line width, but one or two lines run longer and their trailing text falls outside the box; a snap-to-ink step that computes horizontal extent from a FULL-HEIGHT COLUMN PROJECTION under-counts a single long line (it's only 1 text-row tall) and fails to extend the right edge. What are robust projection-profile / connected-component / run-length techniques to fit a rectangle that covers the LONGEST line of a block without grabbing neighboring blocks? (2) OVER-COVERAGE in dense/close-knit regions (headers): boxes drawn too large swallow adjacent blocks' text; how to tightly bound a text block and avoid merging with neighbors when inter-block whitespace is small (adaptive gap thresholds, X-Y cut / recursive projection, whitespace-valley detection). (3) NEIGHBOR CAPTURE across diagonally-adjacent blocks where simple axis-aligned fencing fails. ALSO: does increasing the number of in-context few-shot examples (e.g., 12 -> 20 -> 32) measurably improve spatial/bounding-box precision for VLM grounding/layout tasks, or does it plateau/regress? Evidence on optimal demonstration count, similarity-based vs random demo selection, and recency/domain weighting of demonstrations for in-context layout labeling. Prefer techniques that are deterministic, classical-CV, and run as post-processing on a binarized page, plus any 2024-2026 evidence on VLM document grounding accuracy and few-shot scaling.",
+    "summary": "For tight, deterministic, classical-CV bounding-box refinement on binarized scanned pages, the literature converges on three complementary primitives that directly address the three failure modes. (1) For RIGHT-EDGE CLIPPING, do not rely on a full-height column projection: use connected-component/Run-Length-Smoothing (RLSA) grouping or Docstrum's nearest-neighbor line formation to identify text-LINES individually, then take the per-line horizontal extent so the single longest line drives the right edge regardless of how few rows tall it is. (2) For OVER-COVERAGE and (3) NEIGHBOR CAPTURE in dense regions, Breuel's maximal-empty-whitespace-rectangle \"cover\" of the page background (DAS 2002 / ICDAR 2003) provides a deterministic way to detect inter-block/column gutters and use them as explicit obstacles that fence adjacent blocks apart, while Docstrum's angle+distance KNN analysis (k=5; within-line neighbors closer than between-line) and recursive XY-cut with adaptive statistical gap thresholds (gap_min = alpha*median + beta*IQR; valley threshold tau = gamma*median(h)) separate close-knit and diagonally-adjacent blocks without merging. On the VLM side, many-shot in-context learning substantially helps multimodal CLASSIFICATION (log-linear gains up to ~2,000 shots on Gemini 1.5 Pro), but the SAME body of work explicitly hedges that bounding-box/localization tasks did NOT show those gains, so scaling few-shot demonstrations is weak evidence for improving spatial precision specifically. Net recommendation: solve clipping/over-coverage/neighbor-capture deterministically in post-processing (per-line extent + whitespace-rectangle fencing + adaptive-gap recursive cut), and treat increasing demo count as unproven for bbox precision.",
+    "findings": [
+      {
+        "claim": "Fix right-edge clipping by computing horizontal extent PER TEXT-LINE (via CC grouping, RLSA smearing, or Docstrum line formation) instead of from a full-height column projection, so the single longest line drives the right edge even though it is only one text-row tall.",
+        "confidence": "high",
+        "vote": "merged-3-0",
+        "sources": [
+          "https://github.com/Vasistareddy/python-rlsa",
+          "https://www.semanticscholar.org/paper/The-Document-Spectrum-for-Page-Layout-Analysis-O'Gorman/d85097da36118fbccfeb7802abf89bf4b4c63a3e"
+        ],
+        "evidence": "The full-height column-projection under-count is exactly the stated failure: a single long line contributes to only its own rows, so a column projection over the whole block height never registers the overhang. The deterministic remedy is to operate at the line level. RLSA is 'a method mainly used for block segmentation and text discrimination' that merges adjacent foreground when white runs fall below a threshold ('255 white pixel will be converted to 0 black pixel if the number of adjacent 255s are less than the predefined limit value'); applying horizontal RLSA smears each line into a connected run whose true right extent can be measured per line. Docstrum independently 'yields an accurate measure of skew, within-line, and between-line spacings and locates text lines and text blocks,' and forms text-lines by 'transitive closure on within-line nearest neighbor pairings using a threshold ft' — giving per-line connected components from which the max right edge over all lines is taken. Both are classical, deterministic, binarized-page post-processing. (Claims [1],[2],[11],[13].) Caveat: Docstrum/RLSA find lines, they are not themselves a snap-to-ink rectangle fitter, but per-line extent is a direct, sound input to one."
+      },
+      {
+        "claim": "Breuel's whitespace-cover method (find maximal empty rectangles covering the page background, then score those corresponding to column/gutter boundaries and use them as obstacles in text-line detection) is the core deterministic primitive for preventing over-coverage and neighbor capture by fencing adjacent blocks apart.",
+        "confidence": "high",
+        "vote": "merged-3-0/2-1",
+        "sources": [
+          "https://www.researchgate.net/publication/2504221_Two_Geometric_Algorithms_for_Layout_Analysis",
+          "https://www.researchgate.net/publication/4033424_An_algorithm_for_finding_maximal_whitespace_rectangles_at_arbitrary_orientations_for_document_layout_analysis",
+          "https://www.semanticscholar.org/paper/An-algorithm-for-finding-maximal-whitespace-at-for-Breuel/8e0827b1f7483b8117f08f1a22a8078e1e10df7d",
+          "https://github.com/BobLd/DocumentLayoutAnalysis",
+          "https://www.researchgate.net/profile/Thomas-Breuel/publication/2504221_Two_Geometric_Algorithms_for_Layout_Analysis/links/551dd6e20cf2a2d9e13b37c8/Two-Geometric-Algorithms-for-Layout-Analysis.pdf"
+        ],
+        "evidence": "Multiple primary/secondary sources confirm the same algorithm family: it works by 'finding a cover of the background whitespace of a document in terms of maximal empty rectangles' and 'introduces an evaluation function that reliably identifies maximal empty rectangles corresponding to column boundaries.' The fencing mechanism is explicit: whitespace rectangles 'are evaluated as candidates for column separators (called gutters or obstacles) based on their aspect ratio, width, text columns width and proximity to text-sized connected components, and finally, the whitespace rectangles representing the gutters are used as obstacles in a robust least square, globally optimal text-line detection algorithm.' This is precisely the primitive for not merging neighbors (failure modes 2 and 3): detect the inter-block gap as a positive object and forbid lines/boxes from crossing it. 'Globally maximal whitespace rectangles constitute a concise representation of the major layout features of documents.' (Claims [0],[3],[6],[7],[8],[10].) IMPORTANT SCOPE LIMIT: the evaluation function is tuned for TALL, high-aspect-ratio VERTICAL gutters (column separators), so it most directly solves vertical neighbor separation; applicability to arbitrary horizontal inter-block gaps and diagonal capture is a reasonable extrapolation, not an explicit paper result. The related 'globally optimal / no heuristics' claims were REFUTED (votes 0-3), so do NOT rely on global-optimality as a robustness guarantee."
+      },
+      {
+        "claim": "Docstrum's angle-and-distance K-nearest-neighbor analysis (O'Gorman used k=5; within-line neighbors closer than between-line) is a deterministic, skew-aware, self-adaptive basis for resolving diagonal-neighbor capture and deriving adaptive gap thresholds from the page's own spacing histograms.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://www.semanticscholar.org/paper/The-Document-Spectrum-for-Page-Layout-Analysis-O'Gorman/d85097da36118fbccfeb7802abf89bf4b4c63a3e"
+        ],
+        "evidence": "Docstrum distinguishes neighbor types via the angle (theta from horizontal) and distance to each component's K nearest neighbors: 'For text documents, within-line neighbors tend to be closer than between-line neighbors,' with O'Gorman using k=5 (k>=4 minimum, since the 2-3 nearest symbols are same-line and the 4th is typically the line above/below). Because the within-/between-line and word/line spacing thresholds are read from the page's own nearest-neighbor distance and angle histograms, the method is inherently adaptive to local font size and skew — directly relevant to diagonal-neighbor capture (failure mode 3) where axis-aligned fencing fails, since the angle test, not an axis projection, decides membership. Blocks are then formed using a parallel-distance threshold (fpa) and perpendicular-distance threshold (fpe). (Claims [12],[13].) Caveat: distance-threshold block merging has a documented failure mode (too-small under-merges, too-large over-merges), so Docstrum does not by itself guarantee correct dense-region separation; it provides the adaptive measurements, not a guaranteed solution."
+      },
+      {
+        "claim": "Recursive XY-Cut with ADAPTIVE statistical gap thresholds — split only at projection-profile valleys wider than gap_min = alpha*median + beta*IQR of perpendicular box sizes, with valley density threshold tau = gamma*median(h) — is the deterministic recursive-projection recipe for separating close-knit blocks without merging neighbors.",
+        "confidence": "high",
+        "vote": "merged-3-0",
+        "sources": [
+          "https://github.com/BobLd/DocumentLayoutAnalysis",
+          "https://arxiv.org/pdf/2601.05470"
+        ],
+        "evidence": "Classical recursive XY-Cut 'compares valleys along the horizontal and vertical directions, VX and VY, to corresponding predefined thresholds TX and TY; if the valley is larger than the threshold, the node is split' — a deterministic mechanism that separates neighbors via inter-block whitespace, but with FIXED thresholds. The 2026 AXG-Tree work (arXiv:2601.05470, verified verbatim via pdftotext) replaces rigid rules with statistics from the boxes themselves: 'Instead of using rigid geometric rules, AXG-Tree determines valid separators based on statistical properties... gap_min = alpha*m + beta*IQR' (m and IQR are the median and interquartile range of perpendicular box sizes) and 'tau = gamma*median(h)' explicitly 'to distinguish meaningful structural gaps from intra-line spacing.' This is the adaptive-gap recipe requested for failure mode 2 (over-coverage in dense headers). (Claims [5],[9].) Caveat: AXG-Tree is a reading-order/segmentation method, not a bbox fitter, and a related claim that its valley+gap_min scheme 'is directly applicable to failure mode 2' was REFUTED (0-3) as an over-application; treat the formulas as a transferable adaptive-threshold technique, not a validated solution. Note also that the bounding-box-CC-projection efficiency claims and the 'cut only at most prominent valley' claim from the Ha/Haralick line were REFUTED (1-2)."
+      },
+      {
+        "claim": "Increasing in-context demonstrations substantially improves multimodal CLASSIFICATION (log-linear gains up to ~2,000 shots on Gemini 1.5 Pro), but this does NOT transfer to bounding-box/localization precision, which the same work explicitly hedges — so scaling few-shot demos (12 -> 20 -> 32) is weak/unproven evidence for improving VLM spatial grounding precision.",
+        "confidence": "high",
+        "vote": "3-0",
+        "sources": [
+          "https://arxiv.org/html/2405.09798v2"
+        ],
+        "evidence": "Jiang et al. (arXiv:2405.09798) report that 'many-shot ICL, including up to almost 2,000 multimodal demonstrating examples, leads to substantial improvements compared to few-shot,' with 'log-linear improvement on 9 out of the 10' CLASSIFICATION datasets for Gemini 1.5 Pro (e.g. +23% HAM10000, +38% EuroSAT). CRITICAL for this project: the SAME paper's object-localization/bounding-box tasks (DIOR, DeepLesion, scored by mean IoU) are explicitly hedged — 'most LMMs are not yet capable of accurately producing localizations' — and show NO demonstrated log-linear bbox gains. So the headline scaling result is about classification, not spatial precision. Two further caveats: results are on Gemini 1.5 Pro (May 2024), two generations behind the project's Gemini 2.5 (June 2026), so transfer is not guaranteed; and competing claims about demo-count effects depending on pretraining-data type / models collapsing at higher shot counts were REFUTED (1-2), leaving the optimal-count, similarity-vs-random selection, and recency/domain-weighting questions UNRESOLVED. (Claim [14].)"
+      }
+    ],
+    "caveats": "TIME-SENSITIVITY / VLM EVIDENCE: The only surviving few-shot-scaling evidence is on Gemini 1.5 Pro (May 2024); the project targets Gemini 2.5 (June 2026), so transfer of even the classification scaling result is unverified, and the bounding-box result is explicitly negative/hedged. No surviving claim answers the specific sub-questions on OPTIMAL demonstration count for layout grounding, similarity-based vs random demo selection, or recency/domain weighting — three competing claims on those topics were refuted (votes 1-2). SOURCE-FETCH GAPS: Several primary PDFs (Breuel via ResearchGate/IEEE/Springer, Semantic Scholar pages) returned 403/418/empty on direct fetch; verification of those quotes rests on search-snippet abstract text and a faithful secondary repo (BobLd/DocumentLayoutAnalysis), not rendered full text. SCOPE/EXTRAPOLATION: Breuel's whitespace evaluation function is validated for TALL VERTICAL column gutters; its application to arbitrary horizontal inter-block gaps and to diagonally-adjacent neighbor capture is a defensible but unproven extrapolation. Docstrum, RLSA, and recursive XY-cut LOCATE lines/blocks and provide adaptive measurements but are NOT themselves snap-to-ink rectangle fitters and have documented over-/under-merge failure modes in dense regions, so none is a turnkey guarantee for failure mode 2. REFUTED-CLAIM HYGIENE: do not rely on 'global optimality / no heuristics' as a robustness property (refuted 0-3), nor on the bounding-box-projection XY-cut efficiency / most-prominent-valley / em-size-threshold claims (refuted 1-2), nor on XY-Cut++ BLEU-4 numbers (refuted 0-3). All recommended classical-CV techniques are dated 1982-2026 but the older ones (RLSA 1982, Docstrum 1993, Breuel 2002-2003, XY-cut ~1984) are stable, foundational algorithm definitions, not performance benchmarks, so their age is not disqualifying.",
+    "openQuestions": [
+      "What is the optimal in-context demonstration count specifically for VLM bounding-box/layout grounding (not classification) on Gemini 2.5, and does it plateau or regress beyond 12-32 shots? No surviving claim answers this; the relevant claims were refuted.",
+      "Does similarity-based / nearest-neighbor demo selection outperform random selection for spatial layout labeling, and does recency or domain weighting of demonstrations help? Unresolved by the surviving evidence.",
+      "For diagonally-adjacent (failure mode 3) blocks specifically, does Docstrum's angle-based KNN membership empirically outperform Breuel's vertical-gutter whitespace fencing, or is a hybrid (whitespace obstacles + angle-aware grouping) needed? No source directly compares them on diagonal capture.",
+      "What concrete pipeline order best combines per-line extent measurement (right-edge fix) with whitespace-rectangle / adaptive-gap fencing (over-coverage fix) so that extending a box to the longest line does not then trip the neighbor-merge guards? No source addresses the interaction of the three fixes."
+    ],
+    "refuted": [
+      {
+        "claim": "Document page decomposition can be done by recursive X-Y cuts computed on the bounding boxes of connected components of black pixels rather than on raw image pixels, which makes the segmentation far more efficient (completing in under a second on 1995-era hardware for a 300 dpi letter page).",
+        "vote": "1-2",
+        "source": "https://www.researchgate.net/publication/220861876_Document_page_decomposition_by_the_bounding-box_project"
+      },
+      {
+        "claim": "A cut is placed only at the most prominent valley/gap in the projection profile, and only when that gap is wide enough; the recursion stops when no sufficiently wide valley remains, which prevents over-segmentation and keeps adjacent blocks separate only when whitespace is genuinely prominent.",
+        "vote": "1-2",
+        "source": "https://www.researchgate.net/publication/220861876_Document_page_decomposition_by_the_bounding-box_project"
+      },
+      {
+        "claim": "The gap/whitespace threshold used to decide where to cut is set adaptively from the em size of the dominant font: divisions are made at projection-profile gaps whose width exceeds a threshold V_thr, where V_thr is approximately the dominant font's em size (S_em).",
+        "vote": "1-2",
+        "source": "https://www.researchgate.net/publication/220861876_Document_page_decomposition_by_the_bounding-box_project"
+      },
+      {
+        "claim": "The algorithm finds GLOBALLY maximal whitespace rectangles, i.e. it returns globally optimal solutions rather than locally greedy ones, which is the property needed to robustly fence text blocks from neighbors without merging them.",
+        "vote": "0-3",
+        "source": "https://www.semanticscholar.org/paper/An-algorithm-for-finding-maximal-whitespace-at-for-Breuel/8e0827b1f7483b8117f08f1a22a8078e1e10df7d"
+      },
+      {
+        "claim": "Increasing the number of in-context demonstrations does NOT uniformly improve VLM few-shot performance; the effect depends on the model's pretraining data. VLMs trained on interleaved image-text data improve with more shots, while those trained on image-text pairs degrade as shot count rises.",
+        "vote": "1-2",
+        "source": "https://arxiv.org/html/2510.24331v1"
+      },
+      {
+        "claim": "Some VLMs collapse entirely at higher demonstration counts: LLaVA v1.5 performance drops to zero at eight or more demonstrations, demonstrating that more few-shot examples can actively regress (not just plateau) for certain architectures.",
+        "vote": "1-2",
+        "source": "https://arxiv.org/html/2510.24331v1"
+      },
+      {
+        "claim": "Traditional rigid fixed-threshold XY-Cut produces hierarchical errors on intricate (L-shaped, multi-column) layouts, scoring only 0.749 BLEU-4 on complex layouts versus 0.986 for the adaptive-threshold XY-Cut++, motivating adaptive over fixed gap thresholds.",
+        "vote": "0-3",
+        "source": "https://arxiv.org/html/2504.10258v3"
+      },
+      {
+        "claim": "The whitespace-rectangle and text-line algorithms return globally optimal solutions and require no heuristics, making them suitable as deterministic classical-CV post-processing rather than tunable heuristic snap-to-ink steps.",
+        "vote": "0-3",
+        "source": "https://www.researchgate.net/profile/Thomas-Breuel/publication/2504221_Two_Geometric_Algorithms_for_Layout_Analysis/links/551dd6e20cf2a2d9e13b37c8/Two-Geometric-Algorithms-for-Layout-Analysis.pdf"
+      },
+      {
+        "claim": "The AXG-Tree segments a page by recursively computing a projection histogram h along the scanning axis and splitting at 'valleys' where projection density is low (h[k] < tau) AND the segment width exceeds a minimum gap width gap_min; this adaptive-gap recursive-projection scheme is directly applicable to failure mode (2) over-coverage, separating close-knit blocks without merging neighbors.",
+        "vote": "0-3",
+        "source": "https://arxiv.org/pdf/2601.05470"
+      },
+      {
+        "claim": "Breuel's branch-and-bound algorithm finds GLOBALLY maximal whitespace (empty) rectangles among a set of foreground obstacles (e.g., connected-component / character / word bounding boxes), returning the N largest non-overlapping maximal whitespace rectangles whose location, width, height, and orientation fall within specified parameter ranges; it returns globally optimal solutions with no heuristics.",
+        "vote": "1-2",
+        "source": "https://www.researchgate.net/publication/4033424_An_algorithm_for_finding_maximal_whitespace_rectangles_at_arbitrary_orientations_for_document_layout_analysis"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://www.researchgate.net/publication/220861876_Document_page_decomposition_by_the_bounding-box_project",
+        "quality": "primary",
+        "angle": "primary / projection-profile box fitting",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.semanticscholar.org/paper/An-algorithm-for-finding-maximal-whitespace-at-for-Breuel/8e0827b1f7483b8117f08f1a22a8078e1e10df7d",
+        "quality": "primary",
+        "angle": "primary / projection-profile box fitting",
+        "claimCount": 5
+      },
+      {
+        "url": "https://handwiki.org/wiki/Recursive_X-Y_cut",
+        "quality": "secondary",
+        "angle": "primary / projection-profile box fitting",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/html/2510.24331v1",
+        "quality": "primary",
+        "angle": "primary / projection-profile box fitting",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/Vasistareddy/python-rlsa",
+        "quality": "primary",
+        "angle": "primary / projection-profile box fitting",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2504.10258v3",
+        "quality": "primary",
+        "angle": "page segmentation / over-coverage & gap thresholds",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.researchgate.net/profile/Thomas-Breuel/publication/2504221_Two_Geometric_Algorithms_for_Layout_Analysis/links/551dd6e20cf2a2d9e13b37c8/Two-Geometric-Algorithms-for-Layout-Analysis.pdf",
+        "quality": "primary",
+        "angle": "page segmentation / over-coverage & gap thresholds",
+        "claimCount": 5
+      },
+      {
+        "url": "https://cedar.buffalo.edu/~jguo/661/p2/project2.html",
+        "quality": "secondary",
+        "angle": "page segmentation / over-coverage & gap thresholds",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2601.05470",
+        "quality": "primary",
+        "angle": "page segmentation / over-coverage & gap thresholds",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.researchgate.net/publication/4033424_An_algorithm_for_finding_maximal_whitespace_rectangles_at_arbitrary_orientations_for_document_layout_analysis",
+        "quality": "primary",
+        "angle": "page segmentation / over-coverage & gap thresholds",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.researchgate.net/publication/292976390_Page_Segmentation_using_XY_Cut_Algorithm_in_OCR_Systems_-_A_Review",
+        "quality": "secondary",
+        "angle": "page segmentation / over-coverage & gap thresholds",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.researchgate.net/publication/2504221_Two_Geometric_Algorithms_for_Layout_Analysis",
+        "quality": "primary",
+        "angle": "diagonal neighbor capture / region growing",
+        "claimCount": 5
+      },
+      {
+        "url": "https://github.com/BobLd/DocumentLayoutAnalysis",
+        "quality": "primary",
+        "angle": "diagonal neighbor capture / region growing",
+        "claimCount": 5
+      },
+      {
+        "url": "https://www.semanticscholar.org/paper/The-Document-Spectrum-for-Page-Layout-Analysis-O'Gorman/d85097da36118fbccfeb7802abf89bf4b4c63a3e",
+        "quality": "primary",
+        "angle": "diagonal neighbor capture / region growing",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2405.09798v2",
+        "quality": "primary",
+        "angle": "academic / VLM few-shot scaling for grounding",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2507.16217",
+        "quality": "primary",
+        "angle": "academic / VLM few-shot scaling for grounding",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/html/2603.26775",
+        "quality": "primary",
+        "angle": "academic / VLM few-shot scaling for grounding",
+        "claimCount": 3
+      },
+      {
+        "url": "https://simedw.com/2025/07/10/gemini-bounding-boxes/",
+        "quality": "primary",
+        "angle": "academic / VLM few-shot scaling for grounding",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/2505.20612",
+        "quality": "primary",
+        "angle": "academic / VLM few-shot scaling for grounding",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/pdf/2405.09798",
+        "quality": "primary",
+        "angle": "academic / VLM few-shot scaling for grounding",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/abs/2405.09798",
+        "quality": "primary",
+        "angle": "practitioner / demo selection & VLM doc grounding benchmarks",
+        "claimCount": 5
+      },
+      {
+        "url": "https://medium.com/data-science-collective/gemini-2-5-pro-bounding-boxes-make-document-extraction-practical-57dc6d5b6821",
+        "quality": "blog",
+        "angle": "practitioner / demo selection & VLM doc grounding benchmarks",
+        "claimCount": 0
+      },
+      {
+        "url": "https://arxiv.org/pdf/2604.08538",
+        "quality": "primary",
+        "angle": "practitioner / demo selection & VLM doc grounding benchmarks",
+        "claimCount": 5
+      }
+    ],
+    "stats": {
+      "angles": 5,
+      "sourcesFetched": 23,
+      "claimsExtracted": 106,
+      "claimsVerified": 25,
+      "confirmed": 15,
+      "killed": 10,
+      "afterSynthesis": 5,
+      "urlDupes": 2,
+      "budgetDropped": 5,
+      "agentCalls": 105
+    }
+  }

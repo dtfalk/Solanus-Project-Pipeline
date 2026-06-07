@@ -62,3 +62,19 @@
   holdout still prevents self-leakage) — use the checkpointed pre-promotion pool
   (checkpoints/15_pre-integrations/labeled_examples) for any future few-shot-on-A2 comparison.
   Tuned-model A2 evals unaffected (bare prompt, no demos). Re-uploaded 138 URIs.
+
+## 2026-06-07 — Iter 14 session (geometry + continuation r2)
+- GEOMETRY (primary win, no API cost): geom_diagnose.py over 2774 boxes -> over-coverage 6.5% >>
+  right-clip 0.8%. snap_polygon_to_ink rewritten to per-line horizontal extent (margin_frac_h 0.45)
+  + vertical unchanged. snap_lab.py harness (976 boxes): clip 13.0->8.4px (-35%), over 28.7->27.5,
+  under 6.4->8.0 (safe). Real re-snap: 10/22 clips recovered (-45%). Shipped to production snap.
+- Research (deep-research, verified): per-line/RLSA fixes clipping; whitespace-rect fencing + adaptive
+  gaps for over-coverage; MANY-SHOT ICL helps classification but NOT bbox -> demo-count scaling won't
+  fix geometry. Saved label_review/snap_geometry_research_2026-06-07.json.
+- V1 (273pg) promoted to pool -> 396 examples. page_148 excluded everywhere. A3 vintage repaired.
+- CONTINUATION r2: prepare 408 train / 20 val (A1+A2+A3+V1, cold-20 A2 + page_148 held out);
+  tune --from-model cont-r1 --from-ckpt 1 --epochs 2. SUCCEEDED, 3 ckpt endpoints.
+  Cold-20 A2: ckpt1 PQ 0.630/strict 0.543 > ckpt3 0.578/0.461. BOTH < cont-r1 0.807/0.692 -> REGRESS
+  (distribution shift to V1 + step too large). r2 model + all 3 endpoints deleted. cont-r1 stays best.
+- END STATE: 0 endpoints; parked solanus-cont-r1 (best) + solanus-gentle-G1. No labeling API spent
+  (geometry all local). Tune+eval cost ~$8-12 est (2.5 rates unpublished).
