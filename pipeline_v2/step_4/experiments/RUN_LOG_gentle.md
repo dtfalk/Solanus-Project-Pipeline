@@ -55,3 +55,10 @@
 - CLEANUP: orphan model from the cancelled job deleted. End state: 0 endpoints;
   parked models = solanus-gentle-G1 (902444509462265856; sweep winner / reproducible baseline)
   and solanus-cont-r1 (899066809741737984; CURRENT BEST, future continuation base, ckpt1).
+- POST-PLAN (David directive): promoted ALL Appendix_2 gold into the few-shot pool (65 new; pool
+  73 -> 138; notebook 41 -> 55). Copies stripped of empty editor stamps; reviewed/ untouched;
+  TUNING holdout unaffected (prepare reads reviewed/ with the A1+A3 pin). EVAL-HYGIENE NOTE:
+  future FEW-SHOT-arm evals on A2 are no longer cold (A2 siblings now in the pool; per-page
+  holdout still prevents self-leakage) — use the checkpointed pre-promotion pool
+  (checkpoints/15_pre-integrations/labeled_examples) for any future few-shot-on-A2 comparison.
+  Tuned-model A2 evals unaffected (bare prompt, no demos). Re-uploaded 138 URIs.
