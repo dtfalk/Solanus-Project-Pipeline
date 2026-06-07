@@ -1226,16 +1226,54 @@ def _fit_extent(binp: list, gap: int, alo: float, ahi: float):
     return min(a for a, _ in inter), max(b for _, b in inter)
 
 
+def _per_line_x_extent(ink_crop, y_lo, y_hi, bx0, bx1, gap, min_run):
+    """PER-LINE horizontal extent: the leftmost/rightmost ink across rows [y_lo,y_hi),
+    following only runs that overlap the box's own x-span [bx0,bx1). This lets a SINGLE
+    long line drive the right edge (a full-height column projection washes it out — the
+    cause of right-edge clipping), while a separate neighbour block (gap before it) is
+    NOT grabbed. Returns (lo, hi) in crop-pixel coords, or None. (`ink_crop`: thresholded
+    'L' image, 255 = ink.)"""
+    import numpy as np
+    arr = np.asarray(ink_crop) > 0
+    H, W = arr.shape
+    y_lo = max(0, int(y_lo)); y_hi = min(H, int(y_hi))
+    bx0 = max(0, int(bx0)); bx1 = min(W, int(bx1))
+    lo = hi = None
+    for r in range(y_lo, y_hi):
+        idx = np.flatnonzero(arr[r])
+        if idx.size == 0:
+            continue
+        splits = np.where(np.diff(idx) > gap)[0]
+        starts = np.concatenate(([0], splits + 1)); ends = np.concatenate((splits, [idx.size - 1]))
+        rl = rr = None
+        for s, e in zip(starts, ends):
+            a = int(idx[s]); b = int(idx[e]) + 1
+            if b - a < min_run:
+                continue
+            if b > bx0 and a < bx1:               # run is part of THIS block's line
+                rl = a if rl is None else min(rl, a)
+                rr = b if rr is None else max(rr, b)
+        if rl is None:
+            continue
+        lo = rl if lo is None else min(lo, rl)
+        hi = rr if hi is None else max(hi, rr)
+    return (lo, hi) if lo is not None else None
+
+
 def snap_polygon_to_ink(
     vertices:      list[dict],
     page_gray:     Image.Image,
     fences:        list = (),      # (x0,y0,x1,y1) of OTHER polygons — fit stays clear of these
-    margin_frac:   float = 0.22,   # search reach beyond the box (fraction of box dim)
+    margin_frac_h: float = 0.45,   # horizontal search reach beyond box (frac of box width) — wide
+                                   # enough to SEE a clipped long line (validated, snap_lab.py)
+    margin_frac_v: float = 0.22,   # vertical search reach beyond box (frac of box height)
     h_gap_frac:    float = 0.016,  # horizontal blank run bridged when fitting (fraction of W)
     v_gap_frac:    float = 0.009,  # vertical blank run bridged when fitting (fraction of H)
-    min_ink_frac:  float = 0.035,  # a row/col counts as "ink" above this mean coverage
+    min_ink_frac:  float = 0.035,  # a row counts as "ink" above this mean coverage
+    min_run_frac:  float = 0.004,  # per-line ink run shorter than this*W is noise (ignored)
     fence_margin:  int   = 6,      # stay this many px clear of a neighbouring box
     text_margin_frac: float = 0.008,  # blank margin around text as frac of page height (~55px @150dpi)
+    vmargin_scale: float = 1.0,    # scale the vertical margin only (1.0 keeps it safe; <1 risks clip)
     skew_tol:      float = 0.12,   # skip clean quads whose top edge slopes more than this
 ) -> list[dict]:
     """FIT-TO-INK: resize the box to tightly and completely bound the contiguous text
@@ -1274,7 +1312,7 @@ def snap_polygon_to_ink(
             if fy0 >= y1:
                 bot_lim = min(bot_lim, fy0 - fence_margin)
 
-    mx, my = bw * margin_frac, bh * margin_frac
+    mx, my = bw * margin_frac_h, bh * margin_frac_v
     sx0 = max(0, left_lim, int(round(x0 - mx)))
     sy0 = max(0, top_lim, int(round(y0 - my)))
     sx1 = min(W, right_lim, int(round(x1 + mx)))
@@ -1294,14 +1332,19 @@ def snap_polygon_to_ink(
         return vertices
 
     cutoff = 255 * min_ink_frac
-    cbin = [v >= cutoff for v in ink.resize((cw, 1), Image.BOX).getdata()]
     rbin = [v >= cutoff for v in ink.resize((1, ch), Image.BOX).getdata()]
     gap_c = max(4, int(round(W * h_gap_frac)))
     gap_r = max(4, int(round(H * v_gap_frac)))
 
-    fx = _fit_extent(cbin, gap_c, x0 - sx0, x1 - sx0)
+    # Vertical extent: row projection (tight, as before). Horizontal extent: PER LINE
+    # within that vertical band, so a single long line drives the right edge instead of
+    # being washed out by a full-height column projection (fixes right-edge clipping).
     fy = _fit_extent(rbin, gap_r, y0 - sy0, y1 - sy0)
-    if fx is None or fy is None:
+    if fy is None:
+        return vertices
+    min_run = max(6, int(round(W * min_run_frac)))
+    fx = _per_line_x_extent(ink, fy[0], fy[1], x0 - sx0, x1 - sx0, gap_c, min_run)
+    if fx is None:
         return vertices
 
     # Fit extent = the box's OWN text, separated from neighbours by the fences.
@@ -1309,9 +1352,10 @@ def snap_polygon_to_ink(
     ey0 = max(top_lim, sy0 + fy[0]);  ey1 = min(bot_lim, sy0 + fy[1])
     # Add the human-style margin AROUND the text, clamped only to the page — small
     # overlaps with neighbours are expected (the human labels overlap on 41/71 pages).
-    margin = max(6, int(round(text_margin_frac * H)))   # scale-invariant (like the gap params)
-    nx0 = max(0, ex0 - margin); nx1 = min(W, ex1 + margin)
-    ny0 = max(0, ey0 - margin); ny1 = min(H, ey1 + margin)
+    hmargin = max(6, int(round(text_margin_frac * H)))
+    vmargin = max(4, int(round(text_margin_frac * H * vmargin_scale)))
+    nx0 = max(0, ex0 - hmargin); nx1 = min(W, ex1 + hmargin)
+    ny0 = max(0, ey0 - vmargin); ny1 = min(H, ey1 + vmargin)
     nx0, ny0, nx1, ny1 = int(nx0), int(ny0), int(nx1), int(ny1)
     if nx1 - nx0 < 3 or ny1 - ny0 < 3:
         return vertices
@@ -1332,7 +1376,9 @@ def snap_all_polygons(documents: dict, page_gray: Image.Image) -> int:
     # bigger bridgeable gap to capture the WHOLE block (e.g. the "...Church of..."
     # top line the model sometimes leaves out) — still neighbour-fenced.
     OVERRIDES = {
-        "src_origin": dict(margin_frac=0.75, v_gap_frac=0.022),
+        # Letterhead spans several centered lines with larger inter-line gaps: reach
+        # farther vertically and bridge a bigger vertical gap to capture the whole block.
+        "src_origin": dict(margin_frac_v=0.75, v_gap_frac=0.022),
     }
     refs = []
     for doc in documents.values():

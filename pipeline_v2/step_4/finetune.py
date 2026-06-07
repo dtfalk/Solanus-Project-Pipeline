@@ -40,7 +40,13 @@ def _client():
 # Appendix_2 is the held-out TEST volume. TRAINING data (cmd_prepare) is pinned to
 # these volumes; eval intentionally still sees everything (it scores against the
 # held-out gold once the user has reviewed it).
-TRAIN_VOLUMES = ("Appendix_1", "Appendix_3")
+# 2026-06-07: corpus now ~400 gold pages (A1/A2/A3/V1). Train on all four; keep the
+# established cold-20 Appendix_2 pages held out so every CSV row stays comparable, and
+# skip Volume_1/page_148 (editor anomaly, David: exclude for now).
+TRAIN_VOLUMES = ("Appendix_1", "Appendix_2", "Appendix_3", "Volume_1")
+HOLDOUT_PAGES = {("Appendix_2", f"page_{n:03d}") for n in
+                 (1, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 58)}
+EXCLUDE_PAGES = {("Volume_1", "page_148")}
 
 
 def _gold_pages(volumes=None):
@@ -49,6 +55,8 @@ def _gold_pages(volumes=None):
         if volumes is not None and vol not in volumes:
             continue
         for pd in sorted((REVIEW / vol).glob("page_*")):
+            if (vol, pd.name) in HOLDOUT_PAGES or (vol, pd.name) in EXCLUDE_PAGES:
+                continue
             pdf = _find_pdf(vol, pd.name)
             jp = pd / f"{pd.name}.json"
             if pdf and jp.exists():

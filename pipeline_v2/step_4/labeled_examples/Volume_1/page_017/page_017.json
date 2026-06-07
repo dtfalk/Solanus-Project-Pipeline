@@ -1,0 +1,192 @@
+{
+  "page_number": 17,
+  "source_file": "/Workspace/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Volume_1/Volume_1.pdf",
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 1,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 1537,
+              "y": 1199
+            },
+            {
+              "x": 2812,
+              "y": 1199
+            },
+            {
+              "x": 2812,
+              "y": 1920
+            },
+            {
+              "x": 1537,
+              "y": 1920
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "8059530f-79bd-4d5f-aed8-d71c8865f041"
+            }
+          ],
+          "id": "f65a140d-356f-44dd-801e-3f390806a049"
+        },
+        {
+          "vertices": [
+            {
+              "x": 1550,
+              "y": 2045
+            },
+            {
+              "x": 4381,
+              "y": 2045
+            },
+            {
+              "x": 4381,
+              "y": 4898
+            },
+            {
+              "x": 1550,
+              "y": 4898
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "8f56552d-aaa6-487e-8950-cbee611f0683"
+            }
+          ],
+          "id": "d1bf21bd-1d59-445e-870b-5a9e2b2538b7"
+        }
+      ],
+      "src_origin": [],
+      "src_recipient": [],
+      "src_location_recipient": [],
+      "src_location_sender": [],
+      "src_date": [],
+      "src_greeting": [],
+      "src_farewell": [],
+      "src_signature": [],
+      "src_other": [],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [
+        {
+          "vertices": [
+            {
+              "x": 3906,
+              "y": 237
+            },
+            {
+              "x": 4450,
+              "y": 237
+            },
+            {
+              "x": 4450,
+              "y": 419
+            },
+            {
+              "x": 3906,
+              "y": 419
+            }
+          ],
+          "connections": [],
+          "id": "54c2069b-63b1-4bc7-8f9a-88854a15ea92"
+        }
+      ],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [
+        {
+          "vertices": [
+            {
+              "x": 813,
+              "y": 770
+            },
+            {
+              "x": 2893,
+              "y": 770
+            },
+            {
+              "x": 2893,
+              "y": 988
+            },
+            {
+              "x": 813,
+              "y": 988
+            }
+          ],
+          "connections": [],
+          "id": "26fe1132-c527-4de1-ab99-519070dfc4fc"
+        }
+      ],
+      "struct_doc": [
+        {
+          "vertices": [
+            {
+              "x": 819,
+              "y": 1201
+            },
+            {
+              "x": 1316,
+              "y": 1201
+            },
+            {
+              "x": 1316,
+              "y": 1407
+            },
+            {
+              "x": 819,
+              "y": 1407
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "f65a140d-356f-44dd-801e-3f390806a049"
+            }
+          ],
+          "id": "8059530f-79bd-4d5f-aed8-d71c8865f041"
+        },
+        {
+          "vertices": [
+            {
+              "x": 825,
+              "y": 2047
+            },
+            {
+              "x": 1317,
+              "y": 2047
+            },
+            {
+              "x": 1317,
+              "y": 2256
+            },
+            {
+              "x": 825,
+              "y": 2256
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "d1bf21bd-1d59-445e-870b-5a9e2b2538b7"
+            }
+          ],
+          "id": "8f56552d-aaa6-487e-8950-cbee611f0683"
+        }
+      ],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": []
+    }
+  }
+}
