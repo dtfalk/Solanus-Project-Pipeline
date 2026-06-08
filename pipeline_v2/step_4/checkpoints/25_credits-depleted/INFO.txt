@@ -1,0 +1,8 @@
+Checkpoint 25 — 2026-06-07 — BLOCKED: AI Studio Gemini credits depleted mid-session.
+Moment: while re-uploading the pool + running the few-shot A/B to pick the best selection
+for labeling Volume_4 (the smallest unlabelled volume, 272pg), the GEMINI_API_KEY account hit
+429 RESOURCE_EXHAUSTED "prepayment credits are depleted". ALL Gemini-API work (few-shot A/B,
+upload, Volume_4 labeling) is blocked until credits are topped up at https://ai.studio/projects.
+Vertex (separate GCP billing) unaffected: 0 endpoints, parked cont-r1 + gentle-G1.
+Nothing corrupted: file_uris.json intact (138 uris), gold untouched, working tree clean.
+RESUME: experiments/resume_after_credits.sh (top up first).
