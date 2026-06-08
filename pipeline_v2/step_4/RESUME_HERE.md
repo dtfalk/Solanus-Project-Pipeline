@@ -1,12 +1,8 @@
 # RESUME HERE — current state (updated 2026-06-03)
 
-> ⛔ **2026-06-07 BLOCKER — AI Studio Gemini credits DEPLETED.** The `GEMINI_API_KEY` account hit
-> `429 RESOURCE_EXHAUSTED "prepayment credits are depleted"` mid-session. ALL labeling / few-shot /
-> upload is blocked until you top up at **https://ai.studio/projects**. Vertex (tuning) uses
-> separate GCP billing and is fine (0 endpoints). Nothing corrupted; gold untouched.
-> **To resume once topped up:** `bash experiments/resume_after_credits.sh` — runs the cut-off
-> few-shot A/B, refreshes uploads, labels **Volume_4** (272pg, smallest unlabelled), then qa+triage,
-> leaving it review-ready. (The A/B to pick the best demo-count/selection never finished — no credits.)
+> ~~2026-06-07 BLOCKER — AI Studio Gemini credits depleted~~ → **RESOLVED 2026-06-08**: topped up
+> ($220 balance), few-shot A/B finished, Volume_4 labeled. See the ✅ note below. (Watch the AI
+> Studio prepaid balance at https://ai.studio/projects; ~$0.084/page on 3.5-flash.)
 
 _The 2026-06-02 mid-shutdown version of this file is superseded; its in-progress item
 (the overlap auto-resolver) was finished and **dropped by decision rule** (safely resolved
