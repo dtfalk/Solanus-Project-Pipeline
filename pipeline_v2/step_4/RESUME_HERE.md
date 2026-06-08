@@ -13,6 +13,12 @@ _The 2026-06-02 mid-shutdown version of this file is superseded; its in-progress
 only 1/6 cases; the 6 cross-role overlaps are precisely flagged for the editor instead —
 see PLAYBOOK §3.6)._
 
+> ✅ **2026-06-08 — Volume_4 labeled & ready for review.** 272/272 pages (0 failures) with the
+> full improved stack: 3.5-flash + **layout-similarity few-shot** (A/B win: PQ 0.639→0.681, recall
+> +0.04) + the clip-fix snap. QA: only 10/272 pages flagged. Triage worklist (worst-first) at
+> `qa_output/Volume_4/triage.txt`. Review: `EDITOR_DOCUMENT=Volume_4 ./venv/bin/python normalized_editor.py`
+> (pages in 1→272 order; triage.txt is the optional priority list). Labeling cost $24.71.
+
 ## Read these first
 - **`PIPELINE_FLOW.md`** — the concrete map of THIS folder: file-by-file code/data flow from
   `polygon_cropped_pdfs/` input to the gold output in `reviewed/`, script inventory, the
