@@ -97,3 +97,15 @@ Measured properly (681 gold boxes, ink-grounded):
   (Breuel maximal-empty-rectangle gutters, per the research) that stops the fit at a real between-
   block gap — strictly safe IN PRINCIPLE but needs dedicated validation, not a param tweak.
   Interim: the editor arrow keys (Arrow/Ctrl/Shift) make residual over-coverage one keystroke to fix.
+
+## 2026-06-08 — few-shot A/B resolved + layout-similarity selection shipped
+Credits restored ($220). fewshot_ab.py on 12 held-out pages (PQ/strict/recall/SQ vs gold):
+  c12 (current)   PQ 0.639  strict 0.607  recall 0.676  SQ 0.945  FP/FN 66/48
+  c20 (20 demos)  PQ 0.609  strict 0.582  recall 0.649  SQ 0.939  FP/FN 62/57   <- WORSE (more hurts)
+  c12_sim         PQ 0.681  strict 0.632  recall 0.717  SQ 0.950  FP/FN 55/43   <- WINS all metrics
+VERDICT: upping demo count HURTS (matches research: more shots don't help localization). Layout-
+similarity selection WINS at the same 12-demo cost (+0.04 PQ, +0.04 recall, fewer FP, better cat).
+SHIPPED: auto_labeler now fingerprints the pool once (12x16 ink-density grid, cached) and ranks
+demos by cosine layout-similarity to the target within the existing type-routing (--no-layout-sim
+reverts). Offline suite 29/0; end-to-end validated by the c12_sim experiment. Volume_4 labels with
+3.5-flash + page-type + layout-sim.

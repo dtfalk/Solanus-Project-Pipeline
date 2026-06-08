@@ -594,6 +594,43 @@ def classify_page_type(
     return pt, in_tok, out_tok
 
 
+_layout_desc_cache: dict[str, object] = {}
+
+
+def _example_pdf(page_dir: Path) -> Path | None:
+    return next(page_dir.glob("*.pdf"), None)
+
+
+def _layout_descriptor(pdf_path: Path | None):
+    """Cheap layout fingerprint: a 12x16 ink-density grid of the page, L2-normalized.
+    Used to rank few-shot demos by how much their page layout resembles the target —
+    beats random-within-type (validated 2026-06-08: PQ 0.639->0.681, recall 0.676->0.717,
+    experiments/fewshot_ab.py). Cached by path; returns None if it can't render."""
+    if pdf_path is None:
+        return None
+    import numpy as np
+    key = str(pdf_path)
+    if key in _layout_desc_cache:
+        return _layout_desc_cache[key]
+    try:
+        img = render_page(pdf_path, 256)[0].convert("L")
+        thr = _otsu_threshold(img.histogram()[:256])
+        a = (np.asarray(img) < thr).astype("float32")
+        h, w = a.shape
+        rows, cols = 12, 16
+        g = np.zeros((rows, cols), "float32")
+        for r in range(rows):
+            for c in range(cols):
+                g[r, c] = a[r * h // rows:(r + 1) * h // rows, c * w // cols:(c + 1) * w // cols].mean()
+        v = g.flatten()
+        n = float((v * v).sum()) ** 0.5
+        v = v / n if n > 0 else v
+    except Exception:
+        v = None
+    _layout_desc_cache[key] = v
+    return v
+
+
 def select_few_shot(
     all_examples:   list[Path],
     multi_doc_set:  set[Path],
@@ -604,6 +641,8 @@ def select_few_shot(
     target_page:    str | None = None,
     target_type:    str | None = None,
     type_of:        dict[Path, str] | None = None,
+    target_desc:    object = None,            # layout fingerprint of the TARGET page
+    desc_cache:     dict | None = None,       # {example page_dir: layout fingerprint}
 ) -> list[Path]:
     """Pick few-shot examples biased toward (in priority order):
       1. Same PAGE TYPE as the target (when target_type/type_of are given) —
@@ -622,6 +661,18 @@ def select_few_shot(
         all_examples = [p for p in all_examples
                         if not (p.parent.name == target_doc and p.name == target_page)]
 
+    # Order a candidate list: by LAYOUT SIMILARITY to the target when fingerprints are
+    # available (the validated win), else random by seed (original behaviour / tests).
+    def _order(lst: list) -> None:
+        if target_desc is not None and desc_cache:
+            import numpy as np
+            def _sim(p):
+                d = desc_cache.get(p)
+                return float(np.dot(d, target_desc)) if d is not None else -1.0
+            lst.sort(key=_sim, reverse=True)
+        else:
+            rng.shuffle(lst)
+
     # ── Original same-volume path (no page typing, or an unsure "other") ──────
     if target_type is None or target_type not in STRONG_PAGE_TYPES:
         same_multi   = [p for p in all_examples if p.parent.name == target_doc and p in multi_doc_set]
@@ -629,7 +680,7 @@ def select_few_shot(
         other_multi  = [p for p in all_examples if p.parent.name != target_doc and p in multi_doc_set]
         other_single = [p for p in all_examples if p.parent.name != target_doc and p not in multi_doc_set]
         for lst in (same_multi, same_single, other_multi, other_single):
-            rng.shuffle(lst)
+            _order(lst)
         picks: list[Path] = []
         multi_target = min(min_multi_doc, num_fewshot, len(same_multi) + len(other_multi))
         for pool in (same_multi, other_multi):
@@ -654,7 +705,7 @@ def select_few_shot(
     for p in all_examples:
         pools[bucket(p)].append(p)
     for lst in pools.values():
-        rng.shuffle(lst)
+        _order(lst)
 
     # Single-document page types don't need multi-doc demos — relax the quota so
     # same-type examples aren't displaced.
@@ -1782,6 +1833,8 @@ def parse_args() -> argparse.Namespace:
                    help="Skip pass 2 (connection inference). Polygons only.")
     p.add_argument("--num-fewshot-pass2", type=int, default=6,
                    help="Number of few-shot examples for pass 2 (default: 6).")
+    p.add_argument("--no-layout-sim", action="store_true",
+                   help="Disable layout-similarity few-shot ranking (revert to random-within-type).")
     p.add_argument("--no-snap", action="store_true",
                    help="Skip snap-to-ink polygon tightening (keep raw model polygons).")
     p.add_argument("--no-backstop", action="store_true",
@@ -1844,6 +1897,14 @@ def main() -> None:
         dist = {t: sum(1 for v in type_of.values() if v == t) for t in PAGE_TYPES}
         log.info("Page-type-aware few-shot ON. Pool by type: %s", dist)
 
+    # Layout-similarity few-shot: fingerprint the pool ONCE, then rank demos by how much
+    # their layout resembles each target page (validated 2026-06-08: PQ +0.04, recall +0.04
+    # over random-within-type, at the same demo count). On by default; --no-layout-sim reverts.
+    desc_cache: dict | None = None
+    if not args.no_layout_sim:
+        log.info("Layout-similarity few-shot ON. Fingerprinting %d pool pages...", len(all_examples))
+        desc_cache = {p: _layout_descriptor(_example_pdf(p)) for p in all_examples}
+
     pass2_pool: list[Path] = []
     if not args.no_connections:
         pass2_pool = discover_pass2_pool(all_examples)
@@ -1894,10 +1955,12 @@ def main() -> None:
             total_input_tokens  += pt_in
             total_output_tokens += pt_out
             log.info("  %s/%s -> page_type=%s", doc_name, page_name, target_type)
+        target_desc = _layout_descriptor(pdf_path) if desc_cache is not None else None
         fewshot_dirs = select_few_shot(
             all_examples, multi_doc_examples, doc_name,
             args.num_fewshot, args.min_fewshot_multi_doc, rng,
             target_page=page_name, target_type=target_type, type_of=type_of,
+            target_desc=target_desc, desc_cache=desc_cache,
         )
         pass2_dirs = (select_pass2_fewshot(pass2_pool, doc_name, args.num_fewshot_pass2, rng,
                                            target_page=page_name)
