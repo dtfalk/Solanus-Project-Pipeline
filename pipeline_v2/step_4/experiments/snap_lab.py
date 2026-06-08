@@ -49,7 +49,7 @@ def _runs_1d(mask_row, gap):
 def snap_v2(vertices, page_gray, fences=(), *, margin_frac_h=0.45, margin_frac_v=0.20,
             h_gap_frac=0.016, v_gap_frac=0.009, min_ink_frac=0.035, fence_margin=6,
             text_margin_frac=0.008, skew_tol=0.12, min_run_frac=0.004,
-            vmargin_scale=1.0):
+            vmargin_scale=1.0, vgrow_cap=None):
     """Like production snap but the HORIZONTAL extent is per-line (longest line wins),
     and the vertical margin can be scaled down (vmargin_scale<1 tightens height)."""
     bin_full = _binary(page_gray)
@@ -120,6 +120,12 @@ def snap_v2(vertices, page_gray, fences=(), *, margin_frac_h=0.45, margin_frac_v
     vmar = max(4, int(round(text_margin_frac * H * vmargin_scale)))
     nx0 = max(0, ex0 - hmar); nx1 = min(W, ex1 + hmar)
     ny0 = max(0, ey0 - vmar); ny1 = min(H, ey1 + vmar)
+    # Vertical growth cap: forbid the box from extending more than vgrow_cap px beyond the
+    # model's original top/bottom (prevents neighbour-line capture) — but NEVER inside the
+    # box's own ink (text is never lost). vgrow_cap=None disables the cap.
+    if vgrow_cap is not None:
+        ny0 = int(max(ny0, y0 - vgrow_cap))      # hard cap: box may not start above model_top-cap
+        ny1 = int(min(ny1, y1 + vgrow_cap))      # hard cap: box may not end below model_bot+cap
     nx0, ny0, nx1, ny1 = int(nx0), int(ny0), int(nx1), int(ny1)
     if nx1 - nx0 < 3 or ny1 - ny0 < 3:
         return vertices

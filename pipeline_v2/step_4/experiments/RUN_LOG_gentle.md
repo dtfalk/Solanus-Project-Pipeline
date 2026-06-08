@@ -78,3 +78,22 @@
   (distribution shift to V1 + step too large). r2 model + all 3 endpoints deleted. cont-r1 stays best.
 - END STATE: 0 endpoints; parked solanus-cont-r1 (best) + solanus-gentle-G1. No labeling API spent
   (geometry all local). Tune+eval cost ~$8-12 est (2.5 rates unpublished).
+
+## 2026-06-07 (addendum) — can vertical over-coverage be fixed safely? Investigated, mostly NO.
+Measured properly (681 gold boxes, ink-grounded):
+- Gold vertical padding (edge->ink) median 49px ≈ auto 48px -> snap padding ALREADY matches David's
+  convention; it is NOT an over-padding problem (reducing margin makes boxes tighter than he draws).
+- 71% of vertical over-coverage is neighbour-TEXT capture (box reaches into an adjacent block),
+  only 29% blank padding.
+- Tried 3 safe snap levers on the capture/clip trade: smaller vertical margin (vmargin_scale),
+  vertical growth cap (vgrow_cap, added to snap_lab.snap_v2), smaller bridge gap (v_gap_frac).
+  ALL reduce capture only marginally (≤2pp) and raise own-ink CLIP ~1:1 (0.9%->1.5%). No free lunch:
+  snap cannot tell "my block's next line" from "the neighbour's line" without the segmentation the
+  MODEL provides. DECISION: do NOT ship a marginal change that trades clipping (David's most-hated
+  error) for over-coverage. Production snap keeps ONLY the validated clip fix (Iter 14).
+- The real fix is either (a) better MODEL segmentation (tighter per-block boxes) — where the enriched
+  Volume_1 pool may help on the next volume (block-split is a decision many-shot CAN help, unlike raw
+  bbox precision), testable on the next labelled volume; or (b) a whitespace-valley snap rewrite
+  (Breuel maximal-empty-rectangle gutters, per the research) that stops the fit at a real between-
+  block gap — strictly safe IN PRINCIPLE but needs dedicated validation, not a param tweak.
+  Interim: the editor arrow keys (Arrow/Ctrl/Shift) make residual over-coverage one keystroke to fix.
