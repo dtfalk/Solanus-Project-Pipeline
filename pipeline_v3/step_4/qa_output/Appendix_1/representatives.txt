@@ -1,0 +1,18 @@
+# representatives for Appendix_1 — k=8 of 52 pages, generated 2026-06-09T13:48:16
+# type distribution: {'all': 52}   allocation: {'all': 8}
+page_001  type=all        covers   1 pages  (farthest at cos-dist -0.000)
+page_002  type=all        covers   1 pages  (farthest at cos-dist 0.000)
+page_003  type=all        covers   1 pages  (farthest at cos-dist 0.000)
+page_009  type=all        covers   6 pages  (farthest at cos-dist 0.272)
+page_014  type=all        covers   2 pages  (farthest at cos-dist 0.125)
+page_030  type=all        covers  35 pages  (farthest at cos-dist 0.251)
+page_041  type=all        covers   4 pages  (farthest at cos-dist 0.245)
+page_049  type=all        covers   2 pages  (farthest at cos-dist 0.269)
+# coverage: mean nearest-rep dist 0.129, max 0.272
+# unfingerprintable (review manually): none
+#
+# PHASE 2:  ./venv/bin/python auto_labeler.py --volume Appendix_1 --pages 1,2,3,9,14,30,41,49
+# PHASE 3:  EDITOR_DOCUMENT=Appendix_1 ./venv/bin/python normalized_editor.py
+# PHASE 4:  ./venv/bin/python promote_examples.py Appendix_1 --pages 1,2,3,9,14,30,41,49 --upload
+#           ./venv/bin/python review_diff.py Appendix_1 --draft-note
+# PHASE 5:  ./venv/bin/python auto_labeler.py --volume Appendix_1 --pin-examples 'Appendix_1/page_001,Appendix_1/page_002,Appendix_1/page_003,Appendix_1/page_009,Appendix_1/page_014,Appendix_1/page_030,Appendix_1/page_041,Appendix_1/page_049'

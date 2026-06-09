@@ -1,0 +1,8 @@
+tuning dataset exported to /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/tuning_data
+  volumes: Appendix_1, Appendix_3
+  total examples: 98  (train 89 / val 9)
+  by page type: {'notebook': 35, 'letter': 51, 'other': 9, 'mass_card': 3}
+  system prompt chars: 30555
+  NOTE: Google recommends >=100 examples; you have 98.
+  NEXT: when corpus ~300-500 pages and conventions are stable, tune a flash model;
+        compare tuned-flash vs few-shot-pro on a held-out volume before committing.

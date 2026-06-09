@@ -1,0 +1,447 @@
+{
+  "volume": "Appendix_1",
+  "pages_checked": 52,
+  "aggregate": {
+    "overlap": 6,
+    "uncovered_ink": 5
+  },
+  "pages": [
+    {
+      "page": 13,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_013/page_013.json",
+      "num_flags": 2,
+      "flags": [
+        {
+          "type": "overlap",
+          "category": "src_content+src_farewell",
+          "bbox": [
+            874,
+            4260,
+            4823,
+            5581
+          ],
+          "detail": "~1.4-line of src_farewell/src_content text in the shared region"
+        },
+        {
+          "type": "overlap",
+          "category": "src_content+src_signature",
+          "bbox": [
+            874,
+            4260,
+            4823,
+            5583
+          ],
+          "detail": "~1.1-line of src_signature/src_content text in the shared region"
+        }
+      ]
+    },
+    {
+      "page": 34,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_034/page_034.json",
+      "num_flags": 2,
+      "flags": [
+        {
+          "type": "uncovered_ink",
+          "bbox": [
+            901,
+            4399,
+            1060,
+            4452
+          ],
+          "detail": "~2206 ink px, no box"
+        },
+        {
+          "type": "overlap",
+          "category": "src_content+src_date",
+          "bbox": [
+            845,
+            4512,
+            4732,
+            4902
+          ],
+          "detail": "~0.7-line of src_date/src_content text in the shared region"
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_012/page_012.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "uncovered_ink",
+          "bbox": [
+            848,
+            4028,
+            1113,
+            4081
+          ],
+          "detail": "~1818 ink px, no box"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_026/page_026.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "uncovered_ink",
+          "bbox": [
+            848,
+            4346,
+            1060,
+            4399
+          ],
+          "detail": "~3580 ink px, no box"
+        }
+      ]
+    },
+    {
+      "page": 31,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_031/page_031.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "overlap",
+          "category": "src_content+src_date",
+          "bbox": [
+            890,
+            4514,
+            4384,
+            5004
+          ],
+          "detail": "~1.0-line of src_date/src_content text in the shared region"
+        }
+      ]
+    },
+    {
+      "page": 33,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_033/page_033.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "uncovered_ink",
+          "bbox": [
+            848,
+            2067,
+            1060,
+            2120
+          ],
+          "detail": "~3505 ink px, no box"
+        }
+      ]
+    },
+    {
+      "page": 43,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_043/page_043.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "uncovered_ink",
+          "bbox": [
+            848,
+            3392,
+            1007,
+            3445
+          ],
+          "detail": "~2502 ink px, no box"
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_045/page_045.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "overlap",
+          "category": "src_content+src_other",
+          "bbox": [
+            947,
+            5279,
+            4695,
+            5767
+          ],
+          "detail": "~1.0-line of src_other/src_content text in the shared region"
+        }
+      ]
+    },
+    {
+      "page": 50,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_050/page_050.json",
+      "num_flags": 1,
+      "flags": [
+        {
+          "type": "overlap",
+          "category": "src_content+src_farewell",
+          "bbox": [
+            840,
+            2614,
+            4637,
+            4350
+          ],
+          "detail": "~1.2-line of src_farewell/src_content text in the shared region"
+        }
+      ]
+    },
+    {
+      "page": 1,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_001/page_001.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 2,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_002/page_002.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 3,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_003/page_003.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 4,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_004/page_004.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 5,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_005/page_005.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 6,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_006/page_006.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 7,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_007/page_007.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 8,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_008/page_008.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 9,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_009/page_009.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 10,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_010/page_010.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 11,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_011/page_011.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 14,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_014/page_014.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 15,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_015/page_015.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 16,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_016/page_016.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 17,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_017/page_017.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 18,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_018/page_018.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 19,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_019/page_019.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 20,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_020/page_020.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 21,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_021/page_021.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 22,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_022/page_022.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 23,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_023/page_023.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 24,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_024/page_024.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 25,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_025/page_025.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 27,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_027/page_027.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 28,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_028/page_028.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 29,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_029/page_029.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 30,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_030/page_030.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 32,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_032/page_032.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 35,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_035/page_035.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 36,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_036/page_036.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 37,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_037/page_037.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 38,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_038/page_038.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 39,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_039/page_039.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 40,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_040/page_040.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 41,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_041/page_041.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 42,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_042/page_042.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 44,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_044/page_044.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 46,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_046/page_046.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 47,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_047/page_047.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 48,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_048/page_048.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 49,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_049/page_049.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 51,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_051/page_051.json",
+      "num_flags": 0,
+      "flags": []
+    },
+    {
+      "page": 52,
+      "json": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/auto_labeled/Appendix_1/page_052/page_052.json",
+      "num_flags": 0,
+      "flags": []
+    }
+  ]
+}

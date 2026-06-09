@@ -1,0 +1,267 @@
+{
+ "question": "Gentle, incremental supervised fine-tuning of Gemini vision models on Vertex AI for document-region labeling with small gold datasets (100-500 examples), as of June 2026. Specifically: (1) Which Gemini base models are currently tunable on Vertex AI (flash-lite vs flash vs pro tiers), current API/SDK surface, and known limits (image count/resolution per example, output token limits, dataset size minimums/recommendations)? (2) Hyperparameter guidance for SMALL datasets: epochs, learning_rate_multiplier, LoRA adapter rank/size tradeoffs \u2014 what does Google recommend and what does practitioner evidence say about gentle vs aggressive settings (avoiding overfitting/catastrophic forgetting when you only have ~100-200 examples)? Does Vertex expose validation-loss curves, intermediate checkpoints, checkpoint selection, or early stopping for Gemini tuning jobs? (3) Can a previously tuned Gemini model be continued/incrementally tuned (tune-from-tuned), or must each round retrain from the base? (4) Serving economics: tuned-Gemini endpoint billing (dedicated vs serverless), and any newer cheaper serving options for tuned models. (5) Best practices for VLM fine-tuning on document layout/segmentation tasks with limited data: data-centric levers (teacher-student distillation with agreement filtering, hard-example oversampling, label-consistency cleanup), curriculum, and whether mixing few-shot demonstrations INTO tuning examples helps or hurts at inference time. (6) Evidence on incremental adoption patterns: using an under-performing tuned model as a secondary/triage/verification model alongside a stronger prompted model (cascades, disagreement-based routing) rather than wholesale replacement.",
+ "summary": "As of June 2026, gentle incremental SFT of Gemini vision models on Vertex AI for document-region labeling with 100-500 gold examples is a well-supported, documented path. SFT is GA for Gemini 2.5 Flash (with 2.5 Pro, 2.5 Flash-Lite, and 3.1 Flash-Lite also tunable and supporting continuous tuning), covers image and document modalities, and Google's own recommended dataset size (at least 100-500 examples, technical minimum 16) lands squarely in the small-gold regime. The platform exposes the levers needed for \"gentle\" tuning: optional epochs/learning-rate-multiplier (default LR multiplier = 1), adapter-size control (smaller adapters for smaller data), per-epoch intermediate checkpoints with built-in checkpoint selection before overfitting, and validation-loss metrics (eval_total_loss + fraction-of-correct-next-step-preds) for early-stopping decisions. Crucially, tune-from-tuned is supported via \"continuous tuning\" (continue from a prior tuned model/checkpoint by adding epochs/examples, no full retrain), enabling the incremental adoption pattern; the main caveats are that the published vendor hyperparameter numbers are for Gemini 1.5 TEXT tuning (not 2.5 vision), serving/tuning pricing rows are published only for Gemini 2.0 tiers (not 2.5), and the strongest data-centric/anti-forgetting and cross-domain evidence comes from non-Gemini VLM/CNN research that transfers as mechanism rather than exact numbers.",
+ "findings": [
+  {
+   "claim": "Which Gemini models are tunable as of June 2026, and is the document/image use case documented? SFT for Gemini 2.5 Flash is GA on Vertex AI (since June 2025); Gemini 2.5 Pro, 2.5 Flash, 2.5 Flash-Lite, and 3.1 Flash-Lite are tunable and support continuous tuning. Vertex documents image tuning and document tuning as first-class supervised-tuning modalities, so document-region labeling falls under a documented (not improvised) tuning path.",
+   "confidence": "high",
+   "vote": "3-0 (combined from claims 0, 5, 13)",
+   "sources": [
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-supervised-tuning",
+    "https://cloud.google.com/blog/products/ai-machine-learning/gemini-2-5-flash-lite-flash-pro-ga-vertex-ai",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-continuous-tuning"
+   ],
+   "evidence": "SFT docs list dedicated Text/Document/Image/Audio/Video tuning subpages, confirming image+document tuning are first-class paths (claim 0, 3-0). Google Cloud blog (June 17, 2025): 'New Supervised Fine-Tuning (SFT) for Gemini 2.5 Flash is generally available' (claim 5, 3-0). Continuous-tuning doc lists Gemini 3.1 Flash-Lite, 2.5 Pro, 2.5 Flash, 2.5 Flash-Lite as supporting models (claim 13, 3-0, medium on exact verbatim due to JS-rendered page but corroborated). CAVEAT: official use-case lists name image classification/moderation/inspection and document analysis but do NOT enumerate 'bounding boxes' or 'region segmentation' specifically; flash-lite was public-preview (not GA) in the June 2025 announcement; broader 'all three tiers across 3.x' framing was REFUTED (vote 0-3)."
+  },
+  {
+   "claim": "Tune-from-tuned is supported: Vertex 'continuous tuning' lets you continue tuning an already-tuned Gemini model or a specific checkpoint by adding more epochs or examples, rather than retraining from base each round. A tuned checkpoint can serve as the base for a subsequent job; if no checkpoint ID is given, the default checkpoint is used.",
+   "confidence": "high",
+   "vote": "3-0 (combined from claims 1, 12, 16)",
+   "sources": [
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-continuous-tuning",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints",
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-supervised-tuning"
+   ],
+   "evidence": "Primary doc verbatim: 'Continuous tuning lets you continue tuning an already tuned model or model checkpoint by adding more epochs or training examples. Using an already tuned model or checkpoint as a base model allows for more efficient tuning experimentation.' Documented use cases include 'tune with more data if an existing tuned model is underfitting' and 'further customize an existing tuned model' (claims 1, 12, both 3-0). Checkpoint-as-base default behavior confirmed (claim 16, 3-0). KEY LIMITS (qualify, do not refute): continuous tuning is available in the Google Gen AI SDK but NOT the legacy Vertex AI Python SDK; only base models tuned on/after July 11, 2025 are eligible as continuous-tuning bases; CMEK jobs must reuse the same CMEK."
+  },
+  {
+   "claim": "Google's recommended dataset size for Gemini SFT is at least 100-500 examples 'for best results' (hard technical minimum 16, no upper limit, more-is-better with no cap), directly matching the 100-500 small-gold regime. A validation dataset of up to 256 examples can be supplied to generate periodic validation metrics.",
+   "confidence": "high",
+   "vote": "3-0 (combined from claims 2, 18, 7, 19)",
+   "sources": [
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning",
+    "https://cloud.google.com/blog/products/ai-machine-learning/master-gemini-sft"
+   ],
+   "evidence": "Primary docs verbatim: 'For best results, provide at least 100 to 500 examples' (claims 2 and 18, both 3-0). 'Master Gemini SFT' blog: 'You can start with around 100 examples to validate the effectiveness of tuning. Then scale up...' and 'A smaller, refined and representative dataset often outperforms a large, noisy one' (claim 7, 3-0). Validation dataset 'can contain up to 256 examples... used to generate validation metrics periodically during fine-tuning' (claim 19, 3-0). FRAMING NUANCE: docs say 'AT LEAST 100-500' (a floor with more-is-better), not an optimal ceiling for small data; 100-200 sits at the low end of the recommended band; technical minimum is 16."
+  },
+  {
+   "claim": "Hyperparameter levers for gentle tuning: epochs and learning_rate_multiplier are optional (unset = pre-populated recommended value; LR multiplier default = 1.0, range ~0.1-2.0); adapter size controls trainable parameters, with larger sizes needing larger datasets and longer training, so a small adapter (e.g. 4) suits small datasets. Small datasets risk overfitting, controlled primarily via epoch count.",
+   "confidence": "high",
+   "vote": "3-0 (combined from claims 3, 8)",
+   "sources": [
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning",
+    "https://cloud.google.com/blog/products/ai-machine-learning/master-gemini-sft"
+   ],
+   "evidence": "Primary doc: EPOCH_COUNT and LEARNING_RATE_MULTIPLIER are 'Optional ... Leave it unset to use the pre-populated recommended value'; LR multiplier default 1.0 corroborated across API ref, hexdocs mirror, and oneuptime Feb 2026 tutorial ('Start with 1.0'). Adapter size: 'A larger adapter size implies that the model can learn more complex tasks, but it requires a larger training dataset and longer training times' (claim 3, 3-0). Overfitting: 'Small datasets have the risk of overfitting, so you may want to control your number of epochs'; mitigation = decrease epochs to where validation loss is minimum, or increase data size/diversity (claim 8, 3-0). Practitioner consensus (oneuptime/aifreeapi 2025-2026): 3-5 epochs, reduce if overfit. NOTE: the discrete 'only 1/4/8/16' adapter-enum claim was REFUTED (0-3)."
+  },
+  {
+   "claim": "Vendor-published specific small-data hyperparameter recipes exist but are for Gemini 1.5 TEXT tuning: 1.5 Pro at epochs=20, LR multiplier=10, adapter=4; 1.5 Flash at epochs=default, LR multiplier=10, adapter=4 (for <1000 examples, context <500). These should NOT be applied directly to 2.5-generation VLM/document-region tuning.",
+   "confidence": "high",
+   "vote": "3-0 (claim 6)",
+   "sources": [
+    "https://cloud.google.com/blog/products/ai-machine-learning/master-gemini-sft"
+   ],
+   "evidence": "Blog verbatim under Gemini 1.5 Pro text tuning: 'we recommend setting epochs = 20, learning rate multiplier = 10, adapter size = 4'; under 1.5 Flash text tuning: 'epochs = default, learning rate multiplier = 10 and adapter size = 4' (claim 6, 3-0). IMPORTANT CAVEATS flagged by verifier: (a) these are TEXT recommendations; the same blog's IMAGE recipes DIFFER (Pro image: epochs=15, LR=5, adapter=4; Flash image small-data: epochs>=15, LR=5, adapter=16) \u2014 so for the document-region VLM use case the image numbers are more relevant than the headline text numbers; (b) the post is Gemini 1.5-generation, dated Jan 7 2025, ~18 months stale vs June 2026 and superseded by 2.0/2.5. Use as directional guidance only."
+  },
+  {
+   "claim": "Vertex exposes the monitoring and checkpoint machinery needed for early-stopping/checkpoint selection: per-epoch intermediate checkpoints (one per epoch for <10 epochs; ~10 evenly distributed for >10), each with its own servable endpoint; an 'Export last checkpoint only' toggle; ability to compare checkpoints and set the best pre-overfitting checkpoint as default; and validation metrics (eval_total_loss, eval_fraction_of_correct_next_step_preds) viewable to choose where to stop.",
+   "confidence": "high",
+   "vote": "3-0 (combined from claims 4, 9, 14, 15)",
+   "sources": [
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+    "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints",
+    "https://cloud.google.com/blog/products/ai-machine-learning/master-gemini-sft"
+   ],
+   "evidence": "Checkpoint cadence verbatim: 'For tuning jobs with less than 10 epochs, one checkpoint is saved approximately after each epoch...' (claim 15, 3-0). Selection: 'Tuning checkpoints let you save tuning progress, compare checkpoint performance, and choose the best performing checkpoint... select the best performing checkpoint before overfitting to be the default checkpoint' (claim 14, 3-0). Each checkpoint deployed to its own endpoint; 'Export last checkpoint only' toggle / EXPORT_LAST_CHECKPOINT_ONLY=true (claim 4, 3-0). Validation: API exposes /eval_total_loss and /eval_fraction_of_correct_next_step_preds, viewable in Console; 'Validation data is used to select a checkpoint from the tuning process' (claim 9, 3-0). Recent release notes mention Vertex auto-loading the best checkpoint by eval metrics. NOTE: continuous loss-curve UI confirmed via metrics, though one API-ref page hedges on the live UI."
+  },
+  {
+   "claim": "Serving/tuning economics: as of June 2026, the Vertex pricing page publishes supervised-tuning prices only for Gemini 2.0 Flash ($3.00 per 1M training tokens) and 2.0 Flash-Lite ($1.00); Gemini 2.5 tiers (Pro, Flash, Flash-Lite, Flash Image) have NO tuning pricing rows despite being tunable. The claim that a tuned endpoint is billed at the same per-token price as its base model was REFUTED.",
+   "confidence": "high",
+   "vote": "3-0 (claim 17)",
+   "sources": [
+    "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+   ],
+   "evidence": "Three WebFetch passes of the primary pricing page confirmed: Gemini 2.0 Flash 'Tuning for 1M training tokens: $3.00', 2.0 Flash-Lite '$1.00'; no tuning/training-token row for any 2.5 tier across Standard/Priority/Flex/Batch (claim 17, 3-0). Claim is narrowly scoped to published PRICE ROWS, not tunability (2.5 Flash SFT is GA). The separate claim 'tuned endpoint billed same as base model, no inference premium' was REFUTED (0-3) \u2014 so do not assume tuned-model inference is priced identically to base. Newer/cheaper serving options for tuned models were not surfaced by any confirmed claim (open question)."
+  },
+  {
+   "claim": "Anti-catastrophic-forgetting evidence (data/parameter-centric levers): in VLMs (CLIP), catastrophic forgetting occurs even with PEFT/LoRA and is worse at higher LoRA rank (zero-shot classification can drop ~30%, retrieval ~40%); standard LoRA/FLYP cause ~17%/16% average zero-shot drops, while selectively activating only ~5-6% of LoRA blocks reduces forgetting by ~7.31%. Implication: 'gentle' = lower LoRA rank / constrained parameter updates; 'aggressive' high rank increases forgetting.",
+   "confidence": "medium",
+   "vote": "claim 10 (3-0); claim 11 (2-1)",
+   "sources": [
+    "https://arxiv.org/pdf/2501.15377"
+   ],
+   "evidence": "Verbatim from arXiv 2501.15377 (Akbarian Bafghi et al., Jan 2025, 'Fine Tuning without Catastrophic Forgetting via Selective Low Rank Adaptation', text extracted from the PDF): 'catastrophic forgetting can occur even when using PEFT methods, particularly at higher ranks... zero-shot classification and retrieval performance can drop by as much as 30% and 40%' (claim 10, 3-0); 'Fine-tuning with FLYP and LoRA results in an average drop of 16.24% and 17.12%... reducing catastrophic forgetting by an average of 7.31%' (claim 11, 2-1). CAVEATS: results are on discriminative CLIP/DINO-ViT image classification (ImageNet/CIFAR), NOT generative Gemini-class VLMs, NOT document-region labeling, NOT 100-500-example datasets; 30%/40% are worst-case 'as much as' figures; arXiv preprint, author-reported method numbers; the rank-forgetting link is contested by 2026 work (e.g. arXiv 2603.02224) finding it conditional on task-subspace geometry. Transfer as MECHANISM (constrain parameter updates / prefer lower rank for small data), not exact numbers."
+  },
+  {
+   "claim": "Cross-domain transfer of fine-tuned document layout models degrades sharply (avg -32.64%, worst case -65.60% scientific->financial), motivating domain adaptation / fresh adaptation rather than naive reuse of a model tuned on a different document domain.",
+   "confidence": "medium",
+   "vote": "3-0 (claim 20)",
+   "sources": [
+    "https://arxiv.org/pdf/2503.18742"
+   ],
+   "evidence": "arXiv 2503.18742 'SFDLA: Source-Free Document Layout Analysis' (v1 March 2025) abstract verbatim: 'directly transferring source-domain fine-tuned models on target domains often results in a significant performance drop (Avg. \u221232.64%).' Worst case -65.60% = Scientific->Financial (Faster R-CNN 84.32 -> 18.72 mAP@50). Corroborated by independent cross-domain DLA literature (arXiv 2201.09407, 2404.09530, RoDLA CVPR 2024). CAVEATS: figures from a SINGLE architecture (Faster R-CNN/ResNet-50) on DocLayNet-SF, not a multi-model average; arXiv preprint; this is a CNN-detector DLA result, not a Gemini-VLM finding \u2014 it supports the cross-domain-drop phenomenon generally, not Gemini-specific magnitudes."
+  }
+ ],
+ "caveats": "TIME-SENSITIVITY: All Vertex platform facts are stated as of June 2026 and reference active model lifecycles (e.g. gemini-2.5-pro shutdown June 17 2026). Gemini 3.x SFT was NOT yet confirmed in any surviving claim; the broad 'all three tiers across 3.x are tunable' framing was explicitly REFUTED (0-3), so do not assume 3.0/3.5 Pro/Flash tunability. SOURCE QUALITY: Findings 1-7 rest on primary Google Cloud docs/blog (strong). Several official doc pages are JS-rendered, so a few verbatim strings (continuous-tuning model list, 256-example limit, 100-500 in the API ref) were confirmed via search-index snapshots rather than live full-body fetch \u2014 high confidence but not character-for-character re-fetched. VENDOR HYPERPARAMETER NUMBERS (Finding 5) are Gemini 1.5 TEXT recipes (Jan 2025) and must not be transcribed onto a 2.5 vision/document-region job; the more relevant image recipes in the same source differ (notably Flash image small-data uses adapter=16, contradicting the 'smaller adapter for small data' heuristic for the Flash-image case specifically). RESEARCH TRANSFER (Findings 8-9) comes from non-Gemini VLM (CLIP) and CNN-detector (Faster R-CNN) studies on classification/retrieval and CNN-DLA \u2014 these support mechanisms (lower rank, constrain updates, expect cross-domain drop) but NOT exact percentages for Gemini document-region labeling. PRICING (Finding 7) is volatile: 2.5 tuning has no published price row, and the assumption of base-equal inference pricing was refuted, so tuned-2.5 cost must be confirmed directly before relying on it.",
+ "openQuestions": [
+  "What are the exact image/document-modality constraints for Gemini 2.5 vision SFT examples (max images per example, image resolution limits, output token limits, JSONL schema for region/bounding-box labels)? No surviving claim pinned these down for the vision case.",
+  "What does a tuned Gemini 2.5 model cost to serve and to tune? The pricing page has no 2.5 tuning rows, the 'tuned = base price' assumption was refuted, and no newer cheaper serving option (e.g. serverless vs dedicated tuned endpoint) was confirmed.",
+  "Does mixing few-shot demonstrations INTO tuning examples help or hurt at inference time for document-region tasks? This part of the research question was not answered by any surviving claim.",
+  "Is there direct evidence for the cascade / disagreement-based-routing / triage-verification adoption pattern (using an under-performing tuned model alongside a stronger prompted model) for Gemini/VLM document tasks specifically? No surviving claim addressed cascades or curriculum/hard-example-oversampling/agreement-filtered distillation for this exact setting.",
+  "Are Gemini 3.x tiers tunable yet, and if so with what limits? Current evidence stops at 2.5 + 3.1 Flash-Lite, and the broader 3.x-tunable claim was refuted."
+ ],
+ "refuted": [
+  {
+   "claim": "Vertex AI documents supervised fine-tuning for Gemini across all three tiers \u2014 Pro (including Gemini 2.5 Pro, Gemini 3 Pro, Gemini 3.1 Pro), Flash (including Gemini 2.5 Flash, Gemini 3 Flash, Gemini 3.5 Flash), and Flash-Lite (including Gemini 2.5 Flash-Lite, Gemini 3.1 Flash-Lite) \u2014 confirming flash-lite/flash/pro are all tunable model families.",
+   "vote": "0-3",
+   "source": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-supervised-tuning"
+  },
+  {
+   "claim": "As of 2026-06-05, the Gemini models that support supervised fine-tuning on Vertex AI are: Gemini 3.1 Flash-Lite, Gemini 2.5 Pro, Gemini 2.5 Flash, and Gemini 2.5 Flash-Lite (all three tiers \u2014 flash-lite, flash, and pro \u2014 are tunable).",
+   "vote": "1-2",
+   "source": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning"
+  },
+  {
+   "claim": "A tuned Gemini model endpoint is billed at the same per-token prediction price as the corresponding base model (no premium for inference on the tuned variant).",
+   "vote": "0-3",
+   "source": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+  },
+  {
+   "claim": "The LoRA adapter size (rank) for Gemini supervised tuning is a discrete enum with only four selectable values: 1, 4, 8, and 16.",
+   "vote": "0-3",
+   "source": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning"
+  }
+ ],
+ "sources": [
+  {
+   "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-supervised-tuning",
+   "quality": "primary",
+   "angle": "broad/primary \u2014 Vertex AI Gemini tuning capabilities & limits",
+   "claimCount": 4
+  },
+  {
+   "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+   "quality": "primary",
+   "angle": "broad/primary \u2014 Vertex AI Gemini tuning capabilities & limits",
+   "claimCount": 5
+  },
+  {
+   "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-2-5-flash-lite-flash-pro-ga-vertex-ai",
+   "quality": "primary",
+   "angle": "broad/primary \u2014 Vertex AI Gemini tuning capabilities & limits",
+   "claimCount": 3
+  },
+  {
+   "url": "https://cloud.google.com/blog/products/ai-machine-learning/master-gemini-sft",
+   "quality": "primary",
+   "angle": "practitioner/implementation \u2014 small-dataset hyperparameters & overfitting",
+   "claimCount": 5
+  },
+  {
+   "url": "https://medium.com/google-cloud/fine-tuning-gemini-best-practices-for-data-hyperparameters-and-evaluation-65f7c7b6b15f",
+   "quality": "blog",
+   "angle": "practitioner/implementation \u2014 small-dataset hyperparameters & overfitting",
+   "claimCount": 5
+  },
+  {
+   "url": "https://arxiv.org/pdf/2501.15377",
+   "quality": "primary",
+   "angle": "practitioner/implementation \u2014 small-dataset hyperparameters & overfitting",
+   "claimCount": 5
+  },
+  {
+   "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-continuous-tuning",
+   "quality": "primary",
+   "angle": "technical/feature \u2014 checkpoints, incremental tuning, serving billing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning-checkpoints",
+   "quality": "primary",
+   "angle": "technical/feature \u2014 checkpoints, incremental tuning, serving billing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini-use-supervised-tuning",
+   "quality": "unreliable",
+   "angle": "technical/feature \u2014 checkpoints, incremental tuning, serving billing",
+   "claimCount": 0
+  },
+  {
+   "url": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+   "quality": "primary",
+   "angle": "technical/feature \u2014 checkpoints, incremental tuning, serving billing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/tuning",
+   "quality": "primary",
+   "angle": "technical/feature \u2014 checkpoints, incremental tuning, serving billing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://www.cloudzero.com/blog/google-vertex-ai-pricing/",
+   "quality": "blog",
+   "angle": "technical/feature \u2014 checkpoints, incremental tuning, serving billing",
+   "claimCount": 4
+  },
+  {
+   "url": "https://arxiv.org/pdf/2503.18742",
+   "quality": "primary",
+   "angle": "academic/technical \u2014 VLM document layout fine-tuning with limited data",
+   "claimCount": 5
+  },
+  {
+   "url": "https://arxiv.org/pdf/2602.21225",
+   "quality": "primary",
+   "angle": "academic/technical \u2014 VLM document layout fine-tuning with limited data",
+   "claimCount": 5
+  },
+  {
+   "url": "https://aws.amazon.com/blogs/machine-learning/fine-tune-vlms-for-multipage-document-to-json-with-sagemaker-ai-and-swift/",
+   "quality": "primary",
+   "angle": "academic/technical \u2014 VLM document layout fine-tuning with limited data",
+   "claimCount": 5
+  },
+  {
+   "url": "https://arxiv.org/pdf/2407.02348",
+   "quality": "primary",
+   "angle": "industry adoption \u2014 model cascades & disagreement routing",
+   "claimCount": 4
+  },
+  {
+   "url": "https://arxiv.org/pdf/2502.19335",
+   "quality": "primary",
+   "angle": "industry adoption \u2014 model cascades & disagreement routing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://tianpan.co/blog/2025-11-03-llm-routing-model-cascades",
+   "quality": "blog",
+   "angle": "industry adoption \u2014 model cascades & disagreement routing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://research.google/blog/speculative-cascades-a-hybrid-approach-for-smarter-faster-llm-inference/",
+   "quality": "primary",
+   "angle": "industry adoption \u2014 model cascades & disagreement routing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://arxiv.org/html/2410.10347v1",
+   "quality": "primary",
+   "angle": "industry adoption \u2014 model cascades & disagreement routing",
+   "claimCount": 5
+  },
+  {
+   "url": "https://arxiv.org/abs/2605.06350",
+   "quality": "primary",
+   "angle": "industry adoption \u2014 model cascades & disagreement routing",
+   "claimCount": 5
+  }
+ ],
+ "stats": {
+  "angles": 5,
+  "sourcesFetched": 21,
+  "claimsExtracted": 95,
+  "claimsVerified": 25,
+  "confirmed": 21,
+  "killed": 4,
+  "afterSynthesis": 9,
+  "urlDupes": 1,
+  "budgetDropped": 8,
+  "agentCalls": 103
+ }
+}

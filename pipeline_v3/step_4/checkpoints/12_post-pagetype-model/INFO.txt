@@ -1,0 +1,9 @@
+checkpoint 12 — AFTER page-type few-shot + model lever (2026-06-03)
+changes vs checkpoint 11:
+  - auto_labeler.py: PageType classifier (infer_page_type_from_labels, classify_page_type),
+    type-routed select_few_shot with regression-safe other->same-volume fallback,
+    --page-type-fewshot (default ON), default --model flash-lite -> gemini-3.5-flash
+  - export_tuning_data.py (new): reviewed/ gold -> Vertex SFT JSONL
+  - rerun_compare/ab_model.py (new): one-lever A/B harness vs gold
+verified: compiles; offline routing 3->12 demos; A/B -77% (model) / -62% (page-type, cheap);
+          production main() end-to-end smoke OK

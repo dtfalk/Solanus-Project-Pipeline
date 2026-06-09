@@ -1,0 +1,10 @@
+DRAFT VOLUME_PROMPT_NOTES entry for Volume_4 — from review_diff over 24 reviewed page(s), 19 changed.
+EDIT BEFORE USE: bullets say WHAT the reviewer changed; rewrite into the
+convention WHY (see VOLUME_PROMPT_NOTES['Volume_4'] in auto_labeler.py for
+the target voice), then paste into VOLUME_PROMPT_NOTES['Volume_4'].
+
+VOLUME-SPECIFIC OVERRIDE (this page is from Volume_4):
+- The model MISSES 'src_content' regions on these pages (reviewer added 64) — look for them explicitly.
+- The model over-produces 'src_content' (reviewer removed 156).
+- The model over-produces 'src_date' (reviewer removed 2).
+- Box extents run too SMALL — extend them (reviewer resized 162: grew 23, shrank 20; edges pushed outward: {'top': 20, 'right': 8, 'left': 7, 'bottom': 13}).

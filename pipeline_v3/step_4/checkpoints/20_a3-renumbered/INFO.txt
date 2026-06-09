@@ -1,0 +1,14 @@
+Checkpoint 20 — 2026-06-05 — Appendix_3 renumbered to the 46-page set
+
+State: commit 641aee2 pushed to origin/master.
+- A3 artifacts shifted +2 (reviewed/auto_labeled/labeled_examples/shadow_labels/
+  file_uris keys/dismissed keys/EXCLUDED_EXAMPLES/test refs).
+- 3 front-matter pages (001/002/046) labeled + human-reviewed -> gold 46/46 A3, 98 total.
+- Tests: 28 PASS / 2 FAIL: D2 (cleared by this commit), B7 (real canary — local A3
+  PDFs are an older crop vintage missing archivists' top-margin annotations; ~96
+  archv/struct boxes blank here; fix = sync other machine's 43 A3 page PDFs, +2 renamed).
+- PIPELINE_FLOW.md added; .gitignore added; 2 chat-transcript dumps removed.
+
+ADDENDUM (same day, autonomous block): panoptic_eval.py upgraded (per-side stored-dim
+scaling + PQ_strict + --csv); experiments/gate1_results.csv baselines; full API suite
+32 PASS / 1 FAIL (B7 canary only); tuning_data regenerated in new numbering (98 ex).

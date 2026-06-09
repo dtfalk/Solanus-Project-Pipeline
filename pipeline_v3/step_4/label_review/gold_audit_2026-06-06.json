@@ -1,0 +1,496 @@
+{
+ "convention_spec": "CONVENTION SPEC \u2014 Appendix_2 (gold, established by human reviewer)\n\nSCOPE NOTE: All studied pages are TYPEWRITTEN sheets produced by the archivist (a table-of-contents/index, plus typed transcriptions of Fr. Solanus's handwritten notebooks). On these pages typeface is NOT the discriminator \u2014 everything is the same typewriter font. The category is decided by WHO is \"speaking\" and the FUNCTION of the text (meta-description of the document vs. the document's own words). Apply the rules below mechanically per text line/run.\n\n================================================================\n1. archv_commentary vs src_content (archivist's writing vs Solanus's own words)\n================================================================\n\narchv_commentary = the ARCHIVIST talking ABOUT the document: descriptions of what a page/item contains, provenance, editorial notes, and third-person summaries of what Solanus wrote. Mechanical triggers (assign archv_commentary if ANY apply):\n  - Third-person/meta phrasing describing the artifact rather than being it, e.g. lines that begin or read like: \"Handwritten notes Retreat October 11-15th 1937 (in Detroit)\", \"Handwritten Retreat Notes 1941 Oct. 5th X Fr. Edgar, O.F.M.Cap\", \"Newspaper copy of the continuation of poem by Thomas Ashe.\", \"Quote from Moore on God, Life, and Light of the world\", \"Typed copy of poem by his sister Margaret...\", \"Names and addresses of parishioners...\", \"Notes written (on essay by Kathleen Stiverson)\".\n  - Descriptions naming the genre/source/recipient/author of an item (\"copy of poem ... by Rev. ...\", \"Letter to ...\", \"Recommendation for ...\"), i.e. the words enumerate or characterize content.\n  - \"Fr. Solanus writes...\", \"Under the title Fr. Solanus wrote by hand: ...\" and similar attributive lead-ins are archivist framing \u2192 archv_commentary (the lead-in is commentary; the actual quoted words that follow are src_content if separately set off).\n  - On a transcription page, the descriptive header block that introduces the transcribed section (the green block sitting right after the \"Pg. N\" marker) is archv_commentary even though it is typed in the same font.\n\nsrc_content = the DOCUMENT'S OWN WORDS \u2014 what Solanus (or the original source he copied, e.g. a poem/scripture he transcribed) actually wrote, transcribed verbatim. Mechanical triggers:\n  - First-person devotional/retreat text, quoted resolutions, scripture, poem lines, prayers, the body of letters \u2014 the actual transcribed words, e.g. \"Renewal of the Franciscan Spirit.\", \"This is the will of God, Your Sanctification\\\". Keeping the rule...\", \"To live according to the Holy Gospel\", \"God made me to know Him. O what a bles'd aim!\", \"Charity ....Deus Caritas est qui manet in Caritate...\".\n  - On the index pages, the left-hand title/entry text of each row (the item name being indexed) is src_content; only lines that DESCRIBE/characterize content are archv_commentary.\n\nTie-breaker: If a line states a fact ABOUT the item (its type, author, date-as-description, location, that it is \"handwritten\"/\"typed copy\"/\"newspaper copy\"), it is archv_commentary. If the line is the item's own text being reproduced, it is src_content. One contiguous transcribed passage is a single src_content box even when many lines long; the archivist's descriptive header above it is a separate archv_commentary box.\n\n================================================================\n2. Roman-numeral section headings (I., II., III., IV.) in notebook pages\n================================================================\n  - Each Roman numeral marker (\"I.\", \"II.\", \"III.\", \"IV.\") is its own box, category struct_doc (the same category used for \"Pg. N\" page-position markers). They are STRUCTURE/position markers, NOT content.\n  - ONE box per numeral. Numerals are boxed SEPARATELY even when two share a line: on page_010 \"III.\" and \"IV.\" sit on the same physical line yet are two distinct struct_doc boxes (and the heading text after them is its own box).\n  - The numeral box contains ONLY the numeral + its period; it does NOT include the heading/body text. The adjacent heading or quoted text to the right is a SEPARATE box and is categorized as src_content (e.g. \"I.\" [struct_doc] | \"Renewal of the Franciscan Spirit.\" [src_content]).\n  - Do not merge a numeral with its heading, and do not group consecutive numerals into one box.\n\n================================================================\n3. struct_doc / struct_id (and the adjacent struct_* categories seen)\n================================================================\nstruct_doc \u2014 non-content structural/navigation markers tied to document position. Applied to:\n  - \"Pg. N\" / \"Pg. N.\" page-location markers (orange boxes throughout pages 003,004,006,010,015,016), one box each.\n  - Roman-numeral section markers (see section 2), one box each.\n  - On the table-of-contents pages (page_003, page_004): the right-hand column items \u2014 the page-number references and the dot-leader runs (\".........\") that connect an entry to its page number. Each leader/page-ref segment is its own struct_doc box. (The left-hand entry title text on those rows is src_content; the trailing leaders + page numbers are struct_doc.)\n\nstruct_id \u2014 the document/collection IDENTIFIER, i.e. the notebook's title-of-record. Applied to:\n  - The notebook header line such as \"FATHER SOLANUS NOTEBOOK NO. 11\" (page_006, #18) and \"Notebook No. 11 :\" (page_003, #31). One box for the whole identifier string. Use struct_id (not struct_doc) when the text NAMES/IDENTIFIES the source document or collection as a whole.\n\nRelated struct_* / src_* categories observed (for disambiguation, so they are not mislabeled as struct_doc):\n  - archv_format_note \u2014 archivist's structural/format note about physical layout, e.g. \"Inside front cover.\" (page_006, #16). Not struct_doc, not commentary about content.\n  - archv_date \u2014 a date written by the ARCHIVIST as a marginal annotation describing the item, e.g. \"1917, November\" set off to the right of a description (page_006, #17).\n  - src_date \u2014 a date that is part of Solanus's own transcribed text/diary entry, e.g. \"6th\" (page_015), \"24th\" (page_010), inline retreat-day dates. Boxed separately from the content line.\n  - src_signature \u2014 Solanus's own signature/sign-off, e.g. \"Fr. Sol.\" (page_010, #15), boxed separately from the surrounding src_content.\n  - struct_other \u2014 page-furniture not part of the document body, e.g. the printed \"Page\" column header on the index sheets (page_003 #62, page_004 #70).\n\n================================================================\nQUICK DECISION TABLE\n================================================================\n  - \"Pg. N\", Roman numerals, TOC page-number column + dot leaders \u2192 struct_doc (one box each).\n  - Notebook/collection title (\"FATHER SOLANUS NOTEBOOK NO. 11\", \"Notebook No. 11 :\") \u2192 struct_id.\n  - Printed sheet header \"Page\" \u2192 struct_other.\n  - \"Inside front cover.\" / layout notes \u2192 archv_format_note.\n  - Archivist describing an item (type/author/source/\"handwritten\"/\"typed copy\"/\"copy of poem by ...\") \u2192 archv_commentary.\n  - Marginal date the archivist attaches to a description \u2192 archv_date.\n  - The actual transcribed words of Solanus / the source he copied \u2192 src_content (one box per contiguous passage; numerals' heading text is src_content).\n  - In-text date within Solanus's words (\"6th\", \"24th\") \u2192 src_date.\n  - Solanus's signature (\"Fr. Sol.\") \u2192 src_signature.\n",
+ "confirmed": [
+  {
+   "volume": "Appendix_1",
+   "page": "page_003",
+   "bbox": "3922,795,4240,901",
+   "box_num": 2,
+   "current_category": "src_content",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "struct_other",
+   "confidence": "high",
+   "note": "This box is the printed column header 'Pages' at the top of the table-of-contents sheet. The spec's QUICK DECISION TABLE explicitly maps the printed sheet header 'Page' -> struct_other (cf. Appendix_2 page_003 #62 / page_004 #70). Here it is labeled src_content, which is page-furniture/header text mislabeled as the document's own words.",
+   "verdict": {
+    "reason": "The finding is REAL and confirmed; I could not refute it. The box at Appendix_1/page_003 bbox 3922,795,4240,901 visually contains the standalone underlined printed word \"Pages\" sitting above the horizontal rule at the top of a table-of-contents/index sheet, positioned over the right-hand page-number column (entries below read \"Letters to Margaret Casey LeDoux....1913, December 25....1\", etc.). This is page-furniture / a printed column header, not the document's transcribed words.\n\nThe spec is explicit and unambiguous: QUICK DECISION TABLE states \"Printed sheet header 'Page' -> struct_other\", and the struct_other definition names exactly this as its canonical example (\"the printed 'Page' column header on the index sheets (page_003 #62, page_004 #70)\"). I verified the cited precedent: Appendix_2 page_003 box #62 at bbox=[4533,1074,4838,1265] is the printed underlined \"Page\" header labeled struct_other \u2014 the direct analog of the \"Pages\" header here (same function, same position above the table, over the page-number column). The only difference is plural \"Pages\" vs singular \"Page\", which is not a meaningful distinction.\n\nThe current src_content label is not defensible: src_content per spec covers first-person devotional/retreat text, scripture, poem/letter bodies, and the left-hand entry-title text of indexed rows. A printed column header labeling the page-number column is none of these. So the box is page-furniture mislabeled as the document's own words. The finding's substantive claim (label should be struct_other, currently src_content) is correct.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_1",
+   "page": "page_003",
+   "bbox": "832,984,4700,6083",
+   "box_num": 1,
+   "current_category": "src_content",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "src_content (left entry titles) + struct_doc (dot-leader runs and page-number references, one box each)",
+   "confidence": "high",
+   "note": "The entire ToC body is captured in a single src_content box. Per the spec's struct_doc rules for table-of-contents pages: the right-hand page-number references and the dot-leader runs ('..........') are each their own struct_doc boxes, while only the left-hand entry title text is src_content. This box conflates the navigation markers (visible page numbers like '...1', '...2 & 3' and the leader dots after every dated entry) into src_content instead of boxing them as struct_doc.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and confirmed by the rendered image (/tmp/v_page_003_984.png and /tmp/v_page_003_top.png). The box at bbox [832,984,4700,6083] is a single src_content box spanning the full width of the page (832\u20134700) and covering the entire table-of-contents body. The image clearly shows: (a) left-hand entry titles e.g. \"Letters to Margaret Casey LeDoux\", \"Letter to nephew, Edwin LeDoux\"; (b) long dot-leader runs (\"..........\") after every dated entry; and (c) a right-hand column of page-number references (\"...1\", \"...2 & 3\", \"...4\", \"10 & 11\", etc.). All of these are enclosed in the one src_content box.\n\nThe convention spec is explicit and names this exact page. Section 3 (struct_doc): \"On the table-of-contents pages (page_003, page_004): the right-hand column items \u2014 the page-number references and the dot-leader runs ('.........') that connect an entry to its page number. Each leader/page-ref segment is its own struct_doc box. (The left-hand entry title text on those rows is src_content; the trailing leaders + page numbers are struct_doc.)\" The Quick Decision Table reinforces: \"TOC page-number column + dot leaders \u2192 struct_doc (one box each).\"\n\nThe current single src_content box therefore conflates the dot-leaders and page numbers (which must be struct_doc) with the entry titles (correctly src_content), exactly as the auditor claims. The image is unambiguous \u2014 it is plainly a dated-letter TOC with dot leaders and a page-number column \u2014 so there is no genuine uncertainty. The proposed relabel (src_content for left entry titles + struct_doc for the leader runs and page-number references) is correct per spec."
+   }
+  },
+  {
+   "volume": "Appendix_1",
+   "page": "page_011",
+   "bbox": "3008,1382,4618,1695",
+   "box_num": 9,
+   "current_category": "archv_other",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "src_content (or a src_* category)",
+   "confidence": "medium",
+   "note": "Box #9 = the parenthetical '(17th anniversary of my ordination - Deo Gratias)' sitting in the letter's date/heading block (just below 'East 142nd St. N.Y.City' and 'July 24th, 1921'). It is written in the first person ('my ordination') and reads as part of the dateline Fr. Solanus himself wrote, i.e. the document's own words. Per the spec's core rule (category decided by WHO is speaking) and the tie-breaker (the item's own text reproduced = src_content), Solanus's own first-person aside should be a src_* category, not an archivist category. This is the ONLY archv_* box across all 7 audited pages (008-014), which are otherwise clean letter transcriptions using a consistent letter sub-category scheme (src_origin/recipient/location_*/greeting/farewell/signature/date/other). Marked medium confidence because the parenthetical could conceivably be read as an editorial interjection, but the first-person 'my' favors src. Spec sections 2 (Roman numerals) and 3 (struct_doc/TOC/Pg.N) do not apply to these letter pages.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Image confirms box #9 (bbox 3008,1382,4618,1695, currently archv_other) reads \"(17th anniversary of my ordination - Deo Gratias)\" sitting in the letter's dateline/heading block, directly below \"East 142nd St. N.Y.City\" (src_location_sender, #5) and \"July 24th, 1921\" (src_date, #6). The finding is REAL and I could not refute it.\n\nPer the spec's core rule, the category is decided by WHO is speaking and the FUNCTION of the text. This text is written in the FIRST PERSON (\"my ordination\") and \"Deo Gratias\" is a devotional aside \u2014 it is Fr. Solanus's own words transcribed verbatim as part of the dateline he wrote, NOT a third-person meta-description of the artifact. None of the archv_commentary mechanical triggers apply: there is no third-person/meta phrasing, no \"copy of...\", no naming of genre/source/author, no attributive lead-in. The tie-breaker is decisive: this is the item's own text being reproduced (\u2192 src_*), not a fact stated ABOUT the item (\u2192 archv). \n\nI considered the defensible counter-reading that it could be an editorial interjection, but an archivist annotation would be third-person (\"his ordination\") or a date-as-description; the first-person \"my\" rules that out. It is also the only archv_* box across an otherwise-clean run of letter pages using a consistent src_* sub-category scheme (and box #8 is already labeled src_other, confirming a src_* slot exists for such asides). The current archv_other label is wrong; it should be a src_* category. Relevant artifact: /tmp/v_page_011_1382.png."
+   }
+  },
+  {
+   "volume": "Appendix_1",
+   "page": "page_018",
+   "bbox": "789,5175,3565,5405",
+   "current_category": "src_other",
+   "issue_type": "archivist_as_src",
+   "suspected_correct": "archv_date + archv_commentary (archivist marginal annotation, not src_*)",
+   "confidence": "medium",
+   "note": "Box reads 'Mar. 13, 1934    Prize story found this A.M.   O.K.' Sits below the signature, separate from the letter body. This is an archivist/editor processing annotation (a later date plus a note that the prize story was found), not Solanus's own transcribed words. Per spec a marginal date the archivist attaches is archv_date and the note about the item is archv_commentary; labeling it src_other treats archivist annotation as source content.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and well-supported; I could not refute it. The box at bbox 789,5175,3565,5405 on Appendix_1/page_018 reads exactly as the auditor states: \"Mar. 13, 1934    Prize story found this A.M.   O.K.\" It sits BELOW the signature (\"Your Brother, Fr. Solanus Casey, O.M.Cap.\"), clearly separated from the letter body/farewell, and is currently labeled src_other.\n\nThree lines of evidence confirm this is an archivist/processing annotation, not Solanus's transcribed source content:\n\n1. Content/function: \"Prize story found this A.M.\" is a third-person meta-note recording the disposition of an item, and \"O.K.\" is an editorial verification mark. The letter body itself (top of page) shows Solanus writing that he was searching for the recipient's lost story (\"Please God I'll find your story... you shall have it back before long\"). The bottom note records the outcome \u2014 that the story was later FOUND and approved \u2014 at a different, later date (Mar. 13, 1934) than the letter's referenced Dec. 18, 1926. This is a follow-up processing annotation, not letter content.\n\n2. Established gold convention on a parallel page: On page_045, \"1953, January 7\" \u2014 a date set off after the \"Fr. Solanus, O.F.M.Cap.\" signature \u2014 is labeled archv_date, and the descriptive note \"The following is a faithful transcription of a message written on a Mass Association Card...\" is labeled archv_commentary. This is directly analogous to the page_018 post-signature date plus item note.\n\n3. Page_015 confirms parenthetical/descriptive archivist notes (\"Reverse of this card has a printed Christmas Verse:\", \"(Fr. Solanus added this last line by hand)\") are archv_commentary, while the source's own words are src_other/src_content.\n\nThe spec's quick decision table explicitly routes a marginal date the archivist attaches to archv_date and an archivist describing/dispositioning an item to archv_commentary. Labeling this src_other (a src_* / source-content category) treats archivist annotation as source content, exactly as the finding claims. The src_other label is not defensible.\n\nRelevant files: /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/reviewed/Appendix_1/page_018/page_018.json (box id b89bd24f under documents.doc_1.src_other). Rendered evidence: /tmp/v_page_018_5175.png, /tmp/v_page_018_context.png, /tmp/v_p018_top.png, /tmp/v_p045.png, /tmp/v_p015.png."
+   }
+  },
+  {
+   "volume": "Appendix_1",
+   "page": "page_035",
+   "bbox": "801,4336,4420,4530",
+   "box_num": 11,
+   "current_category": "archv_format_note",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "archv_commentary",
+   "confidence": "medium",
+   "note": "Box reads \"Written on reverse side on Picture of Saint Felix Capuchin Friary:\". This is the SAME construct as page_033 boxes #10 \"Written on front of picture post-card picture of the Friary:\" and #11 \"Written on reverse side:\", which on page_033 are both labeled archv_commentary. Per the spec quick-decision table, an archivist describing the source/type of an item (here, a picture of the Friary) is archv_commentary; pure layout notes like \"Inside front cover.\" are archv_format_note. The same \"Written on [front/reverse] ... Picture ... Friary:\" description type is therefore treated inconsistently across pages 033 and 035 \u2014 035 should match 033's archv_commentary.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding holds. Verified by rendering all three boxes:\n\n- Appendix_1/page_035 box at bbox 801,4336,4420,4530 reads \"Written on reverse side on Picture of Saint Felix Capuchin Friary:\" and is currently labeled archv_format_note.\n- Appendix_1/page_033 box #10 (bbox 821,1405,4043,1584) reads \"Written on front of picture post-card picture of the Friary:\" \u2014 labeled archv_commentary.\n- Appendix_1/page_033 box #11 (bbox 823,2199,2166,2368) reads \"Written on reverse side:\" \u2014 labeled archv_commentary.\n\nPer the spec quick-decision table, an archivist describing an item by type/source (\"copy of poem by ...\", naming the genre/source of the artifact) is archv_commentary, while pure physical-layout notes like \"Inside front cover.\" are archv_format_note. The page_035 text not only gives a physical location (\"on reverse side\") but explicitly names/describes the source item \u2014 \"Picture of Saint Felix Capuchin Friary\" \u2014 which is a direct archv_commentary trigger (describing the source/type of the item).\n\nI attempted to refute using the \"on reverse side\" layout phrasing as justification for archv_format_note, but page_033 box #11 is purely \"Written on reverse side:\" with no item description and was nevertheless gold-labeled archv_commentary. This proves the reviewer's established convention treats the entire \"Written on [front/reverse] side...\" construct as archv_commentary, and the layout phrase alone does not trigger archv_format_note. The page_035 box contains strictly more item-description content (it names the picture of the Friary) than page_033 #11, so it is even more clearly archv_commentary.\n\nThe same construct is therefore labeled inconsistently across pages 033 and 035; page_035 should be archv_commentary to match. The current archv_format_note label is not defensible."
+   }
+  },
+  {
+   "volume": "Appendix_1",
+   "page": "page_047",
+   "bbox": "3535,2366,4291,2555",
+   "box_num": 7,
+   "current_category": "src_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "archv_date",
+   "confidence": "medium",
+   "note": "The right-aligned marginal date \"1953, April 6\" sits between doc_1's sign-off (\"Sincerely yours.....\" / \"Fr. Solanus, O.F.M.Cap.\") and the archivist's descriptive note (archv_format_note #11: \"Message written on the back of a photo of Fr. Solanus\") that introduces the photo-message item (doc_2). It plays the identical role to page_045's box #17 \"1953, January 7\", which the same reviewer labeled archv_date (it sits right above archv_commentary #15 \"The following is a faithful transcription of a message written on a Mass Association Card...\"). Per the spec, a date the archivist sets off to the right as a marginal annotation describing an item is archv_date, not src_date. The parallel structure on page_045 confirms the intended convention; this box drifted to src_date. (Note: the separate lower date \"April 6 - 1953\" #8 belongs inside the photo-message content block and is correctly src_date.)",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding confirmed as REAL convention drift; could not refute it.\n\nPage_047 box #7 (\"1953, April 6\", bbox 3535,2366,4291,2555) is a right-aligned marginal date sitting between doc_1's signature \"Fr. Solanus, O.F.M.Cap.\" (#4) and the archivist's descriptive note archv_format_note #11 \"Message written on the back of a photo of Fr. Solanus\" that introduces doc_2. It is currently labeled src_date.\n\nThe parallel page_045 box #17 (\"1953, January 7\", bbox 3546,2662,4410,2846) occupies the IDENTICAL structural slot \u2014 right-aligned, between the prior letter's \"...O.F.M.Cap.\" sign-off and archv_commentary #15 \"The following is a faithful transcription of a message written on a Mass Association Card...\" \u2014 and the same reviewer labeled it archv_date. I rendered both pages and confirmed the layouts match exactly.\n\nPer the spec's quick decision table (\"Marginal date the archivist attaches to a description -> archv_date\") and the example \"1917, November set off to the right of a description\" (archv_date), the page_047 box should be archv_date.\n\nAttempts to refute: (1) the box content/position matches the auditor's description exactly; (2) the page_045 parallel is genuine, not misrepresented; (3) the date is not part of any contiguous transcribed passage \u2014 it is offset in the margin, and the photo-message's own internal date \"April 6 - 1953\" (#8) is separately and correctly labeled src_date. So the upper date functions as the archivist's marginal annotation, not Solanus's transcribed words. The src_date label is inconsistent with the established convention on page_045; finding holds."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_002",
+   "box_num": 18,
+   "bbox": "2289,1015,3822,1191",
+   "current_category": "src_date",
+   "issue_type": "archivist_as_src",
+   "suspected_correct": "struct_doc (or archivist-side index metadata, not src_*)",
+   "confidence": "high",
+   "note": "This is a table-of-contents/index page (same kind the spec's page_003/004 describe). The middle column holds the archivist's index DATE for each listed item ('1927, December 27.....', with dot leaders), i.e. a date-as-description ABOUT the indexed letter/card, not Solanus's own transcribed in-text date. The spec reserves src_date strictly for dates inside Solanus's transcribed words ('6th','24th'); index dates that characterize an item belong to archivist/struct side, not a src_* category. The page-number column on the same rows was correctly given struct_doc. This is a systematic deviation across the whole date column (boxes #18-#42).",
+   "verdict": {
+    "reason": "Could not refute; the finding is REAL. The rendered image confirms page_002 is a table-of-contents/index page with the exact three-column structure the spec describes for page_003/004: left = entry titles (\"Card to James Holley\", \"Letter to Mrs. Mary Rose Francis E.S.J.\"), middle = dates with dot leaders (\"1927, December 27.........\", \"1946, December 1.........\"), right = page numbers under a \"Pages\" header. The disputed box #18 (and the whole column, #18-#42) is an archivist index DATE characterizing each listed letter/card \u2014 a date-as-description ABOUT the item, not Solanus's own transcribed in-text date.\n\nThe spec is explicit that this is wrong as src_date:\n- src_date is reserved strictly for \"a date that is part of Solanus's own transcribed text/diary entry, e.g. '6th', '24th', inline retreat-day dates\" (section 3). These index dates are not inside any transcribed first-person passage.\n- The section-1 tie-breaker says a line stating a fact ABOUT the item \u2014 explicitly including \"date-as-description\" \u2014 belongs to the archivist side, not src_*.\n- The QUICK DECISION TABLE distinguishes \"In-text date within Solanus's words \u2192 src_date\" from \"Marginal date the archivist attaches to a description \u2192 archv_date.\"\n\nThe page-number column on the same rows is correctly struct_doc (#43-#67), and the spec assigns TOC page-ref/leader segments to struct_doc, so the auditor's note about a systematic deviation across the whole date column is corroborated by the data.\n\nCaveat on the exact replacement: the finding's proposed label is hedged (\"struct_doc, or archivist-side index metadata, not src_*\"). The single most spec-literal target for an archivist date-as-description is arguably archv_date rather than struct_doc, so the precise alternative is debatable. But the core verified claim \u2014 that the current src_date label is incorrect and the box belongs on the archivist/struct side, not a src_* category \u2014 is solidly supported by the spec and the image. Render: /tmp/v_page_002_1015.png; full page: /tmp/v_page_002_full.png.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_002",
+   "box_num": 19,
+   "bbox": "2285,1228,3824,1405",
+   "current_category": "src_date",
+   "issue_type": "archivist_as_src",
+   "suspected_correct": "struct_doc (index metadata, not src_*)",
+   "confidence": "high",
+   "note": "'1946, December 1.....' index-row date. Same issue as #18: archivist's index date-as-description on a TOC page mislabeled src_date. Representative of the systematic #18-#42 column.",
+   "verdict": {
+    "reason": "Confirmed via render: box #19 at bbox [2285,1228,3824,1405] on Appendix_3/page_002 is currently labeled src_date and reads \"1946, December 1..........\" (date + dot leaders). The image shows this is a TOC/index page: left column = entry titles (src_content), middle column (this box) = item dates, right column = page numbers under a \"Pages\" header (struct_doc). \n\nThe current src_date label is NOT defensible per the spec. The spec reserves src_date strictly for \"a date that is part of Solanus's own transcribed text/diary entry... inline retreat-day dates ('6th','24th')\". An index-row date on a TOC page is not Solanus's transcribed diary text \u2014 it is the archivist cataloguing items by date (the dot leaders connecting to page numbers confirm this is index/navigation furniture). The spec's explicit tie-breaker lists \"date-as-description\" \u2192 archv_commentary, directly excluding any src_* category. So the finding's central claim \u2014 that this is the archivist's index date-as-description mislabeled as src_date, and should not be src_* \u2014 is correct.\n\nThe only wrinkle is the finding's recommended replacement of struct_doc. The box mixes a date (\"1946, December 1\", which per tie-breaker leans archv_commentary/archv_date) with dot leaders (which the spec calls struct_doc on TOC pages), so the exact non-src target is debatable. But this does not save the current label: src_date is wrong either way, and the audit's operative conclusion (archivist index metadata, not src_*) holds. Finding is REAL.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_002",
+   "box_num": 26,
+   "bbox": "2108,2697,3822,2870",
+   "current_category": "src_date",
+   "issue_type": "archivist_as_src",
+   "suspected_correct": "struct_doc (index metadata, not src_*)",
+   "confidence": "high",
+   "note": "'c. 1946,' index-row approximate date (the 'c.' = circa makes the archivist-estimate nature explicit). On a TOC/index page this is the archivist characterizing when the item was written, not Solanus's transcribed text; should not be src_date. Part of the systematic #18-#42 column.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding is REAL \u2014 the current \"src_date\" label is not defensible per the convention spec. Verified via /tmp/v_page_002_2697.png and /tmp/v_box26_tight.png: box #26 (bbox 2108,2697,3822,2870) contains \"c. 1948, .........\" in the middle DATE column of a clear table-of-contents/index page (left column = \"Card to James Molloy\", \"Letter to Rev. James Molloy\", etc. = src_content; right column = \"Pages\" + page numbers = struct_doc; middle = a date column for each indexed item).\n\nThe spec reserves src_date specifically for \"a date that is part of Solanus's own transcribed text/diary entry, e.g. '6th', '24th', inline retreat-day dates\" \u2014 dates embedded WITHIN transcribed content. These TOC dates are NOT Solanus's transcribed words; they are an index-metadata column describing when each external item (cards/letters to various recipients) was written. The spec's tie-breaker explicitly classifies \"date-as-description\" as archivist text (archv_commentary / archv_date: \"Marginal date the archivist attaches to a description\"). The \"c.\" (circa) makes the archivist-estimate nature explicit. So src_date is wrong; the box is archivist index metadata, not src_*.\n\nCaveats (do not change the verdict): (1) The auditor note misquotes the year as \"c. 1946,\" but the rendered box actually reads \"c. 1948,\". The box is unambiguously pinned by its bbox and current label (both match box #26 exactly), and the structural argument is identical regardless of year, so this is only a minor transcription error in the note. (2) The finding's proposed replacement \"struct_doc (index metadata)\" is debatable \u2014 the spec's struct_doc is for position/navigation markers (Pg. N, Roman numerals, page-ref + dot-leader column), whereas an archivist date-as-description maps more naturally to archv_date / archv_commentary. But the core claim (\"should not be src_date\") is strongly supported, so the finding stands."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_002",
+   "box_num": 42,
+   "bbox": "1322,6039,3201,6217",
+   "current_category": "src_date",
+   "issue_type": "archivist_as_src",
+   "suspected_correct": "struct_doc (index metadata, not src_*)",
+   "confidence": "high",
+   "note": "'January 1, 1911 to January 1, 1915' \u2014 the date-range index entry for the Notebook No. 12 row. Clearly an archivist index span describing the notebook's coverage, not Solanus's own in-text date; mislabeled src_date. Part of the systematic #18-#42 column.",
+   "verdict": {
+    "reason": "Finding is REAL (not refuted). The rendered crop confirms box #42 contains \"January 1, 1911 to January 1, 1915\". The full-page context shows page_002 is an archivist's index/table-of-contents with three columns: left = item titles (src_content, e.g. \"Notebook Number 12....\", \"Card to James Molloy....\"), middle = a date column (currently all labeled src_date, #18-#42, e.g. \"1927, December 27\", \"1950, April 25\"), right = page-number references (struct_doc, e.g. \"1\",\"2\",\"pages 22 to 44\") under the printed header \"Pages\" (struct_other #68). Box #42 sits in that middle date column directly below the \"Notebook Number 12\" / \"pages 22 to 44\" row, giving the notebook's date-coverage span. Per the convention spec, src_date is defined strictly as \"a date that is part of Solanus's own transcribed text/diary entry\" (inline retreat/diary dates like \"6th\",\"24th\"); an index coverage span is not that. The spec's tie-breaker explicitly classifies a line that \"states a fact ABOUT the item (its type, author, date-as-description, location)\" as NOT src_* \u2014 it is archivist meta-description. So \"January 1, 1911 to January 1, 1915\" is an archivist index date span describing the notebook, mislabeled as src_date. The finding's core claim (mislabeled src_date; it is archivist index metadata, not src_*) is correct and supported by both image and spec. The only quibble is whether the ideal replacement is struct_doc vs archv_commentary/archv_date, but that does not rescue the current incorrect src_date label.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_1",
+   "page": "page_052",
+   "box_num": 1,
+   "bbox": "1677,1486,3439,2497",
+   "current_category": "archv_commentary",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "split: collection identifier ('APPENDIX to VOLUME I') -> struct_id; descriptive title lines remain archv_commentary",
+   "confidence": "low",
+   "note": "This Appendix title block is one merged archv_commentary box. The parallel title page Appendix_3/page_001 (also in this audit) treats the equivalent text differently: 'APPENDIX III' is its own struct_id box and 'COLLECTED WRITINGS ATTRIBUTED TO / THE SERVANT OF GOD / FATHER SOLANUS CASEY, O.F.M.Cap.' is a second struct_id box. Per the spec's struct_id rule (use struct_id when text NAMES/IDENTIFIES the collection as a whole, e.g. 'FATHER SOLANUS NOTEBOOK NO. 11'), the 'APPENDIX to VOLUME I' identifier here should arguably be struct_id rather than folded into archv_commentary. Front-matter edge case not directly covered by the spec; flagged as drift between the two parallel title pages. Note A3/001's split is the more spec-aligned of the two.",
+   "verdict": {
+    "reason": "Finding is REAL (not refuted). Confirmed via rendered images. A1/052 box #1 (the disputed box, currently archv_commentary) is a single merged 5-line title block: \"APPENDIX to VOLUME I\" / \"COLLECTED WRITINGS ATTRIBUTED TO\" / \"THE SERVANT OF GOD\" / \"FATHER SOLANUS CASEY, O.F.M.Cap.\" / \"AND FAITHFULLY TRANSCRIBED\". The parallel page A3/001 (also in this audit) was confirmed to split the equivalent text: \"APPENDIX III\" is its own struct_id box (#2, bbox 1671,2185,2589,2356), and the COLLECTED WRITINGS / SERVANT OF GOD / FATHER SOLANUS CASEY lines form a second struct_id box (#3), with a separate descriptive paragraph as archv_commentary (#1).\n\nPer the spec's struct_id rule \u2014 use struct_id when text NAMES/IDENTIFIES the source document or collection as a whole (examples \"FATHER SOLANUS NOTEBOOK NO. 11\", \"Notebook No. 11 :\") \u2014 the line \"APPENDIX to VOLUME I\" is a collection identifier directly analogous to A3/001's \"APPENDIX III\" struct_id box. Folding it into one archv_commentary box is inconsistent with both the struct_id rule and the parallel page's actual treatment. This is a genuine, demonstrable drift between two parallel title pages both present in the audit.\n\nCaveats that do NOT rise to refutation: (1) The spec is scoped to Appendix_2 typewritten TOC/transcription pages; this is a front-matter title page on Appendix_1, technically an edge case not literally covered \u2014 but the struct_id rule is general and the finding transparently flags this as an edge case/drift rather than claiming a mechanical spec violation. (2) The finding's remediation wording (\"descriptive title lines remain archv_commentary\") does not exactly match A3/001, where those descriptive lines are actually labeled struct_id, not archv_commentary \u2014 but this is a remediation-detail quibble, not a defect in the core claim that \"APPENDIX to VOLUME I\" should be struct_id rather than buried in archv_commentary. The core claim is well-supported by the spec rule and the cited parallel evidence; the current merged archv_commentary label is not cleanly defensible. Relevant files: /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/reviewed/Appendix_1/ (page_052), reviewed/Appendix_3/ (page_001); render images /tmp/v_page_052_1486.png and /tmp/v_a3_001_zoom.png.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_005",
+   "bbox": "2797,2118,4425,2514",
+   "box_num": 15,
+   "current_category": "archv_other",
+   "issue_type": "archivist_as_src",
+   "suspected_correct": "src_greeting (or src_content)",
+   "confidence": "medium",
+   "note": "Box #15 covers the typed letter header line 'Blessed be God / In all His designs.' -- Fr. Solanus's own devotional motto, i.e. the document's own reproduced words. It is labeled archv_other (an archivist category), but on page_009 the IDENTICAL phrase 'Blessed be God. / In all His designs.' is labeled src_greeting (boxes #7/#8). Per the spec tie-breaker, the item's own reproduced text is source content, not archivist material. Placing this src text into an archv_* category is the inverse of the archivist-as-src error and is an inter-page convention drift (archv_other on page_005 vs src_greeting on page_009). Confirmed by zoom of both pages.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and confirmed by zoom of both pages. Verified facts: (1) On page_005, box #15 (bbox 2797,2118,4425,2514, labeled archv_other) contains \"Blessed be God / In all His designs.\" in the same typewriter font as the rest of the letter body. (2) The full page_005 is a typed letter from Fr. Solanus with the standard letter anatomy (src_origin \"ST. FELIX FRIARY\", src_location_sender \"HUNTINGTON, INDIANA\", src_date \"April 25, 1950 / Feast of St. Mark\", src_recipient, src_greeting, src_content, src_farewell, src_signature \"Fr. Solanus, O.F.M. Cap.\"). The motto sits top-right in the letterhead region, parallel to the date \u2014 clearly part of the reproduced document text, not an archivist annotation. (3) On page_009, the IDENTICAL phrase in the IDENTICAL structural position is labeled src_greeting (boxes #7 \"Blessed be God.\" and #8 \"In all His designs.\"), within a letter of the same layout. Per the convention spec (WHO is speaking / FUNCTION, and the tie-breaker: \"if the line is the item's own text being reproduced, it is src_content\"), this devotional motto is the document's own reproduced words = source content, not archivist meta-description (it does not describe the item's type/author/date/provenance). Labeling it archv_other places source text into an archivist category \u2014 the inverse of the archivist-as-src error and an inter-page convention drift (archv_other on page_005 vs src_greeting on page_009). I also considered the counter-hypothesis that page_009 is wrong instead, but the spec tie-breaker classifies reproduced item text as source, so src_greeting is the spec-consistent label and archv_other on page_005 is the genuine error. The suggested fix \"src_greeting (or src_content)\" is correct. Image: /tmp/v_page_005_2118.png and /tmp/v_page_009_greeting.png."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_016",
+   "bbox": "2026,4202,3262,4401",
+   "current_category": "archv_possessor",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "src_signature",
+   "confidence": "high",
+   "note": "Box reads \"Fr. Solanus, ofm, Cap.\" \u2014 this is Solanus's own signature/sign-off, the canonical src_signature exemplar in the spec (\"Fr. Sol.\"). Here it is given an ARCHIVIST category (archv_possessor), i.e. src content labeled with an archivist label. On the sibling letter pages (012, 013, 014, 018) the identical \"Fr. Solanus, O.F.M.Cap.\" line is correctly labeled src_signature. (Closest enum is other_convention_drift; strictly this is src content given an archivist category.) The other archv_possessor box on this page (#10, 572,4664,2022,5214) renders blank and could not be read/judged.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and could not be refuted. Verified evidence:\n\n1. Box content: Rendering /tmp/v_page_016_4202.png (bbox 2026,4202,3262,4401) clearly reads \"Fr. Solanus, ofm, Cap.\" \u2014 Solanus's own sign-off.\n\n2. Page context: page_016 is a LETTER authored by Fr. Solanus, not a notebook/index page. The full-page render shows the canonical letter structure: src_recipient (\"Miss Margaret Haf.\"), src_location_recipient (address lines), src_date (\"May 12-\"), src_greeting (\"Bles'd be God in all His designs!\"), and src_content (the letter body). The \"Fr. Solanus, ofm, Cap.\" box sits directly below the closing of the letter body \u2014 it is the letter's signature/sign-off, i.e. src content (Solanus's own words).\n\n3. Spec: src_signature is defined as \"Solanus's own signature/sign-off.\" archv_possessor is an ARCHIVIST category. The current label (archv_possessor) puts source content under an archivist category \u2014 a convention drift.\n\n4. Sibling-page convention confirms the intended label. On the sibling letter pages the identical sign-off line \"Fr. Solanus, O.F.M.Cap.\" is labeled src_signature: verified directly via zoom on page_012 (box #6, magenta) and page_018 (box #8, magenta), both reading \"Fr. Solanus, O.F.M.Cap.\" Pages 013 (#8) and 014 (#8) also carry src_signature boxes in the same closing position.\n\n5. The archv_possessor category on these letter pages is used for a separate, distinct region \u2014 a large lower-portion box (page_016 #10 at 572,4664,2022,5214; page_018 #11 at 386,4558,1835,5154) that renders blank (an archive/possessor-mark area), not for the signature line. So the signature being given archv_possessor is a genuine miscategorization, not a category synonym.\n\nMinor caveat: the finding labels the drift type \"other_convention_drift\" while asserting the correct enum is \"src_signature.\" The substantive claim \u2014 that archv_possessor is wrong and the box is Solanus's own signature (src content) \u2014 is fully supported by the image and by the established convention on four sibling pages. The second archv_possessor box on the page (#10) renders blank and was not judged, consistent with the auditor note. Finding stands."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_017",
+   "bbox": "1874,4745,3169,4918",
+   "current_category": "src_farewell",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "src_signature",
+   "confidence": "high",
+   "note": "Box reads \"Fr. Solanus. O.F.M.Cap.\" \u2014 the signature line, labeled src_farewell. Per the spec, Solanus's sign-off (\"Fr. Sol.\") is src_signature, and pages 012/013/014/018 label the identical line src_signature. Page_017 has NO src_signature box at all; the signature was absorbed into src_farewell.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and confirmed. The box under review on Appendix_3/page_017 at bbox [1874,4745,3169,4918] (box #10) reads \"Fr. Solanus. O.F.M.Cap.\" \u2014 confirmed by rendering /tmp/v_page_017_4745.png. This is Solanus's signature/sign-off line.\n\nPer the convention spec, src_signature = \"Solanus's own signature/sign-off, e.g. 'Fr. Sol.'\", and the quick-decision table explicitly states: \"Solanus's signature ('Fr. Sol.') \u2192 src_signature.\" The \"Fr. Solanus, O.F.M.Cap.\" line is exactly that signature.\n\nCross-page consistency strongly corroborates the finding. Inspecting the reviewed (gold) JSON for the comparison pages, each has a src_farewell box ABOVE and a separate src_signature box BELOW:\n- page_012: src_farewell=[2120,3435,3835,3583], src_signature=[2122,3697,3368,3839]\n- page_013: src_farewell=[488,3495,2251,3664], src_signature=[2168,3699,3397,3857]\n- page_014: src_farewell=[2113,5720,3415,5890], src_signature=[2125,5878,3665,6046]\n- page_018: src_farewell=[1968,3918,3411,4104], src_signature=[1973,4145,3294,4307]\n- page_017: src_signature=[] (NONE), src_farewell has TWO boxes.\n\nVisual confirmation on the two layout-matching pages:\n- page_018: yellow box \"Sincerely yours in Christ\" = src_farewell; pink box \"Fr. Solanus, O.F.M.Cap.\" = src_signature.\n- page_014: yellow box \"Praised be Jesus Christ\" = src_farewell; pink box \"....Fr. Solanus, O.F.M. Cap.\" = src_signature.\n\nSo the identical \"Fr. Solanus, O.F.M.Cap.\" signature line is labeled src_signature on the comparison pages, but on page_017 the same line is labeled src_farewell, and page_017 has no src_signature box at all. This is a genuine convention-drift mislabel exactly as the auditor described. The box should be src_signature, not src_farewell."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_023",
+   "bbox": "194,1481,1663,1657",
+   "current_category": "archv_other",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "archv_format_note",
+   "confidence": "medium",
+   "note": "Box reads 'Page 2 and 3 are blank' - an archivist note about the physical layout of the document. The spec defines archv_format_note for exactly this kind of structural/format note about physical layout (its example is 'Inside front cover.'). Labeled archv_other instead.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and confirmed. The rendered box #20 at bbox 194,1481,1663,1657 unambiguously reads \"Page 2 and 3 are blank\". This is an archivist's note about the physical layout/structure of the document (stating which pages contain no content). The spec defines archv_format_note as the \"archivist's structural/format note about physical layout, e.g. 'Inside front cover.'\" and the QUICK DECISION TABLE explicitly maps \"'Inside front cover.' / layout notes -> archv_format_note\". \"Page 2 and 3 are blank\" is directly parallel to the \"Inside front cover.\" example \u2014 both describe the document's physical layout rather than its content. The current label archv_other is a generic catch-all (correctly used for the adjacent box #19, \"Altar Boys Society... Writing not of Fr. Solanus! Describes the rules and dues...\", which is content-describing commentary), but for this specific text a more precise category (archv_format_note) exists and matches exactly. It is not struct_doc (not a bare \"Pg. N\" position marker) and not archv_commentary (does not characterize an item's type/author/source). I found no defensible reading that keeps archv_other over archv_format_note. The finding is correct."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_023",
+   "bbox": "895,1895,4613,2082",
+   "current_category": "struct_commentary",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "archv_commentary",
+   "confidence": "high",
+   "note": "Box reads 'Here begins the notes of Father Solanus Casey in his hand.' This is an archivist meta-description introducing/heading the transcribed notebook section (third-person framing of the artifact). Per spec this descriptive header is archv_commentary. The category 'struct_commentary' does not exist in the spec at all; the adjacent 'IN NOMINE JESU INCIPIT A.D. 1911' (the document's own Latin incipit) is correctly src_content.",
+   "verdict": {
+    "reason": "The finding is REAL and confirmed by the rendered image and spec. Box #24 at bbox [895,1895,4613,2082] reads exactly \"Here begins the notes of Father Solanus Casey in his hand.\" and is currently labeled struct_commentary. This is a third-person meta-description naming the artifact and its author (provenance/transcription framing) on an index/contents-style page where the archivist catalogs each numbered page (Page 1, Page 4, etc.). By the Appendix_2 convention spec this is archv_commentary: it states a fact ABOUT the item (who wrote it, \"in his hand\") and is the descriptive header introducing the transcribed section. The auto_labeler taxonomy reinforces this decisively \u2014 its archv_commentary definition lists this EXACT phrase, \"Here begins the notes... in his hand.\", as a canonical example, while struct_commentary is reserved for genuine intra-document structural breaks (\"On the reverse side...\", \"Front\"/\"Back\", \"(Continued on the reverse of Card)\") and is flagged as \"frequently overused.\" The adjacent \"IN NOMINE JESU INCIPIT A.D. 1911\" is correctly box #8 src_content (the document's own Latin incipit), matching the auditor's note. The only minor inaccuracy in the auditor's note is the claim that struct_commentary \"does not exist in the spec at all\" \u2014 it does exist in the broader auto_labeler taxonomy (just not in the provided Appendix_2 convention spec), but this does not affect the core finding: the current label is wrong and the correct category is archv_commentary. So the finding cannot be refuted.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_026",
+   "bbox": "272,574,2245,750",
+   "current_category": "struct_id",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "struct_id box (#30) drawn over a completely blank region. High-res render and JSON both confirm no text and zero connections. Spec defines struct_id as the notebook title-of-record string (e.g. 'FATHER SOLANUS NOTEBOOK NO. 11'); an empty box carrying this category violates that. Systematic: identical empty struct_id box appears on all 7 audited pages. The only real header content is the 'Page N' marker, correctly labeled struct_doc.",
+   "verdict": {
+    "reason": "The finding is REAL and could not be refuted. Verified three independent ways:\n\n1) High-res render (/tmp/v_page_026_574.png and /tmp/v_page_026_wide.png): Box #30 (struct_id, magenta) at bbox 272,574,2245,750 is drawn over a completely blank header region \u2014 no visible text, faint or otherwise. The only real header content is \"Page 6 Cont.\" which is correctly labeled struct_doc (box #31, orange) immediately below it.\n\n2) JSON (/home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/auto_labeled/Appendix_3/page_026/page_026.json): the struct_id region has \"connections\": [] (zero) and no text content. By contrast the struct_doc box for \"Page 6 Cont.\" has 14 src_content connections, i.e. it is the functioning marker.\n\n3) Spec compliance: the convention spec defines struct_id as the notebook's title-of-record identifier (e.g. \"FATHER SOLANUS NOTEBOOK NO. 11\"). An empty box carrying this category has no identifier string and violates the spec's definition.\n\n4) Systematic claim confirmed: surveying all Appendix_3 struct_id boxes shows an identically-shaped (~1965px wide, ~175px tall), zero-connection struct_id box in the upper-left header zone on essentially every transcription page (page_023 through page_046). A second-page spot check (page_023, /tmp/v_page_023.png) shows the same empty magenta struct_id box with the real \"Page 1\" marker labeled struct_doc below it.\n\nAdversarial attempts to find hidden text, clipped/adjacent content, or a defensible reading all failed. The current \"struct_id\" label on this blank box is incorrect; it should be deleted (no box).",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_026",
+   "bbox": "3850,249,4175,433",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#29) in top-right corner drawn over a blank region. High-res render and JSON both confirm no date text and zero connections. Spec defines archv_date as an actual archivist marginal date (e.g. '1917, November'); an empty box carrying this category violates that. Systematic across all 7 audited pages.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding confirmed REAL, could not refute. The archv_date box (#29) at bbox 3850,249,4175,433 in Appendix_3/page_026 is drawn over a completely blank region. Verified three ways: (1) zoomed crop /tmp/v_page_026_249.png shows only the empty red box outline, no text; (2) wider crop /tmp/v_page_026_wide.png still blank; (3) full top-strip /tmp/v_page_026_top.png confirms box #29 sits over empty white space in the top-right corner with no date text anywhere near it. The only text in the top region is correctly labeled elsewhere: \"Page 6 Cont.\" (struct_doc #31), \"June 6th\" (src_date #15), and the transcribed src_content body. JSON at /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/reviewed/Appendix_3/page_026/page_026.json confirms the box has no text field and \"connections\": [] (zero connections). Per the convention spec, archv_date is \"a date written by the ARCHIVIST as a marginal annotation describing the item, e.g. '1917, November'\". An empty box with no date text cannot satisfy this category. No defensible reading supports the current label; it should be deleted / have no box."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_027",
+   "bbox": "195,474,2162,647",
+   "current_category": "struct_id",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "struct_id box (#28) over a blank region; high-res render + JSON confirm no identifier text, zero connections. Same systematic empty-struct_id pattern as the other audited pages.",
+   "verdict": {
+    "reason": "The finding is confirmed REAL; I could not refute it. Evidence: (1) audit_render overlay shows box #28 (struct_id, bbox 195,474,2162,647) hovering over an empty area directly above the \"Page 7\" struct_doc box; (2) a wider-context render confirms the box spans a blank gap with no glyphs; (3) a raw PDF crop of that region (x100-2300, y420-720) rendered WITHOUT overlays from polygon_cropped_pdfs/Appendix_3/pages/page_027.pdf is pure white, proving no identifier text exists there; (4) the JSON region in reviewed/Appendix_3/page_027/page_027.json for this struct_id box has connections:[] (zero connections) and no text/OCR field. Per the convention spec, struct_id must contain the collection IDENTIFIER text (e.g. \"FATHER SOLANUS NOTEBOOK NO. 11\"); a struct_id box over a blank region with no text is not defensible and should be deleted. This matches the auditor's described systematic empty-struct_id pattern.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_027",
+   "bbox": "3833,150,4096,329",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#27) top-right over a blank region; no date text, zero connections (JSON + high-res render). Empty box carrying archv_date category; spec requires an actual archivist date.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and I could not refute it. Box #27 (archv_date) at bbox [3833,150,4096,329] on Appendix_3/page_027 sits over a completely blank region in the top-right corner of the page.\n\nEvidence (all refutation attempts failed):\n1. Visual: The audit render (zoom, wider context, and full top band) shows box #27 enclosing empty white space, while real content is elsewhere (struct_id #28, \"Page 7\" struct_doc #29).\n2. Raw render without overlay (+120px margin) of the region is uniformly white.\n3. Pixel-level proof: rendering the source PDF (page_027.pdf) at full resolution (5265x6807) and measuring the exact box region [3833,150,4096,329] gives grayscale extrema of (255,255) with 0 dark pixels (<200) out of 47,077 \u2014 pure white, no ink/text of any kind. High-contrast autocontrast + 4x enlargement still shows nothing.\n4. JSON: documents['doc_1']['archv_date'] contains exactly one region whose vertices match the box, with connections: [] (zero connections, matching the auditor's note). The schema stores only geometric regions (no text field), so the category cannot be supported by any captured text.\n\nPer the convention spec, archv_date is \"a date written by the ARCHIVIST as a marginal annotation describing the item\" and requires actual archivist date text. An empty box over a blank region carrying the archv_date category violates the spec. The correct action is to delete the box (blank region), so the finding stands.\n\nRelevant files: /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/reviewed/Appendix_3/page_027/page_027.json (archv_date region, id 84f92e35-c625-4f3d-b970-deeff4601ebb); source PDF /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Appendix_3/pages/page_027.pdf."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_028",
+   "bbox": "206,356,2175,531",
+   "current_category": "struct_id",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "struct_id box (#18) over a blank region; no identifier text, zero connections. Same systematic empty-struct_id pattern.",
+   "verdict": {
+    "reason": "The finding is confirmed REAL; I could not refute it. Evidence:\n\n1. Rendered image (audit_render, multiple zoom levels: /tmp/v_page_028_356.png, /tmp/v_page_028_wide.png, /tmp/v_page_028_tight.png) shows box #18 (struct_id, magenta) at bbox [206,356,2175,531] sitting over a completely BLANK region \u2014 no identifier text, no characters at all. The \"Page 7 Cont.\" text directly below belongs to box #19 (struct_doc), not box #18.\n\n2. JSON record confirms the auditor note exactly. In /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/reviewed/Appendix_3/page_028/page_028.json, doc_1.struct_id has a single box with vertices (206,356)-(2175,531) and \"connections\": [] (zero connections), id e60d5609-13fe-4630-9395-6da874768b52. By contrast, the two struct_doc boxes on the same page each carry 2-6 src_content connections, so the empty/connectionless state of the struct_id box is anomalous.\n\n3. Spec violation: struct_id is reserved for the document/collection IDENTIFIER \u2014 the notebook title-of-record (e.g. \"FATHER SOLANUS NOTEBOOK NO. 11\", \"Notebook No. 11 :\"). It requires actual naming text. A blank region containing no identifier string cannot be struct_id under the convention; the label is indefensible. This matches the \"systematic empty-struct_id\" pattern the auditor describes.\n\nThe current struct_id label is not correct or defensible; the box should be deleted (blank region).",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_028",
+   "bbox": "3849,135,4167,316",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#17) top-right over a blank region; no date text, zero connections. Empty box carrying archv_date category.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is confirmed, not refuted. Box #17 at bbox [3849,135,4167,316] on Appendix_3/page_028 is labeled archv_date but is entirely empty. Visual render (/tmp/v_page_028_top.png) shows the box in the top-right corner over a completely blank region with no text inside it. Quantitative pixel analysis of the source PDF render is definitive: all 57,558 pixels in the box bounds are pure white (min=255, max=255, mean=255.0, frac_dark=0.00000). For comparison, genuine text boxes on the same page have ~7.5-8% dark pixels (box #19 \"Page 7 Cont.\" mean=233.9; box #1 \"Mayor J.T. Lennon...\" mean=235.4). The convention spec defines archv_date as \"a date written by the ARCHIVIST as a marginal annotation describing the item\" \u2014 which requires actual date text. An entirely-white empty box has zero content and cannot validly carry archv_date (or any content category). The auditor note is accurate: it is an empty box over a blank region with no date text. The correct action is to delete the box. No defensible reading supports the current label."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_029",
+   "bbox": "230,438,2201,613",
+   "current_category": "struct_id",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "struct_id box (#16) over a blank region; high-res render + JSON confirm no identifier text, zero connections. The actual header line below it ('Page 9') is separately and correctly labeled struct_doc.",
+   "verdict": {
+    "reason": "Finding is REAL; could not refute. Verified via render and JSON. The struct_id box (JSON id 652324fe-d0f0-4ebf-88c0-c49cf76eb607) at vertices [229,438]->[2201,613] (matches the cited bbox 230,438,2201,613) covers a completely BLANK region \u2014 confirmed in both the standard zoom (/tmp/v_page_029_438.png) and a wider higher-coverage crop (/tmp/v_page_029_wide.png) at /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/. No identifier text is present, and the JSON shows \"connections\": [] (zero connections) for that box. The \"Page 9\" line below it is a SEPARATE box (#17, struct_doc, vertices [231,647]->[696,839], JSON id 5b0a733f...) correctly labeled struct_doc and connected to the page's src_content blocks \u2014 exactly as the auditor noted. Per the convention spec, struct_id is reserved for an actual document/collection identifier string (e.g. \"FATHER SOLANUS NOTEBOOK NO. 11\"); a blank region contains no identifier and should not carry a struct_id box (nor any box). Refutation attempts (faint/clipped-text check via wider render, connection check in JSON, confirming Page 9 is a distinct box) all failed to defend the current label. Label file: /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/auto_labeled/Appendix_3/page_029/page_029.json (lines 467-490).",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_029",
+   "bbox": "3870,173,4202,354",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#15) top-right over a blank region; no date text, zero connections. Empty box carrying archv_date category.",
+   "verdict": {
+    "reason": "Finding confirmed; could not refute. Rendered Appendix_3/page_029 at the target bbox (3870,173,4202,354) and at wider zooms (3700,100,4500,700 and full page). Box #15 sits in the top-right corner over a completely blank region \u2014 no date text, no text of any kind. The only nearby content is the title line \"...THE YEAR 1912\" (src_content box #1) which starts far below at y=851. Data confirms it: in /home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/reviewed/Appendix_3/page_029/page_029.json the archv_date entry has \"connections\": [] (zero connections), no \"text\" field, and is the only region in the top-right band (verified text=None). The convention spec defines archv_date as \"a date written by the ARCHIVIST as a marginal annotation describing the item\" \u2014 there is no date here. An empty box with zero connections carrying a content category (archv_date) over a blank region is not defensible per spec; correct action is delete / no box. The auditor's note (empty box #15 top-right, no date text, zero connections) matches the evidence exactly.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_030",
+   "bbox": "270,422,2240,595",
+   "current_category": "struct_id",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "struct_id box (#17) over a blank region; no identifier text, zero connections. Same systematic empty-struct_id pattern.",
+   "verdict": {
+    "reason": "Finding confirmed (not refuted). Rendered box #17 (struct_id, bbox 270,422,2240,595) on Appendix_3/page_030 at three scales (wide, full page, and tight high-res zoom). At every scale the box is unambiguously EMPTY \u2014 it sits in white space above the \"Page 9 Cont.\" marker (separate box #18) and contains zero text, no identifier string, no characters. Per the convention spec, struct_id is reserved for the document/collection IDENTIFIER (the notebook's title-of-record, e.g. \"FATHER SOLANUS NOTEBOOK NO. 11\", \"Notebook No. 11 :\") and requires identifier text that NAMES the source document/collection. An empty box cannot be a struct_id because there is no identifier being named. The \"Page 9 Cont.\" text is correctly captured by its own adjacent box (#18), so #17 is not mis-rendered over real text. The auditor's note (\"struct_id box over a blank region; no identifier text, zero connections; systematic empty-struct_id pattern\") matches exactly. The box should be deleted / no box. No defensible reading supports the current struct_id label.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_030",
+   "bbox": "3908,157,4240,345",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#16) top-right over a blank region; no date text, zero connections. Empty box carrying archv_date category.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding is REAL and not refutable. I rendered the box region (#16, archv_date, bbox [3908,157,4240,345] on Appendix_3/page_030) at four zoom levels: a tight crop, a wider context crop, the full top row, and a maximal zoom. In every render box #16 (top-right, red) is completely empty \u2014 there is no date text or any text whatsoever inside it; the region is blank. The actual page content begins lower with \"Page 9 Cont.\" (#18 struct_doc), \"Jan. 17th\" (#9 src_date), and \"His Eminence John Card. Farley returned from Rome...\" (src_content). The convention spec defines archv_date as \"a date written by the ARCHIVIST as a marginal annotation describing the item\" \u2014 but there is no date here. An empty box carrying the archv_date category is unjustifiable, so the auditor's recommendation to delete the box (blank region) is correct. Image evidence: /tmp/v_page_030_box16.png and /tmp/v_box16_max.png."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_031",
+   "bbox": "233,439,2200,614",
+   "current_category": "struct_id",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "struct_id box (#18) over a blank region; no identifier text, zero connections. Same systematic empty-struct_id pattern.",
+   "verdict": {
+    "reason": "Verified and could NOT refute. Rendered the exact bbox [233,439,2200,614] (box #18, labeled struct_id) on Appendix_3/page_031. Visual inspection of /tmp/v_page_031_439.png and the wider /tmp/v_page_031_wide.png shows the box sits over an empty region directly above box #19 \"Page 10 Cont.\" (struct_doc), with \"Feb. 2nd\" (src_date) and the \"Feast of Purification...\" body (src_content) further below. To rule out faint text washed out by rendering, I re-rendered the PDF at high resolution (3000px wide) in grayscale and analyzed the exact box #18 region: min/max pixel = (255,255), i.e. pure white, with 0 dark pixels out of 112000. By contrast, the real-text reference box #19 had 8.5% dark pixels. The region is genuinely blank with no identifier text and zero ink. Per the convention spec, struct_id must NAME/IDENTIFY the source document/collection (e.g. \"FATHER SOLANUS NOTEBOOK NO. 11\", \"Notebook No. 11 :\"); a box over a blank region cannot be a valid struct_id and should be deleted. Finding is REAL.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_031",
+   "bbox": "4053,168,4388,347",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#17) top-right over a blank region; no date text, zero connections. Empty box carrying archv_date category.",
+   "verdict": {
+    "reason": "Finding CONFIRMED (not refuted). Evidence: (1) Rendered crops at multiple zoom levels (/tmp/v_page_031_full.png, /tmp/v_page_031_topright.png, /tmp/v_page_031_wide.png) show box #17 at bbox 4053,168,4388,347 sitting in the top-right margin over a completely blank/white region \u2014 no date text, no characters of any kind inside the box. The nearest actual content (\"Page 10 Cont.\" marker) is well below it. (2) The reviewed JSON (reviewed/Appendix_3/page_031/page_031.json) records this as the sole archv_date entry with \"connections\": [] (zero connections) and NO text content \u2014 it is a bare geometric region. Per the convention spec, archv_date applies only to \"a date written by the ARCHIVIST as a marginal annotation describing the item\"; this box carries the archv_date category but contains no date at all. An empty box with the archv_date label over a blank region is not a defensible label. The auditor's note (archv_date box #17 top-right over a blank region, no date text, zero connections, empty box carrying archv_date category) matches both the image and the JSON exactly. Recommended action (delete / no box) is correct.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_032",
+   "bbox": "3984,231,4318,408",
+   "current_category": "archv_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "(delete / no box) - region is blank",
+   "confidence": "high",
+   "note": "archv_date box (#25) top-right over a blank region; no date text, zero connections. Empty box carrying archv_date category.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding confirmed (not refuted). Rendered Appendix_3/page_032 box #25 at bbox [3984,231,4318,408] labeled archv_date, including at full native page width (5090px) via /tmp/v_page_032_hi.png. The box interior and its surrounding top-right margin are completely blank white \u2014 no date text, no typed or faint markings of any kind. Per the convention spec, archv_date requires \"a date written by the ARCHIVIST as a marginal annotation describing the item\"; there is no date (or any text) here, so the category cannot apply. An empty box over a blank region carrying archv_date is the exact other_convention_drift error described. Correct action: delete / no box. Cross-checks: the render script (label_review/audit_render.py) draws only a 4px outline over the actual rendered PDF page, so it does not mask interior text; the box was located at the precise bbox in the finding; nearby box #26 (struct_id) is also over a blank region, consistent with spurious empty boxes on this page. No defensible reading keeps the archv_date label."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_035",
+   "box_num": 14,
+   "bbox": "31,4389,578,4592",
+   "current_category": "src_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "struct_doc",
+   "confidence": "high",
+   "note": "Box #14 reads 'Page 15' (verified by zoom). This is a mid-page page-position marker, identical in kind to the 'Page 13' (#26) and 'Page 14' markers correctly labeled struct_doc on pages 033/034. Per spec, 'Pg. N'/'Page N' location markers are struct_doc, one box each. Here it was swept into the left-hand date column and mislabeled src_date.",
+   "verdict": {
+    "reason": "Finding is REAL (not refuted). I independently rendered the zoom of page_035 box #14 (bbox 31,4389,578,4592) and it unambiguously reads \"Page 15\" \u2014 a page-position marker, not a date. I verified the comparison precedents: on page_033, struct_doc box #26 reads \"Page 13\"; on page_034, struct_doc box #26 reads \"Page 14\". Both spelled-out \"Page N\" markers sit in the same left-hand column and are correctly labeled struct_doc in the established gold. Box #14 (\"Page 15\") is identical in kind and continues the Page 13 -> 14 -> 15 sequence. Per the convention spec, \"Pg. N\"/\"Page N\" page-location markers are struct_doc (one box each), and src_date is reserved for actual dates within Solanus's transcribed text (e.g. \"6th\", \"24th\"). \"Page 15\" contains no date, so src_date is wrong. Refutation angles all fail: the text is not a date, the zoom reading is crisp and confirmed, the spec rule applies (and the adjacent gold pages prove \"Page N\" = struct_doc), and the box occupies the same structural role as the verified precedents. The current src_date label is a mislabel; correct category is struct_doc.",
+    "refuted": false
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_036",
+   "box_num": 24,
+   "bbox": "58,4474,568,4671",
+   "current_category": "src_date",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "struct_doc",
+   "confidence": "high",
+   "note": "Box #24 reads 'Page 16' (verified by zoom). Same pattern as page_035 #14: a mid-page page-position marker mislabeled as src_date because it sits in the left date column. Spec mandates struct_doc for 'Page N' markers; compare the top-of-page 'page 15 Cont.' (#32) and 'Page 16' on page_037 which are correctly struct_doc.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding is confirmed REAL, not refuted. Zoom of box #24 (Appendix_3/page_036, bbox 58,4474,568,4671) clearly reads \"Page 16\" \u2014 a page-position/navigation marker, currently mislabeled src_date. The convention spec is explicit: struct_doc covers \"'Pg. N' / 'Pg. N.' page-location markers\" and the QUICK DECISION TABLE states '\"Pg. N\" ... \u2192 struct_doc'. \"Page 16\" is functionally a page-position marker, not a date within Solanus's transcribed text (src_date is reserved for in-text diary dates like \"6th\"/\"24th\"). The same-document inconsistency is dispositive: the top-of-page markers \"page 15 Cont.\" (page_036 #32) and \"Page 16 Cont.\" (page_037 #29) are correctly labeled struct_doc, while the identical-function bare \"Page 16\" (#24) is labeled src_date only because it sits lower in the left date column. Position on the page does not change category. The auditor's cited parallel (page_035 #14 reads \"Page 15\", also mislabeled src_date) was independently verified and corroborates the pattern. All four comparison points checked out exactly as the auditor described. The current src_date label is not defensible; the correct label is struct_doc. Relevant rendered crops: /tmp/v_page_036_4474.png, /tmp/v_page_036_top.png, /tmp/v_page_035_14.png, /tmp/v_page_037_29.png."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_039",
+   "box_num": 17,
+   "bbox": "823,3594,4286,3767",
+   "current_category": "struct_other",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "src_content",
+   "confidence": "low",
+   "note": "Box #17 reads '1913 A.D.  In Nomine Jesu                1913'. The spec restricts struct_other to printed-sheet page-furniture (e.g. the 'Page' column header on index sheets). This is the chronicler's own year-divider heading written within the document body, so it reads more like src_content (the document's own words) than page-furniture. Borderline; spec has no exact category for a year/section divider, hence low confidence.",
+   "verdict": {
+    "refuted": false,
+    "reason": "The finding holds up. The rendered box #17 (/tmp/v_page_039_3594.png) reads exactly \"1913 A.D.  In Nomine Jesu                1913\". The wider context (/tmp/v_page_039_context.png) shows this is the transcription of Solanus's own handwritten diary: directly below it are dated first-person diary entries (Jan. 1st: '\"And His Name was called Jesus\" Gospel of the Feast...', Jan. 10th, Jan. 14th) labeled src_content/src_date. The actual page-furniture on this sheet is the separate orange \"Page 18\" marker (box #16, struct_doc).\n\nPer the spec, struct_other is defined narrowly and ONLY by the example of \"page-furniture not part of the document body, e.g. the printed 'Page' column header on the index sheets (page_003 #62, page_004 #70)\". That example is a printed-sheet header on a TOC/index page. This page is not an index sheet; it is a typed transcription of Solanus's diary, and box #17 sits inside the document body as the chronicler's own year-divider heading. \"In Nomine Jesu\" (In the Name of Jesus) is a first-person devotional invocation Solanus wrote at the head of the year \u2014 matching the src_content triggers (\"First-person devotional/retreat text... scripture, prayers\").\n\nThe SCOPE NOTE says the category is decided by WHO is speaking and FUNCTION (meta-description vs. the document's own words), and the tie-breaker says \"If the line is the item's own text being reproduced, it is src_content.\" This line is Solanus's own words being reproduced, not an archivist meta-description and not a printed index-sheet header. Labeling it struct_other stretches that category well beyond its only spec example. src_content is the more defensible label, so the finding (current struct_other is wrong) is real, not refuted."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_045",
+   "bbox": "940,3030,4027,3519",
+   "current_category": "archv_other",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "archv_commentary",
+   "confidence": "high",
+   "note": "Box #12. Text: 'End of book has 14 pages of names and dues paid. The handwriting is by several persons. The last 6 pages may be by Fr. Solanus. - Just names of servers listed.' This is the archivist describing the ARTIFACT's contents/provenance/authorship (handwriting, 'may be by Fr. Solanus'), which the spec assigns to archv_commentary. The category 'archv_other' does not exist anywhere in the established Appendix_2 convention spec; it is paired with the left-column page-range marker 'Pages 82 to 95' (struct_doc). All other pages in this chronicle (040-044) use only spec-valid categories; page_045 uniquely introduces archv_other.",
+   "verdict": {
+    "refuted": false,
+    "reason": "Finding is REAL and confirmed by the rendered image and the JSON data. Box #12 at bbox [940,3030,4027,3519] in Appendix_3/page_045 (reviewed/Appendix_3/page_045/page_045.json) contains the text verbatim as quoted: \"End of book has 14 pages of names and dues paid. The handwriting is by several persons. The last 6 pages may be by Fr. Solanus. - Just names of servers listed.\" This is unambiguously the archivist describing the artifact's contents, handwriting, and authorship/provenance \u2014 a textbook match for archv_commentary. The Appendix_2 convention spec's QUICK DECISION TABLE explicitly maps \"Archivist describing an item (type/author/source/'handwritten'/'typed copy') \u2192 archv_commentary,\" and this box hits multiple named triggers (\"handwriting\", authorship attribution \"may be by Fr. Solanus\", enumeration of contents). The current label \"archv_other\" does not appear anywhere in the Appendix_2 convention spec (it exists as a label string in Appendix_1 reviews, but not in the governing spec here). Sibling chronicle pages 040-044 use archv_other:0; page_045 is the only page in this set that uses archv_other (3 boxes), supporting the \"uniquely introduces archv_other\" claim. The box is paired with the left-column page-range marker \"Pages 82 to 95\" (struct_doc). I tried to refute but could only find one minor mischaracterization: siblings 040-044 have both archv_other:0 AND archv_commentary:0 (they contain no archivist-commentary boxes at all, rather than using archv_commentary in this slot), so the finding's phrasing \"use only spec-valid categories\" is technically accurate but the comparison is about absence, not substitution. This does not undermine the core finding: archv_other is spec-invalid and the text functionally belongs in archv_commentary."
+   }
+  },
+  {
+   "volume": "Appendix_3",
+   "page": "page_045",
+   "bbox": "960,2618,1867,2794",
+   "current_category": "archv_other",
+   "issue_type": "other_convention_drift",
+   "suspected_correct": "archv_commentary",
+   "confidence": "high",
+   "note": "Box #11. Text: 'are all blank'. Paired with left-column marker 'Pages 24 to 81' (struct_doc). This is the archivist stating that pages 24-81 of the book are blank -- a meta-description OF the artifact, which the spec routes to archv_commentary. 'archv_other' is a non-spec category not present in the convention; correct spec label is archv_commentary.",
+   "verdict": {
+    "reason": "Finding stands (not refuted). The rendered image confirms box #11 at bbox 960,2618,1867,2794 contains the typewritten text \"are all blank\", paired with the left-column marker box #16 \"Pages 24 to 81\" (struct_doc). Read together the row is the archivist stating that pages 24-81 of the book are blank -- a meta-description OF the artifact (describing what those pages contain). The full page is consistently an archivist index/description sheet; the parallel right-column entry #12 (\"End of book has 14 pages of names and dues paid...\") is plainly the archivist describing content too. Per the convention spec, \"archv_commentary = the ARCHIVIST talking ABOUT the document: descriptions of what a page/item contains\" and the QUICK DECISION TABLE routes \"Archivist describing an item ... -> archv_commentary.\" Crucially, \"archv_other\" is NOT one of the spec's defined categories (the spec enumerates archv_commentary, src_content, struct_doc, struct_id, archv_format_note, archv_date, src_date, src_signature, struct_other -- no \"archv_other\"), so the current label is a non-spec category. The only other conceivable spec category, struct_other, is reserved for page-furniture like a printed \"Page\" header, not for a descriptive sentence about the book's contents. Therefore the correct spec label is archv_commentary, and the current archv_other label is wrong as claimed.",
+    "refuted": false
+   }
+  }
+ ],
+ "total_raw": 40
+}

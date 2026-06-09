@@ -1,0 +1,99 @@
+
+========== Appendix_1: 52 page(s) changed ==========
+  RECATEGORIZE: 18   ADD: 45   REMOVE: 59   RESIZE: 327   DOC-COUNT: 2
+
+  -- Recategorizations (model label -> human label), by frequency --
+       2  src_farewell -> src_content
+       2  src_signature -> src_farewell
+       2  src_farewell -> src_other
+       1  src_date -> archv_other
+       1  src_farewell -> src_signature
+       1  src_other -> src_content
+       1  src_date -> src_greeting
+       1  src_content -> src_other
+       1  src_content -> src_farewell
+       1  src_greeting -> src_recipient
+       1  src_other -> src_origin
+       1  archv_format_note -> struct_commentary
+       1  src_recipient -> src_greeting
+       1  src_other -> src_greeting
+       1  archv_commentary -> archv_format_note
+
+  -- Boxes the human ADDED (model recall misses), by category --
+      16  src_content
+       7  src_greeting
+       6  src_origin
+       4  src_farewell
+       3  src_signature
+       3  src_other
+       2  src_location_sender
+       1  struct_id
+       1  archv_commentary
+       1  src_date
+       1  src_recipient
+
+  -- Boxes the human REMOVED (model over-produced), by category --
+      23  src_content
+       9  src_location_sender
+       7  src_greeting
+       5  src_origin
+       5  src_farewell
+       4  struct_id
+       3  src_signature
+       1  src_date
+       1  struct_other
+       1  src_recipient
+
+  -- Resizes: 327 (grew 42, shrank 33); edges pushed OUTWARD: {'bottom': 25, 'right': 48, 'top': 48, 'left': 34} --
+     page_001: resize=2
+     page_002: add=struct_id | rem=struct_id,struct_id,struct_id,struct_id | resize=1
+     page_003: add=src_content | resize=1
+     page_004: add=src_farewell,src_signature | rem=src_signature | resize=12
+     page_005: rem=src_content | resize=7
+     page_006: add=src_content | rem=src_content | resize=5
+     page_007: resize=10
+     page_008: rem=src_location_sender | resize=7
+     page_009: recat=src_farewell>src_content | add=src_content,src_farewell,src_signature | rem=src_signature | resize=3
+     page_010: resize=13
+     page_011: recat=src_date>archv_other | resize=8
+     page_012: resize=3
+     page_013: recat=src_farewell>src_signature,src_signature>src_farewell | add=src_content,src_content,src_content,src_content | rem=src_content,src_location_sender | resize=5
+     page_014: resize=2
+     page_015: add=src_origin,src_greeting,src_greeting,src_other,archv_commentary | rem=src_origin,src_location_sender,src_greeting | resize=8
+     page_016: recat=src_farewell>src_content | add=src_origin | rem=src_origin,src_location_sender | resize=7
+     page_017: resize=8
+     page_018: resize=7
+     page_019: add=src_content,src_origin | rem=src_origin,src_location_sender,src_location_sender | resize=6
+     page_020: resize=7
+     page_021: resize=1
+     page_022: resize=5
+     page_023: add=src_content,src_origin | rem=src_content,src_content,src_content,src_content,src_content,src_content,src_content,src_content,src_origin,src_location_sender,src_date | resize=6
+     page_024: resize=7
+     page_025: add=src_content | rem=src_content,src_content,src_content,src_content,src_content
+     page_026: recat=src_farewell>src_other | add=src_content,src_greeting,src_farewell | rem=src_greeting,src_farewell,src_signature | resize=2
+     page_027: recat=src_other>src_content | resize=9
+     page_028: recat=src_date>src_greeting | add=src_date,src_other | rem=src_greeting | resize=9
+     page_029: rem=src_farewell | resize=3
+     page_030: rem=struct_other | resize=8
+     page_031: recat=src_content>src_other,src_content>src_farewell,src_greeting>src_recipient,src_farewell>src_other,src_other>src_origin,archv_format_note>struct_commentary | rem=src_recipient,src_farewell | resize=10 | docs=1>3
+     page_032: resize=6
+     page_033: add=src_greeting,src_greeting | resize=9
+     page_034: recat=src_signature>src_farewell | resize=10
+     page_035: add=src_content | rem=src_content,src_content | resize=10
+     page_036: add=src_content,src_greeting | rem=src_greeting,src_greeting | resize=8
+     page_037: resize=6
+     page_038: rem=src_farewell | resize=7
+     page_039: add=src_content | resize=4
+     page_040: resize=6
+     page_041: resize=9
+     page_042: add=src_greeting | resize=6
+     page_043: resize=8
+     page_044: resize=3
+     page_045: add=src_signature,src_other | resize=15 | docs=3>2
+     page_046: add=src_content,src_location_sender | rem=src_content,src_content,src_location_sender,src_location_sender,src_greeting | resize=3
+     page_047: resize=11
+     page_048: resize=7
+     page_049: rem=src_greeting | resize=4
+     page_050: recat=src_recipient>src_greeting | add=src_recipient,src_farewell | rem=src_farewell | resize=6
+     page_051: recat=src_other>src_greeting | add=src_content,src_origin,src_origin,src_location_sender | rem=src_content,src_content,src_content,src_origin | resize=6
+     page_052: recat=archv_commentary>archv_format_note | resize=1

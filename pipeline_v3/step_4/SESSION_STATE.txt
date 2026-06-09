@@ -1,0 +1,131 @@
+=== SESSION STATE SNAPSHOT (2026-06-02) ===
+--- git status (uncommitted; do NOT discard) ---
+ M auto_labeled/Appendix_1/page_001/page_001.json
+ M auto_labeled/Appendix_1/page_002/page_002.json
+ M auto_labeled/Appendix_1/page_003/page_003.json
+ M auto_labeled/Appendix_1/page_004/page_004.json
+ M auto_labeled/Appendix_1/page_005/page_005.json
+ M auto_labeled/Appendix_1/page_006/page_006.json
+ M auto_labeled/Appendix_1/page_007/page_007.json
+ M auto_labeled/Appendix_1/page_008/page_008.json
+ M auto_labeled/Appendix_1/page_009/page_009.json
+ M auto_labeled/Appendix_1/page_010/page_010.json
+ M auto_labeled/Appendix_1/page_011/page_011.json
+ M auto_labeled/Appendix_1/page_012/page_012.json
+ M auto_labeled/Appendix_1/page_013/page_013.json
+ M auto_labeled/Appendix_1/page_014/page_014.json
+ M auto_labeled/Appendix_1/page_015/page_015.json
+ M auto_labeled/Appendix_1/page_016/page_016.json
+ M auto_labeled/Appendix_1/page_017/page_017.json
+ M auto_labeled/Appendix_1/page_018/page_018.json
+ M auto_labeled/Appendix_1/page_019/page_019.json
+ M auto_labeled/Appendix_1/page_020/page_020.json
+ M auto_labeled/Appendix_1/page_021/page_021.json
+ M auto_labeled/Appendix_1/page_022/page_022.json
+ M auto_labeled/Appendix_1/page_023/page_023.json
+ M auto_labeled/Appendix_1/page_024/page_024.json
+ M auto_labeled/Appendix_1/page_025/page_025.json
+ M auto_labeled/Appendix_1/page_026/page_026.json
+ M auto_labeled/Appendix_1/page_027/page_027.json
+ M auto_labeled/Appendix_1/page_028/page_028.json
+ M auto_labeled/Appendix_1/page_029/page_029.json
+ M auto_labeled/Appendix_1/page_030/page_030.json
+ M auto_labeled/Appendix_1/page_031/page_031.json
+ M auto_labeled/Appendix_1/page_032/page_032.json
+ M auto_labeled/Appendix_1/page_033/page_033.json
+ M auto_labeled/Appendix_1/page_034/page_034.json
+ M auto_labeled/Appendix_1/page_035/page_035.json
+ M auto_labeled/Appendix_1/page_036/page_036.json
+ M auto_labeled/Appendix_1/page_037/page_037.json
+ M auto_labeled/Appendix_1/page_038/page_038.json
+ M auto_labeled/Appendix_1/page_039/page_039.json
+ M auto_labeled/Appendix_1/page_040/page_040.json
+ M auto_labeled/Appendix_1/page_041/page_041.json
+ M auto_labeled/Appendix_1/page_042/page_042.json
+ M auto_labeled/Appendix_1/page_043/page_043.json
+ M auto_labeled/Appendix_1/page_044/page_044.json
+ M auto_labeled/Appendix_1/page_045/page_045.json
+ M auto_labeled/Appendix_1/page_046/page_046.json
+ M auto_labeled/Appendix_1/page_047/page_047.json
+ M auto_labeled/Appendix_1/page_048/page_048.json
+ M auto_labeled/Appendix_1/page_049/page_049.json
+ M auto_labeled/Appendix_1/page_050/page_050.json
+ M auto_labeled/Appendix_1/page_051/page_051.json
+ M auto_labeled/Appendix_1/page_052/page_052.json
+ M auto_labeler.py
+ M labeled_examples/Appendix_1/page_006/page_006.json
+ M labeled_examples/Appendix_1/page_031/page_031.json
+ M labeled_examples/Appendix_3/page_006/page_006.json
+ M labeled_examples/Appendix_3/page_019/page_019.json
+ M labeled_examples/Volume_2/page_002/page_002.json
+ M labeled_examples/Volume_2/page_075/page_075.json
+ M labeled_examples/Volume_3/page_001/page_001.json
+ M labeled_examples/Volume_3/page_218/page_218.json
+ M normalized_editor.py
+ M qa_output/Appendix_1/overlays/page_007.png
+ M qa_output/Appendix_1/overlays/page_010.png
+ M qa_output/Appendix_1/overlays/page_011.png
+ M qa_output/Appendix_1/overlays/page_013.png
+ M qa_output/Appendix_1/overlays/page_019.png
+ M qa_output/Appendix_1/overlays/page_022.png
+ M qa_output/Appendix_1/overlays/page_023.png
+ M qa_output/Appendix_1/overlays/page_028.png
+ M qa_output/Appendix_1/overlays/page_031.png
+ M qa_output/Appendix_1/overlays/page_033.png
+ M qa_output/Appendix_1/overlays/page_034.png
+ M qa_output/Appendix_1/overlays/page_038.png
+ M qa_output/Appendix_1/overlays/page_049.png
+ M qa_output/Appendix_1/qa_report.json
+ M qa_report.py
+ M usage.csv
+?? ../step_2/requirements.txt
+?? ../step_3/requirements.txt
+?? LABEL_REVIEW.md
+?? RESUME_HERE.md
+?? SESSION_STATE.txt
+?? apply_relabels.py
+?? checkpoints/
+?? compare_overlay.py
+?? label_review/
+?? labeled_overlay.py
+?? qa_output/Appendix_1/overlays/page_012.png
+?? qa_output/Appendix_1/overlays/page_030.png
+?? rerun_compare/
+?? ../../step_2/requirements.txt
+?? ../../step_3/requirements.txt
+
+--- key code (modified this session) ---
+-rw-rw-r-- 1 david david 104727 Jun  2 16:19 auto_labeler.py
+-rw-rw-r-- 1 david david  74432 Jun  2 16:00 normalized_editor.py
+-rw-rw-r-- 1 david david  18145 Jun  2 16:19 qa_report.py
+
+--- new tools/docs this session ---
+-rw-rw-r-- 1 david david  3276 Jun  2 14:58 apply_relabels.py
+-rw-rw-r-- 1 david david  3568 Jun  2 13:16 compare_overlay.py
+-rw-rw-r-- 1 david david  4183 Jun  2 13:55 labeled_overlay.py
+-rw-rw-r-- 1 david david 22919 Jun  2 16:21 LABEL_REVIEW.md
+-rw-rw-r-- 1 david david  5873 Jun  2 16:46 RESUME_HERE.md
+
+--- checkpoints ---
+01_pre-label-review
+02_pre-coverage-backstop
+03_pre-relabels
+04_pre-extend-logic
+05_pre-queue-ux
+06_pre-overlap-leakage
+
+--- rerun_compare (analysis + the in-progress overlap prototype) ---
+rerun_compare/backstop_run.log
+rerun_compare/bucket.py
+rerun_compare/classify_proto.py
+rerun_compare/extend_run.log
+rerun_compare/leakfree_run.log
+rerun_compare/overlap_resolve_proto.py
+rerun_compare/overlap_severity.py
+rerun_compare/rerun.log
+rerun_compare/validate2.py
+rerun_compare/validate_vs_gold.py
+rerun_compare/workflow_result.json
+
+--- last leak-free run result ---
+16:38:53 [INFO] Done. Succeeded: 52  |  Failed: 0  |  Skipped: 0

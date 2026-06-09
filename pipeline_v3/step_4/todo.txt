@@ -1,0 +1,25 @@
+python auto_labeler.py --volume Appendix_3 && python qa_report.py Appendix_3
+folllowed by....
+
+
+ 0. (only if >48h from now — uploads expire) ./venv/bin/python upload_examples.py
+
+  # 1. LABEL — 46 pages, ~3 min, ~60¢
+  ./venv/bin/python auto_labeler.py --volume Appendix_3
+  #    watch for "coverage backstop: extended X, added Y" lines
+  #    (if interrupted, just re-run — it skips finished pages; no --overwrite needed)
+
+  # 2. QA — flags what needs your eyes
+  ./venv/bin/python qa_report.py Appendix_3
+  #    prints the flag summary; writes qa_output/Appendix_3/ (report + overlay PNGs)
+
+  # 3. HUMAN SWEEP — the editor, pointed at Appendix_3
+  EDITOR_DOCUMENT=Appendix_3 ./venv/bin/python normalized_editor.py
+  #    work the Review Queue: ↑/↓ moves + auto-zooms, Enter = suggested fix,
+  #    e = extend, a = add box, d = dismiss (persists), f = fit
+  #    wheel = zoom, middle-drag = pan; Merge ▲ / Split ▼ for doc-count calls
+  #    edits save to reviewed/Appendix_3/ on page-change/exit (gold, never clobbered)
+
+  # 4. LEARN — mine your corrections
+  ./venv/bin/python review_diff.py Appendix_3
+
