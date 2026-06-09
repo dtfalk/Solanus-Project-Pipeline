@@ -112,6 +112,12 @@ ALLOWED_EDGE_PAIRS: frozenset[tuple[str, str]] = frozenset({
     ("archv_other", "struct_doc"),
     ("archv_format_note", "src_content"),
     ("other", "struct_doc"),
+    # David's contents/index-page convention (Iter 12, 2026-06-06): each catalog
+    # description connects to its struct_doc page marker — 88 edges in gold
+    # (A2 74 / V1 10 / A3 4). The pass-1 rule was flipped in Iter 12 but this
+    # whitelist (and the pass-2 prompt) were missed; completed 2026-06-09
+    # (EPISTEMIC_AUDIT.md finding 13).
+    ("archv_commentary", "struct_doc"),
 })
 
 
@@ -947,12 +953,13 @@ FIRST decide the page TYPE — it governs everything:
 EDGE INVENTORY — these are the ONLY edge types that exist:
 1. src_content <-> struct_doc        (a body of text linked to its marginal page/section number — MOST COMMON)
 2. src_content <-> src_date          (a body linked to a margin/inline ENTRY date in a notebook/journal/ledger. A formal letterhead dateline is NOT this edge — leave it UNLINKED.)
-3. archv_other <-> struct_doc        (an archivist note about a numbered source page — RARE)
-4. archv_format_note <-> src_content (a non-numbered location label heading a body block — VERY RARE)
-5. other <-> struct_doc              (a degenerate duplicate-label artifact — do NOT seek it out)
-If a candidate edge is not one of these five category-pairs, DO NOT emit it.
+3. archv_commentary <-> struct_doc   (CONTENTS/INDEX pages only: each archivist catalog-description block linked to the page-number marker it describes — same fan-out geometry as edge 1)
+4. archv_other <-> struct_doc        (an archivist note about a numbered source page — RARE)
+5. archv_format_note <-> src_content (a non-numbered location label heading a body block — VERY RARE)
+6. other <-> struct_doc              (a degenerate duplicate-label artifact — do NOT seek it out)
+If a candidate edge is not one of these six category-pairs, DO NOT emit it.
 
-CATEGORIES THAT NEVER CONNECT: src_location_sender, src_location_recipient, src_recipient, src_greeting, src_farewell, src_signature, src_origin, archv_date, archv_commentary, archv_possessor, struct_id, struct_commentary, struct_other.
+CATEGORIES THAT NEVER CONNECT: src_location_sender, src_location_recipient, src_recipient, src_greeting, src_farewell, src_signature, src_origin, archv_date, archv_possessor, struct_id, struct_commentary, struct_other. (archv_commentary connects ONLY on a contents/index page, to struct_doc — edge 3; elsewhere it never connects.)
 
 HARD RULES:
 - Same document only. Both endpoints must share the same doc id; never link across documents.
