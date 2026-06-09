@@ -418,9 +418,8 @@ EXCLUDED_EXAMPLES: frozenset[str] = frozenset({
     "Volume_2/page_075",
     # Continuation-page structure merged/mislabeled
     "Volume_1/page_274",
-    # Notebook entries merged across distinct explicit margin dates
-    "Volume_4/page_001",
-    "Volume_4/page_007",
+    # (Volume_4/page_001 & page_007 were excluded for entry-merging; David re-labeled
+    #  them to the per-person convention 2026-06-08, so they are now valid demos.)
     # Same-page inconsistent treatment of identical closing elements
     "Appendix_2/page_020",
     # Idiosyncratic outline/RETREAT split; unlabeled C.I.
@@ -643,6 +642,7 @@ def select_few_shot(
     type_of:        dict[Path, str] | None = None,
     target_desc:    object = None,            # layout fingerprint of the TARGET page
     desc_cache:     dict | None = None,       # {example page_dir: layout fingerprint}
+    pinned:         list | None = None,       # examples ALWAYS included (minus the target itself)
 ) -> list[Path]:
     """Pick few-shot examples biased toward (in priority order):
       1. Same PAGE TYPE as the target (when target_type/type_of are given) —
@@ -660,6 +660,17 @@ def select_few_shot(
     if target_page is not None:
         all_examples = [p for p in all_examples
                         if not (p.parent.name == target_doc and p.name == target_page)]
+
+    # Pinned examples are ALWAYS included (minus the target page), at the front; the
+    # normal selection fills the remaining slots from the rest of the pool.
+    forced: list = []
+    if pinned:
+        pin_keys = {(p.parent.name, p.name) for p in pinned}
+        if target_page is not None:
+            pin_keys.discard((target_doc, target_page))
+        forced = [p for p in all_examples if (p.parent.name, p.name) in pin_keys]
+        all_examples = [p for p in all_examples if (p.parent.name, p.name) not in pin_keys]
+        num_fewshot = max(0, num_fewshot - len(forced))
 
     # Order a candidate list: by LAYOUT SIMILARITY to the target when fingerprints are
     # available (the validated win), else random by seed (original behaviour / tests).
@@ -691,7 +702,7 @@ def select_few_shot(
             for pool in fill_order:
                 if pool and len(picks) < num_fewshot:
                     picks.append(pool.pop(0))
-        return picks
+        return forced + picks
 
     # ── Page-type-aware path ──────────────────────────────────────────────────
     type_of = type_of or {}
@@ -729,7 +740,7 @@ def select_few_shot(
                 picks.append(p); picked.add(p)
         if len(picks) >= num_fewshot:
             break
-    return picks[:num_fewshot]
+    return forced + picks[:num_fewshot]
 
 
 # ── Prompt construction ───────────────────────────────────────────────────────
@@ -808,19 +819,37 @@ Below are several example pages with their correct labels, followed by a new pag
 """
 
 
+# Per-volume prompt addenda appended to the system prompt when labeling that volume.
+# Use sparingly — for a convention that legitimately DIFFERS from the general rules.
+VOLUME_PROMPT_NOTES = {
+    "Volume_4": (
+        "\n\nVOLUME-SPECIFIC OVERRIDE (this page is from Volume_4): this volume is a ledger of "
+        "short notes about INDIVIDUAL PEOPLE — typically one line or small block per person "
+        "(e.g. 'Name - age - condition/intention'). Emit ONE src_content polygon PER PERSON. Do "
+        "NOT merge multiple people into a single block, even when they are consecutive or fall "
+        "under the same left-margin date or page marker. This OVERRIDES the general notebook rule "
+        "about merging all entries in a date-span into one generous polygon: HERE, each person's "
+        "note is its own separate region. struct_doc page markers and per-row src_date dates are "
+        "labeled as usual; only the content granularity changes — one box per person."
+    ),
+}
+
+
 def build_prompt_parts(
     target_image: Image.Image,
     fewshot_pairs: list[tuple[Image.Image, dict]],
+    volume_note: str = "",
 ) -> list:
     """Build the multipart list passed to model.generate_content().
 
     Each few-shot pair contributes an EXAMPLE i header, image, labels JSON.
-    Target image is sent last with a 'PAGE TO LABEL' header.
+    Target image is sent last with a 'PAGE TO LABEL' header. `volume_note` is an
+    optional per-volume convention addendum appended to the system prompt.
     """
     categories_block = "\n".join(
         f"  - {cat}: {CATEGORY_DESCRIPTIONS[cat]}" for cat in CATEGORIES
     )
-    parts: list = [SYSTEM_PROMPT.format(categories=categories_block)]
+    parts: list = [SYSTEM_PROMPT.format(categories=categories_block) + volume_note]
     for i, (img, payload) in enumerate(fewshot_pairs, start=1):
         parts.append(f"EXAMPLE {i}:")
         parts.append(img)
@@ -1684,7 +1713,8 @@ def process_page(
     """
     target_img, render_w, render_h, source_w, source_h = render_page(pdf_path, image_width)
     fewshot_pairs = [load_example(d, image_width) for d in fewshot_dirs]
-    prompt_parts  = build_prompt_parts(target_img, fewshot_pairs)
+    prompt_parts  = build_prompt_parts(target_img, fewshot_pairs,
+                                        VOLUME_PROMPT_NOTES.get(doc_name, ""))
 
     response, input_tokens, output_tokens = call_gemini(client, model_name, prompt_parts)
     documents = _scale_response_to_original(
@@ -1835,6 +1865,9 @@ def parse_args() -> argparse.Namespace:
                    help="Number of few-shot examples for pass 2 (default: 6).")
     p.add_argument("--no-layout-sim", action="store_true",
                    help="Disable layout-similarity few-shot ranking (revert to random-within-type).")
+    p.add_argument("--pin-examples", type=str, default=None,
+                   help="Comma-separated pool examples (e.g. 'Volume_4/page_001,Volume_4/page_002') "
+                        "ALWAYS included in every page's few-shot set.")
     p.add_argument("--no-snap", action="store_true",
                    help="Skip snap-to-ink polygon tightening (keep raw model polygons).")
     p.add_argument("--no-backstop", action="store_true",
@@ -1905,6 +1938,17 @@ def main() -> None:
         log.info("Layout-similarity few-shot ON. Fingerprinting %d pool pages...", len(all_examples))
         desc_cache = {p: _layout_descriptor(_example_pdf(p)) for p in all_examples}
 
+    # Pinned examples: always present in every page's few-shot set.
+    pinned: list[Path] | None = None
+    if args.pin_examples:
+        want = {s.strip() for s in args.pin_examples.split(",") if s.strip()}
+        pinned = [p for p in all_examples if f"{p.parent.name}/{p.name}" in want]
+        missing = want - {f"{p.parent.name}/{p.name}" for p in pinned}
+        if missing:
+            log.warning("--pin-examples not found in pool: %s", sorted(missing))
+        log.info("Pinned %d example(s) into every few-shot set: %s",
+                 len(pinned), [f"{p.parent.name}/{p.name}" for p in pinned])
+
     pass2_pool: list[Path] = []
     if not args.no_connections:
         pass2_pool = discover_pass2_pool(all_examples)
@@ -1960,7 +2004,7 @@ def main() -> None:
             all_examples, multi_doc_examples, doc_name,
             args.num_fewshot, args.min_fewshot_multi_doc, rng,
             target_page=page_name, target_type=target_type, type_of=type_of,
-            target_desc=target_desc, desc_cache=desc_cache,
+            target_desc=target_desc, desc_cache=desc_cache, pinned=pinned,
         )
         pass2_dirs = (select_pass2_fewshot(pass2_pool, doc_name, args.num_fewshot_pass2, rng,
                                            target_page=page_name)
