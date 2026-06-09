@@ -1,0 +1,9 @@
+Checkpoint 27 — 2026-06-09 late, home desktop (first session on this machine).
+- Volume_4 COMPLETE: run-3 remainder 190-272 labeled ($8.09), qa, triage. Eyes-on validated.
+- Desktop crop-vintage drift found: V4 repaired from committed auto_labeled PDFs;
+  V2 (360 vs 372) / V3 (310 vs 312) BLOCKED until synced from laptop.
+- TASK A: EPISTEMIC_AUDIT.md (14 findings) + real bug fixed (archv_commentary<->struct_doc
+  edges were prompt-forbidden + whitelist-dropped despite 88 edges in gold).
+- TASK B: cluster_pages.py / pick_representatives --clusters / pick_chunk.py /
+  volume_notes/ file-based conventions. Suite 38/38.
+Commits this session: 280f5292, 323a5ad2, f874aa59 (all pushed, attribution-clean).
