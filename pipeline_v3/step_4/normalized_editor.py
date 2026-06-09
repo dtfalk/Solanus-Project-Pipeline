@@ -637,6 +637,12 @@ class NormalizedEditorApp:
         # even when polygon list indices change after insertions/deletions.
         self._upgrade_polygon_identity_and_connections()
 
+        # Snapshot the loaded state: save_page_data() skips writing when nothing
+        # changed, so merely BROWSING a page never copies machine labels into
+        # reviewed/ (the 2026-06-09 Volume_4 pollution bug — browse-saves were later
+        # mistaken for human-reviewed gold).
+        self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
+
     def _upgrade_polygon_identity_and_connections(self):
         """Ensure each polygon has a stable id and normalize connections to id refs.
 
@@ -709,11 +715,17 @@ class NormalizedEditorApp:
 
     def save_page_data(self):
         self._prepare_page_data_for_save()
+        # Dirty-check: only write when the page actually changed since load, so
+        # browsing never creates fake "reviewed" copies of machine labels.
+        current = json.dumps(self.page_data, sort_keys=True)
+        if current == getattr(self, "_loaded_snapshot", None):
+            return
         page_dir = self.output_doc_dir / f"page_{self.current_page:03d}"
         page_dir.mkdir(parents=True, exist_ok=True)
         path = page_dir / f"page_{self.current_page:03d}.json"
         with open(path, "w", encoding="utf-8") as f:
             json.dump(self.page_data, f, indent=2)
+        self._loaded_snapshot = current
 
     def _prepare_page_data_for_save(self):
         """Normalize page data before writing JSON.

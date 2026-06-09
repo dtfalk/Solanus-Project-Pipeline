@@ -557,3 +557,28 @@ performance unmeasured — a V1 cold slice would disambiguate). **cont-r1 stays 
 r2 model deleted; 0 endpoints / 2 parked (cont-r1, gentle-G1) verified. LESSON: continuation needs a
 SMALL step (+1ep, val-selected) and/or a stratified multi-volume holdout; a fresh gentle tune on the
 full 400 (skipped on budget) is the cleaner next experiment.
+
+### Iter 15 — Volume_4 per-person, round 2: the browse-pollution postmortem (2026-06-09)
+David checked the re-labeled Volume_4 and found "nothing got better" — page 6 still showed merged
+entries. Forensics found TWO compounding failures, both mine:
+1. **Editor shadowing of browse-saves.** The editor auto-saved every page David merely VISITED
+   into `reviewed/` (no dirty-check), and the editor prefers `reviewed/` over `auto_labeled/`.
+   Pages 1–17 were all browse-polluted, so David's check of the re-run showed him his own stale
+   copies of the OLD run — while run-2's actual output for page_006 matched his eventual hand fix
+   almost box-for-box (13 src_content, same boundaries). The improvement was invisible.
+2. **Demo pool poisoned by unverified "gold".** I promoted ALL 24 reviewed/ pages to the pool,
+   assuming reviewed == reviewed. Only pages 1–5 were actually fixed at the time; the other 19
+   were browse-copies still carrying the merged convention (3–9 src_content vs gold 10–19).
+   Layout-similarity then preferentially picked those same-volume lookalikes: ~7 of 12 demos
+   taught merging against the 5 correct pins, making run-2 inconsistent across the volume.
+**Fixes (validated):** David named the true gold set — pages 2,3,4,5,6,8,9,10,11,12,13 — and
+re-fixed them in the editor. Pool rebuilt = EXACTLY those 11 (uniform 10–16 entries/page);
+12 browse-saves quarantined out of reviewed/ (un-shadows the editor; reversible); editor
+dirty-check added (browsing can never pollute reviewed/ again); VOLUME_PROMPT_NOTES[Volume_4]
+rewritten with the semantic framing (casebook of individual people; entry = person; segment by
+meaning, not surface pattern; never merge people; never assume dates). Run-3 = --num-fewshot 11
++ all 11 pinned (every demo same-volume gold). Eyes-on test on pages 014/113 before the full run:
+one box per person incl. multi-line entries, markers/dates separate — correct.
+**Lessons:** (a) reviewed/ ≠ reviewed — only David's explicit list defines gold; (b) an editor
+that writes on navigation manufactures fake gold; (c) when David says "it didn't work," check
+what he was actually SHOWN before re-running anything.

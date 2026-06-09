@@ -1,29 +1,6 @@
-# RESUME HERE — current state (updated 2026-06-09 — THIS IS pipeline_v3)
+# ▶ NEXT SESSION: read DESKTOP_PROMPT.md first (2026-06-09 handoff: V4 remainder + epistemic audit + staged HITL flow).
 
-> 🆕 **2026-06-09 — pipeline_v3 created: the HITL bootstrap protocol is built and tested.**
-> This folder is a full copy of pipeline_v2 (see `../README_V3.md` — v2 stays canonical for
-> data until cutover; v2 had a live Volume_4 re-label run mid-copy). What's NEW here:
-> - **`HITL_BOOTSTRAP.md`** — the per-volume "label representatives → human corrects → promote →
->   label the rest" protocol: design, evidence, research grounding, exact commands, success
->   metrics. **Read this first.**
-> - **`pick_representatives.py`** — type-stratified farthest-point sampling picks ~12 diverse
->   pages per volume; artifacts already generated: `qa_output/Volume_2/representatives.txt`
->   and `qa_output/Volume_3/representatives.txt` (paste-ready commands inside).
-> - **`auto_labeler.py --pages 3,17,42-45`** — label an arbitrary page list (also fixed a
->   latent crash in `--help`: unescaped % in a help string).
-> - **`promote_examples.py <Vol> --pages ... --upload`** — audit-gated reviewed/→pool promotion
->   with incremental Files-API upload merged into file_uris.json (no full re-upload).
-> - **`review_diff.py <Vol> --draft-note`** — drafts a VOLUME_PROMPT_NOTES entry from the
->   correction patterns → `qa_output/<Vol>/volume_note_draft.txt` (you rewrite the WHY).
-> - **Tests**: new section F in `run_all_tests.py`; offline suite 35 PASS / 0 FAIL.
->
-> **Next per HITL_BOOTSTRAP.md**: (0) David eyeballs the 22 old V2/V3 seed examples in
-> `labeled_examples/` — they never passed the current gold gate (no reviewed/Volume_2 or _3
-> exists) and bucket-0 priority puts them at the top of every V2/V3 prompt; (1) finish the
-> Volume_4 review in v2; then (2) run the protocol on Volume_2 end-to-end and compare
-> corrections/page + PQ against V4 (the measurement plan in HITL_BOOTSTRAP.md §5).
-
-_The pre-copy v2 state notes follow (still accurate for this folder's data snapshot):_
+# RESUME HERE — current state (updated 2026-06-03)
 
 > ~~2026-06-07 BLOCKER — AI Studio Gemini credits depleted~~ → **RESOLVED 2026-06-08**: topped up
 > ($220 balance), few-shot A/B finished, Volume_4 labeled. See the ✅ note below. (Watch the AI

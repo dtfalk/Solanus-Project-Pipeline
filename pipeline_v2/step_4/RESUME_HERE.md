@@ -1,3 +1,7 @@
+# ⛔ FROZEN 2026-06-09 — work moved to ../../pipeline_v3/step_4 (cutover done)
+All data + tool fixes synced to pipeline_v3; do further work THERE. Start with
+`pipeline_v3/step_4/DESKTOP_PROMPT.md` (next-session instructions + resume script).
+
 # RESUME HERE — current state (updated 2026-06-03)
 
 > ~~2026-06-07 BLOCKER — AI Studio Gemini credits depleted~~ → **RESOLVED 2026-06-08**: topped up
