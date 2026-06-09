@@ -43,6 +43,10 @@ Canvas controls:
     edge up, Ctrl+Down=bottom edge down, Ctrl+Left=left edge left, Ctrl+Right=
     right edge right); Shift+arrow slides the whole box one step in that direction.
   - With NO polygon selected, Left / Right arrow keys navigate pages (auto-saves).
+  - Ctrl+V duplicates the selected polygon (same category, offset slightly) and
+    auto-selects the copy, so you can slide it into place with the arrow keys.
+  - Shift-click a category in the right panel to RE-LABEL the selected polygon to
+    that category (connection links are repointed automatically).
 
 Usage:
     python step_3/normalized_editor.py
@@ -59,7 +63,7 @@ from pdf2image import convert_from_path
 from PIL import ImageTk
 
 # Document we are intending to review/edit
-TARGET_DOCUMENT = "Volume_1"
+TARGET_DOCUMENT = "Volume_4"
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
@@ -434,6 +438,9 @@ class NormalizedEditorApp:
             "  (↑ top, ↓ bottom,",
             "   ← left, → right)",
             "• Shift+Arrow → slide box",
+            "• Ctrl+V → duplicate box",
+            "• Shift-click a category",
+            "  → relabel selected box",
         ]
         for line in hint_lines:
             tk.Label(self.right_panel, text=line, bg="#252526",
@@ -465,6 +472,8 @@ class NormalizedEditorApp:
 
             for widget in (row, label):
                 widget.bind("<Button-1>", lambda e, t=info_type: self._select_info_type(t))
+                # Shift-click a category to RE-LABEL the currently selected polygon to it.
+                widget.bind("<Shift-Button-1>", lambda e, t=info_type: self._recategorize_selected(t))
 
             self.info_type_buttons[info_type] = row
         self._highlight_info_type_button()
@@ -514,6 +523,8 @@ class NormalizedEditorApp:
         self.root.bind("<Control-Right>", lambda e: self._on_arrow_key("right", expand=True))
         self.root.bind("<Control-Up>",    lambda e: self._on_arrow_key("up",    expand=True))
         self.root.bind("<Control-Down>",  lambda e: self._on_arrow_key("down",  expand=True))
+        self.root.bind("<Control-v>", lambda e: self._duplicate_selected_polygon())
+        self.root.bind("<Control-V>", lambda e: self._duplicate_selected_polygon())
         self.root.bind("<Return>", self._on_enter_key)
         self.root.bind("<Escape>", self._on_escape_key)
         self.root.bind("<Shift-W>", self._on_shift_w)
@@ -1010,6 +1021,55 @@ class NormalizedEditorApp:
 
             self._draw_scene()
             self._update_status()
+
+    # ── Duplicate / recategorize ─────────────────────────────────────────────────
+    def _duplicate_selected_polygon(self):
+        """Ctrl+V: copy the selected polygon (same category), offset slightly, and
+        auto-select the copy so it can be slid into place with the arrow keys."""
+        if self._focus_is_text_input():
+            return
+        polygons = self._current_polygons()
+        idx = self.selected_polygon_idx
+        if idx is None or not (0 <= idx < len(polygons)):
+            return
+        src = polygons[idx]
+        off = 30
+        maxx, maxy = self.original_width - 1, self.original_height - 1
+        new_verts = [{"x": float(min(maxx, v["x"] + off)), "y": float(min(maxy, v["y"] + off))}
+                     for v in src["vertices"]]
+        polygons.append({"id": str(uuid4()), "vertices": new_verts, "connections": []})
+        self.selected_polygon_idx = len(polygons) - 1     # auto-select the copy
+        self._draw_scene()
+        self._update_status()
+
+    def _recategorize_selected(self, new_type):
+        """Move the selected polygon to a different category (Shift-click a category
+        in the right panel), updating incoming connection refs so links survive."""
+        idx = self.selected_polygon_idx
+        if idx is None:
+            return
+        polygons = self._current_polygons()
+        if not (0 <= idx < len(polygons)) or new_type == self.current_info_type:
+            return
+        old_type = self.current_info_type
+        poly = polygons.pop(idx)
+        pid = poly.get("id")
+        doc_rec = self.page_data.setdefault("documents", {}).setdefault(self.current_doc, {})
+        doc_rec.setdefault(new_type, []).append(poly)
+        # repoint any connection that addressed this polygon under its OLD category
+        if pid:
+            for dr in self.page_data.get("documents", {}).values():
+                for it in LABEL_INFO_TYPES:
+                    for p in dr.get(it, []):
+                        for c in p.get("connections", []):
+                            if (c.get("doc") == self.current_doc and c.get("type") == old_type
+                                    and c.get("id") == pid):
+                                c["type"] = new_type
+        self.current_info_type = new_type                 # follow the polygon
+        self.selected_polygon_idx = len(doc_rec[new_type]) - 1
+        self._highlight_info_type_button()
+        self._draw_scene()
+        self._update_status()
 
     # ── Arrow-key box editing ────────────────────────────────────────────────────
     def _on_arrow_key(self, direction, move=False, expand=False):
