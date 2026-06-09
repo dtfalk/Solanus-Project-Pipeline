@@ -1,6 +1,6 @@
 {
   "page_number": 270,
-  "source_file": "/home/david/projects/solanus-project-pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Volume_4/Volume_4.pdf",
+  "source_file": "/Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/polygon_cropped_pdfs/Volume_4/Volume_4.pdf",
   "page_width": 5313,
   "page_height": 6875,
   "render_dpi": 150,
@@ -30,16 +30,16 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "58b778fd-a51e-43ec-92df-0282ae4fbe9b"
+              "type": "src_date",
+              "id": "aa2956cd-1dba-4789-8384-4bb151ea9c9e"
             },
             {
               "doc": "doc_1",
-              "type": "src_date",
-              "id": "48116443-95e7-42b1-b4de-ede26f1af449"
+              "type": "struct_doc",
+              "id": "40b22ebf-f129-44ff-a509-c8c022c6f3da"
             }
           ],
-          "id": "7a879281-04de-4dd0-8751-13c53e98e9fa"
+          "id": "4ab3190d-6c2f-4547-b233-892f340e513d"
         },
         {
           "vertices": [
@@ -63,16 +63,16 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "58b778fd-a51e-43ec-92df-0282ae4fbe9b"
+              "type": "src_date",
+              "id": "7f651590-d4d7-4134-b870-84aa6d84346e"
             },
             {
               "doc": "doc_1",
-              "type": "src_date",
-              "id": "f8b8bc28-55f7-437f-a8ff-1f7463f72ea2"
+              "type": "struct_doc",
+              "id": "40b22ebf-f129-44ff-a509-c8c022c6f3da"
             }
           ],
-          "id": "a840338f-7d5e-4136-a317-7543efbf4ca4"
+          "id": "699d5618-fafe-4fa2-b856-b67e648a20c9"
         },
         {
           "vertices": [
@@ -96,21 +96,21 @@
           "connections": [
             {
               "doc": "doc_1",
+              "type": "src_date",
+              "id": "c641342d-b165-4c2f-a5bf-49341c2982e4"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_date",
+              "id": "6d1d8457-b85b-4f85-bae1-4c205570199e"
+            },
+            {
+              "doc": "doc_1",
               "type": "struct_doc",
-              "id": "58b778fd-a51e-43ec-92df-0282ae4fbe9b"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "b0fe8604-c21a-42d2-a577-c7503b90806c"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "ca95d14f-cbd2-40bb-b521-25c33a24db90"
+              "id": "40b22ebf-f129-44ff-a509-c8c022c6f3da"
             }
           ],
-          "id": "106ded2d-6d21-4eaa-aa8b-3fbcb3dda72d"
+          "id": "a9ad28b8-6498-4001-921d-a1070057ddec"
         },
         {
           "vertices": [
@@ -134,16 +134,16 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "ae3a7818-4b1e-4865-af5c-dbd7f2313143"
+              "type": "src_date",
+              "id": "0d37ee7a-9794-48bf-a7af-598e3967dbef"
             },
             {
               "doc": "doc_1",
-              "type": "src_date",
-              "id": "b18fccb0-912f-405d-a606-e26305a27016"
+              "type": "struct_doc",
+              "id": "b1360334-93f3-488e-9570-fdbcb35d9866"
             }
           ],
-          "id": "fb2bec9e-3f42-4530-afb8-41da8fc5c9ba"
+          "id": "4ef51f4f-b5d3-4702-bed3-bb3182db5e86"
         },
         {
           "vertices": [
@@ -167,54 +167,54 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "8ea665e5-405e-4d50-96f8-aa60b6f07cb5"
+              "type": "src_date",
+              "id": "96cf55da-a40c-4d68-aa0a-edeb831c71ff"
             },
             {
               "doc": "doc_1",
-              "type": "src_date",
-              "id": "c3a01e8e-781d-4b43-8da4-6c2ef718367a"
+              "type": "struct_doc",
+              "id": "487b21fb-6eaa-4280-80e9-a8882e2e419a"
             }
           ],
-          "id": "532c9c79-e8d5-4111-b680-d766c760cb07"
+          "id": "b62f02ad-f995-4e66-9d06-cfa7264f537a"
         },
         {
           "vertices": [
             {
-              "x": 1270,
-              "y": 4620
+              "x": 1273,
+              "y": 4621
             },
             {
               "x": 4773,
-              "y": 4620
+              "y": 4621
             },
             {
               "x": 4773,
               "y": 4910
             },
             {
-              "x": 1270,
+              "x": 1273,
               "y": 4910
             }
           ],
           "connections": [
             {
               "doc": "doc_1",
+              "type": "src_date",
+              "id": "8cfa1c31-1dd9-4849-ba34-d3667a56a176"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_date",
+              "id": "bfbb6aaf-79ae-4eee-93e7-e5ea3f073242"
+            },
+            {
+              "doc": "doc_1",
               "type": "struct_doc",
-              "id": "8ea665e5-405e-4d50-96f8-aa60b6f07cb5"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "e2b3993a-ba61-4aad-ae83-a5df124e257a"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "5f9f5368-44e0-4a98-b9ca-4c3c2e789d7f"
+              "id": "487b21fb-6eaa-4280-80e9-a8882e2e419a"
             }
           ],
-          "id": "73e9bd65-8856-4ebd-8aa8-77399505eba1"
+          "id": "0c6cb620-758b-4907-a19e-8881af15836c"
         },
         {
           "vertices": [
@@ -238,31 +238,31 @@
           "connections": [
             {
               "doc": "doc_1",
+              "type": "src_date",
+              "id": "5992cb19-f0b3-4d31-9daf-f2c19afb8e9d"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_date",
+              "id": "2f6dfe37-9213-4060-862d-91ff7c5b3bb7"
+            },
+            {
+              "doc": "doc_1",
               "type": "struct_doc",
-              "id": "8ea665e5-405e-4d50-96f8-aa60b6f07cb5"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "ad2bb4d2-e61d-4231-beb5-d4e15c16b5b2"
-            },
-            {
-              "doc": "doc_1",
-              "type": "src_date",
-              "id": "20f79f72-d2da-4326-aaf6-b7522c10eeb3"
+              "id": "487b21fb-6eaa-4280-80e9-a8882e2e419a"
             }
           ],
-          "id": "0fd48430-df2c-42b6-ad1f-8069e4736c20"
+          "id": "877c49d0-f8e8-45af-8f6e-779e19304127"
         },
         {
           "vertices": [
             {
               "x": 1261,
-              "y": 5313
+              "y": 5352
             },
             {
               "x": 4975,
-              "y": 5313
+              "y": 5352
             },
             {
               "x": 4975,
@@ -276,16 +276,21 @@
           "connections": [
             {
               "doc": "doc_1",
-              "type": "struct_doc",
-              "id": "8ea665e5-405e-4d50-96f8-aa60b6f07cb5"
+              "type": "src_date",
+              "id": "5992cb19-f0b3-4d31-9daf-f2c19afb8e9d"
             },
             {
               "doc": "doc_1",
               "type": "src_date",
-              "id": "34af5f15-730b-4a95-be3a-027a5b937706"
+              "id": "f55b1e48-288b-46a3-88f1-3089964ee3fe"
+            },
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "487b21fb-6eaa-4280-80e9-a8882e2e419a"
             }
           ],
-          "id": "b5b73eff-ee07-4e51-8e7c-b800bdcc8fca"
+          "id": "bd7a749e-cdf3-422b-b3b5-34cee298657e"
         }
       ],
       "src_origin": [],
@@ -316,10 +321,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "7a879281-04de-4dd0-8751-13c53e98e9fa"
+              "id": "4ab3190d-6c2f-4547-b233-892f340e513d"
             }
           ],
-          "id": "48116443-95e7-42b1-b4de-ede26f1af449"
+          "id": "aa2956cd-1dba-4789-8384-4bb151ea9c9e"
         },
         {
           "vertices": [
@@ -344,10 +349,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "a840338f-7d5e-4136-a317-7543efbf4ca4"
+              "id": "699d5618-fafe-4fa2-b856-b67e648a20c9"
             }
           ],
-          "id": "f8b8bc28-55f7-437f-a8ff-1f7463f72ea2"
+          "id": "7f651590-d4d7-4134-b870-84aa6d84346e"
         },
         {
           "vertices": [
@@ -372,10 +377,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "106ded2d-6d21-4eaa-aa8b-3fbcb3dda72d"
+              "id": "a9ad28b8-6498-4001-921d-a1070057ddec"
             }
           ],
-          "id": "b0fe8604-c21a-42d2-a577-c7503b90806c"
+          "id": "c641342d-b165-4c2f-a5bf-49341c2982e4"
         },
         {
           "vertices": [
@@ -400,10 +405,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "106ded2d-6d21-4eaa-aa8b-3fbcb3dda72d"
+              "id": "a9ad28b8-6498-4001-921d-a1070057ddec"
             }
           ],
-          "id": "ca95d14f-cbd2-40bb-b521-25c33a24db90"
+          "id": "6d1d8457-b85b-4f85-bae1-4c205570199e"
         },
         {
           "vertices": [
@@ -428,20 +433,20 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "fb2bec9e-3f42-4530-afb8-41da8fc5c9ba"
+              "id": "4ef51f4f-b5d3-4702-bed3-bb3182db5e86"
             }
           ],
-          "id": "b18fccb0-912f-405d-a606-e26305a27016"
+          "id": "0d37ee7a-9794-48bf-a7af-598e3967dbef"
         },
         {
           "vertices": [
             {
               "x": 641,
-              "y": 3981
+              "y": 3980
             },
             {
               "x": 1105,
-              "y": 3981
+              "y": 3980
             },
             {
               "x": 1105,
@@ -456,10 +461,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "532c9c79-e8d5-4111-b680-d766c760cb07"
+              "id": "b62f02ad-f995-4e66-9d06-cfa7264f537a"
             }
           ],
-          "id": "c3a01e8e-781d-4b43-8da4-6c2ef718367a"
+          "id": "96cf55da-a40c-4d68-aa0a-edeb831c71ff"
         },
         {
           "vertices": [
@@ -484,10 +489,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "73e9bd65-8856-4ebd-8aa8-77399505eba1"
+              "id": "0c6cb620-758b-4907-a19e-8881af15836c"
             }
           ],
-          "id": "e2b3993a-ba61-4aad-ae83-a5df124e257a"
+          "id": "8cfa1c31-1dd9-4849-ba34-d3667a56a176"
         },
         {
           "vertices": [
@@ -512,10 +517,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "73e9bd65-8856-4ebd-8aa8-77399505eba1"
+              "id": "0c6cb620-758b-4907-a19e-8881af15836c"
             }
           ],
-          "id": "5f9f5368-44e0-4a98-b9ca-4c3c2e789d7f"
+          "id": "bfbb6aaf-79ae-4eee-93e7-e5ea3f073242"
         },
         {
           "vertices": [
@@ -540,10 +545,15 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "0fd48430-df2c-42b6-ad1f-8069e4736c20"
+              "id": "877c49d0-f8e8-45af-8f6e-779e19304127"
+            },
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "bd7a749e-cdf3-422b-b3b5-34cee298657e"
             }
           ],
-          "id": "ad2bb4d2-e61d-4231-beb5-d4e15c16b5b2"
+          "id": "5992cb19-f0b3-4d31-9daf-f2c19afb8e9d"
         },
         {
           "vertices": [
@@ -568,10 +578,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "0fd48430-df2c-42b6-ad1f-8069e4736c20"
+              "id": "877c49d0-f8e8-45af-8f6e-779e19304127"
             }
           ],
-          "id": "20f79f72-d2da-4326-aaf6-b7522c10eeb3"
+          "id": "2f6dfe37-9213-4060-862d-91ff7c5b3bb7"
         },
         {
           "vertices": [
@@ -596,10 +606,10 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "b5b73eff-ee07-4e51-8e7c-b800bdcc8fca"
+              "id": "bd7a749e-cdf3-422b-b3b5-34cee298657e"
             }
           ],
-          "id": "34af5f15-730b-4a95-be3a-027a5b937706"
+          "id": "f55b1e48-288b-46a3-88f1-3089964ee3fe"
         }
       ],
       "src_greeting": [],
@@ -629,7 +639,7 @@
             }
           ],
           "connections": [],
-          "id": "1059e347-e2fa-45a8-bbb3-e257082c9ed7"
+          "id": "b84d51b0-8193-4396-8663-1afa74c4cf08"
         },
         {
           "vertices": [
@@ -643,15 +653,15 @@
             },
             {
               "x": 4460,
-              "y": 3964
+              "y": 3965
             },
             {
               "x": 3629,
-              "y": 3964
+              "y": 3965
             }
           ],
           "connections": [],
-          "id": "e5b22147-080c-49f9-8fa9-7d24ae18fb34"
+          "id": "834c503e-e896-4736-81e5-ca5f74c8e092"
         },
         {
           "vertices": [
@@ -673,7 +683,7 @@
             }
           ],
           "connections": [],
-          "id": "103eff36-0c16-4075-b8fc-bdc8f4719fc1"
+          "id": "cff38592-97d8-44c7-8fef-a2bb09428397"
         },
         {
           "vertices": [
@@ -695,7 +705,7 @@
             }
           ],
           "connections": [],
-          "id": "174e23d6-eb33-4c02-b252-0c41f1ea38b5"
+          "id": "1fe97aa4-795e-4f7f-ac7e-f4d59982bb3a"
         }
       ],
       "archv_possessor": [],
@@ -714,31 +724,31 @@
             },
             {
               "x": 1124,
-              "y": 803
+              "y": 805
             },
             {
               "x": 655,
-              "y": 803
+              "y": 805
             }
           ],
           "connections": [
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "7a879281-04de-4dd0-8751-13c53e98e9fa"
+              "id": "4ab3190d-6c2f-4547-b233-892f340e513d"
             },
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "a840338f-7d5e-4136-a317-7543efbf4ca4"
+              "id": "699d5618-fafe-4fa2-b856-b67e648a20c9"
             },
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "106ded2d-6d21-4eaa-aa8b-3fbcb3dda72d"
+              "id": "a9ad28b8-6498-4001-921d-a1070057ddec"
             }
           ],
-          "id": "58b778fd-a51e-43ec-92df-0282ae4fbe9b"
+          "id": "40b22ebf-f129-44ff-a509-c8c022c6f3da"
         },
         {
           "vertices": [
@@ -752,31 +762,31 @@
             },
             {
               "x": 1105,
-              "y": 3533
+              "y": 3535
             },
             {
               "x": 640,
-              "y": 3533
+              "y": 3535
             }
           ],
           "connections": [
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "fb2bec9e-3f42-4530-afb8-41da8fc5c9ba"
+              "id": "4ef51f4f-b5d3-4702-bed3-bb3182db5e86"
             }
           ],
-          "id": "ae3a7818-4b1e-4865-af5c-dbd7f2313143"
+          "id": "b1360334-93f3-488e-9570-fdbcb35d9866"
         },
         {
           "vertices": [
             {
               "x": 638,
-              "y": 3770
+              "y": 3769
             },
             {
               "x": 1107,
-              "y": 3770
+              "y": 3769
             },
             {
               "x": 1107,
@@ -791,25 +801,25 @@
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "532c9c79-e8d5-4111-b680-d766c760cb07"
+              "id": "b62f02ad-f995-4e66-9d06-cfa7264f537a"
             },
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "73e9bd65-8856-4ebd-8aa8-77399505eba1"
+              "id": "0c6cb620-758b-4907-a19e-8881af15836c"
             },
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "0fd48430-df2c-42b6-ad1f-8069e4736c20"
+              "id": "877c49d0-f8e8-45af-8f6e-779e19304127"
             },
             {
               "doc": "doc_1",
               "type": "src_content",
-              "id": "b5b73eff-ee07-4e51-8e7c-b800bdcc8fca"
+              "id": "bd7a749e-cdf3-422b-b3b5-34cee298657e"
             }
           ],
-          "id": "8ea665e5-405e-4d50-96f8-aa60b6f07cb5"
+          "id": "487b21fb-6eaa-4280-80e9-a8882e2e419a"
         }
       ],
       "struct_commentary": [],
