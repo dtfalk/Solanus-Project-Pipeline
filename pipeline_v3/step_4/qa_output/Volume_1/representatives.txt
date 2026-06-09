@@ -1,0 +1,22 @@
+# representatives for Volume_1 — k=12 of 274 pages, generated 2026-06-09T18:12:42
+# type distribution: {'c2': 90, 'c1': 134, 'c0': 50}   allocation: {'c1': 5, 'c2': 4, 'c0': 3}
+page_010  type=c1         covers  14 pages  (farthest at cos-dist 0.280)
+page_069  type=c1         covers   1 pages  (farthest at cos-dist 0.000)
+page_085  type=c2         covers   2 pages  (farthest at cos-dist 0.258)
+page_112  type=c0         covers   7 pages  (farthest at cos-dist 0.280)
+page_156  type=c0         covers  48 pages  (farthest at cos-dist 0.421)
+page_185  type=c2         covers   9 pages  (farthest at cos-dist 0.203)
+page_207  type=c1         covers 135 pages  (farthest at cos-dist 0.286)
+page_218  type=c0         covers   1 pages  (farthest at cos-dist 0.000)
+page_237  type=c1         covers   5 pages  (farthest at cos-dist 0.166)
+page_254  type=c1         covers   5 pages  (farthest at cos-dist 0.260)
+page_258  type=c2         covers   4 pages  (farthest at cos-dist 0.419)
+page_272  type=c2         covers  43 pages  (farthest at cos-dist 0.356)
+# coverage: mean nearest-rep dist 0.147, max 0.421
+# unfingerprintable (review manually): none
+#
+# PHASE 2:  ./venv/bin/python auto_labeler.py --volume Volume_1 --pages 10,69,85,112,156,185,207,218,237,254,258,272
+# PHASE 3:  EDITOR_DOCUMENT=Volume_1 ./venv/bin/python normalized_editor.py
+# PHASE 4:  ./venv/bin/python promote_examples.py Volume_1 --pages 10,69,85,112,156,185,207,218,237,254,258,272 --upload
+#           ./venv/bin/python review_diff.py Volume_1 --draft-note
+# PHASE 5:  ./venv/bin/python auto_labeler.py --volume Volume_1 --pin-examples 'Volume_1/page_010,Volume_1/page_069,Volume_1/page_085,Volume_1/page_112,Volume_1/page_156,Volume_1/page_185,Volume_1/page_207,Volume_1/page_218,Volume_1/page_237,Volume_1/page_254,Volume_1/page_258,Volume_1/page_272'

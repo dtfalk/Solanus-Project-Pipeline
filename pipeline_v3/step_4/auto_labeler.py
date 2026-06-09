@@ -827,6 +827,14 @@ Below are several example pages with their correct labels, followed by a new pag
 
 # Per-volume prompt addenda appended to the system prompt when labeling that volume.
 # Use sparingly — for a convention that legitimately DIFFERS from the general rules.
+#
+# DAVID-EDITABLE FILE OVERRIDE (staged HITL flow, 2026-06-09): if
+# volume_notes/<Volume>.md exists and is non-empty, its text REPLACES the python
+# constant below for that volume — so David edits a plain text file, never code.
+# Optional per-cluster addenda: volume_notes/<Volume>.cluster_<N>.md is appended
+# for pages that qa_output/<Volume>/clusters.json maps to cluster N.
+VOLUME_NOTES_DIR = SCRIPT_DIR / "volume_notes"
+
 VOLUME_PROMPT_NOTES = {
     "Volume_4": (
         "\n\nVOLUME-SPECIFIC OVERRIDE (this page is from Volume_4 — READ CAREFULLY, it changes the "
@@ -849,6 +857,50 @@ VOLUME_PROMPT_NOTES = {
         "hand-labeled to this exact convention — match their granularity precisely."
     ),
 }
+
+
+_volume_note_cache: dict[str, str] = {}
+_page_cluster_cache: dict[str, dict] = {}
+
+
+def load_volume_note(doc_name: str, page_name: str | None = None) -> str:
+    """Per-volume convention note for the prompt, David-editable on disk.
+
+    Precedence: volume_notes/<doc_name>.md (David's file) > VOLUME_PROMPT_NOTES
+    (legacy python constant). With a page_name and a clusters.json for the
+    volume, a matching volume_notes/<doc_name>.cluster_<N>.md is appended.
+    """
+    if doc_name not in _volume_note_cache:
+        note = VOLUME_PROMPT_NOTES.get(doc_name, "")
+        f = VOLUME_NOTES_DIR / f"{doc_name}.md"
+        if f.exists():
+            text = f.read_text().strip()
+            if text:
+                note = (f"\n\nVOLUME-SPECIFIC NOTE (this page is from {doc_name}; "
+                        f"these conventions override the general rules where they "
+                        f"conflict):\n{text}")
+        _volume_note_cache[doc_name] = note
+    note = _volume_note_cache[doc_name]
+
+    if page_name:
+        if doc_name not in _page_cluster_cache:
+            cpath = SCRIPT_DIR / "qa_output" / doc_name / "clusters.json"
+            mapping = {}
+            if cpath.exists():
+                try:
+                    mapping = json.loads(cpath.read_text()).get("page_to_cluster", {})
+                except Exception:
+                    mapping = {}
+            _page_cluster_cache[doc_name] = mapping
+        c = _page_cluster_cache[doc_name].get(page_name)
+        if c is not None:
+            cf = VOLUME_NOTES_DIR / f"{doc_name}.cluster_{c}.md"
+            if cf.exists():
+                text = cf.read_text().strip()
+                if text:
+                    note += (f"\n\nPAGE-GROUP NOTE (this page belongs to a visual "
+                             f"group of {doc_name} with its own convention):\n{text}")
+    return note
 
 
 def build_prompt_parts(
@@ -1731,7 +1783,7 @@ def process_page(
     target_img, render_w, render_h, source_w, source_h = render_page(pdf_path, image_width)
     fewshot_pairs = [load_example(d, image_width) for d in fewshot_dirs]
     prompt_parts  = build_prompt_parts(target_img, fewshot_pairs,
-                                        VOLUME_PROMPT_NOTES.get(doc_name, ""))
+                                        load_volume_note(doc_name, pdf_path.stem))
 
     response, input_tokens, output_tokens = call_gemini(client, model_name, prompt_parts)
     documents = _scale_response_to_original(

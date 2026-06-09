@@ -188,3 +188,57 @@ and PHASE 1 should be simplified back to "first K pages + pin" (the V4 recipe).
 pipeline_v3 was copied from pipeline_v2 on 2026-06-09 while a Volume_4 re-label run was live in
 v2 — see `../README_V3.md` for exactly what that means for this copy's data directories.
 Gold here matches git `01cbcc54`.
+
+---
+
+## 8. STAGED-FLOW EXTENSION (2026-06-09 evening, desktop — DESKTOP_PROMPT TASK B)
+
+The protocol above (PHASES 0–7) is extended into David's staged flow: *"classify within a doc,
+pick sample pages per cluster, label those, human corrects, run a solid chunk, review + correct
+the prompt, then the rest."* New tools (all offline-tested, suite F7–F9):
+
+```
+STAGE 0  cluster_pages.py <Vol>            geometric page-architecture clusters
+         → qa_output/<Vol>/clusters.{json,txt}
+         → label_review/contact_sheets/<Vol>/cluster_N.png   ← DAVID EYEBALLS THESE
+         Membership = measurable layout/ink features ONLY (192-dim grid + 12
+         structural signals, k by silhouette). --vlm-names adds display-only
+         names; they are never load-bearing. David confirms/renames/merges
+         clusters from the contact sheets BEFORE anything is labeled.
+STAGE 1  pick_representatives.py <Vol> --clusters     (k≈12 across clusters, FPS)
+         auto_labeler.py --volume <Vol> --pages <reps> → David corrects in editor
+STAGE 2  promote_examples.py <Vol> --pages <reps> --upload
+         review_diff.py <Vol> --draft-note → David rewrites the note and saves it
+         to volume_notes/<Vol>.md  ← NEW: notes are David-editable FILES now
+         (file replaces the python constant; optional per-cluster addenda in
+         volume_notes/<Vol>.cluster_<N>.md apply only to that cluster's pages)
+STAGE 3  pick_chunk.py <Vol> --frac 0.25   cluster-stratified, excludes gold+reps
+         auto_labeler.py --volume <Vol> --pages <chunk> --pin-examples <reps>
+         → David reviews a SAMPLE of the chunk. Convention errors persist?
+           fix volume_notes/<Vol>.md / pool, re-run THE CHUNK ONLY (~$8), iterate.
+STAGE 4  auto_labeler.py --volume <Vol> --pin-examples <reps>   (labels the rest —
+         already-labeled pages skip without --overwrite) → qa_report → triage →
+         PHASE 6/7 as above.
+```
+
+**Honest validation notes (Volume_1, 274 gold pages, 2026-06-09):**
+- End-to-end run works: k=3 chosen by silhouette (0.136 — weak but real structure), contact
+  sheets render correctly, clusters are visually coherent density/architecture bands.
+- Cluster-vs-gold-type purity is only **42.7%** — geometric clusters are NOT page types and
+  must never be treated as semantic groups. Their job here is *coverage* (every architecture
+  band gets gold demos + David's eyes), not routing. Demo routing at labeling time still uses
+  the VLM page type + layout similarity (the validated path).
+- `pick_chunk.py` exclusion logic verified: on all-gold Volume_1 it correctly finds zero
+  eligible pages; on Volume_4 it stratifies and excludes the 13 gold pages.
+- Per DESKTOP_PROMPT §3.1, no semantic features were used for membership; the numbered-list
+  signal is a measurable proxy only (line-start alignment spread).
+
+**⚠ Volume_2 / Volume_3 are BLOCKED on this machine (desktop), 2026-06-09:** the local crops
+are a stale vintage (V2 360 pages vs the laptop's 372; V3 310 vs 312; V4 was 270 vs 272,
+shifted −1 — repaired from committed auto_labeled PDFs). The laptop's 372/312-page sets came
+from upstream polygon data that was NEVER COMMITTED (git's step_2/polygon_page_data has only
+360/310 entries). The committed V2/V3 representatives (`qa_output/Volume_2/representatives.json`
+references page_372!) use LAPTOP numbering. **Do not run any V2/V3 stage on this machine until
+the laptop's `polygon_cropped_pdfs/Volume_2 + Volume_3` (and ideally its step_2 polygon data)
+are synced over — or David decides the canonical crop set.** Verify with pixel correlation,
+not filenames (the drift was invisible to checksum-by-name).

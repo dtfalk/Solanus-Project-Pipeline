@@ -1,0 +1,105 @@
+{
+  "volume": "Volume_1",
+  "k": 12,
+  "total_pages": 274,
+  "generated_at": "2026-06-09T18:12:42",
+  "type_distribution": {
+    "c2": 90,
+    "c1": 134,
+    "c0": 50
+  },
+  "allocation": {
+    "c1": 5,
+    "c2": 4,
+    "c0": 3
+  },
+  "pages_arg": "10,69,85,112,156,185,207,218,237,254,258,272",
+  "pin_arg": "Volume_1/page_010,Volume_1/page_069,Volume_1/page_085,Volume_1/page_112,Volume_1/page_156,Volume_1/page_185,Volume_1/page_207,Volume_1/page_218,Volume_1/page_237,Volume_1/page_254,Volume_1/page_258,Volume_1/page_272",
+  "representatives": [
+    {
+      "page": "page_010",
+      "page_number": 10,
+      "type": "c1",
+      "covers": 14,
+      "max_covered_dist": 0.27969563007354736
+    },
+    {
+      "page": "page_069",
+      "page_number": 69,
+      "type": "c1",
+      "covers": 1,
+      "max_covered_dist": 0.0
+    },
+    {
+      "page": "page_085",
+      "page_number": 85,
+      "type": "c2",
+      "covers": 2,
+      "max_covered_dist": 0.2580404281616211
+    },
+    {
+      "page": "page_112",
+      "page_number": 112,
+      "type": "c0",
+      "covers": 7,
+      "max_covered_dist": 0.2796584963798523
+    },
+    {
+      "page": "page_156",
+      "page_number": 156,
+      "type": "c0",
+      "covers": 48,
+      "max_covered_dist": 0.4212815761566162
+    },
+    {
+      "page": "page_185",
+      "page_number": 185,
+      "type": "c2",
+      "covers": 9,
+      "max_covered_dist": 0.2032070755958557
+    },
+    {
+      "page": "page_207",
+      "page_number": 207,
+      "type": "c1",
+      "covers": 135,
+      "max_covered_dist": 0.28634244203567505
+    },
+    {
+      "page": "page_218",
+      "page_number": 218,
+      "type": "c0",
+      "covers": 1,
+      "max_covered_dist": 0.0
+    },
+    {
+      "page": "page_237",
+      "page_number": 237,
+      "type": "c1",
+      "covers": 5,
+      "max_covered_dist": 0.16595053672790527
+    },
+    {
+      "page": "page_254",
+      "page_number": 254,
+      "type": "c1",
+      "covers": 5,
+      "max_covered_dist": 0.2602888345718384
+    },
+    {
+      "page": "page_258",
+      "page_number": 258,
+      "type": "c2",
+      "covers": 4,
+      "max_covered_dist": 0.41899949312210083
+    },
+    {
+      "page": "page_272",
+      "page_number": 272,
+      "type": "c2",
+      "covers": 43,
+      "max_covered_dist": 0.3564850091934204
+    }
+  ],
+  "unfingerprintable": []
+}

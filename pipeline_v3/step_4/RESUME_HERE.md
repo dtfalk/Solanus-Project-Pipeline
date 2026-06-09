@@ -1,4 +1,28 @@
-# ▶ NEXT SESSION: read DESKTOP_PROMPT.md first (2026-06-09 handoff: V4 remainder + epistemic audit + staged HITL flow).
+# ▶ 2026-06-09 (late, home desktop): DESKTOP_PROMPT TASKS DONE — read this block first.
+
+> **✅ Volume_4 COMPLETE (272/272)** — desktop finished run-3 pages 190–272 ($8.09, 0 failures,
+> eyes-on validated per-person convention), qa (10/272 flagged) + triage (top: 113, 186, 120,
+> 114, 239). Review: `./venv/bin/python normalized_editor.py` (defaults to Volume_4).
+>
+> **⚠ MACHINE-VINTAGE DRIFT (the A3 story again, bigger):** this desktop's
+> `polygon_cropped_pdfs` for **V4 was 270 pages shifted −1** (laptop: 272) — detected by pixel
+> correlation BEFORE launching, inputs rebuilt from the committed `auto_labeled/` PDFs.
+> **Volume_2 (360 vs laptop 372) and Volume_3 (310 vs 312) are still stale here and BLOCKED**:
+> the laptop's crops came from upstream polygon data never committed to git, and the committed
+> V2/V3 representatives use laptop numbering (V2's list cites page_372 — doesn't exist here).
+> **Fix: sync `polygon_cropped_pdfs/Volume_2 + Volume_3` (and step_2 polygon data) from the
+> laptop**, then verify by pixel correlation. A1/A2/A3/V1 verified identical (corr 1.000).
+>
+> **TASK A done → `EPISTEMIC_AUDIT.md`** (14 findings; 4 need David: notebook granularity
+> ruling, EXCLUDED_EXAMPLES 7-page pass, V2/V3 seed audit, edge-pair conventions). One real bug
+> found & fixed: the model was FORBIDDEN from proposing the archv_commentary↔struct_doc edges
+> David's gold uses 88× (Iter 12 fix had only reached pass-1; whitelist + pass-2 prompt now
+> match the gold).
+>
+> **TASK B done → HITL_BOOTSTRAP.md §8** (staged flow): `cluster_pages.py` (geometric clusters
+> + contact sheets for David), `pick_representatives.py --clusters`, `pick_chunk.py` (stage-3
+> chunk), David-editable `volume_notes/<Vol>.md` (+ per-cluster addenda) replacing python
+> constants. Validated on Volume_1; suite 38/38. V2/V3 execution blocked on the crop sync above.
 
 # RESUME HERE — current state (updated 2026-06-03)
 

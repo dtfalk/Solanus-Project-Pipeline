@@ -45,6 +45,11 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--no-api", action="store_true",
                    help="Skip VLM page-typing (no API key needed); diversify on "
                         "layout alone as a single stratum.")
+    p.add_argument("--clusters", action="store_true",
+                   help="Stratify by the geometric clusters in qa_output/<Vol>/"
+                        "clusters.json (from cluster_pages.py) instead of VLM "
+                        "page types. No API needed. Pages absent from the "
+                        "cluster map fall into an 'unclustered' stratum.")
     p.add_argument("--page-type-model", type=str, default="gemini-3.1-flash-lite",
                    help="Model for the cheap page-type call (default: gemini-3.1-flash-lite; "
                         "cached to page_type_cache/ — same cache auto_labeler uses).")
@@ -107,8 +112,15 @@ def main() -> None:
         raise SystemExit(f"No pages found for volume {args.volume!r} under polygon_cropped_pdfs/.")
     print(f"{args.volume}: {len(pages)} pages. Fingerprinting + typing...")
 
+    cluster_map: dict[str, int] | None = None
+    if args.clusters:
+        cpath = QA_OUTPUT_DIR / args.volume / "clusters.json"
+        if not cpath.exists():
+            raise SystemExit(f"{cpath} missing — run cluster_pages.py {args.volume} first.")
+        cluster_map = json.loads(cpath.read_text())["page_to_cluster"]
+
     client = None
-    if not args.no_api:
+    if not args.no_api and cluster_map is None:
         from dotenv import load_dotenv
         from google import genai
         load_dotenv(ENV_PATH)
@@ -122,12 +134,15 @@ def main() -> None:
     no_desc = []
     for i, (_doc, num, pdf) in enumerate(pages, 1):
         desc = _layout_descriptor(pdf)
-        if client is not None:
+        name = f"page_{num:03d}"
+        if cluster_map is not None:
+            c = cluster_map.get(name)
+            ptype = f"c{c}" if c is not None else "unclustered"
+        elif client is not None:
             ptype, _, _ = classify_page_type(client, args.page_type_model, pdf,
                                              cache_dir=PAGE_TYPE_CACHE_DIR / args.volume)
         else:
             ptype = "all"
-        name = f"page_{num:03d}"
         if desc is None:
             no_desc.append(name)
         else:

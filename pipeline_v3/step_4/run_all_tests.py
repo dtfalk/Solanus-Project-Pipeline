@@ -362,6 +362,45 @@ def test_bootstrap():
     h = subprocess.run([sys.executable, "auto_labeler.py", "--help"], capture_output=True, text=True, cwd=HERE)
     check("F6 auto_labeler --help renders", h.returncode == 0 and "--pages" in h.stdout,
           h.stderr.strip()[-80:])
+    # F7: cluster_pages kmeans — deterministic, separates two obvious blobs
+    import cluster_pages as CP
+    rngf = np.random.RandomState(7)
+    blob = np.vstack([rngf.normal(0, .05, (10, 6)), rngf.normal(5, .05, (10, 6))]).astype("float32")
+    asg_a, _ = CP.kmeans(blob, 2, seed=42)
+    asg_b, _ = CP.kmeans(blob, 2, seed=42)
+    sep = len(set(asg_a[:10])) == 1 and len(set(asg_a[10:])) == 1 and asg_a[0] != asg_a[10]
+    sil = CP.mean_silhouette(blob, asg_a)
+    check("F7 cluster kmeans: deterministic, blob-separating, silhouette~1",
+          (asg_a == asg_b).all() and sep and sil > 0.9, f"sep={sep} sil={sil:.2f}")
+    # F8: load_volume_note — file overrides constant; cluster addendum appended
+    tmp8 = Path(_tf.mkdtemp(prefix="f8_notes_"))
+    try:
+        old8 = AL.VOLUME_NOTES_DIR
+        AL.VOLUME_NOTES_DIR = tmp8
+        AL._volume_note_cache.clear(); AL._page_cluster_cache.clear()
+        const_ok = "casebook" in AL.load_volume_note("Volume_4")          # python constant
+        (tmp8/"Volume_4.md").write_text("DAVID FILE RULE")
+        AL._volume_note_cache.clear()
+        file_ok = ("DAVID FILE RULE" in AL.load_volume_note("Volume_4")
+                   and "casebook" not in AL.load_volume_note("Volume_4"))  # file wins
+        (tmp8/"Volume_4.cluster_1.md").write_text("CLUSTER RULE")
+        AL._page_cluster_cache["Volume_4"] = {"page_009": 1, "page_010": 2}
+        clus_ok = ("CLUSTER RULE" in AL.load_volume_note("Volume_4", "page_009")
+                   and "CLUSTER RULE" not in AL.load_volume_note("Volume_4", "page_010"))
+        check("F8 volume notes: file>constant, per-cluster addendum scoped",
+              const_ok and file_ok and clus_ok,
+              f"const={const_ok} file={file_ok} cluster={clus_ok}")
+    finally:
+        AL.VOLUME_NOTES_DIR = old8
+        AL._volume_note_cache.clear(); AL._page_cluster_cache.clear()
+        shutil.rmtree(tmp8, ignore_errors=True)
+    # F9: new staged-flow CLIs render their help (argparse sanity)
+    ok9 = True
+    for script, want in (("cluster_pages.py", "--vlm-names"), ("pick_chunk.py", "--frac"),
+                         ("pick_representatives.py", "--clusters")):
+        h9 = subprocess.run([sys.executable, script, "--help"], capture_output=True, text=True, cwd=HERE)
+        ok9 = ok9 and h9.returncode == 0 and want in h9.stdout
+    check("F9 staged-flow CLIs --help render (cluster/chunk/reps)", ok9)
 
 
 def main():

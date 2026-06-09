@@ -1,0 +1,12 @@
+# Volume_1 page-architecture clusters — k=3, 274 pages, generated 2026-06-09T18:07:29
+# MEMBERSHIP IS GEOMETRIC; David confirms/renames/merges via the contact sheets:
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_1/cluster_0.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_1/cluster_1.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_1/cluster_1_b.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_1/cluster_2.png
+cluster 0:  50 pages  (central: page_086, page_101, page_091)
+cluster 1: 134 pages  (central: page_201, page_263, page_202)
+cluster 2:  90 pages  (central: page_221, page_231, page_096)
+#
+# NEXT (stage 1): ./venv/bin/python pick_representatives.py Volume_1 --clusters
+# David reviews the sheets BEFORE labeling anything (HITL stage gate).
