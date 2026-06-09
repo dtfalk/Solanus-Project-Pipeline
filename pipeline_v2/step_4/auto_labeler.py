@@ -823,14 +823,24 @@ Below are several example pages with their correct labels, followed by a new pag
 # Use sparingly — for a convention that legitimately DIFFERS from the general rules.
 VOLUME_PROMPT_NOTES = {
     "Volume_4": (
-        "\n\nVOLUME-SPECIFIC OVERRIDE (this page is from Volume_4): this volume is a ledger of "
-        "short notes about INDIVIDUAL PEOPLE — typically one line or small block per person "
-        "(e.g. 'Name - age - condition/intention'). Emit ONE src_content polygon PER PERSON. Do "
-        "NOT merge multiple people into a single block, even when they are consecutive or fall "
-        "under the same left-margin date or page marker. This OVERRIDES the general notebook rule "
-        "about merging all entries in a date-span into one generous polygon: HERE, each person's "
-        "note is its own separate region. struct_doc page markers and per-row src_date dates are "
-        "labeled as usual; only the content granularity changes — one box per person."
+        "\n\nVOLUME-SPECIFIC OVERRIDE (this page is from Volume_4 — READ CAREFULLY, it changes the "
+        "content-granularity rules): Volume_4 is Fr. Solanus Casey's casebook about INDIVIDUAL "
+        "PEOPLE — each journal entry records ONE person: their name and details about them (age, "
+        "ailment/condition, intention, what happened, sometimes a later outcome note). A typical "
+        "entry reads like 'FirstName LastName - 63 - stroke ... on way to Florida' or 'Mrs. X - 42 "
+        "- ... operation revealed ...'; an entry may run several lines, and not every entry follows "
+        "the exact same surface pattern — segment by MEANING: a new entry begins where a NEW PERSON "
+        "is introduced. Emit exactly ONE src_content polygon PER ENTRY (per person): keep ALL lines "
+        "of one person's note together in that single box (continuation lines, outcome notes, "
+        "details), and NEVER put two different people in the same box — even consecutive short "
+        "entries, even within the same date-span or page-section. This OVERRIDES the general "
+        "notebook rule of merging a whole date-span into one generous polygon: here the unit is "
+        "the PERSON/ENTRY, not the date-span. Do NOT split one person's entry into multiple boxes "
+        "by line or by sentence. Dates: emit src_date ONLY for dates explicitly written on the "
+        "page (margin dates like 'Nov. 24', 'July 13'); NEVER infer, assume, or invent a date. "
+        "struct_doc page markers ('Page 7', 'Page 8 Cont.') and archivist material are labeled "
+        "per the normal rules. The few-shot examples are all from this volume and were "
+        "hand-labeled to this exact convention — match their granularity precisely."
     ),
 }
 
