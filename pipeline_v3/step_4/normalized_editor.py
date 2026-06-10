@@ -305,6 +305,15 @@ class NormalizedEditorApp:
         # Discover which pages are available in the source dir.
         # This is the authoritative list — only these pages can be edited.
         self.page_numbers = self._discover_pages()
+        # EDITOR_PAGES="6,12,40" restricts the session to those pages (the
+        # post-rerun review round); EDITOR_PREFER_AUTO=1 loads auto_labeled even
+        # when a reviewed/ copy exists (so a re-run is visible instead of being
+        # shadowed by the old gold — saving still writes reviewed/ as usual).
+        only = os.getenv("EDITOR_PAGES", "").strip()
+        if only:
+            wanted = {int(t) for t in only.replace(" ", "").split(",") if t}
+            self.page_numbers = [n for n in self.page_numbers if n in wanted]
+        self.prefer_auto = os.getenv("EDITOR_PREFER_AUTO", "").strip() in ("1", "true", "yes")
         self.total_pages  = len(self.page_numbers)
 
         if self.total_pages == 0:
@@ -315,6 +324,10 @@ class NormalizedEditorApp:
         # Persisted dismissals (false-alarm flags the user chose to ignore) + zoom state.
         self.dismissed_path = QA_OUTPUT_DIR / self.document_name / "dismissed.json"
         self.dismissed_keys = self._load_dismissed()
+        # Pages marked for a machine re-label (bootstrap --rerun-marked). Kept in
+        # a SEPARATE sidecar file by design — never inside the page JSONs.
+        self.rerun_marks_path = QA_OUTPUT_DIR / self.document_name / "rerun_marks.json"
+        self.rerun_marks = self._load_rerun_marks()
         # View state: None => fit whole page; ("flag", bbox) => auto-zoom to a QA flag;
         # ("custom", scale, off_x, off_y) => user wheel-zoom / pan.
         self.view = None
@@ -445,6 +458,13 @@ class NormalizedEditorApp:
         ttk.Checkbutton(top, text="Show connections",
                         variable=self.show_conns_var,
                         command=self._draw_scene).pack(side=tk.LEFT, padx=(16, 0))
+
+        self.rerun_button = tk.Button(top, text="⟳ Mark for rerun", bg="#2d2d2d",
+                                      fg="#ffaa00", bd=1, command=self._toggle_rerun_mark)
+        self.rerun_button.pack(side=tk.LEFT, padx=(16, 0))
+        if self.prefer_auto:
+            tk.Button(top, text="✓ Approve → gold", bg="#2d2d2d", fg="#7be07b",
+                      bd=1, command=self._approve_to_gold).pack(side=tk.LEFT, padx=(10, 0))
 
         self.mode_label = tk.Label(top, text="", bg="#2d2d2d", fg="#ffaa00",
                                    font=("TkDefaultFont", 10, "bold"))
@@ -679,6 +699,7 @@ class NormalizedEditorApp:
         # (Ctrl+S then walks the ladder downward).
         self._auto_select_top_src_content()
         self._draw_scene()
+        self._update_rerun_button()
 
         self.page_entry.delete(0, tk.END)
         self.page_entry.insert(0, str(page_number))
@@ -688,10 +709,13 @@ class NormalizedEditorApp:
     def _load_page_data(self, page_number):
         # If a reviewed version already exists, load that so previous edits are
         # preserved.  Otherwise fall back to the auto_labeled source.
+        # (EDITOR_PREFER_AUTO=1 inverts this for the post-rerun review round.)
         output_path = self.output_doc_dir / f"page_{page_number:03d}" / f"page_{page_number:03d}.json"
         source_path = self.source_doc_dir / f"page_{page_number:03d}" / f"page_{page_number:03d}.json"
 
-        if output_path.exists():
+        if self.prefer_auto and source_path.exists():
+            path = source_path
+        elif output_path.exists():
             path = output_path
         elif source_path.exists():
             path = source_path
@@ -2126,6 +2150,50 @@ class NormalizedEditorApp:
     def _save_dismissed(self):
         self.dismissed_path.parent.mkdir(parents=True, exist_ok=True)
         json.dump(sorted(self.dismissed_keys), open(self.dismissed_path, "w", encoding="utf-8"))
+
+    def _load_rerun_marks(self):
+        try:
+            return set(json.load(open(self.rerun_marks_path, encoding="utf-8"))["pages"])
+        except (OSError, ValueError, KeyError):
+            return set()
+
+    def _save_rerun_marks(self):
+        self.rerun_marks_path.parent.mkdir(parents=True, exist_ok=True)
+        json.dump({"pages": sorted(self.rerun_marks)},
+                  open(self.rerun_marks_path, "w", encoding="utf-8"), indent=2)
+
+    def _toggle_rerun_mark(self):
+        """Mark/unmark the current page for a machine re-label (sidecar file
+        only — the page JSON is never touched). bootstrap.py <Vol>
+        --rerun-marked relabels every marked page and hands back a filtered
+        editor session."""
+        name = f"page_{self.current_page:03d}"
+        if name in self.rerun_marks:
+            self.rerun_marks.discard(name)
+        else:
+            self.rerun_marks.add(name)
+        self._save_rerun_marks()
+        self._update_rerun_button()
+
+    def _update_rerun_button(self):
+        name = f"page_{self.current_page:03d}"
+        marked = name in self.rerun_marks
+        self.rerun_button.configure(
+            text=(f"⟳ Marked for rerun ✓ ({len(self.rerun_marks)})" if marked
+                  else f"⟳ Mark for rerun ({len(self.rerun_marks)})"))
+
+    def _approve_to_gold(self):
+        """EDITOR_PREFER_AUTO mode: explicitly accept the displayed (re-run)
+        labels as gold — writes reviewed/ even with zero edits. Deliberate
+        button press only; never automatic (browse-pollution lesson)."""
+        self._prepare_page_data_for_save()
+        page_dir = self.output_doc_dir / f"page_{self.current_page:03d}"
+        page_dir.mkdir(parents=True, exist_ok=True)
+        with open(page_dir / f"page_{self.current_page:03d}.json", "w",
+                  encoding="utf-8") as f:
+            json.dump(self.page_data, f, indent=2)
+        self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
+        self.status_label.configure(text=f"page {self.current_page} approved → gold")
 
     def _load_qa_flags(self):
         """Read qa_output/<doc>/qa_report.json into {page_number: [flag, ...]},

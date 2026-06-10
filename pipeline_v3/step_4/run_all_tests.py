@@ -431,6 +431,54 @@ def test_bootstrap():
     check("F10 bootstrap: merge folds clusters, pins round-robin, stages derive",
           merge_ok and pin_ok and stage_ok,
           f"merge={merge_ok} pins={pin_ok} stages={stages}")
+    # F11: cluster_editor model — flag/assign/new-cluster/save round-trip
+    import cluster_editor as CE
+    tmp11 = Path(_tf.mkdtemp(prefix="f11_ce_"))
+    try:
+        cpath, rpath = tmp11 / "clusters.json", tmp11 / "cluster_review.json"
+        cpath.write_text(json.dumps({
+            "volume": "TV", "k": 2,
+            "clusters": {"a": {"display_name": "", "size": 2,
+                               "pages": ["page_001", "page_002"], "most_central": []},
+                         "b": {"display_name": "", "size": 1,
+                               "pages": ["page_003"], "most_central": []}},
+            "page_to_cluster": {"page_001": "a", "page_002": "a", "page_003": "b"}}))
+        m = CE.load_model(cpath, rpath)
+        CE.flag_misplaced(m, "a", "page_002")
+        f11_pen = m["misplaced"] == ["page_002"] and "page_002" not in m["members"]["a"]
+        CE.save_model(m, cpath, rpath)
+        m2 = CE.load_model(cpath, rpath)          # sidecar restores the pen across sessions
+        f11_persist = m2["misplaced"] == ["page_002"] and m2["origin"]["page_002"] == "a"
+        nc = CE.new_cluster_id(m2, "Index pages!")
+        CE.assign(m2, "page_002", nc)
+        CE.save_model(m2, cpath, rpath)
+        final = json.loads(cpath.read_text())
+        f11_assign = (final["page_to_cluster"]["page_002"] == "index_pages"
+                      and final["k"] == 3 and not rpath.exists()
+                      and len(list(tmp11.glob("clusters.bak-*"))) == 2)
+        check("F11 cluster_editor model: flag/persist/assign/new-cluster/save",
+              f11_pen and f11_persist and f11_assign,
+              f"pen={f11_pen} persist={f11_persist} assign={f11_assign}")
+    finally:
+        shutil.rmtree(tmp11, ignore_errors=True)
+    # F12: editor rerun-marks sidecar + EDITOR_PAGES filter never touch page JSONs
+    import normalized_editor as NEd
+    tmp12 = Path(_tf.mkdtemp(prefix="f12_rerun_"))
+    try:
+        ed = object.__new__(NEd.NormalizedEditorApp)
+        ed.rerun_marks_path = tmp12 / "rerun_marks.json"
+        ed.rerun_marks = ed._load_rerun_marks()
+        ed.current_page = 7
+        ed.rerun_button = type("B", (), {"configure": lambda self, **k: None})()
+        ed._toggle_rerun_mark()
+        on_disk = json.loads(ed.rerun_marks_path.read_text())["pages"]
+        ed._toggle_rerun_mark()
+        off_disk = json.loads(ed.rerun_marks_path.read_text())["pages"]
+        check("F12 rerun marks: sidecar-only toggle persists (page JSONs untouched)",
+              on_disk == ["page_007"] and off_disk == [],
+              f"on={on_disk} off={off_disk}")
+    finally:
+        shutil.rmtree(tmp12, ignore_errors=True)
 
 
 def main():

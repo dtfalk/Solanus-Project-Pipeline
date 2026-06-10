@@ -233,7 +233,12 @@ def parse_args() -> argparse.Namespace:
                    help="Accept a changed crop set after verifying alignment yourself.")
     p.add_argument("--open-sheets", action="store_true",
                    help="Open this volume's cluster contact sheets in your image "
-                        "viewer (THIS is how you review clusters before confirming).")
+                        "viewer (cluster_editor.py is the richer way to review).")
+    p.add_argument("--rerun-marked", action="store_true",
+                   help="Re-label every page marked '⟳ rerun' in the editor "
+                        "(qa_output/<Vol>/rerun_marks.json), with this volume's "
+                        "gold demos pinned, then hand back a filtered editor "
+                        "session showing JUST those pages.")
     return p.parse_args()
 
 
@@ -282,6 +287,34 @@ def main() -> None:
     }
     stage = derive_stage(vol, state, paths)
 
+    if a.rerun_marked:
+        marks_path = QA_DIR / vol / "rerun_marks.json"
+        marked = []
+        if marks_path.exists():
+            marked = sorted(json.loads(marks_path.read_text()).get("pages", []))
+        if not marked:
+            print(f"no pages marked for rerun (mark them with the '⟳' button in the editor).")
+            return
+        pool = vol_pool_pages(vol)
+        pin_args = []
+        if pool and (QA_DIR / vol / "clusters.json").exists():
+            pins = pick_pins(vol, pool,
+                             json.loads((QA_DIR / vol / "clusters.json").read_text())["page_to_cluster"])
+            pin_args = ["--pin-examples", ",".join(f"{vol}/{p}" for p in pins)]
+        est = len(marked) * COST_PER_PAGE
+        run([PY, "auto_labeler.py", "--volume", vol, "--pages", nums_arg(marked),
+             "--overwrite"] + pin_args,
+            f"re-labeling {len(marked)} marked page(s) (~${est:.2f})"
+            + (f" with {len(pin_args) and (len(pin_args[1].split(',')))} pinned demos" if pin_args else ""))
+        done = marks_path.with_name(f"rerun_marks.done-{datetime.now().strftime('%m%d-%H%M')}.json")
+        marks_path.rename(done)
+        print(f"\n✓ rerun complete (marks archived -> {done.name}). Review JUST these pages:\n"
+              f"    EDITOR_DOCUMENT={vol} EDITOR_PAGES={nums_arg(marked)} EDITOR_PREFER_AUTO=1 "
+              f"./venv/bin/python normalized_editor.py\n"
+              f"  (PREFER_AUTO shows the fresh labels instead of your old gold; "
+              f"edit normally, or '✓ Approve → gold' to accept a page as-is.)")
+        return
+
     if a.open_sheets:
         sheets = sorted((SCRIPT_DIR / "label_review" / "contact_sheets" / vol).glob("*.png"))
         if not sheets:
@@ -312,20 +345,27 @@ def main() -> None:
         has_key = (SCRIPT_DIR / ".env").exists()
         cmd = [PY, "cluster_pages.py", vol] + ([] if has_key else ["--no-api"])
         run(cmd, f"stage A — cluster {vol} by page type + architecture ({n_pages} pages)")
-        sheets = sorted((SCRIPT_DIR / "label_review" / "contact_sheets" / vol).glob("*.png"))
-        print(f"\n■ YOUR TURN — check the clusters ({len(sheets)} contact sheets):")
-        for s in sheets:
-            print(f"    {s}")
-        print(f"  then:  ./venv/bin/python bootstrap.py {vol} --confirm-clusters"
-              f"   (add --merge A+B to fold clusters)")
+        print(f"\n■ YOUR TURN — review the clusters in the cluster editor:")
+        print(f"    ./venv/bin/python cluster_editor.py {vol}")
+        print(f"  then:  ./venv/bin/python bootstrap.py {vol} --confirm-clusters")
         return
 
     if stage == "B":
+        review_sidecar = QA_DIR / vol / "cluster_review.json"
         if not a.confirm_clusters:
-            print(f"■ waiting on you: review the contact sheets in "
-                  f"label_review/contact_sheets/{vol}/, then\n"
-                  f"  ./venv/bin/python bootstrap.py {vol} --confirm-clusters [--merge A+B]")
+            print(f"■ waiting on you — review the clusters in the CLUSTER EDITOR:\n"
+                  f"    ./venv/bin/python cluster_editor.py {vol}\n"
+                  f"  (folder view → page grid → full pages; flag misplaced pages with M,\n"
+                  f"   then assign them from the ⚑ Misplaced tile; Save when done)\n"
+                  f"  then:  ./venv/bin/python bootstrap.py {vol} --confirm-clusters")
             return
+        if review_sidecar.exists():
+            pen = json.loads(review_sidecar.read_text()).get("misplaced", [])
+            if pen:
+                print(f"✗ {len(pen)} page(s) still sitting in ⚑ Misplaced "
+                      f"({', '.join(pen[:6])}{'…' if len(pen) > 6 else ''}).\n"
+                      f"  Resolve them in cluster_editor.py {vol} (or move them back), then confirm.")
+                return
         cpath = QA_DIR / vol / "clusters.json"
         clusters = json.loads(cpath.read_text())
         if a.merge:
