@@ -421,7 +421,9 @@ EXCLUDED_EXAMPLES: frozenset[str] = frozenset({
     "Appendix_1/page_028",
     "Appendix_1/page_042",
     "Appendix_3/page_021",   # was page_019 before the 2026-06-05 A3 renumbering (+2)
-    "Volume_2/page_075",
+    # ("Volume_2/page_075" — same mislabel class — left the pool entirely on
+    #  2026-06-10 with the stale-seed quarantine (labeled_examples_quarantine/).
+    #  If that page is ever restored to the pool, re-add it here first.)
     # Continuation-page structure merged/mislabeled
     "Volume_1/page_274",
     # (Volume_4/page_001 & page_007 were excluded for entry-merging; David re-labeled
