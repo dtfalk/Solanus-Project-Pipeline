@@ -1,0 +1,21 @@
+# Volume_2 clusters (by-type) — k=7, 360 pages, generated 2026-06-10T09:51:44
+# David confirms/merges via the contact sheets:
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_letter_1.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_letter_1_b.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_letter_2.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_letter_2_b.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_mass_card_1.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_mass_card_2.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_notebook.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_other_1.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_2/cluster_other_2.png
+cluster letter_1: 169 pages  (central: page_105, page_106, page_019)
+cluster letter_2: 149 pages  (central: page_143, page_138, page_275)
+cluster mass_card_1:  17 pages  (central: page_353, page_067, page_075)
+cluster mass_card_2:   2 pages  (central: page_182, page_213)
+cluster notebook:   9 pages  (central: page_286, page_165, page_266)
+cluster other_1:   8 pages  (central: page_271, page_288, page_319)
+cluster other_2:   6 pages  (central: page_267, page_135, page_268)
+#
+# NEXT: ./venv/bin/python bootstrap.py Volume_2 --confirm-clusters [--merge A+B]
+# (David reviews the sheets BEFORE anything is labeled.)
