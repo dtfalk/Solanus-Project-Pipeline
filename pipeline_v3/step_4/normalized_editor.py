@@ -43,6 +43,8 @@ Canvas controls:
     edge up, Ctrl+Down=bottom edge down, Ctrl+Left=left edge left, Ctrl+Right=
     right edge right); Shift+arrow slides the whole box one step in that direction.
   - With NO polygon selected, Left / Right arrow keys navigate pages (auto-saves).
+  - Ctrl+D / Ctrl+A go to the next / previous page from anywhere (auto-saves),
+    even with a polygon selected; inert while typing in a text field.
   - Ctrl+V duplicates the selected polygon (same category, offset slightly) and
     auto-selects the copy, so you can slide it into place with the arrow keys.
   - Shift-click a category in the right panel to RE-LABEL the selected polygon to
@@ -56,8 +58,8 @@ Usage:
     python step_3/normalized_editor.py
 """
 
-import colorsys
 import json
+import math
 import os
 import tkinter as tk
 from tkinter import ttk, messagebox
@@ -219,6 +221,70 @@ def _point_in_polygon(x, y, polygon):
         ):
             inside = not inside
     return inside
+
+
+# ── Connection-overlay palette ────────────────────────────────────────────────
+# A ROYGBIV sweep in OKLCh space: equal hue steps in OKLCh are close to
+# perceptually even (unlike HSV, where greens/yellows compress), so n boxes get
+# colors that FEEL evenly spaced. When n grows large enough that adjacent steps
+# drop below comfortable at-a-glance distinguishability, the same palette is
+# dealt outside-in (1st, last, 2nd, 2nd-last, 3rd, ...) so vertically adjacent
+# boxes stay maximally far apart in color.
+
+GRAD_HUE_START = 29.0    # OKLCh hue: red
+GRAD_HUE_END   = 315.0   # OKLCh hue: violet
+GRAD_L, GRAD_C = 0.65, 0.16
+# Min OKLab ΔE between vertically ADJACENT boxes before switching to the
+# outside-in deal. Strict laboratory JND is ~0.02; overlay rings on a busy scan
+# need more separation to read at a glance, hence the higher working value.
+GRAD_MIN_DELTA_E = 0.06
+
+
+def _oklch_to_hex(L, C, h_deg):
+    """OKLCh -> sRGB hex (Ottosson's OKLab transform), channel-clamped to gamut."""
+    h = math.radians(h_deg)
+    a, b = C * math.cos(h), C * math.sin(h)
+    l_ = L + 0.3963377774 * a + 0.2158037573 * b
+    m_ = L - 0.1055613458 * a - 0.0638541728 * b
+    s_ = L - 0.0894841775 * a - 1.2914855480 * b
+    l, m, s = l_ ** 3, m_ ** 3, s_ ** 3
+    rgb_lin = (
+        +4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+        -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+        -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s,
+    )
+    out = []
+    for c in rgb_lin:
+        c = max(0.0, min(1.0, c))
+        c = 12.92 * c if c <= 0.0031308 else 1.055 * c ** (1 / 2.4) - 0.055
+        out.append(int(round(max(0.0, min(1.0, c)) * 255)))
+    return "#{:02x}{:02x}{:02x}".format(*out)
+
+
+def connection_palette(n):
+    """n hex colors for n src_content boxes ordered top->bottom on the page.
+
+    Plain red->violet gradient while adjacent steps stay distinguishable; once
+    the per-step OKLab ΔE falls below GRAD_MIN_DELTA_E, the same colors are
+    assigned outside-in (gradient positions 1, n, 2, n-1, 3, ...) per David's
+    spec, so neighbouring boxes never share a near-identical hue.
+    """
+    if n <= 0:
+        return []
+    if n == 1:
+        return [_oklch_to_hex(GRAD_L, GRAD_C, GRAD_HUE_START)]
+    hues = [GRAD_HUE_START + (GRAD_HUE_END - GRAD_HUE_START) * i / (n - 1)
+            for i in range(n)]
+    colors = [_oklch_to_hex(GRAD_L, GRAD_C, h) for h in hues]
+    # Adjacent-step ΔE on a constant-L,C hue circle is the chord 2*C*sin(Δh/2).
+    step = math.radians((GRAD_HUE_END - GRAD_HUE_START) / (n - 1))
+    if 2 * GRAD_C * math.sin(step / 2) >= GRAD_MIN_DELTA_E:
+        return colors
+    dealt = []
+    for i in range(n):
+        idx = i // 2 if i % 2 == 0 else n - 1 - i // 2
+        dealt.append(colors[idx])
+    return dealt
 
 
 # ── Main application ───────────────────────────────────────────────────────────
@@ -441,6 +507,8 @@ class NormalizedEditorApp:
             "• 1-9 → switch label type",
             "• Shift+W → add polygon",
             "• Shift+C → connect",
+            "• Ctrl+D / Ctrl+A →",
+            "  next / prev page",
             "",
             "Selected box (arrows):",
             "• Arrow → pull that edge in",
@@ -541,6 +609,10 @@ class NormalizedEditorApp:
         self.root.bind("<Control-Down>",  lambda e: self._on_arrow_key("down",  expand=True))
         self.root.bind("<Control-v>", lambda e: self._duplicate_selected_polygon())
         self.root.bind("<Control-V>", lambda e: self._duplicate_selected_polygon())
+        self.root.bind("<Control-d>", lambda e: self._on_ctrl_page(+1))
+        self.root.bind("<Control-D>", lambda e: self._on_ctrl_page(+1))
+        self.root.bind("<Control-a>", lambda e: self._on_ctrl_page(-1))
+        self.root.bind("<Control-A>", lambda e: self._on_ctrl_page(-1))
         self.root.bind("<Return>", self._on_enter_key)
         self.root.bind("<Escape>", self._on_escape_key)
         self.root.bind("<Shift-W>", self._on_shift_w)
@@ -782,6 +854,15 @@ class NormalizedEditorApp:
         self.save_page_data()
         if self.page_index < self.total_pages - 1:
             self.load_page(self.page_numbers[self.page_index + 1])
+
+    def _on_ctrl_page(self, direction):
+        """Ctrl+D = next page, Ctrl+A = previous page (auto-saves, like the
+        buttons). Inert while a text field has focus so Ctrl+A keeps its normal
+        select-all behaviour in the page-number / doc-count entries."""
+        if self._focus_is_text_input():
+            return None
+        (self.next_page if direction > 0 else self.previous_page)()
+        return "break"
 
     def go_to_page(self):
         self._cancel_draw_if_active()
@@ -1363,7 +1444,8 @@ class NormalizedEditorApp:
         """Overlay EVERY connection involving a src_content polygon in the current
         document at once ("Show connections" toolbar toggle) — no clicking through
         boxes. Each src_content box is ranked by its vertical position and colored
-        through a rainbow gradient (top of page = red ... bottom = violet); its
+        from connection_palette(): a perceptually-even red->violet sweep, dealt
+        outside-in when entries are too many for adjacent hues to differ; its
         connection lines, endpoint dots, and partner-box rings share that color.
         Lines are stippled and rings dashed so the underlying page stays readable
         with everything visible at once. Read-only drawing — touches no data.
@@ -1379,11 +1461,9 @@ class NormalizedEditorApp:
         ranked.sort(key=lambda t: t[0])
 
         drawn_pairs = set()   # a content<->content edge lives on both endpoints
-        n = len(ranked)
+        palette = connection_palette(len(ranked))
         for rank, (_cy, poly) in enumerate(ranked):
-            hue = 0.83 * rank / max(1, n - 1)          # 0=red ... 0.83=violet
-            r, g, b = colorsys.hsv_to_rgb(hue, 0.9, 1.0)
-            color = f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
+            color = palette[rank]
             sx, sy = self._centroid_canvas(poly["vertices"])
 
             for conn in poly.get("connections", []):
