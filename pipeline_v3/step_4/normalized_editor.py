@@ -47,11 +47,16 @@ Canvas controls:
     auto-selects the copy, so you can slide it into place with the arrow keys.
   - Shift-click a category in the right panel to RE-LABEL the selected polygon to
     that category (connection links are repointed automatically).
+  - "Show connections" (top toolbar) overlays EVERY src_content connection in the
+    current document at once: each src_content box is colored through a rainbow by
+    its height on the page (top = red ... bottom = violet) with stippled lines and
+    dashed rings on its partners — review all links without clicking each box.
 
 Usage:
     python step_3/normalized_editor.py
 """
 
+import colorsys
 import json
 import os
 import tkinter as tk
@@ -365,6 +370,13 @@ class NormalizedEditorApp:
         self.num_docs_spinbox.pack(side=tk.LEFT)
         self.num_docs_spinbox.bind("<FocusOut>", lambda e: self._on_num_docs_changed())
 
+        # Toggle: overlay EVERY src_content connection at once (rainbow by height)
+        # instead of having to click each box to see its links.
+        self.show_conns_var = tk.BooleanVar(value=False)
+        ttk.Checkbutton(top, text="Show connections",
+                        variable=self.show_conns_var,
+                        command=self._draw_scene).pack(side=tk.LEFT, padx=(16, 0))
+
         self.mode_label = tk.Label(top, text="", bg="#2d2d2d", fg="#ffaa00",
                                    font=("TkDefaultFont", 10, "bold"))
         self.mode_label.pack(side=tk.LEFT, padx=14)
@@ -441,6 +453,10 @@ class NormalizedEditorApp:
             "• Ctrl+V → duplicate box",
             "• Shift-click a category",
             "  → relabel selected box",
+            "",
+            "Show connections (top bar):",
+            "• all src_content links,",
+            "  rainbow = top→bottom",
         ]
         for line in hint_lines:
             tk.Label(self.right_panel, text=line, bg="#252526",
@@ -1343,6 +1359,61 @@ class NormalizedEditorApp:
         oy = sum(v["y"] for v in vertices) / n
         return self._original_to_canvas(ox, oy)
 
+    def _draw_all_connections(self):
+        """Overlay EVERY connection involving a src_content polygon in the current
+        document at once ("Show connections" toolbar toggle) — no clicking through
+        boxes. Each src_content box is ranked by its vertical position and colored
+        through a rainbow gradient (top of page = red ... bottom = violet); its
+        connection lines, endpoint dots, and partner-box rings share that color.
+        Lines are stippled and rings dashed so the underlying page stays readable
+        with everything visible at once. Read-only drawing — touches no data.
+        """
+        doc_record = self.page_data.get("documents", {}).get(self.current_doc, {})
+        ranked = []
+        for poly in doc_record.get("src_content", []):
+            verts = poly.get("vertices", [])
+            if len(verts) >= 3 and poly.get("connections"):
+                ranked.append((sum(v["y"] for v in verts) / len(verts), poly))
+        if not ranked:
+            return
+        ranked.sort(key=lambda t: t[0])
+
+        drawn_pairs = set()   # a content<->content edge lives on both endpoints
+        n = len(ranked)
+        for rank, (_cy, poly) in enumerate(ranked):
+            hue = 0.83 * rank / max(1, n - 1)          # 0=red ... 0.83=violet
+            r, g, b = colorsys.hsv_to_rgb(hue, 0.9, 1.0)
+            color = f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
+            sx, sy = self._centroid_canvas(poly["vertices"])
+
+            for conn in poly.get("connections", []):
+                target = self._get_polygon_by_addr(conn)
+                if target is None:
+                    continue
+                tverts = target.get("vertices", [])
+                if len(tverts) < 3:
+                    continue
+                pair = frozenset((poly.get("id"), target.get("id")))
+                if pair in drawn_pairs:
+                    continue
+                drawn_pairs.add(pair)
+                tx, ty = self._centroid_canvas(tverts)
+                self.canvas.create_line(sx, sy, tx, ty,
+                                        fill=color, width=4, stipple="gray50")
+                for cx2, cy2 in ((sx, sy), (tx, ty)):
+                    self.canvas.create_oval(cx2 - 4, cy2 - 4, cx2 + 4, cy2 + 4,
+                                            fill=color, outline="")
+                # dashed ring around the partner box so the grouping reads at a glance
+                self.canvas.create_polygon(
+                    self._flatten(self._poly_to_canvas(tverts)),
+                    fill="", outline=color, width=2, dash=(3, 3),
+                )
+            # solid thin ring around the src_content box itself
+            self.canvas.create_polygon(
+                self._flatten(self._poly_to_canvas(poly["vertices"])),
+                fill="", outline=color, width=2,
+            )
+
     def _draw_connections(self):
         """Draw connection lines for the currently selected polygon.
         Lines run between centroids.  Only connections whose target polygon is also
@@ -1522,6 +1593,8 @@ class NormalizedEditorApp:
                 anchor=tk.NW, image=self.tk_image,
             )
         self._draw_all_polygons()
+        if self.show_conns_var.get():
+            self._draw_all_connections()
         self._draw_connections()
         self._draw_queue_highlight()
         if self.draw_mode:
