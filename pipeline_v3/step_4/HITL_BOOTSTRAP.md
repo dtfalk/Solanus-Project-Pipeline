@@ -239,12 +239,14 @@ Underlying tools (usable standalone; the service just orchestrates them):
 - Per DESKTOP_PROMPT §3.1, no semantic features were used for membership; the numbered-list
   signal is a measurable proxy only (line-start alignment spread).
 
-**⚠ Volume_2 / Volume_3 are BLOCKED on this machine (desktop), 2026-06-09:** the local crops
-are a stale vintage (V2 360 pages vs the laptop's 372; V3 310 vs 312; V4 was 270 vs 272,
-shifted −1 — repaired from committed auto_labeled PDFs). The laptop's 372/312-page sets came
-from upstream polygon data that was NEVER COMMITTED (git's step_2/polygon_page_data has only
-360/310 entries). The committed V2/V3 representatives (`qa_output/Volume_2/representatives.json`
-references page_372!) use LAPTOP numbering. **Do not run any V2/V3 stage on this machine until
-the laptop's `polygon_cropped_pdfs/Volume_2 + Volume_3` (and ideally its step_2 polygon data)
-are synced over — or David decides the canonical crop set.** Verify with pixel correlation,
-not filenames (the drift was invisible to checksum-by-name).
+**Machine-vintage status (updated 2026-06-10):**
+- **Volume_3 RESOLVED**: local crops proven = laptop numbering minus the two covers
+  (renumbered +1; type cache valid; seeds renumbered + verified 1.000).
+- **Volume_2 PROVISIONAL**: runs in the local 360-page numbering (all 12 pool seeds verify at
+  offset 0; git's upstream polygon data matches). The laptop map is NOT derivable locally —
+  type-sequence alignment failed synthetic validation (84% "letter" pages; see
+  experiments/v2_align_types.py VERDICT). When the laptop's 372-page set syncs:
+  pixel-correlate → exact map → migrate artifacts (the A3/V3 playbook); its 12 extra pages
+  are then either content (label) or covers/dividers (ignore). The bootstrap fingerprint
+  guard pins the provisional set meanwhile.
+- Always verify with pixel correlation, never filenames (drift is invisible to names).

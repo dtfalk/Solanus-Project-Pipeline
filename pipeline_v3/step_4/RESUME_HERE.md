@@ -13,7 +13,17 @@
 > 002–311 (covers 001/312 arrive with the eventual laptop sync). The 10 V3 pool seeds + their
 > file_uris keys were renumbered +1 (verified 1.000 post-move). The laptop's committed
 > `page_type_cache/Volume_3` is therefore valid here — typing cost $0.
-> **Volume_2 remains BLOCKED** (360 vs laptop 372, offset unknown — needs the laptop sync).
+>
+> **Volume_2: PROVISIONAL desktop numbering (2026-06-10).** The laptop↔desktop map cannot be
+> derived locally (type-sequence alignment failed synthetic validation — 84% "letter" pages
+> make insertions unidentifiable; see experiments/v2_align_types.py VERDICT). Decision: V2
+> proceeds in the LOCAL 360-page numbering, which all 12 existing V2 pool seeds match at
+> corr 1.00 and git's upstream polygon data matches exactly. The laptop's V2 cache/reps are
+> quarantined (`page_type_cache/Volume_2.lapnum-372`, `representatives.pre-bootstrap.json`).
+> **When the laptop's 372-page crops sync: pixel-correlate to derive the exact map, check
+> whether its 12 extra pages are content (label them) or covers/dividers (ignore), and migrate
+> any V2 artifacts like A3/V3 were.** Until then the bootstrap's crop fingerprint pins the
+> provisional set.
 
 > **✅ Volume_4 COMPLETE (272/272)** — desktop finished run-3 pages 190–272 ($8.09, 0 failures,
 > eyes-on validated per-person convention), qa (10/272 flagged) + triage (top: 113, 186, 120,
