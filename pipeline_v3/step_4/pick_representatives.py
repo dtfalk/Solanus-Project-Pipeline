@@ -137,7 +137,7 @@ def main() -> None:
         name = f"page_{num:03d}"
         if cluster_map is not None:
             c = cluster_map.get(name)
-            ptype = f"c{c}" if c is not None else "unclustered"
+            ptype = str(c) if c is not None else "unclustered"
         elif client is not None:
             ptype, _, _ = classify_page_type(client, args.page_type_model, pdf,
                                              cache_dir=PAGE_TYPE_CACHE_DIR / args.volume)

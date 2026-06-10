@@ -396,11 +396,41 @@ def test_bootstrap():
         shutil.rmtree(tmp8, ignore_errors=True)
     # F9: new staged-flow CLIs render their help (argparse sanity)
     ok9 = True
-    for script, want in (("cluster_pages.py", "--vlm-names"), ("pick_chunk.py", "--frac"),
-                         ("pick_representatives.py", "--clusters")):
+    for script, want in (("cluster_pages.py", "--no-api"), ("pick_chunk.py", "--count"),
+                         ("pick_representatives.py", "--clusters"),
+                         ("bootstrap.py", "--run-rest")):
         h9 = subprocess.run([sys.executable, script, "--help"], capture_output=True, text=True, cwd=HERE)
         ok9 = ok9 and h9.returncode == 0 and want in h9.stdout
-    check("F9 staged-flow CLIs --help render (cluster/chunk/reps)", ok9)
+    check("F9 staged-flow CLIs --help render (cluster/chunk/reps/bootstrap)", ok9)
+    # F10: bootstrap driver pure helpers — merge folding, pin selection, stage derivation
+    import bootstrap as BS
+    cl = {"page_to_cluster": {"page_001": "letter_1", "page_002": "letter_2",
+                              "page_003": "notebook", "page_004": "letter_2"},
+          "clusters": {
+              "letter_1": {"size": 1, "pages": ["page_001"], "most_central": ["page_001"]},
+              "letter_2": {"size": 2, "pages": ["page_002", "page_004"], "most_central": ["page_002"]},
+              "notebook": {"size": 1, "pages": ["page_003"], "most_central": ["page_003"]}},
+          "k": 3}
+    m = BS.apply_merges(cl, [["letter_1", "letter_2"]])
+    merge_ok = (m["k"] == 2 and m["page_to_cluster"]["page_002"] == "letter_1"
+                and m["page_to_cluster"]["page_003"] == "notebook"
+                and m["clusters"]["letter_1"]["size"] == 3
+                and "letter_2" not in m["clusters"])
+    p2c = {f"page_{i:03d}": ("a" if i % 2 else "b") for i in range(1, 31)}
+    pins = BS.pick_pins("V", [f"page_{i:03d}" for i in range(1, 31)], p2c, max_pins=12)
+    pin_ok = (len(pins) == 12
+              and sum(1 for p in pins if p2c[p] == "a") == 6
+              and BS.pick_pins("V", ["page_001"], p2c) == ["page_001"])
+    stages = [BS.derive_stage("V", st, pa) for st, pa in (
+        ({}, {"has_pages": False, "has_clusters": False, "has_reps": False}),
+        ({}, {"has_pages": True, "has_clusters": False, "has_reps": False}),
+        ({}, {"has_pages": True, "has_clusters": True, "has_reps": False}),
+        ({"clusters_confirmed": "t"}, {"has_pages": True, "has_clusters": True, "has_reps": False}),
+        ({"clusters_confirmed": "t"}, {"has_pages": True, "has_clusters": True, "has_reps": True}))]
+    stage_ok = stages == ["BLOCKED", "A", "B", "C", "D"]
+    check("F10 bootstrap: merge folds clusters, pins round-robin, stages derive",
+          merge_ok and pin_ok and stage_ok,
+          f"merge={merge_ok} pins={pin_ok} stages={stages}")
 
 
 def main():

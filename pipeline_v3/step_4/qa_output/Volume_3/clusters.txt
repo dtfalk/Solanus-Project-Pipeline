@@ -1,0 +1,11 @@
+# Volume_3 clusters (by-type) — k=2, 310 pages, generated 2026-06-10T03:20:36
+# David confirms/merges via the contact sheets:
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_3/cluster_notebook_1.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_3/cluster_notebook_1_b.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_3/cluster_notebook_2.png
+#   /Workspace/Projects/Solanus-Project-Pipeline/pipeline_v3/step_4/label_review/contact_sheets/Volume_3/cluster_notebook_2_b.png
+cluster notebook_1: 148 pages  (central: page_092, page_158, page_249)
+cluster notebook_2: 162 pages  (central: page_284, page_156, page_139)
+#
+# NEXT: ./venv/bin/python bootstrap.py Volume_3 --confirm-clusters [--merge A+B]
+# (David reviews the sheets BEFORE anything is labeled.)

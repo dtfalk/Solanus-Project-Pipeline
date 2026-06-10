@@ -39,6 +39,9 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("volume")
     p.add_argument("--frac", type=float, default=0.25,
                    help="Fraction of the volume to put in the chunk (default 0.25).")
+    p.add_argument("--count", type=int, default=0,
+                   help="Absolute number of pages instead of --frac (bootstrap "
+                        "--label-more uses this).")
     return p.parse_args()
 
 
@@ -75,11 +78,11 @@ def main() -> None:
         if desc is None:
             continue
         c = cluster_map.get(name)
-        info.append((num, name, f"c{c}" if c is not None else "all", desc))
+        info.append((num, name, str(c) if c is not None else "all", desc))
     if not info:
         raise SystemExit("No eligible pages (everything is gold or a representative?).")
 
-    target = max(1, round(args.frac * len(pages)))
+    target = args.count if args.count else max(1, round(args.frac * len(pages)))
     strata: dict[str, list[int]] = {}
     for idx, (_n, _na, s, _d) in enumerate(info):
         strata.setdefault(s, []).append(idx)
@@ -94,7 +97,7 @@ def main() -> None:
 
     pages_arg = ",".join(str(info[i][0]) for i in chosen)
     payload = {
-        "volume": args.volume, "frac": args.frac,
+        "volume": args.volume, "frac": args.frac, "count": args.count,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "chunk_size": len(chosen), "volume_pages": len(pages),
         "excluded_reviewed": len(reviewed), "excluded_reps": len(reps),

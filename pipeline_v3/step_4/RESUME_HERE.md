@@ -1,4 +1,19 @@
-# ▶ 2026-06-09 (late, home desktop): DESKTOP_PROMPT TASKS DONE — read this block first.
+# ▶ 2026-06-10: BOOTSTRAP SERVICE LIVE, POINTED AT VOLUME_3 — read this block first.
+
+> **The per-volume flow is now ONE command: `./venv/bin/python bootstrap.py <Volume>`**
+> (HITL_BOOTSTRAP.md §8). It clusters by type → David confirms via contact sheets → samples
+> labeled with most-similar demos → he corrects → his pages become the demos → he picks
+> `--label-more N` or `--run-rest`. Volume_3 is at the CLUSTER-CONFIRM gate (stage B): sheets
+> in `label_review/contact_sheets/Volume_3/`, next command printed by `--status`.
+>
+> **Volume_3 UNBLOCKED on this machine** by renumbering: desktop crops were the 310-page
+> coverless vintage; laptop numbering = desktop+1 (proven: laptop type cache has its only 2
+> "other" pages at 001/312 = the covers; desktop 001/310 are content pages; all 10 V3 pool
+> seeds correlate 1.000 at +1). Local `polygon_cropped_pdfs/Volume_3` is now laptop-numbered
+> 002–311 (covers 001/312 arrive with the eventual laptop sync). The 10 V3 pool seeds + their
+> file_uris keys were renumbered +1 (verified 1.000 post-move). The laptop's committed
+> `page_type_cache/Volume_3` is therefore valid here — typing cost $0.
+> **Volume_2 remains BLOCKED** (360 vs laptop 372, offset unknown — needs the laptop sync).
 
 > **✅ Volume_4 COMPLETE (272/272)** — desktop finished run-3 pages 190–272 ($8.09, 0 failures,
 > eyes-on validated per-person convention), qa (10/272 flagged) + triage (top: 113, 186, 120,

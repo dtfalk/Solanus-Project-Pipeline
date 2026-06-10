@@ -42,8 +42,10 @@ from PIL import Image, ImageDraw
 
 from auto_labeler import (
     ENV_PATH,
+    PAGE_TYPE_CACHE_DIR,
     _layout_descriptor,
     _otsu_threshold,
+    classify_page_type,
     discover_target_pages,
     render_page,
 )
@@ -57,16 +59,28 @@ SHEET_COLS = 8
 SHEET_MAX_ROWS = 12    # pages per sheet capped at COLS*MAX_ROWS; overflow -> _b sheet
 
 
+MIN_SPLIT = 12          # a type stratum smaller than this stays one cluster
+MIN_SUB_SIL = 0.05      # sub-split a type only when silhouette clears this
+
+
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("volume", help="Volume to cluster (e.g. Volume_2).")
     p.add_argument("--k", type=int, default=0,
-                   help="Force this many clusters (default: auto by silhouette).")
+                   help="(--no-api mode) force this many clusters.")
     p.add_argument("--k-range", type=str, default="3-8",
-                   help="k range searched when --k is not given (default 3-8).")
+                   help="(--no-api mode) k range searched (default 3-8).")
+    p.add_argument("--no-api", action="store_true",
+                   help="Skip VLM page typing: cluster on geometry alone "
+                        "(numeric cluster ids). Default is BY TYPE: pages are "
+                        "first typed (letter/mass_card/notebook/other — cached, "
+                        "pennies), then sub-clustered geometrically within each "
+                        "type (ids like 'notebook_2'), so the clusters David "
+                        "confirms are type-coherent.")
     p.add_argument("--vlm-names", action="store_true",
                    help="Ask the VLM for a one-line DISPLAY-ONLY name per cluster "
                         "(pennies; membership is unaffected).")
+    p.add_argument("--page-type-model", type=str, default="gemini-3.1-flash-lite")
     p.add_argument("--seed", type=int, default=42)
     return p.parse_args()
 
@@ -260,6 +274,27 @@ def vlm_cluster_names(volume: str, members: dict[int, list]) -> dict[int, str]:
     return names
 
 
+def sub_cluster(X, idxs: list[int], type_name: str, seed: int):
+    """Geometric sub-clusters WITHIN one page type. Splits only when the
+    silhouette earns it; small strata stay whole. Returns {page_idx: label}."""
+    if len(idxs) < MIN_SPLIT:
+        return {i: type_name for i in idxs}, None
+    sub = X[idxs]
+    best = None
+    for k_try in range(2, min(5, len(idxs) // 8 + 1) + 1):
+        if k_try >= len(idxs):
+            break
+        asg, _cent = kmeans(sub, k_try, seed)
+        s = mean_silhouette(sub, asg)
+        if best is None or s > best[0]:
+            best = (s, k_try, asg)
+    if best is None or best[0] < MIN_SUB_SIL:
+        return {i: type_name for i in idxs}, (best[0] if best else None)
+    s, k, asg = best
+    print(f"  {type_name}: split into {k} (silhouette {s:.3f})")
+    return {idx: f"{type_name}_{int(a) + 1}" for idx, a in zip(idxs, asg)}, s
+
+
 def main() -> None:
     args = parse_args()
     pages = discover_target_pages(args.volume)
@@ -269,25 +304,60 @@ def main() -> None:
     keep, X = build_matrix(pages)
     print(f"  {len(keep)} pages fingerprinted ({len(pages) - len(keep)} unrenderable).")
 
-    if args.k:
-        k, asg, cent = args.k, *kmeans(X, args.k, args.seed)
-        sil = mean_silhouette(X, asg)
-        print(f"k={k} (forced): silhouette {sil:.3f}")
+    labels: dict[int, str] = {}
+    if args.no_api:
+        # pure-geometry mode (numeric ids) — the original behavior
+        if args.k:
+            k, (asg, _c) = args.k, kmeans(X, args.k, args.seed)
+            print(f"k={k} (forced): silhouette {mean_silhouette(X, asg):.3f}")
+        else:
+            lo, hi = (int(s) for s in args.k_range.split("-"))
+            scored = []
+            for k_try in range(lo, min(hi, len(keep) - 1) + 1):
+                asg_t, _ = kmeans(X, k_try, args.seed)
+                s = mean_silhouette(X, asg_t)
+                scored.append((s, k_try, asg_t))
+                print(f"  k={k_try}: silhouette {s:.3f}")
+            s, k, asg = max(scored, key=lambda t: (t[0], -t[1]))
+            print(f"chosen k={k} (silhouette {s:.3f})")
+        labels = {i: str(int(a)) for i, a in enumerate(asg)}
+        mode = "geometric"
     else:
-        lo, hi = (int(s) for s in args.k_range.split("-"))
-        scored = []
-        for k_try in range(lo, min(hi, len(keep) - 1) + 1):
-            asg_t, cent_t = kmeans(X, k_try, args.seed)
-            s = mean_silhouette(X, asg_t)
-            scored.append((s, k_try, asg_t, cent_t))
-            print(f"  k={k_try}: silhouette {s:.3f}")
-        s, k, asg, cent = max(scored, key=lambda t: (t[0], -t[1]))
-        print(f"chosen k={k} (silhouette {s:.3f})")
+        # BY TYPE (default): VLM page type strata (cached), geometric sub-clusters
+        from dotenv import load_dotenv
+        from google import genai
+        load_dotenv(ENV_PATH)
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise SystemExit("No GEMINI_API_KEY — use --no-api for geometry-only clustering.")
+        client = genai.Client(api_key=api_key)
+        cache = PAGE_TYPE_CACHE_DIR / args.volume
+        types: list[str] = []
+        for j, (num, name, pdf) in enumerate(keep, 1):
+            t, _, _ = classify_page_type(client, args.page_type_model, pdf, cache_dir=cache)
+            types.append(t)
+            if j % 50 == 0 or j == len(keep):
+                print(f"  typed [{j}/{len(keep)}]")
+        by_type: dict[str, list[int]] = {}
+        for i, t in enumerate(types):
+            by_type.setdefault(t, []).append(i)
+        print(f"Type distribution: {({t: len(v) for t, v in sorted(by_type.items())})}")
+        for t in sorted(by_type):
+            sub_labels, _sil = sub_cluster(X, by_type[t], t, args.seed)
+            labels.update(sub_labels)
+        mode = "by-type"
 
-    dist = np.sqrt(((X - cent[asg]) ** 2).sum(axis=1))
-    members: dict[int, list] = {}
+    members: dict[str, list] = {}
     for i, (num, name, pdf) in enumerate(keep):
-        members.setdefault(int(asg[i]), []).append((num, name, pdf, i))
+        members.setdefault(labels[i], []).append((num, name, pdf, i))
+
+    centroids = {c: X[[it[3] for it in items]].mean(axis=0)
+                 for c, items in members.items()}
+    dist = np.zeros(len(keep))
+    for c, items in members.items():
+        for *_rest, i in items:
+            d = X[i] - centroids[c]
+            dist[i] = float((d * d).sum() ** 0.5)
 
     sheets = contact_sheets(args.volume, members, dist)
     names = vlm_cluster_names(args.volume, members) if args.vlm_names else {}
@@ -299,8 +369,10 @@ def main() -> None:
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "k": int(len(members)),
         "seed": args.seed,
-        "note": "membership is geometric (layout features only); names are "
-                "display-only and NOT load-bearing",
+        "mode": mode,
+        "note": "membership = VLM page type + geometric sub-structure (by-type "
+                "mode) or layout features only (geometric mode); display names "
+                "are decoration, never load-bearing",
         "clusters": {
             str(c): {
                 "display_name": names.get(c, ""),
@@ -310,24 +382,23 @@ def main() -> None:
                                  sorted(items, key=lambda it: dist[it[3]])[:3]],
             } for c, items in sorted(members.items())
         },
-        "page_to_cluster": {it[1]: int(c) for c, items in members.items()
+        "page_to_cluster": {it[1]: str(c) for c, items in members.items()
                             for it in items},
     }
     (out_dir / "clusters.json").write_text(json.dumps(payload, indent=2) + "\n")
 
-    lines = [f"# {args.volume} page-architecture clusters — k={len(members)}, "
+    lines = [f"# {args.volume} clusters ({mode}) — k={len(members)}, "
              f"{len(keep)} pages, generated {payload['generated_at']}",
-             "# MEMBERSHIP IS GEOMETRIC; David confirms/renames/merges via the "
-             "contact sheets:",
-             *[f"#   {p}" for p in sheets[:12]]]
+             "# David confirms/merges via the contact sheets:",
+             *[f"#   {p}" for p in sheets[:16]]]
     for c, items in sorted(members.items()):
         nm = f"  '{names[c]}'" if c in names else ""
         central = ", ".join(it[1] for it in sorted(items, key=lambda it: dist[it[3]])[:3])
         lines.append(f"cluster {c}: {len(items):3d} pages{nm}  (central: {central})")
     lines += ["#",
-              f"# NEXT (stage 1): ./venv/bin/python pick_representatives.py "
-              f"{args.volume} --clusters",
-              "# David reviews the sheets BEFORE labeling anything (HITL stage gate)."]
+              f"# NEXT: ./venv/bin/python bootstrap.py {args.volume} "
+              f"--confirm-clusters [--merge A+B]",
+              "# (David reviews the sheets BEFORE anything is labeled.)"]
     (out_dir / "clusters.txt").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
     print(f"\nWrote {out_dir/'clusters.json'}, clusters.txt, {len(sheets)} contact sheet(s).")

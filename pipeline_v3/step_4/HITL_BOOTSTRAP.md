@@ -191,35 +191,41 @@ Gold here matches git `01cbcc54`.
 
 ---
 
-## 8. STAGED-FLOW EXTENSION (2026-06-09 evening, desktop — DESKTOP_PROMPT TASK B)
+## 8. THE BOOTSTRAP SERVICE (2026-06-10 — supersedes the loose stage list below)
 
-The protocol above (PHASES 0–7) is extended into David's staged flow: *"classify within a doc,
-pick sample pages per cluster, label those, human corrects, run a solid chunk, review + correct
-the prompt, then the rest."* New tools (all offline-tested, suite F7–F9):
+**One command drives the whole flow: `./venv/bin/python bootstrap.py <Volume>`** — run it
+repeatedly; it derives the volume's stage from the filesystem, performs the next machine step,
+and stops at exactly the human gates with the next action printed. David never chains tools by
+hand.
 
 ```
-STAGE 0  cluster_pages.py <Vol>            geometric page-architecture clusters
-         → qa_output/<Vol>/clusters.{json,txt}
-         → label_review/contact_sheets/<Vol>/cluster_N.png   ← DAVID EYEBALLS THESE
-         Membership = measurable layout/ink features ONLY (192-dim grid + 12
-         structural signals, k by silhouette). --vlm-names adds display-only
-         names; they are never load-bearing. David confirms/renames/merges
-         clusters from the contact sheets BEFORE anything is labeled.
-STAGE 1  pick_representatives.py <Vol> --clusters     (k≈12 across clusters, FPS)
-         auto_labeler.py --volume <Vol> --pages <reps> → David corrects in editor
-STAGE 2  promote_examples.py <Vol> --pages <reps> --upload
-         review_diff.py <Vol> --draft-note → David rewrites the note and saves it
-         to volume_notes/<Vol>.md  ← NEW: notes are David-editable FILES now
-         (file replaces the python constant; optional per-cluster addenda in
-         volume_notes/<Vol>.cluster_<N>.md apply only to that cluster's pages)
-STAGE 3  pick_chunk.py <Vol> --frac 0.25   cluster-stratified, excludes gold+reps
-         auto_labeler.py --volume <Vol> --pages <chunk> --pin-examples <reps>
-         → David reviews a SAMPLE of the chunk. Convention errors persist?
-           fix volume_notes/<Vol>.md / pool, re-run THE CHUNK ONLY (~$8), iterate.
-STAGE 4  auto_labeler.py --volume <Vol> --pin-examples <reps>   (labels the rest —
-         already-labeled pages skip without --overwrite) → qa_report → triage →
-         PHASE 6/7 as above.
+bootstrap.py <Vol>                      do the next machine step / print my next step
+bootstrap.py <Vol> --status             report only
+bootstrap.py <Vol> --confirm-clusters [--merge A+B ...]    the cluster gate
+bootstrap.py <Vol> --bless-unchanged    unedited samples were already correct →
+                                        their auto labels become demos (reviewed/
+                                        is NEVER written by the service)
+bootstrap.py <Vol> --label-more N       another round of N sample pages to check
+bootstrap.py <Vol> --run-rest           label the remainder + qa + triage
 ```
+
+Stages it walks (A→E): **A** cluster by page TYPE (VLM type strata, cached, pennies) with
+geometric sub-clusters within a type only where the silhouette earns it (ids like
+`notebook_2`) → contact sheets; **B** WAIT — David eyeballs the sheets, `--confirm-clusters`
+(with `--merge`); **C** pick representatives across his confirmed clusters, label them with the
+most-similar demos from the existing cross-volume pool, WAIT — he corrects in the editor;
+**D** loop — every rerun promotes his corrected pages into the demo pool (re-corrections
+refresh with --force), auto-drafts the volume-note from his diffs
+(→ `volume_notes/<Vol>.md`, his file), `--bless-unchanged` covers samples that needed no edits;
+he decides `--label-more N` (cluster-stratified, HIS demos pinned) or **E** `--run-rest`
+(remainder with his demos pinned + his note, then qa_report + triage → review-ready).
+
+Safety rails: crop-set fingerprint verified on every run (machine-vintage drift guard —
+refuses to proceed if the page set changed under the flow; `--refingerprint` after manual
+verification); cost estimate printed before every API step; ≤12 pins round-robin across
+clusters (more demos measurably hurt); `reviewed/` is read-only to the service, always.
+
+Underlying tools (usable standalone; the service just orchestrates them):
 
 **Honest validation notes (Volume_1, 274 gold pages, 2026-06-09):**
 - End-to-end run works: k=3 chosen by silhouette (0.136 — weak but real structure), contact
