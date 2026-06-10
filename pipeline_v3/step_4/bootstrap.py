@@ -231,6 +231,9 @@ def parse_args() -> argparse.Namespace:
                    help="Label the entire remainder with David's demos pinned, then qa + triage.")
     p.add_argument("--refingerprint", action="store_true",
                    help="Accept a changed crop set after verifying alignment yourself.")
+    p.add_argument("--open-sheets", action="store_true",
+                   help="Open this volume's cluster contact sheets in your image "
+                        "viewer (THIS is how you review clusters before confirming).")
     return p.parse_args()
 
 
@@ -278,6 +281,23 @@ def main() -> None:
         "has_reps": has_reps,
     }
     stage = derive_stage(vol, state, paths)
+
+    if a.open_sheets:
+        sheets = sorted((SCRIPT_DIR / "label_review" / "contact_sheets" / vol).glob("*.png"))
+        if not sheets:
+            print(f"no contact sheets yet — run bootstrap.py {vol} first (stage A).")
+            return
+        summary = QA_DIR / vol / "clusters.txt"
+        if summary.exists():
+            print(summary.read_text())
+        for s in sheets:
+            subprocess.Popen(["xdg-open", str(s)],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print(f"opened {len(sheets)} sheet(s) in your image viewer. Each thumbnail "
+              f"is one page (most-central pages first).\nIf the groups make sense:  "
+              f"./venv/bin/python bootstrap.py {vol} --confirm-clusters"
+              f"\nTo fold two groups:       ... --confirm-clusters --merge A+B")
+        return
 
     if a.status:
         report_status(vol, stage, state)
