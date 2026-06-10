@@ -45,6 +45,9 @@ Canvas controls:
   - With NO polygon selected, Left / Right arrow keys navigate pages (auto-saves).
   - Ctrl+D / Ctrl+A go to the next / previous page from anywhere (auto-saves),
     even with a polygon selected; inert while typing in a text field.
+  - On page load the TOPMOST src_content is auto-selected; Ctrl+S steps DOWN the
+    page's src_content ladder (top→bottom, wrapping), panning it into view if
+    you are zoomed — so tighten-with-arrows → Ctrl+S → repeat, hands on keys.
   - Ctrl+V duplicates the selected polygon (same category, offset slightly) and
     auto-selects the copy, so you can slide it into place with the arrow keys.
   - Shift-click a category in the right panel to RE-LABEL the selected polygon to
@@ -509,6 +512,8 @@ class NormalizedEditorApp:
             "• Shift+C → connect",
             "• Ctrl+D / Ctrl+A →",
             "  next / prev page",
+            "• Ctrl+S → next src_content",
+            "  down the page (wraps)",
             "",
             "Selected box (arrows):",
             "• Arrow → pull that edge in",
@@ -613,6 +618,8 @@ class NormalizedEditorApp:
         self.root.bind("<Control-D>", lambda e: self._on_ctrl_page(+1))
         self.root.bind("<Control-a>", lambda e: self._on_ctrl_page(-1))
         self.root.bind("<Control-A>", lambda e: self._on_ctrl_page(-1))
+        self.root.bind("<Control-s>", lambda e: self._on_ctrl_s())
+        self.root.bind("<Control-S>", lambda e: self._on_ctrl_s())
         self.root.bind("<Return>", self._on_enter_key)
         self.root.bind("<Escape>", self._on_escape_key)
         self.root.bind("<Shift-W>", self._on_shift_w)
@@ -666,6 +673,11 @@ class NormalizedEditorApp:
         self._refresh_queue()
         self._refresh_render_metrics()
         self._refresh_image()
+        self._draw_scene()
+
+        # Auto-select the topmost src_content so review starts hands-on-keys
+        # (Ctrl+S then walks the ladder downward).
+        self._auto_select_top_src_content()
         self._draw_scene()
 
         self.page_entry.delete(0, tk.END)
@@ -863,6 +875,73 @@ class NormalizedEditorApp:
             return None
         (self.next_page if direction > 0 else self.previous_page)()
         return "break"
+
+    # ── src_content ladder (top-down review) ──────────────────────────────────
+
+    def _src_content_ladder(self):
+        """Indices of the current doc's src_content polygons, ordered by
+        vertical position (top of page first; ties broken left-to-right)."""
+        polys = (self.page_data.get("documents", {})
+                 .get(self.current_doc, {}).get("src_content", []))
+        order = []
+        for idx, p in enumerate(polys):
+            vs = p.get("vertices", [])
+            if len(vs) >= 3:
+                cy = sum(v["y"] for v in vs) / len(vs)
+                cx = sum(v["x"] for v in vs) / len(vs)
+                order.append((cy, cx, idx))
+        order.sort()
+        return [idx for _cy, _cx, idx in order]
+
+    def _select_src_content(self, idx):
+        self._cancel_draw_if_active()
+        self.current_info_type    = "src_content"
+        self.selected_polygon_idx = idx
+        self._highlight_info_type_button()
+        self._ensure_selected_visible()
+        self._draw_scene()
+
+    def _auto_select_top_src_content(self):
+        """On page load: select the highest src_content so arrow-key tightening
+        can start immediately. No-op on pages without src_content."""
+        ladder = self._src_content_ladder()
+        if ladder:
+            self.current_info_type    = "src_content"
+            self.selected_polygon_idx = ladder[0]
+            self._highlight_info_type_button()
+
+    def _on_ctrl_s(self):
+        """Ctrl+S: step DOWN the page's src_content ladder (wraps to the top
+        after the bottom box). Starts at the top if nothing relevant is selected."""
+        if self._focus_is_text_input():
+            return None
+        ladder = self._src_content_ladder()
+        if not ladder:
+            return "break"
+        if self.current_info_type == "src_content" and self.selected_polygon_idx in ladder:
+            nxt = ladder[(ladder.index(self.selected_polygon_idx) + 1) % len(ladder)]
+        else:
+            nxt = ladder[0]
+        self._select_src_content(nxt)
+        return "break"
+
+    def _ensure_selected_visible(self):
+        """Pan (never zoom) so the selected polygon's center is on-screen —
+        keeps the Ctrl+S ladder usable while zoomed in for tightening."""
+        polys = self._current_polygons()
+        if self.selected_polygon_idx is None or self.selected_polygon_idx >= len(polys):
+            return
+        cx, cy = self._centroid_canvas(polys[self.selected_polygon_idx]["vertices"])
+        w = self.canvas.winfo_width()
+        h = self.canvas.winfo_height()
+        if w <= 1 or h <= 1:
+            return
+        margin = 40
+        if not (margin <= cx <= w - margin and margin <= cy <= h - margin):
+            self.image_offset_x += w / 2 - cx
+            self.image_offset_y += h / 2 - cy
+            self.view = ("custom", self.display_scale,
+                         self.image_offset_x, self.image_offset_y)
 
     def go_to_page(self):
         self._cancel_draw_if_active()
