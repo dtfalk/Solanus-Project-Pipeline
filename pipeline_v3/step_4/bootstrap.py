@@ -227,6 +227,12 @@ def parse_args() -> argparse.Namespace:
                         "stage C (default 12; spread across clusters by size, "
                         "min 1 each). More samples = more of your gold as demos "
                         "and broader coverage, at ~$0.09/page + your review time.")
+    p.add_argument("--contrast", type=int, default=2, metavar="N",
+                   help="Contrastive pairs added to every labeling prompt in "
+                        "--label-more / --run-rest: the volume's most-corrected "
+                        "pages shown as the model's INCORRECT attempt vs David's "
+                        "CORRECT gold, ALONGSIDE the normal demos (default 2; "
+                        "0 = roll back).")
     p.add_argument("--bless-unchanged", action="store_true",
                    help="Sampled pages David did NOT edit were already correct: "
                         "promote their auto labels to the demo pool (reviewed/ untouched).")
@@ -444,8 +450,9 @@ def main() -> None:
         pin_arg = ",".join(f"{vol}/{p}" for p in pins)
         est = chunk["chunk_size"] * COST_PER_PAGE
         run([PY, "auto_labeler.py", "--volume", vol, "--pages", chunk["pages_arg"],
-             "--pin-examples", pin_arg],
-            f"labeling {chunk['chunk_size']} sample pages with YOUR {len(pins)} demos pinned (~${est:.2f})")
+             "--pin-examples", pin_arg, "--contrast-pairs", str(a.contrast)],
+            f"labeling {chunk['chunk_size']} sample pages with YOUR {len(pins)} demos pinned "
+            f"+ {a.contrast} contrast pair(s) (~${est:.2f})")
         state["sampled"] = sorted(sampled | set(chunk["pages"]))
         save_state(vol, state)
         print(f"\n■ YOUR TURN — check/correct in the editor (pages {chunk['pages_arg']}), "
@@ -467,9 +474,9 @@ def main() -> None:
             print(f"  NOTE: no {note.name} volume note — running on demos alone. "
                   f"(Write one any time; it loads automatically.)")
         run([PY, "auto_labeler.py", "--volume", vol, "--overwrite",
-             "--pin-examples", pin_arg],
+             "--pin-examples", pin_arg, "--contrast-pairs", str(a.contrast)],
             f"stage E — labeling the remainder (~{remainder} pages, ~${est:.2f}) "
-            f"with your {len(pins)} pinned demos")
+            f"with your {len(pins)} pinned demos + {a.contrast} contrast pair(s)")
         run([PY, "qa_report.py", vol], "qa_report")
         run([PY, "triage.py", vol], "triage (worst-first worklist)")
         state["completed"] = datetime.now().isoformat(timespec="seconds")
