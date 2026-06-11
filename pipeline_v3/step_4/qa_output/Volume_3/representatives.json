@@ -1,102 +1,102 @@
 {
   "volume": "Volume_3",
   "k": 12,
-  "total_pages": 312,
-  "generated_at": "2026-06-09T14:23:11",
+  "total_pages": 310,
+  "generated_at": "2026-06-10T16:37:22",
   "type_distribution": {
-    "other": 2,
-    "notebook": 310
+    "notebook_2": 162,
+    "notebook_1": 148
   },
   "allocation": {
-    "notebook": 11,
-    "other": 1
+    "notebook_2": 6,
+    "notebook_1": 6
   },
-  "pages_arg": "1,27,77,78,99,110,117,123,136,180,206,218",
-  "pin_arg": "Volume_3/page_001,Volume_3/page_027,Volume_3/page_077,Volume_3/page_078,Volume_3/page_099,Volume_3/page_110,Volume_3/page_117,Volume_3/page_123,Volume_3/page_136,Volume_3/page_180,Volume_3/page_206,Volume_3/page_218",
+  "pages_arg": "27,77,78,117,119,131,136,155,180,181,218,250",
+  "pin_arg": "Volume_3/page_027,Volume_3/page_077,Volume_3/page_078,Volume_3/page_117,Volume_3/page_119,Volume_3/page_131,Volume_3/page_136,Volume_3/page_155,Volume_3/page_180,Volume_3/page_181,Volume_3/page_218,Volume_3/page_250",
   "representatives": [
-    {
-      "page": "page_001",
-      "page_number": 1,
-      "type": "other",
-      "covers": 1,
-      "max_covered_dist": 5.960464477539063e-08
-    },
     {
       "page": "page_027",
       "page_number": 27,
-      "type": "notebook",
-      "covers": 223,
-      "max_covered_dist": 0.18853795528411865
+      "type": "notebook_2",
+      "covers": 156,
+      "max_covered_dist": 0.1788347363471985
     },
     {
       "page": "page_077",
       "page_number": 77,
-      "type": "notebook",
+      "type": "notebook_1",
       "covers": 2,
-      "max_covered_dist": 0.10618823766708374
+      "max_covered_dist": 0.12439572811126709
     },
     {
       "page": "page_078",
       "page_number": 78,
-      "type": "notebook",
-      "covers": 1,
-      "max_covered_dist": 0.0
-    },
-    {
-      "page": "page_099",
-      "page_number": 99,
-      "type": "notebook",
-      "covers": 12,
-      "max_covered_dist": 0.1660894751548767
-    },
-    {
-      "page": "page_110",
-      "page_number": 110,
-      "type": "notebook",
-      "covers": 8,
-      "max_covered_dist": 0.16359639167785645
+      "type": "notebook_1",
+      "covers": 3,
+      "max_covered_dist": 0.14868593215942383
     },
     {
       "page": "page_117",
       "page_number": 117,
-      "type": "notebook",
-      "covers": 7,
-      "max_covered_dist": 0.1631460189819336
+      "type": "notebook_2",
+      "covers": 5,
+      "max_covered_dist": 0.1581510305404663
     },
     {
-      "page": "page_123",
-      "page_number": 123,
-      "type": "notebook",
-      "covers": 12,
-      "max_covered_dist": 0.15901637077331543
+      "page": "page_119",
+      "page_number": 119,
+      "type": "notebook_1",
+      "covers": 7,
+      "max_covered_dist": 0.16742831468582153
+    },
+    {
+      "page": "page_131",
+      "page_number": 131,
+      "type": "notebook_1",
+      "covers": 13,
+      "max_covered_dist": 0.16779851913452148
     },
     {
       "page": "page_136",
       "page_number": 136,
-      "type": "notebook",
-      "covers": 18,
-      "max_covered_dist": 0.1808214783668518
+      "type": "notebook_2",
+      "covers": 9,
+      "max_covered_dist": 0.12402200698852539
+    },
+    {
+      "page": "page_155",
+      "page_number": 155,
+      "type": "notebook_2",
+      "covers": 26,
+      "max_covered_dist": 0.13791048526763916
     },
     {
       "page": "page_180",
       "page_number": 180,
-      "type": "notebook",
-      "covers": 9,
-      "max_covered_dist": 0.18341946601867676
+      "type": "notebook_2",
+      "covers": 4,
+      "max_covered_dist": 0.14879107475280762
     },
     {
-      "page": "page_206",
-      "page_number": 206,
-      "type": "notebook",
-      "covers": 16,
-      "max_covered_dist": 0.1515662670135498
+      "page": "page_181",
+      "page_number": 181,
+      "type": "notebook_2",
+      "covers": 3,
+      "max_covered_dist": 0.12043178081512451
     },
     {
       "page": "page_218",
       "page_number": 218,
-      "type": "notebook",
-      "covers": 3,
-      "max_covered_dist": 0.4486653208732605
+      "type": "notebook_1",
+      "covers": 2,
+      "max_covered_dist": 0.13513147830963135
+    },
+    {
+      "page": "page_250",
+      "page_number": 250,
+      "type": "notebook_1",
+      "covers": 80,
+      "max_covered_dist": 0.18821954727172852
     }
   ],
   "unfingerprintable": []

@@ -1,0 +1,10 @@
+DRAFT VOLUME_PROMPT_NOTES entry for Volume_3 — from review_diff over 11 reviewed page(s), 7 changed.
+EDIT BEFORE USE: bullets say WHAT the reviewer changed; rewrite into the
+convention WHY (see VOLUME_PROMPT_NOTES['Volume_4'] in auto_labeler.py for
+the target voice), then paste into VOLUME_PROMPT_NOTES['Volume_3'].
+
+VOLUME-SPECIFIC OVERRIDE (this page is from Volume_3):
+- The model MISSES 'struct_doc' regions on these pages (reviewer added 2) — look for them explicitly.
+- Box extents run too LARGE — tighten them (reviewer resized 21: grew 3, shrank 12; edges pushed outward: {'top': 2, 'right': 2, 'bottom': 3, 'left': 1}).
+
+(below-threshold singletons, for your judgment: add src_content; remove struct_doc)

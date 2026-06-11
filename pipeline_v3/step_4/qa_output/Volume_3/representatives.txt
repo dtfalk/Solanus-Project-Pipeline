@@ -1,22 +1,22 @@
-# representatives for Volume_3 — k=12 of 312 pages, generated 2026-06-09T14:23:11
-# type distribution: {'other': 2, 'notebook': 310}   allocation: {'notebook': 11, 'other': 1}
-page_001  type=other      covers   1 pages  (farthest at cos-dist 0.000)
-page_027  type=notebook   covers 223 pages  (farthest at cos-dist 0.189)
-page_077  type=notebook   covers   2 pages  (farthest at cos-dist 0.106)
-page_078  type=notebook   covers   1 pages  (farthest at cos-dist 0.000)
-page_099  type=notebook   covers  12 pages  (farthest at cos-dist 0.166)
-page_110  type=notebook   covers   8 pages  (farthest at cos-dist 0.164)
-page_117  type=notebook   covers   7 pages  (farthest at cos-dist 0.163)
-page_123  type=notebook   covers  12 pages  (farthest at cos-dist 0.159)
-page_136  type=notebook   covers  18 pages  (farthest at cos-dist 0.181)
-page_180  type=notebook   covers   9 pages  (farthest at cos-dist 0.183)
-page_206  type=notebook   covers  16 pages  (farthest at cos-dist 0.152)
-page_218  type=notebook   covers   3 pages  (farthest at cos-dist 0.449)
-# coverage: mean nearest-rep dist 0.108, max 0.449
+# representatives for Volume_3 — k=12 of 310 pages, generated 2026-06-10T16:37:22
+# type distribution: {'notebook_2': 162, 'notebook_1': 148}   allocation: {'notebook_2': 6, 'notebook_1': 6}
+page_027  type=notebook_2  covers 156 pages  (farthest at cos-dist 0.179)
+page_077  type=notebook_1  covers   2 pages  (farthest at cos-dist 0.124)
+page_078  type=notebook_1  covers   3 pages  (farthest at cos-dist 0.149)
+page_117  type=notebook_2  covers   5 pages  (farthest at cos-dist 0.158)
+page_119  type=notebook_1  covers   7 pages  (farthest at cos-dist 0.167)
+page_131  type=notebook_1  covers  13 pages  (farthest at cos-dist 0.168)
+page_136  type=notebook_2  covers   9 pages  (farthest at cos-dist 0.124)
+page_155  type=notebook_2  covers  26 pages  (farthest at cos-dist 0.138)
+page_180  type=notebook_2  covers   4 pages  (farthest at cos-dist 0.149)
+page_181  type=notebook_2  covers   3 pages  (farthest at cos-dist 0.120)
+page_218  type=notebook_1  covers   2 pages  (farthest at cos-dist 0.135)
+page_250  type=notebook_1  covers  80 pages  (farthest at cos-dist 0.188)
+# coverage: mean nearest-rep dist 0.101, max 0.188
 # unfingerprintable (review manually): none
 #
-# PHASE 2:  ./venv/bin/python auto_labeler.py --volume Volume_3 --pages 1,27,77,78,99,110,117,123,136,180,206,218
+# PHASE 2:  ./venv/bin/python auto_labeler.py --volume Volume_3 --pages 27,77,78,117,119,131,136,155,180,181,218,250
 # PHASE 3:  EDITOR_DOCUMENT=Volume_3 ./venv/bin/python normalized_editor.py
-# PHASE 4:  ./venv/bin/python promote_examples.py Volume_3 --pages 1,27,77,78,99,110,117,123,136,180,206,218 --upload
+# PHASE 4:  ./venv/bin/python promote_examples.py Volume_3 --pages 27,77,78,117,119,131,136,155,180,181,218,250 --upload
 #           ./venv/bin/python review_diff.py Volume_3 --draft-note
-# PHASE 5:  ./venv/bin/python auto_labeler.py --volume Volume_3 --pin-examples 'Volume_3/page_001,Volume_3/page_027,Volume_3/page_077,Volume_3/page_078,Volume_3/page_099,Volume_3/page_110,Volume_3/page_117,Volume_3/page_123,Volume_3/page_136,Volume_3/page_180,Volume_3/page_206,Volume_3/page_218'
+# PHASE 5:  ./venv/bin/python auto_labeler.py --volume Volume_3 --pin-examples 'Volume_3/page_027,Volume_3/page_077,Volume_3/page_078,Volume_3/page_117,Volume_3/page_119,Volume_3/page_131,Volume_3/page_136,Volume_3/page_155,Volume_3/page_180,Volume_3/page_181,Volume_3/page_218,Volume_3/page_250'
