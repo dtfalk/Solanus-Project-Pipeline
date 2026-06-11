@@ -222,6 +222,11 @@ def parse_args() -> argparse.Namespace:
                    help="Record David's approval of the contact sheets (stage B gate).")
     p.add_argument("--merge", action="append", default=[], metavar="A+B",
                    help="While confirming: fold cluster B (and C...) into A. Repeatable.")
+    p.add_argument("--samples", type=int, default=12, metavar="N",
+                   help="How many representative sample pages to pick & label at "
+                        "stage C (default 12; spread across clusters by size, "
+                        "min 1 each). More samples = more of your gold as demos "
+                        "and broader coverage, at ~$0.09/page + your review time.")
     p.add_argument("--bless-unchanged", action="store_true",
                    help="Sampled pages David did NOT edit were already correct: "
                         "promote their auto labels to the demo pool (reviewed/ untouched).")
@@ -380,8 +385,8 @@ def main() -> None:
         stage = "C"   # fall through — keep moving
 
     if stage == "C":
-        run([PY, "pick_representatives.py", vol, "--clusters"],
-            "stage C — pick representatives across your confirmed clusters")
+        run([PY, "pick_representatives.py", vol, "--clusters", "--k", str(a.samples)],
+            f"stage C — pick {a.samples} representatives across your confirmed clusters")
         reps = json.loads((QA_DIR / vol / "representatives.json").read_text())
         rep_pages = [r["page"] for r in reps["representatives"]]
         est = len(rep_pages) * COST_PER_PAGE
