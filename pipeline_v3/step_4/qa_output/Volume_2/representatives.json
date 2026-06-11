@@ -1,104 +1,201 @@
 {
   "volume": "Volume_2",
-  "k": 12,
-  "total_pages": 372,
-  "generated_at": "2026-06-09T14:08:04",
+  "k": 25,
+  "total_pages": 360,
+  "generated_at": "2026-06-11T11:34:31",
   "type_distribution": {
-    "other": 29,
-    "notebook": 13,
-    "letter": 314,
-    "mass_card": 16
+    "letter_2": 149,
+    "mass_card_1": 17,
+    "letter_1": 169,
+    "other_2": 6,
+    "other_1": 8,
+    "notebook": 9,
+    "mass_card_2": 2
   },
   "allocation": {
-    "letter": 8,
-    "other": 2,
-    "mass_card": 1,
-    "notebook": 1
+    "letter_1": 9,
+    "letter_2": 9,
+    "mass_card_1": 2,
+    "notebook": 2,
+    "other_1": 1,
+    "other_2": 1,
+    "mass_card_2": 1
   },
-  "pages_arg": "8,40,49,85,140,168,192,260,266,296,354,372",
-  "pin_arg": "Volume_2/page_008,Volume_2/page_040,Volume_2/page_049,Volume_2/page_085,Volume_2/page_140,Volume_2/page_168,Volume_2/page_192,Volume_2/page_260,Volume_2/page_266,Volume_2/page_296,Volume_2/page_354,Volume_2/page_372",
+  "pages_arg": "2,4,16,30,55,60,66,130,148,153,155,158,161,164,167,170,182,231,244,249,256,270,271,286,298",
+  "pin_arg": "Volume_2/page_002,Volume_2/page_004,Volume_2/page_016,Volume_2/page_030,Volume_2/page_055,Volume_2/page_060,Volume_2/page_066,Volume_2/page_130,Volume_2/page_148,Volume_2/page_153,Volume_2/page_155,Volume_2/page_158,Volume_2/page_161,Volume_2/page_164,Volume_2/page_167,Volume_2/page_170,Volume_2/page_182,Volume_2/page_231,Volume_2/page_244,Volume_2/page_249,Volume_2/page_256,Volume_2/page_270,Volume_2/page_271,Volume_2/page_286,Volume_2/page_298",
   "representatives": [
     {
-      "page": "page_008",
-      "page_number": 8,
-      "type": "notebook",
-      "covers": 24,
-      "max_covered_dist": 0.33387959003448486
+      "page": "page_002",
+      "page_number": 2,
+      "type": "letter_2",
+      "covers": 13,
+      "max_covered_dist": 0.27672767639160156
     },
     {
-      "page": "page_040",
-      "page_number": 40,
-      "type": "letter",
+      "page": "page_004",
+      "page_number": 4,
+      "type": "letter_1",
+      "covers": 4,
+      "max_covered_dist": 0.3610837459564209
+    },
+    {
+      "page": "page_016",
+      "page_number": 16,
+      "type": "letter_2",
       "covers": 3,
-      "max_covered_dist": 0.3298318386077881
+      "max_covered_dist": 0.2862926721572876
     },
     {
-      "page": "page_049",
-      "page_number": 49,
-      "type": "letter",
-      "covers": 24,
-      "max_covered_dist": 0.37086260318756104
-    },
-    {
-      "page": "page_085",
-      "page_number": 85,
-      "type": "mass_card",
-      "covers": 5,
-      "max_covered_dist": 0.3084143400192261
-    },
-    {
-      "page": "page_140",
-      "page_number": 140,
-      "type": "letter",
-      "covers": 6,
-      "max_covered_dist": 0.2624683380126953
-    },
-    {
-      "page": "page_168",
-      "page_number": 168,
-      "type": "letter",
-      "covers": 6,
-      "max_covered_dist": 0.3746126890182495
-    },
-    {
-      "page": "page_192",
-      "page_number": 192,
-      "type": "letter",
-      "covers": 8,
-      "max_covered_dist": 0.3065992593765259
-    },
-    {
-      "page": "page_260",
-      "page_number": 260,
-      "type": "letter",
-      "covers": 134,
-      "max_covered_dist": 0.4424537420272827
-    },
-    {
-      "page": "page_266",
-      "page_number": 266,
-      "type": "letter",
+      "page": "page_030",
+      "page_number": 30,
+      "type": "letter_1",
       "covers": 2,
-      "max_covered_dist": 0.1594763994216919
+      "max_covered_dist": 0.12428015470504761
     },
     {
-      "page": "page_296",
-      "page_number": 296,
-      "type": "other",
-      "covers": 130,
-      "max_covered_dist": 0.34305888414382935
+      "page": "page_055",
+      "page_number": 55,
+      "type": "mass_card_1",
+      "covers": 5,
+      "max_covered_dist": 0.25001829862594604
     },
     {
-      "page": "page_354",
-      "page_number": 354,
-      "type": "letter",
-      "covers": 29,
-      "max_covered_dist": 0.4587540030479431
+      "page": "page_060",
+      "page_number": 60,
+      "type": "letter_2",
+      "covers": 3,
+      "max_covered_dist": 0.20105969905853271
     },
     {
-      "page": "page_372",
-      "page_number": 372,
-      "type": "other",
+      "page": "page_066",
+      "page_number": 66,
+      "type": "mass_card_1",
+      "covers": 9,
+      "max_covered_dist": 0.2784329056739807
+    },
+    {
+      "page": "page_130",
+      "page_number": 130,
+      "type": "letter_1",
+      "covers": 3,
+      "max_covered_dist": 0.23381555080413818
+    },
+    {
+      "page": "page_148",
+      "page_number": 148,
+      "type": "letter_2",
+      "covers": 8,
+      "max_covered_dist": 0.2582169771194458
+    },
+    {
+      "page": "page_153",
+      "page_number": 153,
+      "type": "letter_1",
+      "covers": 19,
+      "max_covered_dist": 0.27042287588119507
+    },
+    {
+      "page": "page_155",
+      "page_number": 155,
+      "type": "letter_1",
+      "covers": 5,
+      "max_covered_dist": 0.36785173416137695
+    },
+    {
+      "page": "page_158",
+      "page_number": 158,
+      "type": "letter_2",
+      "covers": 1,
+      "max_covered_dist": -1.1920928955078125e-07
+    },
+    {
+      "page": "page_161",
+      "page_number": 161,
+      "type": "letter_2",
+      "covers": 4,
+      "max_covered_dist": 0.25817227363586426
+    },
+    {
+      "page": "page_164",
+      "page_number": 164,
+      "type": "other_2",
+      "covers": 34,
+      "max_covered_dist": 0.2714831829071045
+    },
+    {
+      "page": "page_167",
+      "page_number": 167,
+      "type": "letter_2",
+      "covers": 2,
+      "max_covered_dist": 0.21917027235031128
+    },
+    {
+      "page": "page_170",
+      "page_number": 170,
+      "type": "letter_1",
+      "covers": 1,
+      "max_covered_dist": 0.0
+    },
+    {
+      "page": "page_182",
+      "page_number": 182,
+      "type": "mass_card_2",
+      "covers": 2,
+      "max_covered_dist": 0.2385866641998291
+    },
+    {
+      "page": "page_231",
+      "page_number": 231,
+      "type": "letter_1",
+      "covers": 56,
+      "max_covered_dist": 0.3195173740386963
+    },
+    {
+      "page": "page_244",
+      "page_number": 244,
+      "type": "notebook",
+      "covers": 9,
+      "max_covered_dist": 0.2941091060638428
+    },
+    {
+      "page": "page_249",
+      "page_number": 249,
+      "type": "letter_1",
+      "covers": 1,
+      "max_covered_dist": 0.0
+    },
+    {
+      "page": "page_256",
+      "page_number": 256,
+      "type": "letter_2",
+      "covers": 1,
+      "max_covered_dist": 1.1920928955078125e-07
+    },
+    {
+      "page": "page_270",
+      "page_number": 270,
+      "type": "letter_2",
+      "covers": 83,
+      "max_covered_dist": 0.2964736819267273
+    },
+    {
+      "page": "page_271",
+      "page_number": 271,
+      "type": "other_1",
+      "covers": 47,
+      "max_covered_dist": 0.3748406767845154
+    },
+    {
+      "page": "page_286",
+      "page_number": 286,
+      "type": "notebook",
+      "covers": 44,
+      "max_covered_dist": 0.2758530378341675
+    },
+    {
+      "page": "page_298",
+      "page_number": 298,
+      "type": "letter_1",
       "covers": 1,
       "max_covered_dist": 0.0
     }

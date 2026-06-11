@@ -1,22 +1,35 @@
-# representatives for Volume_2 — k=12 of 372 pages, generated 2026-06-09T14:08:04
-# type distribution: {'other': 29, 'notebook': 13, 'letter': 314, 'mass_card': 16}   allocation: {'letter': 8, 'other': 2, 'mass_card': 1, 'notebook': 1}
-page_008  type=notebook   covers  24 pages  (farthest at cos-dist 0.334)
-page_040  type=letter     covers   3 pages  (farthest at cos-dist 0.330)
-page_049  type=letter     covers  24 pages  (farthest at cos-dist 0.371)
-page_085  type=mass_card  covers   5 pages  (farthest at cos-dist 0.308)
-page_140  type=letter     covers   6 pages  (farthest at cos-dist 0.262)
-page_168  type=letter     covers   6 pages  (farthest at cos-dist 0.375)
-page_192  type=letter     covers   8 pages  (farthest at cos-dist 0.307)
-page_260  type=letter     covers 134 pages  (farthest at cos-dist 0.442)
-page_266  type=letter     covers   2 pages  (farthest at cos-dist 0.159)
-page_296  type=other      covers 130 pages  (farthest at cos-dist 0.343)
-page_354  type=letter     covers  29 pages  (farthest at cos-dist 0.459)
-page_372  type=other      covers   1 pages  (farthest at cos-dist 0.000)
-# coverage: mean nearest-rep dist 0.171, max 0.459
+# representatives for Volume_2 — k=25 of 360 pages, generated 2026-06-11T11:34:31
+# type distribution: {'letter_2': 149, 'mass_card_1': 17, 'letter_1': 169, 'other_2': 6, 'other_1': 8, 'notebook': 9, 'mass_card_2': 2}   allocation: {'letter_1': 9, 'letter_2': 9, 'mass_card_1': 2, 'notebook': 2, 'other_1': 1, 'other_2': 1, 'mass_card_2': 1}
+page_002  type=letter_2   covers  13 pages  (farthest at cos-dist 0.277)
+page_004  type=letter_1   covers   4 pages  (farthest at cos-dist 0.361)
+page_016  type=letter_2   covers   3 pages  (farthest at cos-dist 0.286)
+page_030  type=letter_1   covers   2 pages  (farthest at cos-dist 0.124)
+page_055  type=mass_card_1  covers   5 pages  (farthest at cos-dist 0.250)
+page_060  type=letter_2   covers   3 pages  (farthest at cos-dist 0.201)
+page_066  type=mass_card_1  covers   9 pages  (farthest at cos-dist 0.278)
+page_130  type=letter_1   covers   3 pages  (farthest at cos-dist 0.234)
+page_148  type=letter_2   covers   8 pages  (farthest at cos-dist 0.258)
+page_153  type=letter_1   covers  19 pages  (farthest at cos-dist 0.270)
+page_155  type=letter_1   covers   5 pages  (farthest at cos-dist 0.368)
+page_158  type=letter_2   covers   1 pages  (farthest at cos-dist -0.000)
+page_161  type=letter_2   covers   4 pages  (farthest at cos-dist 0.258)
+page_164  type=other_2    covers  34 pages  (farthest at cos-dist 0.271)
+page_167  type=letter_2   covers   2 pages  (farthest at cos-dist 0.219)
+page_170  type=letter_1   covers   1 pages  (farthest at cos-dist 0.000)
+page_182  type=mass_card_2  covers   2 pages  (farthest at cos-dist 0.239)
+page_231  type=letter_1   covers  56 pages  (farthest at cos-dist 0.320)
+page_244  type=notebook   covers   9 pages  (farthest at cos-dist 0.294)
+page_249  type=letter_1   covers   1 pages  (farthest at cos-dist 0.000)
+page_256  type=letter_2   covers   1 pages  (farthest at cos-dist 0.000)
+page_270  type=letter_2   covers  83 pages  (farthest at cos-dist 0.296)
+page_271  type=other_1    covers  47 pages  (farthest at cos-dist 0.375)
+page_286  type=notebook   covers  44 pages  (farthest at cos-dist 0.276)
+page_298  type=letter_1   covers   1 pages  (farthest at cos-dist 0.000)
+# coverage: mean nearest-rep dist 0.143, max 0.375
 # unfingerprintable (review manually): none
 #
-# PHASE 2:  ./venv/bin/python auto_labeler.py --volume Volume_2 --pages 8,40,49,85,140,168,192,260,266,296,354,372
+# PHASE 2:  ./venv/bin/python auto_labeler.py --volume Volume_2 --pages 2,4,16,30,55,60,66,130,148,153,155,158,161,164,167,170,182,231,244,249,256,270,271,286,298
 # PHASE 3:  EDITOR_DOCUMENT=Volume_2 ./venv/bin/python normalized_editor.py
-# PHASE 4:  ./venv/bin/python promote_examples.py Volume_2 --pages 8,40,49,85,140,168,192,260,266,296,354,372 --upload
+# PHASE 4:  ./venv/bin/python promote_examples.py Volume_2 --pages 2,4,16,30,55,60,66,130,148,153,155,158,161,164,167,170,182,231,244,249,256,270,271,286,298 --upload
 #           ./venv/bin/python review_diff.py Volume_2 --draft-note
-# PHASE 5:  ./venv/bin/python auto_labeler.py --volume Volume_2 --pin-examples 'Volume_2/page_008,Volume_2/page_040,Volume_2/page_049,Volume_2/page_085,Volume_2/page_140,Volume_2/page_168,Volume_2/page_192,Volume_2/page_260,Volume_2/page_266,Volume_2/page_296,Volume_2/page_354,Volume_2/page_372'
+# PHASE 5:  ./venv/bin/python auto_labeler.py --volume Volume_2 --pin-examples 'Volume_2/page_002,Volume_2/page_004,Volume_2/page_016,Volume_2/page_030,Volume_2/page_055,Volume_2/page_060,Volume_2/page_066,Volume_2/page_130,Volume_2/page_148,Volume_2/page_153,Volume_2/page_155,Volume_2/page_158,Volume_2/page_161,Volume_2/page_164,Volume_2/page_167,Volume_2/page_170,Volume_2/page_182,Volume_2/page_231,Volume_2/page_244,Volume_2/page_249,Volume_2/page_256,Volume_2/page_270,Volume_2/page_271,Volume_2/page_286,Volume_2/page_298'

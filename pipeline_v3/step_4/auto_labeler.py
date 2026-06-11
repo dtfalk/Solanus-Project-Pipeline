@@ -909,12 +909,16 @@ def build_prompt_parts(
     target_image: Image.Image,
     fewshot_pairs: list[tuple[Image.Image, dict]],
     volume_note: str = "",
+    contrast_pairs: list | None = None,
 ) -> list:
     """Build the multipart list passed to model.generate_content().
 
     Each few-shot pair contributes an EXAMPLE i header, image, labels JSON.
-    Target image is sent last with a 'PAGE TO LABEL' header. `volume_note` is an
-    optional per-volume convention addendum appended to the system prompt.
+    `contrast_pairs` (optional, C-ICL-style — David's diff idea, HITL §6.1)
+    additionally shows the SAME page twice: the model's earlier INCORRECT
+    attempt next to the human-corrected gold, so the model sees its own
+    failure mode on this volume. Target image is sent last. `volume_note` is
+    an optional per-volume convention addendum appended to the system prompt.
     """
     categories_block = "\n".join(
         f"  - {cat}: {CATEGORY_DESCRIPTIONS[cat]}" for cat in CATEGORIES
@@ -924,6 +928,16 @@ def build_prompt_parts(
         parts.append(f"EXAMPLE {i}:")
         parts.append(img)
         parts.append("Labels:\n" + json.dumps(payload, separators=(",", ":")))
+    for j, cp in enumerate(contrast_pairs or [], start=1):
+        parts.append(
+            f"COMMON MISTAKE {j} — the SAME page labeled twice: first the model's "
+            f"earlier INCORRECT attempt on this volume, then the CORRECT human-fixed "
+            f"labels. Study the difference and do NOT repeat the mistake:")
+        parts.append(cp["image"])
+        parts.append("INCORRECT (model's attempt):\n"
+                     + json.dumps(cp["wrong"], separators=(",", ":")))
+        parts.append("CORRECT (human gold):\n"
+                     + json.dumps(cp["right"], separators=(",", ":")))
     parts.append("PAGE TO LABEL:")
     parts.append(target_image)
     parts.append(
@@ -931,6 +945,54 @@ def build_prompt_parts(
         "Use the same coordinate frame as the input image."
     )
     return parts
+
+
+def build_contrast_pairs(doc_name: str, n: int, image_width: int | None) -> list:
+    """Pick the n most-instructive (auto vs gold) pairs for `doc_name` from the
+    pool: pages whose human-corrected pool copy differs most from the model's
+    original auto_labeled attempt. Returns [{key, image, wrong, right}, ...];
+    pages with no differences contribute nothing. Image loads from the Files
+    API when uploaded (same object as the demo), else inline render."""
+    scored = []
+    for page_dir in sorted((LABELED_EXAMPLES_DIR / doc_name).glob("page_*")):
+        gold_p = page_dir / f"{page_dir.name}.json"
+        auto_p = AUTO_LABELED_DIR / doc_name / page_dir.name / f"{page_dir.name}.json"
+        if not (gold_p.exists() and auto_p.exists()):
+            continue
+        try:
+            gold = json.load(open(gold_p))
+            auto = json.load(open(auto_p))
+        except Exception:
+            continue
+        g_ids = {p["id"]: (cat, p["vertices"]) for d in gold.get("documents", {}).values()
+                 if isinstance(d, dict) for cat, ps in d.items() if isinstance(ps, list)
+                 for p in ps if isinstance(p, dict) and "id" in p}
+        a_ids = {p["id"]: (cat, p["vertices"]) for d in auto.get("documents", {}).values()
+                 if isinstance(d, dict) for cat, ps in d.items() if isinstance(ps, list)
+                 for p in ps if isinstance(p, dict) and "id" in p}
+        added   = len(set(g_ids) - set(a_ids))
+        removed = len(set(a_ids) - set(g_ids))
+        changed = sum(1 for i in set(g_ids) & set(a_ids) if g_ids[i] != a_ids[i])
+        score = 3 * (added + removed) + changed
+        if score > 0:
+            scored.append((score, page_dir, auto, gold))
+    scored.sort(key=lambda t: (-t[0], t[1].name))
+    pairs = []
+    for score, page_dir, auto, gold in scored[:n]:
+        img = _get_uploaded_file(page_dir)
+        if img is None:
+            pdf = _example_pdf(page_dir)
+            if pdf is None:
+                continue
+            img = render_page(pdf, image_width)[0]
+        pairs.append({
+            "key": f"{doc_name}/{page_dir.name}",
+            "image": img,
+            "wrong": _scale_regions_to_render(auto, 0, 0),
+            "right": _scale_regions_to_render(gold, 0, 0),
+        })
+        log.info("  contrast pair: %s (diff score %d)", pairs[-1]["key"], score)
+    return pairs
 
 
 # ── Gemini call ───────────────────────────────────────────────────────────────
@@ -1772,6 +1834,7 @@ def process_page(
     pass2_fewshot_dirs: list[Path] | None = None,
     snap:               bool = True,
     backstop:           bool = True,
+    contrast_pairs:     list | None = None,
 ) -> tuple[int, int, int, int]:
     """Label one page and save its JSON + copied PDF.
 
@@ -1784,8 +1847,12 @@ def process_page(
     """
     target_img, render_w, render_h, source_w, source_h = render_page(pdf_path, image_width)
     fewshot_pairs = [load_example(d, image_width) for d in fewshot_dirs]
+    page_name = pdf_path.stem
+    cps = [c for c in (contrast_pairs or [])
+           if c["key"] != f"{doc_name}/{page_name}"]   # never show a page its own answer
     prompt_parts  = build_prompt_parts(target_img, fewshot_pairs,
-                                        load_volume_note(doc_name, pdf_path.stem))
+                                        load_volume_note(doc_name, page_name),
+                                        contrast_pairs=cps)
 
     response, input_tokens, output_tokens = call_gemini(client, model_name, prompt_parts)
     documents = _scale_response_to_original(
@@ -1941,6 +2008,11 @@ def parse_args() -> argparse.Namespace:
                    help="Number of few-shot examples for pass 2 (default: 6).")
     p.add_argument("--no-layout-sim", action="store_true",
                    help="Disable layout-similarity few-shot ranking (revert to random-within-type).")
+    p.add_argument("--contrast-pairs", type=int, default=0, metavar="N",
+                   help="Include N contrastive pairs in every prompt: the volume's "
+                        "most-corrected pool pages shown as INCORRECT (model's "
+                        "original attempt) vs CORRECT (human gold), C-ICL-style. "
+                        "Default 0 (off) — A/B-gated, see HITL_BOOTSTRAP §6.1.")
     p.add_argument("--pin-examples", type=str, default=None,
                    help="Comma-separated pool examples (e.g. 'Volume_4/page_001,Volume_4/page_002') "
                         "ALWAYS included in every page's few-shot set.")
@@ -2120,6 +2192,11 @@ def main() -> None:
     concurrency = max(1, args.concurrency)
     log.info("Processing %d page(s) with concurrency=%d.", len(work), concurrency)
 
+    contrast = []
+    if args.contrast_pairs > 0:
+        contrast = build_contrast_pairs(args.volume, args.contrast_pairs, image_width)
+        log.info("Contrastive prompting ON: %d pair(s).", len(contrast))
+
     def _label_one(item):
         doc_name, page_num, pdf_path, fewshot_dirs, pass2_dirs, out_path = item
         log.info("Labeling %s/page_%03d (%d pass-1 + %d pass-2 examples)",
@@ -2137,6 +2214,7 @@ def main() -> None:
             pass2_fewshot_dirs = pass2_dirs,
             snap               = not args.no_snap,
             backstop           = not args.no_backstop,
+            contrast_pairs     = contrast,
         )
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as pool_exec:
