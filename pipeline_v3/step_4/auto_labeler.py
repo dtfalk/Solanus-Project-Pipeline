@@ -948,10 +948,13 @@ def build_prompt_parts(
 
 
 def build_contrast_pairs(doc_name: str, n: int, image_width: int | None) -> list:
-    """Pick the n most-instructive (auto vs gold) pairs for `doc_name` from the
-    pool: pages whose human-corrected pool copy differs most from the model's
-    original auto_labeled attempt. Returns [{key, image, wrong, right}, ...];
-    pages with no differences contribute nothing. Image loads from the Files
+    """Collect ALL correction-bearing (auto vs gold) candidate pairs for
+    `doc_name` from the pool — pages whose human-corrected pool copy differs
+    from the model's original auto_labeled attempt — each with its layout
+    descriptor attached. The per-target selection (which n of these a given
+    page actually sees) happens inside process_page: the MOST LAYOUT-SIMILAR
+    corrected pages win, so every page is shown the mistakes made on pages
+    that look like it (`n` only logs intent here). Image loads from the Files
     API when uploaded (same object as the demo), else inline render."""
     scored = []
     for page_dir in sorted((LABELED_EXAMPLES_DIR / doc_name).glob("page_*")):
@@ -978,7 +981,7 @@ def build_contrast_pairs(doc_name: str, n: int, image_width: int | None) -> list
             scored.append((score, page_dir, auto, gold))
     scored.sort(key=lambda t: (-t[0], t[1].name))
     pairs = []
-    for score, page_dir, auto, gold in scored[:n]:
+    for score, page_dir, auto, gold in scored:
         img = _get_uploaded_file(page_dir)
         if img is None:
             pdf = _example_pdf(page_dir)
@@ -990,9 +993,27 @@ def build_contrast_pairs(doc_name: str, n: int, image_width: int | None) -> list
             "image": img,
             "wrong": _scale_regions_to_render(auto, 0, 0),
             "right": _scale_regions_to_render(gold, 0, 0),
+            "score": score,
+            "desc": _layout_descriptor(_example_pdf(page_dir)),
         })
-        log.info("  contrast pair: %s (diff score %d)", pairs[-1]["key"], score)
+    log.info("  contrast candidates: %d corrected page(s); each target gets its "
+             "%d most layout-similar.", len(pairs), n)
     return pairs
+
+
+def _pick_contrast_for_target(candidates: list, target_key: str,
+                              target_desc, n: int) -> list:
+    """The n candidates most layout-similar to the target page (never itself);
+    falls back to correction-size order when descriptors are unavailable."""
+    cands = [c for c in candidates if c["key"] != target_key]
+    if target_desc is not None:
+        import numpy as np
+        cands.sort(key=lambda c: (float(np.dot(c["desc"], target_desc))
+                                  if c.get("desc") is not None else -2.0),
+                   reverse=True)
+    else:
+        cands.sort(key=lambda c: -c["score"])
+    return cands[:n]
 
 
 # ── Gemini call ───────────────────────────────────────────────────────────────
@@ -1834,7 +1855,8 @@ def process_page(
     pass2_fewshot_dirs: list[Path] | None = None,
     snap:               bool = True,
     backstop:           bool = True,
-    contrast_pairs:     list | None = None,
+    contrast_pairs:     list | None = None,   # candidate pool from build_contrast_pairs
+    num_contrast:       int = 2,              # how many a target actually sees
 ) -> tuple[int, int, int, int]:
     """Label one page and save its JSON + copied PDF.
 
@@ -1848,8 +1870,10 @@ def process_page(
     target_img, render_w, render_h, source_w, source_h = render_page(pdf_path, image_width)
     fewshot_pairs = [load_example(d, image_width) for d in fewshot_dirs]
     page_name = pdf_path.stem
-    cps = [c for c in (contrast_pairs or [])
-           if c["key"] != f"{doc_name}/{page_name}"]   # never show a page its own answer
+    cps = []
+    if contrast_pairs and num_contrast > 0:
+        cps = _pick_contrast_for_target(contrast_pairs, f"{doc_name}/{page_name}",
+                                        _layout_descriptor(pdf_path), num_contrast)
     prompt_parts  = build_prompt_parts(target_img, fewshot_pairs,
                                         load_volume_note(doc_name, page_name),
                                         contrast_pairs=cps)
@@ -2215,6 +2239,7 @@ def main() -> None:
             snap               = not args.no_snap,
             backstop           = not args.no_backstop,
             contrast_pairs     = contrast,
+            num_contrast       = args.contrast_pairs,
         )
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=concurrency) as pool_exec:
