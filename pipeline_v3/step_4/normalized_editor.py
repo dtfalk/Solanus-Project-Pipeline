@@ -73,7 +73,7 @@ from pdf2image import convert_from_path
 from PIL import ImageTk
 
 # Document we are intending to review/edit
-TARGET_DOCUMENT = "Volume_3"
+TARGET_DOCUMENT = "Volume_2"
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 

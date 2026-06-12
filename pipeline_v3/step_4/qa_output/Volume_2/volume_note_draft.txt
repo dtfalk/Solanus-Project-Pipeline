@@ -1,9 +1,10 @@
-DRAFT VOLUME_PROMPT_NOTES entry for Volume_2 — from review_diff over 21 reviewed page(s), 21 changed.
+DRAFT VOLUME_PROMPT_NOTES entry for Volume_2 — from review_diff over 32 reviewed page(s), 31 changed.
 EDIT BEFORE USE: bullets say WHAT the reviewer changed; rewrite into the
 convention WHY (see VOLUME_PROMPT_NOTES['Volume_4'] in auto_labeler.py for
 the target voice), then paste into VOLUME_PROMPT_NOTES['Volume_2'].
 
 VOLUME-SPECIFIC OVERRIDE (this page is from Volume_2):
-- Box extents run too LARGE — tighten them (reviewer resized 77: grew 2, shrank 72; edges pushed outward: {'left': 1, 'top': 1, 'bottom': 1, 'right': 1}).
+- The model over-produces 'other' (reviewer removed 4).
+- Box extents run too LARGE — tighten them (reviewer resized 104: grew 5, shrank 94; edges pushed outward: {'left': 4, 'top': 3, 'right': 2, 'bottom': 1}).
 
-(below-threshold singletons, for your judgment: remove other; remove struct_id)
+(below-threshold singletons, for your judgment: remove struct_id; remove src_content)
