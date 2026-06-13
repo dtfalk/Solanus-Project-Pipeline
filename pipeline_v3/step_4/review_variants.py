@@ -19,7 +19,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PY = str(HERE / "venv" / "bin" / "python")
-MODES = ["raw", "current", "gentle"]
+MODES = ["raw", "medium", "gentle"]
 
 
 def main():

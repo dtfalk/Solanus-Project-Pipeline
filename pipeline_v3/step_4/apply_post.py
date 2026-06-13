@@ -23,18 +23,18 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 AUTO = HERE / "auto_labeled"
 import auto_labeler as AL
+from auto_labeler import _blend_documents as _blend
 from contents_connect import connect_contents
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("specs", nargs="+", metavar="Vol:pages")
-    ap.add_argument("--snap-mode", choices=["raw", "current", "gentle"], default="gentle")
+    ap.add_argument("--snap-mode", choices=["raw","current","medium","gentle"], default="gentle")
     ap.add_argument("--contents", action="store_true", help="wire the contents triangle")
     ap.add_argument("--adopt", action="store_true",
                     help="write into auto_labeled/ (adopt) instead of snap_compare/<mode>/")
     a = ap.parse_args()
-    AL._SNAP_MODE = a.snap_mode if a.snap_mode != "raw" else "current"
 
     out_root = AUTO if a.adopt else (HERE / "snap_compare" / a.snap_mode)
     for spec in a.specs:
@@ -48,8 +48,17 @@ def main():
                 continue
             raw = json.loads(raw_p.read_text())
             docs = raw["documents"]
-            if a.snap_mode != "raw":
+            if a.snap_mode == "medium":
+                # LITERALLY between raw and gentle: snap a copy with gentle, then
+                # move each box halfway from its raw position to its gentle position.
                 gray = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
+                gentle = json.loads(json.dumps(docs))
+                AL.resolve_overlaps(gentle)
+                AL.snap_all_polygons(gentle, gray, mode="gentle")
+                _blend(docs, gentle, 0.5)
+            elif a.snap_mode != "raw":
+                gray = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
+                AL._SNAP_MODE = a.snap_mode
                 AL.resolve_overlaps(docs)
                 AL.snap_all_polygons(docs, gray)
             edges = connect_contents(docs) if a.contents else 0

@@ -838,9 +838,10 @@ class NormalizedEditorApp:
                                     f"(EDITOR_VARIANTS={[n for n,_ in self.variant_specs]})")
         self.variant_order = list(self.variants.keys())
         if self.active_variant not in self.variants:
-            # start on the best candidate; Tab to compare the others / your gold
+            # show your SAVED gold first if it exists (so a save is visible on
+            # return), else the best candidate; Tab cycles to compare.
             self.active_variant = next(
-                (n for n in ("gentle", "reviewed✓") if n in self.variants),
+                (n for n in ("reviewed✓", "gentle") if n in self.variants),
                 self.variant_order[0])
         self.page_data = self.variants[self.active_variant]
         self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
@@ -857,6 +858,7 @@ class NormalizedEditorApp:
             self.current_doc = "doc_1"
         self.selected_polygon_idx = None
         self.num_docs_var.set(nd)
+        self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)  # this variant's baseline
         self._rebuild_doc_buttons()
         self._update_variant_button()
         self._auto_select_top_polygon()
@@ -871,10 +873,18 @@ class NormalizedEditorApp:
                      f"({self.variant_order.index(self.active_variant)+1}/{len(self.variant_order)})")
 
     def _save_variant_to_gold(self):
-        """Write the ACTIVE variant to reviewed/ (your pick), edited or not."""
+        """Write the ACTIVE variant to reviewed/ (your pick), edited or not, then
+        make it the 'reviewed✓' variant so it persists and shows on return."""
+        picked = self.active_variant
         self._approve_to_gold()
+        # fold the saved data in as reviewed✓ and switch to it
+        self.variants["reviewed✓"] = self.page_data
+        if "reviewed✓" not in self.variant_order:
+            self.variant_order.append("reviewed✓")
+        self.active_variant = "reviewed✓"
+        self._update_variant_button()
         self.status_label.configure(
-            text=f"saved '{self.active_variant}' → reviewed/page_{self.current_page:03d}")
+            text=f"saved '{picked}' → reviewed/page_{self.current_page:03d}  (now 'reviewed✓')")
 
     def _upgrade_polygon_identity_and_connections(self):
         """Ensure each polygon has a stable id and normalize connections to id refs.
@@ -947,6 +957,12 @@ class NormalizedEditorApp:
         self.original_height = self.page_image.height
 
     def save_page_data(self):
+        # VARIANT MODE: never auto-save on navigation. You explicitly pick a version
+        # with "✓ Save this → gold"; auto-saving the displayed variant on page change
+        # would overwrite that pick when you flip to compare. (This was the
+        # "save didn't stick" bug.)
+        if self.variant_specs:
+            return
         self._prepare_page_data_for_save()
         # Dirty-check: only write when the page actually changed since load, so
         # browsing never creates fake "reviewed" copies of machine labels.

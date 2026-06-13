@@ -847,9 +847,34 @@ _EXTRA_NOTE = ""   # one-run prompt addendum set by --extra-note (or --extra-not
 #               while multi-line bodies (src_content, src_origin letterheads) keep
 #               the aggressive params so wrapped/long lines are still recovered.
 _SNAP_MODE = "current"
-_GENTLE_SNAP = dict(h_gap_frac=0.004, v_gap_frac=0.004,
-                    margin_frac_h=0.10, margin_frac_v=0.10)
+# Preset applied to SINGLE-LINE categories for "gentle" (multi-line bodies in
+# _SNAP_AGGRESSIVE_CATS always keep the aggressive params). "medium" is NOT a
+# preset — it is the geometric midpoint between raw (no snap) and gentle, so it
+# reads literally "between raw and gentle" (see _blend_documents + the medium
+# branch in process_page).
+_SNAP_PRESETS = {
+    "gentle": dict(h_gap_frac=0.004, v_gap_frac=0.004,
+                   margin_frac_h=0.10, margin_frac_v=0.10),
+}
 _SNAP_AGGRESSIVE_CATS = frozenset({"src_content", "src_origin"})
+
+
+def _blend_documents(a_docs: dict, b_docs: dict, t: float) -> None:
+    """Move every box in a_docs a fraction t toward the matching box in b_docs
+    (same doc/category/order); t=0.5 = halfway. Quads only. In place on a_docs."""
+    for dk, a_doc in a_docs.items():
+        if not isinstance(a_doc, dict):
+            continue
+        for cat, aps in a_doc.items():
+            if not isinstance(aps, list):
+                continue
+            bps = b_docs.get(dk, {}).get(cat, [])
+            for ap, bp in zip(aps, bps):
+                av, bv = ap.get("vertices", []), bp.get("vertices", [])
+                if len(av) == len(bv) == 4:
+                    for i in range(4):
+                        av[i]["x"] = int(round(av[i]["x"] * (1 - t) + bv[i]["x"] * t))
+                        av[i]["y"] = int(round(av[i]["y"] * (1 - t) + bv[i]["y"] * t))
 
 VOLUME_PROMPT_NOTES = {
     "Volume_4": (
@@ -1615,12 +1640,14 @@ def snap_polygon_to_ink(
             {"x": nx1, "y": ny1}, {"x": nx0, "y": ny1}]
 
 
-def snap_all_polygons(documents: dict, page_gray: Image.Image) -> int:
+def snap_all_polygons(documents: dict, page_gray: Image.Image, mode: str | None = None) -> int:
     """Fit-to-ink every polygon in `documents` in place; returns count changed.
 
-    Fences are each polygon's original bbox (computed once), so fitting is judged
-    against neighbours' original positions and is order-independent.
+    `mode` overrides the module _SNAP_MODE for this call (used to snap a gentle
+    copy when building the medium midpoint). Fences are each polygon's original
+    bbox (computed once), so fitting is order-independent.
     """
+    snap_mode = mode if mode is not None else _SNAP_MODE
     # Category-specific fit overrides. A letterhead (src_origin) spans several
     # centered lines with larger inter-line gaps, so it needs a longer reach and a
     # bigger bridgeable gap to capture the WHOLE block (e.g. the "...Church of..."
@@ -1641,8 +1668,9 @@ def snap_all_polygons(documents: dict, page_gray: Image.Image) -> int:
     changed = 0
     for i, (poly, cat, _bb) in enumerate(refs):
         fences = [b for j, (_q, _c, b) in enumerate(refs) if j != i]
-        if _SNAP_MODE == "gentle" and cat not in _SNAP_AGGRESSIVE_CATS:
-            kw = _GENTLE_SNAP          # tight: single-line label/header/contents box
+        preset = _SNAP_PRESETS.get(snap_mode)
+        if preset is not None and cat not in _SNAP_AGGRESSIVE_CATS:
+            kw = preset                # gentle: single-line label/header/contents box
         else:
             kw = OVERRIDES.get(cat, {})
         new = snap_polygon_to_ink(poly["vertices"], page_gray, fences, **kw)
@@ -1918,10 +1946,17 @@ def process_page(
 
     # ── Geometry cleanup (full-res render; before pass 2 so edges use the result) ─
     if snap:
-        n_trimmed = resolve_overlaps(documents)          # de-overlap location/date first
         full_gray = render_page(pdf_path, None)[0].convert("L")
-        n_snapped = snap_all_polygons(documents, full_gray)
-        log.info("  resolved %d overlap(s); fit %d polygon(s) to ink", n_trimmed, n_snapped)
+        if _SNAP_MODE == "medium":
+            # midpoint between raw (documents now) and gentle
+            gentle = json.loads(json.dumps(documents))
+            resolve_overlaps(gentle); snap_all_polygons(gentle, full_gray, mode="gentle")
+            _blend_documents(documents, gentle, 0.5)
+            log.info("  snap=medium (midpoint raw↔gentle)")
+        else:
+            n_trimmed = resolve_overlaps(documents)      # de-overlap location/date first
+            n_snapped = snap_all_polygons(documents, full_gray)
+            log.info("  resolved %d overlap(s); fit %d polygon(s) to ink", n_trimmed, n_snapped)
 
         # Coverage backstop: box any ink the model's own output left uncovered.
         if backstop:
@@ -2055,7 +2090,7 @@ def parse_args() -> argparse.Namespace:
                    help="RNG seed for few-shot selection (default: 42).")
     p.add_argument("--overwrite",   action="store_true",
                    help="Re-label pages that already have output JSONs.")
-    p.add_argument("--snap-mode", choices=["current", "gentle", "raw"], default="current",
+    p.add_argument("--snap-mode", choices=["current","gentle","medium","raw"], default="current",
                    help="Box post-processing: 'current' = aggressive fit-to-ink "
                         "(recovers clips, over-extends single-line boxes); 'gentle' "
                         "= tight for single-line categories, aggressive only for "
