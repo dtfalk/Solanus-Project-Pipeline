@@ -74,7 +74,7 @@ from pdf2image import convert_from_path
 from PIL import ImageTk
 
 # Document we are intending to review/edit
-TARGET_DOCUMENT = "Volume_4"
+TARGET_DOCUMENT = "Volume_2"
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
@@ -1569,21 +1569,21 @@ class NormalizedEditorApp:
         return self._original_to_canvas(ox, oy)
 
     def _draw_all_connections(self):
-        """Overlay EVERY connection involving a src_content polygon in the current
-        document at once ("Show connections" toolbar toggle) — no clicking through
-        boxes. Each src_content box is ranked by its vertical position and colored
-        from connection_palette(): a perceptually-even red->violet sweep, dealt
-        outside-in when entries are too many for adjacent hues to differ; its
-        connection lines, endpoint dots, and partner-box rings share that color.
-        Lines are stippled and rings dashed so the underlying page stays readable
-        with everything visible at once. Read-only drawing — touches no data.
+        """Overlay EVERY connection at once ("Show connections" toolbar toggle) —
+        no clicking through boxes. Each ANCHOR box (src_content on letters/
+        notebooks, archv_commentary on contents/index pages — its triangle to the
+        row's date + page number) is ranked by vertical position and colored from
+        connection_palette() (perceptually-even red->violet, dealt outside-in when
+        crowded); its connection lines, endpoint dots, and partner rings share that
+        color. Stippled/dashed so the page stays readable. Read-only.
         """
         doc_record = self.page_data.get("documents", {}).get(self.current_doc, {})
         ranked = []
-        for poly in doc_record.get("src_content", []):
-            verts = poly.get("vertices", [])
-            if len(verts) >= 3 and poly.get("connections"):
-                ranked.append((sum(v["y"] for v in verts) / len(verts), poly))
+        for cat in ("src_content", "archv_commentary"):
+            for poly in doc_record.get(cat, []):
+                verts = poly.get("vertices", [])
+                if len(verts) >= 3 and poly.get("connections"):
+                    ranked.append((sum(v["y"] for v in verts) / len(verts), poly))
         if not ranked:
             return
         ranked.sort(key=lambda t: t[0])
