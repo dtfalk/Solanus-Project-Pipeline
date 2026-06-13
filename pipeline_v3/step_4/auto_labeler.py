@@ -1906,6 +1906,16 @@ def process_page(
         page_height     = source_h,
     )
 
+    # Save the RAW model boxes (pre-snap, pre-backstop, pre-connections) as an
+    # intermediate so post-processing can be re-applied or compared without
+    # re-calling the model. apply_post.py reads these *.raw.json files.
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    (output_path.parent / f"{output_path.stem}.raw.json").write_text(json.dumps({
+        "page_number": page_number, "page_width": source_w, "page_height": source_h,
+        "render_dpi": RENDER_DPI, "num_documents": len(documents),
+        "documents": json.loads(json.dumps(documents)),   # deep copy before snap mutates
+    }, indent=2))
+
     # ── Geometry cleanup (full-res render; before pass 2 so edges use the result) ─
     if snap:
         n_trimmed = resolve_overlaps(documents)          # de-overlap location/date first
