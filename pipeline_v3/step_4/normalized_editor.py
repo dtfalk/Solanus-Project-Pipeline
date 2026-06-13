@@ -53,6 +53,11 @@ Canvas controls:
     auto-selects the copy, so you can slide it into place with the arrow keys.
   - Shift-click a category in the right panel to RE-LABEL the selected polygon to
     that category (connection links are repointed automatically).
+  - VARIANT MODE (EDITOR_VARIANTS set, e.g. via review_variants.py): flip between
+    pre-run versions of a page (raw / current / gentle / your reviewed copy) with
+    Tab or the "◀ variant ▶" button, edit the active one, and click "✓ Save this →
+    gold" to write the version you picked into reviewed/. Each variant keeps its
+    own edits while you flip.
   - "Show connections" (top toolbar) overlays EVERY src_content connection in the
     current document at once: each src_content box is colored through a rainbow by
     its height on the page (top = red ... bottom = violet) with stippled lines and
@@ -315,6 +320,20 @@ class NormalizedEditorApp:
             wanted = {int(t) for t in only.replace(" ", "").split(",") if t}
             self.page_numbers = [n for n in self.page_numbers if n in wanted]
         self.prefer_auto = os.getenv("EDITOR_PREFER_AUTO", "").strip() in ("1", "true", "yes")
+        # VARIANT MODE: EDITOR_VARIANTS="raw:snap_compare/raw,current:snap_compare/current,
+        # gentle:snap_compare/gentle" — flip between pre-run versions (Tab), edit the
+        # active one, save your pick to reviewed/ ("✓ Save this" button).
+        self.variant_specs = []
+        for part in os.getenv("EDITOR_VARIANTS", "").strip().split(","):
+            part = part.strip()
+            if not part:
+                continue
+            name, rel = (part.split(":", 1) if ":" in part else (part, part))
+            self.variant_specs.append((name.strip(), Path(rel.strip())))
+        self.variants = {}
+        self.variant_order = []
+        self.active_variant = None
+        self.variant_button = None
         self.total_pages  = len(self.page_numbers)
 
         if self.total_pages == 0:
@@ -463,9 +482,15 @@ class NormalizedEditorApp:
         self.rerun_button = tk.Button(top, text="⟳ Mark for rerun", bg="#2d2d2d",
                                       fg="#ffaa00", bd=1, command=self._toggle_rerun_mark)
         self.rerun_button.pack(side=tk.LEFT, padx=(16, 0))
-        if self.prefer_auto:
+        if self.prefer_auto and not self.variant_specs:
             tk.Button(top, text="✓ Approve → gold", bg="#2d2d2d", fg="#7be07b",
                       bd=1, command=self._approve_to_gold).pack(side=tk.LEFT, padx=(10, 0))
+        if self.variant_specs:
+            self.variant_button = tk.Button(top, text="◀ variant ▶", bg="#1f3a5f",
+                                            fg="#9fd0ff", bd=1, command=self._cycle_variant)
+            self.variant_button.pack(side=tk.LEFT, padx=(16, 2))
+            tk.Button(top, text="✓ Save this → gold", bg="#2d2d2d", fg="#7be07b",
+                      bd=1, command=self._save_variant_to_gold).pack(side=tk.LEFT, padx=(2, 0))
 
         self.mode_label = tk.Label(top, text="", bg="#2d2d2d", fg="#ffaa00",
                                    font=("TkDefaultFont", 10, "bold"))
@@ -655,6 +680,8 @@ class NormalizedEditorApp:
             self.root.bind(f"<Key-{k}>", lambda e: self._on_plain_key(self._on_ctrl_page, +1))
         for k in ("a", "A"):
             self.root.bind(f"<Key-{k}>", lambda e: self._on_plain_key(self._on_ctrl_page, -1))
+        self.root.bind("<Tab>",          lambda e: self._on_plain_key(lambda s: self._cycle_variant(+1), 0))
+        self.root.bind("<Shift-Tab>",    lambda e: self._on_plain_key(lambda s: self._cycle_variant(-1), 0))
         self.root.bind("<Return>", self._on_enter_key)
         self.root.bind("<Escape>", self._on_escape_key)
         self.root.bind("<Shift-W>", self._on_shift_w)
@@ -715,6 +742,7 @@ class NormalizedEditorApp:
         self._auto_select_top_polygon()
         self._draw_scene()
         self._update_rerun_button()
+        self._update_variant_button()
 
         self.page_entry.delete(0, tk.END)
         self.page_entry.insert(0, str(page_number))
@@ -722,6 +750,13 @@ class NormalizedEditorApp:
         self._update_status()
 
     def _load_page_data(self, page_number):
+        # VARIANT MODE (EDITOR_VARIANTS set): load every pre-run version of this
+        # page so you can flip between them, edit the active one, and save your
+        # pick to reviewed/.
+        if self.variant_specs:
+            self._load_variants(page_number)
+            return
+
         # If a reviewed version already exists, load that so previous edits are
         # preserved.  Otherwise fall back to the auto_labeled source.
         # (EDITOR_PREFER_AUTO=1 inverts this for the post-rerun review round.)
@@ -741,7 +776,11 @@ class NormalizedEditorApp:
 
         with open(path, "r", encoding="utf-8") as f:
             self.page_data = json.load(f)
+        self._normalize_page_data()
+        self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
 
+    def _normalize_page_data(self):
+        """Normalize self.page_data in place (legacy keys, vertex-list format, ids)."""
         legacy_key_map = {
             "document_content": "src_content",
             "header_data": "src_metadata",
@@ -776,11 +815,66 @@ class NormalizedEditorApp:
         # even when polygon list indices change after insertions/deletions.
         self._upgrade_polygon_identity_and_connections()
 
-        # Snapshot the loaded state: save_page_data() skips writing when nothing
-        # changed, so merely BROWSING a page never copies machine labels into
-        # reviewed/ (the 2026-06-09 Volume_4 pollution bug — browse-saves were later
-        # mistaken for human-reviewed gold).
+    def _load_variants(self, page_number):
+        """Load every configured variant of this page (+ reviewed/ if it exists)
+        into self.variants; set the active one as self.page_data. Edits mutate the
+        active variant's dict in place, so flipping preserves per-variant edits."""
+        name = f"page_{page_number:03d}"
+        self.variants = {}
+        for vname, root in self.variant_specs:
+            base = root if root.is_absolute() else (SCRIPT_DIR / root)
+            jp = base / self.document_name / name / f"{name}.json"
+            if jp.exists():
+                self.page_data = json.load(open(jp, encoding="utf-8"))
+                self._normalize_page_data()
+                self.variants[vname] = self.page_data
+        rev = self.output_doc_dir / name / f"{name}.json"
+        if rev.exists():
+            self.page_data = json.load(open(rev, encoding="utf-8"))
+            self._normalize_page_data()
+            self.variants["reviewed✓"] = self.page_data
+        if not self.variants:
+            raise FileNotFoundError(f"No variant JSON for page {page_number} "
+                                    f"(EDITOR_VARIANTS={[n for n,_ in self.variant_specs]})")
+        self.variant_order = list(self.variants.keys())
+        if self.active_variant not in self.variants:
+            # start on the best candidate; Tab to compare the others / your gold
+            self.active_variant = next(
+                (n for n in ("gentle", "reviewed✓") if n in self.variants),
+                self.variant_order[0])
+        self.page_data = self.variants[self.active_variant]
         self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
+
+    def _cycle_variant(self, step=1):
+        if not self.variant_specs or len(self.variant_order) < 2:
+            return "break"
+        # persist any edit on the current variant's snapshot bookkeeping, then flip
+        i = self.variant_order.index(self.active_variant)
+        self.active_variant = self.variant_order[(i + step) % len(self.variant_order)]
+        self.page_data = self.variants[self.active_variant]
+        nd = self.page_data.get("num_documents", 1)
+        if self.current_doc not in {f"doc_{k}" for k in range(1, nd + 1)}:
+            self.current_doc = "doc_1"
+        self.selected_polygon_idx = None
+        self.num_docs_var.set(nd)
+        self._rebuild_doc_buttons()
+        self._update_variant_button()
+        self._auto_select_top_polygon()
+        self._draw_scene()
+        return "break"
+
+    def _update_variant_button(self):
+        if getattr(self, "variant_button", None) is not None:
+            edited = (json.dumps(self.page_data, sort_keys=True) != self._loaded_snapshot)
+            self.variant_button.configure(
+                text=f"◀ {self.active_variant}{' *' if edited else ''} ▶  "
+                     f"({self.variant_order.index(self.active_variant)+1}/{len(self.variant_order)})")
+
+    def _save_variant_to_gold(self):
+        """Write the ACTIVE variant to reviewed/ (your pick), edited or not."""
+        self._approve_to_gold()
+        self.status_label.configure(
+            text=f"saved '{self.active_variant}' → reviewed/page_{self.current_page:03d}")
 
     def _upgrade_polygon_identity_and_connections(self):
         """Ensure each polygon has a stable id and normalize connections to id refs.
