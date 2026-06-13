@@ -41,7 +41,10 @@ def main():
     from auto_labeler import parse_pages_arg
 
     sandbox = a.snap_mode is not None        # explicit mode -> compare sandbox
-    mode = a.snap_mode or "current"
+    # Contents categories are all single-line, so GENTLE snap is correct here:
+    # the strengthened note makes the model exclude the leader dots, and gentle
+    # snap preserves that (current/aggressive would re-balloon the box across them).
+    mode = a.snap_mode or "gentle"
     out_root = (HERE / "snap_compare" / mode) if sandbox else (HERE / "auto_labeled")
 
     for spec in a.specs:
