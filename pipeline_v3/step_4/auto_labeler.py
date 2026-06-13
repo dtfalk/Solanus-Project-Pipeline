@@ -838,6 +838,19 @@ Below are several example pages with their correct labels, followed by a new pag
 VOLUME_NOTES_DIR = SCRIPT_DIR / "volume_notes"
 _EXTRA_NOTE = ""   # one-run prompt addendum set by --extra-note (or --extra-note-file)
 
+# Snap aggressiveness, set by --snap-mode (raw handled as snap-off in main()):
+#   "current" — the aggressive fit-to-ink used so far (wide reach, bridges large
+#               gaps): recovers clipped line-ends but over-extends single-line
+#               boxes across leader-dots / into neighbouring header lines.
+#   "gentle"  — tight params for SINGLE-LINE categories (kills the over-extension
+#               proven on gold: archv_commentary +654px, src_recipient +82px),
+#               while multi-line bodies (src_content, src_origin letterheads) keep
+#               the aggressive params so wrapped/long lines are still recovered.
+_SNAP_MODE = "current"
+_GENTLE_SNAP = dict(h_gap_frac=0.004, v_gap_frac=0.004,
+                    margin_frac_h=0.10, margin_frac_v=0.10)
+_SNAP_AGGRESSIVE_CATS = frozenset({"src_content", "src_origin"})
+
 VOLUME_PROMPT_NOTES = {
     "Volume_4": (
         "\n\nVOLUME-SPECIFIC OVERRIDE (this page is from Volume_4 — READ CAREFULLY, it changes the "
@@ -1628,8 +1641,11 @@ def snap_all_polygons(documents: dict, page_gray: Image.Image) -> int:
     changed = 0
     for i, (poly, cat, _bb) in enumerate(refs):
         fences = [b for j, (_q, _c, b) in enumerate(refs) if j != i]
-        new = snap_polygon_to_ink(poly["vertices"], page_gray, fences,
-                                  **OVERRIDES.get(cat, {}))
+        if _SNAP_MODE == "gentle" and cat not in _SNAP_AGGRESSIVE_CATS:
+            kw = _GENTLE_SNAP          # tight: single-line label/header/contents box
+        else:
+            kw = OVERRIDES.get(cat, {})
+        new = snap_polygon_to_ink(poly["vertices"], page_gray, fences, **kw)
         if new is not poly["vertices"] and new != poly["vertices"]:
             poly["vertices"] = new
             changed += 1
@@ -2029,6 +2045,11 @@ def parse_args() -> argparse.Namespace:
                    help="RNG seed for few-shot selection (default: 42).")
     p.add_argument("--overwrite",   action="store_true",
                    help="Re-label pages that already have output JSONs.")
+    p.add_argument("--snap-mode", choices=["current", "gentle", "raw"], default="current",
+                   help="Box post-processing: 'current' = aggressive fit-to-ink "
+                        "(recovers clips, over-extends single-line boxes); 'gentle' "
+                        "= tight for single-line categories, aggressive only for "
+                        "multi-line bodies; 'raw' = the model's boxes with NO snap.")
     p.add_argument("--extra-note-file", type=str, default="",
                    help="Path to a text file whose contents are appended to the "
                         "prompt for THIS run only (e.g. a contents-page convention "
@@ -2092,12 +2113,18 @@ def main() -> None:
     _setup_logging()
     args = parse_args()
 
-    global _EXTRA_NOTE
+    global _EXTRA_NOTE, _SNAP_MODE
     if args.extra_note_file:
         _EXTRA_NOTE = Path(args.extra_note_file).read_text().strip()
         _volume_note_cache.clear()
         log.info("Extra prompt note loaded from %s (%d chars).",
                  args.extra_note_file, len(_EXTRA_NOTE))
+    if args.snap_mode == "raw":
+        args.no_snap = True          # raw = the model's boxes, no fit-to-ink
+        log.info("Snap mode: RAW (no fit-to-ink).")
+    else:
+        _SNAP_MODE = args.snap_mode
+        log.info("Snap mode: %s.", _SNAP_MODE)
 
     image_width = resolve_image_width(args.image_width)
 
