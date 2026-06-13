@@ -43,12 +43,12 @@ Canvas controls:
     edge up, Ctrl+Down=bottom edge down, Ctrl+Left=left edge left, Ctrl+Right=
     right edge right); Shift+arrow slides the whole box one step in that direction.
   - With NO polygon selected, Left / Right arrow keys navigate pages (auto-saves).
-  - Ctrl+D / Ctrl+A go to the next / previous page from anywhere (auto-saves),
-    even with a polygon selected; inert while typing in a text field.
-  - On page load the TOPMOST polygon is auto-selected; Ctrl+S steps DOWN the
-    page's polygon ladder and Ctrl+W steps back UP (all categories, ordered by
-    each box's top edge, wrapping at both ends), panning the selection into
-    view if you are zoomed — tighten-with-arrows → Ctrl+S → repeat, hands on keys.
+  - WASD navigation (Ctrl+ variants also work): D / A go to the next / previous
+    page (auto-saves), S / W step DOWN / UP the page's polygon ladder (all
+    categories, ordered by each box's top edge, wrapping at both ends), panning
+    the selection into view if you are zoomed. Inert while typing in a text
+    field, and the Review Queue keeps its own a/e/d keys when focused.
+  - On page load the TOPMOST polygon is auto-selected — hands straight on keys.
   - Ctrl+V duplicates the selected polygon (same category, offset slightly) and
     auto-selects the copy, so you can slide it into place with the arrow keys.
   - Shift-click a category in the right panel to RE-LABEL the selected polygon to
@@ -531,11 +531,11 @@ class NormalizedEditorApp:
             "• 1-9 → switch label type",
             "• Shift+W → add polygon",
             "• Shift+C → connect",
-            "• Ctrl+D / Ctrl+A →",
-            "  next / prev page",
-            "• Ctrl+S / Ctrl+W → next /",
-            "  prev polygon down/up the",
-            "  page (all types, wraps)",
+            "• D / A → next / prev page",
+            "• S / W → next / prev polygon",
+            "  down/up the page",
+            "  (all types, wraps)",
+            "  (Ctrl+ versions work too)",
             "",
             "Selected box (arrows):",
             "• Arrow → pull that edge in",
@@ -644,6 +644,17 @@ class NormalizedEditorApp:
         self.root.bind("<Control-S>", lambda e: self._on_ladder_step(+1))
         self.root.bind("<Control-w>", lambda e: self._on_ladder_step(-1))
         self.root.bind("<Control-W>", lambda e: self._on_ladder_step(-1))
+        # Plain WASD = the same four moves without the modifier (s/w = polygon
+        # ladder down/up, d/a = next/prev page). Guarded so typing in a text
+        # field still types, and the Review Queue keeps its own a/d keys.
+        for k in ("s", "S"):
+            self.root.bind(f"<Key-{k}>", lambda e: self._on_plain_key(self._on_ladder_step, +1))
+        for k in ("w", "W"):
+            self.root.bind(f"<Key-{k}>", lambda e: self._on_plain_key(self._on_ladder_step, -1))
+        for k in ("d", "D"):
+            self.root.bind(f"<Key-{k}>", lambda e: self._on_plain_key(self._on_ctrl_page, +1))
+        for k in ("a", "A"):
+            self.root.bind(f"<Key-{k}>", lambda e: self._on_plain_key(self._on_ctrl_page, -1))
         self.root.bind("<Return>", self._on_enter_key)
         self.root.bind("<Escape>", self._on_escape_key)
         self.root.bind("<Shift-W>", self._on_shift_w)
@@ -936,6 +947,15 @@ class NormalizedEditorApp:
         if ladder:
             self.current_info_type, self.selected_polygon_idx = ladder[0]
             self._highlight_info_type_button()
+
+    def _on_plain_key(self, action, step):
+        """Modifier-free WASD navigation: inert while a text field has focus
+        (letters must type) and while the Review Queue listbox has focus (it
+        owns its own a/e/d shortcuts)."""
+        focused = self.root.focus_get()
+        if self._focus_is_text_input() or isinstance(focused, tk.Listbox):
+            return None
+        return action(step)
 
     def _on_ladder_step(self, step):
         """Ctrl+S = next polygon DOWN the page, Ctrl+W = previous polygon UP —
