@@ -1,3 +1,18 @@
+# ▶ 2026-06-13: CORPUS COMPLETE + FRONT MATTER ADDED + step_5 STARTED — read first.
+
+> **All 7 sources gold-reviewed.** Front/back matter recovered + renumbered to TRUE SOURCE
+> page numbers (content-diff of step_1 cleaned vs docs_only; restore point a2005308):
+> V1 gold 1-274→6-279 (added src 1-5 title/ToC, 280 appendix); V2 1-360→11-370 (added 1-10, 371-372);
+> V3 already 2-311 (added 1, 312). The 20 added pages are AUTO-LABELED in auto_labeled/ ONLY —
+> **David must review them into reviewed/** (`EDITOR_DOCUMENT=Volume_1 EDITOR_PAGES=1,2,3,4,5,280
+> EDITOR_PREFER_AUTO=1 python normalized_editor.py`, etc.). Migrator: experiments/add_frontmatter.py;
+> maps in qa_output/<Vol>/frontmatter_map.json; transient bootstrap/qa state archived to
+> qa_output/<Vol>/_pre_frontmatter/.
+> **step_5 STARTED** (../step_5/STEP_5_PLAN.md): Folder A `by_source` generator built
+> (build_by_source.py — run after front-matter review); Folder B `by_document` BLOCKED on 4
+> David decisions in §5 (chiefly: what is a "document" in the casebooks — page vs person vs
+> notebook). Labels are geometry-only; cross-page spans need a heuristic proposer + boundary review.
+
 # ▶ 2026-06-10: BOOTSTRAP SERVICE LIVE, POINTED AT VOLUME_3 — read this block first.
 
 > **The per-volume flow is now ONE command: `./venv/bin/python bootstrap.py <Volume>`**
