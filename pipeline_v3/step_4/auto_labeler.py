@@ -425,13 +425,13 @@ EXCLUDED_EXAMPLES: frozenset[str] = frozenset({
     #  2026-06-10 with the stale-seed quarantine (labeled_examples_quarantine/).
     #  If that page is ever restored to the pool, re-add it here first.)
     # Continuation-page structure merged/mislabeled
-    "Volume_1/page_274",
+    "Volume_1/page_279",
     # (Volume_4/page_001 & page_007 were excluded for entry-merging; David re-labeled
     #  them to the per-person convention 2026-06-08, so they are now valid demos.)
     # Same-page inconsistent treatment of identical closing elements
     "Appendix_2/page_020",
     # Idiosyncratic outline/RETREAT split; unlabeled C.I.
-    "Volume_1/page_245",
+    "Volume_1/page_250",
 })
 
 

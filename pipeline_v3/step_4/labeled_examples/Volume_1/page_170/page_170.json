@@ -11,24 +11,30 @@
         {
           "vertices": [
             {
-              "x": 618,
-              "y": 2092
+              "x": 639,
+              "y": 967
             },
             {
-              "x": 4684,
-              "y": 2092
+              "x": 5023,
+              "y": 967
             },
             {
-              "x": 4684,
-              "y": 4251
+              "x": 5023,
+              "y": 5711
             },
             {
-              "x": 618,
-              "y": 4251
+              "x": 639,
+              "y": 5711
             }
           ],
-          "connections": [],
-          "id": "8ffd5f09-4b9c-4433-9f4a-971b15c781b0"
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "b87683bc-38eb-4959-a371-eb4e74a306ac"
+            }
+          ],
+          "id": "998b26d1-e66c-4452-af53-3794d16e13fd"
         }
       ],
       "src_origin": [],
@@ -40,83 +46,90 @@
       "src_farewell": [],
       "src_signature": [],
       "src_other": [],
-      "archv_commentary": [
-        {
-          "vertices": [
-            {
-              "x": 615,
-              "y": 493
-            },
-            {
-              "x": 4492,
-              "y": 493
-            },
-            {
-              "x": 4492,
-              "y": 804
-            },
-            {
-              "x": 615,
-              "y": 804
-            }
-          ],
-          "connections": [],
-          "id": "f6951453-1e1b-490d-8d62-2935bb4b2997"
-        },
-        {
-          "vertices": [
-            {
-              "x": 606,
-              "y": 1008
-            },
-            {
-              "x": 4609,
-              "y": 1008
-            },
-            {
-              "x": 4609,
-              "y": 2051
-            },
-            {
-              "x": 606,
-              "y": 2051
-            }
-          ],
-          "connections": [],
-          "id": "e1206771-fb10-425c-9ea9-628aadb457ce"
-        }
-      ],
+      "archv_commentary": [],
       "archv_format_note": [],
       "archv_date": [
         {
           "vertices": [
             {
-              "x": 4110,
-              "y": 70
+              "x": 3552,
+              "y": 199
             },
             {
-              "x": 4579,
-              "y": 70
+              "x": 4018,
+              "y": 199
             },
             {
-              "x": 4579,
-              "y": 250
+              "x": 4018,
+              "y": 375
             },
             {
-              "x": 4110,
-              "y": 250
+              "x": 3552,
+              "y": 375
             }
           ],
           "connections": [],
-          "id": "c1c13e7e-7991-4b03-bb61-267e7e45cf5b"
+          "id": "dfe69e99-3fa2-49c9-89d0-d270318dda0d"
         }
       ],
       "archv_possessor": [],
       "archv_other": [],
       "struct_id": [],
-      "struct_doc": [],
+      "struct_doc": [
+        {
+          "vertices": [
+            {
+              "x": 686,
+              "y": 481
+            },
+            {
+              "x": 1101,
+              "y": 481
+            },
+            {
+              "x": 1101,
+              "y": 671
+            },
+            {
+              "x": 686,
+              "y": 671
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "998b26d1-e66c-4452-af53-3794d16e13fd"
+            }
+          ],
+          "id": "b87683bc-38eb-4959-a371-eb4e74a306ac"
+        }
+      ],
       "struct_commentary": [],
-      "struct_other": [],
+      "struct_other": [
+        {
+          "vertices": [
+            {
+              "x": 691,
+              "y": 638
+            },
+            {
+              "x": 1850,
+              "y": 638
+            },
+            {
+              "x": 1850,
+              "y": 811
+            },
+            {
+              "x": 691,
+              "y": 811
+            }
+          ],
+          "connections": [],
+          "id": "db47839f-f54d-4648-bcfb-38aacc33e52d"
+        }
+      ],
       "other": []
     }
   }
