@@ -836,6 +836,7 @@ Below are several example pages with their correct labels, followed by a new pag
 # Optional per-cluster addenda: volume_notes/<Volume>.cluster_<N>.md is appended
 # for pages that qa_output/<Volume>/clusters.json maps to cluster N.
 VOLUME_NOTES_DIR = SCRIPT_DIR / "volume_notes"
+_EXTRA_NOTE = ""   # one-run prompt addendum set by --extra-note (or --extra-note-file)
 
 VOLUME_PROMPT_NOTES = {
     "Volume_4": (
@@ -902,6 +903,8 @@ def load_volume_note(doc_name: str, page_name: str | None = None) -> str:
                 if text:
                     note += (f"\n\nPAGE-GROUP NOTE (this page belongs to a visual "
                              f"group of {doc_name} with its own convention):\n{text}")
+    if _EXTRA_NOTE:
+        note += f"\n\n{_EXTRA_NOTE}"
     return note
 
 
@@ -2026,6 +2029,10 @@ def parse_args() -> argparse.Namespace:
                    help="RNG seed for few-shot selection (default: 42).")
     p.add_argument("--overwrite",   action="store_true",
                    help="Re-label pages that already have output JSONs.")
+    p.add_argument("--extra-note-file", type=str, default="",
+                   help="Path to a text file whose contents are appended to the "
+                        "prompt for THIS run only (e.g. a contents-page convention "
+                        "applied to specific --pages). Not stored as a volume note.")
     p.add_argument("--no-connections", action="store_true",
                    help="Skip pass 2 (connection inference). Polygons only.")
     p.add_argument("--num-fewshot-pass2", type=int, default=6,
@@ -2084,6 +2091,13 @@ def resolve_image_width(arg: str) -> int | None:
 def main() -> None:
     _setup_logging()
     args = parse_args()
+
+    global _EXTRA_NOTE
+    if args.extra_note_file:
+        _EXTRA_NOTE = Path(args.extra_note_file).read_text().strip()
+        _volume_note_cache.clear()
+        log.info("Extra prompt note loaded from %s (%d chars).",
+                 args.extra_note_file, len(_EXTRA_NOTE))
 
     image_width = resolve_image_width(args.image_width)
 
