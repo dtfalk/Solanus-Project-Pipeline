@@ -34,11 +34,14 @@ def main():
     ap.add_argument("--contents", action="store_true", help="wire the contents triangle")
     ap.add_argument("--adopt", action="store_true",
                     help="write into auto_labeled/ (adopt) instead of snap_compare/<mode>/")
+    ap.add_argument("--recenter", action="store_true",
+                    help="translate single-line boxes onto their text line (fixes the "
+                         "model's constant per-page upward bias). Auto-on with --contents.")
+    ap.add_argument("--no-recenter", action="store_true",
+                    help="disable the vertical recenter even for --contents.")
     ap.add_argument("--reseat", action="store_true",
-                    help="vertical re-seat single-line boxes onto their text line. "
-                         "OFF by default: with gold few-shot demos the model now "
-                         "places single-line boxes on the correct line, so reseat "
-                         "(a band-aid for 'shifted up' output) only inflates boxes.")
+                    help="OLD behaviour: RESIZE boxes to ink-row clusters (can inflate "
+                         "boxes). Prefer --recenter, which only translates.")
     a = ap.parse_args()
 
     out_root = AUTO if a.adopt else (HERE / "snap_compare" / a.snap_mode)
@@ -68,13 +71,19 @@ def main():
                 AL._SNAP_MODE = a.snap_mode
                 AL.resolve_overlaps(docs)
                 AL.snap_all_polygons(docs, gray)
-            # vertical re-seat: opt-in only (--reseat). With gold few-shot demos the
-            # model places single-line boxes on the correct line, so reseat now only
-            # inflates boxes by snapping them onto merged ink clusters.
+            # vertical RECENTER: corrects Gemini's systematic "every box slid up by
+            # the same amount" bias by TRANSLATING each single-line box onto its text
+            # line (keeps box size -> can't make huge boxes, unlike the old reseat).
+            # On by default for contents; --no-recenter to skip, --reseat for the old
+            # resize behaviour.
             if a.reseat:
                 from reseat import reseat_vertical
                 g2 = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
                 reseat_vertical(docs, g2)
+            elif (a.contents or a.recenter) and not a.no_recenter:
+                from recenter import recenter_vertical
+                g2 = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
+                recenter_vertical(docs, g2)
             edges = connect_contents(docs) if a.contents else 0
             full = {"page_number": raw["page_number"], "page_width": raw["page_width"],
                     "page_height": raw["page_height"], "render_dpi": raw["render_dpi"],
