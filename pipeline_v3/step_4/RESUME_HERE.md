@@ -1,3 +1,8 @@
+# ▶ 2026-06-13: READ `REVIEW_2026-06-13.md` FIRST — authoritative state + full session record
+# (corpus 1,397 gold verified; bounding-box bleed root-caused & fixed via category-aware snap +
+# raw/medium/gentle variants; front matter recovered/renumbered; contents pages unified; raw
+# model output now saved; variant editor; step_5 plan + its 4 open decisions). Suite 41/0.
+
 # ▶ 2026-06-13: CORPUS COMPLETE + FRONT MATTER ADDED + step_5 STARTED — read first.
 
 > **All 7 sources gold-reviewed.** Front/back matter recovered + renumbered to TRUE SOURCE
