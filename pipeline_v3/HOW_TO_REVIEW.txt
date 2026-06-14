@@ -22,13 +22,27 @@ A. DOING THE ACTUAL REVIEW (contents pages — flip variants, pick one, save)
    opens the editor on that volume's contents pages, starting on MEDIUM.
 
 2. In the editor:
-     - Tab  (or the "◀ variant ▶" button)  = flip raw -> medium -> gentle ->
+     - Tab  (or the "◀ variant ▶" button)  = flip raw -> soft -> medium ->
                                               your saved "reviewed✓" copy
      - edit the active version normally (drag, arrows to tighten, Shift-click to
        relabel, S/W = next/prev box, A/D = prev/next page)
      - "✓ Save this -> gold"  = writes the version currently shown into reviewed/
-       (this is how a page becomes gold; it STICKS now — the old overwrite bug is
-       fixed; on return the page shows your saved reviewed✓ version)
+       AND designates it the gold working copy.
+
+   HOW SAVING WORKS NOW (the lost-work fix — read this):
+     - The reviewed/ file is written ONLY from the ONE variant you designated as
+       gold: the variant you pressed "✓ Save this -> gold" on, or — before any
+       explicit save — the first variant you actually edit.
+     - Auto-save (paging A/D, flipping Tab, closing) persists THAT gold variant's
+       edits. Flipping to 'raw' to compare and nudging it can NO LONGER overwrite
+       the good version you built on 'soft' — comparison edits are not written to
+       gold. To make a different variant gold, press "✓ Save this -> gold" on it.
+     - EVERY overwrite first copies the previous file to
+         reviewed/<Vol>/page_NNN/.backups/page_NNN.<timestamp>.json   (newest 40)
+       so a bad save is always recoverable:
+         ./venv/bin/python restore_reviewed.py list Volume_1 3   # show backups
+         ./venv/bin/python restore_reviewed.py Volume_1 3        # restore newest
+         ./venv/bin/python restore_reviewed.py Volume_1 3 --ts 20260614-141233
 
 3. Non-contents pages (normal review of any volume):
       EDITOR_DOCUMENT=Volume_4 ./venv/bin/python normalized_editor.py

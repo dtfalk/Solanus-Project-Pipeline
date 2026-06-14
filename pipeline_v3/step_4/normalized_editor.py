@@ -71,6 +71,8 @@ Usage:
 import json
 import math
 import os
+import shutil
+import time
 import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
@@ -337,6 +339,14 @@ class NormalizedEditorApp:
         self.variant_order = []
         self.active_variant = None
         self.variant_button = None
+        # GOLD-VARIANT model (the fix for lost work): in variant mode the reviewed/
+        # file is written ONLY from the one variant designated as "gold" — the
+        # variant you explicitly saved, or the first one you edit. Auto-save (nav /
+        # flip / close) persists THAT variant's edits and never a comparison variant
+        # you merely flipped to. So peeking at 'raw' and nudging it can't overwrite
+        # the good version you built on 'soft'.  _gold_snapshot = its last-saved JSON.
+        self._gold_variant = None
+        self._gold_snapshot = None
         self.total_pages  = len(self.page_numbers)
 
         if self.total_pages == 0:
@@ -848,10 +858,16 @@ class NormalizedEditorApp:
                 self._normalize_page_data()
                 self.variants[vname] = self.page_data
         rev = self.output_doc_dir / name / f"{name}.json"
+        # Reset the gold designation per page; if a reviewed/ file already exists it
+        # IS the gold working copy and every auto-save targets it.
+        self._gold_variant = None
+        self._gold_snapshot = None
         if rev.exists():
             self.page_data = json.load(open(rev, encoding="utf-8"))
             self._normalize_page_data()
             self.variants["reviewed✓"] = self.page_data
+            self._gold_variant = "reviewed✓"
+            self._gold_snapshot = json.dumps(self.page_data, sort_keys=True)
         if not self.variants:
             raise FileNotFoundError(f"No variant JSON for page {page_number} "
                                     f"(EDITOR_VARIANTS={[n for n,_ in self.variant_specs]})")
@@ -870,9 +886,10 @@ class NormalizedEditorApp:
     def _cycle_variant(self, step=1):
         if not self.variant_specs or len(self.variant_order) < 2:
             return "break"
-        # CRITICAL: persist edits to the active variant BEFORE flipping away — else
-        # edit→flip→navigate loses the edit (save_page_data only sees the new
-        # active). Dirty-check means an unedited flip writes nothing.
+        # Persist the GOLD variant's edits before flipping (auto-save targets gold,
+        # never a comparison variant). Edits to a non-gold comparison variant stay
+        # in memory for the session; flip back to keep editing, or press
+        # "✓ Save this → gold" to make that variant the gold one.
         self.save_page_data()
         i = self.variant_order.index(self.active_variant)
         self.active_variant = self.variant_order[(i + step) % len(self.variant_order)]
@@ -897,18 +914,22 @@ class NormalizedEditorApp:
                      f"({self.variant_order.index(self.active_variant)+1}/{len(self.variant_order)})")
 
     def _save_variant_to_gold(self):
-        """Write the ACTIVE variant to reviewed/ (your pick), edited or not, then
-        make it the 'reviewed✓' variant so it persists and shows on return."""
+        """Write the ACTIVE variant to reviewed/ (your explicit pick, edited or not)
+        and make it THE gold working copy — so it persists, shows on return, and
+        every later auto-save targets it (never a comparison variant)."""
         picked = self.active_variant
         self._approve_to_gold()
-        # fold the saved data in as reviewed✓ and switch to it
+        # fold the saved data in as reviewed✓ and switch to it; designate it gold
         self.variants["reviewed✓"] = self.page_data
         if "reviewed✓" not in self.variant_order:
             self.variant_order.append("reviewed✓")
         self.active_variant = "reviewed✓"
+        self._gold_variant = "reviewed✓"
+        self._gold_snapshot = json.dumps(self.page_data, sort_keys=True)
+        self._loaded_snapshot = self._gold_snapshot
         self._update_variant_button()
         self.status_label.configure(
-            text=f"saved '{picked}' → reviewed/page_{self.current_page:03d}  (now 'reviewed✓')")
+            text=f"saved '{picked}' → reviewed/page_{self.current_page:03d}  (gold; backup kept)")
 
     def _upgrade_polygon_identity_and_connections(self):
         """Ensure each polygon has a stable id and normalize connections to id refs.
@@ -980,48 +1001,98 @@ class NormalizedEditorApp:
         self.original_width  = self.page_image.width
         self.original_height = self.page_image.height
 
+    def _reviewed_json_path(self, page_number=None):
+        page_number = self.current_page if page_number is None else page_number
+        return (self.output_doc_dir / f"page_{page_number:03d}"
+                / f"page_{page_number:03d}.json")
+
+    def _write_reviewed_json(self, data, page_number=None):
+        """Write `data` to reviewed/page_NNN.json, but FIRST copy any existing file
+        to a timestamped backup under .backups/ (keep the newest 40). This is the
+        hard safety net: even a wrong save is always recoverable. Returns the path."""
+        path = self._reviewed_json_path(page_number)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if path.exists():
+            bdir = path.parent / ".backups"
+            bdir.mkdir(exist_ok=True)
+            ts = time.strftime("%Y%m%d-%H%M%S")
+            shutil.copy2(path, bdir / f"{path.stem}.{ts}.json")
+            backups = sorted(bdir.glob(f"{path.stem}.*.json"))
+            for old in backups[:-40]:
+                old.unlink()
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        return path
+
+    def _status(self, text):
+        if getattr(self, "status_label", None) is not None:
+            try:
+                self.status_label.configure(text=text)
+            except Exception:
+                pass
+
     def save_page_data(self):
-        # VARIANT MODE: auto-save the active variant on navigation ONLY if you
-        # actually edited it (current != this variant's loaded baseline). The
-        # dirty-check vs the per-variant baseline (updated on every flip) means:
-        #  - your hand edits ARE saved when you page away (no lost work);
-        #  - a plain flip to an unedited variant is "clean" and saves nothing, so
-        #    it can never overwrite a pick you already saved.
+        """Auto-save hook (nav / flip / close). Variant mode routes to the
+        gold-variant writer so a comparison flip can never clobber your gold;
+        plain mode writes the edited page with a backup."""
+        if self.variant_specs:
+            self._autosave_gold_variant()
+            return
         self._prepare_page_data_for_save()
         # Dirty-check: only write when the page actually changed since load, so
         # browsing never creates fake "reviewed" copies of machine labels.
         current = json.dumps(self.page_data, sort_keys=True)
         if current == getattr(self, "_loaded_snapshot", None):
             return
-        page_dir = self.output_doc_dir / f"page_{self.current_page:03d}"
-        page_dir.mkdir(parents=True, exist_ok=True)
-        path = page_dir / f"page_{self.current_page:03d}.json"
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(self.page_data, f, indent=2)
+        self._write_reviewed_json(self.page_data)
         self._loaded_snapshot = current
-        # visible confirmation so saving is never a guess
-        if getattr(self, "status_label", None) is not None:
-            try:
-                self.status_label.configure(
-                    text=f"✓ saved page {self.current_page} → reviewed/")
-            except Exception:
-                pass
+        self._status(f"✓ saved page {self.current_page} → reviewed/")
 
-    def _prepare_page_data_for_save(self):
+    def _autosave_gold_variant(self):
+        """Persist ONLY the gold variant's edits. The gold variant is the one you
+        explicitly saved (✓ Save this → gold) or — before any explicit save — the
+        first variant you edit. Edits to a comparison variant you merely flipped to
+        are kept in memory for the session but NEVER written over gold."""
+        # Establish gold from the active variant the first time it is edited.
+        if self._gold_variant is None:
+            if json.dumps(self.page_data, sort_keys=True) == self._loaded_snapshot:
+                return                      # active variant unedited — nothing to persist
+            self._gold_variant = self.active_variant
+            self._gold_snapshot = None
+        target = self.variants.get(self._gold_variant)
+        if target is None:
+            return
+        self._prepare_page_data_for_save(target)
+        current = json.dumps(target, sort_keys=True)
+        if current == self._gold_snapshot:
+            return                          # gold unchanged since last write
+        self._write_reviewed_json(target)
+        self._gold_snapshot = current
+        # keep the active variant's own baseline in sync if it IS the gold one
+        if self.active_variant == self._gold_variant:
+            self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
+        self._status(f"✓ saved page {self.current_page} (gold='{self._gold_variant}') → reviewed/")
+
+    def _prepare_page_data_for_save(self, target=None):
         """Normalize page data before writing JSON.
 
         Order of operations:
         1) Persist the current number of documents.
         2) Remove document entries above that count.
+
+        Operates on `target` (defaults to the active self.page_data) so the
+        gold-variant auto-save can normalize the gold dict even while a different
+        comparison variant is on screen.
         """
+        target = self.page_data if target is None else target
         try:
             num_docs = int(self.num_docs_var.get())
         except (ValueError, tk.TclError):
-            num_docs = int(self.page_data.get("num_documents", 1))
+            num_docs = int(target.get("num_documents", 1))
         num_docs = max(1, min(20, num_docs))
-        self.page_data["num_documents"] = num_docs
+        target["num_documents"] = num_docs
 
-        docs = self.page_data.setdefault("documents", {})
+        docs = target.setdefault("documents", {})
         max_allowed_idx = num_docs
         for doc_key in list(docs.keys()):
             if not doc_key.startswith("doc_"):
@@ -2369,11 +2440,7 @@ class NormalizedEditorApp:
         labels as gold — writes reviewed/ even with zero edits. Deliberate
         button press only; never automatic (browse-pollution lesson)."""
         self._prepare_page_data_for_save()
-        page_dir = self.output_doc_dir / f"page_{self.current_page:03d}"
-        page_dir.mkdir(parents=True, exist_ok=True)
-        with open(page_dir / f"page_{self.current_page:03d}.json", "w",
-                  encoding="utf-8") as f:
-            json.dump(self.page_data, f, indent=2)
+        self._write_reviewed_json(self.page_data)   # backs up any prior file first
         self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
         self.status_label.configure(text=f"page {self.current_page} approved → gold")
 
