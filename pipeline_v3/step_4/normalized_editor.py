@@ -978,12 +978,12 @@ class NormalizedEditorApp:
         self.original_height = self.page_image.height
 
     def save_page_data(self):
-        # VARIANT MODE: never auto-save on navigation. You explicitly pick a version
-        # with "✓ Save this → gold"; auto-saving the displayed variant on page change
-        # would overwrite that pick when you flip to compare. (This was the
-        # "save didn't stick" bug.)
-        if self.variant_specs:
-            return
+        # VARIANT MODE: auto-save the active variant on navigation ONLY if you
+        # actually edited it (current != this variant's loaded baseline). The
+        # dirty-check vs the per-variant baseline (updated on every flip) means:
+        #  - your hand edits ARE saved when you page away (no lost work);
+        #  - a plain flip to an unedited variant is "clean" and saves nothing, so
+        #    it can never overwrite a pick you already saved.
         self._prepare_page_data_for_save()
         # Dirty-check: only write when the page actually changed since load, so
         # browsing never creates fake "reviewed" copies of machine labels.
