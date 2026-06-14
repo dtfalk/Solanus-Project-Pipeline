@@ -16,6 +16,8 @@ Environment overrides (all optional):
     VIEWER_START_PAGE  starting page number (default: first available)
 
 Canvas controls:
+    - Two-finger scroll = pan; Ctrl + two-finger scroll = zoom (anchored on the
+      cursor); Ctrl +/- also zoom; middle-drag pans; f = fit page.
     - Click a polygon to select it (shows connections + type).
     - Left / Right arrows: navigate pages.
     - 1-9: switch active label type in the right panel.
@@ -40,6 +42,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 # ── Inlined config (was in step_x/config.py) ──────────────────────────────────
 
 RENDER_DPI = 150
+
+PAN_STEP = 80          # canvas px shifted per two-finger-scroll notch (trackpad pan)
 
 LABEL_INFO_TYPES = [
     "src_content",
@@ -329,12 +333,28 @@ class ViewerApp:
             self.root.bind(f"<KP_{n}>",       lambda e, i=n: self._on_info_type_number(i))
         self.canvas.bind("<ButtonPress-1>", self._on_canvas_click)
         self.canvas.bind("<Configure>",     self._on_canvas_resize)
-        self.canvas.bind("<Button-4>",      lambda e: self._on_zoom_wheel(e, 1))   # X11 wheel up
-        self.canvas.bind("<Button-5>",      lambda e: self._on_zoom_wheel(e, -1))  # X11 wheel down
-        self.canvas.bind("<MouseWheel>",    self._on_zoom_wheel)                   # Win / macOS
+        # ── Trackpad: two-finger scroll = pan · Ctrl + two-finger scroll = zoom ──
+        # X11/XWayland deliver two-finger scroll as Button-4/5 (vert) & 6/7 (horiz);
+        # Win/macOS use <MouseWheel> / <Shift-MouseWheel>.
+        self.canvas.bind("<Button-4>",           lambda e: self._pan_by(0,  PAN_STEP))   # scroll up
+        self.canvas.bind("<Button-5>",           lambda e: self._pan_by(0, -PAN_STEP))   # scroll down
+        self.canvas.bind("<MouseWheel>",         lambda e: self._pan_by(0,  PAN_STEP if e.delta > 0 else -PAN_STEP))
+        self.canvas.bind("<Shift-MouseWheel>",   lambda e: self._pan_by(PAN_STEP if e.delta > 0 else -PAN_STEP, 0))
+        # horizontal two-finger scroll arrives as button 6/7; the <Button-6/7> bind
+        # pattern is rejected by some Tk builds, so dispatch the generic <Button>.
+        self.canvas.bind("<Button>", lambda e: self._pan_by(PAN_STEP, 0) if e.num == 6
+                         else (self._pan_by(-PAN_STEP, 0) if e.num == 7 else None))
+        self.canvas.bind("<Control-Button-4>",   lambda e: self._on_zoom_wheel(e, 1))    # Ctrl+scroll / pinch = zoom in
+        self.canvas.bind("<Control-Button-5>",   lambda e: self._on_zoom_wheel(e, -1))   # Ctrl+scroll / pinch = zoom out
+        self.canvas.bind("<Control-MouseWheel>", self._on_zoom_wheel)
         self.canvas.bind("<ButtonPress-2>", self._on_pan_press)                    # middle-drag pan
         self.canvas.bind("<B2-Motion>",     self._on_pan_motion)
         self.root.bind("f",                 self._zoom_fit)                        # fit page
+        self.root.bind("<Control-plus>",        lambda e: self._zoom_keyboard(1))  # keyboard / injected zoom
+        self.root.bind("<Control-equal>",       lambda e: self._zoom_keyboard(1))
+        self.root.bind("<Control-minus>",       lambda e: self._zoom_keyboard(-1))
+        self.root.bind("<Control-KP_Add>",      lambda e: self._zoom_keyboard(1))
+        self.root.bind("<Control-KP_Subtract>", lambda e: self._zoom_keyboard(-1))
 
     # ── Page loading ──────────────────────────────────────────────────────────
 
@@ -522,6 +542,22 @@ class ViewerApp:
         self.image_offset_y = oy + (event.y - sy)
         self.view = ("custom", self.display_scale, self.image_offset_x, self.image_offset_y)
         self._draw_scene()
+
+    def _pan_by(self, dx, dy):
+        """Shift the view by (dx, dy) canvas px — two-finger-scroll panning."""
+        self.image_offset_x += dx
+        self.image_offset_y += dy
+        self.view = ("custom", self.display_scale, self.image_offset_x, self.image_offset_y)
+        self._draw_scene()
+        return "break"
+
+    def _zoom_keyboard(self, direction):
+        """Zoom anchored on the canvas centre — keyboard Ctrl +/- or an injected
+        pinch gesture (libinput-gestures → Ctrl+= / Ctrl+-)."""
+        cx = self.canvas.winfo_width() / 2
+        cy = self.canvas.winfo_height() / 2
+        ev = type("E", (), {"x": cx, "y": cy, "delta": 0})()
+        return self._on_zoom_wheel(ev, direction)
 
     # ── Drawing ───────────────────────────────────────────────────────────────
 
