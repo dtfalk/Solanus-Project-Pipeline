@@ -34,6 +34,9 @@ def main():
     ap.add_argument("--contents", action="store_true", help="wire the contents triangle")
     ap.add_argument("--adopt", action="store_true",
                     help="write into auto_labeled/ (adopt) instead of snap_compare/<mode>/")
+    ap.add_argument("--reseat", action="store_true",
+                    help="vertical re-seat single-line boxes onto their text line "
+                         "(auto-on with --contents).")
     a = ap.parse_args()
 
     out_root = AUTO if a.adopt else (HERE / "snap_compare" / a.snap_mode)
@@ -61,6 +64,13 @@ def main():
                 AL._SNAP_MODE = a.snap_mode
                 AL.resolve_overlaps(docs)
                 AL.snap_all_polygons(docs, gray)
+            # vertical re-seat: move single-line boxes onto their actual text line
+            # (fixes the model's "shifted up" placement, incl. >1-line). Contents
+            # default on; horizontal extent is left as the mode produced it.
+            if a.contents or a.reseat:
+                from reseat import reseat_vertical
+                g2 = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
+                reseat_vertical(docs, g2)
             edges = connect_contents(docs) if a.contents else 0
             full = {"page_number": raw["page_number"], "page_width": raw["page_width"],
                     "page_height": raw["page_height"], "render_dpi": raw["render_dpi"],
