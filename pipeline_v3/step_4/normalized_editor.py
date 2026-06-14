@@ -870,7 +870,10 @@ class NormalizedEditorApp:
     def _cycle_variant(self, step=1):
         if not self.variant_specs or len(self.variant_order) < 2:
             return "break"
-        # persist any edit on the current variant's snapshot bookkeeping, then flip
+        # CRITICAL: persist edits to the active variant BEFORE flipping away — else
+        # edit→flip→navigate loses the edit (save_page_data only sees the new
+        # active). Dirty-check means an unedited flip writes nothing.
+        self.save_page_data()
         i = self.variant_order.index(self.active_variant)
         self.active_variant = self.variant_order[(i + step) % len(self.variant_order)]
         self.page_data = self.variants[self.active_variant]
@@ -996,6 +999,13 @@ class NormalizedEditorApp:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(self.page_data, f, indent=2)
         self._loaded_snapshot = current
+        # visible confirmation so saving is never a guess
+        if getattr(self, "status_label", None) is not None:
+            try:
+                self.status_label.configure(
+                    text=f"✓ saved page {self.current_page} → reviewed/")
+            except Exception:
+                pass
 
     def _prepare_page_data_for_save(self):
         """Normalize page data before writing JSON.
