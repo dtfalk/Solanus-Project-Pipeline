@@ -87,3 +87,17 @@ QUICK START
    # if a page looks off and you want me to check it precisely, tell me:
    #   "verify Appendix_2 page 3 with the skill"
 ================================================================================
+
+
+--------------------------------------------------------------------------------
+GET THE SKILL ON ANOTHER MACHINE
+--------------------------------------------------------------------------------
+The skill is version-controlled in the repo at  pipeline_v3/skills/ . On any
+machine, after pulling, install it into ~/.claude/skills/ with:
+
+   bash pipeline_v3/skills/install_skills.sh
+   # then restart Claude Code (or start a new session) to load it
+
+(Edit the skill in ~/.claude/skills/verify-visual-labels/ for local tweaks, or
+edit pipeline_v3/skills/verify-visual-labels/ and re-run the installer to keep
+it version-controlled + synced across machines.)
