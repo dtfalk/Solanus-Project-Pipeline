@@ -90,6 +90,11 @@ def reseat_vertical(documents: dict, gray: Image.Image) -> int:
             ov = max(0, min(b, bhi) - max(a, blo))
             return (ov, -abs((a + b) / 2 - bc))
         a, b = max(lines, key=score)
+        # GUARD: never grow a box much taller than it was — if the matched cluster
+        # is >1.4x the original height, the line-clustering merged adjacent rows;
+        # moving there would make a giant box, so leave this box alone.
+        if (b - a) > 1.4 * bh:
+            continue
         m = max(3, int((b - a) * 0.15))
         ny0 = max(0, win0 + a - m); ny1 = min(H, win0 + b + m)
         if abs(ny0 - y0) <= 3 and abs(ny1 - y1) <= 3:

@@ -2,9 +2,9 @@
 """Review CONTENTS pages by flipping between snap variants in the editor.
 
 Generates the three post-processing versions of each contents page from the SAVED
-RAW model output (apply_post — instant, no model calls): raw, current, gentle. Then
+RAW model output (apply_post — instant, no model calls): raw, soft, medium. Then
 opens the editor in VARIANT MODE on those pages, where you:
-  • press Tab (or the ◀ variant ▶ button) to flip raw → current → gentle (→ your
+  • press Tab (or the ◀ variant ▶ button) to flip raw → soft → medium (→ your
     reviewed copy if one exists),
   • edit the active version like any page,
   • click "✓ Save this → gold" to write the version you picked into reviewed/.
@@ -19,7 +19,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PY = str(HERE / "venv" / "bin" / "python")
-MODES = ["raw", "medium", "gentle"]
+MODES = ["raw", "soft", "medium"]
 
 
 def main():
@@ -41,7 +41,7 @@ def main():
         if "NO raw saved" in r.stdout:
             raise SystemExit(f"Some pages have no saved raw — re-run the labeler once:\n"
                              f"  ./venv/bin/python relabel_contents.py {spec}")
-    print(f"built raw/current/gentle for {vol} pages {pages[vol]} — opening the editor "
+    print(f"built raw/soft/medium for {vol} pages {pages[vol]} — opening the editor "
           f"(Tab to flip, '✓ Save this → gold' to keep one).")
     env = {**os.environ,
            "EDITOR_DOCUMENT": vol,

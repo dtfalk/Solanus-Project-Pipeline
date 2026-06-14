@@ -858,11 +858,11 @@ class NormalizedEditorApp:
         self.variant_order = list(self.variants.keys())
         if self.active_variant not in self.variants:
             # show your SAVED gold first if it exists (so a save is visible on
-            # return); else 'medium' — the balanced middle (raw is cleanest but
-            # occasionally misplaces a box; gentle can clip multi-token titles).
-            # Tab cycles raw → medium → gentle → reviewed✓ to compare.
+            # return); else 'soft' — barely fitted (raw is cleanest but can sit a
+            # touch loose; soft tightens lightly without the clip medium/gentle risk).
+            # Tab cycles raw → soft → medium → reviewed✓ to compare.
             self.active_variant = next(
-                (n for n in ("reviewed✓", "medium", "raw", "gentle") if n in self.variants),
+                (n for n in ("reviewed✓", "soft", "raw", "medium") if n in self.variants),
                 self.variant_order[0])
         self.page_data = self.variants[self.active_variant]
         self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)

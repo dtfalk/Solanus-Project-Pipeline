@@ -30,13 +30,15 @@ from contents_connect import connect_contents
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("specs", nargs="+", metavar="Vol:pages")
-    ap.add_argument("--snap-mode", choices=["raw","current","medium","gentle"], default="gentle")
+    ap.add_argument("--snap-mode", choices=["raw","current","soft","medium","gentle"], default="soft")
     ap.add_argument("--contents", action="store_true", help="wire the contents triangle")
     ap.add_argument("--adopt", action="store_true",
                     help="write into auto_labeled/ (adopt) instead of snap_compare/<mode>/")
     ap.add_argument("--reseat", action="store_true",
-                    help="vertical re-seat single-line boxes onto their text line "
-                         "(auto-on with --contents).")
+                    help="vertical re-seat single-line boxes onto their text line. "
+                         "OFF by default: with gold few-shot demos the model now "
+                         "places single-line boxes on the correct line, so reseat "
+                         "(a band-aid for 'shifted up' output) only inflates boxes.")
     a = ap.parse_args()
 
     out_root = AUTO if a.adopt else (HERE / "snap_compare" / a.snap_mode)
@@ -51,23 +53,25 @@ def main():
                 continue
             raw = json.loads(raw_p.read_text())
             docs = raw["documents"]
-            if a.snap_mode == "medium":
+            if a.snap_mode in ("soft", "medium"):
                 # LITERALLY between raw and gentle: snap a copy with gentle, then
-                # move each box halfway from its raw position to its gentle position.
+                # move each box a fraction of the way from its raw position to its
+                # gentle position.  soft = 0.25 (barely fitted), medium = 0.5.
+                t = 0.25 if a.snap_mode == "soft" else 0.5
                 gray = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
                 gentle = json.loads(json.dumps(docs))
                 AL.resolve_overlaps(gentle)
                 AL.snap_all_polygons(gentle, gray, mode="gentle")
-                _blend(docs, gentle, 0.5)
+                _blend(docs, gentle, t)
             elif a.snap_mode != "raw":
                 gray = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
                 AL._SNAP_MODE = a.snap_mode
                 AL.resolve_overlaps(docs)
                 AL.snap_all_polygons(docs, gray)
-            # vertical re-seat: move single-line boxes onto their actual text line
-            # (fixes the model's "shifted up" placement, incl. >1-line). Contents
-            # default on; horizontal extent is left as the mode produced it.
-            if a.contents or a.reseat:
+            # vertical re-seat: opt-in only (--reseat). With gold few-shot demos the
+            # model places single-line boxes on the correct line, so reseat now only
+            # inflates boxes by snapping them onto merged ink clusters.
+            if a.reseat:
                 from reseat import reseat_vertical
                 g2 = AL.render_page(pdir / f"{name}.pdf", None)[0].convert("L")
                 reseat_vertical(docs, g2)
