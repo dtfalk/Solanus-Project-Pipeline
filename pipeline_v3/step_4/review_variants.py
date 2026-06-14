@@ -23,8 +23,9 @@ MODES = ["raw", "medium", "gentle"]
 
 
 def main():
-    if len(sys.argv) < 2:
+    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
         pages = json.loads((HERE / "qa_output" / "contents_pages.json").read_text())
+        print(__doc__)
         print("Volumes with contents pages: " + ", ".join(pages))
         return
     vol = sys.argv[1]
