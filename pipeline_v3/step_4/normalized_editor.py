@@ -1007,21 +1007,39 @@ class NormalizedEditorApp:
                 / f"page_{page_number:03d}.json")
 
     def _write_reviewed_json(self, data, page_number=None):
-        """Write `data` to reviewed/page_NNN.json, but FIRST copy any existing file
-        to a timestamped backup under .backups/ (keep the newest 40). This is the
-        hard safety net: even a wrong save is always recoverable. Returns the path."""
+        """Write `data` to reviewed/page_NNN.json with TWO independent backups, so
+        work survives both a bad overwrite AND the whole page folder being deleted:
+
+          1) in-folder  reviewed/<Vol>/page_NNN/.backups/page_NNN.<ts>.json  (prev file)
+          2) OUT-OF-TREE  reviewed_backups/<Vol>/page_NNN/page_NNN.<ts>.json  (EVERY save,
+             including the first — this is the one that would have saved V2 8/9/10,
+             since it lives outside the deleted folder).
+
+        Newest 40 kept in each. Returns the path."""
+        page_number = self.current_page if page_number is None else page_number
         path = self._reviewed_json_path(page_number)
         path.parent.mkdir(parents=True, exist_ok=True)
+        ts = time.strftime("%Y%m%d-%H%M%S")
+        # 1) in-folder backup of the PREVIOUS contents (only if a file is there)
         if path.exists():
             bdir = path.parent / ".backups"
             bdir.mkdir(exist_ok=True)
-            ts = time.strftime("%Y%m%d-%H%M%S")
             shutil.copy2(path, bdir / f"{path.stem}.{ts}.json")
-            backups = sorted(bdir.glob(f"{path.stem}.*.json"))
-            for old in backups[:-40]:
+            for old in sorted(bdir.glob(f"{path.stem}.*.json"))[:-40]:
                 old.unlink()
+        # write the gold file
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
+        # 2) out-of-tree backup of the NEW contents (always — survives folder deletion)
+        try:
+            safe = (self.output_doc_dir.parent.parent / "reviewed_backups"
+                    / self.document_name / f"page_{page_number:03d}")
+            safe.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, safe / f"page_{page_number:03d}.{ts}.json")
+            for old in sorted(safe.glob(f"page_{page_number:03d}.*.json"))[:-40]:
+                old.unlink()
+        except Exception:
+            pass   # backup must never block a real save
         return path
 
     def _status(self, text):

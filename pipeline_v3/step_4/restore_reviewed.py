@@ -16,6 +16,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REVIEWED = HERE / "reviewed"
+SAFE = HERE / "reviewed_backups"     # out-of-tree backups (survive folder deletion)
 
 
 def backups_dir(vol: str, page: int) -> Path:
@@ -23,9 +24,16 @@ def backups_dir(vol: str, page: int) -> Path:
 
 
 def list_backups(vol: str, page: int):
-    bdir = backups_dir(vol, page)
+    """Backups from BOTH the in-folder .backups/ and the out-of-tree
+    reviewed_backups/ tree (the latter survives a deleted page folder), newest last."""
     stem = f"page_{page:03d}"
-    return sorted(bdir.glob(f"{stem}.*.json")) if bdir.exists() else []
+    bdir = backups_dir(vol, page)
+    out = list(bdir.glob(f"{stem}.*.json")) if bdir.exists() else []
+    sdir = SAFE / vol / f"page_{page:03d}"
+    if sdir.exists():
+        out += list(sdir.glob(f"{stem}.*.json"))
+    # sort by the timestamp embedded in the name
+    return sorted(out, key=lambda p: p.name.split(".")[-2])
 
 
 def main():
