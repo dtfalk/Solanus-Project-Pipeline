@@ -1019,7 +1019,8 @@ class NormalizedEditorApp:
         page_number = self.current_page if page_number is None else page_number
         path = self._reviewed_json_path(page_number)
         path.parent.mkdir(parents=True, exist_ok=True)
-        ts = time.strftime("%Y%m%d-%H%M%S")
+        # millisecond precision so rapid saves (flip/periodic) never collide on the name
+        ts = time.strftime("%Y%m%d-%H%M%S") + f"-{int(time.time() * 1000) % 1000:03d}"
         # 1) in-folder backup of the PREVIOUS contents (only if a file is there)
         if path.exists():
             bdir = path.parent / ".backups"
@@ -1050,46 +1051,25 @@ class NormalizedEditorApp:
                 pass
 
     def save_page_data(self):
-        """Auto-save hook (nav / flip / close). Variant mode routes to the
-        gold-variant writer so a comparison flip can never clobber your gold;
-        plain mode writes the edited page with a backup."""
-        if self.variant_specs:
-            self._autosave_gold_variant()
-            return
+        """ALWAYS-SAVE auto-save hook (nav / flip / close / periodic). Whatever you
+        are editing — ANY variant, including the reviewed copy — is written to
+        reviewed/ the moment you change it and leave it. No gold-variant gating, no
+        ifs: if it differs from what's on disk, it's saved. The only skip is a pure
+        browse (nothing changed since load), so machine labels aren't written
+        unedited. Every write keeps backups (in-folder + out-of-tree), so an
+        always-save can never permanently destroy a prior version."""
         self._prepare_page_data_for_save()
-        # Dirty-check: only write when the page actually changed since load, so
-        # browsing never creates fake "reviewed" copies of machine labels.
         current = json.dumps(self.page_data, sort_keys=True)
         if current == getattr(self, "_loaded_snapshot", None):
             return
         self._write_reviewed_json(self.page_data)
         self._loaded_snapshot = current
+        if self.variant_specs:
+            # the data you just edited IS the reviewed gold now; show it as such on flip
+            self.variants["reviewed✓"] = self.page_data
+            if "reviewed✓" not in self.variant_order:
+                self.variant_order.append("reviewed✓")
         self._status(f"✓ saved page {self.current_page} → reviewed/")
-
-    def _autosave_gold_variant(self):
-        """Persist ONLY the gold variant's edits. The gold variant is the one you
-        explicitly saved (✓ Save this → gold) or — before any explicit save — the
-        first variant you edit. Edits to a comparison variant you merely flipped to
-        are kept in memory for the session but NEVER written over gold."""
-        # Establish gold from the active variant the first time it is edited.
-        if self._gold_variant is None:
-            if json.dumps(self.page_data, sort_keys=True) == self._loaded_snapshot:
-                return                      # active variant unedited — nothing to persist
-            self._gold_variant = self.active_variant
-            self._gold_snapshot = None
-        target = self.variants.get(self._gold_variant)
-        if target is None:
-            return
-        self._prepare_page_data_for_save(target)
-        current = json.dumps(target, sort_keys=True)
-        if current == self._gold_snapshot:
-            return                          # gold unchanged since last write
-        self._write_reviewed_json(target)
-        self._gold_snapshot = current
-        # keep the active variant's own baseline in sync if it IS the gold one
-        if self.active_variant == self._gold_variant:
-            self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
-        self._status(f"✓ saved page {self.current_page} (gold='{self._gold_variant}') → reviewed/")
 
     def _prepare_page_data_for_save(self, target=None):
         """Normalize page data before writing JSON.
@@ -2705,7 +2685,19 @@ class NormalizedEditorApp:
         self.save_page_data()
         self.root.destroy()
 
+    def _autosave_tick(self):
+        """Periodic safety net: every few seconds, save whatever you're editing if it
+        changed (dirty-checked, so it's a no-op while you just look). Belt-and-braces
+        on top of save-on-nav/flip/close so work is never more than a few seconds from
+        disk + backups."""
+        try:
+            self.save_page_data()
+        except Exception:
+            pass
+        self.root.after(4000, self._autosave_tick)
+
     def run(self):
+        self.root.after(4000, self._autosave_tick)
         self.root.mainloop()
 
 
