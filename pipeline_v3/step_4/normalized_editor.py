@@ -1473,8 +1473,9 @@ class NormalizedEditorApp:
 
     # ── Duplicate / recategorize ─────────────────────────────────────────────────
     def _duplicate_selected_polygon(self):
-        """Ctrl+V: copy the selected polygon (same category), offset slightly, and
-        auto-select the copy so it can be slid into place with the arrow keys."""
+        """Ctrl+V: copy the selected polygon (same category), offset straight DOWN by
+        two nudge steps (so it lands on the next line), and auto-select the copy so it
+        can be slid into place with the arrow keys."""
         if self._focus_is_text_input():
             return
         polygons = self._current_polygons()
@@ -1482,9 +1483,9 @@ class NormalizedEditorApp:
         if idx is None or not (0 <= idx < len(polygons)):
             return
         src = polygons[idx]
-        off = 30
-        maxx, maxy = self.original_width - 1, self.original_height - 1
-        new_verts = [{"x": float(min(maxx, v["x"] + off)), "y": float(min(maxy, v["y"] + off))}
+        off_y = 2 * NUDGE_STEP
+        maxy = self.original_height - 1
+        new_verts = [{"x": float(v["x"]), "y": float(min(maxy, v["y"] + off_y))}
                      for v in src["vertices"]]
         polygons.append({"id": str(uuid4()), "vertices": new_verts, "connections": []})
         self.selected_polygon_idx = len(polygons) - 1     # auto-select the copy
