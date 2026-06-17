@@ -45,6 +45,10 @@ RENDER_DPI = 150
 
 PAN_STEP = 80          # canvas px shifted per two-finger-scroll notch (trackpad pan)
 
+ZOOM_STEP     = 1.10   # zoom factor per coalesced trackpad notch (small = smooth)
+KEY_ZOOM_STEP = 1.25   # zoom factor per +/- key press or on-screen button click
+FRAME_MS      = 16     # coalesce trackpad zoom/pan bursts into one redraw per frame
+
 LABEL_INFO_TYPES = [
     "src_content",
     "src_origin",
@@ -174,6 +178,11 @@ class ViewerApp:
         self.rendered_height = 1
         self.view            = None   # None => fit; ("custom", scale, off_x, off_y) => wheel/pan
         self._pan_anchor     = None
+        # Coalesce trackpad zoom/pan bursts into one re-render per frame (smooth).
+        self._frame_after    = None
+        self._zoom_accum     = 0
+        self._zoom_anchor    = (0, 0)
+        self._pan_accum      = [0, 0]
 
         self._build_ui()
         self.load_page(self.current_page)
@@ -250,6 +259,7 @@ class ViewerApp:
 
         self.canvas = tk.Canvas(main, bg="#1e1e1e", highlightthickness=0)
         self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self._build_zoom_controls()
 
         self.right_panel = tk.Frame(main, bg="#252526", width=168)
         self.right_panel.pack(side=tk.LEFT, fill=tk.Y, padx=(0, 4), pady=4)
@@ -322,6 +332,25 @@ class ViewerApp:
             for child in row.winfo_children():
                 if isinstance(child, tk.Label) and child.cget("width") != 2:
                     child.configure(bg=bg)
+
+    def _build_zoom_controls(self):
+        """Floating +/-/Fit cluster with a live zoom-% readout, overlaid on the
+        bottom-right of the canvas (no-gesture fallback + discoverability)."""
+        bar = tk.Frame(self.canvas, bg="#2d2d30",
+                       highlightbackground="#3f3f46", highlightthickness=1)
+        self.zoom_label = tk.Label(bar, text="—", width=5, anchor=tk.E,
+                                   bg="#2d2d30", fg="#cccccc",
+                                   font=("TkDefaultFont", 9))
+        self.zoom_label.pack(side=tk.LEFT, padx=(8, 4))
+        for txt, cmd in (("−", lambda: self._zoom_keyboard(-1)),
+                         ("+",      lambda: self._zoom_keyboard(1)),
+                         ("Fit",    self._zoom_fit)):
+            tk.Button(bar, text=txt, command=cmd, width=3,
+                      bg="#3a3a3a", fg="white", relief=tk.FLAT,
+                      activebackground="#0077dd", activeforeground="white",
+                      font=("TkDefaultFont", 10), cursor="hand2",
+                      takefocus=0).pack(side=tk.LEFT, padx=1, pady=2)
+        bar.place(relx=1.0, rely=1.0, anchor="se", x=-12, y=-12)
 
     def _bind_keys(self):
         self.root.bind("<Left>",   lambda e: self.previous_page())
@@ -505,6 +534,7 @@ class ViewerApp:
             self.rendered_height = max(1, int(round(self.original_height * fit)))
             self.image_offset_x  = max(0, (cw - self.rendered_width)  // 2)
             self.image_offset_y  = max(0, (ch - self.rendered_height) // 2)
+        self._update_zoom_readout()
 
     def _refresh_image(self):
         self._refresh_render_metrics()
@@ -512,6 +542,8 @@ class ViewerApp:
         self.tk_image = ImageTk.PhotoImage(resized)
 
     def _zoom_fit(self, event=None):
+        self._zoom_accum = 0
+        self._pan_accum = [0, 0]
         if self.view is not None:
             self.view = None
             self._refresh_image()
@@ -519,16 +551,13 @@ class ViewerApp:
         return "break"
 
     def _on_zoom_wheel(self, event, direction=None):
-        """Mouse-wheel zoom anchored on the cursor; 'f' fits the whole page."""
+        """Ctrl + trackpad/wheel zoom anchored on the cursor. Notches are
+        coalesced into one re-render per frame so a fast trackpad burst stays
+        smooth instead of firing a full resize per event; 'f' fits the page."""
         delta = direction if direction is not None else (1 if getattr(event, "delta", 0) > 0 else -1)
-        factor = 1.25 if delta > 0 else 0.8
-        old = self.display_scale
-        new = old * factor
-        px = (event.x - self.image_offset_x) / old
-        py = (event.y - self.image_offset_y) / old
-        self.view = ("custom", new, event.x - px * new, event.y - py * new)
-        self._refresh_image()
-        self._draw_scene()
+        self._zoom_accum += delta
+        self._zoom_anchor = (event.x, event.y)
+        self._request_frame()
         return "break"
 
     def _on_pan_press(self, event):
@@ -544,20 +573,67 @@ class ViewerApp:
         self._draw_scene()
 
     def _pan_by(self, dx, dy):
-        """Shift the view by (dx, dy) canvas px — two-finger-scroll panning."""
-        self.image_offset_x += dx
-        self.image_offset_y += dy
-        self.view = ("custom", self.display_scale, self.image_offset_x, self.image_offset_y)
-        self._draw_scene()
+        """Shift the view by (dx, dy) canvas px — two-finger-scroll panning,
+        coalesced into one redraw per frame."""
+        self._pan_accum[0] += dx
+        self._pan_accum[1] += dy
+        self._request_frame()
         return "break"
 
     def _zoom_keyboard(self, direction):
-        """Zoom anchored on the canvas centre — keyboard Ctrl +/- or an injected
-        pinch gesture (libinput-gestures → Ctrl+= / Ctrl+-)."""
+        """Zoom anchored on the canvas centre — keyboard Ctrl +/-, the on-screen
+        +/- buttons, or an injected pinch gesture (libinput → Ctrl+= / Ctrl+-)."""
         cx = self.canvas.winfo_width() / 2
         cy = self.canvas.winfo_height() / 2
-        ev = type("E", (), {"x": cx, "y": cy, "delta": 0})()
-        return self._on_zoom_wheel(ev, direction)
+        self._apply_zoom_at(cx, cy, KEY_ZOOM_STEP if direction > 0 else 1 / KEY_ZOOM_STEP)
+        return "break"
+
+    # ── Smooth zoom/pan plumbing ────────────────────────────────────────────────
+
+    def _apply_zoom_view(self, ax, ay, factor):
+        """Set the view to a cursor-anchored zoom by `factor` (the page point
+        under (ax, ay) stays put). Updates metrics but does not re-rasterize."""
+        old = self.display_scale
+        new = old * factor
+        px = (ax - self.image_offset_x) / old
+        py = (ay - self.image_offset_y) / old
+        self.view = ("custom", new, ax - px * new, ay - py * new)
+        self._refresh_render_metrics()
+
+    def _apply_zoom_at(self, ax, ay, factor):
+        """Anchored zoom applied immediately (keyboard / on-screen buttons)."""
+        self._apply_zoom_view(ax, ay, factor)
+        self._refresh_image()
+        self._draw_scene()
+
+    def _request_frame(self):
+        """Ensure a single coalesced redraw is scheduled ~one frame out."""
+        if self._frame_after is None:
+            self._frame_after = self.root.after(FRAME_MS, self._apply_frame)
+
+    def _apply_frame(self):
+        """Apply all zoom/pan accumulated since the last frame in one redraw."""
+        self._frame_after = None
+        need_image = False
+        if self._zoom_accum:
+            ax, ay = self._zoom_anchor
+            self._apply_zoom_view(ax, ay, ZOOM_STEP ** self._zoom_accum)
+            self._zoom_accum = 0
+            need_image = True
+        if self._pan_accum[0] or self._pan_accum[1]:
+            self.image_offset_x += self._pan_accum[0]
+            self.image_offset_y += self._pan_accum[1]
+            self.view = ("custom", self.display_scale,
+                         self.image_offset_x, self.image_offset_y)
+            self._pan_accum = [0, 0]
+        if need_image:
+            self._refresh_image()
+        self._draw_scene()
+
+    def _update_zoom_readout(self):
+        lbl = getattr(self, "zoom_label", None)
+        if lbl is not None:
+            lbl.config(text=f"{round(self.display_scale * 100)}%")
 
     # ── Drawing ───────────────────────────────────────────────────────────────
 

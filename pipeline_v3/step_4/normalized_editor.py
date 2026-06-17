@@ -92,6 +92,10 @@ RENDER_DPI = 150
 
 PAN_STEP = 80          # canvas px shifted per two-finger-scroll notch (trackpad pan)
 
+ZOOM_STEP     = 1.10   # zoom factor per coalesced trackpad notch (small = smooth)
+KEY_ZOOM_STEP = 1.25   # zoom factor per +/- key press or on-screen button click
+FRAME_MS      = 16     # coalesce trackpad zoom/pan bursts into one redraw per frame
+
 # Arrow-key box editing on the selected polygon (source-px per press).
 NUDGE_STEP = 15        # plain arrow shrinks an edge / Shift+arrow slides the box
 NUDGE_MIN_SIZE = 8     # never shrink a box below this width/height
@@ -325,6 +329,10 @@ class NormalizedEditorApp:
             wanted = {int(t) for t in only.replace(" ", "").split(",") if t}
             self.page_numbers = [n for n in self.page_numbers if n in wanted]
         self.prefer_auto = os.getenv("EDITOR_PREFER_AUTO", "").strip() in ("1", "true", "yes")
+        # SCRATCH MODE (EDITOR_SCRATCH=1): start each page BLANK (no machine labels)
+        # so you can label it yourself; a page already in reviewed/ still loads your
+        # saved work, so pages you've finished are never clobbered.
+        self.scratch_mode = os.getenv("EDITOR_SCRATCH", "").strip() in ("1", "true", "yes")
         # VARIANT MODE: EDITOR_VARIANTS="raw:snap_compare/raw,current:snap_compare/current,
         # gentle:snap_compare/gentle" — flip between pre-run versions (Tab), edit the
         # active one, save your pick to reviewed/ ("✓ Save this" button).
@@ -365,6 +373,11 @@ class NormalizedEditorApp:
         # ("custom", scale, off_x, off_y) => user wheel-zoom / pan.
         self.view = None
         self._pan_anchor = None
+        # Coalesce trackpad zoom/pan bursts into one re-render per frame (smooth).
+        self._frame_after = None
+        self._zoom_accum  = 0
+        self._zoom_anchor = (0, 0)
+        self._pan_accum   = [0, 0]
         # Per-page Review Queue: {page_number: [flag dict, ...]} from qa_report.py.
         self.qa_flags_by_page = self._load_qa_flags()
         self.queue_flags    = []     # flags for the current page
@@ -533,6 +546,7 @@ class NormalizedEditorApp:
         # ── Canvas ────────────────────────────────────────────────────────────
         self.canvas = tk.Canvas(main, bg="#1e1e1e", highlightthickness=0)
         self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self._build_zoom_controls()
 
         # ── Right panel: info type selector ───────────────────────────────────
         self.right_panel = tk.Frame(main, bg="#252526", width=168)
@@ -658,6 +672,25 @@ class NormalizedEditorApp:
             for child in row.winfo_children():
                 if isinstance(child, tk.Label) and child.cget("width") != 2:
                     child.configure(bg=bg)
+
+    def _build_zoom_controls(self):
+        """Floating +/-/Fit cluster with a live zoom-% readout, overlaid on the
+        bottom-right of the canvas (no-gesture fallback + discoverability)."""
+        bar = tk.Frame(self.canvas, bg="#2d2d30",
+                       highlightbackground="#3f3f46", highlightthickness=1)
+        self.zoom_label = tk.Label(bar, text="—", width=5, anchor=tk.E,
+                                   bg="#2d2d30", fg="#cccccc",
+                                   font=("TkDefaultFont", 9))
+        self.zoom_label.pack(side=tk.LEFT, padx=(8, 4))
+        for txt, cmd in (("−", lambda: self._zoom_keyboard(-1)),
+                         ("+",      lambda: self._zoom_keyboard(1)),
+                         ("Fit",    self._zoom_fit)):
+            tk.Button(bar, text=txt, command=cmd, width=3,
+                      bg="#3a3a3a", fg="white", relief=tk.FLAT,
+                      activebackground="#0077dd", activeforeground="white",
+                      font=("TkDefaultFont", 10), cursor="hand2",
+                      takefocus=0).pack(side=tk.LEFT, padx=1, pady=2)
+        bar.place(relx=1.0, rely=1.0, anchor="se", x=-12, y=-12)
 
     def _bind_keys(self):
         self.root.bind("<Left>",  lambda e: self._on_arrow_key("left"))
@@ -792,6 +825,14 @@ class NormalizedEditorApp:
         output_path = self.output_doc_dir / f"page_{page_number:03d}" / f"page_{page_number:03d}.json"
         source_path = self.source_doc_dir / f"page_{page_number:03d}" / f"page_{page_number:03d}.json"
 
+        # SCRATCH MODE: a page you've already reviewed loads your saved work; any
+        # other page starts blank so you can label it from scratch.
+        if self.scratch_mode and not output_path.exists():
+            self.page_data = self._blank_page_data(source_path)
+            self._normalize_page_data()
+            self._loaded_snapshot = json.dumps(self.page_data, sort_keys=True)
+            return
+
         if self.prefer_auto and source_path.exists():
             path = source_path
         elif output_path.exists():
@@ -843,6 +884,23 @@ class NormalizedEditorApp:
         # Upgrade polygon identity + connection addressing so links stay stable
         # even when polygon list indices change after insertions/deletions.
         self._upgrade_polygon_identity_and_connections()
+
+    def _blank_page_data(self, source_path):
+        """A from-scratch page: keep page metadata (dims, dpi, source file) from
+        the auto_labeled source if available, but start with NO polygons so the
+        page can be labelled by hand."""
+        meta = {}
+        if source_path.exists():
+            try:
+                meta = json.load(open(source_path, encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                meta = {}
+        blank = {k: meta[k] for k in
+                 ("page_number", "source_file", "page_width", "page_height", "render_dpi")
+                 if k in meta}
+        blank["num_documents"] = 1
+        blank["documents"] = {"doc_1": {it: [] for it in LABEL_INFO_TYPES}}
+        return blank
 
     def _load_variants(self, page_number):
         """Load every configured variant of this page (+ reviewed/ if it exists)
@@ -1952,6 +2010,7 @@ class NormalizedEditorApp:
             self.rendered_height = max(1, int(round(self.original_height * fit)))
             self.image_offset_x  = max(0, (cw - self.rendered_width)  // 2)
             self.image_offset_y  = max(0, (ch - self.rendered_height) // 2)
+        self._update_zoom_readout()
 
     def _refresh_image(self):
         self._refresh_render_metrics()
@@ -1964,6 +2023,8 @@ class NormalizedEditorApp:
         self._draw_scene()
 
     def _zoom_fit(self, event=None):
+        self._zoom_accum = 0
+        self._pan_accum = [0, 0]
         if self.view is not None:
             self.view = None
             self._refresh_image()
@@ -1971,17 +2032,13 @@ class NormalizedEditorApp:
         return "break"
 
     def _on_zoom_wheel(self, event, direction=None):
-        """Mouse-wheel zoom, anchored on the cursor (the page point under the
-        pointer stays put). 'f' fits the whole page again."""
+        """Ctrl + trackpad/wheel zoom anchored on the cursor (the page point
+        under the pointer stays put). Notches are coalesced into one re-render
+        per frame so a fast trackpad burst stays smooth; 'f' fits the page."""
         delta = direction if direction is not None else (1 if getattr(event, "delta", 0) > 0 else -1)
-        factor = 1.25 if delta > 0 else 0.8
-        old = self.display_scale
-        new = old * factor
-        px = (event.x - self.image_offset_x) / old
-        py = (event.y - self.image_offset_y) / old
-        self.view = ("custom", new, event.x - px * new, event.y - py * new)
-        self._refresh_image()
-        self._draw_scene()
+        self._zoom_accum += delta
+        self._zoom_anchor = (event.x, event.y)
+        self._request_frame()
         return "break"
 
     def _on_pan_press(self, event):
@@ -1997,20 +2054,67 @@ class NormalizedEditorApp:
         self._draw_scene()
 
     def _pan_by(self, dx, dy):
-        """Shift the view by (dx, dy) canvas px — two-finger-scroll panning."""
-        self.image_offset_x += dx
-        self.image_offset_y += dy
-        self.view = ("custom", self.display_scale, self.image_offset_x, self.image_offset_y)
-        self._draw_scene()
+        """Shift the view by (dx, dy) canvas px — two-finger-scroll panning,
+        coalesced into one redraw per frame."""
+        self._pan_accum[0] += dx
+        self._pan_accum[1] += dy
+        self._request_frame()
         return "break"
 
     def _zoom_keyboard(self, direction):
-        """Zoom anchored on the canvas centre — keyboard Ctrl +/- or an injected
-        pinch gesture (libinput-gestures → Ctrl+= / Ctrl+-)."""
+        """Zoom anchored on the canvas centre — keyboard Ctrl +/-, the on-screen
+        +/- buttons, or an injected pinch gesture (libinput → Ctrl+= / Ctrl+-)."""
         cx = self.canvas.winfo_width() / 2
         cy = self.canvas.winfo_height() / 2
-        ev = type("E", (), {"x": cx, "y": cy, "delta": 0})()
-        return self._on_zoom_wheel(ev, direction)
+        self._apply_zoom_at(cx, cy, KEY_ZOOM_STEP if direction > 0 else 1 / KEY_ZOOM_STEP)
+        return "break"
+
+    # ── Smooth zoom/pan plumbing ─────────────────────────────────────────────────
+
+    def _apply_zoom_view(self, ax, ay, factor):
+        """Set the view to a cursor-anchored zoom by `factor` (the page point
+        under (ax, ay) stays put). Updates metrics but does not re-rasterize."""
+        old = self.display_scale
+        new = old * factor
+        px = (ax - self.image_offset_x) / old
+        py = (ay - self.image_offset_y) / old
+        self.view = ("custom", new, ax - px * new, ay - py * new)
+        self._refresh_render_metrics()
+
+    def _apply_zoom_at(self, ax, ay, factor):
+        """Anchored zoom applied immediately (keyboard / on-screen buttons)."""
+        self._apply_zoom_view(ax, ay, factor)
+        self._refresh_image()
+        self._draw_scene()
+
+    def _request_frame(self):
+        """Ensure a single coalesced redraw is scheduled ~one frame out."""
+        if self._frame_after is None:
+            self._frame_after = self.root.after(FRAME_MS, self._apply_frame)
+
+    def _apply_frame(self):
+        """Apply all zoom/pan accumulated since the last frame in one redraw."""
+        self._frame_after = None
+        need_image = False
+        if self._zoom_accum:
+            ax, ay = self._zoom_anchor
+            self._apply_zoom_view(ax, ay, ZOOM_STEP ** self._zoom_accum)
+            self._zoom_accum = 0
+            need_image = True
+        if self._pan_accum[0] or self._pan_accum[1]:
+            self.image_offset_x += self._pan_accum[0]
+            self.image_offset_y += self._pan_accum[1]
+            self.view = ("custom", self.display_scale,
+                         self.image_offset_x, self.image_offset_y)
+            self._pan_accum = [0, 0]
+        if need_image:
+            self._refresh_image()
+        self._draw_scene()
+
+    def _update_zoom_readout(self):
+        lbl = getattr(self, "zoom_label", None)
+        if lbl is not None:
+            lbl.config(text=f"{round(self.display_scale * 100)}%")
 
     # ── Drawing ────────────────────────────────────────────────────────────────
 

@@ -9,9 +9,14 @@ opens the editor in VARIANT MODE on those pages, where you:
   • edit the active version like any page,
   • click "✓ Save this → gold" to write the version you picked into reviewed/.
 
+  • or pass --scratch to skip the variants entirely and label each page from a
+    BLANK slate yourself (pages already in reviewed/ still load your saved work,
+    so finished pages are never clobbered).
+
 Usage:
   ./venv/bin/python review_variants.py Appendix_2
   ./venv/bin/python review_variants.py Volume_2
+  ./venv/bin/python review_variants.py Volume_2 --scratch
 """
 from __future__ import annotations
 import json, os, subprocess, sys
@@ -23,15 +28,30 @@ MODES = ["raw", "soft", "medium"]
 
 
 def main():
-    if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
+    argv = sys.argv[1:]
+    scratch = "--scratch" in argv
+    positional = [a for a in argv if not a.startswith("-")]
+    if not positional or argv[0] in ("-h", "--help"):
         pages = json.loads((HERE / "qa_output" / "contents_pages.json").read_text())
         print(__doc__)
         print("Volumes with contents pages: " + ", ".join(pages))
         return
-    vol = sys.argv[1]
+    vol = positional[0]
     pages = json.loads((HERE / "qa_output" / "contents_pages.json").read_text())
     if vol not in pages:
         raise SystemExit(f"{vol} has no contents pages. Options: {list(pages)}")
+
+    if scratch:
+        print(f"SCRATCH mode — opening {vol} contents pages {pages[vol]} in the editor. "
+              f"Pages you've already reviewed load your saved work; the rest start blank "
+              f"so you label them yourself. Auto-saves to reviewed/ as usual.")
+        env = {**os.environ,
+               "EDITOR_DOCUMENT": vol,
+               "EDITOR_PAGES": ",".join(map(str, pages[vol])),
+               "EDITOR_SCRATCH": "1"}
+        subprocess.run([PY, str(HERE / "normalized_editor.py")], cwd=HERE, env=env)
+        return
+
     spec = f"{vol}:{','.join(map(str, pages[vol]))}"
 
     # build the three variants from the saved raw (instant)
