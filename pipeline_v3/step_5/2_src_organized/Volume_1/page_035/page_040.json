@@ -1,0 +1,194 @@
+{
+  "page_number": 40,
+  "source_file": "/Workspace/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Volume_1/Volume_1.pdf",
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 1,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 1159.0,
+              "y": 1664.0
+            },
+            {
+              "x": 4538.3435582822085,
+              "y": 1670.245398773006
+            },
+            {
+              "x": 4529.9079754601225,
+              "y": 3365.79754601227
+            },
+            {
+              "x": 1159.0,
+              "y": 3339.0
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "8b9944b6-d579-4f7b-b6a0-6534313b9091"
+            }
+          ],
+          "id": "05fb7427-9013-42df-82f3-548d709c1dd9"
+        },
+        {
+          "vertices": [
+            {
+              "x": 1166,
+              "y": 3683
+            },
+            {
+              "x": 4320,
+              "y": 3683
+            },
+            {
+              "x": 4320,
+              "y": 5692
+            },
+            {
+              "x": 1166,
+              "y": 5692
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "struct_doc",
+              "id": "93dad84f-80cb-4caf-b5a6-68f787e35378"
+            }
+          ],
+          "id": "6342ec62-50fd-4a98-b7ad-56fdad00556b"
+        }
+      ],
+      "src_origin": [],
+      "src_recipient": [],
+      "src_location_recipient": [],
+      "src_location_sender": [],
+      "src_date": [],
+      "src_greeting": [],
+      "src_farewell": [],
+      "src_signature": [],
+      "src_other": [],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [
+        {
+          "vertices": [
+            {
+              "x": 3757,
+              "y": 219
+            },
+            {
+              "x": 4314,
+              "y": 219
+            },
+            {
+              "x": 4314,
+              "y": 417
+            },
+            {
+              "x": 3757,
+              "y": 417
+            }
+          ],
+          "connections": [],
+          "id": "f17ebbbf-2f31-4154-938f-70b573735c4a"
+        }
+      ],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [
+        {
+          "vertices": [
+            {
+              "x": 505,
+              "y": 886
+            },
+            {
+              "x": 2579,
+              "y": 886
+            },
+            {
+              "x": 2579,
+              "y": 1099
+            },
+            {
+              "x": 505,
+              "y": 1099
+            }
+          ],
+          "connections": [],
+          "id": "1c207122-cf40-4970-88d6-2aa890015b43"
+        }
+      ],
+      "struct_doc": [
+        {
+          "vertices": [
+            {
+              "x": 503,
+              "y": 1658
+            },
+            {
+              "x": 1063,
+              "y": 1658
+            },
+            {
+              "x": 1063,
+              "y": 1865
+            },
+            {
+              "x": 503,
+              "y": 1865
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "05fb7427-9013-42df-82f3-548d709c1dd9"
+            }
+          ],
+          "id": "8b9944b6-d579-4f7b-b6a0-6534313b9091"
+        },
+        {
+          "vertices": [
+            {
+              "x": 511,
+              "y": 3681
+            },
+            {
+              "x": 1005,
+              "y": 3681
+            },
+            {
+              "x": 1005,
+              "y": 3889
+            },
+            {
+              "x": 511,
+              "y": 3889
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "6342ec62-50fd-4a98-b7ad-56fdad00556b"
+            }
+          ],
+          "id": "93dad84f-80cb-4caf-b5a6-68f787e35378"
+        }
+      ],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": [],
+      "src_margin_note": [],
+      "src_insertion": []
+    }
+  }
+}
