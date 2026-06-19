@@ -1,0 +1,185 @@
+{
+  "source_file": "Volume_2",
+  "pdf_page_number": 253,
+  "page_type": "source_page",
+  "page_number_in_type": 243,
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 1,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 732,
+              "y": 1088
+            },
+            {
+              "x": 4933,
+              "y": 1088
+            },
+            {
+              "x": 4933,
+              "y": 1469
+            },
+            {
+              "x": 732,
+              "y": 1469
+            }
+          ],
+          "connections": [],
+          "id": "c407eabb-038a-431f-a9a6-1bb7d53d85a6"
+        },
+        {
+          "vertices": [
+            {
+              "x": 732,
+              "y": 1726
+            },
+            {
+              "x": 4971,
+              "y": 1726
+            },
+            {
+              "x": 4971,
+              "y": 5715
+            },
+            {
+              "x": 732,
+              "y": 5715
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "archv_format_note",
+              "id": "b0dc5378-1a61-4236-8f1c-f39291194676"
+            }
+          ],
+          "id": "624e4da4-b2bf-4c90-b982-fe9551b5c878"
+        }
+      ],
+      "src_origin": [],
+      "src_recipient": [],
+      "src_location_recipient": [],
+      "src_location_sender": [],
+      "src_date": [],
+      "src_greeting": [],
+      "src_farewell": [],
+      "src_signature": [],
+      "src_other": [],
+      "archv_commentary": [
+        {
+          "vertices": [
+            {
+              "x": 726,
+              "y": 350
+            },
+            {
+              "x": 4826,
+              "y": 350
+            },
+            {
+              "x": 4826,
+              "y": 627
+            },
+            {
+              "x": 726,
+              "y": 627
+            }
+          ],
+          "connections": [],
+          "id": "7a05ab41-167f-4da1-b547-f1f0df6c2683"
+        }
+      ],
+      "archv_format_note": [
+        {
+          "vertices": [
+            {
+              "x": 751,
+              "y": 1514
+            },
+            {
+              "x": 3251,
+              "y": 1514
+            },
+            {
+              "x": 3251,
+              "y": 1686
+            },
+            {
+              "x": 751,
+              "y": 1686
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_content",
+              "id": "624e4da4-b2bf-4c90-b982-fe9551b5c878"
+            }
+          ],
+          "id": "b0dc5378-1a61-4236-8f1c-f39291194676"
+        }
+      ],
+      "archv_date": [
+        {
+          "vertices": [
+            {
+              "x": 3108,
+              "y": 132
+            },
+            {
+              "x": 4191,
+              "y": 132
+            },
+            {
+              "x": 4191,
+              "y": 303
+            },
+            {
+              "x": 3108,
+              "y": 303
+            }
+          ],
+          "connections": [],
+          "id": "8a2ee600-f38e-4990-b7de-15dab2c62969"
+        }
+      ],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [
+        {
+          "vertices": [
+            {
+              "x": 1712,
+              "y": 882
+            },
+            {
+              "x": 3833,
+              "y": 882
+            },
+            {
+              "x": 3833,
+              "y": 1050
+            },
+            {
+              "x": 1712,
+              "y": 1050
+            }
+          ],
+          "connections": [],
+          "id": "c2e4aace-534f-4ee5-bfd4-24fdfe6090fb"
+        }
+      ],
+      "struct_doc": [],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": [],
+      "src_margin_note": [],
+      "src_insertion": []
+    }
+  }
+}

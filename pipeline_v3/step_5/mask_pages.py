@@ -26,23 +26,27 @@ from PIL import Image, ImageDraw, ImageFilter
 Image.MAX_IMAGE_PIXELS = None  # these scans are ~36 MP; disable the decompression-bomb guard
 
 ROOT = Path(__file__).resolve().parent / "2_src_organized"
-CROPS = Path(__file__).resolve().parent.parent / "step_4" / "polygon_cropped_pdfs"
+# the source the gold labels were drawn on = the step_4 editor's SOURCE_DIR (auto_labeled/),
+# NOT polygon_cropped_pdfs/ (a cropped variant missing the archival framing).
+AUTO = Path(__file__).resolve().parent.parent / "step_4" / "auto_labeled"
 SECTIONS = ["Volume_1", "Volume_2", "Volume_3", "Volume_4",
             "Appendix_1", "Appendix_2", "Appendix_3"]
 SUBS = ["0_table_of_contents", "1_source_pages", "2_post_pages"]
 
 
 def ensure_src_pdf(sec, pf, js):
-    """Make sure the source page PDF is linked into the folder; returns its path."""
+    """Link the page PDF from auto_labeled/ — the source the gold labels were drawn on. ALWAYS
+    re-links, so a stale/wrong source PDF (e.g. an old polygon_cropped one) gets corrected."""
     num = js.stem.split("_")[1]
     dst = pf / f"page_{num}.pdf"
-    if not dst.exists():
-        src = CROPS / sec / "pages" / f"page_{num}.pdf"
-        if src.exists():
-            try:
-                os.link(src, dst)
-            except OSError:
-                import shutil; shutil.copy2(src, dst)
+    src = AUTO / sec / f"page_{num}" / f"page_{num}.pdf"
+    if src.exists():
+        if dst.exists():
+            dst.unlink()
+        try:
+            os.link(src, dst)
+        except OSError:
+            import shutil; shutil.copy2(src, dst)
     return dst if dst.exists() else None
 
 

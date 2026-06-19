@@ -1,0 +1,96 @@
+STEP_5 REBUILD PLAN  —  2026-06-19
+==================================================================
+Why we're taking a step back, what was fixed, and the exact commands to rebuild
+2_src_organized -> 3_enriched -> OCR -> review. Pull this on the desktop and run it.
+
+------------------------------------------------------------------
+THE BUG (found 2026-06-19)
+------------------------------------------------------------------
+Symptom: on a page, the labeled boxes are there but some boxes (the non-"src" ones,
+e.g. archv_commentary / archv_date — the archivist's framing notes) render BLANK in the
+masked PNG/PDF, even though they have text in the step_4 editor.
+
+Root cause: masking ran on the WRONG source image.
+  - The gold labels were drawn in step_4's normalized_editor, whose SOURCE_DIR is
+    step_4/auto_labeled/<Vol>/page_NNN/page_NNN.pdf  (verified: this PDF HAS the archival text).
+  - But masking (and the page-PDF population) used
+    step_4/polygon_cropped_pdfs/<Vol>/pages/page_NNN.pdf  — a cropped variant that is BLANK
+    in the archival-framing area.
+  - So every polygon was kept (nothing dropped), but the archival regions had no pixels to
+    keep -> they masked out blank.
+
+Fix: mask from auto_labeled (the editor's input), the source the labels correspond to.
+
+------------------------------------------------------------------
+WHAT CHANGED IN THE CODE (already committed in this push)
+------------------------------------------------------------------
+mask_pages.py
+  - Source is now step_4/auto_labeled/ (was polygon_cropped_pdfs/). ensure_src_pdf() ALWAYS
+    re-links each page's PDF from auto_labeled, so the stale/wrong source PDFs get corrected.
+  - Run with --force to regenerate ALL masks (the existing masks are from the wrong source).
+
+extract_azure.py
+  - Per-word OUTPUT now includes each word's page-pixel box: words=[{t, c, box:[x0,y0,x1,y1]}].
+  - Writes the full RAW Azure responses too: extract_azure.raw.json (both passes, nothing discarded).
+  - Summary now reports "<0.90 conf: N words in M regions" (was region-only).
+
+review_ocr.py
+  - RIGHT pane now places every OCR word at its ACTUAL page position (1:1 spatial compare),
+    sized per word, typewriter monospace (Courier Prime), low-confidence words highlighted
+    (amber <0.90, red <0.70). Edits persist with positions in extract_azure.reviewed.json.
+
+enrich_pages.py  (unchanged this round; recap)
+  - Builds 3_enriched/ from 2_src_organized/. Folders+files named by pdf_page_number (Option A);
+    JSON keys: source_file (bare doc name), pdf_page_number, page_type, page_number_in_type,
+    dims..., documents last. Per-section page_index.json manifest. Modes: default overwrite /
+    --no-overwrite / --fresh / --dry-run.
+
+------------------------------------------------------------------
+DESKTOP PREREQUISITES (must be present before running)
+------------------------------------------------------------------
+  - pipeline_v3/step_4/auto_labeled/     (the correct source PDFs — REQUIRED for re-masking)
+  - pipeline_v3/step_5/2_src_organized/  (folder structure + gold page_*.json)
+  - pipeline_v3/step_5/.env              (cp .env.template .env, add AZURE_DI_ENDPOINT + AZURE_DI_KEY)
+  - poppler (pdftoppm) on PATH; python3 with tkinter not needed (review tool is web-based)
+
+------------------------------------------------------------------
+THE REBUILD — run in order, from pipeline_v3/step_5/
+------------------------------------------------------------------
+cd ~/projects/solanus-project-pipeline/pipeline_v3/step_5
+
+# 0) (fresh machine only) create the venv
+python3 -m venv venv && venv/bin/pip install -r requirements.txt
+
+# 1) RE-POPULATE + RE-MASK 2_src_organized from auto_labeled.
+#    --force re-links every page PDF from auto_labeled AND regenerates ALL masks (~20 min, 16 workers).
+venv/bin/python mask_pages.py --force --workers 16
+
+# 2) RE-ENRICH -> 3_enriched (wipe + rebuild so it picks up the corrected masks + page PDFs)
+python3 enrich_pages.py --fresh
+
+# 3) RE-OCR the two test pages (cleaned + raw + per-word boxes, written under 3_enriched)
+venv/bin/python extract_azure.py Volume_2/1_source_pages/page_252 Volume_3/1_source_pages/page_055
+
+# 4) REVIEW (word-positioned 1:1, Courier Prime, per-word confidence)
+venv/bin/python review_ocr.py Volume_2/1_source_pages/page_252 Volume_3/1_source_pages/page_055
+#    open http://localhost:8000   (if it was already running, restart it so the new HTML loads)
+
+------------------------------------------------------------------
+VERIFY THE FIX
+------------------------------------------------------------------
+  - On Volume_2 page_252 (the "tardiness" letter), the wide archv_commentary box near the top
+    should now show: "The following is a faithful transcription of the carbon copy of the typed
+    original by the Servant of God, Father Solanus Casey, O.F.M. Cap."  (was blank before.)
+  - In the review editor, words sit where they belong on the page (no more crammed blob),
+    sized correctly, with low-confidence words highlighted.
+
+------------------------------------------------------------------
+NOTES / NEXT
+------------------------------------------------------------------
+  - The two test pages above are PDF-numbered folders in 3_enriched (page_252 = the letter,
+    page_055 = a casebook). Their 2_src_organized counterparts are page_242 and page_054.
+  - extract_azure / review_ocr default to --root 3_enriched (override with --root).
+  - Cost: Azure DI Read S0 = $0.0015 per OCR page; the two test pages ~ $0.06 total.
+  - Once the two pages look right, scale OCR to the rest (still under review which subset to run).
+  - Masked artifacts (~8 GB) are regenerable; they do not need to be in git — auto_labeled +
+    2_src_organized + the code are what the desktop needs.
