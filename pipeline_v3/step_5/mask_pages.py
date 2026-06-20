@@ -113,9 +113,8 @@ def mask_one(args):
     t0 = time.time()
     meta = json.loads(js.read_text())
     docs = meta.get("documents", {})
-    npoly = sum(len(p or []) for doc in (docs or {}).values() for p in (doc or {}).values())
-    if npoly == 0:                                # nothing labeled -> would mask to blank; skip
-        return (sec, f"{sec}/{pf.parent.name}/{pf.name}", -1.0, 0, 0, 0)
+    # Zero-label pages are masked too: the empty mask whites the whole page out. We preserve a
+    # doc for every page rather than skipping blanks (mask = all-zero -> output = all-white).
     dpi = int(meta.get("render_dpi", 150))
     pw, ph = int(meta["page_width"]), int(meta["page_height"])
     img = render(pdf, dpi)

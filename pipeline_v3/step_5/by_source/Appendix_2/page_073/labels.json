@@ -1,0 +1,183 @@
+{
+  "page_number": 73,
+  "source_file": "/home/david/Desktop/Projects/Solanus-Project-Pipeline/pipeline_v2/step_4/polygon_cropped_pdfs/Appendix_2/Appendix_2.pdf",
+  "page_width": 5313,
+  "page_height": 6875,
+  "render_dpi": 150,
+  "num_documents": 1,
+  "documents": {
+    "doc_1": {
+      "src_content": [
+        {
+          "vertices": [
+            {
+              "x": 1539,
+              "y": 2718
+            },
+            {
+              "x": 4181,
+              "y": 2718
+            },
+            {
+              "x": 4181,
+              "y": 4231
+            },
+            {
+              "x": 1539,
+              "y": 4231
+            }
+          ],
+          "connections": [],
+          "id": "26f398a0-6a41-43ad-85d0-46fea7b30eb2"
+        }
+      ],
+      "src_origin": [
+        {
+          "vertices": [
+            {
+              "x": 2316,
+              "y": 2249
+            },
+            {
+              "x": 3246,
+              "y": 2249
+            },
+            {
+              "x": 3246,
+              "y": 2423
+            },
+            {
+              "x": 2316,
+              "y": 2423
+            }
+          ],
+          "connections": [],
+          "id": "ecf2deab-a034-406b-a1d6-a1d91bf8c05f"
+        }
+      ],
+      "src_recipient": [],
+      "src_location_recipient": [],
+      "src_location_sender": [
+        {
+          "vertices": [
+            {
+              "x": 1532,
+              "y": 2249
+            },
+            {
+              "x": 2154,
+              "y": 2249
+            },
+            {
+              "x": 2154,
+              "y": 2418
+            },
+            {
+              "x": 1532,
+              "y": 2418
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_location_sender",
+              "id": "ebbc0073-14ed-4918-9aad-0d22327fdd63"
+            }
+          ],
+          "id": "06433a29-2bc1-491f-a7db-bc32e0f9bc21"
+        },
+        {
+          "vertices": [
+            {
+              "x": 3618,
+              "y": 2255
+            },
+            {
+              "x": 4081,
+              "y": 2255
+            },
+            {
+              "x": 4081,
+              "y": 2426
+            },
+            {
+              "x": 3618,
+              "y": 2426
+            }
+          ],
+          "connections": [
+            {
+              "doc": "doc_1",
+              "type": "src_location_sender",
+              "id": "06433a29-2bc1-491f-a7db-bc32e0f9bc21"
+            }
+          ],
+          "id": "ebbc0073-14ed-4918-9aad-0d22327fdd63"
+        }
+      ],
+      "src_date": [],
+      "src_greeting": [],
+      "src_farewell": [
+        {
+          "vertices": [
+            {
+              "x": 1803,
+              "y": 4283
+            },
+            {
+              "x": 3918,
+              "y": 4283
+            },
+            {
+              "x": 3918,
+              "y": 4650
+            },
+            {
+              "x": 1803,
+              "y": 4650
+            }
+          ],
+          "connections": [],
+          "id": "5dc5c621-0a08-4361-9748-9af61288d4e9"
+        }
+      ],
+      "src_signature": [
+        {
+          "vertices": [
+            {
+              "x": 2741,
+              "y": 4685
+            },
+            {
+              "x": 4022,
+              "y": 4685
+            },
+            {
+              "x": 4022,
+              "y": 4858
+            },
+            {
+              "x": 2741,
+              "y": 4858
+            }
+          ],
+          "connections": [],
+          "id": "751f5fdc-c7b0-4f99-b065-42446625824c"
+        }
+      ],
+      "src_other": [],
+      "archv_commentary": [],
+      "archv_format_note": [],
+      "archv_date": [],
+      "archv_possessor": [],
+      "archv_other": [],
+      "struct_id": [],
+      "struct_doc": [],
+      "struct_commentary": [],
+      "struct_other": [],
+      "other": [],
+      "src_margin_note": [],
+      "src_insertion": []
+    }
+  }
+}
