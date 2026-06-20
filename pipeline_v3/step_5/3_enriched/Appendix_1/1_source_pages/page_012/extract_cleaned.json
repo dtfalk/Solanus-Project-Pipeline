@@ -1,0 +1,44 @@
+{
+  "page": "Appendix_1/1_source_pages/page_012",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Of course it might be given other and otherwise, but that's how the music measure runs and we wanted it as litteral and as plain as possible After some joking with the doctors - better say, confidential and pleasant, humors thought-exchange - They put off their \"long faces\", though keeping their white caps and gause-covered mouths. Dr. Egerton concluded: \"Well roll him in here now ... only head first.\" .... With my 6th breath of gass, and an effort, I called out: \"all right!\" ( the first couple of breaths, I almost doubted if \"the stuff was any good.\") Life and light was going fast when beautiful bells began to ring: (St. Joseph's Hospital for comsumptives is just across the street) and a voice gently and piously reminded: \"There's the Angelus.\" O, how sweet that music to my soul and the announcement, - how confidence - inspiring! I realized that consciousness had come to the very end. The des- cription of Mother's beautiful death three years ago at the 2nd ring- ing of the Angelus flashed on my memory and my heart was only able to respond: Behold - be it done to me acording to Thy holy Will.\" I can realize now as never before how beautiful in the sight of heaven Mother's death must have been. With the above act of resignation I came to \"perfect darkness and death\". A shorter instant, however, than that death lasted could not be imagined. With electric quickness the bubble broke and O, what peace! What solemnity! !!...... The very breath of existence seemed to be principles of wisdom and truth, e.g. \"To the pure everything is pure\". \"Charity knows no evil .... is not suspicious,\" etc. At about 12:15 (P.M.) hearing Dr. K. urging Dr. E. \"Hurry up! Hurry up!\" and seeming to see the latter cutting away the last flesh- rags, as I actually felt him without the slightest pain. I could only weep out with joyous wonder: \"Deo Gratias! Deo Gratias! Thanks be to God!\" -.. ... The Rev. Chaplin, gave his consent to my saying holy Mass, but Sr. Superior could not believe next A.M. me out of danger .* By God's dear providence on a mistaken permission (as I learned the fol- lowing evening), I said holy Mass Tuesday and have been celebrating since. *I had to be content with receiving Holy Communion (Monday).",
+      "merged_text": "Of course it might be given other and otherwise, but that's how the music measure runs and we wanted it as litteral and as plain as possible After some joking with the doctors - better say, confidential and pleasant, humors thought-exchange - They put off their \"long faces\", though keeping their white caps and gause-covered mouths. Dr. Egerton concluded: \"Well roll him in here now ... only head first.\" .... With my 6th breath of gass, and an effort, I called out: \"all right!\" ( the first couple of breaths, I almost doubted if \"the stuff was any good.\") Life and light was going fast when beautiful bells began to ring: (St. Joseph's Hospital for comsumptives is just across the street) and a voice gently and piously reminded: \"There's the Angelus.\" 0, how sweet that music to my soul and the announcement, - how confidence - inspiring! I realized that consciousness had come to the very end. The des- cription of Mother's beautiful death three years ago at the 2nd ring- ing of the Angelus flashed on my memory and my heart was only able to respond: Behold - be it done to me acording to Thy holy Will.\" I can realize now as never before how beautiful in the sight of heaven Mother's death must have been. With the above act of resignation I came to \"perfect darkness and death\". A shorter instant, however, than that death lasted could not be imagined. With electric quickness the bubble broke and 0, what peace! What solemnity! !!...... The very breath of existence seemed to be principles of wisdom and truth, e.g. \"To the pure everything is pure\". \"Charity knows no evil .... is not suspicious,\" etc. At about 12:15 (P.M.) hearing Dr. K. urging Dr. E. \"Hurry up! Hurry up!\" and seeming to see the latter cutting away the last flesh- rags, as I actually felt him without the slightest pain. I could only weep out with joyous wonder: \"Deo Gratias! Deo Gratias! Thanks be to God!\" -.. ... The Rev. Chaplin, gave his consent to my saying holy Mass, but Sr. Superior could not believe next A.M. me out of danger .* By God's dear providence on a mistaken permission (as I learned the fol- lowing evening), I said holy Mass Tuesday and have been celebrating since. *I had to be content with receiving Holy Communion (Monday).",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        },
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Praised be JESUS CHRIST. .... In the Sacred Heart",
+      "merged_text": "Praised be JESUS CHRIST. .... In the Sacred Heart",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus",
+      "merged_text": "Fr. Solanus",
+      "edits": []
+    }
+  ]
+}

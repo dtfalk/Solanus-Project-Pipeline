@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_121",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Take courage! Trust in God! His providence govems all things sweetly, even tho we cannot see it immediately. That is where we must have faith and confidence! Muriel has been enrolled once again and also the Poor Souls. God love you! We will pray for the best. Have confidence! Thank God ahead of time whatever He sends. P.S. Please Miss Muriel: God bless you and yours. You have never called up. (?) I only this P.M. got to read your letter of last Friday. And surely there was urgency enough about your sister and little niece to call Hunt- ington 210. I would have called you but I had no permis'n F.S. We'll pray for them of course; but in such urgent cases we find it practical even by telephone to enroll - hoping of course that the good God show His Mercy and give sanction to our presuming. God bless you now and keep courage.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Take courage! Trust in God! His providence govems all things sweetly, even tho we cannot see it immediately. That is where we must have faith and confidence! Muriel has been enrolled once again and also the Poor Souls. God love you! We will pray for the best. Have confidence! Thank God ahead of time whatever He sends. P.S. Please Miss Muriel: God bless you and yours. You have never called up. (?) I only this P.M. got to read your letter of last Friday. And surely there was urgency enough about your sister and little niece to call Hunt- ington 210. I would have called you but I had no permis'n F.S. We'll pray for them of course; but in such urgent cases we find it practical even by telephone to enroll - hoping of course that the good God show His Mercy and give sanction to our presuming. God bless you now and keep courage.",
+      "per_polygon": "Take courage! Trust in God! His providence govems all things sweetly, even tho we cannot see it immediately. That is where we must have faith and confidence! Muriel has been enrolled once again and also the Poor Souls. God love you! We will pray for the best. Have confidence! Thank God ahead of time whatever He sends. P.S. Please Miss Muriel: God bless you and yours. You have never called up. (?) I only this P.M. got to read your letter of last Friday. And surely there was urgency enough about your sister and little niece to call Hunt- ington 210. I would have called you but I had no permis'n F.S. We'll pray for them of course; but in such urgent cases we find it practical even by telephone to enroll - hoping of course that the good God show His Mercy and give sanction to our presuming. God bless you now and keep courage.",
+      "min_conf": 0.865
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Felix Friary",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Felix Friary",
+      "per_polygon": "St. Felix Friary",
+      "min_conf": 0.972
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Huntington Indiana",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Huntington Indiana",
+      "per_polygon": "Huntington Indiana",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Sept. 21, 53",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sept. 21, 53",
+      "per_polygon": "Sept. 21, 53",
+      "min_conf": 0.954
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Muriel",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Muriel",
+      "per_polygon": "Dear Muriel",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless Dad and Tom and all.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless Dad and Tom and all.",
+      "per_polygon": "God bless Dad and Tom and all.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O. F.M.Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus O. F.M.Cap.",
+      "min_conf": 0.656
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed and handwritten original by the Servent of God Father Solanas Casey, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the typed and handwritten original by the Servant of God Father Solanas Casey, O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed and handwritten original by the Servent of God Father Solanas Casey, O. F.M. Cap.",
+      "min_conf": 0.595
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1953, September 21",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1953, September 21",
+      "per_polygon": "1953, September 21",
+      "min_conf": 0.905
+    }
+  ]
+}

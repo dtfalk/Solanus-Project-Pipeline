@@ -1,0 +1,98 @@
+{
+  "page": "Appendix_1/1_source_pages/page_019",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 7,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you. I hope you are well. Strange ... the herewith enclosed Xmas card! I only just came across it Tonight - now almost 11 P.M. I just thought I'd send it anyway. I was talking to-night (by phone) to same M. Casey therin mentioned. She is well, expecting Mildred here this week .... - tells me she expects to go to California before long .... Mrs. E. Sampson was in last Sunday. E'd - Sr. & Jr. are well also E'd III. Old Mr. Doonan was in some time ago and seems pretty well. I had dinner Xmas at Molloys. James is doing well - 2nd yr. in Sacred Heart Seminary. Our prophet, Father Coughlin, started again last Sunday on the air in a touching tribute to Bishop Gallagher.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you. I hope you are well. .... Strange ... the herewith enclosed Xmas card! I only just came across it Tonight - now almost 11 P.M. I just thought I'd send it anyway. I was talking to-night (by phone) to same M. Casey therin mentioned. She is well, expecting Mildred here this week .... - tells me she expects to go to California before long .... Mrs. E. Sampson was in last Sunday. E'd - Sr. & Jr. are well also E'd III. Old Mr. Doonan was in some time ago and seems pretty well. I had dinner Xmas at Molloys. James is doing well - 2nd yr. in Sacred Heart Seminary. Our prophet, Father Coughlin, started again last Sunday on the air in a touching tribute to Bishop Gallagher.",
+      "per_polygon": "God bless you. I hope you are well. Strange ... the herewith enclosed Xmas card! I only just came across it Tonight - now almost 11 P.M. I just thought I'd send it anyway. I was talking to-night (by phone) to same M. Casey therin mentioned. She is well, expecting Mildred here this week .... - tells me she expects to go to California before long .... Mrs. E. Sampson was in last Sunday. E'd - Sr. & Jr. are well also E'd III. Old Mr. Doonan was in some time ago and seems pretty well. I had dinner Xmas at Molloys. James is doing well - 2nd yr. in Sacred Heart Seminary. Our prophet, Father Coughlin, started again last Sunday on the air in a touching tribute to Bishop Gallagher.",
+      "min_conf": 0.49
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Fr. M. E. Joachim is well.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. M. E. Joachim is well.",
+      "per_polygon": "Fr. M. E. Joachim is well.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. BONAVENTURE MONASTERY 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. BONAVENTURE MONASTERY 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "per_polygon": "ST. BONAVENTURE MONASTERY 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "min_conf": 0.976
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Margaret LeDoux",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Margaret LeDoux",
+      "per_polygon": "Mrs. Margaret LeDoux",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "Oakland California",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Oakland California",
+      "per_polygon": "Oakland California",
+      "min_conf": 0.878
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "January 26th, 1937 - 8th Anniv. yesterday of J. & T. 's death.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "January 26th, 1937 - 8th Anniv. yesterday of J. & T. 's death.",
+      "per_polygon": "January 26th, 1937 - 8th Anniv. yesterday of J. & T. 's death.",
+      "min_conf": 0.975
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My Dear Sister Margaret :-",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "My Dear Sister Margaret :-",
+      "per_polygon": "My Dear Sister Margaret :-",
+      "min_conf": 0.936
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus",
+      "per_polygon": "Fr. Solanus",
+      "min_conf": 0.905
+    }
+  ]
+}

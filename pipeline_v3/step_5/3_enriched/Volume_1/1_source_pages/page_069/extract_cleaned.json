@@ -1,0 +1,81 @@
+{
+  "page": "Volume_1/1_source_pages/page_069",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "FRANCISCA HOTES St. Francis Bn. 1182: Started I Order in 1206, II O. in 1212, III in 1221. Capuchin Reform started by Fr. Matteo di Bassi of the Marches Provine in 1525 3 \"Observe the Rule to the L.\" In 1528 (July 3rd) conceded. St. Fr. Solanus at Rioxa on Holy Thursday goes out alone to meet invading army of Indian Savages of various tribes ---- 9000 of them asked to be baptized.",
+      "merged_text": "FRANCISCA HOTES St. Francis Bn. 1182: Started I Order in 1206, II 0. in 1212, III in 1221. Capuchin Reform started by Fr. Matteo di Bassi of the Marches Provine in 1525 3 \"Observe the Rule to the L.\" In 1528 (July 3rd) conceded. St. Fr. Solanus at Rioxa on Holy Thursday goes out alone to meet invading army of Indian Savages of various tribes ---- 9000 of them asked to be baptized.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "LITTLE FLOWER - ST. THERESE Born Jan. 2, 1873 - Died Sept. 30th 1897. \"On that day (Confirmation) I rec'd the gift of fortitude in suffering - a gift I needed sorely, for the martyrdom of my soul was about to begin.\" \" ..... He does not come down from Heaven each day in order to remain in a golden ciborium, but to find another Heaven - the Heaven of our souls in which He takes such delight.\"",
+      "merged_text": "LITTLE FLOWER - ST. THERESE Born Jan. 2, 1873 - Died Sept. 30th 1897. \"On that day (Confirmation) I rec'd the gift of fortitude in suffering - a gift I needed sorely, for the martyrdom of my soul was about to begin.\" \" ..... He does not come down from Heaven each day in order to remain in a golden ciborium, but to find another Heaven - the Heaven of our souls in which He takes such delight.\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1926",
+      "merged_text": "c. 1926",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "Blank",
+      "merged_text": "Blank",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.1",
+      "category": "archv_other",
+      "cleaned_text": "Pages 36 through 40 Blank",
+      "merged_text": "Pages 36 through 40 Blank",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLAUS, NOTEBOOK NO. 3.",
+      "merged_text": "FATHER SOLAUS, NOTEBOOK NO. 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 33.",
+      "merged_text": "Pg. 33.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 34.",
+      "merged_text": "Pg. 34.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 35.",
+      "merged_text": "Pg. 35.",
+      "edits": []
+    }
+  ]
+}

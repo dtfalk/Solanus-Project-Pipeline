@@ -1,0 +1,193 @@
+{
+  "page": "Volume_4/1_source_pages/page_258",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Dorothy Kruszka - 30 - husband and 2 small children depend- ing on her threatened with amputation of breast. . Enrolled To-day 5.",
+      "merged_text": "Mrs. Dorothy Kruszka - 30 - husband and 2 small children depend- ing on her threatened with amputation of breast. . Enrolled To-day 5.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "John Flynn - 64 - nervous an inclined to palsey.",
+      "merged_text": "John Flynn - 64 - nervous an inclined to palsey.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Celia Hathaway - 52 - has husband and 6 boys depending on her.",
+      "merged_text": "Mrs. Celia Hathaway - 52 - has husband and 6 boys depending on her.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Gladys Stringer - 40 - threatening tumor on the breast ..... fears operation.",
+      "merged_text": "Gladys Stringer - 40 - threatening tumor on the breast ..... fears operation.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Carl Louis Mergaert - 19 - in \"service\" two years. Mother recently broke her arm and asks for prayers for speedy return of her son - only support",
+      "merged_text": "Carl Louis Mergaert - 19 - in \"service\" two years. Mother recently broke her arm and asks for prayers for speedy return of her son - only support",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Catherine Schulte - 70 - missed step and broke ankle.",
+      "merged_text": "Catherine Schulte - 70 - missed step and broke ankle.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Rose Dominic - 49 - peculiar ailment on her neck. Drs. fear cancer .. ...",
+      "merged_text": "Mrs. Rose Dominic - 49 - peculiar ailment on her neck. Drs. fear cancer .. ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Tho's Sokolowski - 1 yr. old - has grown so very little - now only 13 1bs.",
+      "merged_text": "Tho's Sokolowski - 1 yr. old - has grown so very little - now only 13 1bs.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Ruth M. Burnham - 31 - has hardly any memory - fine healthy looking - has never made her confession or Holy Com'n - Modest and likes to pray in Church .... Father takes all to holy Mass etc, but never prays seemingly",
+      "merged_text": "Ruth M. Burnham - 31 - has hardly any memory - fine healthy looking - has never made her confession or Holy Com'n - Modest and likes to pray in Church .... Father takes all to holy Mass etc, but never prays seemingly",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Burnham Cont. - Mother enrolls whole family To-day - perpet'ly 25.00.",
+      "merged_text": "Burnham Cont. - Mother enrolls whole family To-day - perpet'ly 25.00.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Raymond Patnande - 16 - Ep. Fits - not often but too often ....",
+      "merged_text": "Raymond Patnande - 16 - Ep. Fits - not often but too often ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Marg. Doherty - 34 - peculiar disease - vascular-defused - \"no remedy known for its cure.\"",
+      "merged_text": "Mrs. Marg. Doherty - 34 - peculiar disease - vascular-defused - \"no remedy known for its cure.\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Robert Diamond - 38 - Electrition fell 45 feet from a scafold break- ing his back, ankles and 12 ribs. This happened on Thanksgiving-Day. 1943 - still badly paralyzed.",
+      "merged_text": "Robert Diamond - 38 - Electrition fell 45 feet from a scafold break- ing his back, ankles and 12 ribs. This happened on Thanksgiving-Day. 1943 - still badly paralyzed.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Lawrence Callison - 49 - of Sidney Nova Scotia - now in Mount Royal, Ca. - very peculiar tumor on Chest ... . has wife and five small child- ren depending on him ..... March 4 reported - \" ... had operation March 1st, Drs. hopeless .. .. \"",
+      "merged_text": "Lawrence Callison - 49 - of Sidney Nova Scotia - now in Mount Royal, Ca. - very peculiar tumor on Chest ... . has wife and five small child- ren depending on him ..... March 4 reported - \" ... had operation March Ist, Drs. hopeless .. .. \"",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Feb. 7",
+      "merged_text": "Feb. 7",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Feb. 7",
+      "merged_text": "Feb. 7",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "13",
+      "merged_text": "13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "13",
+      "merged_text": "13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "Feb. 13",
+      "merged_text": "Feb. 13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "15",
+      "merged_text": "15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "15",
+      "merged_text": "15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.7",
+      "category": "src_date",
+      "cleaned_text": "16",
+      "merged_text": "16",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 24 Cont.",
+      "merged_text": "Page 24 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 25",
+      "merged_text": "Page 25",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 26",
+      "merged_text": "Page 26",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "page": "Volume_4/1_source_pages/page_034",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Burns, Montana - grass-hoppers .... Come like Clouds. In one day strip- ped the potatoes of every leaf .... cutting the oats now to save for hay before too late gainst the \"hoppers\".",
+      "merged_text": "Burns, Montana - grass-hoppers .... Come like Clouds. In one day strip- ped the potatoes of every leaf .... cutting the oats now to save for hay before too late gainst the \"hoppers\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Gustave DeVuyst - 51 - serious liver and kidney trouble.",
+      "merged_text": "Gustave DeVuyst - 51 - serious liver and kidney trouble.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Harold McGillivray - 6 - apendex removed 16 months ago: still drain- ing.",
+      "merged_text": "Harold McGillivray - 6 - apendex removed 16 months ago: still drain- ing.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Josephine Davis - about 40 - spiritist ...",
+      "merged_text": "Josephine Davis - about 40 - spiritist ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "George Swoish - 50 - threatened mastoid - Enrolled two weeks promises operation expences t Pr. Souls if ... no such. Starts with 20.00",
+      "merged_text": "George Swoish - 50 - threatened mastoid - Enrolled two weeks promises operation expences t Pr. Souls if ... no such. Starts with 20.00",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Gertrude Barnett",
+      "merged_text": "Gertrude Barnett",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Eliz Franklin - 50 - anxious about a husband, indifferent",
+      "merged_text": "Eliz Franklin - 50 - anxious about a husband, indifferent",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Joseph Bacharach - 49 - Jew - almost blind, has wife and two little Trouble has been serious since Jan. 14th ... . Remarkable. . girls",
+      "merged_text": "Joseph Bacharach - 49 - Jew - almost blind, has wife and two little Trouble has been serious since Jan. 14th ... . Remarkable. . girls",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "E'd. T. Flanery - 46 - arthritis ...",
+      "merged_text": "E'd. T. Flanery - 46 - arthritis ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Marshall Van Flateren - 38 - Stroke June 1st is in severe pain and anxious. Speech also badly effected",
+      "merged_text": "Marshall Van Flateren - 38 - Stroke June Ist is in severe pain and anxious. Speech also badly effected",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Marguerite Mary Egle - 40 - Eye and positionthreatened",
+      "merged_text": "Marguerite Mary Egle - 40 - Eye and positionthreatened",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Patricia Easton 22mo. - brain-hemorage .... Science absolutely 0!",
+      "merged_text": "Patricia Easton 22mo. - brain-hemorage .... Science absolutely 0!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Joseph D. Patterson - 63 - rhumatism - on crutches about",
+      "merged_text": "Joseph D. Patterson - 63 - rhumatism - on crutches about",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Virgil Slezak - 23 - Eye. trouble for 6 yrs. Very poor sight.",
+      "merged_text": "Virgil Slezak - 23 - Eye. trouble for 6 yrs. Very poor sight.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Thanks !!! Mary O'Neill - 68 - Eleven years could not wear shoe .... Enrolled in June (Sunday) now O.K.",
+      "merged_text": "Thanks !!! Mary 0'Neill - 68 - Eleven years could not wear shoe .... Enrolled in June (Sunday) now O.K.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Winnifred O'Toole - about 60 - unable to walk for 20 yrs. - since birth of last baby. \"O! if I could go to church.",
+      "merged_text": "Mrs. Winnifred O'Toole - about 60 - unable to walk for 20 yrs. - since birth of last baby. \"O! if I could go to church.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 20th",
+      "merged_text": "July 20th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "August 1",
+      "merged_text": "August 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1938, August",
+      "merged_text": "1938, August",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 62 Cont.",
+      "merged_text": "Page 62 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 63",
+      "merged_text": "Page 63",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 64",
+      "merged_text": "Page 64",
+      "edits": []
+    }
+  ]
+}

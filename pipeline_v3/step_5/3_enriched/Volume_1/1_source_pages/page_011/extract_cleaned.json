@@ -1,0 +1,74 @@
+{
+  "page": "Volume_1/1_source_pages/page_011",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "\"Trust not in your own example or presence to keep others - nor to the gravity of your man- ners. It is the grace of God will keep them, whether you are present or not\" novitiate The bee and the ungrateful lie told out of un- reasonable fear. \"O God come to my assistance\" etc. Dream about journey to monastery. Stille Nacht Dec. 24th '96 Temptation & Succor 1/13/'97 + Excelsus 4/4/'97 Summit With regards to Prasch \"God or pleasure at Weeks Ave 1891 Ut per gratiam Dei incepi, ita per eius misericordiam tantum continuam 7/24/19",
+      "merged_text": "\"Trust not in your own example or presence to keep others - nor to the gravity of your man- ners. It is the grace of God will keep them, whether you are present or not\" novitiate The bee and the ungrateful lie told out of un- reasonable fear. \"0 God come to my assistance\" etc. Dream about journey to monastery. Stille Nacht Dec. 24th '96 Temptation & Succor 1/13/'97 + Excelsus 4/4/'97 Summit With regards to Prasch \"God or pleasure at Weeks Ave 1891 Ut per gratiam Dei incepi, ita per eius misericordiam tantum continuam 7/24/19",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Trap-door of Death & Queen of Rosary 5/31/90 Church-door opened '91 & carelessness Wakened to say rosary '92 To please Jesus & Mary - on st. - cars Easter sunday what gratitude requires '97",
+      "merged_text": "Trap-door of Death & Queen of Rosary 5/31/90 Church-door opened '91 & carelessness Wakened to say rosary '92 To please Jesus & Mary - on st. - cars Easter sunday what gratitude requires '97",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "9/27",
+      "merged_text": "9/27",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Lus 7/24/1900",
+      "merged_text": "Lus 7/24/1900",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1897, September 27",
+      "merged_text": "c. 1897, September 27",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS NOTEBOOK No. 9",
+      "merged_text": "FATHER SOLANUS NOTEBOOK No. 9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 8",
+      "merged_text": "Pg. 8",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 9",
+      "merged_text": "Pg. 9",
+      "edits": []
+    }
+  ]
+}

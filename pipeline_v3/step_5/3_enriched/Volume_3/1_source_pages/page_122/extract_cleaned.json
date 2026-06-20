@@ -1,0 +1,179 @@
+{
+  "page": "Volume_3/1_source_pages/page_122",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Frances Skirske - 2 boys - 10 & 14",
+      "merged_text": "Mrs. Frances Skirske - 2 boys - 10 & 14",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Richard Jos. Bishop - 10 mo. - undeveloped back muscles - possibly brain.",
+      "merged_text": "Richard Jos. Bishop - 10 mo. - undeveloped back muscles - possibly brain.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Doris Youngblood - 26 T . B. .",
+      "merged_text": "Doris Youngblood - 26 T . B. .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Geo. Little - 8 - bad hip - splinted bones",
+      "merged_text": "Geo. Little - 8 - bad hip - splinted bones",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Irene Cehan - 19 - (130 Manistique) Tumor on train .... wants to be nun if ....",
+      "merged_text": "Irene Cehan - 19 - (130 Manistique) Tumor on train .... wants to be nun if ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Helen Byrne - 9 of Southwood & Lee, Ontario - rhumatic paralysis - leg 1 inches too long - carried in May 8 - June 6 - now O.K.",
+      "merged_text": "Helen Byrne - 9 of Southwood & Lee, Ontario - rhumatic paralysis - leg 1 inches too long - carried in May 8 - June 6 - now O.K.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mr. & Mrs. Hoffman .... Important Contract May 1st ...",
+      "merged_text": "Mr. & Mrs. Hoffman .... Important Contract May Ist ...",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Jos. D. Smith - Dearborn - 52 - to Dearborn - cancer of stomach - now pneumonia ...",
+      "merged_text": "Jos. D. Smith - Dearborn - 52 - to Dearborn - cancer of stomach - now pneumonia ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Mrs. B. Sarnack - 58 - Enrolled March 29 for saving of gangreenous diabetic foot - comes to-night Quite OK. Deo Gr .!",
+      "merged_text": "Mrs. B. Sarnack - 58 - Enrolled March 29 for saving of gangreenous diabetic foot - comes to-night Quite OK. Deo Gr .!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Ralph Cotter - 24 - spinal maningitis - hopeless enrolled yesterday, now reported without headache - Father had been away from Confession for five years - went to Communion this a.m ... Aug. 30 Said R. Cotter returned Home May 6th ( 12th) day). Drs. had given him 48 hours to live (Apr. 24) He comes To-night in perfect health - 20 1bs. heavier than before he was sick .... Thank be to God. March 13, 1947 Same R.C. Married about 5 yrs. later. Still on the job. Fr. S.",
+      "merged_text": "Ralph Cotter - 24 - spinal maningitis - hopeless enrolled yesterday, now reported without headache - Father had been away from Confession for five years - went to Communion this a.m ... Aug. 30 Said R. Cotter returned Home May 6th ( 12th) day). Drs. had given him 48 hours to live (Apr. 24) He comes To-night in perfect health - 20 1bs. heavier than before he was sick .... Thank be to God. March 13, 1947 Same R.C. Married about 5 yrs. later. Still on the job. Fr. S.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Smith - n. Cath. - 65 - Richmond quite improved - husband gone back to sacraments after 25 yrs. Sept. 17, 34 - Mrs. Smith comes To- day in good health. When enrolled in Ser. Mass A. Early last year she had been treated in Ann Arbor for cancer of stomach and sent home as hopeless .... Enrolled again To-day. ..",
+      "merged_text": "Mrs. Smith - n. Cath. - 65 - Richmond quite improved - husband gone back to sacraments after 25 yrs. Sept. 17, 34 - Mrs. Smith comes To- day in good health. When enrolled in Ser. Mass A. Early last year she had been treated in Ann Arbor for cancer of stomach and sent home as hopeless .... Enrolled again To-day. ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Carolyn Ross - n.c. - 10 - mastoid feared - goes to Cath. School - Grandma bitter tho cured of terrible cancer two yrs. ago.",
+      "merged_text": "Carolyn Ross - n.c. - 10 - mastoid feared - goes to Cath. School - Grandma bitter tho cured of terrible cancer two yrs. ago.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "A.S. 23 - going with divorced man",
+      "merged_text": "A.S. 23 - going with divorced man",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Genevive Hunt ....",
+      "merged_text": "Genevive Hunt ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Eliz. R. - 57 - 35 years away from Com.",
+      "merged_text": "Eliz. R. - 57 - 35 years away from Com.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apr. 26",
+      "merged_text": "Apr. 26",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Apr. 22",
+      "merged_text": "Apr. 22",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Apr. 25",
+      "merged_text": "Apr. 25",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "Blank Page",
+      "merged_text": "Blank Page",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1933, April",
+      "merged_text": "1933, April",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 106",
+      "merged_text": "Page 106",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 107",
+      "merged_text": "Page 107",
+      "edits": []
+    }
+  ]
+}

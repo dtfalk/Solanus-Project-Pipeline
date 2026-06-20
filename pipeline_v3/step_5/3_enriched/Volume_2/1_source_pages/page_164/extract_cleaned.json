@@ -1,0 +1,101 @@
+{
+  "page": "Volume_2/1_source_pages/page_164",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you Mr. Wollenweber - you and yours. Sorry to hear of that old heart of yours playing truant. Do not worry about, but thank the Good God you still have such an organ to play on and keep time.",
+      "merged_text": "God bless you Mr. Wollenweber - you and yours. Sorry to hear of that old heart of yours playing truant. Do not worry about, but thank the Good God you still have such an organ to play on and keep time.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "With love and with Christmas blessings to all Comes the INFANT once more to free us from sorrow. Whose garb and Whose mien and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose Birth and Whose power and Whose wonders proclaim Him, the SON OF THE VIRGIN as promised of yore; O! May He estrange us from sin with its shame! - And reign in our hearts as His crib evermore.",
+      "merged_text": "With love and with Christmas blessings to all Comes the INFANT once more to free us from sorrow. Whose garb and Whose mien and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose Birth and Whose power and Whose wonders proclaim Him, the SON OF THE VIRGIN as promised of yore; 0! May He estrange us from sin with its shame! - And reign in our hearts as His crib evermore.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "God made me to know Him. O! What a bless'd aim! To love Him and serve Him sure rests in the same. It's HEAVEN BEGUN for the GRATEFUL on earth; - To treasure aright! ? ! HIGHEST HEAVEN its worth.",
+      "merged_text": "God made me to know Him. 0! What a bless'd aim! To love Him and serve Him sure rests in the same. It's HEAVEN BEGUN for the GRATEFUL on earth; - To treasure aright! ? ! HIGHEST HEAVEN its worth.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "A Blessed - Peaceful Christmas.",
+      "merged_text": "A Blessed - Peaceful Christmas.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus O.F.M. Cap.",
+      "merged_text": "Fr. Solanus O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of a message handwritten and typed by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of a message handwritten and typed by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "category": "archv_commentary",
+      "cleaned_text": "(Note from Father Solanus in Brooklyn. Dec. 1945.)",
+      "merged_text": "(Note from Father Solanus in Brooklyn. Dec. 1945.)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1945, December",
+      "merged_text": "1945, December",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "Original in possession of: Edw. P. Wollenweber 11539 Messmore Utica, MI. 48087 (Dec. 1975 Bro. Leo.)",
+      "merged_text": "Original in possession of: Edw. P. Wollenweber 11539 Messmore Utica, MI. 48087 (Dec. 1975 Bro. Leo.)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "DAILY COMMUNION ALWAYS CHRISTMAS EVE.",
+      "merged_text": "DAILY COMMUNION ALWAYS CHRISTMAS EVE.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.1",
+      "category": "struct_id",
+      "cleaned_text": "TO KIOW GOD - MY WONDERFULLY PRIVILEGED PURPOSE.",
+      "merged_text": "TO KIOW GOD - MY WONDERFULLY PRIVILEGED PURPOSE.",
+      "edits": []
+    }
+  ]
+}

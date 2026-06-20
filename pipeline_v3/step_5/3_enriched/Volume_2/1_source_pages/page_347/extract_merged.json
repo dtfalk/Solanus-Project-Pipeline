@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_347",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 3,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "We surely sympathise with you and your family under your peculiar affliction. Would it be possible that some of your folks have not been going to he holy Sacraments as tey should or not atall? Some years ago in Detroit a young girl - 19 - was brought to our front-door curb-stone who had been sneezing for five days. She was already unconscious and the doctors had given her only 24 hours further to live if remedy failed. I asked them about their Easter Dduty. The children had been going regularly but the mother had not been to confession for five years and the Father since he came from Europe They came back the next thirty years before. morning reporting: \" ... Still sneezing and still weaker.\" We enrolled her a second time in the Ser. Mass Association and the parents promissed they would make their confession this P.M.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "We surely sympathise with you and your family under your peculiar affliction. Would it be possible that some of your folks have not been going to he holy Sacraments as tey should or not atall? Some years ago in Detroit a young girl - 19 - was brought to our front-door curb-stone who had been sneezing for five days. She was already unconscious and the doctors had given her only 24 hours further to live if remedy failed. I asked them about their Easter Dduty. The children had been going regularly but the mother had not been to confession for five years and the Father since he came from Europe thirty years before. They came back the next morning reporting: \" ... Still sneezing and still weaker.\" We enrolled her a second time in the Ser. Mass Association and the parents promissed they would make their confession this P.M.",
+      "per_polygon": "We surely sympathise with you and your family under your peculiar affliction. Would it be possible that some of your folks have not been going to he holy Sacraments as tey should or not atall? Some years ago in Detroit a young girl - 19 - was brought to our front-door curb-stone who had been sneezing for five days. She was already unconscious and the doctors had given her only 24 hours further to live if remedy failed. I asked them about their Easter Dduty. The children had been going regularly but the mother had not been to confession for five years and the Father since he came from Europe They came back the next thirty years before. morning reporting: \" ... Still sneezing and still weaker.\" We enrolled her a second time in the Ser. Mass Association and the parents promissed they would make their confession this P.M.",
+      "min_conf": 0.39
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX FRIARY",
+      "per_polygon": "ST. FELIX FRIARY",
+      "min_conf": 0.95
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. J. Czuboj",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Mrs. J. Czuboj;",
+      "per_polygon": "Mrs. J. Czuboj",
+      "min_conf": 0.915
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "HUNTINGTON , INDIANA",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "HUNTINGTON, INDIANA",
+      "per_polygon": "HUNTINGTON , INDIANA",
+      "min_conf": 0.316
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "November 7ª 1953.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "November 74 1953.",
+      "per_polygon": "November 7ª 1953.",
+      "min_conf": 0.222
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mrs. J. Czuboj; you and yours.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you you and yours.",
+      "per_polygon": "God bless you Mrs. J. Czuboj; you and yours.",
+      "min_conf": 0.946
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typewritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typewritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typewritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.838
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1953, November 7",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1953, November 7",
+      "per_polygon": "1953, November 7",
+      "min_conf": 0.993
+    }
+  ]
+}

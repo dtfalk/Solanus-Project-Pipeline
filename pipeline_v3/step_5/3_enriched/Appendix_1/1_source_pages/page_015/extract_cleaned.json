@@ -1,0 +1,115 @@
+{
+  "page": "Appendix_1/1_source_pages/page_015",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I received your welcome letter some weeks ago, and am always pleased to learn of the hopeful situation that seems to prevail. Thanks be to God! I've just phoned a little word to the Irish World - in press today. I have not seen your \"From Generation to Gen.\" Dr. Kain - poet editor - had seen nothing of it a week or two ago, he told me. Send it to him #49 Walker St. (I.W. Office.) I trust your circum- stances, and that, of course of the whole \"family tree\" is such this year as to make of last years situation a pleasant memory .. . The memory of past trials is pleasant! How pleasant the glorified mem- ory of the saints in Heaven must be! who have finally triumphed - and forever over the world, the flesh and the devil! Well, Well, the day is coming fast when by God's mercy we'l all be withem and then: O then ! ! ! Now with love and God's blessing to all - as on the photo - Lois and Maurice & Edwin and Teresa, Marion, Francis and Laurence, and Clemmie, too, with Papa Frank and finally M.C. LeDoux, a blessed Xmas to you!",
+      "merged_text": "I received your welcome letter some weeks ago, and am always pleased to learn of the hopeful situation that seems to prevail. Thanks be to God! I've just phoned a little word to the Irish World - in press today. I have not seen your \"From Generation to Gen.\" Dr. Kain - poet editor - had seen nothing of it a week or two ago, he told me. Send it to him #49 Walker St. (I.W. Office.) I trust your circum- stances, and that, of course of the whole \"family tree\" is such this year as to make of last years situation a pleasant memory .. . The memory of past trials is pleasant! How pleasant the glorified mem- ory of the saints in Heaven must be! who have finally triumphed - and forever over the world, the flesh and the devil! Well, Well, the day is coming fast when by God's mercy we'l all be withem and then: 0 then ! ! ! Now with love and God's blessing to all - as on the photo - Lois and Maurice & Edwin and Teresa, Marion, Francis and Laurence, and Clemmie, too, with Papa Frank and finally M.C. LeDoux, a blessed Xmas to you!",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "QUEEN OF ANGELS MONASTERY 226 113 St. East N.Y. City",
+      "merged_text": "QUEEN OF ANGELS MONASTERY 226 113 St. East N.Y. City",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mrs. M. C. LeDoux,",
+      "merged_text": "Mrs. M. C. LeDoux,",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "Portland, O.",
+      "merged_text": "Portland, 0.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "December 18th, 1926",
+      "merged_text": "December 18th, 1926",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My Dear Sister Margaret :-",
+      "merged_text": "My Dear Sister Margaret :-",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "Peace!",
+      "merged_text": "Peace!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "P.S. Praised be Jesus Christ",
+      "merged_text": "P.S. Praised be Jesus Christ",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus O.M.Cap.",
+      "merged_text": "Fr. Solanus O.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Confession of Love speaks the sweet Moss Rose So whatever the language be of every other fair flower that grows Let the Moss Rose speak for me",
+      "merged_text": "Confession of Love speaks the sweet Moss Rose So whatever the language be of every other fair flower that grows Let the Moss Rose speak for me",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.1",
+      "category": "src_other",
+      "cleaned_text": "- and Jesus the Messenger be !!! and the fragrance eternally.",
+      "merged_text": "- and Jesus the Messenger be !!! and the fragrance eternally.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "(Fr. Solanus added this last line by hand)",
+      "merged_text": "(Fr. Solanus added this last line by hand)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "category": "archv_commentary",
+      "cleaned_text": "Reverse of this card has a printed Christmas Verse:",
+      "merged_text": "Reverse of this card has a printed Christmas Verse:",
+      "edits": []
+    }
+  ]
+}

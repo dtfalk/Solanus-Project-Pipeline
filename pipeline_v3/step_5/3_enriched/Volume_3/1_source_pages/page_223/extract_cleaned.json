@@ -1,0 +1,192 @@
+{
+  "page": "Volume_3/1_source_pages/page_223",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Byron Miller - 24 - T.B. in Kiefer Hospital - Very little hope for him.",
+      "merged_text": "Byron Miller - 24 - T.B. in Kiefer Hospital - Very little hope for him.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "H. A. Vaughan - 61 - (a Cath.) scientist",
+      "merged_text": "H. A. Vaughan - 61 - (a Cath.) scientist",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Abraham W. Jarvis - 68 - stroke 8 yrs. - 4 yrs. in bed - now out of mind.",
+      "merged_text": "Abraham W. Jarvis - 68 - stroke 8 yrs. - 4 yrs. in bed - now out of mind.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mr. & Mrs. Wm. Kestel - past middle age - have 9 children - she a Lutheran , he O",
+      "merged_text": "Mr. & Mrs. Wm. Kestel - past middle age - have 9 children - she a Lutheran , he 0",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Kennedy - congress-man - twin Br. given up.",
+      "merged_text": "Kennedy - congress-man - twin Br. given up.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Angeline Woida - 16 - deaf & dumb - lost tonsils when 5 - could say some words before.",
+      "merged_text": "Angeline Woida - 16 - deaf & dumb - lost tonsils when 5 - could say some words before.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mary M. Kowicz - 35 - Thanksgiving for position .... further success Examination To-day ( 10th)",
+      "merged_text": "Mary M. Kowicz - 35 - Thanksgiving for position .... further success Examination To-day ( 10th)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mr. Brewer - 56 - operation July 9th",
+      "merged_text": "Mr. Brewer - 56 - operation July 9th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Felician Sister - Court Case - V. Mother Mary deSales -",
+      "merged_text": "Felician Sister - Court Case - V. Mother Mary deSales -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Olive Estabrook - about 58 - threatened with loss of breast believed cancerous - 13 - Reported ... !!! No cancer wonderful results",
+      "merged_text": "Mrs. Olive Estabrook - about 58 - threatened with loss of breast believed cancerous - 13 - Reported ... !!! No cancer wonderful results",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Wm. J. O'Neil - 50 - fears 2nd operation on neck. - has wife & 8 depending.",
+      "merged_text": "Wm. J. O'Neil - 50 - fears 2nd operation on neck. - has wife & 8 depending.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Wm. Joseph Blesch - 7 - from N. Y. injured at birth, mentally weak ...",
+      "merged_text": "Wm. Joseph Blesch - 7 - from N. Y. injured at birth, mentally weak ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "B. Miller ( from last week) 24 - recovering - now able to take nourish-",
+      "merged_text": "B. Miller ( from last week) 24 - recovering - now able to take nourish-",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Cath. Connolly - 68 - cancer of stomach - had been to three hosp- itals; All pronounced her as case of stomach ...... Enrolled in Ser. Mass As'n, May 1st - now out of danger without operat'n - starts perp(5) To-day with 1.00.",
+      "merged_text": "Mrs. Cath. Connolly - 68 - cancer of stomach - had been to three hosp- itals; All pronounced her as case of stomach ...... Enrolled in Ser. Mass As'n, May Ist - now out of danger without operat'n - starts perp(5) To-day with 1.00.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 3rd",
+      "merged_text": "July 3rd",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "July",
+      "merged_text": "July",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "July 10",
+      "merged_text": "July 10",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "9",
+      "merged_text": "9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "9",
+      "merged_text": "9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1935, July",
+      "merged_text": "1935, July",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 6.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 6.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 11 Cont.",
+      "merged_text": "Page 11 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 12",
+      "merged_text": "Page 12",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 13",
+      "merged_text": "Page 13",
+      "edits": []
+    }
+  ]
+}

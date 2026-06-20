@@ -1,0 +1,165 @@
+{
+  "page": "Volume_3/1_source_pages/page_027",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Anxiously Awaiting X-RayExamination. Mrs. Stella Walkowska 75 (8348 Centerline) in serious pains as well is to have examina- tion for supposed cancer of gall-stones etc. tomorrow is enrolled for 2 yrs. to-night 10 P.M.",
+      "merged_text": "Anxiously Awaiting X-RayExamination. Mrs. Stella Walkowska 75 (8348 Centerline) in serious pains as well is to have examina- tion for supposed cancer of gall-stones etc. tomorrow is enrolled for 2 yrs. to-night 10 P.M.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Michael Dupras 60 in October, Trenton N.J. Enrolled as against cancer of Stomach, June 12th. Today reported cured.",
+      "merged_text": "Michael Dupras 60 in October, Trenton N.J. Enrolled as against cancer of Stomach, June 12th. Today reported cured.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Hopless Case - Given Up By All. Para Martin Burda 43 of 4351 Junction Ave. 3 months paralized from his neck down is enrolled To-day perpetually.",
+      "merged_text": "Hopless Case - Given Up By All. Para Martin Burda 43 of 4351 Junction Ave. 3 months paralized from his neck down is enrolled To-day perpetually.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Blanch Racine 21 - 3223 Hudson, Enrolled. After being home from T.B. Sanitorium about a year but not well. Now wants to go to work, feeling so well.",
+      "merged_text": "Blanch Racine 21 - 3223 Hudson, Enrolled. After being home from T.B. Sanitorium about a year but not well. Now wants to go to work, feeling so well.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Esther Maas 13, 7872 Helen Ave. - blood poison from bad tooth followed by \"flue then brain-fever, now spinal manigitis. All started about Aug. 1st -- weak lungs for a few years, is enrol- led 2nd time this evening at 8 P.M.",
+      "merged_text": "Esther Maas 13, 7872 Helen Ave. - blood poison from bad tooth followed by \"flue then brain-fever, now spinal manigitis. All started about Aug. 1st -- weak lungs for a few years, is enrol- led 2nd time this evening at 8 P.M.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Escapes Safe From Smashup. Donat Ray 22, 1007 Crane Enrolled for 2 yrs. June 30th Escapes without scratch though thrown 20 feet in air and stunned 2 hour. His four friends were all taken to hospital in bad condition. - Enrolles again for year further.",
+      "merged_text": "Escapes Safe From Smashup. Donat Ray 22, 1007 Crane Enrolled for 2 yrs. June 30th Escapes without scratch though thrown 20 feet in air and stunned 2 hour. His four friends were all taken to hospital in bad condition. - Enrolles again for year further.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Lilly Witherell, non Cath. 57, 485 Kitchener Ave. Paralized ten years ago through over-dose calmel, given up as hopeless by all doctors, is enrolled this evening in S.M.A.",
+      "merged_text": "Mrs. Lilly Witherell, non Cath. 57, 485 Kitchener Ave. Paralized ten years ago through over-dose calmel, given up as hopeless by all doctors, is enrolled this evening in S.M.A.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Stephen J. Hook 65, 4525 Avery, Enrolled August 10th as against cancer on nose reports To-day as improving before reaching home, has not bothered him since, going away gradually. To-day enrol- led again as against head-aches. Sept. 26 Now completely cured - just a weak scar left. Oct. 14, 1933 Same Mr. Hook was burried yesterday -+Oct. 10 - hardening of arteries.",
+      "merged_text": "Stephen J. Hook 65, 4525 Avery, Enrolled August 10th as against cancer on nose reports To-day as improving before reaching home, has not bothered him since, going away gradually. To-day enrol- led again as against head-aches. Sept. 26 Now completely cured - just a weak scar left. Oct. 14, 1933 Same Mr. Hook was burried yesterday -+0ct. 10 - hardening of arteries.",
+      "edits": [
+        {
+          "rule": "zero_word",
+          "before": "0ct",
+          "after": "Oct"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Sleeping Sickness Improving. Nelson Reynolds (non Cath) 26, Toronto, nephew of above S.J. Hook enrolled also Aug. 10th as against hopeless sleeping-sickness; reported as positively better.",
+      "merged_text": "Sleeping Sickness Improving. Nelson Reynolds (non Cath) 26, Toronto, nephew of above S.J. Hook enrolled also Aug. 10th as against hopeless sleeping-sickness; reported as positively better.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 28",
+      "merged_text": "July 28",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "5 Aug.",
+      "merged_text": "5 Aug.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "9th",
+      "merged_text": "9th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "11",
+      "merged_text": "11",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "16",
+      "merged_text": "16",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "24",
+      "merged_text": "24",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "27",
+      "merged_text": "27",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.7",
+      "category": "src_date",
+      "cleaned_text": "31",
+      "merged_text": "31",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.8",
+      "category": "src_date",
+      "cleaned_text": "Aug. 31",
+      "merged_text": "Aug. 31",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1925, July",
+      "merged_text": "1925, July",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS. NOTEBOOK NO. 1",
+      "merged_text": "FR. SOLANUS. NOTEBOOK NO. 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 26 Cont.",
+      "merged_text": "Page 26 Cont.",
+      "edits": []
+    }
+  ]
+}

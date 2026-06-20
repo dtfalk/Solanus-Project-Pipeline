@@ -1,0 +1,87 @@
+{
+  "page": "Appendix_2/1_source_pages/page_065",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 7,
+  "n_agree": 6,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "- for speedy improvement and",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "- for speedy improvement and",
+      "per_polygon": "- for speedy improvement and",
+      "min_conf": 0.793
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "recovery, God willing -",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "recovery, God willing -",
+      "per_polygon": "recovery, God willing -",
+      "min_conf": 0.956
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Courage is half the battle - Confidence in God the soul of prayer - Foster the latter and you have both.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Courage is half the battle - Confidence in God the soul of prayer - Foster the latter and you have both.",
+      "per_polygon": "Courage is half the battle - Confidence in God the soul of prayer - Foster the latter and you have both.",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Baby Maureen Doyle -",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Baby Maureen Doyle",
+      "per_polygon": "Baby Maureen Doyle -",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "September 2, 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "September 2, 1947",
+      "per_polygon": "September 2, 1947",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Father Solanus O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Father Solanus O.F.M. Cap.",
+      "per_polygon": "Father Solanus O.F.M. Cap.",
+      "min_conf": 0.908
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Praised be Jesus!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised be Jesus!",
+      "per_polygon": "Praised be Jesus!",
+      "min_conf": 0.977
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "page": "Volume_3/1_source_pages/page_234",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Baby John Riddmann - 8 mo. - very strange threatening blood-tuomer, birth-mark Drs. fear to touch it. Father a convert goes to com- munion 4 or 5 times a yr. They promise more frequent ... Sept. 25 Thank God! Baby decidedly improved; nor at all so restless when mother asks if he sould be taken to Dr. again.",
+      "merged_text": "Baby John Riddmann - 8 mo. - very strange threatening blood-tuomer, birth-mark Drs. fear to touch it. Father a convert goes to com- munion 4 or 5 times a yr. They promise more frequent ... Sept. 25 Thank God! Baby decidedly improved; nor at all so restless when mother asks if he sould be taken to Dr. again.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Tillie Monske - 30 - Lutheran - fearfuly curved spine - Extremely nerveous - 2 operations in Ann Arbor.",
+      "merged_text": "Tillie Monske - 30 - Lutheran - fearfuly curved spine - Extremely nerveous - 2 operations in Ann Arbor.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Myrtle Huyler Butler - 43 -convert from Methodist ... asks prayers for oldest daughter 18, keeping company with undesirable non C. (lutheran)",
+      "merged_text": "Myrtle Huyler Butler - 43 -convert from Methodist ... asks prayers for oldest daughter 18, keeping company with undesirable non C. (lutheran)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Clara Myers - 38 - Unity ... Things brighter, pain in side, hard of hear- ing, hearing decidedly better.",
+      "merged_text": "Clara Myers - 38 - Unity ... Things brighter, pain in side, hard of hear- ing, hearing decidedly better.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Jewish lady in Eloise - palsey 8 yrs. - has 2 little children - since invalid husband cares nothing for her.",
+      "merged_text": "Jewish lady in Eloise - palsey 8 yrs. - has 2 little children - since invalid husband cares nothing for her.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Rev. Francis Lynch - 28 - Heart trouble",
+      "merged_text": "Rev. Francis Lynch - 28 - Heart trouble",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Thanksgiving. . . Anthony F. Sales",
+      "merged_text": "Thanksgiving. . . Anthony F. Sales",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Miss Louise Schoen - 70 - Enemic but well preserved - has been a real mother to, not only her brothers & sisters but as much as possible to her invalid mother now gone 15 yrs .... Drs. hopeless",
+      "merged_text": "Miss Louise Schoen - 70 - Enemic but well preserved - has been a real mother to, not only her brothers & sisters but as much as possible to her invalid mother now gone 15 yrs .... Drs. hopeless",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Flora Cuseomano - 36 - very sick - stomach - although Drs. find nothing.",
+      "merged_text": "Flora Cuseomano - 36 - very sick - stomach - although Drs. find nothing.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. May T. Strenger - 64 - in one Ford's Hosp. 4 mo., doctoring 18 mos. - some thought in cancer, now said to be tuburcular bone-spine, given up last Jan. 1st when enrolled in Ser. Mass Ass'n. Here To-day but very poorly.",
+      "merged_text": "Mrs. May T. Strenger - 64 - in one Ford's Hosp. 4 mo., doctoring 18 mos. - some thought in cancer, now said to be tuburcular bone-spine, given up last Jan. Ist when enrolled in Ser. Mass Ass'n. Here To-day but very poorly.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Mary Stege - 73 - of Bushtel, O. - Jandis - - quite invalid since last October. Had 3 - 4 sons & nurse in World War. All came home together ... a shock of joy - Husband died in 1922.",
+      "merged_text": "Mrs. Mary Stege - 73 - of Bushtel, 0. - Jandis - - quite invalid since last October. Had 3 - 4 sons & nurse in World War. All came home together ... a shock of joy - Husband died in 1922.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Eulalia Hammer - 48 - was blind, August 21st inscribed in Ser. Mass As'n now almost O.K. Deo Gr.",
+      "merged_text": "Eulalia Hammer - 48 - was blind, August 21st inscribed in Ser. Mass As'n now almost O.K. Deo Gr.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Sep. 21",
+      "merged_text": "Sep. 21",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Sep. 21",
+      "merged_text": "Sep. 21",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Sep. 21",
+      "merged_text": "Sep. 21",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1935, September",
+      "merged_text": "1935, September",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 6.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 6.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 42 Cont.",
+      "merged_text": "Page 42 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 43",
+      "merged_text": "Page 43",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 44",
+      "merged_text": "Page 44",
+      "edits": []
+    }
+  ]
+}

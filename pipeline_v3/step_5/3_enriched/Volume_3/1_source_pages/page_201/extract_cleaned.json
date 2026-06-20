@@ -1,0 +1,200 @@
+{
+  "page": "Volume_3/1_source_pages/page_201",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Robert Doremus - 6 - five operations for mastoids - bright child but almost deaf.",
+      "merged_text": "Robert Doremus - 6 - five operations for mastoids - bright child but almost deaf.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Martha E. Merritt - 44 - hopeless pneumonia reported on Tuesday last when enrolled. Her nearest relative had been away 12 yrs from Conf. & Church. He promised to go to Confession again etc if wife were spared. To-night she is out of danger and he comes for Confession for To-morrow 1st Friday.",
+      "merged_text": "Martha E. Merritt - 44 - hopeless pneumonia reported on Tuesday last when enrolled. Her nearest relative had been away 12 yrs from Conf. & Church. He promised to go to Confession again etc if wife were spared. To-night she is out of danger and he comes for Confession for To-morrow Ist Friday.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Alice Nacy (St. Mary's Hosp. ) 27 - since last April.",
+      "merged_text": "Alice Nacy (St. Mary's Hosp. ) 27 - since last April.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Edwin Benson - 10 - cannot talk otherwise bright ...",
+      "merged_text": "Edwin Benson - 10 - cannot talk otherwise bright ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Paul Nestor - 37 - dope .... still tries Jennie Nestor, Mother - in. ..",
+      "merged_text": "Paul Nestor - 37 - dope .... still tries Jennie Nestor, Mother - in. ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mr. & Mrs. Garbnsc of Battle Creek - he Cath. - she method. one boy 14 - he not doing ....",
+      "merged_text": "Mr. & Mrs. Garbnsc of Battle Creek - he Cath. - she method. one boy 14 - he not doing ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Sister Edward Marie - Monroe",
+      "merged_text": "Sister Edward Marie - Monroe",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Wm. Haskins - 17 - infantile paralysis quite improved since enroll- ment last Oct. but still far from well - Right side still in bad condition.",
+      "merged_text": "Wm. Haskins - 17 - infantile paralysis quite improved since enroll- ment last Oct. but still far from well - Right side still in bad condition.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Phylis Wiggert - non Cath. - 13 - hurt by fall - back still weak- hip joint slips ...",
+      "merged_text": "Phylis Wiggert - non Cath. - 13 - hurt by fall - back still weak- hip joint slips ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. M. Giff - 27 - suffering from eczema for ten years - said to be incurable and at times terrific. A friend insisted on her prom- ising to come to Monastery and enroll in Ser. Mass Ass'n - That was last Saturday ... Sunday was able to take bandage off hand. Improve- ment has been remarkable every day. Enrolled To-day - 50c. . Has Con- vert husband and one boy - former away 5 yrs. out of ten. Now wants to do right again.",
+      "merged_text": "Mrs. M. Giff - 27 - suffering from eczema for ten years - said to be incurable and at times terrific. A friend insisted on her prom- ising to come to Monastery and enroll in Ser. Mass Ass'n - That was last Saturday ... Sunday was able to take bandage off hand. Improve- ment has been remarkable every day. Enrolled To-day - 50c. . Has Con- vert husband and one boy - former away 5 yrs. out of ten. Now wants to do right again.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Brennan - 50 - Avoca, Mich. quite a bad one - heavy person. 3 or 4 minor strokes, - now has",
+      "merged_text": "Mrs. Brennan - 50 - Avoca, Mich. quite a bad one - heavy person. 3 or 4 minor strokes, - now has",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Jan. 31",
+      "merged_text": "Jan. 31",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Feb.",
+      "merged_text": "Feb.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "6",
+      "merged_text": "6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "7",
+      "merged_text": "7",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "Feb.",
+      "merged_text": "Feb.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "Blank Page",
+      "merged_text": "Blank Page",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "category": "archv_commentary",
+      "cleaned_text": "Blank Page",
+      "merged_text": "Blank Page",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1935, January",
+      "merged_text": "1935, January",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.1",
+      "category": "archv_date",
+      "cleaned_text": "1935, February",
+      "merged_text": "1935, February",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 300 Cont.",
+      "merged_text": "Page 300 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 301",
+      "merged_text": "Page 301",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 302",
+      "merged_text": "Page 302",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.3",
+      "category": "struct_doc",
+      "cleaned_text": "Page 303",
+      "merged_text": "Page 303",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.4",
+      "category": "struct_doc",
+      "cleaned_text": "Page 304",
+      "merged_text": "Page 304",
+      "edits": []
+    }
+  ]
+}

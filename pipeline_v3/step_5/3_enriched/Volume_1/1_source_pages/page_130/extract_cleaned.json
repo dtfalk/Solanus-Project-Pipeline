@@ -1,0 +1,93 @@
+{
+  "page": "Volume_1/1_source_pages/page_130",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "you. It must seem to you a long time now that I have failed to write I hardly know how to explain this neglect. True I have been busy; but that should not have held me from acknowledging your cards about Christmas and especially from expressing sympathy with you and our other dear ones so tragically bereaved - January 25th. I wanted to write you a real letter and not sure of your address, I left other duties demand first attention. I have prayed for you, however, and mean to continue to do so. You surely realize by this time something of the necessity we all stand in of praying and of having prayers .... O! could your dear Father but come back now and tell you what it meant for him in the end. Now he realizes better than we possibly can how fortunate he was to have hearkened to the plea Jesus made to His people in Palestine and now to us: \"Come to me all ye that labor and are heavily burdened and I will refresh you\" ..... On vacation, nearly forty years ago he was careful to get to daily Mass if possible He would work often till ten minutes before Mass began and then run a- cross the field and try to make the mile we lived from Church in time not to be too late. We usually went together and sometimes raced. Daily Communion in those days was never recommended to us as it has been these recent years. How I often regret that it was not. I feel now that we missed so much that would have so strengthened us against the dangers and temptations of youth - the dangers and temptations that even these seemed to engulf so many contemporaries and now per- naps more than ever before. O! if we could but peep into eternity occasionally during our earthly existance, as the soul does when it separates from the body, how different would be our \"Appreciation. . \" ... I have not worried about our \"John and Tom.\" I feel with Fr. Maurice that they were and are safe ..... i think it must have been his daily Communion that by degrees and imperceptibly made him \"see things so differently, espec- ially death.\"",
+      "merged_text": "you. It must seem to you a long time now that I have failed to write I hardly know how to explain this neglect. True I have been busy; but that should not have held me from acknowledging your cards about Christmas and especially from expressing sympathy with you and our other dear ones so tragically bereaved - January 25th. I wanted to write you a real letter and not sure of your address, I left other duties demand first attention. I have prayed for you, however, and mean to continue to do so. You surely realize by this time something of the necessity we all stand in of praying and of having prayers .... 0! could your dear Father but come back now and tell you what it meant for him in the end. Now he realizes better than we possibly can how fortunate he was to have hearkened to the plea Jesus made to His people in Palestine and now to us: \"Come to me all ye that labor and are heavily burdened and I will refresh you\" ..... On vacation, nearly forty years ago he was careful to get to daily Mass if possible He would work often till ten minutes before Mass began and then run a- cross the field and try to make the mile we lived from Church in time not to be too late. We usually went together and sometimes raced. Daily Communion in those days was never recommended to us as it has been these recent years. How I often regret that it was not. I feel now that we missed so much that would have so strengthened us against the dangers and temptations of youth - the dangers and temptations that even these seemed to engulf so many contemporaries and now per- naps more than ever before. 0! if we could but peep into eternity occasionally during our earthly existance, as the soul does when it separates from the body, how different would be our \"Appreciation. . \" ... I have not worried about our \"John and Tom.\" I feel with Fr. Maurice that they were and are safe ..... i think it must have been his daily Communion that by degrees and imperceptibly made him \"see things so differently, espec- ially death.\"",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        },
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "+ St. Bonaventure Monastery",
+      "merged_text": "+ St. Bonaventure Monastery",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Miss Helena Casey",
+      "merged_text": "Miss Helena Casey",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "Seattle Washington-God's Blessing.",
+      "merged_text": "Seattle Washington-God's Blessing.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "1740 Kt. Elliott Detroit, Mich.",
+      "merged_text": "1740 Kt. Elliott Detroit, Mich.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "August 3rd, 1929 1",
+      "merged_text": "August 3rd, 1929 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My dear Niece Helena: -",
+      "merged_text": "My dear Niece Helena: -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Pather Solanus Casey, C. P.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Pather Solanus Casey, C. P.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1929, August 3",
+      "merged_text": "1929, August 3",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "(Helena Casey, daughter of John T. Casey )",
+      "merged_text": "(Helena Casey, daughter of John T. Casey )",
+      "edits": []
+    }
+  ]
+}

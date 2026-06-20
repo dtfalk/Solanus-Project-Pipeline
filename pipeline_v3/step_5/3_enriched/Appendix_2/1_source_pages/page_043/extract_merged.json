@@ -1,0 +1,98 @@
+{
+  "page": "Appendix_2/1_source_pages/page_043",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 5,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you Miss Doris Panyard. Many thank for your king favor of May 4th, duly Rec'd and noted. We'll pray for that. Rev. Father and will hope something bigger and better may follow the $1000.00 turkey dinner. Glad to hear of Grace's favorable surprise. Thanks be to God for every blessing.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Miss Doris Panyard. Many thank for your king favor of May 4th, duly Rec'd and noted. We'll pray for that Rev. Father and will hope something bigger and better may follow the $1000.00 turkey dinner. Glad to hear of Grace's favorable surprise. Thanks be to God for every blessing.",
+      "per_polygon": "God bless you Miss Doris Panyard. Many thank for your king favor of May 4th, duly Rec'd and noted. We'll pray for that. Rev. Father and will hope something bigger and better may follow the $1000.00 turkey dinner. Glad to hear of Grace's favorable surprise. Thanks be to God for every blessing.",
+      "min_conf": 0.672
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "SAINT FELIX CAPUCHIN FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "SAINT FELIX CAPUCHIN FRIARY",
+      "per_polygon": "SAINT FELIX CAPUCHIN FRIARY",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Doris Panyard.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Miss Doris Panyard.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "HUNTINGTON, IND.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "HUNTINGTON, IND.",
+      "per_polygon": "HUNTINGTON, IND.",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "May 7th.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "May 7th.",
+      "per_polygon": "May 7th.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Bles'd be God in all His designs!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Bles'd be God in all His designs!",
+      "per_polygon": "Bles'd be God in all His designs!",
+      "min_conf": 0.821
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "It just struck 11 now: so I'll say for the present .... Good Night and again God bless you and yours. Sincerely in Christ",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "It just struck 11 now: so I'll say for the present .... Good Night and again God bless you and yours. Sincerely in Christ",
+      "per_polygon": "It just struck 11 now: so I'll say for the present .... Good Night and again God bless you and yours. Sincerely in Christ",
+      "min_conf": 0.731
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M. Cap.",
+      "min_conf": 0.935
+    }
+  ]
+}

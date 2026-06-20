@@ -1,0 +1,76 @@
+{
+  "page": "Volume_1/1_source_pages/page_022",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 4,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Edw' 406 E. Corrigan 82 Street N.Y. City. Mr. Tho's Corrigan 128 W. 31st Street",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Edw'd Corrigan 406 E. 82 Street N.Y. City. Mr. Tho's Corrigan 128 W. 31st Street",
+      "per_polygon": "Edw' 406 E. Corrigan 82 Street N.Y. City. Mr. Tho's Corrigan 128 W. 31st Street",
+      "min_conf": 0.909
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "\"The Catholic Church promises a great deal, but to my experience she gives ten times more, and if you put on the balance the most successful life outside the Church, and the most unsuccessful & disaterous life within her fold a thousand times rather choose the latter.\" \"She is the priceless pearl for which the greatest sacrifice is not too great.\" Rev. Rob. H. Benson (convert) Son of late Dr. Benson Archb. of Canterbury. St. Bernardin's Exclamation \"What shall I say, O Mary, that is worthy of thee ! Thou art the gate of heaven, the glory of mankind, the sovereign of angels, the terror of deamons, the refuge of sinners, the mirror of purity, the source of grace, the treasury of celestial gifts, the consoler of the poor, the joy of the humble, the suport of the elect, the guide of travelers .--- the hope & the glory of Christians, the seal & mark of true Catholic. Amen.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"The Catholic Church promises a great deal, but to my experience she gives ten times more, and if you put on the balance the most successful life outside the Church, and the most unsuccessful & disaterous life within her fold a thousand times rather choose the latter.\" \"She is the priceless pearl for which the greatest sacrifice is not too great.\" Rev. Rob. H. Benson (convert) Son of late Dr. Benson Archb. of Canterbury. St. Bernardin's Exclamation \"What shall I say, O Mary, that is worthy of thee! Thou art the gate of heaven, the glory of mankind, the sovereign of angels, the terror of deamons, the refuge of sinners, the mirror of purity, the source of grace, the treasury of celestial gifts, the consoler of the poor, the joy of the humble, the suport of the elect, the guide of travelers .--- the hope & the glory of Christians, the seal & mark of true Catholic. Amen.",
+      "per_polygon": "\"The Catholic Church promises a great deal, but to my experience she gives ten times more, and if you put on the balance the most successful life outside the Church, and the most unsuccessful & disaterous life within her fold a thousand times rather choose the latter.\" \"She is the priceless pearl for which the greatest sacrifice is not too great.\" Rev. Rob. H. Benson (convert) Son of late Dr. Benson Archb. of Canterbury. St. Bernardin's Exclamation \"What shall I say, O Mary, that is worthy of thee ! Thou art the gate of heaven, the glory of mankind, the sovereign of angels, the terror of deamons, the refuge of sinners, the mirror of purity, the source of grace, the treasury of celestial gifts, the consoler of the poor, the joy of the humble, the suport of the elect, the guide of travelers .--- the hope & the glory of Christians, the seal & mark of true Catholic. Amen.",
+      "min_conf": 0.645
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1907",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1907",
+      "per_polygon": "c. 1907",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK NO. 9",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "FATHER SOLANUS, NOTEBOOK NO. 9",
+      "per_polygon": "FATHER SOLANUS, NOTEBOOK No. 9",
+      "min_conf": 0.685
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 24",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 24",
+      "per_polygon": "Pg. 24",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 25",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 25",
+      "per_polygon": "Pg. 25",
+      "min_conf": 0.992
+    }
+  ]
+}

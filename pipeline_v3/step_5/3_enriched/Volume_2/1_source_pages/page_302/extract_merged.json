@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_302",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I want to catch mailman. Please God you ll here from me shortly - suppliment to the above",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I want to catch mailman. Please God you 11 here from me shortly - suppliment to the above",
+      "per_polygon": "I want to catch mailman. Please God you ll here from me shortly - suppliment to the above",
+      "min_conf": 0.37
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Your pathetic letter of a month ago has been on my mind ever since, as your vocation, has been increasingly in my prayers: seeing your intricate problems, your growing embarrassments, your so fearfully threatening dangers to temporal welfare as well as to the (spiritual) - and sadest of all your seemingly unsuspecting blindness, till thanks be to God! your very last, but redeeming paragraph",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Your pathetic letter of a month ago has been on my mind ever since, as your vocation, has been increasingly in my prayers: seeing your intricate problems, your growing embarrassments, your so fearfully threatening dangers to temporal welfare as well as to the (spiritual) - and sadest of all your seemingly unsuspecting blindness, till thanks be to God! your very last, but redeeming paragraph",
+      "per_polygon": "Your pathetic letter of a month ago has been on my mind ever since, as your vocation, has been increasingly in my prayers: seeing your intricate problems, your growing embarrassments, your so fearfully threatening dangers to temporal welfare as well as to the (spiritual) - and sadest of all your seemingly unsuspecting blindness, till thanks be to God! your very last, but redeeming paragraph",
+      "min_conf": 0.632
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "March 8th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "March 8th",
+      "per_polygon": "March 8th",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Sister Mary Constance God bless you",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Sister Mary Constance God bless you",
+      "per_polygon": "Dear Sister Mary Constance God bless you",
+      "min_conf": 0.948
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Sister: ..",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Sister:",
+      "per_polygon": "God bless you Sister: ..",
+      "min_conf": 0.959
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1950, February 11 March 8",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1950, February 11 March 8",
+      "per_polygon": "1950, February 11 March 8",
+      "min_conf": 0.835
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished draft)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished draft)",
+      "per_polygon": "(Unfinished draft)",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 3",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 3",
+      "per_polygon": "Page 3",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Sister Mary Constance",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sister Mary Constance",
+      "per_polygon": "Sister Mary Constance",
+      "min_conf": 0.987
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "page": "Volume_1/1_source_pages/page_128",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I hope this finds you improving on the report received recently from Mildred in Chicago. I offered my holy Mass for you today and have been including you and yours in all my prayers and holy Masses. I am really ashamed of myself that I write so very seldom. Still, when I am confident that my dear ones are in the grace of God -- keeping up the \"good fight\" and at the same time when I know so many languishing under their icad of temptations -- so often with little or no faith I just feel I must do something to encourage and, like- rescue them. There are so many whose faith seems to be chilled and benumbed by materialism and forgetfullness of our primary purpose as rational creatures, viz; grate- fully to recognize our greatest Benefactor - our God and Saviour. -- I wrote a boyfriend of ours several months ago - Chris Adam - with whom we played and associated in our early boyhood, together with his little sisters, Lottie and Eattie; - poor youngsters! poorly instructed and left orphans at one of the most dangerous periods in life, just blooming into youth. I sent him badges of the Sacred Heart. He, too in his 8Os wrote back appreci- atively, in a way but seemed content with hardly any reference other than to material existence. \"Lottie never married ... Hattie did ... and has three grown-up children ... \" He wrote also of his own family and grand- children. Sorry I can't put my hand on his letter now.",
+      "merged_text": "I hope this finds you improving on the report received recently from Mildred in Chicago. I offered my holy Mass for you today and have been including you and yours in all my prayers and holy Masses. I am really ashamed of myself that I write so very seldom. Still, when I am confident that my dear ones are in the grace of God -- keeping up the \"good fight\" and at the same time when I know so many languishing under their icad of temptations -- so often with little or no faith I just feel I must do something to encourage and, like- rescue them. There are so many whose faith seems to be chilled and benumbed by materialism and forgetfullness of our primary purpose as rational creatures, viz; grate- fully to recognize our greatest Benefactor - our God and Saviour. -- I wrote a boyfriend of ours several months ago - Chris Adam - with whom we played and associated in our early boyhood, together with his little sisters, Lottie and Eattie; - poor youngsters! poorly instructed and left orphans at one of the most dangerous periods in life, just blooming into youth. I sent him badges of the Sacred Heart. He, too in his 8Os wrote back appreci- atively, in a way but seemed content with hardly any reference other than to material existence. \"Lottie never married ... Hattie did ... and has three grown-up children ... \" He wrote also of his own family and grand- children. Sorry I can't put my hand on his letter now.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "ST. ELIX זכה !7 - EDV ٠٠٠٠٠",
+      "merged_text": "ST. ELIX זכה !7 - EDV ٠٠٠٠٠",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": ", Patrick Casey",
+      "merged_text": ", Patrick Casey",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "217 - No 1st Ave. Seattle Wash'r 1",
+      "merged_text": "217 - No Ist Ave. Seattle Wash'r 1",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "! INDIANA 1 HUNTINGTON,",
+      "merged_text": "! INDIANA 1 HUNTINGTON,",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Anne St. 153 Feast of July 263",
+      "merged_text": "Anne St. 153 Feast of July 263",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Blessed be In all His God designs !",
+      "merged_text": "Blessed be In all His God designs !",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you My Dear Brother Pat.",
+      "merged_text": "God bless you My Dear Brother Pat.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1953, July 26",
+      "merged_text": "1953, July 26",
+      "edits": []
+    }
+  ]
+}

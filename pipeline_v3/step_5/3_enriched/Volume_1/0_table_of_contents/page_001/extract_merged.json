@@ -1,0 +1,65 @@
+{
+  "page": "Volume_1/0_table_of_contents/page_001",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "shorter",
+  "n_regions": 5,
+  "n_agree": 4,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Early Letters, a Notebook of pious notes, a Note- book of early Homilies and a Notebook of spirit- ual Reflections. Letters to the Casey brothers and sisters and their families. Retreat Notes and some Reflections concerning the \"Mystical City of God\"",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Early Letters, a Notebook of pious notes, a Note- book of early Homilies and a Notebook of spirit- ual Reflections. Letters to the Casey brothers and sisters and their families. Retreat Notes and some Reflections concerning the \"Mystical City of God\"",
+      "per_polygon": "Early Letters, a Notebook of pious notes, a Note- book of early Homilies and a Notebook of spirit- ual Reflections. Letters to the Casey brothers and sisters and their families. Retreat Notes and some Reflections concerning the \"Mystical City of God\"",
+      "min_conf": 0.953
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The spelling mistakes herein are copied just as they appear in the original works, some of which are merely unfinished drafts. He often had to write in haste or with many interruptions. Never proficient with the typewriter, many typed works have typing errors. In some places we have placed the correct word in parentheses for the sake of clarity.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The spelling mistakes herein are copied just as they appear in the original works, some of which are merely unfinished drafts. He often had to write in haste or with many interruptions. Never proficient with the typewriter, many typed works have typing errors. In some places we have placed the correct word in parentheses for the sake of clarity.",
+      "per_polygon": "The spelling mistakes herein are copied just as they appear in the original works, some of which are merely unfinished drafts. He often had to write in haste or with many interruptions. Never proficient with the typewriter, many typed works have typing errors. In some places we have placed the correct word in parentheses for the sake of clarity.",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.archv_commentary.2",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Brother Leo Wollenweber Vice-Postulator, OFMCap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Brother Leo Wollenweber Vice-Postulator, OFMCap.",
+      "per_polygon": "Brother Leo Wollenweber Vice-Postulator, OFMCap.",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.archv_commentary.3",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap.",
+      "source": "full_page",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap.",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O. F.M.Cap.",
+      "min_conf": 0.807
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "VOLUME I",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "VOLUME I",
+      "per_polygon": "VOLUME I",
+      "min_conf": 0.954
+    }
+  ]
+}

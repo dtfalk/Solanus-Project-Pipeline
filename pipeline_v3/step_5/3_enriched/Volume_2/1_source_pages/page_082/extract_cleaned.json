@@ -1,0 +1,81 @@
+{
+  "page": "Volume_2/1_source_pages/page_082",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Many thanks for your double favor of Aug. 1st. I hope this finds you with less pain and brighter hopes. I've been thinking for sometime of telling you that you should spare yourself unnecessary details when convenient - as Jethro the Rev. Father-in-law of Moses told the great leader. Divide the work and share it with others. Just for Example, why write out such a detailed list every time you write? Not that they are not in- teresting or that I do not read them but because it must be more or less a drain on your time and energy, whereas they are really not necessary. Of course if you have something special its a dif- ferent story. Otherwise we pray all those inten- tions in just praying for you and your intentions in general ..... God bless you again ....",
+      "merged_text": "Many thanks for your double favor of Aug. Ist. I hope this finds you with less pain and brighter hopes. I've been thinking for sometime of telling you that you should spare yourself unnecessary details when convenient - as Jethro the Rev. Father-in-law of Moses told the great leader. Divide the work and share it with others. Just for Example, why write out such a detailed list every time you write? Not that they are not in- teresting or that I do not read them but because it must be more or less a drain on your time and energy, whereas they are really not necessary. Of course if you have something special its a dif- ferent story. Otherwise we pray all those inten- tions in just praying for you and your intentions in general ..... God bless you again ....",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "August 3rd, 1948",
+      "merged_text": "August 3rd, 1948",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Bles'd be God in His Angels and in His Saints!",
+      "merged_text": "Bles'd be God in His Angels and in His Saints!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God less you Grace Panyard - you and yours.",
+      "merged_text": "God less you Grace Panyard - you and yours.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Yours in Christ",
+      "merged_text": "Yours in Christ",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a photocopy of a handwritten original by the Servant of God, Father Solanus Casey O.F.M.Cap., and a faithful transcription of it.",
+      "merged_text": "The following is a photocopy of a handwritten original by the Servant of God, Father Solanus Casey O.F.M.Cap., and a faithful transcription of it.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1948, August 3",
+      "merged_text": "1948, August 3",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "The original in Possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 37 Muskegon, Mich. 4944 1",
+      "merged_text": "The original in Possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 37 Muskegon, Mich. 4944 1",
+      "edits": []
+    }
+  ]
+}

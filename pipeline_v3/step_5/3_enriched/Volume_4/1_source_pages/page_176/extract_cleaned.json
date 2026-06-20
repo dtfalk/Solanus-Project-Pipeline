@@ -1,0 +1,235 @@
+{
+  "page": "Volume_4/1_source_pages/page_176",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Andrew F. Ford - 6 - threatening condition of ears for quite some months; Enrolled 2 week To-day, now quite cleared up. Hopes now that operation may be entirely averted.",
+      "merged_text": "Thanks - Andrew F. Ford - 6 - threatening condition of ears for quite some months; Enrolled 2 week To-day, now quite cleared up. Hopes now that operation may be entirely averted.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Andrew Lagru - 67 - Bay City - Fearful case of vericose veins ... phones ...",
+      "merged_text": "Andrew Lagru - 67 - Bay City - Fearful case of vericose veins ... phones ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Ed. Andursh - 4 - operation To-day for tuomer on brain.",
+      "merged_text": "Ed. Andursh - 4 - operation To-day for tuomer on brain.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mrs. M. Lawton - 74 - stomach cancer - Drs have no hope of recovery . Enrolled before ... but To-night perpetually",
+      "merged_text": "Mrs. M. Lawton - 74 - stomach cancer - Drs have no hope of recovery . Enrolled before ... but To-night perpetually",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Carol Randoll - 11 - asthma ...",
+      "merged_text": "Carol Randoll - 11 - asthma ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Jean Ross - 13 - dermatomyositis a very rare and peculiar disease - has now been home from school 2 yrs. Drs at sea what to do ... Enrolled To-day 1.00",
+      "merged_text": "Jean Ross - 13 - dermatomyositis a very rare and peculiar disease - has now been home from school 2 yrs. Drs at sea what to do ... Enrolled To-day 1.00",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Baby Mary-Ann Hofmeyer - 13 mo. - fever after pneumonia a couple week ago.",
+      "merged_text": "Baby Mary-Ann Hofmeyer - 13 mo. - fever after pneumonia a couple week ago.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Dantzer has two soldier sons - last week 50,000 soldiers were shipped away - \"no one knowing whither.\"",
+      "merged_text": "Mrs. Dantzer has two soldier sons - last week 50,000 soldiers were shipped away - \"no one knowing whither.\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Mary Isob. Reddy - 56 - Stroke Apr. 26 - unconscious most of the time, though slowly improving since enrolled last Sunday",
+      "merged_text": "Mrs. Mary Isob. Reddy - 56 - Stroke Apr. 26 - unconscious most of the time, though slowly improving since enrolled last Sunday",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Chas. Pat. O'Rourke - 35 - accident - loss of right Eye almost cer- tain. Only miracle can save it .. Resigned ... Enrolled Today - 50¢ ... promising",
+      "merged_text": "Chas. Pat. O'Rourke - 35 - accident - loss of right Eye almost cer- tain. Only miracle can save it .. Resigned ... Enrolled Today - 50¢ ... promising",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Ed Dewitt - 22 - missing since last Friday - fear boy has been drown'd",
+      "merged_text": "Ed Dewitt - 22 - missing since last Friday - fear boy has been drown'd",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Harry Cameron - 47 - intestinal trouble .....",
+      "merged_text": "Harry Cameron - 47 - intestinal trouble .....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Mary Miller - 73 - Lutheran - rheumatism. .. Enrolled this a.m. ...",
+      "merged_text": "Mrs. Mary Miller - 73 - Lutheran - rheumatism. .. Enrolled this a.m. ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Leo Weyer - Sandusky, O. - 21 - accident in 1938 .... had leg smashed . . . has been doctoring ever since about #2000.00 - still no improve- ment .... Enrolled To-day 1.00",
+      "merged_text": "Leo Weyer - Sandusky, 0. - 21 - accident in 1938 .... had leg smashed . . . has been doctoring ever since about #2000.00 - still no improve- ment .... Enrolled To-day 1.00",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Shirly Ann Gundick - 13 - epileptic and feeble-minded - becoming un- maneg.",
+      "merged_text": "Shirly Ann Gundick - 13 - epileptic and feeble-minded - becoming un- maneg.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apr. 28",
+      "merged_text": "Apr. 28",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "28",
+      "merged_text": "28",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "May 1",
+      "merged_text": "May 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "1",
+      "merged_text": "1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "2",
+      "merged_text": "2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "3",
+      "merged_text": "3",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "5",
+      "merged_text": "5",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.7",
+      "category": "src_date",
+      "cleaned_text": "6",
+      "merged_text": "6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.8",
+      "category": "src_date",
+      "cleaned_text": "6",
+      "merged_text": "6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.9",
+      "category": "src_date",
+      "cleaned_text": "8",
+      "merged_text": "8",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.10",
+      "category": "src_date",
+      "cleaned_text": "May 10",
+      "merged_text": "May 10",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.11",
+      "category": "src_date",
+      "cleaned_text": "11",
+      "merged_text": "11",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1942, May",
+      "merged_text": "1942, May",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 28 Cont.",
+      "merged_text": "Page 28 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 29",
+      "merged_text": "Page 29",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 30",
+      "merged_text": "Page 30",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_073",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 6,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "December 8th, 49 anniversary of his vocation, say a little wispered prayer for the real conversion of poor",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "December 8th, 49 anniversary of his vocation, say a little wispered prayer for the real conversion of poor",
+      "per_polygon": "December 8th, 49 anniversary of his vocation, say a little wispered prayer for the real conversion of poor",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Prayers for the Missions and for the missionaries is mostly what they need.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Prayers for the Missions and for the missionaries is mostly what they need.",
+      "per_polygon": "Prayers for the Missions and for the missionaries is mostly what they need.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "December 8th, 49",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "December 8th, 49",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M.Cap. SINNER",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap. SINNER",
+      "per_polygon": "Fr. Solanus, O. F.M.Cap. SINNER",
+      "min_conf": 0.914
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.811
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "· The following is a faithful transcription of a photo copy of brief message written on pictures and cards by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of a photo copy of brief message written on pictures and cards by the Servant of God, Father Solanus Casey, O.F.M.Cap.",
+      "per_polygon": "· The following is a faithful transcription of a photo copy of brief message written on pictures and cards by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "min_conf": 0.419
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "on reverse of a photo of Padre Pio, Father Solanus wrote.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "on reverse of a photo of Padre Pio, Father Solanus wrote.",
+      "per_polygon": "on reverse of a photo of Padre Pio, Father Solanus wrote.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_commentary.2",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "On another card Fr. Solanus has written:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "On another card Fr. Solanus has written:",
+      "per_polygon": "On another card Fr. Solanus has written:",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1945",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1945",
+      "per_polygon": "c. 1945",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 27 Muakwfon, Mich. 4944 ]",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 27 Muakwfon, Mich. 4944 1",
+      "per_polygon": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 27 Muakwfon, Mich. 4944 ]",
+      "min_conf": 0.434
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "( for Doris Panyard)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "( for Doris Panyard)",
+      "per_polygon": "( for Doris Panyard)",
+      "min_conf": 0.977
+    }
+  ]
+}

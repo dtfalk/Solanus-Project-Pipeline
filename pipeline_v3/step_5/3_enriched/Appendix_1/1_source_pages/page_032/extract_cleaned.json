@@ -1,0 +1,60 @@
+{
+  "page": "Appendix_1/1_source_pages/page_032",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you and yours. I just received a letter from your dear Mother -- my Sister Margaret, who tells me you are at last slowly improving. Thanks be to God for the favorable report! I have often wanted to write you; for I know you must often get lonely and discouraged. And yet, we see in such inumerable cases and are assured on every page of Holy Scripture that: \"Those whom God loves He tries.\" If our short sightedness would only let us get a peep into the infinite depths of eternity and even a shadow of the glory there reserved for those who suffer patiently and at least resignedly O! how like nothing would seem all the momentary joys of time and the sorrows alike. No doubt it is because we think so lightly and perhaps to seldomly about the great mysteries in connection with this phenomenon - time -- eternity! I am sending you a few little leaflets that I am sure you will profit by reading and will like. When you think of it, please offer a little prayer for me and offer some of your confinement for conversion of my doctor - back to the Sacraments and his family.",
+      "merged_text": "God bless you and yours. I just received a letter from your dear Mother -- my Sister Margaret, who tells me you are at last slowly improving. Thanks be to God for the favorable report! I have often wanted to write you; for I know you must often get lonely and discouraged. And yet, we see in such inumerable cases and are assured on every page of Holy Scripture that: \"Those whom God loves He tries.\" If our short sightedness would only let us get a peep into the infinite depths of eternity and even a shadow of the glory there reserved for those who suffer patiently and at least resignedly 0! how like nothing would seem all the momentary joys of time and the sorrows alike. No doubt it is because we think so lightly and perhaps to seldomly about the great mysteries in connection with this phenomenon - time -- eternity! I am sending you a few little leaflets that I am sure you will profit by reading and will like. When you think of it, please offer a little prayer for me and offer some of your confinement for conversion of my doctor - back to the Sacraments and his family.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "My Dear Nephew Edwin LeDoux:",
+      "merged_text": "My Dear Nephew Edwin LeDoux:",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "September 30 '48",
+      "merged_text": "September 30 '48",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Bles'd be God in all His designs! is above all His wonderful works. and in His mercy; which",
+      "merged_text": "Bles'd be God in all His designs! is above all His wonderful works. and in His mercy; which",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "God bless you again Edwin. .",
+      "merged_text": "God bless you again Edwin. .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap",
+      "merged_text": "Fr. Solanus, O.F.M.Cap",
+      "edits": []
+    }
+  ]
+}

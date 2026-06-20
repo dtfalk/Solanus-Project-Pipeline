@@ -1,0 +1,120 @@
+{
+  "page": "Volume_1/1_source_pages/page_165",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 7,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours. Have just written Fr. J. O'Donnell -- also answered cur poor sister-in-law. Thank God she and Florence too seem to be trying bravely to keep up -- following close (at least) to the straight narrow path -- the chalk-line to happiness. Try and drop a card to poor Fr. O'Donnell. In his case, as I just wrote him, like everybody else's, it is the enemy of our souls that is always trying to minimize and to hide the surpassing advantages by which everyone of us are surrounded. God help us!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you and yours. Have just written Fr. J. O'Donnell -- also answered cur poor sister-in-law. Thank God she and Florence too seem to be trying bravely to keep up -- following close (at least) to the straight narrow path -- the chalk-line to happiness. Try and drop a card to poor Fr. O'Donnell. In his case, as I just wrote him, like everybody else's, it is the enemy of our souls that is always trying to minimize and to hide the surpassing advantages by which everyone of us are surrounded. God help us!",
+      "per_polygon": "God bless you and yours. Have just written Fr. J. O'Donnell -- also answered cur poor sister-in-law. Thank God she and Florence too seem to be trying bravely to keep up -- following close (at least) to the straight narrow path -- the chalk-line to happiness. Try and drop a card to poor Fr. O'Donnell. In his case, as I just wrote him, like everybody else's, it is the enemy of our souls that is always trying to minimize and to hide the surpassing advantages by which everyone of us are surrounded. God help us!",
+      "min_conf": 0.677
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Nov. 26th.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Nov. 26th.",
+      "per_polygon": "Nov. 26th.",
+      "min_conf": 0.956
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Fr. M. Joachim,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Fr. M. Joachim,",
+      "per_polygon": "Dear Fr. M. Joachim,",
+      "min_conf": 0.983
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Love to E'd and all. -- Oremus pro invicem.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Love to E'd and all. -- Oremus pro invicem.",
+      "per_polygon": "Love to E'd and all. -- Oremus pro invicem.",
+      "min_conf": 0.947
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, sinner",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, sinner",
+      "per_polygon": "Fr. Solanus, sinner",
+      "min_conf": 0.597
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "\"O all ye works of the Lord! Bless the Lord . . . forever.\"",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"O all ye works of the Lord! Bless the Lord forever.\"",
+      "per_polygon": "\"O all ye works of the Lord! Bless the Lord . . . forever.\"",
+      "min_conf": 0.832
+    },
+    {
+      "rid": "doc_1.src_other.1",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Laudetur Jesus Christus!",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Laudetur Jeusus Christus!",
+      "per_polygon": "Laudetur Jesus Christus!",
+      "min_conf": 0.949
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "min_conf": 0.539
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "FOSTCARD",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "FOSTCARD",
+      "per_polygon": "FOSTCARD",
+      "min_conf": 0.656
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1946, November 26",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1946, November 26",
+      "per_polygon": "c. 1946, November 26",
+      "min_conf": 0.989
+    }
+  ]
+}

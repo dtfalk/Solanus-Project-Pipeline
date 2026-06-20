@@ -1,0 +1,65 @@
+{
+  "page": "Volume_2/1_source_pages/page_304",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Just about twenty years agoa certain practical school-mam married and was blest with a family of six boys. Every thing was bright in the beginning and indeed promising till a while after the first baby came. The attitude of her Husband became indifferent and even cold. For several months she never suspected the source of this unnatural attitude. Never suspected, till she herself had lost much of her affection and respect for her Husband. Ah! It dawned on her and she rememberd, -- ashamed of herself -- She had been giving all attention to the baby and been practically mono- polizing its affections. That baby is now in its latter teens or early twentys but there still evident traces of an inordinate mother-love IN THAT whole family. She still writes us; still laments . but hopes.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Just about twenty years agoa certain practical school-mam married and was blest with a family of six boys. Every thing was bright in the beginning and indeed promising till a while after the first baby came. The attitude of her Husband became indifferent and even cold. For several months she never suspected the source of this unnatural attitude. Never suspected, till she herself had lost much of her affection and respect for her Husband. Ah! It dawned on her and she rememberd, -- ashamed of herself - - She had been giving all attention to the baby and been practically mono- polizing its affections. That baby is now in its latter teens or early twentys but there still evident traces of an inordinate mother-love IN THAT whole family. She still writes us; still laments ... but hopes.",
+      "per_polygon": "Just about twenty years agoa certain practical school-mam married and was blest with a family of six boys. Every thing was bright in the beginning and indeed promising till a while after the first baby came. The attitude of her Husband became indifferent and even cold. For several months she never suspected the source of this unnatural attitude. Never suspected, till she herself had lost much of her affection and respect for her Husband. Ah! It dawned on her and she rememberd, -- ashamed of herself -- She had been giving all attention to the baby and been practically mono- polizing its affections. That baby is now in its latter teens or early twentys but there still evident traces of an inordinate mother-love IN THAT whole family. She still writes us; still laments . but hopes.",
+      "min_conf": 0.786
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1950, March 15",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1950, March 15",
+      "per_polygon": "1950, March 15",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished draft)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished draft)",
+      "per_polygon": "(Unfinished draft)",
+      "min_conf": 0.941
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2.",
+      "per_polygon": "Page 2.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Ven. Sister Mary Constance O.F.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Ven. Sister Mary Constance 0.F.",
+      "per_polygon": "Ven. Sister Mary Constance O.F.",
+      "min_conf": 0.666
+    }
+  ]
+}

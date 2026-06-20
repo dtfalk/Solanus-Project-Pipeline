@@ -1,0 +1,65 @@
+{
+  "page": "Volume_2/1_source_pages/page_093",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 4,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Now Miss Whelan; God bless you and all your troubles as well as all your friends and all your joys and hopes .... After all the soul of hap- piness here in this old world consists in the hopes we foster. Little children are happy in the vivid hopes that animate them. Ours should be the hopes of the Saints - springing from the infalible promises of Heaven and imbued with the appreciation of the contrast between the eternal and temporal etc. Now I'll say, \"God bless you again and good- bye till another time.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Now Miss Whelan; God bless you and all your troubles as well as all your friends and all your joys and hopes .... After all the soul of hap- piness here in this old world consists in the hopes we foster. Little children are happy in the vivid hopes that animate them. Ours should be the hopes of the Saints - springing from the infalible promises of Heaven and imbued with the appreciation of the contrast between the eternal and temporal. etc. Now I'll say, \"God bless you again and good- bye till another time.",
+      "per_polygon": "Now Miss Whelan; God bless you and all your troubles as well as all your friends and all your joys and hopes .... After all the soul of hap- piness here in this old world consists in the hopes we foster. Little children are happy in the vivid hopes that animate them. Ours should be the hopes of the Saints - springing from the infalible promises of Heaven and imbued with the appreciation of the contrast between the eternal and temporal etc. Now I'll say, \"God bless you again and good- bye till another time.",
+      "min_conf": 0.834
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus O.F.M. Cap.",
+      "min_conf": 0.756
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1942, September",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1942, September",
+      "per_polygon": "1942, September",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page Three",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page Three",
+      "per_polygon": "Page Three",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Miss Mae H. Whelan",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Mae H. Whelan",
+      "per_polygon": "Miss Mae H. Whelan",
+      "min_conf": 0.992
+    }
+  ]
+}

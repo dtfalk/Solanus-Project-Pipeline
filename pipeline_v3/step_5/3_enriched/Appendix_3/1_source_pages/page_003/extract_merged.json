@@ -1,0 +1,109 @@
+{
+  "page": "Appendix_3/1_source_pages/page_003",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God Bless you James! . Only keep up Courage and just, kiss the cross as Jesus offers it to you - God Bless you! Happy New Year!",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God Bless you James! Only keep up Courage and just, kiss the cross as Jesus offers it to you - God Bless you! Happy New Year!",
+      "per_polygon": "God Bless you James! . Only keep up Courage and just, kiss the cross as Jesus offers it to you - God Bless you! Happy New Year!",
+      "min_conf": 0.378
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "James Molloy",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "James Molloy",
+      "per_polygon": "James Molloy",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "10 A.M. Dec. 27, 1927",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "10 A.M. Dec. 27, 1927",
+      "per_polygon": "10 A.M. Dec. 27, 1927",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Happy New Year!",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Happy New Year!",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, Casey O.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, Casey O.M. Cap.",
+      "per_polygon": "Fr. Solanus, Casey O.M. Cap.",
+      "min_conf": 0.931
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "has been enrolled in the Mass Association",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "has been enrolled in the Mass Association",
+      "per_polygon": "has been enrolled in the Mass Association",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is the faithful transcription of the handwritten original message on a Seraphic Mass Association Card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is the faithful transcription of the handwritten original message on a Seraphic Mass Association Card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is the faithful transcription of the handwritten original message on a Seraphic Mass Association Card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.903
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1927, December 27",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1927, December 27",
+      "per_polygon": "1927, December 27",
+      "min_conf": 0.994
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in the Possession of : Sister Suzanne Molloy, I.H.M. 610 West Elm Avenue Monroe, MI. 48161",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in the Possession of : Sister Suzanne Molloy, I.H.M. 610 West Elm Avenue Monroe, MI. 48161",
+      "per_polygon": "Original in the Possession of : Sister Suzanne Molloy, I.H.M. 610 West Elm Avenue Monroe, MI. 48161",
+      "min_conf": 0.959
+    }
+  ]
+}

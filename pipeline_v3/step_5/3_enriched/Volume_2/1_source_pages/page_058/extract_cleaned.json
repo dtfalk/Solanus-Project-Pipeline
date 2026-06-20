@@ -1,0 +1,81 @@
+{
+  "page": "Volume_2/1_source_pages/page_058",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you Mrs. O'Donnell. - away on the range Many thanks for your kind favor from the \"fronteer and the the fields of cotton. The dotton-blossom was quite a surprise I'd like to go into some details but this isonly a card. and I have about twenty other Joes I outht to write Today besides your J.J. So you'll be easy in me for taking only a card and perhaps let me have a prayer for inspiration and guidance rather than a frown. Really, I think both you and Joe have an occasion for merit even in this experience of manifold-sacrifice. It seems to me just too bad that every one of us hear those words of Jesus: \" ... He that hath left ... for my sake, etc, will receive a hundred-fold even ... and not to every here in this life ... \" - as to some one else trial and cross What an inspiration these and such promises ought to be toevery one of us! O! If we would only learn to keep an eye on ourselves, viz, onour inordinate and unreasonable inclinations to pamper our own whims and desires, etc instead of like Jesus, catering to and adjusting Himself to the Will,not only of His heavenly Father but to the meanest and lowest of men In other words: \" .... even to the death of the Cross.\" St. Terese thinks that the memory of our trials in this exile on earth, will be, as among the sweetes joys in our heavenly eternity. She's rit even as for Jesus our blessed God will be His Crudifixion. So, courage. fortitude! humble gratitude! ...",
+      "merged_text": "God bless you Mrs. O'Donnell. - away on the range Many thanks for your kind favor from the \"fronteer and the the fields of cotton. The dotton-blossom was quite a surprise I'd like to go into some details but this isonly a card. and I have about twenty other Joes I outht to write Today besides your J.J. So you'll be easy in me for taking only a card and perhaps let me have a prayer for inspiration and guidance rather than a frown. Really, I think both you and Joe have an occasion for merit even in this experience of manifold-sacrifice. It seems to me just too bad that every one of us hear those words of Jesus: \" ... He that hath left ... for my sake, etc, will receive a hundred-fold even ... and not to every here in this life ... \" - as to some one else trial and cross What an inspiration these and such promises ought to be toevery one of us! 0! If we would only learn to keep an eye on ourselves, viz, onour inordinate and unreasonable inclinations to pamper our own whims and desires, etc instead of like Jesus, catering to and adjusting Himself to the Will,not only of His heavenly Father but to the meanest and lowest of men In other words: \" .... even to the death of the Cross.\" St. Terese thinks that the memory of our trials in this exile on earth, will be, as among the sweetes joys in our heavenly eternity. She's rit even as for Jesus our blessed God will be His Crudifixion. So, courage. fortitude! humble gratitude! ...",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "Saint Felix Capuchin Friary",
+      "merged_text": "Saint Felix Capuchin Friary",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "Huntington, Ind.",
+      "merged_text": "Huntington, Ind.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "August 3, 1949",
+      "merged_text": "August 3, 1949",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Aug . 3 '49.",
+      "merged_text": "Aug . 3 '49.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Blessed be God in all and each of His designs!",
+      "merged_text": "Blessed be God in all and each of His designs!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus O.F.M. Cap.",
+      "merged_text": "Fr. Solanus O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1949, August 3",
+      "merged_text": "1949, August 3",
+      "edits": []
+    }
+  ]
+}

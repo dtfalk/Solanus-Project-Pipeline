@@ -1,0 +1,65 @@
+{
+  "page": "Appendix_1/1_source_pages/page_022",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 4,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Now I'll say Good Night and God bless you Margaret - you and yours and all dear ones in the W. With love and God's blessing to Owen and Grace and of course to Martha and Bernard and their whole families. God bless you all! Praised be Jesus Christ !!!!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Now I'll say Good Night and God bless you Margaret - you and yours and all dear ones in the W. With love and God's blessing to Owen and Grace and of course to Martha and Bernard and their whole families. God bless you all! Praised be Jesus Christ !!!!",
+      "per_polygon": "Now I'll say Good Night and God bless you Margaret - you and yours and all dear ones in the W. With love and God's blessing to Owen and Grace and of course to Martha and Bernard and their whole families. God bless you all! Praised be Jesus Christ !!!!",
+      "min_conf": 0.703
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "P.S. As for being for Roosevelt: Well, I say God bless him too, though my enthusiasm for him is almost - or fast becoming - ancient history . If he were a practical friend of the laborer or of the poor, considering the billions he's been demanding and having spent, you and your class would hardly need worry for a decent employment. It seems to me he is simply of the bankers. P.S. II But after all .... God made me to know Him. O what a bless'd aim! To love Him and serve Him sure rests in the same. It's heaven begun - for the grateful - on earth - To treasure aright !!!!!.... Highest Heaven its worth.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "P.S. As for being for Roosevelt: Well, I say God bless him too, though my enthusiasm for him is almost - or fast becoming - ancient history . If he were a practical friend of the laborer or of the poor, considering the billions he's been demanding and having spent, you and your class would hardly need worry for a decent employment. It seems to me he is simply of the bankers. P.S. II But after all. .. God made me to know Him. O what a bless'd aim! To love Him and serve Him sure rests in the same. It's heaven begun - for the grateful - on earth - To treasure aright !!!!!.... Highest Heaven its worth.",
+      "per_polygon": "P.S. As for being for Roosevelt: Well, I say God bless him too, though my enthusiasm for him is almost - or fast becoming - ancient history . If he were a practical friend of the laborer or of the poor, considering the billions he's been demanding and having spent, you and your class would hardly need worry for a decent employment. It seems to me he is simply of the bankers. P.S. II But after all .... God made me to know Him. O what a bless'd aim! To love Him and serve Him sure rests in the same. It's heaven begun - for the grateful - on earth - To treasure aright !!!!!.... Highest Heaven its worth.",
+      "min_conf": 0.315
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely in the Sacred Heart",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sincerely in the Sacred Heart",
+      "per_polygon": "Sincerely in the Sacred Heart",
+      "min_conf": 0.994
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Your Brother Bernard - Fr. Solanus Casey, O.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Your Brother Bernard - Fr. Solanus Casey, O.M.Cap.",
+      "per_polygon": "Your Brother Bernard - Fr. Solanus Casey, O.M.Cap.",
+      "min_conf": 0.887
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Sol. O.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Sol. O.M.Cap.",
+      "per_polygon": "Fr. Sol. O.M.Cap.",
+      "min_conf": 0.818
+    }
+  ]
+}

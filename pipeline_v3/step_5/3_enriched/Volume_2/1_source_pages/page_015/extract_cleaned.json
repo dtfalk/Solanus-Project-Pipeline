@@ -1,0 +1,108 @@
+{
+  "page": "Volume_2/1_source_pages/page_015",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I surely thank you for your practical way of remember- ing me on my 76th birthday. I hope the dear Lord may be pleased to leave yourself with us till you round out the 100. After all that cant be much more than a dozen years. So take courage and stay till your ripe enough for Heaven to take a \"no stop-passage.\" . God's blessing and graces to yourself and to all our dear friends in Detroit.",
+      "merged_text": "I surely thank you for your practical way of remember- ing me on my 76th birthday. I hope the dear Lord may be pleased to leave yourself with us till you round out the 100. After all that cant be much more than a dozen years. So take courage and stay till your ripe enough for Heaven to take a \"no stop-passage.\" . God's blessing and graces to yourself and to all our dear friends in Detroit.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "November 1st All Saints 1946.",
+      "merged_text": "November Ist All Saints 1946.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Mrs. Alice - Grandma Plunkett -- yourself and all the Plunkett Family and Clan.",
+      "merged_text": "God bless you Mrs. Alice - Grandma Plunkett -- yourself and all the Plunkett Family and Clan.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Sincerely yours in Christ.",
+      "merged_text": "Sincerely yours in Christ.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M. Cap.",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "\"O all ye works of the Lord! Bless the Lord. .. 11",
+      "merged_text": "\"0 all ye works of the Lord! Bless the Lord. .. 11",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_other.1",
+      "category": "src_other",
+      "cleaned_text": "Praised be Jesus Christ!",
+      "merged_text": "Praised be Jesus Christ!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, C,F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, C,F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "category": "archv_format_note",
+      "cleaned_text": "POST CARD",
+      "merged_text": "POST CARD",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1946, Nov. 1",
+      "merged_text": "1946, Nov. 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "Original in possession of : Mildred M. Morrin 5983 Greenwoode Road, Ant. 4210 Pontiac, Michigan 48054",
+      "merged_text": "Original in possession of : Mildred M. Morrin 5983 Greenwoode Road, Ant. 4210 Pontiac, Michigan 48054",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "Received : March 25, 1977",
+      "merged_text": "Received : March 25, 1977",
+      "edits": []
+    }
+  ]
+}

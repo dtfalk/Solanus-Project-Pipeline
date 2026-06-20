@@ -1,0 +1,43 @@
+{
+  "page": "Appendix_2/0_table_of_contents/page_002",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "shorter",
+  "n_regions": 3,
+  "n_agree": 2,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "This Appendix II contains Notebook 11 with poems and Retreat Notes plus other letters to individuals, all of which were discovered or received after 1982.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "This Appendix II contains Notebook 11 with poems and Retreat Notes plus other letters to individuals, all of which were discovered or received after 1982.",
+      "per_polygon": "This Appendix II contains Notebook 11 with poems and Retreat Notes plus other letters to individuals, all of which were discovered or received after 1982.",
+      "min_conf": 0.946
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap.",
+      "source": "full_page",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap.",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O. F.M. Cap.",
+      "min_conf": 0.835
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "APPENDIX II",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "APPENDIX II",
+      "per_polygon": "APPENDIX II",
+      "min_conf": 0.977
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "page": "Volume_1/1_source_pages/page_059",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 4,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "In 1884 the Italian Government took away the properties of the Propaganda (acc. to Napoleon I - the most wonderful organization in the world) Leo XIII to attone for this crime and to defray the mighty expenses of that institute donated 500,000 lire ($100,000) to the same & in 1886 made a similar donation. In 1888 he gave Car- dinal Lavigeri of Africa $60,000 of the gifts he received on his sacerdotal jubilee. \"Let those of the clergy who are occupied with the instruction of the multitude, treat plainly this topic of the duties of citizens; so that all may understand and feel the necessity of conscientiousness in political life, and of self-restraint & integrity; for that cannot be lawful in public, which is unlawful in private affairs.\" Leo XIII",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "In 1884 the Italian Government took away the properties of the Propaganda (acc. to Napoleon I - the most wonderful organization in the world) Leo XIII to attone for this crime and to defray the mighty expenses of that institute donated 500,000 lire ($100,000) to the same & in 1886 made a similar donation. In 1888 he gave Car- dinal Lavigeri of Africa $60,000 of the gifts he received on his sacerdotal jubilee. \"Let those of the clergy who are occupied with the instruction of the multitude, treat plainly this topic of the duties of citizens; so that all may understand and feel the necessity of conscientiousness in political life, and of self-restraint & integrity; for that cannot be lawful in public, which is unlawful in private affairs.\" Leo XIII",
+      "per_polygon": "In 1884 the Italian Government took away the properties of the Propaganda (acc. to Napoleon I - the most wonderful organization in the world) Leo XIII to attone for this crime and to defray the mighty expenses of that institute donated 500,000 lire ($100,000) to the same & in 1886 made a similar donation. In 1888 he gave Car- dinal Lavigeri of Africa $60,000 of the gifts he received on his sacerdotal jubilee. \"Let those of the clergy who are occupied with the instruction of the multitude, treat plainly this topic of the duties of citizens; SO that all may understand and feel the necessity of conscientiousness in political life, and of self-restraint & integrity; for that cannot be lawful in public, which is unlawful in private affairs.\" Leo XIII",
+      "min_conf": 0.835
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1917",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1917",
+      "per_polygon": "1917",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "End of Notebook No. 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "End of Notebook No. 2",
+      "per_polygon": "End of Notebook No. 2",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "FATHER SOLANUS NOTEBOOK NO. 2",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "FATHER SOLANUS, NOTEBOOK NO. 2",
+      "per_polygon": "FATHER SOLANUS NOTEBOOK NO. 2",
+      "min_conf": 0.904
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 96 Cont.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 96 Cont.",
+      "per_polygon": "Pg. 96 Cont.",
+      "min_conf": 0.977
+    }
+  ]
+}

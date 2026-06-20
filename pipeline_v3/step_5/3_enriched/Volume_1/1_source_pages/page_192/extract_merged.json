@@ -1,0 +1,120 @@
+{
+  "page": "Volume_1/1_source_pages/page_192",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 5,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Dec. 26 - God bless you Father E'd - Rt. Rev Msg. rather. I meant to reach you before the beautiful Feast Xmas as indeed was on my mind in regards to quite some others. Br. Owen is about to start back for the West - been here Monday night. He seems to hold his own, Deo Gr. - back to Chicago first. Thanks be to God We've all been well here at the St. Felix lately. with few exceptions. Now O. B. J. (Owen) comes along and is about to seal his letter. So suggests that I just put it in with his. . . I did hope to have you call on your return or your return from your missions in New York. Thank God for the success. ·",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Dec. 26 - God bless you Father E'd - Rt. Rev Msg. rather. I meant to reach you before the beautiful Feast Xmas as indeed was on my mind in regards to quite some others. Br. Owen is about to start back for the West - been here Monday night. He seems to hold his own, Deo Gr. - back to Chicago first. Thanks be to God We've all been well here at the St. Felix lately. with few exceptions. Now O. B.J. (Owen) comes along and is about to seal his letter. So suggests that I just put it in with his. . I did hope to have you call on your return or your return from your missions in New York. Thank God for the success.",
+      "per_polygon": "Dec. 26 - God bless you Father E'd - Rt. Rev Msg. rather. I meant to reach you before the beautiful Feast Xmas as indeed was on my mind in regards to quite some others. Br. Owen is about to start back for the West - been here Monday night. He seems to hold his own, Deo Gr. - back to Chicago first. Thanks be to God We've all been well here at the St. Felix lately. with few exceptions. Now O. B. J. (Owen) comes along and is about to seal his letter. So suggests that I just put it in with his. . . I did hope to have you call on your return or your return from your missions in New York. Thank God for the success. ·",
+      "min_conf": 0.328
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "F 2 Rt. Rev. Mgr. Edw'd F. J. Casey",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Rt. Rev. Mgr. Edw'd F. J. Casey",
+      "per_polygon": "F 2 Rt. Rev. Mgr. Edw'd F. J. Casey",
+      "min_conf": 0.118
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "St. Thomas College. St. Paul 1, Minnesota",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Thomas College. St. Paul 1, Minnesota",
+      "per_polygon": "St. Thomas College. St. Paul 1, Minnesota",
+      "min_conf": 0.658
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Dec. 26",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Dec. 26",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed by God. In all His designs",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed by God. In all His designs",
+      "per_polygon": "Blessed by God. In all His designs",
+      "min_conf": 0.66
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "A Blessed Christmas Season and God protection for the New Year and there after - hereafter. . Fr. Solanus, C. F",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "A Blessed Christmas Season and God protection for the New Year and there after - hereafter. Fr. Solanus, C.",
+      "per_polygon": "A Blessed Christmas Season and God protection for the New Year and there after - hereafter. . Fr. Solanus, C. F",
+      "min_conf": 0.339
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "1 - Fr. Solanus, C. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "F.M. Cap.",
+      "per_polygon": "1 - Fr. Solanus, C. F.M. Cap.",
+      "min_conf": 0.147
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.82
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1951, December 26",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1951, December 26",
+      "per_polygon": "1951, December 26",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(To)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(To)",
+      "per_polygon": "(To)",
+      "min_conf": 0.941
+    }
+  ]
+}

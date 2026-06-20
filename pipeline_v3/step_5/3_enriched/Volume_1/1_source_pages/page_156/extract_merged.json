@@ -1,0 +1,65 @@
+{
+  "page": "Volume_1/1_source_pages/page_156",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "The following letter from my eldest sister, Mrs. Ella (Casey) Traynor, who taught me my ABCs and next to dear Mother my prayers, describes dear Father's last struggles and beautiful death. The writer herself has since passed away, having been burried Christmas Eve 1928. May their dear souls rest in the peace of the saints!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following letter from my eldest sister, Mrs. Ella (Casey) Traynor, who taught me my ABCs and next to dear Mother my prayers, describes dear Father's last struggles and beautiful death. The writer herself has since passed away, having been burried Christmas Eve 1928. May their dear souls rest in the peace of the saints!",
+      "per_polygon": "The following letter from my eldest sister, Mrs. Ella (Casey) Traynor, who taught me my ABCs and next to dear Mother my prayers, describes dear Father's last struggles and beautiful death. The writer herself has since passed away, having been burried Christmas Eve 1928. May their dear souls rest in the peace of the saints!",
+      "min_conf": 0.386
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. (Bernard) F. Solanus Casey, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. (Bernard) F. Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "Fr. (Bernard) F. Solanus Casey, O. F.M. Cap.",
+      "min_conf": 0.644
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a typed note by the Servant of God, Fr. Solanus Casey, O.F.M Cap. (added to the bottom of a letter from Rev. Maurice Joachim Casey dated December 8, 1938)",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of a typed note by the Servant of God, Fr. Solanus Casey, O. F.M Cap. (added to the bottom of a letter from Rev. Maurice Joachim Casey dated December 8, 1938)",
+      "per_polygon": "The following is a faithful transcription of a typed note by the Servant of God, Fr. Solanus Casey, O.F.M Cap. (added to the bottom of a letter from Rev. Maurice Joachim Casey dated December 8, 1938)",
+      "min_conf": 0.826
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1940",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1940",
+      "per_polygon": "c. 1940",
+      "min_conf": 0.974
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "NOTE :",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "NOTE :",
+      "per_polygon": "NOTE :",
+      "min_conf": 0.963
+    }
+  ]
+}

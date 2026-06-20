@@ -1,0 +1,151 @@
+{
+  "page": "Volume_1/1_source_pages/page_252",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "VOCATION. To Put- on Christ - to Imitate - to follow Jesus.",
+      "merged_text": "VOCATION. To Put- on Christ - to Imitate - to follow Jesus.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "CHARITY. To be true; practical must begin at home.",
+      "merged_text": "CHARITY. To be true; practical must begin at home.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "MORTIFICATION. Necessity; advantages",
+      "merged_text": "MORTIFICATION. Necessity; advantages",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "INTERIOR LIFE. Anchor and Stay of perseverence in religious state .... Sad case of outstandinly active Franciscan friar in SWest ... winding up by doning the overalls rather than his habit, and finally mar- rying the divorced wife\".",
+      "merged_text": "INTERIOR LIFE. Anchor and Stay of perseverence in religious state .... Sad case of outstandinly active Franciscan friar in SWest ... winding up by doning the overalls rather than his habit, and finally mar- rying the divorced wife\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "DEATH. Card'1 Wiseman's meeting of ... going home for vacation ... But, O the Death of St. Francis! ... . What a scene of Jubilation! As having passed his day's crucifixion and immune from further pain he inspires his brethren and, in joyful psalms and hymns joins them as with him they welcome God's own gentle representative, none other for him now than Sister Death. Deo gratias.",
+      "merged_text": "DEATH. Card'1 Wiseman's meeting of ... going home for vacation ... But, 0 the Death of St. Francis! ... . What a scene of Jubilation! As having passed his day's crucifixion and immune from further pain he inspires his brethren and, in joyful psalms and hymns joins them as with him they welcome God's own gentle representative, none other for him now than Sister Death. Deo gratias.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "FAITH. \"According to thy faith: .. Thy faith hath made thee Whole, etc.",
+      "merged_text": "FAITH. \"According to thy faith: .. Thy faith hath made thee Whole, etc.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Sund\"y",
+      "merged_text": "Sund\"y",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Monday",
+      "merged_text": "Monday",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Tuesday - ALL SAINTS.",
+      "merged_text": "Tuesday - ALL SAINTS.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Rev. Fr. Edwin - of Pittsburgh",
+      "merged_text": "Rev. Fr. Edwin - of Pittsburgh",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of Retreat Notes, October 30 - November 2, 1949, by the servant of God Father Solanus Casey OFM Cap. ( found in NOTEBOOK NO. 10 pages 75 to 78)",
+      "merged_text": "The following is a faithful transcription of Retreat Notes, October 30 - November 2, 1949, by the servant of God Father Solanus Casey OFM Cap. ( found in NOTEBOOK NO. 10 pages 75 to 78)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1949, October",
+      "merged_text": "1949, October",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "RETREAT 1949 Oct. 30",
+      "merged_text": "RETREAT 1949 Oct. 30",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "I.",
+      "merged_text": "I.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "II.",
+      "merged_text": "II.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "III.",
+      "merged_text": "III.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.3",
+      "category": "struct_doc",
+      "cleaned_text": "IV.",
+      "merged_text": "IV.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.4",
+      "category": "struct_doc",
+      "cleaned_text": "V.",
+      "merged_text": "V.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.5",
+      "category": "struct_doc",
+      "cleaned_text": "I.",
+      "merged_text": "I.",
+      "edits": []
+    }
+  ]
+}

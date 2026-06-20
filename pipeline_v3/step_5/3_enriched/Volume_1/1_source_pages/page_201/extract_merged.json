@@ -1,0 +1,87 @@
+{
+  "page": "Volume_1/1_source_pages/page_201",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 7,
+  "n_agree": 5,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "It is nearly time for office - Matins - Lauds - I want to answer the above Tonight if I can I perhaps should have told the secret before - of having prayers heard in \"hopeless cases.\" Any how I think a few little notes near by will be interestingly Encouring - over. I had to cross proposed P.S. off. - can only hope to do something better than just a P.S. Another letter from same niece Clement informs of the operation - Let us continue praying and trusting and thanking - God first of course and then all else Since the novices are gone I've been having - so far - the privilege of serving Fr. Rudolph's Mass every morning. . I really enjoy it but - but - One hardly knows how to get around . ·",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "It is nearly time for office - Matins - Lauds - I want to answer the above Tonight if I can I perhaps should have told the secret before - of having prayers heard in \"hopeless cases.\" Any how I think a few little notes near by will be interestingly Encouring - over. I had to cross proposed P.S. off. - can only hope to do something better than just a P.S. Another letter from same niece Clement informs of the operation . - Let us continue praying and trusting and thanking - God first of course and then all else ... Since the novices are gone I've been having - so far - the privilege of serving Fr. Rudolph's Mass every morning. I really enjoy it but - but - One hardly knows how to get around.",
+      "per_polygon": "It is nearly time for office - Matins - Lauds - I want to answer the above Tonight if I can I perhaps should have told the secret before - of having prayers heard in \"hopeless cases.\" Any how I think a few little notes near by will be interestingly Encouring - over. I had to cross proposed P.S. off. - can only hope to do something better than just a P.S. Another letter from same niece Clement informs of the operation - Let us continue praying and trusting and thanking - God first of course and then all else Since the novices are gone I've been having - so far - the privilege of serving Fr. Rudolph's Mass every morning. . I really enjoy it but - but - One hardly knows how to get around . ·",
+      "min_conf": 0.17
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Feast of St. Joseph.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Feast of St. Joseph.",
+      "per_polygon": "Feast of St. Joseph.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "EVOLU VI NU. OVOGUL .. God bless you Dear Fr. Ed'wd.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Dear Fr. Ed'wd.",
+      "per_polygon": "EVOLU VI NU. OVOGUL .. God bless you Dear Fr. Ed'wd.",
+      "min_conf": 0.12
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus ofm cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus ofm cap.",
+      "per_polygon": "Fr. Solanus ofm cap.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Blessed be God!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God!",
+      "per_polygon": "Blessed be God!",
+      "min_conf": 0.88
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap. (added by hand to a letter written by niece, Clemence Carbis)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap. (added by hand to a letter written by niece, Clemence Carbis)",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap. (added by hand to a letter written by niece, Clemence Carbis)",
+      "min_conf": 0.756
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1957, March",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1957, March",
+      "per_polygon": "c. 1957, March",
+      "min_conf": 0.87
+    }
+  ]
+}

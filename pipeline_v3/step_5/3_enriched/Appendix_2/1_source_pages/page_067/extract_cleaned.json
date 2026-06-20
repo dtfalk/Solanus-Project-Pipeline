@@ -1,0 +1,66 @@
+{
+  "page": "Appendix_2/1_source_pages/page_067",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I hope this finds things brightening some way with you. You know that only God can work miracles. And when we turn to Him with con- fidence He never turns us down - if He forces it is for the good of our souls and to His glory. If not He always gives something better for us than what we ask for. At all events, try and get as many of your friends to help you \"storm Heaven\" for help - a cure or improvement of some kind so as to carry on and be at least resigned to His holy will till the end. We are enrolling you again and will pray for you and hope for results soon.",
+      "merged_text": "I hope this finds things brightening some way with you. You know that only God can work miracles. And when we turn to Him with con- fidence He never turns us down - if He forces it is for the good of our souls and to His glory. If not He always gives something better for us than what we ask for. At all events, try and get as many of your friends to help you \"storm Heaven\" for help - a cure or improvement of some kind so as to carry on and be at least resigned to His holy will till the end. We are enrolling you again and will pray for you and hope for results soon.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mr. and Mrs. Maurice O'Conne11:",
+      "merged_text": "Mr. and Mrs. Maurice 0'Conne11:",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Jan. 9th, 1948",
+      "merged_text": "Jan. 9th, 1948",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My Dear Friends - Mr. and Mrs. Maurice O'Conne11:",
+      "merged_text": "My Dear Friends - Mr. and Mrs. Maurice 0'Conne11:",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "God bless you both. Praised be Jesus and Mary.",
+      "merged_text": "God bless you both. Praised be Jesus and Mary.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M. Cap.",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    }
+  ]
+}

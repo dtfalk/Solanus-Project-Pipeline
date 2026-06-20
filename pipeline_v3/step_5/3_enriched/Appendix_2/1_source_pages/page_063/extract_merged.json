@@ -1,0 +1,43 @@
+{
+  "page": "Appendix_2/1_source_pages/page_063",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 3,
+  "n_agree": 2,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Yesterday he wired from Seattle that our Brother Patrick is not well and just now ( 11 a.m. ) a wire from Minneapolis from Msgr. says he hopes to see Pat by Friday a.m. in Seattle. I sent Br. Patrick an air special yesterday after Owen's wire.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Yesterday he wired from Seattle that our Brother Patrick is not well and just now (11 a.m.) a wire from Minneapolis from Msgr. says he hopes to see Pat by Friday a.m. in Seattle. I sent Br. Patrick an air special yesterday after Owen's wire.",
+      "per_polygon": "Yesterday he wired from Seattle that our Brother Patrick is not well and just now ( 11 a.m. ) a wire from Minneapolis from Msgr. says he hopes to see Pat by Friday a.m. in Seattle. I sent Br. Patrick an air special yesterday after Owen's wire.",
+      "min_conf": 0.819
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless you again - one and all. Keep well and always ready to re- stond to the one important summens. Sincerely yours in Christ",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you again - one and all. Keep well and always ready to re- stond to the one important summens. Sincerely yours in Christ",
+      "per_polygon": "God bless you again - one and all. Keep well and always ready to re- stond to the one important summens. Sincerely yours in Christ",
+      "min_conf": 0.826
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus O.F.M.Cap.",
+      "min_conf": 0.894
+    }
+  ]
+}

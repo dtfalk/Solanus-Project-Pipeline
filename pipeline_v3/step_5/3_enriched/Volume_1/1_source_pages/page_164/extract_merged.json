@@ -1,0 +1,65 @@
+{
+  "page": "Volume_1/1_source_pages/page_164",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I was going to say, when we think of past blessings and merciful providence -- notwithstand- ing our sins -- whereby God has blessed us, why should we not foster confidence by thanking Him for the future also. Conclusion : Simply I hope you get a kind of \"kick out of this. I never intended as much, but O! what God must have ahead of us if we only leave all to His planning !",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I was going to say, when we think of past blessings and merciful providence -- notwithstand- ing our sins -- whereby God has blessed us, why should we not foster confidence by thanking Him for the future also. Conclusion: Simply I hope you get a kind of \"kick out of this. I never intended as much, but O! what God must have ahead of us if we only leave all to His planning!",
+      "per_polygon": "I was going to say, when we think of past blessings and merciful providence -- notwithstand- ing our sins -- whereby God has blessed us, why should we not foster confidence by thanking Him for the future also. Conclusion : Simply I hope you get a kind of \"kick out of this. I never intended as much, but O! what God must have ahead of us if we only leave all to His planning !",
+      "min_conf": 0.629
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "FII FI . Sol.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Sol.",
+      "per_polygon": "FII FI . Sol.",
+      "min_conf": 0.363
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, April 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, April 2",
+      "per_polygon": "1946, April 2",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page Two",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page Two",
+      "per_polygon": "Page Two",
+      "min_conf": 0.991
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Fr. M. E. Joachim",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. M. E. Joachim",
+      "per_polygon": "Fr. M. E. Joachim",
+      "min_conf": 0.988
+    }
+  ]
+}

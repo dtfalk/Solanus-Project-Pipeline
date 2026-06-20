@@ -1,0 +1,65 @@
+{
+  "page": "Volume_1/1_source_pages/page_131",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "When he visited me in Yonkers, N.Y. about a year before he married again and seemed so at home with the Capuchins, he re- marked one day as we talked things over \" .... I find no attrac- tion in women any more; but I feel I ought to have someone to be with my little Helena.\" Well, Jesus sent him that someone, though at the time you probably failed to recognize her as such a \"God-send\" - for your dear Father at first and immediately, and now more than ever for his Helena, with two others for mutual love and companionship. How beautiful and wonderful are God's ways. And 0, how far he surpasses us in generosity! Thanks be to God! ! ! Praised Be Jesus",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "When he visited me in Yonkers, N.Y. about a year before he married again and seemed so at home with the Capuchins, he re- marked one day as we talked things over \" .... I find no attrac- tion in women any more; but I feel I ought to have someone to be with my little Helena.\" Well, Jesus sent him that someone, though at the time you probably failed to recognize her as such a \"God-send\" - for your dear Father at first and immediately, and now more than ever for his Helena, with two others for mutual love and companionship. How beautiful and wonderful are God's ways. And 0, how far he surpasses us in generosity! Thanks be to God !!! Praised Be Jesus.",
+      "per_polygon": "When he visited me in Yonkers, N.Y. about a year before he married again and seemed so at home with the Capuchins, he re- marked one day as we talked things over \" .... I find no attrac- tion in women any more; but I feel I ought to have someone to be with my little Helena.\" Well, Jesus sent him that someone, though at the time you probably failed to recognize her as such a \"God-send\" - for your dear Father at first and immediately, and now more than ever for his Helena, with two others for mutual love and companionship. How beautiful and wonderful are God's ways. And 0, how far he surpasses us in generosity! Thanks be to God! ! ! Praised Be Jesus",
+      "min_conf": 0.643
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.M. Cap.",
+      "min_conf": 0.621
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1929, August 3",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1929, August 3",
+      "per_polygon": "1929, August 3",
+      "min_conf": 0.936
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2 1 1",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2 1 1",
+      "min_conf": 0.778
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Miss Helena Casey",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Helena Casey",
+      "per_polygon": "Miss Helena Casey",
+      "min_conf": 0.825
+    }
+  ]
+}

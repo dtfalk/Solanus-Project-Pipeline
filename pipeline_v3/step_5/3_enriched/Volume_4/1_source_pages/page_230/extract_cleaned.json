@@ -1,0 +1,186 @@
+{
+  "page": "Volume_4/1_source_pages/page_230",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Ian Warner - 2% - worms",
+      "merged_text": "Ian Warner - 2% - worms",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "James O'Neil Felreault - 13 - lock-jaw - very little hope - in Kiefer's Enrolled in Ser. Masses.",
+      "merged_text": "James O'Neil Felreault - 13 - lock-jaw - very little hope - in Kiefer's Enrolled in Ser. Masses.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Martin Trudeau - 4 - hearing and sight defective. Drs give little hope ....",
+      "merged_text": "Martin Trudeau - 4 - hearing and sight defective. Drs give little hope ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Baby John Cameron - 12 threatened.",
+      "merged_text": "Baby John Cameron - 12 threatened.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Loretta Payto - 52 - infantile, Mother raised Catholic, Father with- out religion.",
+      "merged_text": "Loretta Payto - 52 - infantile, Mother raised Catholic, Father with- out religion.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Dr. Beatie - . .",
+      "merged_text": "Dr. Beatie - . .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Geraldine Martin - T. B. in Kiefer's - hemoraging ....",
+      "merged_text": "Geraldine Martin - T. B. in Kiefer's - hemoraging ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mary Motyl - 49 - bad ulcers of stomach, etc.",
+      "merged_text": "Mary Motyl - 49 - bad ulcers of stomach, etc.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Thanks Marion Fliger .St. Martin's Parish. Was brought here from insane asylum in Ypsilanti on way with sister to Petoskey, Mich .... Drs. had told sister she'd never be normal. After three years - is in perfect health - active in society and daily Communicant.",
+      "merged_text": "Thanks Marion Fliger .St. Martin's Parish. Was brought here from insane asylum in Ypsilanti on way with sister to Petoskey, Mich .... Drs. had told sister she'd never be normal. After three years - is in perfect health - active in society and daily Communicant.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Thanks Florence watson - 34 - yesterday - Eleven years on her back. .. at holy Mass 1st time in Eleven yrs. Now quite O.K. Deo Gratias.",
+      "merged_text": "Thanks Florence watson - 34 - yesterday - Eleven years on her back. .. at holy Mass Ist time in Eleven yrs. Now quite O.K. Deo Gratias.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Chas. Rutzen - 64 - palsey of Bay City.",
+      "merged_text": "Chas. Rutzen - 64 - palsey of Bay City.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Leona Kotkowski - 30 - married by a justice, insane - nervous.",
+      "merged_text": "Leona Kotkowski - 30 - married by a justice, insane - nervous.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Baby - 2 - Peter Kronk, Maningitis - in Childrens' Hospital since last Wednesday ....",
+      "merged_text": "Baby - 2 - Peter Kronk, Maningitis - in Childrens' Hospital since last Wednesday ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Jeffy Skewis - 3 - Episcopelians - malignent tumor in liver - in Ann Arbor Hospital. Drs. undertook to perform operation but found things so hopeless that they sewed him up and abandoned project. Enrolled.",
+      "merged_text": "Jeffy Skewis - 3 - Episcopelians - malignent tumor in liver - in Ann Arbor Hospital. Drs. undertook to perform operation but found things so hopeless that they sewed him up and abandoned project. Enrolled.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Dr John Nery - (about) 70 - stomach-cancer feared; in fact Drs. have little hope.",
+      "merged_text": "Dr John Nery - (about) 70 - stomach-cancer feared; in fact Drs. have little hope.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Mildred Chenery - 47 - Jewish - malignent groth - spinal 1.00 Enroll.",
+      "merged_text": "Mrs. Mildred Chenery - 47 - Jewish - malignent groth - spinal 1.00 Enroll.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apr. 15",
+      "merged_text": "Apr. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "April 15",
+      "merged_text": "April 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Apr. 21st",
+      "merged_text": "Apr. 21st",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "Apr. 22",
+      "merged_text": "Apr. 22",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "24",
+      "merged_text": "24",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 139 Cont.",
+      "merged_text": "Page 139 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 140",
+      "merged_text": "Page 140",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 14 1",
+      "merged_text": "Page 14 1",
+      "edits": []
+    }
+  ]
+}

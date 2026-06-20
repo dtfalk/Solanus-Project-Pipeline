@@ -1,0 +1,142 @@
+{
+  "page": "Volume_1/1_source_pages/page_093",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 12,
+  "n_agree": 7,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "My Dear Willie: - Many thanks for favor just read. you are well and doing. Thank God for everything. I am glad to know I wish you would convey best wishes and blessings to all my friends you chance to meet in picturesque, beautiful Yonkers. This has been the busiest place I been located in so far . . · Near 31 years now since I went to Yonkers - and Willie was one of Fr. Stephan's boys.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "My Dear Willie: - Many thanks for favor just read. I am glad to know you are well and doing. Thank God for everything. I wish you would convey best wishes and blessings to all my friends you chance to meet in picturesque, beautiful Yonkers. This has been the busiest place I been located in so far . . Near 31 years now since I went to Yonkers - and Willie was one of Fr. Stephan's boys.",
+      "per_polygon": "My Dear Willie: - Many thanks for favor just read. you are well and doing. Thank God for everything. I am glad to know I wish you would convey best wishes and blessings to all my friends you chance to meet in picturesque, beautiful Yonkers. This has been the busiest place I been located in so far . . · Near 31 years now since I went to Yonkers - and Willie was one of Fr. Stephan's boys.",
+      "min_conf": 0.302
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. BONAVENTURE'S MONASTERY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. BONAVENTURE'S MONASTERY",
+      "per_polygon": "ST. BONAVENTURE'S MONASTERY",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mr. Wm Spring",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. Wm Spring",
+      "per_polygon": "Mr. Wm Spring",
+      "min_conf": 0.954
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "Yonkers. New York.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Yonkers. New York.",
+      "per_polygon": "Yonkers. New York.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "1780 Mt. Elliott Avenue Detroit, Mich.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1780 Mt. Elliott Avenue Detroit, Mich.",
+      "per_polygon": "1780 Mt. Elliott Avenue Detroit, Mich.",
+      "min_conf": 0.793
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Mar 27 1935",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mar 27 1935",
+      "per_polygon": "Mar 27 1935",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My Dear Willie:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "My Dear Willie:",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "-- God's blessings to all - 1",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "-- God's blessings to all - -",
+      "per_polygon": "-- God's blessings to all - 1",
+      "min_conf": 0.184
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "- Fr. Solanus Casey O.M Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus Casey O.M Cap.",
+      "per_polygon": "- Fr. Solanus Casey O.M Cap.",
+      "min_conf": 0.854
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.65
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1935, March 27",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1935, March 27",
+      "per_polygon": "1935, March 27",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Copy of card in possession of: Mr. William Spring 18 River Glen Hastings-on-Hudson, N. Y.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Copy of card in possession of: Mr. William Spring 18 River Glen Hastings-on-Hudson, N.Y.",
+      "per_polygon": "Copy of card in possession of: Mr. William Spring 18 River Glen Hastings-on-Hudson, N. Y.",
+      "min_conf": 0.962
+    }
+  ]
+}

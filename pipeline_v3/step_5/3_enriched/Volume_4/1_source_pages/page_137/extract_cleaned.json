@@ -1,0 +1,185 @@
+{
+  "page": "Volume_4/1_source_pages/page_137",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Miss. Mangan ... Saintly sufferer - found dead this a.m.",
+      "merged_text": "Miss. Mangan ... Saintly sufferer - found dead this a.m.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Natilda Kalthoff - 73 - bleeding ulcers.",
+      "merged_text": "Mrs. Natilda Kalthoff - 73 - bleeding ulcers.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Frank Horton ...",
+      "merged_text": "Frank Horton ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Francis Rauland - 53 - had six operations on cancers ... Thank God after six operations and 9 cancers removed is Okay.",
+      "merged_text": "Francis Rauland - 53 - had six operations on cancers ... Thank God after six operations and 9 cancers removed is Okay.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Latetia Stephens - Newardk, O. - Episcopelian - 81 - cancerous lip .... never sick till this started.",
+      "merged_text": "Mrs. Latetia Stephens - Newardk, 0. - Episcopelian - 81 - cancerous lip .... never sick till this started.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Elmer Kapp - 18 - blind from amonia Explosion Dec. 9th last. Father was Catholic, Mother lutheran, Children baptized and seemingly little more - 17201 Goulburn",
+      "merged_text": "Elmer Kapp - 18 - blind from amonia Explosion Dec. 9th last. Father was Catholic, Mother lutheran, Children baptized and seemingly little more - 17201 Goulburn",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Rose Wyzykowski - 52 - High-blood Pres. Stroke a year ago.",
+      "merged_text": "Rose Wyzykowski - 52 - High-blood Pres. Stroke a year ago.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Baby John Parport - 2 - peculiar condition - four weeks in Providence",
+      "merged_text": "Baby John Parport - 2 - peculiar condition - four weeks in Providence",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Rene Vereecke - 4% of Lyons, O. - now in Ann Arbor Hosp. - threatening to be Spinal Maningitis - Mother non-Cath.",
+      "merged_text": "Rene Vereecke - 4% of Lyons, 0. - now in Ann Arbor Hosp. - threatening to be Spinal Maningitis - Mother non-Cath.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Eleanor Proszek - 17 - for quite a time deceiving mother and others now missing for some days.",
+      "merged_text": "Eleanor Proszek - 17 - for quite a time deceiving mother and others now missing for some days.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Fr. Fr. Rajewski - 45 - 4 operations in fearful pains - gangreen feared.",
+      "merged_text": "Fr. Fr. Rajewski - 45 - 4 operations in fearful pains - gangreen feared.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Wm. Loney - 55 - high-bld - Deacon in Some Ch. in Episcopelian Ch. in Windsor - Catholic tenant asks for prayers ...",
+      "merged_text": "Wm. Loney - 55 - high-bld - Deacon in Some Ch. in Episcopelian Ch. in Windsor - Catholic tenant asks for prayers ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Ronald Howell - 8 month old - in Kiefer's. Very peculiar trouble. For six month was bright and normal; then high fever and something like paralysis .... Mother hesitating whether to take baby home or con- descend to having it consigned to institution.",
+      "merged_text": "Ronald Howell - 8 month old - in Kiefer's. Very peculiar trouble. For six month was bright and normal; then high fever and something like paralysis .... Mother hesitating whether to take baby home or con- descend to having it consigned to institution.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Enima Reno - 65 - fell early in December and since has had serious kidney trouble - and very little strength.",
+      "merged_text": "Mrs. Enima Reno - 65 - fell early in December and since has had serious kidney trouble - and very little strength.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Sara Kane - 48 - fears operation.",
+      "merged_text": "Sara Kane - 48 - fears operation.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Feb. 3rd.",
+      "merged_text": "Feb. 3rd.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Feb. 2",
+      "merged_text": "Feb. 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Feb. 4",
+      "merged_text": "Feb. 4",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "Feb. 5th",
+      "merged_text": "Feb. 5th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "6",
+      "merged_text": "6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 259 Cont.",
+      "merged_text": "Page 259 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 260",
+      "merged_text": "Page 260",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 261",
+      "merged_text": "Page 261",
+      "edits": []
+    }
+  ]
+}

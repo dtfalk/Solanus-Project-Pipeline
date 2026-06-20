@@ -1,0 +1,153 @@
+{
+  "page": "Volume_2/1_source_pages/page_231",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 13,
+  "n_agree": 8,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I am just starting, for a day or P. S. Pl. pardon hast. so at Milwaukee, Wis.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "P. S. Pl. pardon hast. £ I am just starting, for a day or so at Milwaukee, Wis.",
+      "per_polygon": "I am just starting, for a day or P. S. Pl. pardon hast. so at Milwaukee, Wis.",
+      "min_conf": 0.294
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Dear Mrs. Doyle: God bless you . . . I am sending this (above) just as I found it this morning. With several others I got From- ane poison in Milwaukee and had an experience quite worthwhile. Thanks be to God. Afterwards too, here and in St. Joseph Hospital in Ft. Wayne. Doctor Hoffman there, I hear, feared I would lose my lower legs. I never thought of such a serious thing. Thank God they are again quite OK.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Dear Mrs. Doyle: God bless you . . I am sending this (above) just as I found it this morning. With several others I got From- ane poison in Milwaukee and had an experience quite worthwhile. Thanks be to God. Afterwards too, here and in St. Joseph Hospital in Ft. Wayne. Doctor Hoffman there, I hear, feared I would lose my lower legs. I never thought of such a serious thing. Thank God they are again quite OK.",
+      "per_polygon": "Dear Mrs. Doyle: God bless you . . . I am sending this (above) just as I found it this morning. With several others I got From- ane poison in Milwaukee and had an experience quite worthwhile. Thanks be to God. Afterwards too, here and in St. Joseph Hospital in Ft. Wayne. Doctor Hoffman there, I hear, feared I would lose my lower legs. I never thought of such a serious thing. Thank God they are again quite OK.",
+      "min_conf": 0.498
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Doyle:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Mrs. Doyle:",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "July 8th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "July 8th",
+      "per_polygon": "July 8th",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God:",
+      "per_polygon": "Blessed be God:",
+      "min_conf": 0.97
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Mrs. Doyle: - God bless you",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Dear Mrs. Doyle: - God bless you",
+      "min_conf": 0.559
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised be Jesus . Praised Mary our Blessed Mother:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Praised be Jesus! Praised Mary our Blessed Mother:",
+      "per_polygon": "Praised be Jesus . Praised Mary our Blessed Mother:",
+      "min_conf": 0.257
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Sol.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Sol.",
+      "per_polygon": "Fr. Sol.",
+      "min_conf": 0.965
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": ". Fr. Solanus, Ofm. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": ". Fr. Solanus, Ofm. Cap.",
+      "per_polygon": ". Fr. Solanus, Ofm. Cap.",
+      "min_conf": 0.912
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1949, March 6",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1949, March 6",
+      "per_polygon": "1949, March 6",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Joseph Doyle 954 Barrington Grosse Pointe, Mi.48230",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Joseph Doyle 954 Barrington Grosse Pointe, Mi.48230",
+      "per_polygon": "Original in possession of: Joseph Doyle 954 Barrington Grosse Pointe, Mi.48230",
+      "min_conf": 0.633
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2.",
+      "per_polygon": "Page 2.",
+      "min_conf": 0.974
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mrs. Margaret Doyle",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Margaret Doyle",
+      "per_polygon": "Mrs. Margaret Doyle",
+      "min_conf": 0.992
+    }
+  ]
+}

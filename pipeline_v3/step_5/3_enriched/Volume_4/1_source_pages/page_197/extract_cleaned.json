@@ -1,0 +1,179 @@
+{
+  "page": "Volume_4/1_source_pages/page_197",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Helen Leah Sipkins - 52 - Jewiss - very serious gall-stone trouble. Operated on May 26 ..... Drs. fear cancer. 4th phoned \"Bad news\" ... Drs say. . Cancer ... we'll wait.",
+      "merged_text": "Mrs. Helen Leah Sipkins - 52 - Jewiss - very serious gall-stone trouble. Operated on May 26 ..... Drs. fear cancer. 4th phoned \"Bad news\" ... Drs say. . Cancer ... we'll wait.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Verdun see episcopel Apr. 23",
+      "merged_text": "Thanks - Verdun see episcopel Apr. 23",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "(Mrs. Fay) Carey for work Lenox 8530",
+      "merged_text": "(Mrs. Fay) Carey for work Lenox 8530",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mr. & Mrs. E. Card - middle aged lutheran - spinal trouble - Enrol- led To-night.",
+      "merged_text": "Mr. & Mrs. E. Card - middle aged lutheran - spinal trouble - Enrol- led To-night.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Baby Patricia Forster again - 3rd time - from May 26 - still living and physically well but nerveous and seemingly hopeless as to nerve and mind. Aug. 1st Wonderful! Hardly believable - Running all a- round the office - Entertaining the crowd.",
+      "merged_text": "Baby Patricia Forster again - 3rd time - from May 26 - still living and physically well but nerveous and seemingly hopeless as to nerve and mind. Aug. Ist Wonderful! Hardly believable - Running all a- round the office - Entertaining the crowd.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mary Brozowsk - 52 - Complication - tuomers, dropsey, etc fears operation - Enrolled.",
+      "merged_text": "Mary Brozowsk - 52 - Complication - tuomers, dropsey, etc fears operation - Enrolled.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Carrie Montreuil - 76 - Cancer on forehead .. Mother of 11 chil- dren - Enrolled To-day .. .5. - missions.",
+      "merged_text": "Mrs. Carrie Montreuil - 76 - Cancer on forehead .. Mother of 11 chil- dren - Enrolled To-day .. .5. - missions.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "John Wilson - 10 - serious heart-trouble. Drs. give very little hopes. Is inscribed To-night in Ser. Masses - has older brother a prisoner of war in Germany, who, however, seems quite content.",
+      "merged_text": "John Wilson - 10 - serious heart-trouble. Drs. give very little hopes. Is inscribed To-night in Ser. Masses - has older brother a prisoner of war in Germany, who, however, seems quite content.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Patricia A. Grubbe - 21 - T.B. in Det. San. - operation of appendix last Thanksgiving; then other operations and finally ... badly run down.",
+      "merged_text": "Patricia A. Grubbe - 21 - T.B. in Det. San. - operation of appendix last Thanksgiving; then other operations and finally ... badly run down.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Joseph V. Burns - 39 - serious hemoraging - rapidly losing strength. Drs baffled - Wife enrolls PP. Souls ... 5. and promises more frequent Communion if ...",
+      "merged_text": "Joseph V. Burns - 39 - serious hemoraging - rapidly losing strength. Drs baffled - Wife enrolls PP. Souls ... 5. and promises more frequent Communion if ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Marguerite Foley - 14 - brain tuomer - prayer the only hope ...",
+      "merged_text": "Marguerite Foley - 14 - brain tuomer - prayer the only hope ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mande O'Connor - 48 - Pt. Huron - T.B. Feared. ...",
+      "merged_text": "Mande O'Connor - 48 - Pt. Huron - T.B. Feared. ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Florence Diermeier - 27 - July ... in Kiefer's ... T.B. fears further operation ....",
+      "merged_text": "Mrs. Florence Diermeier - 27 - July ... in Kiefer's ... T.B. fears further operation ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Michael Bell - 7 - Kidney operation feared necessary .... Enrolled To- day. Father promises to go back to sacraments. Mother non Cath. Now in Mayo's",
+      "merged_text": "Michael Bell - 7 - Kidney operation feared necessary .... Enrolled To- day. Father promises to go back to sacraments. Mother non Cath. Now in Mayo's",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "June 2",
+      "merged_text": "June 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "2",
+      "merged_text": "2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "6th",
+      "merged_text": "6th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "June 9",
+      "merged_text": "June 9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "13",
+      "merged_text": "13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "June",
+      "merged_text": "June",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 73",
+      "merged_text": "Page 73",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 74",
+      "merged_text": "Page 74",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 75",
+      "merged_text": "Page 75",
+      "edits": []
+    }
+  ]
+}

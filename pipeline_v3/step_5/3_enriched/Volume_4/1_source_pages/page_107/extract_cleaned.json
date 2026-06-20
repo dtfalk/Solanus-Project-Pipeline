@@ -1,0 +1,165 @@
+{
+  "page": "Volume_4/1_source_pages/page_107",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Margaret Malone - young lady - 29 - from New Brunswick - here to have operation to save Eye - one already lost.",
+      "merged_text": "Margaret Malone - young lady - 29 - from New Brunswick - here to have operation to save Eye - one already lost.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Angela Martin - 40 - operation at 9 o'clock To-day.",
+      "merged_text": "Mrs. Angela Martin - 40 - operation at 9 o'clock To-day.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Thomas Anthony Gibson - 50 - Philadelphia - deaf, dumb, and blind since 14 .... has a sister similarly aflicted. Parents were 1st cousins.",
+      "merged_text": "Thomas Anthony Gibson - 50 - Philadelphia - deaf, dumb, and blind since 14 .... has a sister similarly aflicted. Parents were Ist cousins.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Anthony Toby - 40 - brain tuomer removed last November, somewhat paralyzed - Epileptic.",
+      "merged_text": "Anthony Toby - 40 - brain tuomer removed last November, somewhat paralyzed - Epileptic.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Helena Pienta - 40 - intestinal cancer - Enrolled yesterday almost hopeless - by husband - who promised weekly communion for year if wife were spared .... decidedly improved Today \"Two further operations necessary.\"",
+      "merged_text": "Helena Pienta - 40 - intestinal cancer - Enrolled yesterday almost hopeless - by husband - who promised weekly communion for year if wife were spared .... decidedly improved Today \"Two further operations necessary.\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Helen Frances Walker - 2 - believed to have fallen some time after birth and while seemingly bright cannot talk or walk ...",
+      "merged_text": "Helen Frances Walker - 2 - believed to have fallen some time after birth and while seemingly bright cannot talk or walk ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Sylvester J. Pheney - 65 - Gangreen apendix - delerious at times - in Ford's Hosp .... Enrolled",
+      "merged_text": "Sylvester J. Pheney - 65 - Gangreen apendix - delerious at times - in Ford's Hosp .... Enrolled",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Anthony Hoffman - 53 - cancer of spine ... Seems quite hopeless except by miracle.",
+      "merged_text": "Anthony Hoffman - 53 - cancer of spine ... Seems quite hopeless except by miracle.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Baby Diane Alice Champagne - 10 mo. - eczema fearful - They have to bind her little hands.",
+      "merged_text": "Baby Diane Alice Champagne - 10 mo. - eczema fearful - They have to bind her little hands.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mary Foley - 51 - unsettled and nerve ...",
+      "merged_text": "Mary Foley - 51 - unsettled and nerve ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Shirley Arnold - 13 - physically and mentally abnormal - was 6 before taken to monastery and prayed for ..... shortly after began to speak.",
+      "merged_text": "Shirley Arnold - 13 - physically and mentally abnormal - was 6 before taken to monastery and prayed for ..... shortly after began to speak.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Blanche Frebis - Elderly - had a good position but having left it to care for her invalid parents is now out of employment - She adopt - a little orphan, now 16 whom she is trying to educate while helping her widowed sister & family ....",
+      "merged_text": "Blanche Frebis - Elderly - had a good position but having left it to care for her invalid parents is now out of employment - She adopt - a little orphan, now 16 whom she is trying to educate while helping her widowed sister & family ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Baby Catherine Posquett - 2 - found a match and caught fire - badly burned - Mother also trying to save her was badly burned. . .",
+      "merged_text": "Baby Catherine Posquett - 2 - found a match and caught fire - badly burned - Mother also trying to save her was badly burned. . .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apri. 15",
+      "merged_text": "Apri. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "16",
+      "merged_text": "16",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Apr. 17",
+      "merged_text": "Apr. 17",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "Apr. 19",
+      "merged_text": "Apr. 19",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "Apr. 23",
+      "merged_text": "Apr. 23",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 204 Cont.",
+      "merged_text": "Page 204 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 205",
+      "merged_text": "Page 205",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 206",
+      "merged_text": "Page 206",
+      "edits": []
+    }
+  ]
+}

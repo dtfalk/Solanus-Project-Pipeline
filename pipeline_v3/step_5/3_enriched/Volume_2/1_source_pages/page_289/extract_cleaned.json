@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_289",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Please God, for speedy brightening of out look -- God's holy guidance",
+      "merged_text": "Please God, for speedy brightening of out look -- God's holy guidance",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Emergency special membership",
+      "merged_text": "Emergency special membership",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "They should pray as best they can, forgetting about denomination. We are christian only in as far as we be- lieve in Jesus and Keep His word. With God the nam counts O-",
+      "merged_text": "They should pray as best they can, forgetting about denomination. We are christian only in as far as we be- lieve in Jesus and Keep His word. With God the nam counts 0-",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Destined to be Mother of Jesus, Savior, and Help of Christians",
+      "merged_text": "Destined to be Mother of Jesus, Savior, and Help of Christians",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mr. and Mrs. Harold Sherman",
+      "merged_text": "Mr. and Mrs. Harold Sherman",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 18, 1949",
+      "merged_text": "July 18, 1949",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "God bless all and each.",
+      "merged_text": "God bless all and each.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M. Cap.",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Praised be Jesus !",
+      "merged_text": "Praised be Jesus !",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of a photo copy of brief messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of a photo copy of brief messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "category": "archv_format_note",
+      "cleaned_text": "(on reverse of. card is written under picture of Mary: )",
+      "merged_text": "(on reverse of. card is written under picture of Mary: )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1949, July 18",
+      "merged_text": "1949, July 18",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "The original in possession of: Mrs. Eldred Metty 20210 Regent Detroit, Mich. 48205",
+      "merged_text": "The original in possession of: Mrs. Eldred Metty 20210 Regent Detroit, Mich. 48205",
+      "edits": []
+    }
+  ]
+}

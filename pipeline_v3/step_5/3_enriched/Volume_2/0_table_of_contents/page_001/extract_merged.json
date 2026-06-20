@@ -1,0 +1,54 @@
+{
+  "page": "Volume_2/0_table_of_contents/page_001",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "shorter",
+  "n_regions": 4,
+  "n_agree": 3,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Letters to various Individuals Brief Messages on Cards Spiritual Notes on Vocation, Atheism, Religion and others",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Letters to various Individuals Brief Messages on Cards Spiritual Notes on Vocation, Atheism, Religion and others",
+      "per_polygon": "Letters to various Individuals Brief Messages on Cards Spiritual Notes on Vocation, Atheism, Religion and others",
+      "min_conf": 0.953
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "All are listed in Chronological sequence but all letters to one person are kept together.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "All are listed in Chronological sequence but all letters to one person are kept together.",
+      "per_polygon": "All are listed in Chronological sequence but all letters to one person are kept together.",
+      "min_conf": 0.825
+    },
+    {
+      "rid": "doc_1.archv_commentary.2",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap",
+      "source": "full_page",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap",
+      "min_conf": 0.795
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "VOLUME II",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "VOLUME II",
+      "per_polygon": "VOLUME II",
+      "min_conf": 0.963
+    }
+  ]
+}

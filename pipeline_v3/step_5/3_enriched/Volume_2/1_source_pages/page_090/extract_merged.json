@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_090",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 7,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you Miss Grace L. Panyard. God bless you and yours these unsettled days - in a way, fearfully threatening days and full of uncanny forebodings; viz, in asmuch as the individual or the whole world has been and seems actually to be turning away from God, to seek peace elsewhere than in His privileged service; in just so much do we find - individually or Humanity as a whole - unrest, disapointment, discouragement. God bless you MI, .. God bless you and yours these unsettled days - in a way, days of unrest, of suspence and of uncanny and threatening forebodings; viz, inasmuch as individuals or the whole world has been showing tendency to forget the purpose of their creation and of their existence as rational creatures and have been seeking peace other than in the privileged service of Almight God, in just somuch have they been",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Miss Grace L. Panyard. God bless you and yours these unsettled days - in a way, fearfully threatening days and full of uncanny forebodings; viz, in asmuch as the individual or the whole world has been and seems actually to be turning away from God, to seek peace elsewhere than in His privileged service; in just so much do we find - individually or Humanity as a whole - unrest, disapointment, discouragement. God bless you MI, .. God bless you and yours these unsettled days - in a way, days of unrest, of suspence and of uncanny and threatening forebodings; viz, inasmuch as individuals or the whole world has been showing tendency to forget the purpose of their creation and of their existence as rational creatures and have been seeking peace other than in the privileged service of Almight God, in just somuch have they been",
+      "per_polygon": "God bless you Miss Grace L. Panyard. God bless you and yours these unsettled days - in a way, fearfully threatening days and full of uncanny forebodings; viz, in asmuch as the individual or the whole world has been and seems actually to be turning away from God, to seek peace elsewhere than in His privileged service; in just so much do we find - individually or Humanity as a whole - unrest, disapointment, discouragement. God bless you Mi, .. God bless you and yours these unsettled days - in a way, days of unrest, of suspence and of uncanny and threatening forebodings; viz, inasmuch as individuals or the whole world has been showing tendency to forget the purpose of their creation and of their existence as rational creatures and have been seeking peace other than in the privileged service of Almight God, in just somuch have they been",
+      "min_conf": 0.607
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. BONAVENTURE MONASTERY CAPUCHIN FATHERS",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "ST. BONAVENTURE MONASTERY CAPUCHIN FARMERS",
+      "per_polygon": "ST. BONAVENTURE MONASTERY CAPUCHIN FATHERS",
+      "min_conf": 0.446
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Grace L. Panyard.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Grace L. Panyard.",
+      "per_polygon": "Miss Grace L. Panyard.",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "1705 Peck Street, Muskegon, Mich.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1705 Peck Street, Muskegon, Mich.",
+      "per_polygon": "1705 Peck Street, Muskegon, Mich.",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "1740 Mt. Elliott Avenue Detroit 7, Mich.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1740 Mt. Elliott Avenue Detroit 7, Mich.",
+      "per_polygon": "1740 Mt. Elliott Avenue Detroit 7, Mich.",
+      "min_conf": 0.848
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, C.F.N. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, C.F.N. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, C.F.N. Cap.",
+      "min_conf": 0.647
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1956",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1956",
+      "per_polygon": "c. 1956",
+      "min_conf": 0.952
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished)",
+      "per_polygon": "(Unfinished)",
+      "min_conf": 0.977
+    }
+  ]
+}

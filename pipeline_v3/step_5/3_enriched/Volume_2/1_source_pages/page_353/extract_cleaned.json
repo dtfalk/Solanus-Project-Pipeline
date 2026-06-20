@@ -1,0 +1,53 @@
+{
+  "page": "Volume_2/1_source_pages/page_353",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Almighty and Eternal Father, God of Wisdom and mercy, Whose power exceeds all force of arms and Whose protection is the strong defense of all who trust in Thee; Enlighten and direct we beseech Thee those who bear the heavy responsi- bility of government throughout the world these days of stress and trial. Grant them the strength to stand firm for what is right and the skill to dispel the fears that discord; inspire them to be mindful of the horrors of atomic war for and vanquished alike, to seek conciliation in truth and patience. To see in every man a brother - that the people of all nations may, in this our day, enjoy the blessings of a just and lasting peace. Conscience of our own unworthiness, we emplore Thy mercy on a sinful world in the Name of Thy Divine Son, the Prince of Peace, and through the intercession of His Blessed Mother and all the Saints. Queen of All Saints, Pray for us. Queen of the Holy Rosary, Pray for us. Queen of Peace: pray for us.",
+      "merged_text": "Almighty and Eternal Father, God of Wisdom and mercy, Whose power exceeds all force of arms and Whose protection is the strong defense of all who trust in Thee; Enlighten and direct we beseech Thee those who bear the heavy responsi- bility of government throughout the world these days of stress and trial. Grant them the strength to stand firm for what is right and the skill to dispel the fears that discord; inspire them to be mindful of the horrors of atomic war for and vanquished alike, to seek conciliation in truth and patience. To see in every man a brother - that the people of all nations may, in this our day, enjoy the blessings of a just and lasting peace. Conscience of our own unworthiness, we emplore Thy mercy on a sinful world in the Name of Thy Divine Son, the Prince of Peace, and through the intercession of His Blessed Mother and all the Saints. Queen of All Saints, Pray for us. Queen of the Holy Rosary, Pray for us. Queen of Peace: pray for us.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, O.2.x. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, 0.2.x. Cap.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1954",
+      "merged_text": "c. 1954",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "Tay be a copy from other sources )",
+      "merged_text": "Tay be a copy from other sources )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "PRAYER FOR PEACE",
+      "merged_text": "PRAYER FOR PEACE",
+      "edits": []
+    }
+  ]
+}

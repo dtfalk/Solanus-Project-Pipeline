@@ -1,0 +1,76 @@
+{
+  "page": "Volume_2/1_source_pages/page_228",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 4,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "\"Tis pain that purifies the human heart. Let this a gentle consolation be When bright hopes fade and dearest friends depart; - And love itself seems but a memory. The hours that fill the soul with silent grief, - That flood it with unutterable woe, Become, when time hath given calm relief, The fountain whence a hundred virtues flow. The mourner's tears that furrowed kindly faces And left the light of love abiding there. Sweet sympathy and tender deeds are traces Of pain and sorrow soothed in silent prayer. Christ wrought Redemption from despair and sin. By His dear Cross the clouds of grief were riven. Tis Bethlem and Calvary that win, From pain and sorrow, the sweets of Heaven\".",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"Tis pain that purifies the human heart. Let this a gentle consolation be When bright hopes fade and dearest friends depart; - And love itself seems but a memory. The hours that fill the soul with silent grief, - That flood it with unutterable woe, Become, when time hath given calm relief, The fountain whence a hundred virtues flow. The mourner's tears that furrowed kindly faces And left the light of love abiding there. Sweet sympathy and tender deeds are traces Of pain and sorrow soothed in silent prayer. Christ wrought Redemption from despair and sin. By Ilis dear Cross the clouds of grief were riven. Tis Bethlem and Calvary that win, From pain and sorrow, the sweets of Heaven\".",
+      "per_polygon": "\"Tis pain that purifies the human heart. Let this a gentle consolation be When bright hopes fade and dearest friends depart; - And love itself seems but a memory. The hours that fill the soul with silent grief, - That flood it with unutterable woe, Become, when time hath given calm relief, The fountain whence a hundred virtues flow. The mourner's tears that furrowed kindly faces And left the light of love abiding there. Sweet sympathy and tender deeds are traces Of pain and sorrow soothed in silent prayer. Christ wrought Redemption from despair and sin. By His dear Cross the clouds of grief were riven. Tis Bethlem and Calvary that win, From pain and sorrow, the sweets of Heaven\".",
+      "min_conf": 0.576
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Isgr. Edward F. Casey)",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(Isgr. Edward F. Casey)",
+      "per_polygon": "Isgr. Edward F. Casey)",
+      "min_conf": 0.633
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, February 13.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, February 13.",
+      "per_polygon": "1947, February 13.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished)",
+      "per_polygon": "(Unfinished)",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2.",
+      "per_polygon": "Page 2.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mrs. Irene O'Donnell",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Irene O'Donnell",
+      "per_polygon": "Mrs. Irene O'Donnell",
+      "min_conf": 0.6
+    }
+  ]
+}

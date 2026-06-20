@@ -1,0 +1,109 @@
+{
+  "page": "Appendix_2/1_source_pages/page_037",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours. Many thanks for your practical \"Loose leafs\" just arrived this morning in perfect condition. I hope to remember you someway in prayer as often as I shal use it.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you and yours. Many thanks for your practical \"Loose leafs\" just arrived this morning in perfect condition. I hope to remember you someway in prayer as often as I shal use it.",
+      "per_polygon": "God bless you and yours. Many thanks for your practical \"Loose leafs\" just arrived this morning in perfect condition. I hope to remember you someway in prayer as often as I shal use it.",
+      "min_conf": 0.888
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "SAINT FELIX CAPUCHIN FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "SAINT FELIX CAPUCHIN FRIARY",
+      "per_polygon": "SAINT FELIX CAPUCHIN FRIARY",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Panyard:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Panyard:",
+      "per_polygon": "Miss Panyard:",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "HUNTINGTON, IND.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "HUNTINGTON, IND.",
+      "per_polygon": "HUNTINGTON, IND.",
+      "min_conf": 0.961
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "November 22nd 1946",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "November 22nd 1946",
+      "per_polygon": "November 22nd 1946",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in His angels and in His Saints.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in His angels and in His Saints.",
+      "per_polygon": "Blessed be God in His angels and in His Saints.",
+      "min_conf": 0.958
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Miss Panyard:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Dear",
+      "per_polygon": "Dear Miss Panyard:",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God's blessing to all in the Lord. Sincerely yours",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God's blessing to all in the Lord. Sincerely yours,",
+      "per_polygon": "God's blessing to all in the Lord. Sincerely yours",
+      "min_conf": 0.976
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.844
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "page": "Volume_2/1_source_pages/page_272",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "However, in a matter of such tremendous importance it would be nothing less than criminal to be satisfied with the minimum. .. The foregoing is simply no answer atal to what we ought to have -- nothing to what we shall have; please God. Self-understood, in our present state there can be no question of knowing God directly as He is known in Heaven. Our privilege here in this world is to start such knowledge as can be perfeced only in the great Blessed Beyond. Nevertheless, if we stop to think as we ought to do; there must be ways and means even close at hand as manifested in the lives of the saints -- whereby we may if we try, ascend to great sanctity and attain to astonishing familiarity with God, because, though infinite in His attributes and perfections, as Saint Paul exclaims: \"O the depth of the riches of the wisdom and of the knowledge of God! How incompre- hensible are His Judgements and how unsearchable His ways!\", still His mercy is above all His works",
+      "merged_text": "However, in a matter of such tremendous importance it would be nothing less than criminal to be satisfied with the minimum. .. The foregoing is simply no answer atal to what we ought to have -- nothing to what we shall have; please God. Self-understood, in our present state there can be no question of knowing God directly as He is known in Heaven. Our privilege here in this world is to start such knowledge as can be perfeced only in the great Blessed Beyond. Nevertheless, if we stop to think as we ought to do; there must be ways and means even close at hand as manifested in the lives of the saints -- whereby we may if we try, ascend to great sanctity and attain to astonishing familiarity with God, because, though infinite in His attributes and perfections, as Saint Paul exclaims: \"0 the depth of the riches of the wisdom and of the knowledge of God! How incompre- hensible are His Judgements and how unsearchable His ways!\", still His mercy is above all His works",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1948",
+      "merged_text": "c. 1948",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "(Unfinished)",
+      "merged_text": "(Unfinished)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "TO KNOW IS TO APPRECIATE",
+      "merged_text": "TO KNOW IS TO APPRECIATE",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 2.",
+      "merged_text": "Page 2.",
+      "edits": []
+    }
+  ]
+}

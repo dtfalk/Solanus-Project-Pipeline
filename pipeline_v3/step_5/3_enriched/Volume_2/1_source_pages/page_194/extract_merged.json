@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_194",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for your appreciated favor of August 24th. I have enrolled the Poor Souls specially for your intentions and mine. I am confident they will help us out of many troubles that would otherwise come to us. Thank you for your kind prayers. That is something all need very much. Thanks be to God for all things.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Many thanks for your appreciated favor of August 24th. I have enrolled the Poor Souls specially for your intentions and mine. I am confident they will help us out of many troubles that would otherwise come to us. Thank you for your kind prayers. That is something all need very much. Thanks be to God for all things.",
+      "per_polygon": "Many thanks for your appreciated favor of August 24th. I have enrolled the Poor Souls specially for your intentions and mine. I am confident they will help us out of many troubles that would otherwise come to us. Thank you for your kind prayers. That is something all need very much. Thanks be to God for all things.",
+      "min_conf": 0.95
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "September 23rd, 1946",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "September 23rd, 1946",
+      "per_polygon": "September 23rd, 1946",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "O all ye work of the Lord! Bless the Lord!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "O all ye work of the Lord! Bless the Lord!",
+      "per_polygon": "O all ye work of the Lord! Bless the Lord!",
+      "min_conf": 0.563
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mrs. B. M. Schumacher - you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Mrs. B. M. Schumacher - you and yours.",
+      "per_polygon": "God bless you Mrs. B. M. Schumacher - you and yours.",
+      "min_conf": 0.651
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sincerely yours in Christ,",
+      "per_polygon": "Sincerely yours in Christ,",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O. F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M. Cap.",
+      "min_conf": 0.675
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God Father Sclaons Casey. O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God Father Sclaons Comey . O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God Father Sclaons Casey. O.F.M. Cap.",
+      "min_conf": 0.263
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, September 23",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, September 23",
+      "per_polygon": "1946, September 23",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Bernice M. Schumacher 42079 Toddmark Lane Mt. Clemens, Michigan48044",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Bernice M. Schumacher 42079 Toddmark Lane Mt. Clemens, Michigan48044",
+      "per_polygon": "Original in possession of: Bernice M. Schumacher 42079 Toddmark Lane Mt. Clemens, Michigan48044",
+      "min_conf": 0.953
+    }
+  ]
+}

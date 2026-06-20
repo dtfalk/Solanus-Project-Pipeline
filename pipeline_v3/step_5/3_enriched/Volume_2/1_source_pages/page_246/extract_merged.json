@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_246",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 10,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I hope this finds things brightening. I have just enrolled Richard for this intention. We'll pray for you all - that our dear Lord guide and guard.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "I hope this finds things brightening. I have just enrolled Richard for this intention. We'll pray for you all - that our dear Lord guide and guard.",
+      "per_polygon": "I hope this finds things brightening. I have just enrolled Richard for this intention. We'll pray for you all - that our dear Lord guide and guard.",
+      "min_conf": 0.974
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Feast of St. Raphael Archangel. 1947.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Feast of St. Raphael Archangel. 1947.",
+      "per_polygon": "Feast of St. Raphael Archangel. 1947.",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Bles'd be God in all His designs!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Bles'd be God in all His designs!",
+      "per_polygon": "Bles'd be God in all His designs!",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mrs. Mauer.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Mrs. Mauer.",
+      "per_polygon": "God bless you Mrs. Mauer.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Best regards and God's blessing Stella. - including your ..",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Best regards and God's blessing - including your . Stella.",
+      "per_polygon": "Best regards and God's blessing Stella. - including your ..",
+      "min_conf": 0.43
+    },
+    {
+      "rid": "doc_1.src_farewell.1",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised be Jesus Christ!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised be Jesus Christ!",
+      "per_polygon": "Praised be Jesus Christ!",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.882
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.83
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "POST CARD",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "POST CARD",
+      "per_polygon": "POST CARD",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, October 24",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, October 24",
+      "per_polygon": "1947, October 24",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original card in possession of : Mrs. George R. Farrell 1120 Roslyn Rd. Grosse Pointe Woods, MI. 48236",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original card in possession of : Mrs. George R. Farrell 1120 Roslyn Rd. Grosse Pointe Woods, MI. 48236",
+      "per_polygon": "Original card in possession of : Mrs. George R. Farrell 1120 Roslyn Rd. Grosse Pointe Woods, MI. 48236",
+      "min_conf": 0.958
+    }
+  ]
+}

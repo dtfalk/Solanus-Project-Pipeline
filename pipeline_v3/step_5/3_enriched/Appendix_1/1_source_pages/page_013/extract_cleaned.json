@@ -1,0 +1,81 @@
+{
+  "page": "Appendix_1/1_source_pages/page_013",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I just got a note off to Fr. Maurice, and now please God I'll get a little one ready for the mornings mail to yourself. I found when I cam back from the hospital that I had probably given you the wrong meter in regard to those verses on the Angelus - the Angelus in verse. If I did I want to correct it now. Here's how we started it and the measure : God's angel message / Mary received - uu - - -u u -- (His Breath over shading her / Virgin conceived Blest among women / Hail Mary : Hail - uu - - - uu -- Ave Maria : Ave - This last line is exactly how the German ends & is O.K.",
+      "merged_text": "I just got a note off to Fr. Maurice, and now please God I'll get a little one ready for the mornings mail to yourself. I found when I cam back from the hospital that I had probably given you the wrong meter in regard to those verses on the Angelus - the Angelus in verse. If I did I want to correct it now. Here's how we started it and the measure : God's angel message / Mary received - uu - - -u u -- (His Breath over shading her / Virgin conceived Blest among women / Hail Mary : Hail - uu - - - uu -- Ave Maria : Ave - This last line is exactly how the German ends & is O.K.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "This would be quite satisfactory for the 1st part were it not for the weakness of the 2nd ( ) line. If you can improve it by turning it around anyway, you'r at liberty to do so. We sent also a request to Rev. E.F. for a song on St. Louis - Patron of the Third Order. You probably have heard about the national convention to be held in October at Chicago by the members of the Third Order of St. Francis. Of course you know the dear Father and Mother were tertiaries for over 20 yrs. before they died. Rev. M.C. & Rev. E. F. also belong to the same. Perhaps Margaret and Frank too belong to it. They ought to be such ..... God willing I'll be in Yonkers for retreat this week. With love and God's blessing to all - the elders and youngsters, I remain sincerely your Brother B. Francis Solanus O.M.C.",
+      "merged_text": "This would be quite satisfactory for the Ist part were it not for the weakness of the 2nd ( ) line. If you can improve it by turning it around anyway, you'r at liberty to do so. We sent also a request to Rev. E.F. for a song on St. Louis - Patron of the Third Order. You probably have heard about the national convention to be held in October at Chicago by the members of the Third Order of St. Francis. Of course you know the dear Father and Mother were tertiaries for over 20 yrs. before they died. Rev. M.C. & Rev. E. F. also belong to the same. Perhaps Margaret and Frank too belong to it. They ought to be such ..... God willing I'll be in Yonkers for retreat this week. With love and God's blessing to all - the elders and youngsters, I remain sincerely your Brother B. Francis Solanus O.M.C.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "OUR LADY OF SORROWS NEW YORK CITY",
+      "merged_text": "OUR LADY OF SORROWS NEW YORK CITY",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mrs. M.C. LeDoux",
+      "merged_text": "Mrs. M.C. LeDoux",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "Portland, Oregon",
+      "merged_text": "Portland, Oregon",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "August 7th ( 10:10-P.M. )",
+      "merged_text": "August 7th ( 10:10-P.M. )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My Dear Sister Margaret,",
+      "merged_text": "My Dear Sister Margaret,",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "I remain sincerely your Brother B. Francis Solanus O.M.C.",
+      "merged_text": "I remain sincerely your Brother B. Francis Solanus O.M.C.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "I remain sincerely your Brother B. Francis Solanus O.M.C.",
+      "merged_text": "I remain sincerely your Brother B. Francis Solanus O.M.C.",
+      "edits": []
+    }
+  ]
+}

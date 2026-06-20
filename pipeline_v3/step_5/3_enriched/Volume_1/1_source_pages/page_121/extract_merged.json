@@ -1,0 +1,109 @@
+{
+  "page": "Volume_1/1_source_pages/page_121",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I hope you are keeping contented. I've been reading of the missions up that way lately and it sure is interesting. Niece Mary was in a few days ago. is well as are seemingly all in the west - and Fr. Maurice. Ed. Sampson sends best regards.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "I hope you are keeping contented. I've been reading of the missions up that way lately and it sure is interesting. Niece Mary was in a few days ago. is well as are seemingly all in the west - and Fr. Maurice. Ed. Sampson sends best regards.",
+      "per_polygon": "I hope you are keeping contented. I've been reading of the missions up that way lately and it sure is interesting. Niece Mary was in a few days ago. is well as are seemingly all in the west - and Fr. Maurice. Ed. Sampson sends best regards.",
+      "min_conf": 0.885
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mr. P. H.Casey",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Mr. P.H.Casey",
+      "per_polygon": "Mr. P. H.Casey",
+      "min_conf": 0.955
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "McDamon's Post Dease Lake British Col. Canada",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "McDamon's Post Dease Lake British Col. Canada",
+      "per_polygon": "McDamon's Post Dease Lake British Col. Canada",
+      "min_conf": 0.959
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "November 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "November 4",
+      "per_polygon": "November 4",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God Bless You Dear Brother:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God Bless You Dear Brother:",
+      "per_polygon": "God Bless You Dear Brother:",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Please pardon brevity - stolen time. Sincerely in Sacred Heart your Brother B.F.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Please pardon brevity - stolen time. Sincerely in Sacred Heart your Brother B.F.",
+      "per_polygon": "Please pardon brevity - stolen time. Sincerely in Sacred Heart your Brother B.F.",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O.M.C.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus O.M.C.",
+      "per_polygon": "Fr. Solanus O.M.C.",
+      "min_conf": 0.794
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M.Cap. (to Mr. Patrick Casey) Mr. P.H.Casey",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M.Cap. (to Mr. Patrick Casey)",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M.Cap. (to Mr. Patrick Casey) Mr. P.H.Casey",
+      "min_conf": 0.797
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1933, November 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1933, November 4",
+      "per_polygon": "1933, November 4",
+      "min_conf": 0.989
+    }
+  ]
+}

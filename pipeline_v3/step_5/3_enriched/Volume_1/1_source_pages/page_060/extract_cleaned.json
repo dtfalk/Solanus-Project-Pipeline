@@ -1,0 +1,81 @@
+{
+  "page": "Volume_1/1_source_pages/page_060",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "\"And the Lord said to me: Thou has seen well for I will watch over my word to perform it.\" (Jer. I 12). P.S. 144 . The Lord is just in all his ways: and holy in all his works. The Lord is nigh to all that call upon him, to all that call upon him in truth. 19) He will do the will of them that fear him and he will hear their prayer and save them. Ps. 80 ... 12) My people heard not my voice: and Israel heark- ened not to me. So I let them go according to the desires of their heart: they shall walk in their own inventions. If my people had heard me: if Israel had walked in my ways :- I should soon have humbled their enemies and laid my hand on them that troubled them.\"",
+      "merged_text": "\"And the Lord said to me: Thou has seen well for I will watch over my word to perform it.\" (Jer. I 12). P.S. 144 . The Lord is just in all his ways: and holy in all his works. The Lord is nigh to all that call upon him, to all that call upon him in truth. 19) He will do the will of them that fear him and he will hear their prayer and save them. Ps. 80 ... 12) My people heard not my voice: and Israel heark- ened not to me. So I let them go according to the desires of their heart: they shall walk in their own inventions. If my people had heard me: if Israel had walked in my ways :- I should soon have humbled their enemies and laid my hand on them that troubled them.\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Arise, be enlightened, O Jerusalem: for thy light is come and the glory of the Lord is risen upon thee.\" Is. LX-1 How beautiful are thy tabernacles, O Jacob, and thy tents, O Israel! Num. XX 17 I shall see him, but not now; I shall behold him but not near. A star shall rise out of Jacob and a scepter shall spring up from Israel: and shall strike the chiefs of Moab .. \" \"Israel is a scattered flock ... \" (17) Jer. L-17 I will bring Israel again to his habitation: and he shall feed on Carmel and Bason and his soul shall be satisfied in Mount Ephraim and Galaad .. In those days, and at that time, sayeth the Lord, the iniquity of Israel shall be sought for, and there shall be none: and the sin of Juda and there shall none be found .. 11 (Jer. L-20)",
+      "merged_text": "Arise, be enlightened, 0 Jerusalem: for thy light is come and the glory of the Lord is risen upon thee.\" Is. LX-1 How beautiful are thy tabernacles, O Jacob, and thy tents, O Israel! Num. XX 17 I shall see him, but not now; I shall behold him but not near. A star shall rise out of Jacob and a scepter shall spring up from Israel: and shall strike the chiefs of Moab .. \" \"Israel is a scattered flock ... \" (17) Jer. L-17 I will bring Israel again to his habitation: and he shall feed on Carmel and Bason and his soul shall be satisfied in Mount Ephraim and Galaad .. In those days, and at that time, sayeth the Lord, the iniquity of Israel shall be sought for, and there shall be none: and the sin of Juda and there shall none be found .. 11 (Jer. L-20)",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Blessed Virgin Mother of Wisdom Eccl. 24. I am the Mother of fair love, and of fear (-of Reverence) and of knowledge and of holy hope. Eccl'us XXIV 24 25. In me is all grace of the way and of the truth, in me is all hope of life and of virtue. 26. Come over to me all ye that desire me and be filled with ry fruits. 27. For my spirit is sweet above honey, and my inheritance above honey and the honeycomb. 28. My memory is unto everlasting generations.",
+      "merged_text": "Blessed Virgin Mother of Wisdom Eccl. 24. I am the Mother of fair love, and of fear (-of Reverence) and of knowledge and of holy hope. Eccl'us XXIV 24 25. In me is all grace of the way and of the truth, in me is all hope of life and of virtue. 26. Come over to me all ye that desire me and be filled with ry fruits. 27. For my spirit is sweet above honey, and my inheritance above honey and the honeycomb. 28. My memory is unto everlasting generations.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten original notes by the Servant of God, Father Solanus Casey, O.F.M. Cap. (his Notebook No. 3)",
+      "merged_text": "The following is a faithful transcription of the handwritten original notes by the Servant of God, Father Solanus Casey, O.F.M. Cap. (his Notebook No. 3)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1918",
+      "merged_text": "c. 1918",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK NO. 3.",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK NO. 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 1.",
+      "merged_text": "Pg. 1.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 2.",
+      "merged_text": "Pg. 2.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": ". 3. 60 PI",
+      "merged_text": ". 3. 60 PI",
+      "edits": []
+    }
+  ]
+}

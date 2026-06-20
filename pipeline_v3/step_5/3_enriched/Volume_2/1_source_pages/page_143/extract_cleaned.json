@@ -1,0 +1,79 @@
+{
+  "page": "Volume_2/1_source_pages/page_143",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "you and yours, especially our young brothers the Novices, with whom you are now seemingly in a sort of exile from your former nest in St. Bonaventure. And of course to Fr. Alouise, for the past years (3 or 4) my next neighbor at Saint Felix's. I can hardly help missing him more than I usually do in most cases because I knew him ... as a novice and now again after close to 25 years - possibly more. However, that is the way it goes in the Order as well as in secular life; though in the latter it is very much more disapoint- ing. Anyhow, best wishes to Fr. Aloisius and to all the novices and God's blessing to all in St. Francis, your new Novitiate. It is possible that before the summer is over I may have the privilege there for a day or so, God willing so, I'll be pleased. Till then In the mean time we'll do well to continue praying mutually for further conversion and - hearkening to our dear Lord's Own most earnest plea . \"Pray we the Lord of the Harvest that He send laborers into His harvest\".",
+      "merged_text": "you and yours, especially our young brothers the Novices, with whom you are now seemingly in a sort of exile from your former nest in St. Bonaventure. And of course to Fr. Alouise, for the past years (3 or 4) my next neighbor at Saint Felix's. I can hardly help missing him more than I usually do in most cases because I knew him ... as a novice and now again after close to 25 years - possibly more. However, that is the way it goes in the Order as well as in secular life; though in the latter it is very much more disapoint- ing. Anyhow, best wishes to Fr. Aloisius and to all the novices and God's blessing to all in St. Francis, your new Novitiate. It is possible that before the summer is over I may have the privilege there for a day or so, God willing so, I'll be pleased. Till then In the mean time we'll do well to continue praying mutually for further conversion and - hearkening to our dear Lord's Own most earnest plea . \"Pray we the Lord of the Harvest that He send laborers into His harvest\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "ST. FELIX FRIARY",
+      "merged_text": "ST. FELIX FRIARY",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "Route 8 Huntington, Indiane",
+      "merged_text": "Route 8 Huntington, Indiane",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Feast of S. Ignatius July 30st, 1952- 1st Vespers My 1st Holy Mass 7/31/04",
+      "merged_text": "Feast of S. Ignatius July 30st, 1952- Ist Vespers My Ist Holy Mass 7/31/04",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        },
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Blessed be God in all His designs!",
+      "merged_text": "Blessed be God in all His designs!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Brother Leo-",
+      "merged_text": "God bless you Brother Leo-",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1952, July 30",
+      "merged_text": "1952, July 30",
+      "edits": []
+    }
+  ]
+}

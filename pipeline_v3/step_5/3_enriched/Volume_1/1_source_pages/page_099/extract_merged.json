@@ -1,0 +1,54 @@
+{
+  "page": "Volume_1/1_source_pages/page_099",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 4,
+  "n_agree": 3,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "An opportunity was offered to me today to speak to you on the radio. The occasion is the benefit party which some of our friends have arranged for us this evening at the Naval Armory on East Jefferson Avenue. We have always known that many of you have been our friends, but since the preparations for this benefit party have been in progress, we are convinced of it. From all parts of the city men and women came to us asking how they might help. We Fathers are told that the City of Detroit wishes to show itself grateful for the help we have given during the days of the depression. We admit that we have tried to be of service to the poorest of the poor, but must add that it was our simple duty. Saint Francis, our Holy Founder, impressed it upon his brethren that they must labor for their daily bread. And he added, \"should the wages of our work be not given us, then shall we have recourse to the table of the Lord asking alms from door to door.\" Our lot has been cast among the simple lives of the poor and our object is to give them spiritual aid and, if possible, material help as well. When speaking of those days of the depression, we cannot forget that our work in relieving the misery of poverty was made possible only by the willing cooperation of such men as the bakers, who supplied the bread; the farmers who gave us vegetables, and our numerous friends who made donations from their fairly empty purses. It is to these generous souls we want to pay tribute today. May the all-bountiful God, who leaves no glass of water offered in His name pass unrewarded, recom- pense the generosity of our friends with true happiness -- the peace of the soul.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "An opportunity was offered to me today to speak to you on the radio. The occasion is the benefit party which some of our friends have arranged for us this evening at the Naval Armory on East Jefferson Avenue. We have always known that many of you have been our friends, but since the preparations for this benefit party have been in progress, we are convinced of it. From all parts of the city men and women came to us asking how they might help. We Fathers are told that the City of Detroit wishes to show itself grateful for the help we have given during the days of the depression. We admit that we have tried to be of service to the poorest of the poor, but must add that it was our simple duty. Saint Francis, our Holy Founder, impressed it upon his brethren that they must labor for their daily bread. And he added, \"should the wages of our work be not given us, then shall we have recourse to the table of the Lord asking alms from door to door.\" Our lot has been cast among the simple lives of the poor and our object is to give them spiritual aid and, if possible, material help as well. When speaking of those days of the depression, we cannot forget that our work in relieving the misery of poverty was made possible only by the willing cooperation of such men as the bakers, who supplied the bread; the farmers who gave us vegetables, and our numerous friends who nade donations from their fairly empty purses. It is to these generous souls we want to pay tribute today. May the all-bountiful God, who leaves no glass of water offered in His name pass unrewarded, recom- pense the generosity of our friends with true happiness -- the peace of the soul.",
+      "per_polygon": "An opportunity was offered to me today to speak to you on the radio. The occasion is the benefit party which some of our friends have arranged for us this evening at the Naval Armory on East Jefferson Avenue. We have always known that many of you have been our friends, but since the preparations for this benefit party have been in progress, we are convinced of it. From all parts of the city men and women came to us asking how they might help. We Fathers are told that the City of Detroit wishes to show itself grateful for the help we have given during the days of the depression. We admit that we have tried to be of service to the poorest of the poor, but must add that it was our simple duty. Saint Francis, our Holy Founder, impressed it upon his brethren that they must labor for their daily bread. And he added, \"should the wages of our work be not given us, then shall we have recourse to the table of the Lord asking alms from door to door.\" Our lot has been cast among the simple lives of the poor and our object is to give them spiritual aid and, if possible, material help as well. When speaking of those days of the depression, we cannot forget that our work in relieving the misery of poverty was made possible only by the willing cooperation of such men as the bakers, who supplied the bread; the farmers who gave us vegetables, and our numerous friends who made donations from their fairly empty purses. It is to these generous souls we want to pay tribute today. May the all-bountiful God, who leaves no glass of water offered in His name pass unrewarded, recom- pense the generosity of our friends with true happiness -- the peace of the soul.",
+      "min_conf": 0.538
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Good Afternoon, My Brethren:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Good Afternoon, My Brethren:",
+      "per_polygon": "Good Afternoon, My Brethren:",
+      "min_conf": 0.938
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a Radio Speech by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of a Radio Speech by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of a Radio Speech by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.852
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1937, June 11",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1937, June 11",
+      "per_polygon": "1937, June 11",
+      "min_conf": 0.713
+    }
+  ]
+}

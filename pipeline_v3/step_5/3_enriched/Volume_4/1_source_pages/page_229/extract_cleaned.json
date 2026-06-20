@@ -1,0 +1,144 @@
+{
+  "page": "Volume_4/1_source_pages/page_229",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Gladys A. Gelinas - 33 - nerve trouble from West Branch - has husband and five small ones to care.",
+      "merged_text": "Mrs. Gladys A. Gelinas - 33 - nerve trouble from West Branch - has husband and five small ones to care.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Dorothy Kaylor - 30 - lutheran - has husband and 3 small child- ren :- had six operations - appendicitis and adhesions - 20 Xrays. Husband paying bills from hard labor. Enrolled Today . Phones the Same evening \"decidedly better.",
+      "merged_text": "Mrs. Dorothy Kaylor - 30 - lutheran - has husband and 3 small child- ren :- had six operations - appendicitis and adhesions - 20 Xrays. Husband paying bills from hard labor. Enrolled Today . Phones the Same evening \"decidedly better.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Eleanor Poupart - 31 - had five major operations in Northville and Kiefer's - lost seven ribs .... returned on Good Friday last year - quite well. Now sputam reported positive .... . Enrolled.",
+      "merged_text": "Eleanor Poupart - 31 - had five major operations in Northville and Kiefer's - lost seven ribs .... returned on Good Friday last year - quite well. Now sputam reported positive .... . Enrolled.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Jimmey O'Hanley - 7 - of Oxford, Mich. - Two yrs ago, mal- nutrition, rickets; at age of four was wheeled in baby-carriage. Could not sit up. Advised As only hope to be placed in mental insti- tution by different Drs, including Dr. Brown .... Was enrolled two yrs. last Jan. in Ser. Masses. .He is \"a live wire To-day - normal every way.",
+      "merged_text": "Thanks - Jimmey O'Hanley - 7 - of Oxford, Mich. - Two yrs ago, mal- nutrition, rickets; at age of four was wheeled in baby-carriage. Could not sit up. Advised As only hope to be placed in mental insti- tution by different Drs, including Dr. Brown .... Was enrolled two yrs. last Jan. in Ser. Masses. .He is \"a live wire To-day - normal every way.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Harold Titus - 8 - of Pontiac - patient of Dr. Waldbott in Professional Bldg. Detroit - food allergies - convulsions - was fearfully asthmatic. Enrolled last Oct ... in perfect health ever since. Deo Gr.",
+      "merged_text": "Thanks - Harold Titus - 8 - of Pontiac - patient of Dr. Waldbott in Professional Bldg. Detroit - food allergies - convulsions - was fearfully asthmatic. Enrolled last Oct ... in perfect health ever since. Deo Gr.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Jimmey Driscoll - 2 O spinal maningitis - 7 days unconscious . - was enrolled % phone (%Mrs. DeWorken) Child is expected home now any day.",
+      "merged_text": "Jimmey Driscoll - 2 0 spinal maningitis - 7 days unconscious . - was enrolled % phone (%Mrs. DeWorken) Child is expected home now any day.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Theresa Barylski - 25 - very nerveous - bordering on insanity. Hard to decide what to do with her.",
+      "merged_text": "Theresa Barylski - 25 - very nerveous - bordering on insanity. Hard to decide what to do with her.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Baby Michael C. McNulty - 15 - bright and normal till about two weeks ago. Now drs say something is abnormal in brain. Medical science hopeless .Mother taking instructions .. . enrolled ... 10.",
+      "merged_text": "Baby Michael C. McNulty - 15 - bright and normal till about two weeks ago. Now drs say something is abnormal in brain. Medical science hopeless .Mother taking instructions .. . enrolled ... 10.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Sandra Ann Cales - 52 methodist \"brain maningitis\" when about a yr old till then normal unable to talk and weighs almost double - very restless ... En.",
+      "merged_text": "Sandra Ann Cales - 52 methodist \"brain maningitis\" when about a yr old till then normal unable to talk and weighs almost double - very restless ... En.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Joseph Lopiccolo - 39 - with wife and three babies asks for appoint- ment to get blessing \"tomorrow about this time.\" all so scared !... has not been to confession since married. Promises to go back to Sacraments ... whole trouble .... to go to Holy Com. and then come for blessing.",
+      "merged_text": "Joseph Lopiccolo - 39 - with wife and three babies asks for appoint- ment to get blessing \"tomorrow about this time.\" all so scared !... has not been to confession since married. Promises to go back to Sacraments ... whole trouble .... to go to Holy Com. and then come for blessing.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Richard Folts - methodist - 22 - T.B. of spine since 1939 - mother has arthritis - Father asthma. . . Enrolled To-day. . . .",
+      "merged_text": "Richard Folts - methodist - 22 - T.B. of spine since 1939 - mother has arthritis - Father asthma. . . Enrolled To-day. . . .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "April",
+      "merged_text": "April",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Apr. 1 3",
+      "merged_text": "Apr. 1 3",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "13",
+      "merged_text": "13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "14",
+      "merged_text": "14",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "Apr. 15",
+      "merged_text": "Apr. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 138",
+      "merged_text": "Page 138",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 139",
+      "merged_text": "Page 139",
+      "edits": []
+    }
+  ]
+}

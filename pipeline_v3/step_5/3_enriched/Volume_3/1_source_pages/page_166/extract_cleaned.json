@@ -1,0 +1,200 @@
+{
+  "page": "Volume_3/1_source_pages/page_166",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mary Clarke - 42 - slight stroke lost speech ...... can say some words O.K.",
+      "merged_text": "Mary Clarke - 42 - slight stroke lost speech ...... can say some words O.K.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Edith Stolinski - 30 - tragic accident in Erie, Pa., in Park watching fireworks & listening to music. One fire-piece went wild and struck her arm and sister's face. Arm badly torn-pneumonia followed and then T.B. Now in Detroit for ten yrs. Brother to be ordained in May - 1st Mass June 3rd ... Enrolled $3.00",
+      "merged_text": "Edith Stolinski - 30 - tragic accident in Erie, Pa., in Park watching fireworks & listening to music. One fire-piece went wild and struck her arm and sister's face. Arm badly torn-pneumonia followed and then T.B. Now in Detroit for ten yrs. Brother to be ordained in May - Ist Mass June 3rd ... Enrolled $3.00",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "John Sanders - 52 - 4 in Fam. cannot swallow - canc ....?",
+      "merged_text": "John Sanders - 52 - 4 in Fam. cannot swallow - canc ....?",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Bety Morgan - 92 - non C. dislocated hip or nerv. or ...???",
+      "merged_text": "Mrs. Bety Morgan - 92 - non C. dislocated hip or nerv. or ...???",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Vincent Welch - about 30 - mastoid operation arranged for to-mor- row - is enrolled at 9:50P.M. 50c. Came back to Wed. devotions next day at 8 -- phones Wed. 25th improving fine. Sunday 29 En- rolls perpetually. Drs. astonished - no operation, mastoid quite healed by itself. Deo Gratias",
+      "merged_text": "Vincent Welch - about 30 - mastoid operation arranged for to-mor- row - is enrolled at 9:50P.M. 50c. Came back to Wed. devotions next day at 8 -- phones Wed. 25th improving fine. Sunday 29 En- rolls perpetually. Drs. astonished - no operation, mastoid quite healed by itself. Deo Gratias",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Helen Volkman - 19 -",
+      "merged_text": "Helen Volkman - 19 -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mrs. C. Chandler - 68 - fears (Womb) operation.",
+      "merged_text": "Mrs. C. Chandler - 68 - fears (Womb) operation.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Richard Clinton 17, Enrolled by phonefor fractured skull. . roller .. skates (9 a.m.) .9:30 p.m. reported \"conscious\".",
+      "merged_text": "Richard Clinton 17, Enrolled by phonefor fractured skull. . roller .. skates (9 a.m.) .9:30 p.m. reported \"conscious\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Eliz G. Drean - 9 - 127 1bs some ago - fear some organs. .intel- ligent alert, etc.",
+      "merged_text": "Eliz G. Drean - 9 - 127 1bs some ago - fear some organs. .intel- ligent alert, etc.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Gorman - 74 - cataracts - Sister - 80 Jan. 1 cataract (Rose Markley) lost toes gangreen's.",
+      "merged_text": "Mrs. Gorman - 74 - cataracts - Sister - 80 Jan. 1 cataract (Rose Markley) lost toes gangreen's.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Joseph F. Westrick - 61 - inward Goiter ... as not been able to work in 2 yrs ... operat'n.",
+      "merged_text": "Joseph F. Westrick - 61 - inward Goiter ... as not been able to work in 2 yrs ... operat'n.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Girl Wanted - house cleaning Wechter- 3740 Belvidere (near Mack)",
+      "merged_text": "Girl Wanted - house cleaning Wechter- 3740 Belvidere (near Mack)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "M. Sullivan - 64 - to have leg amputated at 8a.m. Is enrolled at 6 a.m.",
+      "merged_text": "M. Sullivan - 64 - to have leg amputated at 8a.m. Is enrolled at 6 a.m.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Howard Schnel - 33 - a wife & 2 depend. on him - looking for work.",
+      "merged_text": "Howard Schnel - 33 - a wife & 2 depend. on him - looking for work.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Eliz. Dreaden - 44 - goiter - lump gone from breast. ...",
+      "merged_text": "Eliz. Dreaden - 44 - goiter - lump gone from breast. ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Rita M. Bishop - 14 - appendicitis ....",
+      "merged_text": "Rita M. Bishop - 14 - appendicitis ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.16",
+      "category": "src_content",
+      "cleaned_text": "Jerry Gildea - 46 - mental & spinal.",
+      "merged_text": "Jerry Gildea - 46 - mental & spinal.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apr. 16",
+      "merged_text": "Apr. 16",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "17",
+      "merged_text": "17",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Apr. 19",
+      "merged_text": "Apr. 19",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "20",
+      "merged_text": "20",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "24",
+      "merged_text": "24",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1934, April",
+      "merged_text": "1934, April",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 188 Cont.",
+      "merged_text": "Page 188 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 189",
+      "merged_text": "Page 189",
+      "edits": []
+    }
+  ]
+}

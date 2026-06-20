@@ -1,0 +1,95 @@
+{
+  "page": "Volume_1/1_source_pages/page_216",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you and yours. Blessed be God for having created us and given us the true faith in His Redemption - and hope thereby in the final purpose of our existance, to know Him our Blessed Begin- ning, our Life and our All. Deo Gratias! ! ! I just read your interesting - awaited - letter for which many thanks. Poor, dear Jim: I sure would like to be with him; to cheer him and console and to \"kid\" him and wake him up - as I've had the privilege to do, thank God for quite a few in condition similar to his. Well after all maybe Jim is right in saying Fr. S. was there to see him. Possibly at least his Guarding Angel did the trick and gave him the consolation I surely would like to give. At all events I am there in spirit not a few times every day. Thank God for the faith and the mutual appreciation - fostered wherever real religion is found.",
+      "merged_text": "God bless you and yours. Blessed be God for having created us and given us the true faith in His Redemption - and hope thereby in the final purpose of our existance, to know Him our Blessed Begin- ning, our Life and our All. Deo Gratias! ! ! I just read your interesting - awaited - letter for which many thanks. Poor, dear Jim: I sure would like to be with him; to cheer him and console and to \"kid\" him and wake him up - as I've had the privilege to do, thank God for quite a few in condition similar to his. Well after all maybe Jim is right in saying Fr. S. was there to see him. Possibly at least his Guarding Angel did the trick and gave him the consolation I surely would like to give. At all events I am there in spirit not a few times every day. Thank God for the faith and the mutual appreciation - fostered wherever real religion is found.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Praised be the Lord for everything !.... It is a week now since your letter came and I started to answer at once. Its been on my mind continually. This at 3 O'C A.M. a call came and I asked, when they said, \"an elderly person is dying\", \"is it a telegram ... \". I was at once wondering if it were from Seattle. ... I said: \"Deo Gratias.\" It is now after vespers July 14th - Our dear St. Bonaventure's Day. I started a number of times yesterday and again this morning to finish the above and get it off and still it is not gore. I am still hoping it be God's will to spare our poor dear James.",
+      "merged_text": "Praised be the Lord for everything !.... It is a week now since your letter came and I started to answer at once. Its been on my mind continually. This at 3 0'C A.M. a call came and I asked, when they said, \"an elderly person is dying\", \"is it a telegram ... \". I was at once wondering if it were from Seattle. ... I said: \"Deo Gratias.\" It is now after vespers July 14th - Our dear St. Bonaventure's Day. I started a number of times yesterday and again this morning to finish the above and get it off and still it is not gore. I am still hoping it be God's will to spare our poor dear James.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": ". Bonaventure Monastery",
+      "merged_text": ". Bonaventure Monastery",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mrs. (James) Emma Casey",
+      "merged_text": "Mrs. (James) Emma Casey",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "1 Seattle Washington",
+      "merged_text": "1 Seattle Washington",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "1740 Mt Elliott Avenue Detroit, Mich.",
+      "merged_text": "1740 Mt Elliott Avenue Detroit, Mich.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 9th, 1942",
+      "merged_text": "July 9th, 1942",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "July 13 1942",
+      "merged_text": "July 13 1942",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My Dear Sister Emma: -",
+      "merged_text": "My Dear Sister Emma: -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1942, July 9",
+      "merged_text": "1942, July 9",
+      "edits": []
+    }
+  ]
+}

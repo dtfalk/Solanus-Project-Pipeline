@@ -1,0 +1,207 @@
+{
+  "page": "Volume_4/1_source_pages/page_150",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "John Butler - 65 - asthma bad ...",
+      "merged_text": "John Butler - 65 - asthma bad ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Thursday - Aileen McCabe - 43 - given up a week ago with threaten- ing cancer - improving.",
+      "merged_text": "Thursday - Aileen McCabe - 43 - given up a week ago with threaten- ing cancer - improving.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Marjorie Gazal -12 - Ep. Fits ..... running ear ...",
+      "merged_text": "Marjorie Gazal -12 - Ep. Fits ..... running ear ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Dan Jos. Leon - 59 - lost both feet three yrs. ago. One foot - what is left of it is very painful of late.",
+      "merged_text": "Dan Jos. Leon - 59 - lost both feet three yrs. ago. One foot - what is left of it is very painful of late.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "E'd Nugent - 47 - trying to overcome drink",
+      "merged_text": "E'd Nugent - 47 - trying to overcome drink",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mary Allen - 80 - next Xmas - Stroke 5 yrs ago - is very",
+      "merged_text": "Mary Allen - 80 - next Xmas - Stroke 5 yrs ago - is very",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Mattie Reed - 39 - colored - Arthritis",
+      "merged_text": "Mrs. Mattie Reed - 39 - colored - Arthritis",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Clara Boesenberger - 67 - operated on for Cancer May 22 - very poorly Today.",
+      "merged_text": "Mrs. Clara Boesenberger - 67 - operated on for Cancer May 22 - very poorly Today.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Helena Pienta - 47 - 3 operation",
+      "merged_text": "Helena Pienta - 47 - 3 operation",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "W. Dillen - 46 - Blood poison badly .....",
+      "merged_text": "W. Dillen - 46 - Blood poison badly .....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Magdelena Eppich - 83 - in Austria asks for prayers - seemingly al- most starving. Had five sons in last war - one killed - one wounded and + here two years later.",
+      "merged_text": "Magdelena Eppich - 83 - in Austria asks for prayers - seemingly al- most starving. Had five sons in last war - one killed - one wounded and + here two years later.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Thomas Huld - 36 - Enemia .... .",
+      "merged_text": "Thomas Huld - 36 - Enemia .... .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Eliz. Hild - elderly - looking for two rooms - unfurnished Tr. 1572",
+      "merged_text": "Eliz. Hild - elderly - looking for two rooms - unfurnished Tr. 1572",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Frances Drago - 44 - dropsey and liver - 44",
+      "merged_text": "Mrs. Frances Drago - 44 - dropsey and liver - 44",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "John E. Little - 45 - poisoned kidnies - has family of four to care for.",
+      "merged_text": "John E. Little - 45 - poisoned kidnies - has family of four to care for.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Marg. Ann White - 9 - went to hospital in Kalamazoo - tuomer on brain - pneumonia and paralyzed; that was on Ash Wednesday - was unconscious for Exactly 8 week ..... is here To-day bright and alert learning to walk again. (Nov. 14th Margaret pronounced cured - now going to school) (See 1st note March 5)",
+      "merged_text": "Thanks - Marg. Ann White - 9 - went to hospital in Kalamazoo - tuomer on brain - pneumonia and paralyzed; that was on Ash Wednesday - was unconscious for Exactly 8 week ..... is here To-day bright and alert learning to walk again. (Nov. 14th Margaret pronounced cured - now going to school) (See Ist note March 5)",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "June 10th",
+      "merged_text": "June 10th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "June",
+      "merged_text": "June",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "15th",
+      "merged_text": "15th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "1 7",
+      "merged_text": "1 7",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "18",
+      "merged_text": "18",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "June",
+      "merged_text": "June",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "22",
+      "merged_text": "22",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.7",
+      "category": "src_date",
+      "cleaned_text": "23",
+      "merged_text": "23",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 282 Cont.",
+      "merged_text": "Page 282 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 283",
+      "merged_text": "Page 283",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 284",
+      "merged_text": "Page 284",
+      "edits": []
+    }
+  ]
+}

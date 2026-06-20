@@ -1,0 +1,142 @@
+{
+  "page": "Volume_2/1_source_pages/page_270",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 12,
+  "n_agree": 9,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "We are enrolling your Association. If he be",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "We are enrolling your Association. If he be",
+      "per_polygon": "We are enrolling your Association. If he be",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you Mrs. George Schulte. We are enrolling your little Thomas in the Seraphic Mass Association. If he be not improving by the time this reaches you, let us trust in God's goodness that the doctors get a good surpris of some kind. In the mean time have as many of your friends as possible offer holy Communions and promise some extra Receptions in thanksgiving if the outlook shortly takes a decidely brighter aspect, etc. We will pray too for your intention, especially in regard to little Thomas.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Mrs. George Schulte. little Thomas in the Seraphic Mass not improving by the time this reaches you, let us trust in God's goodness that the doctors get a good surpris of some kind. In the mean time have as many of your friends as possible offer holy Communions and promise some extra Receptions in thanksgiving if the outlook shortly takes a decidely brighter aspect, etc. We will pray too for your intention, especially in regard to little Thomas.",
+      "per_polygon": "God bless you Mrs. George Schulte. We are enrolling your little Thomas in the Seraphic Mass Association. If he be not improving by the time this reaches you, let us trust in God's goodness that the doctors get a good surpris of some kind. In the mean time have as many of your friends as possible offer holy Communions and promise some extra Receptions in thanksgiving if the outlook shortly takes a decidely brighter aspect, etc. We will pray too for your intention, especially in regard to little Thomas.",
+      "min_conf": 0.968
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "Saint Felix Friary:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Saint Felix Friary:",
+      "per_polygon": "Saint Felix Friary:",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. George Schulte.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Mrs. George Schulte.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Huntington, Ind.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Huntington, Ind.",
+      "per_polygon": "Huntington, Ind.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Oct. 19th '48",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Oct. 19th '48",
+      "per_polygon": "Oct. 19th '48",
+      "min_conf": 0.912
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mrs. George Schulte.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "God bless you Mrs. George Schulte.",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely Yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sincerely Yours in Christ,",
+      "per_polygon": "Sincerely Yours in Christ,",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.982
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.913
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1948, Oct 21",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1948, Oct 21",
+      "per_polygon": "1948, Oct 21",
+      "min_conf": 0.933
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of : Mrs. George A. Schulte 3463 Harvard Rd. Detroit, MI. 48224 882-5412",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of : Mrs. George A. Schulte 3463 Harvard Rd. Detroit, MI. 48224 882-5412",
+      "per_polygon": "Original in possession of : Mrs. George A. Schulte 3463 Harvard Rd. Detroit, MI. 48224 882-5412",
+      "min_conf": 0.977
+    }
+  ]
+}

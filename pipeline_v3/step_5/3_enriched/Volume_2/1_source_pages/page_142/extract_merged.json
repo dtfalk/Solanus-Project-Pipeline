@@ -1,0 +1,120 @@
+{
+  "page": "Volume_2/1_source_pages/page_142",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 8,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Just a line to thank you and your young associates -- novices and candidates -- for your charitable remen- brance for my privileged name-day. We hope and pray they all pray for vocations; to to multiply all over the world - in every order and every society and phase of Catholic action. Thus they will at once be doing real missionary work and insuring their own holy vocation - and perseverance therein. For no one who appreciates his vocation, as such a grace deserves, and is duly gratefull will fail to pray for a multiplication of further vocations. Thank God we have a very promising boquet of brother-candidates - including a very care-free, happy darky.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Just a line to thank you and your young associates -- novices and candidates -- for your charitable remen- brance for my privileged name-day. We hope and pray they all pray for vocations; to to multiply all over the world - in every order and every society and phase of Catholic action. Thus they will at once be doing real missionary work and insuring their own holy vocation - and perseverance therein. For no one who appreciates his vocation, as such a grace deserves, and is duly gratefull will fail to pray for a multiplication of further vocations. Thank God we have a very promising boquet of brother-candidates - including a very care-free, happy darky.",
+      "per_polygon": "Just a line to thank you and your young associates -- novices and candidates -- for your charitable remen- brance for my privileged name-day. We hope and pray they all pray for vocations; to to multiply all over the world - in every order and every society and phase of Catholic action. Thus they will at once be doing real missionary work and insuring their own holy vocation - and perseverance therein. For no one who appreciates his vocation, as such a grace deserves, and is duly gratefull will fail to pray for a multiplication of further vocations. Thank God we have a very promising boquet of brother-candidates - including a very care-free, happy darky.",
+      "min_conf": 0.909
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX CAPUCHIN FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX CAPUCHIN FRIARY",
+      "per_polygon": "ST. FELIX CAPUCHIN FRIARY",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "HUNTINGTON, IND.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "HUNTINGTON, IND.",
+      "per_polygon": "HUNTINGTON, IND.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "August 11th 1951",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "August 11th 1951",
+      "per_polygon": "August 11th 1951",
+      "min_conf": 0.913
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Eve of St. Clair 1951",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Eve of St. Clair 1951",
+      "per_polygon": "Eve of St. Clair 1951",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God Bless you Brother Leo - you and yours",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God Bless you Brother Leo - you and yours",
+      "per_polygon": "God Bless you Brother Leo - you and yours",
+      "min_conf": 0.951
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "... Glory be to God! ...",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": ". Glory be to God!",
+      "per_polygon": "... Glory be to God! ...",
+      "min_conf": 0.711
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": ".. Fr. Solanus, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": ". Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": ".. Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.869
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- nal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten orig- nal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- nal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.835
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1951, August 11",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1951, August 11",
+      "per_polygon": "1951, August 11",
+      "min_conf": 0.795
+    }
+  ]
+}

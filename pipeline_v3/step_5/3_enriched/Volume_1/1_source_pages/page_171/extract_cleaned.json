@@ -1,0 +1,60 @@
+{
+  "page": "Volume_1/1_source_pages/page_171",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Well Dear Edward; you are no doubt surprized at the length of this letter. I hope it is grave enough not to scandalize. I hardly need say I finished it Sunday night after starting as the clock struck 11. I pro- bably had not finished and it would have gone as so many others, and I behaved myself a little better, physically, and not been sent ... a cell recuperating. Just a little cold Thank God. I'm posted for the 5 o'clock Mass tomorrow ( 1st Sunday of Lent) So I'll just say",
+      "merged_text": "Well Dear Edward; you are no doubt surprized at the length of this letter. I hope it is grave enough not to scandalize. I hardly need say I finished it Sunday night after starting as the clock struck 11. I pro- bably had not finished and it would have gone as so many others, and I behaved myself a little better, physically, and not been sent ... a cell recuperating. Just a little cold Thank God. I'm posted for the 5 o'clock Mass tomorrow ( Ist Sunday of Lent) So I'll just say",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Good Night and God Bless You and yours.",
+      "merged_text": "Good Night and God Bless You and yours.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus ..",
+      "merged_text": "Fr. Solanus ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1937",
+      "merged_text": "c. 1937",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 4",
+      "merged_text": "Page 4",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "category": "struct_other",
+      "cleaned_text": "Reb. Edward F. Casey",
+      "merged_text": "Reb. Edward F. Casey",
+      "edits": []
+    }
+  ]
+}

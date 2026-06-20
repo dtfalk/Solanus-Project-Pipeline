@@ -1,0 +1,60 @@
+{
+  "page": "Volume_2/1_source_pages/page_216",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Just to quote one little saying from the prolific pen of one most outstanding and universally acknowledged of all philosophers and moralists: \"But if any man have not care of his own, and especially of those of his own house, he hath denied the faith, and is worse than an infidel.\" St. Paul (I Tim. V-8). Of course Doctor; I know that unless one be some way in the grace of God, this must be boring to read. Neither is the drilling of a hopeful tooth pleasant - for the poor doctor any more than for the agonizing patient. But, But? If you dear Doctor; will have patiently read the above, having prayed for light and a good will, there will be great hope for both of us in your regard. Not only a tooth, but a temporal life worth living as well as an immortal soul will be saved. In the name of Saint Francis, and through his most humble, therefore, most powerful intercession; may the Lord give you His peace - you and yours.",
+      "merged_text": "Just to quote one little saying from the prolific pen of one most outstanding and universally acknowledged of all philosophers and moralists: \"But if any man have not care of his own, and especially of those of his own house, he hath denied the faith, and is worse than an infidel.\" St. Paul (I Tim. V-8). Of course Doctor; I know that unless one be some way in the grace of God, this must be boring to read. Neither is the drilling of a hopeful tooth pleasant - for the poor doctor any more than for the agonizing patient. But, But? If you dear Doctor; will have patiently read the above, having prayed for light and a good will, there will be great hope for both of us in your regard. Not only a tooth, but a temporal life worth living as well as an immortal soul will be saved. In the name of Saint Francis, and through his most humble, therefore, most powerful intercession; may the Lord give you His peace - you and yours.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Sincerely - Ecpefully - Tratemally Yours,",
+      "merged_text": "Sincerely - Ecpefully - Tratemally Yours,",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.K. Cap.",
+      "merged_text": "Fr. Solanus, 0.F.K. Cap.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1947, October 4.",
+      "merged_text": "1947, October 4.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 4.",
+      "merged_text": "Page 4.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "category": "struct_other",
+      "cleaned_text": "Dr. J. P. Young",
+      "merged_text": "Dr. J. P. Young",
+      "edits": []
+    }
+  ]
+}

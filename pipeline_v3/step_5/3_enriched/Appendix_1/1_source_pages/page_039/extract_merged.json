@@ -1,0 +1,65 @@
+{
+  "page": "Appendix_1/1_source_pages/page_039",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you My Dear Sister Margaret - with Brother Frank and all your dear ones, I just came across the herewith inclosed and tho't it might interest you. I presume my silence sometimes seems as tho' I had forgotten my friends. ... Ah! God help us! As years and decads pass I seem to get no - where with my correspon- dence.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you My Dear Sister Margaret - with Brother Frank and all your dear ones, I just came across the herewith inclosed and tho't it might interest you. I presume my silence sometimes seems as tho' I had forgotten my friends. ... Ah! God help us! As years and decads pass I seem to get no - where with my correspon- dence.",
+      "per_polygon": "God bless you My Dear Sister Margaret - with Brother Frank and all your dear ones, I just came across the herewith inclosed and tho't it might interest you. I presume my silence sometimes seems as tho' I had forgotten my friends. ... Ah! God help us! As years and decads pass I seem to get no - where with my correspon- dence.",
+      "min_conf": 0.755
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Thank God, however, with hardly a positive exception my old friends seem earnest about saving their souls - which so unfortunally many seem to be indifferenct about ...... Our dear brothers, Fr. E'dand O.B.J. came to our jubilee - 2 Silver one golden - Every one present seemed more than pleased. Glory be! Poor dear Owen was not well but kept up good spirits.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Thank God, however, with hardly a positive exception my old friends seem earnest about saving their souls - which so unfortunally many seem to be indifferenct about ...... Our dear brothers, Fr. E'dand O.B.J. came to our jubilee - 2 Silver one golden - Every one present seemed more than pleased. Glory be! Poor dear Owen was not well but kept up good spirits .....",
+      "per_polygon": "Thank God, however, with hardly a positive exception my old friends seem earnest about saving their souls - which so unfortunally many seem to be indifferenct about ...... Our dear brothers, Fr. E'dand O.B.J. came to our jubilee - 2 Silver one golden - Every one present seemed more than pleased. Glory be! Poor dear Owen was not well but kept up good spirits.",
+      "min_conf": 0.845
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Jan. 13 - 1955",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Jan. 13 - 1955",
+      "per_polygon": "Jan. 13 - 1955",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in all His Designs!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in all His Designs!",
+      "per_polygon": "Blessed be God in all His Designs!",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus ... .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus.",
+      "per_polygon": "Fr. Solanus ... .",
+      "min_conf": 0.167
+    }
+  ]
+}

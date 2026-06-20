@@ -1,0 +1,53 @@
+{
+  "page": "Volume_2/1_source_pages/page_191",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "if \"Gratitude for favors received is one of the very first and surest indications of intelligence\" and if the very first benefit possible to any creature is its creation, its existence, then in the Name of God and of right reason and of decency itself, where is there a shadow of excuse/ the atheist and his atheism? We'll let the definition answer. \"Born originally in the haughty pride of Lucifer himself, the prince of diabolical darkness, atheism as the climax of intellectual and spiritual insanity, is at once the hopeless con- clusion and the desperate refuge - suggested by the devil - 1st of shallow thinking, 2ndly of perverse, degenerate minds, and thirdly (fearful to say), of damned fools.\" Its first and immediate, ruinous effect which comes simultaneously with atheism, is the loss of supernatural hope, the very soul of hap- piness in this world; viz, for any one really able to draw the first practical conclusion, \"obligation of gratitude\".",
+      "merged_text": "if \"Gratitude for favors received is one of the very first and surest indications of intelligence\" and if the very first benefit possible to any creature is its creation, its existence, then in the Name of God and of right reason and of decency itself, where is there a shadow of excuse/ the atheist and his atheism? We'll let the definition answer. \"Born originally in the haughty pride of Lucifer himself, the prince of diabolical darkness, atheism as the climax of intellectual and spiritual insanity, is at once the hopeless con- clusion and the desperate refuge - suggested by the devil - Ist of shallow thinking, 2ndly of perverse, degenerate minds, and thirdly (fearful to say), of damned fools.\" Its first and immediate, ruinous effect which comes simultaneously with atheism, is the loss of supernatural hope, the very soul of hap- piness in this world; viz, for any one really able to draw the first practical conclusion, \"obligation of gratitude\".",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1946, July 1",
+      "merged_text": "1946, July 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "/Unfinished Draft/",
+      "merged_text": "/Unfinished Draft/",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page Two",
+      "merged_text": "Page Two",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "category": "struct_other",
+      "cleaned_text": "Officer Walter Mcclellan",
+      "merged_text": "Officer Walter Mcclellan",
+      "edits": []
+    }
+  ]
+}

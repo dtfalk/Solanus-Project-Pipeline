@@ -1,0 +1,122 @@
+{
+  "page": "Volume_1/1_source_pages/page_134",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "With love and with Christmas blessings to all Comes the INFANT once more to free us from sorrow. Whose love and Whose grace and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose Birth and Whose power and Whose wonders proclaim Him, the Son of the VIRGIN as promised of yore. O ! May He estrange us from sin with its shame! -- And reign in our hearts as His crib evermore.",
+      "merged_text": "With love and with Christmas blessings to all Comes the INFANT once more to free us from sorrow. Whose love and Whose grace and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose Birth and Whose power and Whose wonders proclaim Him, the Son of the VIRGIN as promised of yore. 0 ! May He estrange us from sin with its shame! -- And reign in our hearts as His crib evermore.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "God made me to know Him. O! What a blessd aim! To love Him and serve Him sure rests in the same. It's HEAVEN BEGUN for the GRATEFUL on earth To treasure aright ! ? ! HIGHEST HEAVEN its worth.",
+      "merged_text": "God made me to know Him. 0! What a blessd aim! To love Him and serve Him sure rests in the same. It's HEAVEN BEGUN for the GRATEFUL on earth To treasure aright ! ? ! HIGHEST HEAVEN its worth.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "P.S. Would be glad to hear from little Casey M. Tell him I said he is old enough now to think the responsibility and the privilege of working at his own Eternal salvation.",
+      "merged_text": "P.S. Would be glad to hear from little Casey M. Tell him I said he is old enough now to think the responsibility and the privilege of working at his own Eternal salvation.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "With love and with Christmas blessings to all",
+      "merged_text": "With love and with Christmas blessings to all",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "The Grace of God be with you - All and each - and His peace which surpaseth.",
+      "merged_text": "The Grace of God be with you - All and each - and His peace which surpaseth.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Sol.",
+      "merged_text": "Fr. Sol.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Sol.O.F.M. Cap.",
+      "merged_text": "Fr. Sol.O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.2",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O. F.M.Cap.",
+      "merged_text": "Fr. Solanus, O. F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.3",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Sol.",
+      "merged_text": "Fr. Sol.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of message typed and written on a Christmas Card by the Servant of God Father Solanus Casey O. F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of message typed and written on a Christmas Card by the Servant of God Father Solanus Casey O. F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1945, December 14",
+      "merged_text": "1945, December 14",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "(to Mrs. Helena Wilhite)",
+      "merged_text": "(to Mrs. Helena Wilhite)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "ALWAYS CHRISTMAS EVE",
+      "merged_text": "ALWAYS CHRISTMAS EVE",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.1",
+      "category": "struct_id",
+      "cleaned_text": "TO KNOW GOD -- MY WONDERFULLY PRIVILEGED PURPOSE.",
+      "merged_text": "TO KNOW GOD -- MY WONDERFULLY PRIVILEGED PURPOSE.",
+      "edits": []
+    }
+  ]
+}

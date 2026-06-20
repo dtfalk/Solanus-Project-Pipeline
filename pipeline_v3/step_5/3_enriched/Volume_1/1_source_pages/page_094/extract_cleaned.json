@@ -1,0 +1,102 @@
+{
+  "page": "Volume_1/1_source_pages/page_094",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Richard Werthman",
+      "merged_text": "Richard Werthman",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "5063 Baldwin Ave.",
+      "merged_text": "5063 Baldwin Ave.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apr. 19th, 1935",
+      "merged_text": "Apr. 19th, 1935",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1935, April 19th",
+      "merged_text": "1935, April 19th",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "O Course we are glad to include you in our prayers. Do not worry. Special God willing -- i I 1 ! I I 1 1 I 1 1 1 -- for speedy health-recovery -",
+      "merged_text": "0 Course we are glad to include you in our prayers. Do not worry. Special God willing -- i I 1 ! I I 1 1 I 1 1 1 -- for speedy health-recovery -",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_2.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mrs. E. J. Werthman",
+      "merged_text": "Mrs. E. J. Werthman",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "October 7th I - 1948",
+      "merged_text": "October 7th I - 1948",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1948, October 7th",
+      "merged_text": "1948, October 7th",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "The original in possession of: Mrs. Marie Werthman 8305. Riverland Drive, Sterling Hts .Mich. 48078 Apt. 3",
+      "merged_text": "The original in possession of: Mrs. Marie Werthman 8305. Riverland Drive, Sterling Hts .Mich. 48078 Apt. 3",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "page": "Volume_2/1_source_pages/page_018",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 12,
+  "n_agree": 11,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "- Many thanks for your charitable favor of several week past duely received and noted. Please pardon my so long delayed acknowledgement. Keep well and pray for the conversion of the rest of us -- poor sinners as we all are.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "- Many thanks for your charitable favor of several week past duely received and noted. Please pardon my so long delayed acknowledgement. Keep well and pray for the conversion of the rest of us -- poor sinners as we all are.",
+      "per_polygon": "- Many thanks for your charitable favor of several week past duely received and noted. Please pardon my so long delayed acknowledgement. Keep well and pray for the conversion of the rest of us -- poor sinners as we all are.",
+      "min_conf": 0.961
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Alice Plunkett",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Alice Plunkett",
+      "per_polygon": "Mrs. Alice Plunkett",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "11 Moss Ave. Highland Park 3, Michigan",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "11 Moss Ave. Highland Park 3, Michigan",
+      "per_polygon": "11 Moss Ave. Highland Park 3, Michigan",
+      "min_conf": 0.631
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "April 18th 1947.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "April 18th 1947.",
+      "per_polygon": "April 18th 1947.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in all His works!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in all His works!",
+      "per_polygon": "Blessed be God in all His works!",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Grandma Plunkett -- yourself and your many friends.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Grandma Plunkett -- yourself and your many friends.",
+      "per_polygon": "God bless you Grandma Plunkett -- yourself and your many friends.",
+      "min_conf": 0.95
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sincerely yours in Christ,",
+      "per_polygon": "Sincerely yours in Christ,",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.858
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "( POST CARD)",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(POST CARD)",
+      "per_polygon": "( POST CARD)",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, April 18",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, April 18",
+      "per_polygon": "1947, April 18",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of : Miss Esther Plunkett 20505 Charleston Detroit, Michigan 48203",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of : Miss Esther Plunkett 20505 Charleston Detroit, Michigan 48203",
+      "per_polygon": "Original in possession of : Miss Esther Plunkett 20505 Charleston Detroit, Michigan 48203",
+      "min_conf": 0.977
+    }
+  ]
+}

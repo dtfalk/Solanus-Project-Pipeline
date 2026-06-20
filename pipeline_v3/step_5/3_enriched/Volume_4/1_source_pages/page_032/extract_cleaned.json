@@ -1,0 +1,193 @@
+{
+  "page": "Volume_4/1_source_pages/page_032",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Jane Conklin - 14 - Stammering",
+      "merged_text": "Jane Conklin - 14 - Stammering",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Jack Jelenc - 41 - something like stroke and consequent heart trouble .... away from confes. 20 yrs. Enrolled To-night promising confession to-morrow.",
+      "merged_text": "Jack Jelenc - 41 - something like stroke and consequent heart trouble .... away from confes. 20 yrs. Enrolled To-night promising confession to-morrow.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Hosephine Mrs. Garreau - 51 - Reinhard disease .husband and two boys. . Stroke June 24th ..",
+      "merged_text": "Hosephine Mrs. Garreau - 51 - Reinhard disease .husband and two boys. . Stroke June 24th ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Harvey Fisher - 27 - T.B. - Northville. Since last October - sick since August - No hope now but in prayer .... Enrolled before going to Kiefer Hospital. Folks took first book of \"City of God\" last Friday. They have promised to read all four if boy be spared.",
+      "merged_text": "Harvey Fisher - 27 - T.B. - Northville. Since last October - sick since August - No hope now but in prayer .... Enrolled before going to Kiefer Hospital. Folks took first book of \"City of God\" last Friday. They have promised to read all four if boy be spared.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Dolors Krol - 12 - lost hearing at 3 - has forgotten how to talk.",
+      "merged_text": "Dolors Krol - 12 - lost hearing at 3 - has forgotten how to talk.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Walter LaCroix - 24 - has been seemingly dissatisfied with wages with life partner etc. Mother worries about them.",
+      "merged_text": "Walter LaCroix - 24 - has been seemingly dissatisfied with wages with life partner etc. Mother worries about them.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Monica Brooks - 15 - brain tuomer has not been able to go to school for some time.",
+      "merged_text": "Monica Brooks - 15 - brain tuomer has not been able to go to school for some time.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Marie Sentes - 37 - threaten with loss of eye ... expecting 8th baby ....",
+      "merged_text": "Mrs. Marie Sentes - 37 - threaten with loss of eye ... expecting 8th baby ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Eliz. Marx - 62 - Rhumatic",
+      "merged_text": "Mrs. Eliz. Marx - 62 - Rhumatic",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Millicent Schultz ... 64",
+      "merged_text": "Mrs. Millicent Schultz ... 64",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "John Holme - 51 - partial stroke February .... asks for prayer",
+      "merged_text": "John Holme - 51 - partial stroke February .... asks for prayer",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Lawrence Brancheau - 31 cateracts ... almost blind even from birth",
+      "merged_text": "Lawrence Brancheau - 31 cateracts ... almost blind even from birth",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Edw'd Duffy - injured shin",
+      "merged_text": "Edw'd Duffy - injured shin",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Josephine Whalin - 60 - had operation for lump in side 18 mos. ago .... pains in her arm again",
+      "merged_text": "Mrs. Josephine Whalin - 60 - had operation for lump in side 18 mos. ago .... pains in her arm again",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Walter \"Walters\" - 50 - nerveous break-down. .. . went to confession some weeks ago .... comes Today O.K. and happy. This was his 1st con- fession in about 15 yrs. Deo Gr.",
+      "merged_text": "Walter \"Walters\" - 50 - nerveous break-down. .. . went to confession some weeks ago .... comes Today O.K. and happy. This was his Ist con- fession in about 15 yrs. Deo Gr.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 1",
+      "merged_text": "July 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "1",
+      "merged_text": "1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "2",
+      "merged_text": "2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "3",
+      "merged_text": "3",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "July 6",
+      "merged_text": "July 6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "July 13",
+      "merged_text": "July 13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 58 Cont.",
+      "merged_text": "Page 58 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 59",
+      "merged_text": "Page 59",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 60",
+      "merged_text": "Page 60",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.other.0",
+      "category": "other",
+      "cleaned_text": "111",
+      "merged_text": "111",
+      "edits": []
+    }
+  ]
+}

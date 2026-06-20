@@ -1,0 +1,65 @@
+{
+  "page": "Appendix_2/1_source_pages/page_070",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "NOTE. What might well be termed: \"A prize-essay indeed\", especially if taken in connection with her superhuman courage and perfect resignation in the sarcoma cancer that started shortly after she had written the following and held her captive till Dec. 13, 1947. Kathleen Stiverson, about to grad- uate in the eighth grade, aged 12, she wrote as follows : (her sturdy father and pius mother re- spectively from Holland and Ireland as did many others learn patience from her and perfect re- signation).",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "NOTE. What might well be termed: \"A prize-essay indeed\", especially if taken in connection with her superhuman courage and perfect resignation in the sarcoma cancer that started shortly after she had written the following and held her captive till Dec. 13, 1947. Kathleen Stiverson, about to grad- uate in the eighth grade, aged 12, she wrote as follows: (her sturdy father and pius mother re- spectively from Holland and Ireland as did many others learn patience from her and perfect re- signation).",
+      "per_polygon": "NOTE. What might well be termed: \"A prize-essay indeed\", especially if taken in connection with her superhuman courage and perfect resignation in the sarcoma cancer that started shortly after she had written the following and held her captive till Dec. 13, 1947. Kathleen Stiverson, about to grad- uate in the eighth grade, aged 12, she wrote as follows : (her sturdy father and pius mother re- spectively from Holland and Ireland as did many others learn patience from her and perfect re- signation).",
+      "min_conf": 0.667
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.C.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.C.",
+      "per_polygon": "Fr. Solanus, O.F.M.C.",
+      "min_conf": 0.806
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typewritten notes added by the Servant of God, Fr. Solanus Casey, O.F.M. Cap. - to copies of an essay \"Say Fiat and Remake Your World\" by 12 year old Kathleen Stiverson.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typewritten notes added by the Servant of God, Fr. Solanus Casey, O.F.M. Cap. - to copies of an essay \"Say Fiat and Remake Your World\" by 12 year old Kathleen Stiverson.",
+      "per_polygon": "The following is a faithful transcription of the typewritten notes added by the Servant of God, Fr. Solanus Casey, O.F.M. Cap. - to copies of an essay \"Say Fiat and Remake Your World\" by 12 year old Kathleen Stiverson.",
+      "min_conf": 0.911
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "doc": "doc_2",
+      "category": "src_content",
+      "merged_text": "NOTE Little Cathleen (R.I.P.) went to the Little Flower School, St. Therese of Royal Oak, Michigan. Her teacher, Sister M. marked her \"Excellent\" and then adds: \"And our joy Kathleen. Nothing is hard to love and Fiat.\" Less than a year following Kathleen was stricken with sarcomic cancer, which the doctors figured would take her inside of four months. She battled with it for over a year and half without a single complaint. Rev. Father Coughlin refered to her on occasion of her funeral as: \"A second \"Little Flower.\"",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "NOTE Little Cathleen (R.I.P.) went to the Little Flower School, St. Therese of Royal Oak, Michigan. Her teacher, Sister M. marked her \"Excellent\" and then adds: \"And our joy Kathleen. Nothing is hard to love and Fiat.\" Less than a year following Kathleen was stricken with sarcomic cancer, which the doctors figured would take her inside of four months. She battled with it for over a year and half without a single complaint. Rev. Father Coughlin refered to her on occasion of her funeral as: \"A second \"Little Flower.\"",
+      "per_polygon": "NOTE Little Cathleen (R.I.P.) went to the Little Flower School, St. Therese of Royal Oak, Michigan. Her teacher, Sister M. marked her \"Excellent\" and then adds: \"And our joy Kathleen. Nothing is hard to love and Fiat.\" Less than a year following Kathleen was stricken with sarcomic cancer, which the doctors figured would take her inside of four months. She battled with it for over a year and half without a single complaint. Rev. Father Coughlin refered to her on occasion of her funeral as: \"A second \"Little Flower.\"",
+      "min_conf": 0.862
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "doc": "doc_2",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M.Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M.Cap.",
+      "min_conf": 0.898
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "page": "Volume_1/1_source_pages/page_171",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 5,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Well Dear Edward; you are no doubt surprized at the length of this letter. I hope it is grave enough not to scandalize. I hardly need say I finished it Sunday night after starting as the clock struck 11. I pro- bably had not finished and it would have gone as so many others, and I behaved myself a little better, physically, and not been sent ... a cell recuperating. Just a little cold Thank God. I'm posted for the 5 o'clock Mass tomorrow ( Ist Sunday of Lent) So I'll just say",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Well Dear Edward; you are no doubt surprized at the length of this letter. I hope it is grave enough not to scandalize. I hardly need say I finished it Sunday night after starting as the clock struck il. I pro- bably had not finished and it would have gone as so many others, and I behaved myself a little better, physically, and not been sent ... a cell recuperating. Just a little cold Thank God. I'm posted for the 5 o'clock Mass tomorrow ( Ist Sunday of Lent) So I'll just say",
+      "per_polygon": "Well Dear Edward; you are no doubt surprized at the length of this letter. I hope it is grave enough not to scandalize. I hardly need say I finished it Sunday night after starting as the clock struck 11. I pro- bably had not finished and it would have gone as so many others, and I behaved myself a little better, physically, and not been sent ... a cell recuperating. Just a little cold Thank God. I'm posted for the 5 o'clock Mass tomorrow ( Ist Sunday of Lent) So I'll just say",
+      "min_conf": 0.58
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Good Night and God Bless You and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Good Night and God Bless You and yours.",
+      "per_polygon": "Good Night and God Bless You and yours.",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus ..",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus ..",
+      "per_polygon": "Fr. Solanus ..",
+      "min_conf": 0.839
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1937",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1937",
+      "per_polygon": "c. 1937",
+      "min_conf": 0.965
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 4",
+      "per_polygon": "Page 4",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Reb. Edward F. Casey",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Reb. Edward F. Casey",
+      "per_polygon": "Reb. Edward F. Casey",
+      "min_conf": 0.989
+    }
+  ]
+}

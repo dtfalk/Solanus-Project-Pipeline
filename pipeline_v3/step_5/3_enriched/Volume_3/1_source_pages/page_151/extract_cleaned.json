@@ -1,0 +1,205 @@
+{
+  "page": "Volume_3/1_source_pages/page_151",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Went to Emmet To-day on begging tour. Had dinner with Rev. Fr. Farrell class-mate of Fr. J.",
+      "merged_text": "Went to Emmet To-day on begging tour. Had dinner with Rev. Fr. Farrell class-mate of Fr. J.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Lillian Rose - 60 - Goiter like neck",
+      "merged_text": "Lillian Rose - 60 - Goiter like neck",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Joseph Mercurio - 37 - has wife and 2 small children - totally blind now 13 months.",
+      "merged_text": "Joseph Mercurio - 37 - has wife and 2 small children - totally blind now 13 months.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Margaret Ellis - 28 - heart trouble - sore feet, etc. Prayed: for two weeks ago - quite improved but still ....?",
+      "merged_text": "Margaret Ellis - 28 - heart trouble - sore feet, etc. Prayed: for two weeks ago - quite improved but still ....?",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Algers boy - 4 - fever ??? - Father prayed for some weeks ago - coming O.K. now ... .",
+      "merged_text": "Algers boy - 4 - fever ??? - Father prayed for some weeks ago - coming O.K. now ... .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Catherine Tracey - 50 - malignant groth feared.",
+      "merged_text": "Catherine Tracey - 50 - malignant groth feared.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Fred T. Gould - 32 - skin infection",
+      "merged_text": "Fred T. Gould - 32 - skin infection",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Little Girl 3 - hoped to be home for Xmas much better.",
+      "merged_text": "Little Girl 3 - hoped to be home for Xmas much better.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Fred Alders - 4 - sinus & fever - still feverish though last Wed. after services became normal for a time. Enrolled at 9:30 p.m. perpetually",
+      "merged_text": "Fred Alders - 4 - sinus & fever - still feverish though last Wed. after services became normal for a time. Enrolled at 9:30 p.m. perpetually",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Eva Dupurs - 34 - Fears she has cancer of stomach. Has 8 children to care for. Had one operation in October, pains con- tinue as before. Enrolled To-day 50c",
+      "merged_text": "Mrs. Eva Dupurs - 34 - Fears she has cancer of stomach. Has 8 children to care for. Had one operation in October, pains con- tinue as before. Enrolled To-day 50c",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Barth Remillard - 31 - fell about year ago has head-aches since seemingly worse of late. Enrolls To-day 50¢",
+      "merged_text": "Barth Remillard - 31 - fell about year ago has head-aches since seemingly worse of late. Enrolls To-day 50¢",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Olive Desmier - cancer of intestines.",
+      "merged_text": "Olive Desmier - cancer of intestines.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "John Flynn - 52 - \"Chicago dispensary\" becoming very weak.",
+      "merged_text": "John Flynn - 52 - \"Chicago dispensary\" becoming very weak.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Jeannette Bowman - 27 - extremely nervous - on that account had to be rejected from convent .... Mother anxious on her account.",
+      "merged_text": "Jeannette Bowman - 27 - extremely nervous - on that account had to be rejected from convent .... Mother anxious on her account.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "James Mahaffy -6 next Sunday Jan. 7 - March 27th last most fear- fully & hopelessly burned ... 1st time prayed for started to eat after 5 days ..... 2nd time prayed for grafting of skin 100% suc- cessful - like miraculous. This was after 1st attempt - total failure. Now hip seems out of joint or infected.",
+      "merged_text": "James Mahaffy -6 next Sunday Jan. 7 - March 27th last most fear- fully & hopelessly burned ... Ist time prayed for started to eat after 5 days ..... 2nd time prayed for grafting of skin 100% suc- cessful - like miraculous. This was after Ist attempt - total failure. Now hip seems out of joint or infected.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        },
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Hannah McIntyre - 65 - feared has serious cancer.",
+      "merged_text": "Hannah McIntyre - 65 - feared has serious cancer.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Dec. 21st.",
+      "merged_text": "Dec. 21st.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Dec. 24",
+      "merged_text": "Dec. 24",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "27",
+      "merged_text": "27",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "27",
+      "merged_text": "27",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "Dec. 29",
+      "merged_text": "Dec. 29",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "30",
+      "merged_text": "30",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1933, December",
+      "merged_text": "1933, December",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOCK NO. S.",
+      "merged_text": "FR. SOLANUS, NOTEBOCK NO. S.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 165",
+      "merged_text": "Page 165",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 166",
+      "merged_text": "Page 166",
+      "edits": []
+    }
+  ]
+}

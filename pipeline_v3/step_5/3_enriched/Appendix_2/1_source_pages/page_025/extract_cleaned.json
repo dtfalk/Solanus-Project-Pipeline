@@ -1,0 +1,109 @@
+{
+  "page": "Appendix_2/1_source_pages/page_025",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you, Wanda Urbanick - you and yours - specially Mother and Aunt. Am leaving To-day for St. Fidelis Monastery, Huntington, Indiana.",
+      "merged_text": "God bless you, Wanda Urbanick - you and yours - specially Mother and Aunt. Am leaving To-day for St. Fidelis Monastery, Huntington, Indiana.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "ST. MICHAEL'S CHURCH CAPUCHIN FRANCISCAN FATHERS R DOOUT VAT",
+      "merged_text": "ST. MICHAEL'S CHURCH CAPUCHIN FRANCISCAN FATHERS R DOOUT VAT",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "VIAN ININULOVAN TA BROOKLYN 7, N.Y.",
+      "merged_text": "VIAN ININULOVAN TA BROOKLYN 7, N.Y.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Dear Friend :-",
+      "merged_text": "Dear Friend :-",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "God bless all.",
+      "merged_text": "God bless all.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus",
+      "merged_text": "Fr. Solanus",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Praised be Jesus!",
+      "merged_text": "Praised be Jesus!",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Glad you are all seemingly well. Hope too that you all do something for the little Child who was cast out long ago because there were no rooms in the hotel, and whom the sadly vast majority of men still refuse to admit into the \"inn of their hearts. He asks - Dear: Will you again refusel",
+      "merged_text": "Glad you are all seemingly well. Hope too that you all do something for the little Child who was cast out long ago because there were no rooms in the hotel, and whom the sadly vast majority of men still refuse to admit into the \"inn of their hearts. He asks - Dear: Will you again refusel",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Dec. 20th, 1946",
+      "merged_text": "Dec. 20th, 1946",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Miss W.U. - you and yours :",
+      "merged_text": "God bless you Miss W.U. - you and yours :",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap. -- sinner.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap. -- sinner.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "O all ye works of the Lord! Bless the Lord ... for ever.\"",
+      "merged_text": "0 all ye works of the Lord! Bless the Lord ... for ever.\"",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_2.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1946, December 20",
+      "merged_text": "1946, December 20",
+      "edits": []
+    }
+  ]
+}

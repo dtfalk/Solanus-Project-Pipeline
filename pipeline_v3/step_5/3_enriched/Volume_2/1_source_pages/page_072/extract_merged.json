@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_072",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 9,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours. I have somany messages from you unanswered that I am now determined before postponing more to thank you at least. I hope this finds you improved and improv- ing . . . . I have just a few minutes . . · The picture I am sending under separate cover was quite ideal, but some one had and accident and broke the glass. The little frame just fits where I want it . I hope you will like the Placque . etc.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you and yours. I have somany messages from you unanswered that I am now determined before postponing more to thank you at least. I hope this finds you improved and improv- ing . . . . I have just a few minutes . . . . The picture I am sending under separate cover was quite ideal, but some one had and accident and broke the glass. The little frame just fits where I want it I hope you will like the Placque . etc.",
+      "per_polygon": "God bless you and yours. I have somany messages from you unanswered that I am now determined before postponing more to thank you at least. I hope this finds you improved and improv- ing . . . . I have just a few minutes . . · The picture I am sending under separate cover was quite ideal, but some one had and accident and broke the glass. The little frame just fits where I want it . I hope you will like the Placque . etc.",
+      "min_conf": 0.365
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Grace Panyard",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Grace Panyard",
+      "per_polygon": "Miss Grace Panyard",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "Muskegon, Michigan",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Muskegon, Michigan",
+      "per_polygon": "Muskegon, Michigan",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "March 8, 1944",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "March 8, 1944",
+      "per_polygon": "March 8, 1944",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Miss Panyard:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Miss Panyard:",
+      "per_polygon": "Dear Miss Panyard:",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless all. Do not worry. Praised be Jesus ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless all. Do not worry. Praised be Jesus ,",
+      "per_polygon": "God bless all. Do not worry. Praised be Jesus ,",
+      "min_conf": 0.244
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F. M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O. F. M. Cap.",
+      "per_polygon": "Fr. Solanus, O. F. M. Cap.",
+      "min_conf": 0.676
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap. ( from the Photo-copy)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap. ( from the Photo-copy)",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap. ( from the Photo-copy)",
+      "min_conf": 0.662
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "( from the Photo-copy)",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "( from the Photo-copy)",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1944, March 8",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1944, March 8",
+      "per_polygon": "1944, March 8",
+      "min_conf": 0.994
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 37 Muskegon, Mich. 49441",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 37 Muskegon, Mich. 49441",
+      "per_polygon": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 37 Muskegon, Mich. 49441",
+      "min_conf": 0.873
+    }
+  ]
+}

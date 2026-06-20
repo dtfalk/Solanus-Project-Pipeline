@@ -1,0 +1,206 @@
+{
+  "page": "Volume_3/1_source_pages/page_253",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mrs. (Rip) Van Winkel ... ... cast",
+      "merged_text": "Mrs. (Rip) Van Winkel ... ... cast",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Josephine Macklow - 49 - trained nurse out of position - a widow many yrs. has one daughter, would like to educate and keep in good company herself. Goes to confession To-day 1st in yrs.",
+      "merged_text": "Josephine Macklow - 49 - trained nurse out of position - a widow many yrs. has one daughter, would like to educate and keep in good company herself. Goes to confession To-day Ist in yrs.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Margaret Machine - 18 - near Dearborn - blind till last Xmas - from August when Enrolled Xmas eve. since then has decidedly improved ..",
+      "merged_text": "Margaret Machine - 18 - near Dearborn - blind till last Xmas - from August when Enrolled Xmas eve. since then has decidedly improved ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Harry Czarmak - 15 - very serious heart condition, to come home in ambulance as hopeless case next Tuesday.",
+      "merged_text": "Harry Czarmak - 15 - very serious heart condition, to come home in ambulance as hopeless case next Tuesday.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Laurena Pringle - 26 - keeping company with an atheist same age. The atheist is known to have gotten at least one other in very grave trouble. Yet plans go on for the marriage . promises of other!",
+      "merged_text": "Laurena Pringle - 26 - keeping company with an atheist same age. The atheist is known to have gotten at least one other in very grave trouble. Yet plans go on for the marriage . promises of other!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Esther Murphy of Green Bay, Wis. - 50 - Jan. 1st - Extremely nerveous Sister leaving To-night ...",
+      "merged_text": "Esther Murphy of Green Bay, Wis. - 50 - Jan. Ist - Extremely nerveous Sister leaving To-night ...",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Tridnum",
+      "merged_text": "Tridnum",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Fr. Radzialowck - 54 - down with T.B. since last June; has large family - two daughters nuns (Felicians)",
+      "merged_text": "Mrs. Fr. Radzialowck - 54 - down with T.B. since last June; has large family - two daughters nuns (Felicians)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Margaret Mrs. Wieske - 38 - gave birth to her fifth baby last Dec. 29th - now anxious about lump and pain in breast about the heart.",
+      "merged_text": "Margaret Mrs. Wieske - 38 - gave birth to her fifth baby last Dec. 29th - now anxious about lump and pain in breast about the heart.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Theo Ruczko - 23 - epileptic spells often - 3 a day .....",
+      "merged_text": "Theo Ruczko - 23 - epileptic spells often - 3 a day .....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Sam Lambros in Eloise - 50 -\"Orthodox\" (husband) tuomer on brain 6 yrs .... bad now - almost blind yr & 2",
+      "merged_text": "Sam Lambros in Eloise - 50 -\"Orthodox\" (husband) tuomer on brain 6 yrs .... bad now - almost blind yr & 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Ann Soderland - 54 - brain tuomer - had operation Dec. 12th last - now paralyzed on one side .... 14 doctors (in Harper) present at operation - 3 hours (Her husband a convert) was enrolled in Ser. Mass As'n while she was on \"table\". All say it was miraculous that she lived .... Prayers are asked for",
+      "merged_text": "Mrs. Ann Soderland - 54 - brain tuomer - had operation Dec. 12th last - now paralyzed on one side .... 14 doctors (in Harper) present at operation - 3 hours (Her husband a convert) was enrolled in Ser. Mass As'n while she was on \"table\". All say it was miraculous that she lived .... Prayers are asked for",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Mary C. Sage - 65 - Neuritis almost like paralysis.",
+      "merged_text": "Mrs. Mary C. Sage - 65 - Neuritis almost like paralysis.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Feb.",
+      "merged_text": "Feb.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Feb.",
+      "merged_text": "Feb.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Feb. 15",
+      "merged_text": "Feb. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "16",
+      "merged_text": "16",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "17",
+      "merged_text": "17",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "Feb. 19",
+      "merged_text": "Feb. 19",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "Blank Page",
+      "merged_text": "Blank Page",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1936, February",
+      "merged_text": "1936, February",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 6.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 6.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 91 Cont.",
+      "merged_text": "Page 91 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 92",
+      "merged_text": "Page 92",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 93",
+      "merged_text": "Page 93",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.3",
+      "category": "struct_doc",
+      "cleaned_text": "Page 94",
+      "merged_text": "Page 94",
+      "edits": []
+    }
+  ]
+}

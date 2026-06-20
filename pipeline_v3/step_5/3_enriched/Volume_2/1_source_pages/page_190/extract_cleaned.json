@@ -1,0 +1,81 @@
+{
+  "page": "Volume_2/1_source_pages/page_190",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you and yours, - every thing that interest you worthwhile. I understand you are once more in trouble - as years ago when we two first met, you took the pledge and, as I thought, we became pretty good friends. (Not?) I have ofthen thought of you Walter Mcclellan, since that night when you took the pledge and, thank God you kept it. Many a time, however, I have wondered if \"big W. Mack\" ever tried to realize in any way what he has been missing in refusing to believe in RELIGION and in God, and in failing to foster faith in Jesus Christ. I am sure Walter would be quite a different, altogether happier man if he only had the Faith: - Ah! - that faith which down the centuries has been the consolation and the stay of uncounted millions. Of course, the very fact that I respect you as I do, ought to be proof sufficient that I am confident you can not be a real atheist, - except possibly such a one as have been heard to thank God for their atheism. ! For as a matter of fact Walter; in my opinion there can hardly be any thing worse for the individual or for society than atheism; - nothing more positively opposed to right reason and hope, the very soul of terrestial happiness. Hence, the fearful definition to follow shortly. But first, - Think of it! --",
+      "merged_text": "God bless you and yours, - every thing that interest you worthwhile. I understand you are once more in trouble - as years ago when we two first met, you took the pledge and, as I thought, we became pretty good friends. (Not?) I have ofthen thought of you Walter Mcclellan, since that night when you took the pledge and, thank God you kept it. Many a time, however, I have wondered if \"big W. Mack\" ever tried to realize in any way what he has been missing in refusing to believe in RELIGION and in God, and in failing to foster faith in Jesus Christ. I am sure Walter would be quite a different, altogether happier man if he only had the Faith: - Ah! - that faith which down the centuries has been the consolation and the stay of uncounted millions. Of course, the very fact that I respect you as I do, ought to be proof sufficient that I am confident you can not be a real atheist, - except possibly such a one as have been heard to thank God for their atheism. ! For as a matter of fact Walter; in my opinion there can hardly be any thing worse for the individual or for society than atheism; - nothing more positively opposed to right reason and hope, the very soul of terrestial happiness. Hence, the fearful definition to follow shortly. But first, - Think of it! --",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "SAINT FELIX CAPUCHIN FRIARY",
+      "merged_text": "SAINT FELIX CAPUCHIN FRIARY",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Officer Walter Mcclellan.",
+      "merged_text": "Officer Walter Mcclellan.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "13856 Manning Ave. Detroit, Michigan.",
+      "merged_text": "13856 Manning Ave. Detroit, Michigan.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "HUNTINGTON, INDIANA",
+      "merged_text": "HUNTINGTON, INDIANA",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 1st 1946. T",
+      "merged_text": "July Ist 1946. T",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My Dear Friend :",
+      "merged_text": "My Dear Friend :",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1946, July 1",
+      "merged_text": "1946, July 1",
+      "edits": []
+    }
+  ]
+}

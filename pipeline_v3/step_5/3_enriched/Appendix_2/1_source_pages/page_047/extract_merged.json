@@ -1,0 +1,120 @@
+{
+  "page": "Appendix_2/1_source_pages/page_047",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 8,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I hope this finds you all well with hopeful outlook. I want to thank you for your kindness recently received - the writing materials, etc and especially the very nice little \"Storm of St. Therese's Glory\". I surely find it very interest- ing. This favor came Monday - day before-yesterday. Many thanks too for the beautiful boquet just came in this afternoon. God bless you. May He speed up your plans and perfect undertakings!",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I hope this finds you all well with hopeful outlook. . I want to thank you for your kindness recently received - the writing materials, etc and especially the very nice little \"Storm of St. Therese's Glory\". I surely find it very interest- ing. This favor came Monday - day before-yesterday. Many thanks too for the beautiful boquet just came in this afternoon. God bless you. May He speed up your plans and perfect undertakings!",
+      "per_polygon": "I hope this finds you all well with hopeful outlook. I want to thank you for your kindness recently received - the writing materials, etc and especially the very nice little \"Storm of St. Therese's Glory\". I surely find it very interest- ing. This favor came Monday - day before-yesterday. Many thanks too for the beautiful boquet just came in this afternoon. God bless you. May He speed up your plans and perfect undertakings!",
+      "min_conf": 0.581
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Joseph's Hospital",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Joseph's Hospital",
+      "per_polygon": "St. Joseph's Hospital",
+      "min_conf": 0.952
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Doris Panyard",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Doris Panyard",
+      "per_polygon": "Miss Doris Panyard",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "Miss Doris Panyard Muskegon, Michigan",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Muskegon, Michigan",
+      "per_polygon": "Miss Doris Panyard Muskegon, Michigan",
+      "min_conf": 0.991
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Ft. Wayne",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Ft. Wayne",
+      "per_polygon": "Ft. Wayne",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "June 28-1950",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "June 28-1950",
+      "per_polygon": "June 28-1950",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Bles'd be God in all His designs.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Bles'd be God in all His designs.",
+      "per_polygon": "Bles'd be God in all His designs.",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Miss Panyard - you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Miss Panyard - you and yours.",
+      "per_polygon": "God bless you Miss Panyard - you and yours.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Best wishes and God's blessing to all.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Best wishes and God's blessing to all.",
+      "per_polygon": "Best wishes and God's blessing to all.",
+      "min_conf": 0.983
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "... Fr. Solanus, OFMCap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "... Fr. Solanus, OFMCap.",
+      "per_polygon": "... Fr. Solanus, OFMCap.",
+      "min_conf": 0.974
+    }
+  ]
+}

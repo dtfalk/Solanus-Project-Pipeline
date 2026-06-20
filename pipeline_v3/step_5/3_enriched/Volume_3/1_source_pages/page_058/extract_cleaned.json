@@ -1,0 +1,185 @@
+{
+  "page": "Volume_3/1_source_pages/page_058",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Ear-drum taken away - hears still. Eugene Love 5 of 5816 Belvidere mastoids lost his ear-drum and yet hears.",
+      "merged_text": "Ear-drum taken away - hears still. Eugene Love 5 of 5816 Belvidere mastoids lost his ear-drum and yet hears.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Margaret Mary E, Crawford only child Milwaukee - Father convert - consumption -",
+      "merged_text": "Margaret Mary E, Crawford only child Milwaukee - Father convert - consumption -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Baby Carroll Marie Spencer - 22 yrs - 20 convulsions in two days. Enrolled in August -- O K now",
+      "merged_text": "Baby Carroll Marie Spencer - 22 yrs - 20 convulsions in two days. Enrolled in August -- 0 K now",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "June Sherry - Nurse - failing in mind and nerve after training 26 months - Back now o.k. Enrolled Jan. 1st. Deo Grat.",
+      "merged_text": "June Sherry - Nurse - failing in mind and nerve after training 26 months - Back now o.k. Enrolled Jan. Ist. Deo Grat.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Donahue - Cancer",
+      "merged_text": "Donahue - Cancer",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Miss McDonalds Sister - Mrs. Wilson - 4 small children",
+      "merged_text": "Miss McDonalds Sister - Mrs. Wilson - 4 small children",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Arthur Cloutier - dying of Cancer ... . conversion.",
+      "merged_text": "Arthur Cloutier - dying of Cancer ... . conversion.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Rose M. Sweeney - Convultions every 2 months - gets like crazy.",
+      "merged_text": "Rose M. Sweeney - Convultions every 2 months - gets like crazy.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Mary Callahan - anxious about debts",
+      "merged_text": "Mary Callahan - anxious about debts",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Kenneth Kemp ... needle in knee ... O.K.",
+      "merged_text": "Kenneth Kemp ... needle in knee ... O.K.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Loss of Property ...",
+      "merged_text": "Loss of Property ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Anna Marie Heth 21 - 6 hemorages & 11 Hemorages",
+      "merged_text": "Anna Marie Heth 21 - 6 hemorages & 11 Hemorages",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Chatterdon - non Cath. thrown out by only daughter",
+      "merged_text": "Mrs. Chatterdon - non Cath. thrown out by only daughter",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mr. Griswald of Jackson - Terrible Jaw.",
+      "merged_text": "Mr. Griswald of Jackson - Terrible Jaw.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Marg Kent - Chicago Hospital Operated on time & again ???",
+      "merged_text": "Marg Kent - Chicago Hospital Operated on time & again ???",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Margaret Mary Schevur - little 7 year old girl Bn on Feast of S S.Cord. - hand wizened",
+      "merged_text": "Margaret Mary Schevur - little 7 year old girl Bn on Feast of S S.Cord. - hand wizened",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.16",
+      "category": "src_content",
+      "cleaned_text": "Losing house - prayers requested F. Potuas",
+      "merged_text": "Losing house - prayers requested F. Potuas",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.17",
+      "category": "src_content",
+      "cleaned_text": "Albert Kimpr - Needle operation OK.",
+      "merged_text": "Albert Kimpr - Needle operation OK.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Feb. 15",
+      "merged_text": "Feb. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1928, February",
+      "merged_text": "1928, February",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 4.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 4.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 9",
+      "merged_text": "Page 9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 10",
+      "merged_text": "Page 10",
+      "edits": []
+    }
+  ]
+}

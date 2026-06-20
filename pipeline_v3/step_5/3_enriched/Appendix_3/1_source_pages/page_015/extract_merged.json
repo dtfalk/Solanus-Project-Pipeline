@@ -1,0 +1,109 @@
+{
+  "page": "Appendix_3/1_source_pages/page_015",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 6,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "How can we ever thank God as we ought to do, for all His mercies and blessings to ug - - His wonderful designs and works and ways. I wanted to write several times but ...? Wondering how poor \"Mack\" were doing - - and his many (non Catholic) friends. .. Keep up your prayers - courage and always on guard against worry, etc.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "How can we ever thank God as we ought to do, for all His mercies and blessings to us - - His wonderful designs and works and ways. I wanted to write several times but ...? Wondering how poor \"Mack\" were doing - - and his many (non Catholic) friends. .. Keep up your prayers - courage and always on guard against worry, etc.",
+      "per_polygon": "How can we ever thank God as we ought to do, for all His mercies and blessings to ug - - His wonderful designs and works and ways. I wanted to write several times but ...? Wondering how poor \"Mack\" were doing - - and his many (non Catholic) friends. .. Keep up your prayers - courage and always on guard against worry, etc.",
+      "min_conf": 0.085
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Constance Gantz",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Constance Gantz",
+      "per_polygon": "Mrs. Constance Gantz",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "2203 Yucca Dr. Silver City, New Mexico",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "2203 Yucca Dr. Silver City, New Mexico",
+      "per_polygon": "2203 Yucca Dr. Silver City, New Mexico",
+      "min_conf": 0.962
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "April 24th 1951",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "April 24th 1951",
+      "per_polygon": "April 24th 1951",
+      "min_conf": 0.945
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in all His designs.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in all His designs.",
+      "per_polygon": "Blessed be God in all His designs.",
+      "min_conf": 0.929
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mrs. B.B. - Paul R. Gantz. Congratulations",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Mrs. B. B. - Paul R. Gantz. Congratulations",
+      "per_polygon": "God bless you Mrs. B.B. - Paul R. Gantz. Congratulations",
+      "min_conf": 0.546
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "... Fr. Solanus, O.F.M. Cap. .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "... Fr. Solanus, O.F.M. Cap. .",
+      "min_conf": 0.663
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is the faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is the faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is the faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.897
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1951, April 24",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1951, April 24",
+      "per_polygon": "1951, April 24",
+      "min_conf": 0.801
+    }
+  ]
+}

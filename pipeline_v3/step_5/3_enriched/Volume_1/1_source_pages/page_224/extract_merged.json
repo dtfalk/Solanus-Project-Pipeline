@@ -1,0 +1,131 @@
+{
+  "page": "Volume_1/1_source_pages/page_224",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 7,
+  "n_needs_review": 4,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I hope you are well. I've tried a number of times to start this card; now its 10:15 P.M. Was just talking with Mary. She is in great hopes that you will succeed in getting \"Mother and Dad Jim\" for a trip East. I think it would give (Jim at least) them another lease of ten yrs. Be sure and write them I said so. I've been wanting to write them so long. Have about sixty letters ahead to answer. Well! Well: so Annie O Brien is to celebrate her golden Wed'g. I remember her quite well - knew before she was married. I surely will remember them in Mass tomorrow",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I hope you are well. I've tried a number of times to start this card; now its 10:15 P.M. Was just talking with Mary. She is in great hopes that you will succeed in getting \"Mother and Dad Jim\" for a trip East. I think it would give (Jim at least) them another lease of ten yrs ....... Be sure and write them I said so. I've been wanting to write them so long. Have about sixty letters ahead to answer. .. Well! Well: so Annie O Brien is to celebrate her golden Wed'g. I remember her quite well - knew before she was married. I surely will remember them in Mass tomorrow.",
+      "per_polygon": "I hope you are well. I've tried a number of times to start this card; now its 10:15 P.M. Was just talking with Mary. She is in great hopes that you will succeed in getting \"Mother and Dad Jim\" for a trip East. I think it would give (Jim at least) them another lease of ten yrs. Be sure and write them I said so. I've been wanting to write them so long. Have about sixty letters ahead to answer. Well! Well: so Annie O Brien is to celebrate her golden Wed'g. I remember her quite well - knew before she was married. I surely will remember them in Mass tomorrow",
+      "min_conf": 0.351
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Bonaventure Monastery",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Bonaventure Monastery",
+      "per_polygon": "St. Bonaventure Monastery",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Mildred Casey Camp Fire Girls",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Mildred Casey Camp Fire Girls",
+      "per_polygon": "Miss Mildred Casey Camp Fire Girls",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "St. Paul, Minn.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Paul, Minn.",
+      "per_polygon": "St. Paul, Minn.",
+      "min_conf": 0.82
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "1740 Mt. Elliott Ave. Detroit, Mich.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1740 Mt. Elliott Ave. Detroit, Mich.",
+      "per_polygon": "1740 Mt. Elliott Ave. Detroit, Mich.",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": ") June 9, 1934",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "June 9, 1934",
+      "per_polygon": ") June 9, 1934",
+      "min_conf": 0.279
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Mildred: -",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Mildred: -",
+      "per_polygon": "Dear Mildred: -",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, 0.9.M. Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M. Cap.",
+      "min_conf": 0.589
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "min_conf": 0.79
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1934, June 9",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1934, June 9",
+      "per_polygon": "1934, June 9",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Mildred Casey Conley, daughter of James and Emma Casey)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Mildred Casey Conley, daughter of James and Emma Casey)",
+      "per_polygon": "(Mildred Casey Conley, daughter of James and Emma Casey)",
+      "min_conf": 0.638
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "page": "Volume_1/1_source_pages/page_110",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 5,
+  "n_needs_review": 4,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you Owen and Martha and all the family. Many thanks Owen for your kind favor of last week from Los Angeles. Glad to know all are well down there. Thank God Fr. M. Joachim and myself are well too. I am hoping co go down to see him before long. I am confident that this experience of his will prove to have been a manifest blessing for him and for us all. Pray that it may.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Owen and Martha and all the family. Many thanks Owen for your kind favor of last week from Los Angeles. Glad to know all are well down there. Thank God Fr. M. Joachim and myself are well too. I am hoping co go down to see him before long. I am confident that this experience of his will prove to have been a manifest blessing for him and for us all. Pray that it may.",
+      "per_polygon": "God bless you Owen and Martha and all the family. Many thanks Owen for your kind favor of last week from Los Angeles. Glad to know all are well down there. Thank God Fr. M. Joachim and myself are well too. I am hoping co go down to see him before long. I am confident that this experience of his will prove to have been a manifest blessing for him and for us all. Pray that it may.",
+      "min_conf": 0.597
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Owen-Martha Case y Family",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Oven-Martha Casey Family",
+      "per_polygon": "Owen-Martha Case y Family",
+      "min_conf": 0.774
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Dec. 12 - for December 25, 1944.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dec. 12 - for December 25, 1944.",
+      "per_polygon": "Dec. 12 - for December 25, 1944.",
+      "min_conf": 0.934
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "A Blessed Christmas",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "A Blessed Christmas",
+      "per_polygon": "A Blessed Christmas",
+      "min_conf": 0.896
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "1 1 Fr. Solanus, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "1 1 Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.646
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "r. Solanus.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus.",
+      "per_polygon": "r. Solanus.",
+      "min_conf": 0.805
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Owen-Martha Casey Family has been enrolled in the Seraphic Mass Association Specially",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "has been enrolled in the Seraphic Mass Association Specially",
+      "per_polygon": "Owen-Martha Casey Family has been enrolled in the Seraphic Mass Association Specially",
+      "min_conf": 0.39
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original message added to a Seraphic Mass Association Certificate by the Ser- vant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original message added to a Seraphic Mass Association Certificate by the Ser- vant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original message added to a Seraphic Mass Association Certificate by the Ser- vant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.834
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1944, December 12",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1944, December 12",
+      "per_polygon": "1944, December 12",
+      "min_conf": 0.992
+    }
+  ]
+}

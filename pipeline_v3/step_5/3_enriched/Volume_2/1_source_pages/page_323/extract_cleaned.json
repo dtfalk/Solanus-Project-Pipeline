@@ -1,0 +1,60 @@
+{
+  "page": "Volume_2/1_source_pages/page_323",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you Miss Loretta Mry Gibson God bless you and yours these unsettled days - glorious days, however as always, ... for men who for men of good will. can humbly appreciate what enables them - us poor sinners - to glory in actually holding a place of trust Even near - at least in sight of - the General - our crucified Jesus. I am sending you a copy of the, \"Prayer for Peace,\" of which you have likely known away ahead of me. I heard it first, only after coming to St. Bonaventures last January. . . It strck me at once as from a saddened heart. My own heart filled up, at my first official praying thereof.",
+      "merged_text": "God bless you Miss Loretta Mry Gibson God bless you and yours these unsettled days - glorious days, however as always, ... for men who for men of good will. can humbly appreciate what enables them - us poor sinners - to glory in actually holding a place of trust Even near - at least in sight of - the General - our crucified Jesus. I am sending you a copy of the, \"Prayer for Peace,\" of which you have likely known away ahead of me. I heard it first, only after coming to St. Bonaventures last January. . . It strck me at once as from a saddened heart. My own heart filled up, at my first official praying thereof.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Easter Sunday - April 1st 1956 - 8:45 PM.",
+      "merged_text": "Easter Sunday - April Ist 1956 - 8:45 PM.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Blessed be God in all His designs!",
+      "merged_text": "Blessed be God in all His designs!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten origi- nal by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten origi- nal by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1956, April 1",
+      "merged_text": "1956, April 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "(Unfinished draft)",
+      "merged_text": "(Unfinished draft)",
+      "edits": []
+    }
+  ]
+}

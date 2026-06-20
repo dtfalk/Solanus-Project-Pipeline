@@ -1,0 +1,130 @@
+{
+  "page": "Volume_1/1_source_pages/page_242",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Thank God! Busy day; weather Ideal. Arrived at station about 5 P.M. Had good hyke from station Conferince 8:30 P.M. Platform of Retreat: \"To imitate St. Francis who so perfectly followed Jesus - Our Divine Model.\"",
+      "merged_text": "Thank God! Busy day; weather Ideal. Arrived at station about 5 P.M. Had good hyke from station Conferince 8:30 P.M. Platform of Retreat: \"To imitate St. Francis who so perfectly followed Jesus - Our Divine Model.\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Jesus divine Model came to do our Heavenly Fathers will - to glorify Him a) by knowing, b) by loving, c) by serving. Just herin was the specialty of St. Francis. Herin is perfectly found the purpose of the RATIONAL CREATURE Hence God made me to KNOW HIM O what a bles'd AIM To love HIM and serve HIM Sure rests in the same. It's Heaven-begun For the grateful on Earth. To treasure aright ?!!! Highest Heaven its worth.",
+      "merged_text": "Jesus divine Model came to do our Heavenly Fathers will - to glorify Him a) by knowing, b) by loving, c) by serving. Just herin was the specialty of St. Francis. Herin is perfectly found the purpose of the RATIONAL CREATURE Hence God made me to KNOW HIM O what a bles'd AIM To love HIM and serve HIM Sure rests in the same. It's Heaven-begun For the grateful on Earth. To treasure aright ?!!! Highest Heaven its worth.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "\"Where Thy Treasure is There is Thy Heart also\" To be satisfied with fulfilling obligations strictly demand- ed by holy Rule is a matter of busines To be a Friend of Jesus a priest, a religious, a Franciscan, must do more. He must study to please Jesus by studying His life and trying at least at a distance to imitate Him as St. Francis tried to do - to study His ways and know Him.",
+      "merged_text": "\"Where Thy Treasure is There is Thy Heart also\" To be satisfied with fulfilling obligations strictly demand- ed by holy Rule is a matter of busines To be a Friend of Jesus a priest, a religious, a Franciscan, must do more. He must study to please Jesus by studying His life and trying at least at a distance to imitate Him as St. Francis tried to do - to study His ways and know Him.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "Beautiful IMMACULATE CONCEPTION Monistery Garrison on the Hudson",
+      "merged_text": "Beautiful IMMACULATE CONCEPTION Monistery Garrison on the Hudson",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "on the Hudson",
+      "merged_text": "on the Hudson",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "5 P.M.",
+      "merged_text": "5 P.M.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "- Monday, August 20th",
+      "merged_text": "- Monday, August 20th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Rev. Fr. Norbert .... Penn Province",
+      "merged_text": "Rev. Fr. Norbert .... Penn Province",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.1",
+      "category": "src_other",
+      "cleaned_text": "St. Bernard",
+      "merged_text": "St. Bernard",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of Retreat Notes, August 1945, by the servant of God Father Solanus Casey OFM Cap. ( found in NOTEBOOK NO. 10) Pages 59 to 68.",
+      "merged_text": "The following is a faithful transcription of Retreat Notes, August 1945, by the servant of God Father Solanus Casey OFM Cap. ( found in NOTEBOOK NO. 10) Pages 59 to 68.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1945, August",
+      "merged_text": "1945, August",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "RETREAT",
+      "merged_text": "RETREAT",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "1st Day",
+      "merged_text": "Ist Day",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "2nd Day",
+      "merged_text": "2nd Day",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "I",
+      "merged_text": "I",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.3",
+      "category": "struct_doc",
+      "cleaned_text": "II Conference",
+      "merged_text": "II Conference",
+      "edits": []
+    }
+  ]
+}

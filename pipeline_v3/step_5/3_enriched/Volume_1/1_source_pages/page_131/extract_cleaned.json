@@ -1,0 +1,53 @@
+{
+  "page": "Volume_1/1_source_pages/page_131",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "When he visited me in Yonkers, N.Y. about a year before he married again and seemed so at home with the Capuchins, he re- marked one day as we talked things over \" .... I find no attrac- tion in women any more; but I feel I ought to have someone to be with my little Helena.\" Well, Jesus sent him that someone, though at the time you probably failed to recognize her as such a \"God-send\" - for your dear Father at first and immediately, and now more than ever for his Helena, with two others for mutual love and companionship. How beautiful and wonderful are God's ways. And O, how far he surpasses us in generosity! Thanks be to God! ! ! Praised Be Jesus",
+      "merged_text": "When he visited me in Yonkers, N.Y. about a year before he married again and seemed so at home with the Capuchins, he re- marked one day as we talked things over \" .... I find no attrac- tion in women any more; but I feel I ought to have someone to be with my little Helena.\" Well, Jesus sent him that someone, though at the time you probably failed to recognize her as such a \"God-send\" - for your dear Father at first and immediately, and now more than ever for his Helena, with two others for mutual love and companionship. How beautiful and wonderful are God's ways. And 0, how far he surpasses us in generosity! Thanks be to God! ! ! Praised Be Jesus",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.M. Cap.",
+      "merged_text": "Fr. Solanus, O.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1929, August 3",
+      "merged_text": "1929, August 3",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 2 1 1",
+      "merged_text": "Page 2 1 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "category": "struct_other",
+      "cleaned_text": "Miss Helena Casey",
+      "merged_text": "Miss Helena Casey",
+      "edits": []
+    }
+  ]
+}

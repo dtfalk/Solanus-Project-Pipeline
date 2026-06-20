@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_193",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 8,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I am glad you are feeling improved. Keep up the improvement and don't give way to worry or discour- agement. That never pays. If we could only learn to appreciate the holy faith and the innumerable blessings flowing from it and the blessings other- wise surrounding us; We could never have time to worry about anything - except that we're so little appreciative.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "I am glad you are feeling improved. Keep up the improvement and don't give way to worry or discour- agement. That never pays. If we could only learn to appreciate the holy faith and the innumerable blessings flowing from it and the blessings other- wise surrounding us; We could never have time to worry about anything - except that we're so little appreciative.",
+      "per_polygon": "I am glad you are feeling improved. Keep up the improvement and don't give way to worry or discour- agement. That never pays. If we could only learn to appreciate the holy faith and the innumerable blessings flowing from it and the blessings other- wise surrounding us; We could never have time to worry about anything - except that we're so little appreciative.",
+      "min_conf": 0.966
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "P.S. Congratulations to your Husband, H.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "P.S. Congratulations to your Husband, H.",
+      "per_polygon": "P.S. Congratulations to your Husband, H.",
+      "min_conf": 0.8
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "August 16th, 1946",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "August 16th, 1946",
+      "per_polygon": "August 16th, 1946",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God!",
+      "per_polygon": "Blessed be God!",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Bernice M. Schumacher you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Bernice M. Schumacher you and yours.",
+      "per_polygon": "God bless you Bernice M. Schumacher you and yours.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "... Fr. Solanus, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": ".Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "... Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.913
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey O.F.M. Cap.",
+      "min_conf": 0.812
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, August 16",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, August 16",
+      "per_polygon": "1946, August 16",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Bernice M. Schumacher 42079 Toddmark Lane Mt. Clements, Mi. 48044",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Bernice M. Schumacher 42079 Toddmark Lane Mt. Clements, Mi. 48044",
+      "per_polygon": "Original in possession of: Bernice M. Schumacher 42079 Toddmark Lane Mt. Clements, Mi. 48044",
+      "min_conf": 0.96
+    }
+  ]
+}

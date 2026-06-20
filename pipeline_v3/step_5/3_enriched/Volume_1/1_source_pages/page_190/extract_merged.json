@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_190",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 6,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I just read the photo you sent me of our dear Father M. E. Joachim's tomb-marker and, sitting here with my two feet on another chair am using it as a writing desk. Deo gratias. I've not said holy Mass since last Thursday. The skin-burns I wrote you about last week (if it got off), started the eczema activity again - after I'd had a Dr. Stan Casey treat the former. He sent me to a skin- specialist in Ft. Wayne, Dr. McNairy, who stresses with treatment, \"feet up.\" I would have offered holy Mass yesterday but Fr. Guardian thought better keep to Dr.'s orders. So that will probably mean a week or so before I'm on my feet again properly. Thanks be to God is gives me comparatively little pain or itch; so that time does not hang so painfully as it might otherwise.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I just read the photo you sent me of our dear Father M. E. Joachim's tomb-marker and, sitting here with my two feet on another chair am using it as a writing desk. Deo gratias. I've not said holy Mass since last Thursday. The skin-burns I wrote you about last week (if it got off), started the eczema activity again - after I'd had a Dr. Stan Casey treat the former. He sent me to a skin- specialist in Ft. Wayne, Dr. Mollairy, who stresses with treatment, \"feet up. ' I would have offered holy Mass yesterday but Fr. Guardian thought better keep to Dr. 's orders. So that will probably mean a week or so before I'm on my feet again properly. Thanks be to God is gives me comparatively little pain or itch; so that time does not hang so painfully as it might otherwise.",
+      "per_polygon": "I just read the photo you sent me of our dear Father M. E. Joachim's tomb-marker and, sitting here with my two feet on another chair am using it as a writing desk. Deo gratias. I've not said holy Mass since last Thursday. The skin-burns I wrote you about last week (if it got off), started the eczema activity again - after I'd had a Dr. Stan Casey treat the former. He sent me to a skin- specialist in Ft. Wayne, Dr. McNairy, who stresses with treatment, \"feet up.\" I would have offered holy Mass yesterday but Fr. Guardian thought better keep to Dr.'s orders. So that will probably mean a week or so before I'm on my feet again properly. Thanks be to God is gives me comparatively little pain or itch; so that time does not hang so painfully as it might otherwise.",
+      "min_conf": 0.558
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX FRIARY",
+      "per_polygon": "ST. FELIX FRIARY",
+      "min_conf": 0.575
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "1 Route HUNTINGTON, INDIANA",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Route 8 HUNTINGTON, INDIANA",
+      "per_polygon": "1 Route HUNTINGTON, INDIANA",
+      "min_conf": 0.293
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "January 22, 1951",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "January 22, 1951",
+      "per_polygon": "January 22, 1951",
+      "min_conf": 0.862
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in all His designs!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in all His designs!",
+      "per_polygon": "Blessed be God in all His designs!",
+      "min_conf": 0.713
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Dear Father Edward and guide you in His privileged service.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Dear Father Edward and guide you in His privileged service.",
+      "per_polygon": "God bless you Dear Father Edward and guide you in His privileged service.",
+      "min_conf": 0.812
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.822
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1951, January 22",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1951, January 22",
+      "per_polygon": "1951, January 22",
+      "min_conf": 0.99
+    }
+  ]
+}

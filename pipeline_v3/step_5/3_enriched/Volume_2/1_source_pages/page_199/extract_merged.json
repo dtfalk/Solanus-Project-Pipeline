@@ -1,0 +1,142 @@
+{
+  "page": "Volume_2/1_source_pages/page_199",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 12,
+  "n_agree": 8,
+  "n_needs_review": 4,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I WISH TO THANK YOU SINCERELY FOR YOUR KIND AND GENEROUS ALMS TO THE CAPUCHIN FOREIGN MISSIONS. I AM : SURE THAT THE PRAYERS CE THE MISSIONA IES WILL ASCEND TO THE THRONE OF GOD FOR YOUR WELFARE. UNDER SEPARATE COVER I AM MAILING YOU THE CER- TIFICATES OF ENROLLMENT, WHICH I TRUST YOU WILL LIKE.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I WISH TO THANK YOU SINCERELY FOR YOUR KIND AND GENEROUS AIMS TO THE CAPUCHIN FOREIGN MISSIONS. I AM SURE THAT THE PRAYERS CF THE MISSIONA IES WILL ASCEND TO THE THRONE OF GOD FOR YOUR WELFARE. UNDER SEPARATE COVER I AM MAILING YOU THE CER- TIFICATES OF ENROLLMENT, WHICH I TRUST YOU WILL LIKE,",
+      "per_polygon": "I WISH TO THANK YOU SINCERELY FOR YOUR KIND AND GENEROUS ALMS TO THE CAPUCHIN FOREIGN MISSIONS. I AM : SURE THAT THE PRAYERS CE THE MISSIONA IES WILL ASCEND TO THE THRONE OF GOD FOR YOUR WELFARE. UNDER SEPARATE COVER I AM MAILING YOU THE CER- TIFICATES OF ENROLLMENT, WHICH I TRUST YOU WILL LIKE.",
+      "min_conf": 0.224
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "P.S. With that stiff knee of yours, you ought to see a good chiropractor or ostiopath.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "P.S. With that stiff knee of yours, you ought to see a good chiropractor or ostiopath.",
+      "per_polygon": "P.S. With that stiff knee of yours, you ought to see a good chiropractor or ostiopath.",
+      "min_conf": 0.894
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "SERAPHIC MASS ASSOCIATION FOR THE SUPPORT OF THE CAPUCHIN FOREIGN MISSIONS",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "SERAPHIC MASS ASSOCIATION FOR THE SUPPORT OF THE CAPUCHIN FOREIGN MISSIONS",
+      "per_polygon": "SERAPHIC MASS ASSOCIATION FOR THE SUPPORT OF THE CAPUCHIN FOREIGN MISSIONS",
+      "min_conf": 0.592
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "NOV . 24th 1946",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Nov. 24th 1946",
+      "per_polygon": "NOV . 24th 1946",
+      "min_conf": 0.474
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "DEAR FRIEND OF THE MISSIONS:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "DEAR FRIEND OF THE MISSIONS:",
+      "per_polygon": "DEAR FRIEND OF THE MISSIONS:",
+      "min_conf": 0.636
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mrs. Ronan - you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Mrs. Ronan - you and yours.",
+      "per_polygon": "God bless you Mrs. Ronan - you and yours.",
+      "min_conf": 0.658
+    },
+    {
+      "rid": "doc_1.src_greeting.2",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "MAY THE LORD GIVE YOU HIS PEACE!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "MAY THE LORD GIVE YOU HIS PEACE!",
+      "per_polygon": "MAY THE LORD GIVE YOU HIS PEACE!",
+      "min_conf": 0.652
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "GRATEFULLY YOURS IN CHRIST,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "GRATEFULLY YOURS IN CHRIST,",
+      "per_polygon": "GRATEFULLY YOURS IN CHRIST,",
+      "min_conf": 0.687
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus - O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus - O.F.M. Cap.",
+      "min_conf": 0.182
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanas Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanas Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanas Casey, O.F.M. Cap.",
+      "min_conf": 0.8
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, November 24",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, November 24",
+      "per_polygon": "1946, November 24",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "Note : Above is copy of a printed correspondence form-card, with rubber stamp signature, to wit: \"Fr. Solanus, O. 3.M. Cap.\" The printed-form portion is indicated ir solid caps. Added in Fr. Solanus' hand is, \"God bless you \" together with the date and . the \"P.S. .. \". Also added in his hand is a note on the reverse side of the card, as indicated on Page Two hereof.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Note : Above is copy of a printed correspondence form-card, with rubber stamp signature, to wit: \"Fr. Solanus, O.3.M. Cap.\" The printed-form portion is indicated ir solid caps. Added in Fr. Solanus' hand is, \"God bless you 11 together with the date and the \"P.S. . Also added in his hand is a note on the reverse side of the card, as indicated on Page Two hereof.",
+      "per_polygon": "Note : Above is copy of a printed correspondence form-card, with rubber stamp signature, to wit: \"Fr. Solanus, O. 3.M. Cap.\" The printed-form portion is indicated ir solid caps. Added in Fr. Solanus' hand is, \"God bless you \" together with the date and . the \"P.S. .. \". Also added in his hand is a note on the reverse side of the card, as indicated on Page Two hereof.",
+      "min_conf": 0.423
+    }
+  ]
+}

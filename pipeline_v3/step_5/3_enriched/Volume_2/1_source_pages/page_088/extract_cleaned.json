@@ -1,0 +1,88 @@
+{
+  "page": "Volume_2/1_source_pages/page_088",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Would that you and I, dear Tom; had a spark or two more of holy Faith! Do we appreciate the little faith we have? Do we ever beg God for more? Here is a little prayer I say often for you and me and all Humanity: \"O dearest Jesus! Who hast suffered and died for us - for poor humanity - Have mercy on us. Increase our faith and confidence in Thee, our grateful love and our reverence for thee. By corresponding with Thy holy grace may we ever learn to prize our privi - (lege) (pri ) mary - blueprint pu 'pose , so that indiviualy - trust'in' in God's mercy",
+      "merged_text": "Would that you and I, dear Tom; had a spark or two more of holy Faith! Do we appreciate the little faith we have? Do we ever beg God for more? Here is a little prayer I say often for you and me and all Humanity: \"0 dearest Jesus! Who hast suffered and died for us - for poor humanity - Have mercy on us. Increase our faith and confidence in Thee, our grateful love and our reverence for thee. By corresponding with Thy holy grace may we ever learn to prize our privi - (lege) (pri ) mary - blueprint pu 'pose , so that indiviualy - trust'in' in God's mercy",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Good Friday",
+      "merged_text": "Good Friday",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "4/8/55",
+      "merged_text": "4/8/55",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Bles'd be God in all His Designs!",
+      "merged_text": "Bles'd be God in all His Designs!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Thomas Panyard -- you and yours -- near and far!",
+      "merged_text": "God bless you Thomas Panyard -- you and yours -- near and far!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanas Casey, O. P.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanas Casey, O. P.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "category": "archv_format_note",
+      "cleaned_text": "POSTCARD",
+      "merged_text": "POSTCARD",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.1",
+      "category": "archv_format_note",
+      "cleaned_text": "AUTOGRAPH ON BACK OF A PHOTO/",
+      "merged_text": "AUTOGRAPH ON BACK OF A PHOTO/",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1955, April 8",
+      "merged_text": "c. 1955, April 8",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "ZUNFINISHED",
+      "merged_text": "ZUNFINISHED",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "page": "Volume_2/1_source_pages/page_077",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "For God's holy guidance.",
+      "merged_text": "For God's holy guidance.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "God bless you Doris P. Shake off - worry.",
+      "merged_text": "God bless you Doris P. Shake off - worry.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Pray for the poor big sinner down here at St. Michaels. . He too sometimes feel ...? But what can I do ? ....? O! I just think: \"some day it will be over\" and then we'll get HOME.",
+      "merged_text": "Pray for the poor big sinner down here at St. Michaels. . He too sometimes feel ...? But what can I do ? ....? 0! I just think: \"some day it will be over\" and then we'll get HOME.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Miss Doris Panyard",
+      "merged_text": "Miss Doris Panyard",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Dec. 5th, 1945",
+      "merged_text": "Dec. 5th, 1945",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "God bless you again",
+      "merged_text": "God bless you again",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M. Cap.",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "category": "src_signature",
+      "cleaned_text": "Fr. S.",
+      "merged_text": "Fr. S.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1945, December",
+      "merged_text": "1945, December",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "-- for the Poor Holy Souls -- special Intentions 1",
+      "merged_text": "-- for the Poor Holy Souls -- special Intentions 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Hope the Holy Souls - -- especially who in any way have helped and been in- terested - may still show their interest.",
+      "merged_text": "Hope the Holy Souls - -- especially who in any way have helped and been in- terested - may still show their interest.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "George L. Panyard --",
+      "merged_text": "George L. Panyard --",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Dec. 11th, 1945",
+      "merged_text": "Dec. 11th, 1945",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you George, you and yours all around",
+      "merged_text": "God bless you George, you and yours all around",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 27 Muskegon, Mich. 49441",
+      "merged_text": "The original in possession of: Doris Panyard 3248 Maple Grove Rd. Apt. 27 Muskegon, Mich. 49441",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "page": "Volume_1/1_source_pages/page_072",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "MARY SORROWFUL \"Behold Thy Mother\" As the very nature of our holy faith prompts us to welcome back the songs of Christmas and Easter and to rejoice with Jesus and Mary in the glorious truths these songs and feasts proclaim, so christian gratitude requires that we remember too the days of their affliction and that we sympathize with Jesus and Mary in the unspeakable sorrows which they endured nay, embraced for us. In other words the same holy faith - the same charity - that prompts us to rejoice with those who rejoice, requires us also to weep with those who weep. But dear Br. if this is true in general, how much more in regard to our greatest benefactors? , How much more are we not bound by every title - by every motive natural as well as supernatural, to remember the sorrows of Mary and to sympathize with her whose very position on Calvary - aye at the foot of the cross, whose very silence there calls out in eloquence next to divine. \"O all ye that pass by the way attend and see if there be any sorrow like unto my sorrow.\" And lest everything else might fail to imprsss this duty on our minds and memories, the dying words of Jesus Himself thunders forth the admonition to each and every one of us while time lasts - exhorting, nay commanding us, \"Behold thy Mother!\"",
+      "merged_text": "MARY SORROWFUL \"Behold Thy Mother\" As the very nature of our holy faith prompts us to welcome back the songs of Christmas and Easter and to rejoice with Jesus and Mary in the glorious truths these songs and feasts proclaim, so christian gratitude requires that we remember too the days of their affliction and that we sympathize with Jesus and Mary in the unspeakable sorrows which they endured nay, embraced for us. In other words the same holy faith - the same charity - that prompts us to rejoice with those who rejoice, requires us also to weep with those who weep. But dear Br. if this is true in general, how much more in regard to our greatest benefactors? , How much more are we not bound by every title - by every motive natural as well as supernatural, to remember the sorrows of Mary and to sympathize with her whose very position on Calvary - aye at the foot of the cross, whose very silence there calls out in eloquence next to divine. \"0 all ye that pass by the way attend and see if there be any sorrow like unto my sorrow.\" And lest everything else might fail to imprsss this duty on our minds and memories, the dying words of Jesus Himself thunders forth the admonition to each and every one of us while time lasts - exhorting, nay commanding us, \"Behold thy Mother!\"",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "To think of telling you anything new on this theme, the sorrows of Mary, anything not considered before in a church whose very title should inspire sympathy and hope in the world-weary pilgrims, to say anything new on this subject as old as the church, would be rather out of question. We shall therefore, while simply fulfilling this filial duty of recalling to mind the sorrows of our Bl. Mother - we shall ask the questions and try to answer. 1st. What was the source of Mary Sorrows and 2nd Why her position at the Foot of the Cross? (2nd v. Jerem. XVII 13) infra p.20.",
+      "merged_text": "To think of telling you anything new on this theme, the sorrows of Mary, anything not considered before in a church whose very title should inspire sympathy and hope in the world-weary pilgrims, to say anything new on this subject as old as the church, would be rather out of question. We shall therefore, while simply fulfilling this filial duty of recalling to mind the sorrows of our Bl. Mother - we shall ask the questions and try to answer. 1st. What was the source of Mary Sorrows and 2nd Why her position at the Foot of the Cross? (2nd v. Jerem. XVII 13) infra p.20.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1918",
+      "merged_text": "c. 1918",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS NOTEBOOK No. 3.",
+      "merged_text": "FATHER SOLANUS NOTEBOOK No. 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 1a.",
+      "merged_text": "Pg. 1a.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Fg. 2a.",
+      "merged_text": "Fg. 2a.",
+      "edits": []
+    }
+  ]
+}

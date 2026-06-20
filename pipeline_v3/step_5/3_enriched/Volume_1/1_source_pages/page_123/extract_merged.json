@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_123",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 6,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Patrick H. Casey - that he learn to forgive - \"Blessed are the peace-makers for they shall be called the children of God. \"",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Patrick H. Casey - that he learn to forgive - \"Blessed are the peace-makers for they shall be called the children of God.\"",
+      "per_polygon": "Patrick H. Casey - that he learn to forgive - \"Blessed are the peace-makers for they shall be called the children of God. \"",
+      "min_conf": 0.943
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you - My dear Brother Patrick.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you - My dear Brother Patrick.",
+      "per_polygon": "God bless you - My dear Brother Patrick.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Patrick H. Casey -",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Patrick H. Casey -",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Feast of the Imaculate Conception 1945",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Feast of the Imaculate Conception 1945",
+      "per_polygon": "Feast of the Imaculate Conception 1945",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.83
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Requested by Rt. Rev. E'd. F. J. Casey - - his Brother",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Requested by Rt. Rev. E'd. F. J. Casey - - his Brother",
+      "per_polygon": "Requested by Rt. Rev. E'd. F. J. Casey - - his Brother",
+      "min_conf": 0.96
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a handwritten message added to a Seraphic Mass Association Certificate by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of a handwritten message added to a Seraphic Mass Association Certificate by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of a handwritten message added to a Seraphic Mass Association Certificate by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.86
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1945, December 8",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1945, December 8",
+      "per_polygon": "1945, December 8",
+      "min_conf": 0.993
+    }
+  ]
+}

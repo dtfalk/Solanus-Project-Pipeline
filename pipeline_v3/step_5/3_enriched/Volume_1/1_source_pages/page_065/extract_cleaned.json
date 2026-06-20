@@ -1,0 +1,74 @@
+{
+  "page": "Volume_1/1_source_pages/page_065",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "INJUSTICES CONDEMNED ETC. A Kingdom (is transferred) is translated from one people to another, because of injustices and wrongs and injuries, and divers decits.\" (Eccl. 10-8) Hear ye O house of David, thus sayeth the Lord. Judge ye judgment in the morning and deliver him that is oppressed by violence out of the hand of the oppressor: lest my indignation go forth like a fire, and be kindled, and there be none to quench it because of the evil of your ways.\" Jer. 21 12. He that justifieth the wicked, and he that condemeth the just, both are abominable before God.\" Pv. XVII 15. \"Thus saith the Lord: Let not the wise man glory in his wisdom, and let not the strong man glory in his strength; and let not the rich man glory in his riches: But let him that glorieth glory in this: that he understandeth and knoweth me, for I am the Lord that exerciseth mercy and judgment and justice in the earth.\"",
+      "merged_text": "INJUSTICES CONDEMNED ETC. A Kingdom (is transferred) is translated from one people to another, because of injustices and wrongs and injuries, and divers decits.\" (Eccl. 10-8) Hear ye 0 house of David, thus sayeth the Lord. Judge ye judgment in the morning and deliver him that is oppressed by violence out of the hand of the oppressor: lest my indignation go forth like a fire, and be kindled, and there be none to quench it because of the evil of your ways.\" Jer. 21 12. He that justifieth the wicked, and he that condemeth the just, both are abominable before God.\" Pv. XVII 15. \"Thus saith the Lord: Let not the wise man glory in his wisdom, and let not the strong man glory in his strength; and let not the rich man glory in his riches: But let him that glorieth glory in this: that he understandeth and knoweth me, for I am the Lord that exerciseth mercy and judgment and justice in the earth.\"",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "HOLY EUCHARIST I am the bread of life. Your fathers did eat manna in the desert and are dead. 48 49 50 This is the bread which cometh down from heaven; that if any man eat of it he may not die. 51 I am the LIVING bread which came down from heaven. 52 If any man eat of this bread he shall live forever; and the bread that I will give is my flesh for the life of the world. John VI. 53 The Jews therefore strove among themselves, saying: how can this man give us his flesh to eat? 54 Then Jesus said to them: Amen, amen I say unto you; Except you eat the flesh of the Son of man, and drink his blood, you shall not have life in you. 55 Ee that eateth my flesh and drinketh my blood, hath ever- lasting life; and I will raise him up on the last day. 56 For my flesh is meat indeed and my blood is drink indeed.",
+      "merged_text": "HOLY EUCHARIST I am the bread of life. Your fathers did eat manna in the desert and are dead. 48 49 50 This is the bread which cometh down from heaven; that if any man eat of it he may not die. 51 I am the LIVING bread which came down from heaven. 52 If any man eat of this bread he shall live forever; and the bread that I will give is my flesh for the life of the world. John VI. 53 The Jews therefore strove among themselves, saying: how can this man give us his flesh to eat? 54 Then Jesus said to them: Amen, amen I say unto you; Except you eat the flesh of the Son of man, and drink his blood, you shall not have life in you. 55 Ee that eateth my flesh and drinketh my blood, hath ever- lasting life; and I will raise him up on the last day. 56 For my flesh is meat indeed and my blood is drink indeed.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1918 -",
+      "merged_text": "c. 1918 -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "Blank",
+      "merged_text": "Blank",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK No. 3.",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK No. 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 17.",
+      "merged_text": "Pg. 17.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": ". 18.",
+      "merged_text": ". 18.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 19.",
+      "merged_text": "Pg. 19.",
+      "edits": []
+    }
+  ]
+}

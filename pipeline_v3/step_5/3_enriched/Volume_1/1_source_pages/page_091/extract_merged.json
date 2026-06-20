@@ -1,0 +1,87 @@
+{
+  "page": "Volume_1/1_source_pages/page_091",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 7,
+  "n_agree": 5,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "With love and with Christmas blessings to all Comes the Infant once more to free us from sorrow Whose love and Whose power and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose love and Whose power and Whose wonders proclaim Him the Son of the Virgin as promised of yore. O, may He estrange us from sin with its shame! And reign in our hearts as His crib evermore!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "With love and with Christmas blessings to all Comes the Infant once more to free us from sorrow Whose love and Whose power and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose love and Whose power and Whose wonders proclaim Him the Son of the Virgin as promised of yore. O, may He estrange us from sin with its shame! And reign in our hearts as His crib evermore!",
+      "per_polygon": "With love and with Christmas blessings to all Comes the Infant once more to free us from sorrow Whose love and Whose power and Whose gentleness call To each heart and each soul for a manger tomorrow. Whose love and Whose power and Whose wonders proclaim Him the Son of the Virgin as promised of yore. O, may He estrange us from sin with its shame! And reign in our hearts as His crib evermore!",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "B. Francis Solanus Casey, O.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "B. Francis Solanus Casey, O.M. Cap.",
+      "per_polygon": "B. Francis Solanus Casey, O.M. Cap.",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "(Only in Eternity will it be known what each communion received or missed will have meant to our souls.)",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(Only in Eternity will it be known what each communion received or missed will have meant to our souls. )",
+      "per_polygon": "(Only in Eternity will it be known what each communion received or missed will have meant to our souls.)",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1930",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1930",
+      "per_polygon": "c. 1930",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "ALWAYS CHRISTMAS EVE - HOLY COMMUNION DAILY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ALWAYS CHRISTMAS EVE - HOLY COMMUNION DAILY",
+      "per_polygon": "ALWAYS CHRISTMAS EVE - HOLY COMMUNION DAILY",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.other.0",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "1 1 1",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "1 1 1",
+      "min_conf": 0.179
+    }
+  ]
+}

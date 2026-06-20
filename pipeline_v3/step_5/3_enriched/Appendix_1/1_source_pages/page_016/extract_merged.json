@@ -1,0 +1,109 @@
+{
+  "page": "Appendix_1/1_source_pages/page_016",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 8,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours. I hope you are all well -\"Granma\" Granpa\" and all. I started half a dozen times since January Ist to write a let- ter worth while ..... 19 letters broke my record To-day - with a few bunches untouched since last week. . I was for a week's retreat down with Fr. M.E. in Huntington early in Oct. He is well and was trans- ferred to 226 E. 113th St. , N.Y. City. leaving here 15th. Mary Casey was here last evening is well. Frances Malloy's are all well. Ed. Sampson and Noonans are all well.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you and yours. I hope you are all well -\"Granma\" Granpa\" and all. I started half a dozen times since January Ist to write a let- ter worth while. .... 19 letters broke my record To-day - with a few bunches untouched since last week ...... I was for a week's retreat down with Fr. M.E. in Huntington early in Oct. He is well and was trans- ferred to 226 E. 113th St. , N.Y. City. leaving here 15th. Mary Casey was here last evening is well. Frances Malloy's are all well. Ed. Sampson and Noonans are all well.",
+      "per_polygon": "God bless you and yours. I hope you are all well -\"Granma\" Granpa\" and all. I started half a dozen times since January Ist to write a let- ter worth while ..... 19 letters broke my record To-day - with a few bunches untouched since last week. . I was for a week's retreat down with Fr. M.E. in Huntington early in Oct. He is well and was trans- ferred to 226 E. 113th St. , N.Y. City. leaving here 15th. Mary Casey was here last evening is well. Frances Malloy's are all well. Ed. Sampson and Noonans are all well.",
+      "min_conf": 0.625
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Love and God's blessing to all.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Love and God's blessing to all.",
+      "per_polygon": "Love and God's blessing to all.",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Bonaventure Monastery 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Bonaventure Monastery 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "per_polygon": "St. Bonaventure Monastery 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "min_conf": 0.962
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Margaret Casey LeDoux",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Margaret Casey LeDoux",
+      "per_polygon": "Mrs. Margaret Casey LeDoux",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "St. Mary's Ave. S. (an) Leandro, Calif.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Mary's Ave. S. (an) Leandro, Calif.",
+      "per_polygon": "St. Mary's Ave. S. (an) Leandro, Calif.",
+      "min_conf": 0.905
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "DEC. 22, 1930",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "DEC. 22, 1930",
+      "per_polygon": "DEC. 22, 1930",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My Dear Sister Margaret :-",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "My Dear Sister Margaret :-",
+      "per_polygon": "My Dear Sister Margaret :-",
+      "min_conf": 0.885
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.M.Cap.",
+      "min_conf": 0.885
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Praised Be JesusChrist",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised Be JesusChrist",
+      "per_polygon": "Praised Be JesusChrist",
+      "min_conf": 0.989
+    }
+  ]
+}

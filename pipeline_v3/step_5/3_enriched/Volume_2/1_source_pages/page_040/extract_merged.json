@@ -1,0 +1,87 @@
+{
+  "page": "Volume_2/1_source_pages/page_040",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 7,
+  "n_agree": 6,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "In the mean time do not forget to say little prayer now and then that I make a little faster progress in conversion the coming fifty years than during the past. Ofcourse the next will probably shorter than the past twenty-five.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "In the mean time do not forget to say little prayer now and then that I make a little faster progress in conversion the coming fifty years than during the past. Ofcourse the next will probably shorter than the past twenty-five.",
+      "per_polygon": "In the mean time do not forget to say little prayer now and then that I make a little faster progress in conversion the coming fifty years than during the past. Ofcourse the next will probably shorter than the past twenty-five.",
+      "min_conf": 0.958
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised by Jesus, Mary and Joseph.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised by Jesus, Mary and Joseph.",
+      "per_polygon": "Praised by Jesus, Mary and Joseph.",
+      "min_conf": 0.961
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Sol.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Sol.",
+      "per_polygon": "Fr. Sol.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, January 10th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, January 10th",
+      "per_polygon": "1947, January 10th",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(a P.S. to the previous page. )",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(a P.S. to the previous page.)",
+      "per_polygon": "(a P.S. to the previous page. )",
+      "min_conf": 0.945
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mr. and Mrs. Joseph and Winifred O'Donnell",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. and Mrs. Joseph and Winifred O'Donnell",
+      "per_polygon": "Mr. and Mrs. Joseph and Winifred O'Donnell",
+      "min_conf": 0.645
+    }
+  ]
+}

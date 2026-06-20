@@ -1,0 +1,76 @@
+{
+  "page": "Volume_1/1_source_pages/page_138",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 5,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I am herewith enclosing a letter of Fr. Edward's - rather a copy of Msgrs' that will speak for itself. I wish to stress the verse I have underlined: \"God condescends to use our powers, if we don't spoil His plans by ours.\" Because He is always planing wonders for the patient and the humble. Hence His own blessed words: \" .. Unless ye be converted and become as little children ... \" Now I'll have to say Good Night. I had hoped to reach you with this before Sunday but I rather fear I am too late for that now.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I am herewith enclosing a letter of Fr. Edward's - rather a copy of Msgrs' that will speak for itself. I wish to stress the verse I have underlined: \"God condescends to use our powers, if we don't spoil His plans by ours.\" Because He is always planing wonders for the patient and the humble. Hence His own blessed words: \". . Unless ye be converted and become as little children ... \" Now I'll have to say Good Night. I had hoped to reach you with this before Sunday but I rather fear I am too late for that now.",
+      "per_polygon": "I am herewith enclosing a letter of Fr. Edward's - rather a copy of Msgrs' that will speak for itself. I wish to stress the verse I have underlined: \"God condescends to use our powers, if we don't spoil His plans by ours.\" Because He is always planing wonders for the patient and the humble. Hence His own blessed words: \" .. Unless ye be converted and become as little children ... \" Now I'll have to say Good Night. I had hoped to reach you with this before Sunday but I rather fear I am too late for that now.",
+      "min_conf": 0.86
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless you all again.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you all again.",
+      "per_polygon": "God bless you all again.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.701
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, February 28",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, February 28",
+      "per_polygon": "1946, February 28",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 4",
+      "per_polygon": "Page 4",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mrs. E'd Helena Wilhite",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. E'd Helena Wilhite",
+      "per_polygon": "Mrs. E'd Helena Wilhite",
+      "min_conf": 0.675
+    }
+  ]
+}

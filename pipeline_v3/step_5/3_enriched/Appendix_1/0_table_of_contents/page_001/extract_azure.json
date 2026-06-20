@@ -1,0 +1,53 @@
+{
+  "page": "Appendix_1/0_table_of_contents/page_001",
+  "engine": "azure-prebuilt-read",
+  "n_regions": 1,
+  "agree": 1,
+  "low_conf_words": 0,
+  "low_conf_regions": 0,
+  "azure_pages": 2,
+  "cost_usd": 0.003,
+  "regions": [
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "full_page": "APPENDIX VOLUME I",
+      "per_polygon": "APPENDIX VOLUME I",
+      "agree": true,
+      "min_conf": 0.992,
+      "words": [
+        {
+          "t": "APPENDIX",
+          "c": 0.995,
+          "box": [
+            2297.0,
+            2313.0,
+            2736.0,
+            2396.0
+          ]
+        },
+        {
+          "t": "VOLUME",
+          "c": 0.992,
+          "box": [
+            2301.0,
+            2626.0,
+            2621.0,
+            2714.0
+          ]
+        },
+        {
+          "t": "I",
+          "c": 0.992,
+          "box": [
+            2677.0,
+            2626.0,
+            2731.0,
+            2714.0
+          ]
+        }
+      ]
+    }
+  ]
+}

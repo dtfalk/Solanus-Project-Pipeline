@@ -1,0 +1,76 @@
+{
+  "page": "Volume_1/1_source_pages/page_215",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 3,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "(which was probably common to four of us) came out in positive form. Father Edward, seeing the Trimbelle for the first time, and the exquisite landscape there for untold ages praising the Creator ahead of us, exclaimed simply and unqualifiedly: \"This is beautiful!\" Soon we were in what I recognized as Alihue, still neat and prim, but, like everything around, it seemed smaller than it was sixty years ago. You remember, of course, the frequent \"revivals\" in that little village when we were possibly their nearest Catholic neigh- bors, -- methodists, lutherans, etc., -- mostly honest, good Christians, as far as they knew. Perhaps a dozen children played on the green near a modest building apart as if waiting for some kind of sunday-school. They stopped and gazed our way, wondering, no doubt, at the two grey- beards in such never-before-seen garb. I was still leading the Rosary, or I think I would have greeted them with a blessing of some kind. As it was, I just wished it on them: \"God bless you little Alihueians ! -- you and your dear elders; because in the face of the fearfully threatening avalanche of atheism, inundating the world these days, you are fostering at least something of the only practical remedy: RELIGION",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(which was probably common to four of us) came out in positive form. Father Edward, seeing the Trimbelle for the first time, and the exquisite landscape there for untold ages praising the Creator ahead of us, exclaimed simply and unqualifiedly: \"This is beautiful!\" Soon we were in what I recognized as Alihue, still neat and prim, but, like everything around, it seemed smaller than it was sixty years ago. You remember, of course, the frequent \"revivals\" in that little village when we were possibly their nearest Catholic neigh- bors, -- methodists, lutherans, etc., -- mostly honest, good Christians, as far as they knew. Perhaps a dozen children played on the green near a modest building apart as if waiting for some kind of sunday-school. They stopped and gazed our way, wondering, no doubt, at the two grey- beards in such never-before-seen garb. I was still leading the Rosary, or I think I would have greeted them with a blessing of some kind. As it was, I just wished it on them: \"God bless you little Alihueians! -- you and your dear elders; because in the face of the fearfully threatening avalanche of atheism, inundating the world these days, you are fostering at least something of the only practical remedy: RELIGION",
+      "per_polygon": "(which was probably common to four of us) came out in positive form. Father Edward, seeing the Trimbelle for the first time, and the exquisite landscape there for untold ages praising the Creator ahead of us, exclaimed simply and unqualifiedly: \"This is beautiful!\" Soon we were in what I recognized as Alihue, still neat and prim, but, like everything around, it seemed smaller than it was sixty years ago. You remember, of course, the frequent \"revivals\" in that little village when we were possibly their nearest Catholic neigh- bors, -- methodists, lutherans, etc., -- mostly honest, good Christians, as far as they knew. Perhaps a dozen children played on the green near a modest building apart as if waiting for some kind of sunday-school. They stopped and gazed our way, wondering, no doubt, at the two grey- beards in such never-before-seen garb. I was still leading the Rosary, or I think I would have greeted them with a blessing of some kind. As it was, I just wished it on them: \"God bless you little Alihueians ! -- you and your dear elders; because in the face of the fearfully threatening avalanche of atheism, inundating the world these days, you are fostering at least something of the only practical remedy: RELIGION",
+      "min_conf": 0.672
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Thanks be to God . . and God bless you all",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Thanks be to God and God bless you all .",
+      "per_polygon": "Thanks be to God . . and God bless you all",
+      "min_conf": 0.853
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus (Casey) OFM. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus (Casey) OFM. Cap.",
+      "per_polygon": "Fr. Solanus (Casey) OFM. Cap.",
+      "min_conf": 0.979
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typewritten original by the Servant of God, Father Solarus Casey, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the typewritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typewritten original by the Servant of God, Father Solarus Casey, O.F.M. Cap.",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1938, July 18",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1938, July 18",
+      "per_polygon": "1938, July 18",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "14.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "14.",
+      "per_polygon": "14.",
+      "min_conf": 0.992
+    }
+  ]
+}

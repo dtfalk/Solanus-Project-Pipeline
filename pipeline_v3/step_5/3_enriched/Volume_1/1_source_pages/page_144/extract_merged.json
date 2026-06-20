@@ -1,0 +1,120 @@
+{
+  "page": "Volume_1/1_source_pages/page_144",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 9,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Thank you for your letter and the alms enclosed. May God reward you for your charity! Be assured of our prayers for your intentions, especially during Holy Mass each morning.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Thank you for your letter and the alms enclosed. May God reward you for your charity! Be assured of our prayers for your intentions, especially during Holy Mass each morning.",
+      "per_polygon": "Thank you for your letter and the alms enclosed. May God reward you for your charity! Be assured of our prayers for your intentions, especially during Holy Mass each morning.",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Remembering you in my prayers and all your intentions.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Remembering you in my prayers and all your intentions.",
+      "per_polygon": "Remembering you in my prayers and all your intentions.",
+      "min_conf": 0.955
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX FRIARY",
+      "per_polygon": "ST. FELIX FRIARY",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Huntington, Indiana",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Huntington, Indiana",
+      "per_polygon": "Huntington, Indiana",
+      "min_conf": 0.982
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Dec. 16, 1953",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dec. 16, 1953",
+      "per_polygon": "Dec. 16, 1953",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Helena, God bless you & Merry Christmas!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Helena, God bless you & Merry Christmas!",
+      "per_polygon": "Dear Helena, God bless you & Merry Christmas!",
+      "min_conf": 0.579
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "May the Lord give you His peace! Gratefully yours,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "May the Lord give you His peace! Gratefully yours,",
+      "per_polygon": "May the Lord give you His peace! Gratefully yours,",
+      "min_conf": 0.961
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M. Cap.",
+      "min_conf": 0.804
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed and printed message by the Servant of God Father Solanus Casey O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed and printed message by the Servant of God Father Solanus Casey O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed and printed message by the Servant of God Father Solanus Casey O.F.M. Cap.",
+      "min_conf": 0.805
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1953, December 16",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1953, December 16",
+      "per_polygon": "1953, December 16",
+      "min_conf": 0.993
+    }
+  ]
+}

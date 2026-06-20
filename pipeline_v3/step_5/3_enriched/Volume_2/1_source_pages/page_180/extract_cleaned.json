@@ -1,0 +1,53 @@
+{
+  "page": "Volume_2/1_source_pages/page_180",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God made me to know Him. O! What a bless'd aim! To love Him and serve Him sure rests in the same. It's Heaven begun for the grateful on eearth. -- To treasure arigh ! ? ! Highest Heaven its worth. God Himself is the reward even here below ( though only as a shadow, comparatively). But dear Doctor Koch: what I wanted to propose for you is something like this. You have shown quite a little interest in the one great science necessary for real contentment in this world and for supernatural hope in the life awaiting us beyond the",
+      "merged_text": "God made me to know Him. 0! What a bless'd aim! To love Him and serve Him sure rests in the same. It's Heaven begun for the grateful on eearth. -- To treasure arigh ! ? ! Highest Heaven its worth. God Himself is the reward even here below ( though only as a shadow, comparatively). But dear Doctor Koch: what I wanted to propose for you is something like this. You have shown quite a little interest in the one great science necessary for real contentment in this world and for supernatural hope in the life awaiting us beyond the",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of thetyped original by the Servant of God, Father Solanus Casoy, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of thetyped original by the Servant of God, Father Solanus Casoy, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1946, Karch 12.",
+      "merged_text": "1946, Karch 12.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "/Unfinished Draft",
+      "merged_text": "/Unfinished Draft",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "MY GREAT GOAL - THE SUPREME PURPOSE OF MY CREATION AND EXISTENCE. TO KNOW MY GOD.",
+      "merged_text": "MY GREAT GOAL - THE SUPREME PURPOSE OF MY CREATION AND EXISTENCE. TO KNOW MY GOD.",
+      "edits": []
+    }
+  ]
+}

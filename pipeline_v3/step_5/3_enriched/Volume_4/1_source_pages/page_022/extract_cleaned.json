@@ -1,0 +1,164 @@
+{
+  "page": "Volume_4/1_source_pages/page_022",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Patrick H. Kenney - 40 - heart condition threatening - has been care- less regarding practice of religion .... Prayers asked for grace of Happy Death",
+      "merged_text": "Patrick H. Kenney - 40 - heart condition threatening - has been care- less regarding practice of religion .... Prayers asked for grace of Happy Death",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Anthony Sender - 35 - has been good provider for two little children Recently has been going to \"beer-gardens\" etc, and neglecting his duties every way",
+      "merged_text": "Anthony Sender - 35 - has been good provider for two little children Recently has been going to \"beer-gardens\" etc, and neglecting his duties every way",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Waller - 49 - heart-trouble in St. Joseph Mercy - Wife anxious.",
+      "merged_text": "Waller - 49 - heart-trouble in St. Joseph Mercy - Wife anxious.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Little Flower - Hurd Flerlin Restorium ..... 1260 E. Br. Blvd.",
+      "merged_text": "Little Flower - Hurd Flerlin Restorium ..... 1260 E. Br. Blvd.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Harold Eland - 9 - has no conscience - steals .... lies .... parents desperate",
+      "merged_text": "Harold Eland - 9 - has no conscience - steals .... lies .... parents desperate",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Jacob Fisher of Rose City Michig. Enrolled March 21 and again three days later as against hopeless cancer. Operation con- sisted in doctors opening up stomach etc and in sheer hopelessness of being able to do anything sewed her up .she is recovering able to be about",
+      "merged_text": "Mrs. Jacob Fisher of Rose City Michig. Enrolled March 21 and again three days later as against hopeless cancer. Operation con- sisted in doctors opening up stomach etc and in sheer hopelessness of being able to do anything sewed her up .she is recovering able to be about",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Hilda Rolasid - 30 - (?) lutheran",
+      "merged_text": "Hilda Rolasid - 30 - (?) lutheran",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Annetta Shankin - 31 - fearful case of arthritis; for 7 yrs. un- able to bend legs. Much of the time in great pain. Has two little girls 8 & 11 and rather discouraged husband ..... wants divorce even threatens ..... Enrolled To-day - promising perp.",
+      "merged_text": "Mrs. Annetta Shankin - 31 - fearful case of arthritis; for 7 yrs. un- able to bend legs. Much of the time in great pain. Has two little girls 8 & 11 and rather discouraged husband ..... wants divorce even threatens ..... Enrolled To-day - promising perp.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Eleanore Radtke - 50 - fears she is possessed. ..",
+      "merged_text": "Mrs. Eleanore Radtke - 50 - fears she is possessed. ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Peter Manici - 28 - Epiletic - near four years ..... 6 fits daly",
+      "merged_text": "Peter Manici - 28 - Epiletic - near four years ..... 6 fits daly",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Eliz. Scrage - Toledo, O. - about 48 - broke arm (falling down cellar) in 8 places - neighbor - Mrs. Elicker - Enrolled her March 19 - three weeks ago. . Drs. surprised no infection set in - arm com- ing O.K.",
+      "merged_text": "Mrs. Eliz. Scrage - Toledo, 0. - about 48 - broke arm (falling down cellar) in 8 places - neighbor - Mrs. Elicker - Enrolled her March 19 - three weeks ago. . Drs. surprised no infection set in - arm com- ing O.K.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Josephine Cadden - 48 - threatening tuomer enrolled Feb. 1st Enrolled promissing more frequent Communion - in fact going dayly since ..... No operation necessary - Enrolled To-day as perpetual Member. Deo Gr.",
+      "merged_text": "Mrs. Josephine Cadden - 48 - threatening tuomer enrolled Feb. Ist Enrolled promissing more frequent Communion - in fact going dayly since ..... No operation necessary - Enrolled To-day as perpetual Member. Deo Gr.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Apr. 5",
+      "merged_text": "Apr. 5",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "April 6",
+      "merged_text": "April 6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "Apr. 8",
+      "merged_text": "Apr. 8",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "9",
+      "merged_text": "9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "11",
+      "merged_text": "11",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 39 Cont.",
+      "merged_text": "Page 39 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 40",
+      "merged_text": "Page 40",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 4 ]",
+      "merged_text": "Page 4 ]",
+      "edits": []
+    }
+  ]
+}

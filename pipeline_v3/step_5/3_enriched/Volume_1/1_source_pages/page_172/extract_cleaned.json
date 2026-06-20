@@ -1,0 +1,53 @@
+{
+  "page": "Volume_1/1_source_pages/page_172",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you and yours. But I learn from a clipping that Mrs. Doonan sent me recently that I may address you hereafter as Rt. Rev. Msgr. In that case and since I've been informed of the dignity otherwise I want to say God bless you again; and in as much as it probably is for the glory of His holy Name and that of our Blessed Mother Mary, Let me say also, Congratulations! About this, however, more another time. Well a few days later a telegram from the Monastery on West 31st St. N. Y. City to the efect that Fr. wanted to get into St. Elizabeth Hospital ... what to do, so far he had failed .... Father Provincial had gone to Calvary Wis., in the mean time and on reception of the telegram by special delivery, wired the Fr. Guard- ian in 31st St. to do all in his power to help Father to get into St. Elizabeth's or some other like it. Poor Fr. M.J., however, could not be located. ... Heart-sick, as I imagine he must have been, at disa- pointment after disapointment, in the East, he had turned his steps again westward, as a second communication from Baltimore indicated hardly a week after the former. In Baltimore he had gone to St. Agnes Hospital for treatment on his carbuncle and had afterwards requested the authorities to get him to the B. & O. Depot for Chicago. Instead, however, they had sent him out to said retreat, conscientiously no doubt - providentially I trust - convinced that he was in no fit condition to be traveling a- lone. Indeed the more we have learned about that institution and the more I've considered his condition both at the time and since, the more too am I convinced that he could hardly landed in a better or a more providential place. At all events we at the Monastery here looked opon his going thither as an answer to prayer and as an evi- dence that he was in God's guidance. Only later on it dawned on my mind that my simple proposition - as said above - to pray, rather than simply read, the \"Coronation\". But where the connection between reading a book and the obtain- ing of such a favor! Why urge such reading? Why suggest it as a last remedy when everything else seems futle? This might seem quite a question to ask. And as a rule questions are more easily asked than answered.",
+      "merged_text": "God bless you and yours. But I learn from a clipping that Mrs. Doonan sent me recently that I may address you hereafter as Rt. Rev. Msgr. In that case and since I've been informed of the dignity otherwise I want to say God bless you again; and in as much as it probably is for the glory of His holy Name and that of our Blessed Mother Mary, Let me say also, Congratulations! About this, however, more another time. Well a few days later a telegram from the Monastery on West 31st St. N. Y. City to the efect that Fr. wanted to get into St. Elizabeth Hospital ... what to do, so far he had failed .... Father Provincial had gone to Calvary Wis., in the mean time and on reception of the telegram by special delivery, wired the Fr. Guard- ian in 31st St. to do all in his power to help Father to get into St. Elizabeth's or some other like it. Poor Fr. M.J., however, could not be located. ... Heart-sick, as I imagine he must have been, at disa- pointment after disapointment, in the East, he had turned his steps again westward, as a second communication from Baltimore indicated hardly a week after the former. In Baltimore he had gone to St. Agnes Hospital for treatment on his carbuncle and had afterwards requested the authorities to get him to the B. & 0. Depot for Chicago. Instead, however, they had sent him out to said retreat, conscientiously no doubt - providentially I trust - convinced that he was in no fit condition to be traveling a- lone. Indeed the more we have learned about that institution and the more I've considered his condition both at the time and since, the more too am I convinced that he could hardly landed in a better or a more providential place. At all events we at the Monastery here looked opon his going thither as an answer to prayer and as an evi- dence that he was in God's guidance. Only later on it dawned on my mind that my simple proposition - as said above - to pray, rather than simply read, the \"Coronation\". But where the connection between reading a book and the obtain- ing of such a favor! Why urge such reading? Why suggest it as a last remedy when everything else seems futle? This might seem quite a question to ask. And as a rule questions are more easily asked than answered.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "December 12th.",
+      "merged_text": "December 12th.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Dear Father Edward: -",
+      "merged_text": "Dear Father Edward: -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of carbon copy of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of carbon copy of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1938, December 12th",
+      "merged_text": "1938, December 12th",
+      "edits": []
+    }
+  ]
+}

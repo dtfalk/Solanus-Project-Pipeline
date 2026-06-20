@@ -1,0 +1,65 @@
+{
+  "page": "Volume_2/1_source_pages/page_308",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I almost forgot to tell you that having left Detroit the convert darkies returned after plus three years - three of them instead of two. The good God had blessed them with a decidedly promising young- ster, the picture of his appreciative Daddy. .... I hope that may offer you an example from which to draw a practical lesson. - one case in thousands. Thanks be to God.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I almost forgot to tell you that having left Detroit the convert darkies returned after plus three years - three of them instead of two. The good God had blessed them with a decidedly promising young- ster, the picture of his appreciative Daddy. ..... I hope that may offer you an example from which to draw a practical lesson. - one case in thousands. Thanks be to God.",
+      "per_polygon": "I almost forgot to tell you that having left Detroit the convert darkies returned after plus three years - three of them instead of two. The good God had blessed them with a decidedly promising young- ster, the picture of his appreciative Daddy. .... I hope that may offer you an example from which to draw a practical lesson. - one case in thousands. Thanks be to God.",
+      "min_conf": 0.833
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1950, March 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1950, March 4",
+      "per_polygon": "1950, March 4",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(not signed)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(not signed)",
+      "per_polygon": "(not signed)",
+      "min_conf": 0.789
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.848
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "- - irs. 3.L. Eichhorn, 3 ៛ i .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Ifrs. 3.L. Eichhorn, R.E.",
+      "per_polygon": "- - irs. 3.L. Eichhorn, 3 ៛ i .",
+      "min_conf": 0.11
+    }
+  ]
+}

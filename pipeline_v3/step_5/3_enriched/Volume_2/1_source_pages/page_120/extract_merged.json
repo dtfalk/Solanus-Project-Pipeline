@@ -1,0 +1,120 @@
+{
+  "page": "Volume_2/1_source_pages/page_120",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 8,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for your kind remembrances and prayers. Thanks be to God, though I've had several colds etc. these past months. My health has been good. Today however a real \"cold\" seems trying to get hold on me .... Deo Gr. Of course I was - am - pleased to know of your dear Father's success in selling that property, so long on the market, etc. We pray his health - as well as M's improve speedily. Whatever comes, however, let us try at least to be re- signed . As to my reception of your letters, please do not worry. For several years I have not been able to even read the majority of my letters to say nothing of answering them. I hardly know what I would have to do if I had no Fr. Jerome or some one to substitute him. In fact I have been thinking for some time of leaving the answering of all letters to some one else - provided by the Rev. Fr. Guardian. Please say a prayer for my guidance in this regard too. I surely do sympathize with so many poor people in the world, - struggle, struggle, Str. Well, that too can be offered up as a sort of martyrdom. So let us keep courage .... Keep faith with God at all events and save our souls. . . .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Many thanks for your kind remembrances and prayers. Thanks be to God, though I've had several colds etc. these past months. My health has been good. Today however a real \"cold\" seems trying to get hold on me .... Deo Gr. Of course I was - am - pleased to know of your dear Father's success in selling that property, so long on the market, etc. We pray his health - as well as M's improve speedily. Whatever comes, however, let us try at least to be re- signed. As to my reception of your letters, please do not worry. For several years I have not been able to even read the majority of my letters to say nothing of answering them. I hardly know what I would have to do if I had no Fr. Jerome or some one to substitute him. In fact I have been thinking for some time of leaving the answering of all letters to some one else - provided by the Rev. Fr. Guardian. Please say a prayer for my guidance in this regard too. I surely do sympathize with so many poor people in the world, - struggle, struggle, Str. Well, that too can be offered up as a sort of martyrdom. So let us keep courage .... Keep faith with God at all events and save our souls ....",
+      "per_polygon": "Many thanks for your kind remembrances and prayers. Thanks be to God, though I've had several colds etc. these past months. My health has been good. Today however a real \"cold\" seems trying to get hold on me .... Deo Gr. Of course I was - am - pleased to know of your dear Father's success in selling that property, so long on the market, etc. We pray his health - as well as M's improve speedily. Whatever comes, however, let us try at least to be re- signed . As to my reception of your letters, please do not worry. For several years I have not been able to even read the majority of my letters to say nothing of answering them. I hardly know what I would have to do if I had no Fr. Jerome or some one to substitute him. In fact I have been thinking for some time of leaving the answering of all letters to some one else - provided by the Rev. Fr. Guardian. Please say a prayer for my guidance in this regard too. I surely do sympathize with so many poor people in the world, - struggle, struggle, Str. Well, that too can be offered up as a sort of martyrdom. So let us keep courage .... Keep faith with God at all events and save our souls. . . .",
+      "min_conf": 0.328
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Felix Friary",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Felix Friary",
+      "per_polygon": "St. Felix Friary",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Route 8 Huntington, Indiana",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Route 8 Huntington, Indiana",
+      "per_polygon": "Route 8 Huntington, Indiana",
+      "min_conf": 0.973
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Ash-Wednesday Febr. 18th, 153",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Ash-Wednesday Febr. 18th, '53",
+      "per_polygon": "Ash-Wednesday Febr. 18th, 153",
+      "min_conf": 0.941
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God! In all His designs.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God! In all His designs.",
+      "per_polygon": "Blessed be God! In all His designs.",
+      "min_conf": 0.983
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Miss Muriel Krausman these strenuus days: - you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Miss Muriel Krausman these strenuus days: - you and yours.",
+      "per_polygon": "God bless you Miss Muriel Krausman these strenuus days: - you and yours.",
+      "min_conf": 0.975
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Yours in Christ,",
+      "per_polygon": "Yours in Christ,",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.677
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is afaithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is afaithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "per_polygon": "The following is afaithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "min_conf": 0.695
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1953, February 18",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1953, February 18",
+      "per_polygon": "1953, February 18",
+      "min_conf": 0.989
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "page": "Volume_2/1_source_pages/page_354",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you Ven. Sister Mary Dianne. God bless you and yours these unsettled days - as our beautiful diosesian Prayer for Peace notes - days of stress and trial. Indeed they are days at once of threatening forebodings and - not only days but decades too abounding in outstanding manifestions of God's merciful Goodness and Power and infinite Wisdom and",
+      "merged_text": "God bless you Ven. Sister Mary Dianne. God bless you and yours these unsettled days - as our beautiful diosesian Prayer for Peace notes - days of stress and trial. Indeed they are days at once of threatening forebodings and - not only days but decades too abounding in outstanding manifestions of God's merciful Goodness and Power and infinite Wisdom and",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Ven. Sister Mary Dianne.",
+      "merged_text": "Ven. Sister Mary Dianne.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "13200 Cak Fark Blive Oak Park, Mich.",
+      "merged_text": "13200 Cak Fark Blive Oak Park, Mich.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of a typed draft by the Servant of God, Father Solanus Casey, O.7.M. Cap.",
+      "merged_text": "The following is a faithful transcription of a typed draft by the Servant of God, Father Solanus Casey, 0.7.M. Cap.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1954",
+      "merged_text": "c. 1954",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "(Unfinished)",
+      "merged_text": "(Unfinished)",
+      "edits": []
+    }
+  ]
+}

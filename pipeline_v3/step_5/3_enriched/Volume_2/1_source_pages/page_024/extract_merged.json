@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_024",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 6,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "My Dear Friends: God bless you and yours. Many thanks indeed for your charitable favor noted yesterday. I came just in nice time - especially the smaller cheque - to enroll quite a number of my friends in the Ser Mass Assoc'n for a Christmas gifte. - a double, tripple charity. Thinking you were down in Texas for the Winter I addressed a letter to you only last week - to Palner Hotel Mc Allen Texas - the address as - indicated on the baskets of fine fruit that came to us in your name - and for which I want to thank you again - for the twofine baskets of delicious fruit. You will very likely receive the letter forwarded withe relics of V.Nother fary of Jesus, of Agreda, which had inclosed.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Ny Dear Friends: God bless you and yours. Many thanks indeed for your charitable favor noted yesterday. I came just in nice time - especially the smaller cheque - to enroll quite a number of my friends in the Ser Mass Assoc'n for a Christmas gifte. - a double, tripple charity. Thinking you were down in Texas for the Winter I addressed a letter to you only last week - to Palmer Hotel Ko Allen Texas - the address as - indicated on the baskets of fine fruit that came to us in your name - and for which = want to thank you again - for the twofine baskets of delicious fruit. You will very likely receive the letter formarded withe relics of V.Nother Hary of Jesus, of Agreda, which had inclosed.",
+      "per_polygon": "My Dear Friends: God bless you and yours. Many thanks indeed for your charitable favor noted yesterday. I came just in nice time - especially the smaller cheque - to enroll quite a number of my friends in the Ser Mass Assoc'n for a Christmas gifte. - a double, tripple charity. Thinking you were down in Texas for the Winter I addressed a letter to you only last week - to Palner Hotel Mc Allen Texas - the address as - indicated on the baskets of fine fruit that came to us in your name - and for which I want to thank you again - for the twofine baskets of delicious fruit. You will very likely receive the letter forwarded withe relics of V.Nother fary of Jesus, of Agreda, which had inclosed.",
+      "min_conf": 0.113
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Michael's Church",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Michael's Church",
+      "per_polygon": "St. Michael's Church",
+      "min_conf": 0.698
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mr. and Mrs. Joseph O'Donnell",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. and Mrs. Joseph O'Donnell",
+      "per_polygon": "Mr. and Mrs. Joseph O'Donnell",
+      "min_conf": 0.636
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "1120 Lake Shore Drive Chicago, Ill.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1120 Lake Shore Drive Chicago, Ill.",
+      "per_polygon": "1120 Lake Shore Drive Chicago, Ill.",
+      "min_conf": 0.712
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "225 Jerome Street Brooklyn 7, H.Y.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "225 Jerome Street Brooklyn 7, N.Y.",
+      "per_polygon": "225 Jerome Street Brooklyn 7, H.Y.",
+      "min_conf": 0.585
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "December 17th 1945.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "December 17th 1945.",
+      "per_polygon": "December 17th 1945.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My Dear Friends:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "My Dear Friends:",
+      "min_conf": 0.446
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Again thanking you for your many favors I beg to remain Sincerely Yours in the Divine Infant Jesus.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Again thanking you for your many favors I beg to remain Sincerely Yours in the Divine Infant Jesus.",
+      "per_polygon": "Again thanking you for your many favors I beg to remain Sincerely Yours in the Divine Infant Jesus.",
+      "min_conf": 0.627
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.II. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.I. Cap.",
+      "per_polygon": "Fr. Solanus, O. F.II. Cap.",
+      "min_conf": 0.604
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Jather Solanus Casey, C.P ... Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solenus Casey, C.F.M.Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Jather Solanus Casey, C.P ... Cap.",
+      "min_conf": 0.123
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1945, December 17",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1945, December 17",
+      "per_polygon": "1945, December 17",
+      "min_conf": 0.992
+    }
+  ]
+}

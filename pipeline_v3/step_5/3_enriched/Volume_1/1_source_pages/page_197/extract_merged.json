@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_197",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 4,
+  "n_needs_review": 4,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I shall try to reach them with a letter ahead of you. . Barbara Bedolfe phoned, and Wallace himself wrote about his first confession and Holy Communion two weeks ago. Deo Gr! I believe it was on August 2nd.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I shall try to reach them with a letter ahead of you. Barbara Bedolfe phoned, and Wallace himself wrote about his first confession and Holy Communion two weeks ago. Deo Gr! I believe it was on August 2nd.",
+      "per_polygon": "I shall try to reach them with a letter ahead of you. . Barbara Bedolfe phoned, and Wallace himself wrote about his first confession and Holy Communion two weeks ago. Deo Gr! I believe it was on August 2nd.",
+      "min_conf": 0.484
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Vigil August 14t I",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Vigil August 14 -- -",
+      "per_polygon": "Vigil August 14t I",
+      "min_conf": 0.47
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Blessed be God in her glorious Assumption! Oremus Pro Invicem",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Blessed be God in her glorious Assumption! Cremus Pro Invicem",
+      "per_polygon": "Blessed be God in her glorious Assumption! Oremus Pro Invicem",
+      "min_conf": 0.634
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solamus, O.F.M. Cap. ..",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": ". Fr. Solanas, C.F.M. Cap.",
+      "per_polygon": "Fr. Solamus, O.F.M. Cap. ..",
+      "min_conf": 0.654
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Note : The above is a typewritten note by Fr. Solarus. Added in his own hand is, \"Vigil ... invicem\" pre- ceding signature. Also in his own hand added in the left margin is, \"John & Conrad Green left Schwartzwald Baden. 1882 Green Bay\".",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Note : The above is a typewritten note by Fr. Solarus. Added in his own hand is, \"Vigil ... invicem\" pre- ceding signature. Also in his own hand added in the left margin is, \"John & Conrad Green left Schwartzwald Baden. 1882 Green Bay\".",
+      "per_polygon": "Note : The above is a typewritten note by Fr. Solarus. Added in his own hand is, \"Vigil ... invicem\" pre- ceding signature. Also in his own hand added in the left margin is, \"John & Conrad Green left Schwartzwald Baden. 1882 Green Bay\".",
+      "min_conf": 0.564
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1953, August 13",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1953, August 13",
+      "per_polygon": "1953, August 13",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Brother, Father Edward.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Brother, Father Edward.",
+      "per_polygon": "Brother, Father Edward.",
+      "min_conf": 0.992
+    }
+  ]
+}

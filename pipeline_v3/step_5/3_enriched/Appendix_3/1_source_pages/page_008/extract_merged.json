@@ -1,0 +1,76 @@
+{
+  "page": "Appendix_3/1_source_pages/page_008",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 4,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Just while I think of it and space at least permits . a few verses frim the pen of the same writer: CONSOLATION (I think is the title he gives it) . \"Tis pain that purifies the human heart. Let this a gentle consolation be When bright hopes fade and dearest friends depart and love itself seem but a memory. \"The hours that fill the soul with silent grief, - that flood it with unutterabl woe - Become, whin time hath given calm relief, the fountain whence a hundred virtues flow. \"The mourner's tear hath furrowed kindly faces and left the light of love abiding there. SWeet sympathy and tender deeds are traces of pain and sorrow, soothed in silent Prayer. \"Christ wraught Redemption from despair and sin. By His dear Cross the clouds of grief \"Tis Bethlem and Calvary that win, from pain and sorrow, the seets of Heaven were riven. E. F. Casey. as a student.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Just while I think of it and space at least permits ... a few verses frim the pen of the same writer: CONSOLATION (I think is the title he gives it) . \"Tis pain that purifies the human heart. Let this a gentle consolation be When bright hopes fade and dearest friends depart and love itself seem but a memory. \"The hours that fill the soul with silent grief, - that flood it with unutterabl woe - Become, whin time hath given calm relief, the fountain whence a hundred virtues flow. \"The mourner's tear hath furrowed kindly faces and left the light of love abiding there. SWeet sympathy and tender deeds are traces of pain and sorrow, soothed in silent Prayer. \"Christ wraught Redemption from despair and sin. By His dear Cross the clouds of grief \"Tis Bethlem and Calvary that win, from pain and sorrow, the seets of Heaven were riven. E.F.Casey. as a student.",
+      "per_polygon": "Just while I think of it and space at least permits . a few verses frim the pen of the same writer: CONSOLATION (I think is the title he gives it) . \"Tis pain that purifies the human heart. Let this a gentle consolation be When bright hopes fade and dearest friends depart and love itself seem but a memory. \"The hours that fill the soul with silent grief, - that flood it with unutterabl woe - Become, whin time hath given calm relief, the fountain whence a hundred virtues flow. \"The mourner's tear hath furrowed kindly faces and left the light of love abiding there. SWeet sympathy and tender deeds are traces of pain and sorrow, soothed in silent Prayer. \"Christ wraught Redemption from despair and sin. By His dear Cross the clouds of grief \"Tis Bethlem and Calvary that win, from pain and sorrow, the seets of Heaven were riven. E. F. Casey. as a student.",
+      "min_conf": 0.844
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Hope you'll lake the lines herewith inclosed. Pray for the conversion of sinners - always including 1st yourself and then the writer.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Hope you'll lake the lines herewith inclosed. Pray for the conversion of sinners - always including 1st yourself and then the writer.",
+      "per_polygon": "Hope you'll lake the lines herewith inclosed. Pray for the conversion of sinners - always including 1st yourself and then the writer.",
+      "min_conf": 0.892
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O. F. M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus O. F. M. Cap.",
+      "min_conf": 0.833
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, March 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, March 4",
+      "per_polygon": "1946, March 4",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Sister Mary Rose Francis, S.S.J.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sister Mary Rose Francis, S.S.J.",
+      "per_polygon": "Sister Mary Rose Francis, S.S.J.",
+      "min_conf": 0.949
+    }
+  ]
+}

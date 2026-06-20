@@ -1,0 +1,95 @@
+{
+  "page": "Volume_2/1_source_pages/page_126",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I just came across your favor of Aug. 29th on the con- viction that: \"Whom the Lord loveth He Chastened\", and even while I surely sympathize with you, in your so many difficulties, I do, nevertheless congratulate you on all these experiences that the crazy world considers such mis- forrtunes. If we only try to show the dear Lord a good will and ask Him for grateful resignation to the crosses He sends or permits to come our way, we may be sure that sooner or later they will turn out to have been just so many bless- ings,in disguise. I hoped for quite a time that my \"little boy-friend Philip\" might have a vocation to some thing special. That, however is a personal problem and in many cases seems to be a very delicate question. I hope of course, that he be earnestly appreciative of the holy Faith - theoretically first of the outstanding \"Trace of the Trinity in our souls. The other two, hope and being essentially one with it - hope the soul of happiness in this world, charity, the life and crown of everlasting glory. . . . . I must close now - almost 10 p.m. So God bless you and all our dear ones and have mercy on all.",
+      "merged_text": "I just came across your favor of Aug. 29th on the con- viction that: \"Whom the Lord loveth He Chastened\", and even while I surely sympathize with you, in your so many difficulties, I do, nevertheless congratulate you on all these experiences that the crazy world considers such mis- forrtunes. If we only try to show the dear Lord a good will and ask Him for grateful resignation to the crosses He sends or permits to come our way, we may be sure that sooner or later they will turn out to have been just so many bless- ings,in disguise. I hoped for quite a time that my \"little boy-friend Philip\" might have a vocation to some thing special. That, however is a personal problem and in many cases seems to be a very delicate question. I hope of course, that he be earnestly appreciative of the holy Faith - theoretically first of the outstanding \"Trace of the Trinity in our souls. The other two, hope and being essentially one with it - hope the soul of happiness in this world, charity, the life and crown of everlasting glory. . . . . I must close now - almost 10 p.m. So God bless you and all our dear ones and have mercy on all.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "ST. FELIX FRIARY",
+      "merged_text": "ST. FELIX FRIARY",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "Route 8 HUNTINGTON, INDIANA",
+      "merged_text": "Route 8 HUNTINGTON, INDIANA",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Sept. 17, 1949 (9:55 p.m.) Stignatization of St. Francis",
+      "merged_text": "Sept. 17, 1949 (9:55 p.m.) Stignatization of St. Francis",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Blessed be God in all and each of His designs.",
+      "merged_text": "Blessed be God in all and each of His designs.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Beatrice Lamb.",
+      "merged_text": "God bless you Beatrice Lamb.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Sincerely in +O",
+      "merged_text": "Sincerely in +0",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, o.f.m. Cap.",
+      "merged_text": "Fr. Solanus, o.f.m. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwrit- ten original by the Servant of God, Father Solanus Casey, O. F.M. Cap. (From photo copy)",
+      "merged_text": "The following is a faithful transcription of the handwrit- ten original by the Servant of God, Father Solanus Casey, O. F.M. Cap. (From photo copy)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1949, September 17",
+      "merged_text": "1949, September 17",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "Original in possession of : Miss Beatrice Lamb 36087 Bartell St. Richmond, Michigan 48062",
+      "merged_text": "Original in possession of : Miss Beatrice Lamb 36087 Bartell St. Richmond, Michigan 48062",
+      "edits": []
+    }
+  ]
+}

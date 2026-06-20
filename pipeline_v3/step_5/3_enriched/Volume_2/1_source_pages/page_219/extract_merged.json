@@ -1,0 +1,76 @@
+{
+  "page": "Volume_2/1_source_pages/page_219",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 5,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "My Dear Confrater Simon: More than simpley to say \"A thousand times many thanks\" for your practical/in the elaborate preparations and actual celebration of the golden jubilee at dear Saint Bonaventure's a few weeks back (Jan.26); I want to congratulate you and your dear Tertiaries - every Juniors ofcourse as will as the Seniors-and I am inclined to say especially the members of the privileged Eucharistic Mission Band, on their beautiful, artistic, generosity. One could hardly feel other than convinced without a second thought that they must all have worked in real Franciscan harmony together in \"so masterly putting over\" such a fraternally loyal display. May our dear Lord bless all and each who helped along. I am sure that, even aside from the solem holy Mass itself - whose very ceremonies, etc, I am assured brought tears to many a noncatholic eye - that the mutually fraternal simplicity of the whole proposition was a source of much happy edification. Writing later on when the tention of excitement had gone (if there had been such), a certain Jew who attended and understood the beautiful prayers with the epistle and Gosle, etc, assured me that he could not restrain his tears.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "My Dear Confrater Simon: More than simpley to say \"A thousand times many thanks\" for your practical/in the elaborate preparations and actual celebration of the golden jubilee at dear Saint Bonaventure's a few weeks back (Jan.26); I want to congratulate you and your dear Tertiaries - every Juniors ofcourse as will as the Seniors-and I am inclined to say especially the members of the privileged Eucharistic Mission Band, on their beautiful, artistic, generosity. One could hardly feel other than convinced without a second thought that they must all have worked in real Franciscan harmony together in \"so masterly putting over\" such a fraternally loyal display. May our dear Lord bless all and each who helped along. I am sure that, even aside from the solem holy Mass itself - whose very ceremonies, etc, I am assured brought tears to many a noncatholic eye - that the mutually fraternal simplicity of the whole proposition was a source of much happy edification. Writing later on when the tention of excitement had gone (if there had been such), a certain Jew who attended and understood the beautiful prayers with the epistle and Gosle, etc, assured me that he could not restrain his tears.",
+      "per_polygon": "My Dear Confrater Simon: More than simpley to say \"A thousand times many thanks\" for your practical/in the elaborate preparations and actual celebration of the golden jubilee at dear Saint Bonaventure's a few weeks back (Jan.26); I want to congratulate you and your dear Tertiaries - every Juniors ofcourse as will as the Seniors-and I am inclined to say especially the members of the privileged Eucharistic Mission Band, on their beautiful, artistic, generosity. One could hardly feel other than convinced without a second thought that they must all have worked in real Franciscan harmony together in \"so masterly putting over\" such a fraternally loyal display. May our dear Lord bless all and each who helped along. I am sure that, even aside from the solem holy Mass itself - whose very ceremonies, etc, I am assured brought tears to many a noncatholic eye - that the mutually fraternal simplicity of the whole proposition was a source of much happy edification. Writing later on when the tention of excitement had gone (if there had been such), a certain Jew who attended and understood the beautiful prayers with the epistle and Gosle, etc, assured me that he could not restrain his tears.",
+      "min_conf": 0.495
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Rev. Fr. Simon, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Rev. Fr. Simon, O.F.M. Cap.",
+      "per_polygon": "Rev. Fr. Simon, O.F.M. Cap.",
+      "min_conf": 0.827
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "Director Third Order of Saint Francis",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Director Third Order of Saint Francis",
+      "per_polygon": "Director Third Order of Saint Francis",
+      "min_conf": 0.976
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My Dear Confrater Simon:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "My Dear Confrater Simon:",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.N. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.N. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.N. Cap.",
+      "min_conf": 0.578
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1947",
+      "per_polygon": "c. 1947",
+      "min_conf": 0.909
+    }
+  ]
+}

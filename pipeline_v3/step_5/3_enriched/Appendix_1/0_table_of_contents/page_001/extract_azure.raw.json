@@ -1,0 +1,343 @@
+{
+  "engine": "azure-prebuilt-read",
+  "full_page": {
+    "apiVersion": "2024-11-30",
+    "modelId": "prebuilt-read",
+    "stringIndexType": "textElements",
+    "content": "APPENDIX\nVOLUME I",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "angle": 0.13355639576911926,
+        "width": 5313,
+        "height": 6875,
+        "unit": "pixel",
+        "words": [
+          {
+            "content": "APPENDIX",
+            "polygon": [
+              2299,
+              2315,
+              2736,
+              2313,
+              2736,
+              2396,
+              2297,
+              2396
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 0,
+              "length": 8
+            }
+          },
+          {
+            "content": "VOLUME",
+            "polygon": [
+              2303,
+              2627,
+              2621,
+              2626,
+              2619,
+              2714,
+              2301,
+              2712
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 9,
+              "length": 6
+            }
+          },
+          {
+            "content": "I",
+            "polygon": [
+              2679,
+              2626,
+              2731,
+              2627,
+              2731,
+              2714,
+              2677,
+              2714
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 16,
+              "length": 1
+            }
+          }
+        ],
+        "lines": [
+          {
+            "content": "APPENDIX",
+            "polygon": [
+              2297,
+              2314,
+              2735,
+              2313,
+              2736,
+              2395,
+              2297,
+              2396
+            ],
+            "spans": [
+              {
+                "offset": 0,
+                "length": 8
+              }
+            ]
+          },
+          {
+            "content": "VOLUME I",
+            "polygon": [
+              2301,
+              2625,
+              2730,
+              2626,
+              2729,
+              2713,
+              2300,
+              2712
+            ],
+            "spans": [
+              {
+                "offset": 9,
+                "length": 8
+              }
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "offset": 0,
+            "length": 17
+          }
+        ]
+      }
+    ],
+    "paragraphs": [
+      {
+        "spans": [
+          {
+            "offset": 0,
+            "length": 8
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2297,
+              2314,
+              2736,
+              2313,
+              2736,
+              2395,
+              2297,
+              2396
+            ]
+          }
+        ],
+        "content": "APPENDIX"
+      },
+      {
+        "spans": [
+          {
+            "offset": 9,
+            "length": 8
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2300,
+              2625,
+              2730,
+              2626,
+              2730,
+              2713,
+              2300,
+              2712
+            ]
+          }
+        ],
+        "content": "VOLUME I"
+      }
+    ],
+    "styles": [],
+    "contentFormat": "text"
+  },
+  "per_polygon": {
+    "doc_1.struct_id.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "APPENDIX\nVOLUME I",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.13481339812278748,
+          "width": 547,
+          "height": 553,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "APPENDIX",
+              "polygon": [
+                63,
+                66,
+                488,
+                69,
+                488,
+                135,
+                63,
+                135
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 0,
+                "length": 8
+              }
+            },
+            {
+              "content": "VOLUME",
+              "polygon": [
+                64,
+                378,
+                377,
+                378,
+                377,
+                452,
+                64,
+                451
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 9,
+                "length": 6
+              }
+            },
+            {
+              "content": "I",
+              "polygon": [
+                436,
+                377,
+                486,
+                375,
+                486,
+                450,
+                436,
+                451
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 16,
+                "length": 1
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "APPENDIX",
+              "polygon": [
+                62,
+                66,
+                487,
+                67,
+                487,
+                135,
+                62,
+                134
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 8
+                }
+              ]
+            },
+            {
+              "content": "VOLUME I",
+              "polygon": [
+                63,
+                377,
+                485,
+                375,
+                486,
+                450,
+                63,
+                452
+              ],
+              "spans": [
+                {
+                  "offset": 9,
+                  "length": 8
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 17
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 8
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                62,
+                66,
+                487,
+                67,
+                487,
+                135,
+                62,
+                134
+              ]
+            }
+          ],
+          "content": "APPENDIX"
+        },
+        {
+          "spans": [
+            {
+              "offset": 9,
+              "length": 8
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                63,
+                377,
+                486,
+                375,
+                486,
+                450,
+                63,
+                452
+              ]
+            }
+          ],
+          "content": "VOLUME I"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    }
+  }
+}

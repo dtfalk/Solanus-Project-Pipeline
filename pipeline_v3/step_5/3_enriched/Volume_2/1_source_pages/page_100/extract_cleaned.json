@@ -1,0 +1,151 @@
+{
+  "page": "Volume_2/1_source_pages/page_100",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Many thanks -for favor-noted.",
+      "merged_text": "Many thanks -for favor-noted.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "God bless you and yours. I hope you keep well and shake off a little more of that worry of yours. Instead, just offer that whole affair to our dear Lord every time you think of it and beg our dear Bl. Mother to help guide things for the best. God bless you again and sleep in confidence.",
+      "merged_text": "God bless you and yours. I hope you keep well and shake off a little more of that worry of yours. Instead, just offer that whole affair to our dear Lord every time you think of it and beg our dear Bl. Mother to help guide things for the best. God bless you again and sleep in confidence.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "St. Bonaventure s Monastery",
+      "merged_text": "St. Bonaventure s Monastery",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Miss Muriel Krausman",
+      "merged_text": "Miss Muriel Krausman",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "14595 Philomene Allen Park, Mich.",
+      "merged_text": "14595 Philomene Allen Park, Mich.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "category": "src_location_sender",
+      "cleaned_text": "1740 Mt. Elliott Avenue Detroit, Michigan",
+      "merged_text": "1740 Mt. Elliott Avenue Detroit, Michigan",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Sept. 22, 1943",
+      "merged_text": "Sept. 22, 1943",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Dear Miss Krausman: -",
+      "merged_text": "Dear Miss Krausman: -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Sincerely yours in +O",
+      "merged_text": "Sincerely yours in +0",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus",
+      "merged_text": "Fr. Solanus",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey. C. F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey. C. F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1943, September 22",
+      "merged_text": "1943, September 22",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_commentary.0",
+      "category": "struct_commentary",
+      "cleaned_text": "over",
+      "merged_text": "over",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I had hardly sealed your letter when your special walked in. . Many Thanks . As said above try and keep courage. Every time you think of your troubles raise your heart with a little sigh. \"God help us!\" including all humanity",
+      "merged_text": "I had hardly sealed your letter when your special walked in. . Many Thanks . As said above try and keep courage. Every time you think of your troubles raise your heart with a little sigh. \"God help us!\" including all humanity",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Miss Krausman.",
+      "merged_text": "God bless you Miss Krausman.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Praised be Jesus Christ!",
+      "merged_text": "Praised be Jesus Christ!",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_farewell.1",
+      "category": "src_farewell",
+      "cleaned_text": "Yours sincerely,",
+      "merged_text": "Yours sincerely,",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1943 September 23",
+      "merged_text": "1943 September 23",
+      "edits": []
+    }
+  ]
+}

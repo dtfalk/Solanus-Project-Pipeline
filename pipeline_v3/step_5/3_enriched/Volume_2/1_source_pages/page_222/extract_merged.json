@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_222",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 8,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Thank you for your kind favor of August 2. The world is full of misunderstanding, but often God uses its mistakes to correct us, to give us the right out- look on life and its eternal destiny. Yes, I shall join my poor prayers to yours so that God may give you the happiness of always conforming your will to His.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Thank you for your kind favor of August 2. The world is full of misunderstanding, but often God uses its mistakes to correct us, to give us the right out- look on life and its eternal destiny. Yes, I shall join my poor prayers to yours so that God may give you the happiness of always conforming your will to His.",
+      "per_polygon": "Thank you for your kind favor of August 2. The world is full of misunderstanding, but often God uses its mistakes to correct us, to give us the right out- look on life and its eternal destiny. Yes, I shall join my poor prayers to yours so that God may give you the happiness of always conforming your will to His.",
+      "min_conf": 0.974
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX FRIARY",
+      "per_polygon": "ST. FELIX FRIARY",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Route 8 HUNTINGTON, INDIANA",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Route 8 HUNTINGTON, INDIANA",
+      "per_polygon": "Route 8 HUNTINGTON, INDIANA",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Miss Larmee,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Miss Larmee,",
+      "per_polygon": "Dear Miss Larmee,",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless you, Sincerely yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you, Sincerely yours in Christ,",
+      "per_polygon": "God bless you, Sincerely yours in Christ,",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.838
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a photo copy of a typed original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of a photo copy of a typed original by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of a photo copy of a typed original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "min_conf": 0.843
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1947",
+      "per_polygon": "c. 1947",
+      "min_conf": 0.932
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Mr. Peter Bercik 4 1265 Glocamora St. Mt. Clemens, MI. 48045",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Mr. Peter Bercik 4 1265 Glocamora St. Mt. Clemens, MI. 48045",
+      "per_polygon": "Original in possession of: Mr. Peter Bercik 4 1265 Glocamora St. Mt. Clemens, MI. 48045",
+      "min_conf": 0.942
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "page": "Volume_2/1_source_pages/page_364",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Rational Creature: Thy Existence? Thy Destiny! But O too Thy responsability? Answer 1st. Glory to God! I am what I am 1 t God made me to know Him. t 1 o! what a blessed aim ! 1 To love Him and serve Him? 1 - Sure rests in the same: It's Heaven begun, --- for the Grateful -- on Earth To treasure aright ! ? ! Highest Heaven its worth.",
+      "merged_text": "Rational Creature: Thy Existence? Thy Destiny! But O too Thy responsability? Answer Ist. Glory to God! I am what I am 1 t God made me to know Him. t 1 o! what a blessed aim ! 1 To love Him and serve Him? 1 - Sure rests in the same: It's Heaven begun, --- for the Grateful -- on Earth To treasure aright ! ? ! Highest Heaven its worth.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of a handwritten message by the Servant of God Fr. Solanus Casey, O. F. M. Cap.",
+      "merged_text": "The following is a faithful transcription of a handwritten message by the Servant of God Fr. Solanus Casey, O. F. M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1956",
+      "merged_text": "c. 1956",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "(This poem is his own composition.)",
+      "merged_text": "(This poem is his own composition.)",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Glory be to God! How little is it possible that we be properly, Grateful to Him!",
+      "merged_text": "Glory be to God! How little is it possible that we be properly, Grateful to Him!",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Pray for his further conversion.",
+      "merged_text": "Pray for his further conversion.",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus",
+      "merged_text": "Fr. Solanus",
+      "edits": []
+    },
+    {
+      "rid": "doc_2.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of an autograph by the Servant of God, Father Solanus Casey, O. F.M.Cap., written on his picture before the Grotto of our Lady:",
+      "merged_text": "The following is a faithful transcription of an autograph by the Servant of God, Father Solanus Casey, O. F.M.Cap., written on his picture before the Grotto of our Lady:",
+      "edits": []
+    }
+  ]
+}

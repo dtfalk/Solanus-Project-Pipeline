@@ -1,0 +1,199 @@
+{
+  "page": "Volume_4/1_source_pages/page_049",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Ray Yast - 40 - cancer of stomach - operation abandoned as hopeless - Enrolled To-day as hopeless ...",
+      "merged_text": "Ray Yast - 40 - cancer of stomach - operation abandoned as hopeless - Enrolled To-day as hopeless ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Edmund John Murer - 39 - T.B. of Spine - Operation tomorrow at 9 O'cl. planned ... is inrolled To-day for this intention.",
+      "merged_text": "Edmund John Murer - 39 - T.B. of Spine - Operation tomorrow at 9 0'cl. planned ... is inrolled To-day for this intention.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Joseph Bornette - 41 - Ch. Scientist - Finantial - Lady friend & B. V.M. - dying 15 yrs. ago in dream.",
+      "merged_text": "Joseph Bornette - 41 - Ch. Scientist - Finantial - Lady friend & B. V.M. - dying 15 yrs. ago in dream.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mrs . Martha Insko - 80 - failing sight - asks prayers also for oldest sister 100 nex May ....",
+      "merged_text": "Mrs . Martha Insko - 80 - failing sight - asks prayers also for oldest sister 100 nex May ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Josephine Kinney - See Jan. 3rd",
+      "merged_text": "Mrs. Josephine Kinney - See Jan. 3rd",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Susan Cousino - 53 - of Monroe - tuomer - operation feared - had 3 operations within a year.",
+      "merged_text": "Mrs. Susan Cousino - 53 - of Monroe - tuomer - operation feared - had 3 operations within a year.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "James Murray - 51 - throat-cancer - Drs give very little hope of recov- ery ... came in plane from California - Enrolled To-night in Ser. Mass Assoc'n.",
+      "merged_text": "James Murray - 51 - throat-cancer - Drs give very little hope of recov- ery ... came in plane from California - Enrolled To-night in Ser. Mass Assoc'n.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Joseph Wolschan - 54 - fearful arthritis for near five yrs. His son Joseph 26 has T.B. of the bone in his arm. . . .",
+      "merged_text": "Joseph Wolschan - 54 - fearful arthritis for near five yrs. His son Joseph 26 has T.B. of the bone in his arm. . . .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "John Murphy - 12 - peculiar spells - had 19 a month. .. . Hazel Park",
+      "merged_text": "John Murphy - 12 - peculiar spells - had 19 a month. .. . Hazel Park",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Olive E. Spicer - 72 - Toledo, O. - neuritis, widow and quite helpless on",
+      "merged_text": "Mrs. Olive E. Spicer - 72 - Toledo, 0. - neuritis, widow and quite helpless on",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Mary Jane Dorey - 44 - stomach obstruction - operation just a month ago .... here To-night not improved. Was enrolled. ... 17th Here To-night - feeling much improved ... Deo Gr .!",
+      "merged_text": "Mary Jane Dorey - 44 - stomach obstruction - operation just a month ago .... here To-night not improved. Was enrolled. ... 17th Here To-night - feeling much improved ... Deo Gr .!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Alice Freiberger - 30 - fearful Asthma",
+      "merged_text": "Mrs. Alice Freiberger - 30 - fearful Asthma",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Helen Frances Walker - beautiful child - 10 months - brain tuomer feared ... taking her to Ann Arbor To-day",
+      "merged_text": "Helen Frances Walker - beautiful child - 10 months - brain tuomer feared ... taking her to Ann Arbor To-day",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mary J. Rause - 18 - mentel trouble - very serious .... in St. Josephs",
+      "merged_text": "Mary J. Rause - 18 - mentel trouble - very serious .... in St. Josephs",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Baby Kathleen Dillon - ten weeks - defective scull.",
+      "merged_text": "Baby Kathleen Dillon - ten weeks - defective scull.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Nov. 29th",
+      "merged_text": "Nov. 29th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Dec. 1",
+      "merged_text": "Dec. 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "2",
+      "merged_text": "2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "3rd",
+      "merged_text": "3rd",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "6",
+      "merged_text": "6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "Dec. 6",
+      "merged_text": "Dec. 6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1938, December",
+      "merged_text": "1938, December",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 92",
+      "merged_text": "Page 92",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 93",
+      "merged_text": "Page 93",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 94",
+      "merged_text": "Page 94",
+      "edits": []
+    }
+  ]
+}

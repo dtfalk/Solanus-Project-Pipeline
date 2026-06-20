@@ -1,0 +1,227 @@
+{
+  "page": "Volume_3/1_source_pages/page_096",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Marg. Legroat - pneumonia & 2 little boys 3 & 5",
+      "merged_text": "Mrs. Marg. Legroat - pneumonia & 2 little boys 3 & 5",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Helen P. (5) in Children's Hosp. - brights - 28 1bs - fever a11 time. . ..",
+      "merged_text": "Helen P. (5) in Children's Hosp. - brights - 28 1bs - fever a11 time. . ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Clara Parks - 50 - fears operation - kidney stones",
+      "merged_text": "Mrs. Clara Parks - 50 - fears operation - kidney stones",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Gert O'Neil - 11 - heart trouble - 6 mo. in bed.",
+      "merged_text": "Gert 0'Neil - 11 - heart trouble - 6 mo. in bed.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Wm. Hayes - 2 Special Int's",
+      "merged_text": "Wm. Hayes - 2 Special Int's",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Edw'd Monnette - 62 - of 2246 Jerome - Toledo, O. - Heart trouble etc. Would fall down like dead, was enrolled as a perpetual member - had not worked for months, went back to work following Thursday - Completely cured, returns To-day after two years a young looking man.",
+      "merged_text": "Edw'd Monnette - 62 - of 2246 Jerome - Toledo, 0. - Heart trouble etc. Would fall down like dead, was enrolled as a perpetual member - had not worked for months, went back to work following Thursday - Completely cured, returns To-day after two years a young looking man.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Edw'd Rosinski - 9 mo. - threatened with mastoid.",
+      "merged_text": "Edw'd Rosinski - 9 mo. - threatened with mastoid.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Charles Keith Haley - 5 - paralysis ...",
+      "merged_text": "Charles Keith Haley - 5 - paralysis ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Nellie May Little",
+      "merged_text": "Nellie May Little",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Ms. Law .... near Cath. School",
+      "merged_text": "Ms. Law .... near Cath. School",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Helen Byrne - 8 - south Woodlee - bad ankle & hip.",
+      "merged_text": "Helen Byrne - 8 - south Woodlee - bad ankle & hip.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Fr. W. - Wayward husband - 14 years away from confession - sinus ...",
+      "merged_text": "Fr. W. - Wayward husband - 14 years away from confession - sinus ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Macell Viane .... Deaf",
+      "merged_text": "Macell Viane .... Deaf",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Dorothy Frank - 15 - T.B. in hip - fell at Xmas when just recovering from \"flu\" - father out of work 6 mo.",
+      "merged_text": "Dorothy Frank - 15 - T.B. in hip - fell at Xmas when just recovering from \"flu\" - father out of work 6 mo.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "Anna Steninger of Covington, K. - cancer internal & external - a year ago was expected to die ....",
+      "merged_text": "Anna Steninger of Covington, K. - cancer internal & external - a year ago was expected to die ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Omer DeWolf - 18 - working in butcher shop .... 5 transfusions of blood - leg already cut off.",
+      "merged_text": "Omer DeWolf - 18 - working in butcher shop .... 5 transfusions of blood - leg already cut off.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "May 22",
+      "merged_text": "May 22",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "May 29",
+      "merged_text": "May 29",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "May",
+      "merged_text": "May",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "June",
+      "merged_text": "June",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "Blank Page",
+      "merged_text": "Blank Page",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1932, May",
+      "merged_text": "1932, May",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.1",
+      "category": "archv_date",
+      "cleaned_text": "1932, June",
+      "merged_text": "1932, June",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 28 Cont.",
+      "merged_text": "Page 28 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 39",
+      "merged_text": "Page 39",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 40",
+      "merged_text": "Page 40",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.3",
+      "category": "struct_doc",
+      "cleaned_text": "Page 41",
+      "merged_text": "Page 41",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.4",
+      "category": "struct_doc",
+      "cleaned_text": "Page 42",
+      "merged_text": "Page 42",
+      "edits": []
+    }
+  ]
+}

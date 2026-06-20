@@ -1,0 +1,4011 @@
+{
+  "engine": "azure-prebuilt-read",
+  "full_page": {
+    "apiVersion": "2024-11-30",
+    "modelId": "prebuilt-read",
+    "stringIndexType": "textElements",
+    "content": "ST. FELIX MONASTERY Route 8 HUNTINGTON, INDIANA December 18th 1946\nMiss Doris Panyard Muskegon, Mich'n\nDear Miss Panyard:\nGod bless you again. ...\nJust a word to ask you in case you send me anything .... please do not have it elaborate - just something I'll not be ashamed to use and may remember the donor in using. Pl. pardon haste and brevity. ... Praised be Jesus!\nFr. Solanus, O.F.M.Cap.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "angle": 0.19276830554008484,
+        "width": 5313,
+        "height": 6875,
+        "unit": "pixel",
+        "words": [
+          {
+            "content": "ST.",
+            "polygon": [
+              2111,
+              1187,
+              2265,
+              1187,
+              2265,
+              1292,
+              2111,
+              1292
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 0,
+              "length": 3
+            }
+          },
+          {
+            "content": "FELIX",
+            "polygon": [
+              2335,
+              1187,
+              2590,
+              1187,
+              2589,
+              1292,
+              2335,
+              1292
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 4,
+              "length": 5
+            }
+          },
+          {
+            "content": "MONASTERY",
+            "polygon": [
+              2640,
+              1187,
+              3117,
+              1191,
+              3117,
+              1292,
+              2639,
+              1292
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 10,
+              "length": 9
+            }
+          },
+          {
+            "content": "Route",
+            "polygon": [
+              2275,
+              1341,
+              2533,
+              1344,
+              2530,
+              1443,
+              2272,
+              1443
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 20,
+              "length": 5
+            }
+          },
+          {
+            "content": "8",
+            "polygon": [
+              2591,
+              1345,
+              2649,
+              1345,
+              2649,
+              1443,
+              2588,
+              1443
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 26,
+              "length": 1
+            }
+          },
+          {
+            "content": "HUNTINGTON,",
+            "polygon": [
+              2162,
+              1503,
+              2734,
+              1507,
+              2733,
+              1605,
+              2162,
+              1605
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 28,
+              "length": 11
+            }
+          },
+          {
+            "content": "INDIANA",
+            "polygon": [
+              2801,
+              1507,
+              3166,
+              1504,
+              3166,
+              1604,
+              2800,
+              1605
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 40,
+              "length": 7
+            }
+          },
+          {
+            "content": "December",
+            "polygon": [
+              2115,
+              1717,
+              2533,
+              1718,
+              2533,
+              1811,
+              2113,
+              1808
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 48,
+              "length": 8
+            }
+          },
+          {
+            "content": "18th",
+            "polygon": [
+              2608,
+              1718,
+              2792,
+              1719,
+              2793,
+              1813,
+              2608,
+              1811
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 57,
+              "length": 4
+            }
+          },
+          {
+            "content": "1946",
+            "polygon": [
+              2922,
+              1720,
+              3116,
+              1721,
+              3116,
+              1815,
+              2923,
+              1814
+            ],
+            "confidence": 0.99,
+            "span": {
+              "offset": 62,
+              "length": 4
+            }
+          },
+          {
+            "content": "Miss",
+            "polygon": [
+              1065,
+              2068,
+              1286,
+              2069,
+              1285,
+              2172,
+              1065,
+              2168
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 67,
+              "length": 4
+            }
+          },
+          {
+            "content": "Doris",
+            "polygon": [
+              1348,
+              2069,
+              1595,
+              2069,
+              1594,
+              2176,
+              1347,
+              2173
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 72,
+              "length": 5
+            }
+          },
+          {
+            "content": "Panyard",
+            "polygon": [
+              1658,
+              2069,
+              2026,
+              2068,
+              2026,
+              2178,
+              1656,
+              2177
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 78,
+              "length": 7
+            }
+          },
+          {
+            "content": "Muskegon,",
+            "polygon": [
+              1069,
+              2184,
+              1539,
+              2182,
+              1539,
+              2279,
+              1069,
+              2278
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 86,
+              "length": 9
+            }
+          },
+          {
+            "content": "Mich'n",
+            "polygon": [
+              1599,
+              2181,
+              1918,
+              2180,
+              1918,
+              2279,
+              1599,
+              2279
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 96,
+              "length": 6
+            }
+          },
+          {
+            "content": "Dear",
+            "polygon": [
+              1073,
+              2383,
+              1289,
+              2384,
+              1289,
+              2483,
+              1073,
+              2479
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 103,
+              "length": 4
+            }
+          },
+          {
+            "content": "Miss",
+            "polygon": [
+              1342,
+              2384,
+              1543,
+              2385,
+              1543,
+              2486,
+              1342,
+              2484
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 108,
+              "length": 4
+            }
+          },
+          {
+            "content": "Panyard:",
+            "polygon": [
+              1605,
+              2385,
+              2017,
+              2387,
+              2017,
+              2486,
+              1605,
+              2486
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 113,
+              "length": 8
+            }
+          },
+          {
+            "content": "God",
+            "polygon": [
+              1340,
+              2595,
+              1496,
+              2594,
+              1495,
+              2691,
+              1340,
+              2689
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 122,
+              "length": 3
+            }
+          },
+          {
+            "content": "bless",
+            "polygon": [
+              1554,
+              2594,
+              1805,
+              2593,
+              1803,
+              2694,
+              1553,
+              2691
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 126,
+              "length": 5
+            }
+          },
+          {
+            "content": "you",
+            "polygon": [
+              1865,
+              2593,
+              2015,
+              2594,
+              2013,
+              2695,
+              1863,
+              2694
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 132,
+              "length": 3
+            }
+          },
+          {
+            "content": "again.",
+            "polygon": [
+              2078,
+              2595,
+              2382,
+              2598,
+              2382,
+              2696,
+              2076,
+              2695
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 136,
+              "length": 6
+            }
+          },
+          {
+            "content": "...",
+            "polygon": [
+              2434,
+              2607,
+              2588,
+              2608,
+              2587,
+              2697,
+              2433,
+              2695
+            ],
+            "confidence": 0.876,
+            "span": {
+              "offset": 143,
+              "length": 3
+            }
+          },
+          {
+            "content": "Just",
+            "polygon": [
+              1337,
+              2807,
+              1544,
+              2806,
+              1542,
+              2890,
+              1335,
+              2887
+            ],
+            "confidence": 0.986,
+            "span": {
+              "offset": 147,
+              "length": 4
+            }
+          },
+          {
+            "content": "a",
+            "polygon": [
+              1614,
+              2805,
+              1657,
+              2805,
+              1655,
+              2892,
+              1612,
+              2891
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 152,
+              "length": 1
+            }
+          },
+          {
+            "content": "word",
+            "polygon": [
+              1708,
+              2805,
+              1912,
+              2805,
+              1911,
+              2896,
+              1706,
+              2893
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 154,
+              "length": 4
+            }
+          },
+          {
+            "content": "to",
+            "polygon": [
+              1977,
+              2805,
+              2070,
+              2804,
+              2069,
+              2898,
+              1976,
+              2897
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 159,
+              "length": 2
+            }
+          },
+          {
+            "content": "ask",
+            "polygon": [
+              2128,
+              2804,
+              2279,
+              2804,
+              2278,
+              2901,
+              2126,
+              2899
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 162,
+              "length": 3
+            }
+          },
+          {
+            "content": "you",
+            "polygon": [
+              2333,
+              2805,
+              2482,
+              2805,
+              2481,
+              2903,
+              2332,
+              2902
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 166,
+              "length": 3
+            }
+          },
+          {
+            "content": "in",
+            "polygon": [
+              2547,
+              2805,
+              2635,
+              2805,
+              2634,
+              2905,
+              2546,
+              2904
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 170,
+              "length": 2
+            }
+          },
+          {
+            "content": "case",
+            "polygon": [
+              2697,
+              2806,
+              2895,
+              2806,
+              2895,
+              2907,
+              2696,
+              2906
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 173,
+              "length": 4
+            }
+          },
+          {
+            "content": "you",
+            "polygon": [
+              2957,
+              2807,
+              3104,
+              2808,
+              3104,
+              2909,
+              2956,
+              2908
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 178,
+              "length": 3
+            }
+          },
+          {
+            "content": "send",
+            "polygon": [
+              3169,
+              2808,
+              3366,
+              2810,
+              3365,
+              2910,
+              3169,
+              2909
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 182,
+              "length": 4
+            }
+          },
+          {
+            "content": "me",
+            "polygon": [
+              3419,
+              2810,
+              3521,
+              2811,
+              3520,
+              2911,
+              3418,
+              2911
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 187,
+              "length": 2
+            }
+          },
+          {
+            "content": "anything",
+            "polygon": [
+              3583,
+              2812,
+              3987,
+              2817,
+              3987,
+              2911,
+              3582,
+              2911
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 190,
+              "length": 8
+            }
+          },
+          {
+            "content": "....",
+            "polygon": [
+              4010,
+              2817,
+              4201,
+              2820,
+              4201,
+              2911,
+              4010,
+              2911
+            ],
+            "confidence": 0.862,
+            "span": {
+              "offset": 199,
+              "length": 4
+            }
+          },
+          {
+            "content": "please",
+            "polygon": [
+              1077,
+              2903,
+              1390,
+              2905,
+              1392,
+              3001,
+              1079,
+              2999
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 204,
+              "length": 6
+            }
+          },
+          {
+            "content": "do",
+            "polygon": [
+              1449,
+              2905,
+              1546,
+              2906,
+              1548,
+              3001,
+              1451,
+              3001
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 211,
+              "length": 2
+            }
+          },
+          {
+            "content": "not",
+            "polygon": [
+              1601,
+              2906,
+              1752,
+              2906,
+              1753,
+              3002,
+              1602,
+              3002
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 214,
+              "length": 3
+            }
+          },
+          {
+            "content": "have",
+            "polygon": [
+              1811,
+              2907,
+              2013,
+              2908,
+              2015,
+              3004,
+              1812,
+              3003
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 218,
+              "length": 4
+            }
+          },
+          {
+            "content": "it",
+            "polygon": [
+              2079,
+              2908,
+              2167,
+              2908,
+              2168,
+              3005,
+              2080,
+              3004
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 223,
+              "length": 2
+            }
+          },
+          {
+            "content": "elaborate",
+            "polygon": [
+              2227,
+              2908,
+              2686,
+              2910,
+              2687,
+              3007,
+              2228,
+              3005
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 226,
+              "length": 9
+            }
+          },
+          {
+            "content": "-",
+            "polygon": [
+              2801,
+              2910,
+              2847,
+              2911,
+              2848,
+              3008,
+              2802,
+              3008
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 236,
+              "length": 1
+            }
+          },
+          {
+            "content": "just",
+            "polygon": [
+              2905,
+              2911,
+              3103,
+              2911,
+              3103,
+              3009,
+              2906,
+              3008
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 238,
+              "length": 4
+            }
+          },
+          {
+            "content": "something",
+            "polygon": [
+              3166,
+              2911,
+              3627,
+              2913,
+              3628,
+              3011,
+              3167,
+              3009
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 243,
+              "length": 9
+            }
+          },
+          {
+            "content": "I'll",
+            "polygon": [
+              3688,
+              2913,
+              3882,
+              2913,
+              3883,
+              3012,
+              3688,
+              3011
+            ],
+            "confidence": 0.671,
+            "span": {
+              "offset": 253,
+              "length": 4
+            }
+          },
+          {
+            "content": "not",
+            "polygon": [
+              3941,
+              2913,
+              4090,
+              2914,
+              4090,
+              3012,
+              3942,
+              3012
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 258,
+              "length": 3
+            }
+          },
+          {
+            "content": "be",
+            "polygon": [
+              4152,
+              2914,
+              4257,
+              2914,
+              4257,
+              3012,
+              4152,
+              3012
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 262,
+              "length": 2
+            }
+          },
+          {
+            "content": "ashamed",
+            "polygon": [
+              1074,
+              3011,
+              1443,
+              3011,
+              1442,
+              3103,
+              1074,
+              3100
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 265,
+              "length": 7
+            }
+          },
+          {
+            "content": "to",
+            "polygon": [
+              1505,
+              3011,
+              1601,
+              3011,
+              1601,
+              3104,
+              1505,
+              3104
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 273,
+              "length": 2
+            }
+          },
+          {
+            "content": "use",
+            "polygon": [
+              1652,
+              3011,
+              1806,
+              3011,
+              1805,
+              3106,
+              1651,
+              3105
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 276,
+              "length": 3
+            }
+          },
+          {
+            "content": "and",
+            "polygon": [
+              1866,
+              3011,
+              2014,
+              3011,
+              2013,
+              3107,
+              1865,
+              3106
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 280,
+              "length": 3
+            }
+          },
+          {
+            "content": "may",
+            "polygon": [
+              2067,
+              3011,
+              2226,
+              3012,
+              2225,
+              3108,
+              2066,
+              3107
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 284,
+              "length": 3
+            }
+          },
+          {
+            "content": "remember",
+            "polygon": [
+              2283,
+              3012,
+              2692,
+              3013,
+              2691,
+              3111,
+              2282,
+              3109
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 288,
+              "length": 8
+            }
+          },
+          {
+            "content": "the",
+            "polygon": [
+              2753,
+              3013,
+              2896,
+              3014,
+              2895,
+              3112,
+              2752,
+              3111
+            ],
+            "confidence": 0.999,
+            "span": {
+              "offset": 297,
+              "length": 3
+            }
+          },
+          {
+            "content": "donor",
+            "polygon": [
+              2954,
+              3014,
+              3212,
+              3015,
+              3211,
+              3114,
+              2953,
+              3113
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 301,
+              "length": 5
+            }
+          },
+          {
+            "content": "in",
+            "polygon": [
+              3275,
+              3015,
+              3366,
+              3016,
+              3365,
+              3115,
+              3274,
+              3114
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 307,
+              "length": 2
+            }
+          },
+          {
+            "content": "using.",
+            "polygon": [
+              3418,
+              3016,
+              3722,
+              3018,
+              3720,
+              3116,
+              3417,
+              3115
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 310,
+              "length": 6
+            }
+          },
+          {
+            "content": "Pl.",
+            "polygon": [
+              3838,
+              3018,
+              3995,
+              3019,
+              3995,
+              3116,
+              3837,
+              3116
+            ],
+            "confidence": 0.825,
+            "span": {
+              "offset": 317,
+              "length": 3
+            }
+          },
+          {
+            "content": "pardon",
+            "polygon": [
+              1076,
+              3117,
+              1392,
+              3114,
+              1391,
+              3209,
+              1076,
+              3206
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 321,
+              "length": 6
+            }
+          },
+          {
+            "content": "haste",
+            "polygon": [
+              1447,
+              3114,
+              1702,
+              3113,
+              1700,
+              3211,
+              1446,
+              3209
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 328,
+              "length": 5
+            }
+          },
+          {
+            "content": "and",
+            "polygon": [
+              1767,
+              3113,
+              1912,
+              3113,
+              1910,
+              3213,
+              1765,
+              3212
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 334,
+              "length": 3
+            }
+          },
+          {
+            "content": "brevity.",
+            "polygon": [
+              1971,
+              3113,
+              2374,
+              3115,
+              2374,
+              3214,
+              1968,
+              3213
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 338,
+              "length": 8
+            }
+          },
+          {
+            "content": "...",
+            "polygon": [
+              2540,
+              3122,
+              2678,
+              3120,
+              2679,
+              3212,
+              2542,
+              3213
+            ],
+            "confidence": 0.948,
+            "span": {
+              "offset": 347,
+              "length": 3
+            }
+          },
+          {
+            "content": "Praised",
+            "polygon": [
+              2696,
+              3120,
+              3053,
+              3117,
+              3054,
+              3211,
+              2698,
+              3212
+            ],
+            "confidence": 0.987,
+            "span": {
+              "offset": 351,
+              "length": 7
+            }
+          },
+          {
+            "content": "be",
+            "polygon": [
+              3108,
+              3117,
+              3206,
+              3116,
+              3206,
+              3212,
+              3109,
+              3211
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 359,
+              "length": 2
+            }
+          },
+          {
+            "content": "Jesus!",
+            "polygon": [
+              3264,
+              3116,
+              3572,
+              3118,
+              3572,
+              3214,
+              3265,
+              3212
+            ],
+            "confidence": 0.987,
+            "span": {
+              "offset": 362,
+              "length": 6
+            }
+          },
+          {
+            "content": "Fr.",
+            "polygon": [
+              2683,
+              3316,
+              2838,
+              3317,
+              2835,
+              3425,
+              2680,
+              3423
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 369,
+              "length": 3
+            }
+          },
+          {
+            "content": "Solanus,",
+            "polygon": [
+              2908,
+              3318,
+              3309,
+              3323,
+              3306,
+              3429,
+              2905,
+              3425
+            ],
+            "confidence": 0.99,
+            "span": {
+              "offset": 373,
+              "length": 8
+            }
+          },
+          {
+            "content": "O.F.M.Cap.",
+            "polygon": [
+              3370,
+              3323,
+              3882,
+              3331,
+              3882,
+              3434,
+              3367,
+              3430
+            ],
+            "confidence": 0.913,
+            "span": {
+              "offset": 382,
+              "length": 10
+            }
+          }
+        ],
+        "lines": [
+          {
+            "content": "ST. FELIX MONASTERY",
+            "polygon": [
+              2111,
+              1186,
+              3116,
+              1188,
+              3116,
+              1292,
+              2111,
+              1290
+            ],
+            "spans": [
+              {
+                "offset": 0,
+                "length": 19
+              }
+            ]
+          },
+          {
+            "content": "Route 8",
+            "polygon": [
+              2259,
+              1340,
+              2648,
+              1341,
+              2647,
+              1443,
+              2258,
+              1442
+            ],
+            "spans": [
+              {
+                "offset": 20,
+                "length": 7
+              }
+            ]
+          },
+          {
+            "content": "HUNTINGTON, INDIANA",
+            "polygon": [
+              2162,
+              1502,
+              3165,
+              1502,
+              3165,
+              1604,
+              2162,
+              1604
+            ],
+            "spans": [
+              {
+                "offset": 28,
+                "length": 19
+              }
+            ]
+          },
+          {
+            "content": "December 18th 1946",
+            "polygon": [
+              2113,
+              1716,
+              3115,
+              1720,
+              3115,
+              1814,
+              2112,
+              1808
+            ],
+            "spans": [
+              {
+                "offset": 48,
+                "length": 18
+              }
+            ]
+          },
+          {
+            "content": "Miss Doris Panyard",
+            "polygon": [
+              1064,
+              2067,
+              2025,
+              2067,
+              2025,
+              2177,
+              1064,
+              2172
+            ],
+            "spans": [
+              {
+                "offset": 67,
+                "length": 18
+              }
+            ]
+          },
+          {
+            "content": "Muskegon, Mich'n",
+            "polygon": [
+              1069,
+              2181,
+              1917,
+              2179,
+              1917,
+              2278,
+              1069,
+              2279
+            ],
+            "spans": [
+              {
+                "offset": 86,
+                "length": 16
+              }
+            ]
+          },
+          {
+            "content": "Dear Miss Panyard:",
+            "polygon": [
+              1073,
+              2383,
+              2017,
+              2387,
+              2016,
+              2486,
+              1073,
+              2482
+            ],
+            "spans": [
+              {
+                "offset": 103,
+                "length": 18
+              }
+            ]
+          },
+          {
+            "content": "God bless you again.",
+            "polygon": [
+              1340,
+              2593,
+              2381,
+              2595,
+              2380,
+              2695,
+              1340,
+              2690
+            ],
+            "spans": [
+              {
+                "offset": 122,
+                "length": 20
+              }
+            ]
+          },
+          {
+            "content": "...",
+            "polygon": [
+              2404,
+              2607,
+              2587,
+              2615,
+              2585,
+              2692,
+              2404,
+              2696
+            ],
+            "spans": [
+              {
+                "offset": 143,
+                "length": 3
+              }
+            ]
+          },
+          {
+            "content": "Just a word to ask you in case you send me anything ....",
+            "polygon": [
+              1335,
+              2804,
+              4201,
+              2814,
+              4200,
+              2911,
+              1334,
+              2895
+            ],
+            "spans": [
+              {
+                "offset": 147,
+                "length": 56
+              }
+            ]
+          },
+          {
+            "content": "please do not have it elaborate - just something I'll not be",
+            "polygon": [
+              1077,
+              2903,
+              4257,
+              2914,
+              4256,
+              3012,
+              1077,
+              2999
+            ],
+            "spans": [
+              {
+                "offset": 204,
+                "length": 60
+              }
+            ]
+          },
+          {
+            "content": "ashamed to use and may remember the donor in using. Pl.",
+            "polygon": [
+              1074,
+              3010,
+              3994,
+              3018,
+              3994,
+              3115,
+              1074,
+              3103
+            ],
+            "spans": [
+              {
+                "offset": 265,
+                "length": 55
+              }
+            ]
+          },
+          {
+            "content": "pardon haste and brevity.",
+            "polygon": [
+              1075,
+              3113,
+              2373,
+              3114,
+              2372,
+              3213,
+              1075,
+              3210
+            ],
+            "spans": [
+              {
+                "offset": 321,
+                "length": 25
+              }
+            ]
+          },
+          {
+            "content": "... Praised be Jesus!",
+            "polygon": [
+              2521,
+              3117,
+              3571,
+              3116,
+              3571,
+              3213,
+              2521,
+              3214
+            ],
+            "spans": [
+              {
+                "offset": 347,
+                "length": 21
+              }
+            ]
+          },
+          {
+            "content": "Fr. Solanus, O.F.M.Cap.",
+            "polygon": [
+              2681,
+              3315,
+              3881,
+              3328,
+              3880,
+              3434,
+              2680,
+              3421
+            ],
+            "spans": [
+              {
+                "offset": 369,
+                "length": 23
+              }
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "offset": 0,
+            "length": 392
+          }
+        ]
+      }
+    ],
+    "paragraphs": [
+      {
+        "spans": [
+          {
+            "offset": 0,
+            "length": 66
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2111,
+              1186,
+              3166,
+              1188,
+              3165,
+              1814,
+              2110,
+              1812
+            ]
+          }
+        ],
+        "content": "ST. FELIX MONASTERY Route 8 HUNTINGTON, INDIANA December 18th 1946"
+      },
+      {
+        "spans": [
+          {
+            "offset": 67,
+            "length": 35
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1064,
+              2067,
+              2025,
+              2067,
+              2025,
+              2279,
+              1064,
+              2279
+            ]
+          }
+        ],
+        "content": "Miss Doris Panyard Muskegon, Mich'n"
+      },
+      {
+        "spans": [
+          {
+            "offset": 103,
+            "length": 18
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1073,
+              2383,
+              2017,
+              2387,
+              2017,
+              2486,
+              1073,
+              2482
+            ]
+          }
+        ],
+        "content": "Dear Miss Panyard:"
+      },
+      {
+        "spans": [
+          {
+            "offset": 122,
+            "length": 24
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1340,
+              2589,
+              2587,
+              2596,
+              2587,
+              2697,
+              1339,
+              2690
+            ]
+          }
+        ],
+        "content": "God bless you again. ..."
+      },
+      {
+        "spans": [
+          {
+            "offset": 147,
+            "length": 221
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1075,
+              2803,
+              4257,
+              2812,
+              4256,
+              3219,
+              1073,
+              3210
+            ]
+          }
+        ],
+        "content": "Just a word to ask you in case you send me anything .... please do not have it elaborate - just something I'll not be ashamed to use and may remember the donor in using. Pl. pardon haste and brevity. ... Praised be Jesus!"
+      },
+      {
+        "spans": [
+          {
+            "offset": 369,
+            "length": 23
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2681,
+              3315,
+              3881,
+              3328,
+              3880,
+              3434,
+              2680,
+              3421
+            ]
+          }
+        ],
+        "content": "Fr. Solanus, O.F.M.Cap."
+      }
+    ],
+    "styles": [],
+    "contentFormat": "text"
+  },
+  "per_polygon": {
+    "doc_1.src_content.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Just a word to ask you in case you send me anything .... please do not have it elaborate - just something I'll not be ashamed to use and may remember the donor in using. P1.",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.29058459401130676,
+          "width": 3285,
+          "height": 395,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Just",
+              "polygon": [
+                308,
+                38,
+                515,
+                38,
+                519,
+                125,
+                312,
+                123
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "a",
+              "polygon": [
+                585,
+                38,
+                628,
+                38,
+                632,
+                127,
+                589,
+                126
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 5,
+                "length": 1
+              }
+            },
+            {
+              "content": "word",
+              "polygon": [
+                682,
+                38,
+                884,
+                38,
+                888,
+                129,
+                686,
+                127
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 7,
+                "length": 4
+              }
+            },
+            {
+              "content": "to",
+              "polygon": [
+                951,
+                39,
+                1044,
+                39,
+                1047,
+                131,
+                955,
+                130
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 12,
+                "length": 2
+              }
+            },
+            {
+              "content": "ask",
+              "polygon": [
+                1100,
+                39,
+                1252,
+                40,
+                1255,
+                132,
+                1104,
+                131
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 15,
+                "length": 3
+              }
+            },
+            {
+              "content": "you",
+              "polygon": [
+                1307,
+                40,
+                1455,
+                40,
+                1457,
+                134,
+                1310,
+                133
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 19,
+                "length": 3
+              }
+            },
+            {
+              "content": "in",
+              "polygon": [
+                1522,
+                41,
+                1608,
+                41,
+                1611,
+                135,
+                1524,
+                134
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 23,
+                "length": 2
+              }
+            },
+            {
+              "content": "case",
+              "polygon": [
+                1672,
+                41,
+                1870,
+                43,
+                1872,
+                137,
+                1675,
+                135
+              ],
+              "confidence": 0.99,
+              "span": {
+                "offset": 26,
+                "length": 4
+              }
+            },
+            {
+              "content": "you",
+              "polygon": [
+                1933,
+                43,
+                2079,
+                44,
+                2080,
+                138,
+                1935,
+                137
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 31,
+                "length": 3
+              }
+            },
+            {
+              "content": "send",
+              "polygon": [
+                2143,
+                45,
+                2341,
+                46,
+                2342,
+                139,
+                2144,
+                138
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 35,
+                "length": 4
+              }
+            },
+            {
+              "content": "me",
+              "polygon": [
+                2394,
+                46,
+                2496,
+                47,
+                2497,
+                140,
+                2396,
+                139
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 40,
+                "length": 2
+              }
+            },
+            {
+              "content": "anything",
+              "polygon": [
+                2558,
+                48,
+                2963,
+                52,
+                2964,
+                141,
+                2559,
+                140
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 43,
+                "length": 8
+              }
+            },
+            {
+              "content": "....",
+              "polygon": [
+                2986,
+                52,
+                3167,
+                54,
+                3167,
+                141,
+                2986,
+                141
+              ],
+              "confidence": 0.935,
+              "span": {
+                "offset": 52,
+                "length": 4
+              }
+            },
+            {
+              "content": "please",
+              "polygon": [
+                53,
+                143,
+                367,
+                143,
+                367,
+                229,
+                54,
+                227
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 57,
+                "length": 6
+              }
+            },
+            {
+              "content": "do",
+              "polygon": [
+                426,
+                143,
+                522,
+                143,
+                523,
+                230,
+                426,
+                229
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 64,
+                "length": 2
+              }
+            },
+            {
+              "content": "not",
+              "polygon": [
+                577,
+                143,
+                729,
+                143,
+                729,
+                231,
+                577,
+                230
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 67,
+                "length": 3
+              }
+            },
+            {
+              "content": "have",
+              "polygon": [
+                788,
+                143,
+                990,
+                143,
+                990,
+                232,
+                788,
+                231
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 71,
+                "length": 4
+              }
+            },
+            {
+              "content": "it",
+              "polygon": [
+                1056,
+                143,
+                1143,
+                144,
+                1143,
+                233,
+                1057,
+                233
+              ],
+              "confidence": 0.999,
+              "span": {
+                "offset": 76,
+                "length": 2
+              }
+            },
+            {
+              "content": "elaborate",
+              "polygon": [
+                1205,
+                144,
+                1662,
+                145,
+                1663,
+                236,
+                1205,
+                234
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 79,
+                "length": 9
+              }
+            },
+            {
+              "content": "-",
+              "polygon": [
+                1776,
+                146,
+                1822,
+                146,
+                1823,
+                237,
+                1777,
+                236
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 89,
+                "length": 1
+              }
+            },
+            {
+              "content": "just",
+              "polygon": [
+                1884,
+                146,
+                2079,
+                147,
+                2080,
+                238,
+                1885,
+                237
+              ],
+              "confidence": 0.987,
+              "span": {
+                "offset": 91,
+                "length": 4
+              }
+            },
+            {
+              "content": "something",
+              "polygon": [
+                2141,
+                148,
+                2601,
+                150,
+                2603,
+                239,
+                2142,
+                238
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 96,
+                "length": 9
+              }
+            },
+            {
+              "content": "I'll",
+              "polygon": [
+                2664,
+                151,
+                2858,
+                152,
+                2859,
+                240,
+                2665,
+                240
+              ],
+              "confidence": 0.686,
+              "span": {
+                "offset": 106,
+                "length": 4
+              }
+            },
+            {
+              "content": "not",
+              "polygon": [
+                2917,
+                153,
+                3065,
+                154,
+                3066,
+                240,
+                2919,
+                240
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 111,
+                "length": 3
+              }
+            },
+            {
+              "content": "be",
+              "polygon": [
+                3128,
+                155,
+                3228,
+                155,
+                3228,
+                240,
+                3129,
+                240
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 115,
+                "length": 2
+              }
+            },
+            {
+              "content": "ashamed",
+              "polygon": [
+                55,
+                247,
+                419,
+                247,
+                418,
+                329,
+                53,
+                326
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 118,
+                "length": 7
+              }
+            },
+            {
+              "content": "to",
+              "polygon": [
+                482,
+                247,
+                577,
+                247,
+                576,
+                330,
+                481,
+                329
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 126,
+                "length": 2
+              }
+            },
+            {
+              "content": "use",
+              "polygon": [
+                628,
+                247,
+                782,
+                247,
+                781,
+                331,
+                627,
+                330
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 129,
+                "length": 3
+              }
+            },
+            {
+              "content": "and",
+              "polygon": [
+                843,
+                248,
+                990,
+                248,
+                989,
+                333,
+                842,
+                332
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 133,
+                "length": 3
+              }
+            },
+            {
+              "content": "may",
+              "polygon": [
+                1043,
+                248,
+                1203,
+                248,
+                1203,
+                335,
+                1042,
+                334
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 137,
+                "length": 3
+              }
+            },
+            {
+              "content": "remember",
+              "polygon": [
+                1259,
+                248,
+                1668,
+                250,
+                1667,
+                339,
+                1258,
+                335
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 141,
+                "length": 8
+              }
+            },
+            {
+              "content": "the",
+              "polygon": [
+                1729,
+                250,
+                1871,
+                251,
+                1870,
+                340,
+                1728,
+                339
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 150,
+                "length": 3
+              }
+            },
+            {
+              "content": "donor",
+              "polygon": [
+                1930,
+                251,
+                2189,
+                252,
+                2188,
+                343,
+                1930,
+                341
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 154,
+                "length": 5
+              }
+            },
+            {
+              "content": "in",
+              "polygon": [
+                2251,
+                253,
+                2342,
+                253,
+                2342,
+                344,
+                2251,
+                344
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 160,
+                "length": 2
+              }
+            },
+            {
+              "content": "using.",
+              "polygon": [
+                2395,
+                254,
+                2741,
+                256,
+                2741,
+                347,
+                2394,
+                345
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 163,
+                "length": 6
+              }
+            },
+            {
+              "content": "P1.",
+              "polygon": [
+                2812,
+                268,
+                2956,
+                269,
+                2956,
+                333,
+                2812,
+                331
+              ],
+              "confidence": 0.876,
+              "span": {
+                "offset": 170,
+                "length": 3
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Just a word to ask you in case you send me anything ....",
+              "polygon": [
+                308,
+                37,
+                3167,
+                50,
+                3166,
+                141,
+                307,
+                125
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 56
+                }
+              ]
+            },
+            {
+              "content": "please do not have it elaborate - just something I'll not be",
+              "polygon": [
+                53,
+                142,
+                3228,
+                151,
+                3227,
+                240,
+                53,
+                227
+              ],
+              "spans": [
+                {
+                  "offset": 57,
+                  "length": 60
+                }
+              ]
+            },
+            {
+              "content": "ashamed to use and may remember the donor in using.",
+              "polygon": [
+                53,
+                247,
+                2741,
+                255,
+                2740,
+                346,
+                53,
+                331
+              ],
+              "spans": [
+                {
+                  "offset": 118,
+                  "length": 51
+                }
+              ]
+            },
+            {
+              "content": "P1.",
+              "polygon": [
+                2812,
+                268,
+                2955,
+                269,
+                2954,
+                333,
+                2812,
+                330
+              ],
+              "spans": [
+                {
+                  "offset": 170,
+                  "length": 3
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 173
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 173
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                53,
+                36,
+                3228,
+                50,
+                3227,
+                348,
+                52,
+                334
+              ]
+            }
+          ],
+          "content": "Just a word to ask you in case you send me anything .... please do not have it elaborate - just something I'll not be ashamed to use and may remember the donor in using. P1."
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_origin.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "ST. FELIX MONASTERY",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.2901028096675873,
+          "width": 1106,
+          "height": 193,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "ST.",
+              "polygon": [
+                62,
+                56,
+                202,
+                57,
+                202,
+                128,
+                62,
+                128
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "FELIX",
+              "polygon": [
+                273,
+                57,
+                525,
+                59,
+                527,
+                129,
+                274,
+                128
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 4,
+                "length": 5
+              }
+            },
+            {
+              "content": "MONASTERY",
+              "polygon": [
+                574,
+                59,
+                1048,
+                63,
+                1049,
+                131,
+                577,
+                129
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 10,
+                "length": 9
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "ST. FELIX MONASTERY",
+              "polygon": [
+                61,
+                56,
+                1049,
+                61,
+                1048,
+                131,
+                61,
+                126
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 19
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 19
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 19
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                61,
+                56,
+                1049,
+                61,
+                1049,
+                131,
+                61,
+                126
+              ]
+            }
+          ],
+          "content": "ST. FELIX MONASTERY"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_recipient.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Miss Doris Panyard",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.6666685938835144,
+          "width": 1058,
+          "height": 195,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Miss",
+              "polygon": [
+                57,
+                55,
+                264,
+                57,
+                266,
+                132,
+                59,
+                130
+              ],
+              "confidence": 0.991,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "Doris",
+              "polygon": [
+                327,
+                57,
+                575,
+                59,
+                577,
+                138,
+                329,
+                133
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 5,
+                "length": 5
+              }
+            },
+            {
+              "content": "Panyard",
+              "polygon": [
+                638,
+                60,
+                1002,
+                62,
+                1002,
+                151,
+                640,
+                140
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 11,
+                "length": 7
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Miss Doris Panyard",
+              "polygon": [
+                56,
+                54,
+                1002,
+                61,
+                1001,
+                150,
+                56,
+                135
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 18
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                56,
+                50,
+                1002,
+                61,
+                1001,
+                150,
+                55,
+                139
+              ]
+            }
+          ],
+          "content": "Miss Doris Panyard"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_location_recipient.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Muskegon, Mich'n",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": -0.20360000431537628,
+          "width": 956,
+          "height": 208,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Muskegon,",
+              "polygon": [
+                61,
+                62,
+                521,
+                58,
+                521,
+                146,
+                61,
+                135
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 0,
+                "length": 9
+              }
+            },
+            {
+              "content": "Mich'n",
+              "polygon": [
+                581,
+                57,
+                906,
+                56,
+                906,
+                133,
+                581,
+                146
+              ],
+              "confidence": 0.983,
+              "span": {
+                "offset": 10,
+                "length": 6
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Muskegon, Mich'n",
+              "polygon": [
+                61,
+                59,
+                905,
+                56,
+                905,
+                143,
+                61,
+                146
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 16
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 16
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 16
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                61,
+                59,
+                905,
+                56,
+                905,
+                143,
+                61,
+                146
+              ]
+            }
+          ],
+          "content": "Muskegon, Mich'n"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_location_sender.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Route 8\nHUNTINGTON, INDIANA",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.32256048917770386,
+          "width": 1106,
+          "height": 356,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Route",
+              "polygon": [
+                168,
+                59,
+                418,
+                57,
+                419,
+                134,
+                168,
+                128
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 0,
+                "length": 5
+              }
+            },
+            {
+              "content": "8",
+              "polygon": [
+                476,
+                59,
+                523,
+                60,
+                523,
+                131,
+                477,
+                132
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 6,
+                "length": 1
+              }
+            },
+            {
+              "content": "HUNTINGTON,",
+              "polygon": [
+                59,
+                215,
+                618,
+                215,
+                621,
+                296,
+                59,
+                284
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 8,
+                "length": 11
+              }
+            },
+            {
+              "content": "INDIANA",
+              "polygon": [
+                689,
+                216,
+                1051,
+                223,
+                1054,
+                289,
+                692,
+                296
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 20,
+                "length": 7
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Route 8",
+              "polygon": [
+                167,
+                56,
+                523,
+                57,
+                522,
+                134,
+                167,
+                131
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 7
+                }
+              ]
+            },
+            {
+              "content": "HUNTINGTON, INDIANA",
+              "polygon": [
+                59,
+                213,
+                1053,
+                217,
+                1052,
+                296,
+                59,
+                291
+              ],
+              "spans": [
+                {
+                  "offset": 8,
+                  "length": 19
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 27
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 7
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                167,
+                56,
+                523,
+                57,
+                523,
+                134,
+                167,
+                133
+              ]
+            }
+          ],
+          "content": "Route 8"
+        },
+        {
+          "spans": [
+            {
+              "offset": 8,
+              "length": 19
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                59,
+                213,
+                1053,
+                217,
+                1053,
+                296,
+                59,
+                292
+              ]
+            }
+          ],
+          "content": "HUNTINGTON, INDIANA"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_date.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "December 18th\n1946",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.16901320219039917,
+          "width": 1102,
+          "height": 197,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "December",
+              "polygon": [
+                59,
+                59,
+                470,
+                59,
+                468,
+                133,
+                57,
+                129
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 0,
+                "length": 8
+              }
+            },
+            {
+              "content": "18th",
+              "polygon": [
+                545,
+                59,
+                736,
+                60,
+                736,
+                133,
+                543,
+                133
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 9,
+                "length": 4
+              }
+            },
+            {
+              "content": "1946",
+              "polygon": [
+                854,
+                60,
+                1045,
+                60,
+                1045,
+                137,
+                854,
+                137
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 14,
+                "length": 4
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "December 18th",
+              "polygon": [
+                57,
+                58,
+                735,
+                59,
+                734,
+                132,
+                56,
+                129
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 13
+                }
+              ]
+            },
+            {
+              "content": "1946",
+              "polygon": [
+                854,
+                60,
+                1044,
+                65,
+                1042,
+                133,
+                856,
+                137
+              ],
+              "spans": [
+                {
+                  "offset": 14,
+                  "length": 4
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 13
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                56,
+                56,
+                735,
+                59,
+                735,
+                132,
+                56,
+                129
+              ]
+            }
+          ],
+          "content": "December 18th"
+        },
+        {
+          "spans": [
+            {
+              "offset": 14,
+              "length": 4
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                854,
+                60,
+                1044,
+                65,
+                1042,
+                142,
+                852,
+                137
+              ]
+            }
+          ],
+          "content": "1946"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_greeting.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Dear Miss Panyard :",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.5234541893005371,
+          "width": 1046,
+          "height": 193,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Dear",
+              "polygon": [
+                56,
+                58,
+                265,
+                59,
+                265,
+                132,
+                56,
+                127
+              ],
+              "confidence": 0.986,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "Miss",
+              "polygon": [
+                317,
+                59,
+                520,
+                60,
+                521,
+                137,
+                318,
+                133
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 5,
+                "length": 4
+              }
+            },
+            {
+              "content": "Panyard",
+              "polygon": [
+                581,
+                60,
+                937,
+                63,
+                939,
+                143,
+                582,
+                138
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 10,
+                "length": 7
+              }
+            },
+            {
+              "content": ":",
+              "polygon": [
+                958,
+                63,
+                987,
+                64,
+                987,
+                143,
+                960,
+                143
+              ],
+              "confidence": 0.976,
+              "span": {
+                "offset": 18,
+                "length": 1
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Dear Miss Panyard :",
+              "polygon": [
+                56,
+                57,
+                987,
+                63,
+                986,
+                142,
+                56,
+                131
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 19
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 19
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 19
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                56,
+                57,
+                987,
+                63,
+                986,
+                142,
+                55,
+                136
+              ]
+            }
+          ],
+          "content": "Dear Miss Panyard :"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_greeting.1": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "God bless you again.\n.",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.30531978607177734,
+          "width": 1353,
+          "height": 195,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "God",
+              "polygon": [
+                58,
+                51,
+                208,
+                59,
+                210,
+                132,
+                61,
+                125
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "bless",
+              "polygon": [
+                269,
+                61,
+                517,
+                66,
+                518,
+                142,
+                270,
+                135
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 4,
+                "length": 5
+              }
+            },
+            {
+              "content": "you",
+              "polygon": [
+                579,
+                66,
+                727,
+                65,
+                728,
+                146,
+                580,
+                144
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 10,
+                "length": 3
+              }
+            },
+            {
+              "content": "again.",
+              "polygon": [
+                791,
+                64,
+                1091,
+                53,
+                1091,
+                147,
+                791,
+                147
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 14,
+                "length": 6
+              }
+            },
+            {
+              "content": ".",
+              "polygon": [
+                1272,
+                107,
+                1290,
+                107,
+                1290,
+                129,
+                1272,
+                130
+              ],
+              "confidence": 0.659,
+              "span": {
+                "offset": 21,
+                "length": 1
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "God bless you again.",
+              "polygon": [
+                58,
+                51,
+                1091,
+                52,
+                1090,
+                147,
+                58,
+                137
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 20
+                }
+              ]
+            },
+            {
+              "content": ".",
+              "polygon": [
+                1272,
+                108,
+                1289,
+                107,
+                1289,
+                130,
+                1272,
+                130
+              ],
+              "spans": [
+                {
+                  "offset": 21,
+                  "length": 1
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 22
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 20
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                58,
+                51,
+                1091,
+                52,
+                1091,
+                147,
+                58,
+                146
+              ]
+            }
+          ],
+          "content": "God bless you again."
+        },
+        {
+          "spans": [
+            {
+              "offset": 21,
+              "length": 1
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                1272,
+                107,
+                1289,
+                107,
+                1289,
+                130,
+                1272,
+                130
+              ]
+            }
+          ],
+          "content": "."
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_farewell.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "1\npardon haste and brevity.\n... Praised be Jesus!",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.22271379828453064,
+          "width": 2603,
+          "height": 193,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "1",
+              "polygon": [
+                1273,
+                6,
+                1274,
+                2,
+                1306,
+                2,
+                1305,
+                8
+              ],
+              "confidence": 0.679,
+              "span": {
+                "offset": 0,
+                "length": 1
+              }
+            },
+            {
+              "content": "pardon",
+              "polygon": [
+                69,
+                38,
+                375,
+                35,
+                375,
+                112,
+                69,
+                115
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 2,
+                "length": 6
+              }
+            },
+            {
+              "content": "haste",
+              "polygon": [
+                432,
+                35,
+                685,
+                35,
+                685,
+                113,
+                432,
+                112
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 9,
+                "length": 5
+              }
+            },
+            {
+              "content": "and",
+              "polygon": [
+                752,
+                35,
+                896,
+                35,
+                896,
+                116,
+                752,
+                114
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 15,
+                "length": 3
+              }
+            },
+            {
+              "content": "brevity.",
+              "polygon": [
+                956,
+                35,
+                1355,
+                39,
+                1355,
+                128,
+                956,
+                117
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 19,
+                "length": 8
+              }
+            },
+            {
+              "content": "...",
+              "polygon": [
+                1531,
+                46,
+                1665,
+                44,
+                1663,
+                116,
+                1529,
+                117
+              ],
+              "confidence": 0.913,
+              "span": {
+                "offset": 28,
+                "length": 3
+              }
+            },
+            {
+              "content": "Praised",
+              "polygon": [
+                1680,
+                43,
+                2040,
+                41,
+                2039,
+                116,
+                1679,
+                116
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 32,
+                "length": 7
+              }
+            },
+            {
+              "content": "be",
+              "polygon": [
+                2094,
+                41,
+                2191,
+                42,
+                2190,
+                116,
+                2093,
+                116
+              ],
+              "confidence": 0.985,
+              "span": {
+                "offset": 40,
+                "length": 2
+              }
+            },
+            {
+              "content": "Jesus!",
+              "polygon": [
+                2249,
+                42,
+                2551,
+                47,
+                2551,
+                118,
+                2249,
+                116
+              ],
+              "confidence": 0.987,
+              "span": {
+                "offset": 43,
+                "length": 6
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "1",
+              "polygon": [
+                1273,
+                7,
+                1273,
+                2,
+                1305,
+                2,
+                1304,
+                7
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 1
+                }
+              ]
+            },
+            {
+              "content": "pardon haste and brevity.",
+              "polygon": [
+                68,
+                34,
+                1355,
+                37,
+                1354,
+                127,
+                68,
+                120
+              ],
+              "spans": [
+                {
+                  "offset": 2,
+                  "length": 25
+                }
+              ]
+            },
+            {
+              "content": "... Praised be Jesus!",
+              "polygon": [
+                1528,
+                41,
+                2550,
+                42,
+                2550,
+                117,
+                1528,
+                115
+              ],
+              "spans": [
+                {
+                  "offset": 28,
+                  "length": 21
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 49
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 1
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                1273,
+                2,
+                1305,
+                2,
+                1305,
+                7,
+                1273,
+                7
+              ]
+            }
+          ],
+          "content": "1"
+        },
+        {
+          "spans": [
+            {
+              "offset": 2,
+              "length": 25
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                68,
+                34,
+                1355,
+                37,
+                1355,
+                127,
+                68,
+                124
+              ]
+            }
+          ],
+          "content": "pardon haste and brevity."
+        },
+        {
+          "spans": [
+            {
+              "offset": 28,
+              "length": 21
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                1528,
+                41,
+                2550,
+                42,
+                2550,
+                117,
+                1528,
+                116
+              ]
+            }
+          ],
+          "content": "... Praised be Jesus!"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_signature.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Fr. Solanus, O.F.M.Cap.",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.6519489884376526,
+          "width": 1300,
+          "height": 198,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Fr.",
+              "polygon": [
+                57,
+                58,
+                198,
+                58,
+                198,
+                133,
+                57,
+                131
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "Solanus,",
+              "polygon": [
+                268,
+                59,
+                669,
+                61,
+                669,
+                141,
+                268,
+                134
+              ],
+              "confidence": 0.958,
+              "span": {
+                "offset": 4,
+                "length": 8
+              }
+            },
+            {
+              "content": "O.F.M.Cap.",
+              "polygon": [
+                732,
+                62,
+                1243,
+                69,
+                1243,
+                153,
+                732,
+                142
+              ],
+              "confidence": 0.788,
+              "span": {
+                "offset": 13,
+                "length": 10
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Fr. Solanus, O.F.M.Cap.",
+              "polygon": [
+                56,
+                58,
+                1243,
+                68,
+                1242,
+                152,
+                56,
+                135
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 23
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 23
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 23
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                56,
+                54,
+                1243,
+                68,
+                1242,
+                152,
+                55,
+                138
+              ]
+            }
+          ],
+          "content": "Fr. Solanus, O.F.M.Cap."
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    }
+  }
+}

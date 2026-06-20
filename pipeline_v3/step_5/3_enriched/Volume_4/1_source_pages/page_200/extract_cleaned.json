@@ -1,0 +1,193 @@
+{
+  "page": "Volume_4/1_source_pages/page_200",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "John Corcoran - 77 - cancerous condicion. Very little hope .....",
+      "merged_text": "John Corcoran - 77 - cancerous condicion. Very little hope .....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Joseph W. Zengerle - 52 - Enrolled in \"Ser. Masses\" June 1st when in dying condition in Carmel Hosp. \"practically dead four hours\" ... Is home two weeks. Shaved himself this a.m. They had taken 9 inches of cancerous intestine from him.",
+      "merged_text": "Thanks - Joseph W. Zengerle - 52 - Enrolled in \"Ser. Masses\" June Ist when in dying condition in Carmel Hosp. \"practically dead four hours\" ... Is home two weeks. Shaved himself this a.m. They had taken 9 inches of cancerous intestine from him.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Michael Dunkirk - 43 - Drs at witt's end as to what the trouble really is ... One thing he can not be in crowd.",
+      "merged_text": "Michael Dunkirk - 43 - Drs at witt's end as to what the trouble really is ... One thing he can not be in crowd.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Cath. Courtney - 63 - cancer of bladder - being sent home from Prov. Hosp. - hopeless. Enrolled in Ser. Masses - all urged to \"more frequent Communion\".",
+      "merged_text": "Cath. Courtney - 63 - cancer of bladder - being sent home from Prov. Hosp. - hopeless. Enrolled in Ser. Masses - all urged to \"more frequent Communion\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Martha Sharp - 67 - hardening of Arteries - almost blind hopes to see her son from Los Angeles away for 15 yrs. married out - Husband good honest man but.",
+      "merged_text": "Mrs. Martha Sharp - 67 - hardening of Arteries - almost blind hopes to see her son from Los Angeles away for 15 yrs. married out - Husband good honest man but.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Blanche Rignot - 65 - ailing for years .... very peculiar cir- cumstances .. for God's guidance and mercy - on her and relatives.",
+      "merged_text": "Mrs. Blanche Rignot - 65 - ailing for years .... very peculiar cir- cumstances .. for God's guidance and mercy - on her and relatives.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Jerry Duggan - 48 - pneumonia - operation in March ... was getting - doing fine - cold last Sat. or Sund. now in oxigen",
+      "merged_text": "Jerry Duggan - 48 - pneumonia - operation in March ... was getting - doing fine - cold last Sat. or Sund. now in oxigen",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Thom. James Nolan - 78 - operation for malignant.",
+      "merged_text": "Thom. James Nolan - 78 - operation for malignant.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Carolyn Calcagno - 2 - two strokes last July 17 and 19 ... Drs said she'd never walk; walking now, not perfectly but fairly we11. ..",
+      "merged_text": "Thanks - Carolyn Calcagno - 2 - two strokes last July 17 and 19 ... Drs said she'd never walk; walking now, not perfectly but fairly we11. ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "V. Sister M. Rupert - losing sight - practilly blind in one eye and Drs. say ... \"hopeless\". Has been teaching 34 years.",
+      "merged_text": "V. Sister M. Rupert - losing sight - practilly blind in one eye and Drs. say ... \"hopeless\". Has been teaching 34 years.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Also Sister Ernest - teaching 35 yrs. - sometimes nerveous.",
+      "merged_text": "Also Sister Ernest - teaching 35 yrs. - sometimes nerveous.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mrs. M. Holly - Judge H's widow enrolled for cancer ... Came back next day - no trace of the ugly sore on her lip. Aug. 10th En- rolled Poor Souls a hundred times \"4th big favor same way.",
+      "merged_text": "Mrs. M. Holly - Judge H's widow enrolled for cancer ... Came back next day - no trace of the ugly sore on her lip. Aug. 10th En- rolled Poor Souls a hundred times \"4th big favor same way.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Clara Polzin - 35 - Saginaw - palsey for ten yrs. times thinks. Some",
+      "merged_text": "Mrs. Clara Polzin - 35 - Saginaw - palsey for ten yrs. times thinks. Some",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "July 1",
+      "merged_text": "July 1",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "4",
+      "merged_text": "4",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "4 th",
+      "merged_text": "4 th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "July 6",
+      "merged_text": "July 6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "6",
+      "merged_text": "6",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "7",
+      "merged_text": "7",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "8",
+      "merged_text": "8",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.7",
+      "category": "src_date",
+      "cleaned_text": "9",
+      "merged_text": "9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.8",
+      "category": "src_date",
+      "cleaned_text": "July 13",
+      "merged_text": "July 13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 79 Cont.",
+      "merged_text": "Page 79 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 80",
+      "merged_text": "Page 80",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 81",
+      "merged_text": "Page 81",
+      "edits": []
+    }
+  ]
+}

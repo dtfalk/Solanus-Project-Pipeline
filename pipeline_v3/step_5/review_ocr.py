@@ -214,13 +214,17 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("pages", nargs="+", help="page dirs (or a section/sub dir to review all its pages)")
+    ap.add_argument("pages", nargs="*", help="page/section dirs (default: ALL pages under --root)")
     ap.add_argument("--port", type=int, default=8000)
     ap.add_argument("--root", default="3_enriched", help="dataset root to read from / write into (default: 3_enriched)")
     a = ap.parse_args()
     global ROOT
     ROOT = (HERE / a.root).resolve()
-    PAGES.extend(resolve(a.pages))
+    if a.pages:
+        PAGES.extend(resolve(a.pages))
+    else:                                            # no args -> every page under --root
+        PAGES.extend(p for p in sorted(ROOT.glob("*/*/page_*"))
+                     if p.is_dir() and ".backups" not in p.parts and list(p.glob("page_*.masked.png")))
     if not PAGES:
         raise SystemExit("no pages found (need folders with a page_*.masked.png)")
     print(f"{len(PAGES)} page(s) — open  http://localhost:{a.port}  (Ctrl-C to stop)")

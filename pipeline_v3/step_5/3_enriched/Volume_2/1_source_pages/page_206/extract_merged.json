@@ -1,0 +1,76 @@
+{
+  "page": "Volume_2/1_source_pages/page_206",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 5,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "\"Twenty-five minutes later the Judge phoned: 'I thought you would be pleased to hear; I brought the doctor right back to the Children's Hospital and in the vestibule we met the mother of the boy, his wife all smiling. \"At 1:30 he opened his eyes and smiled at me'. \"A week later (Sundad) he was brought home in perfect health.\" Dr. Klietzer told many people about this remarkable recovery. I learned later that his father was a Jewish rabbi. The last time I spoke with Judge Healy I asked about Dr. Kleizer. He regretted that, cwing to some political misunderstanding and exagerated report the Dr. resigned his position in the Children's Court and is now in business for himself.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"Twenty-five minutes later the Judge phoned: 'I thought you would be pleased to hear; I brought the doctor right back to the Children's Hospital and in the vestibule we met the mother of the boy, his wife all smiling. \"At 1:30 he opened his eyes and smiled at me'. \"A week later (Sundad) he was brought home in perfect health.\" Dr. Klietzer told many people about this remarkable recovery. . H learned later that his father was a Jewish rabbi. The last time I spoke with Judge Healy I asked about Dr. Kleizer. He regretted that, cwing to some political misunderstanding and exagerated report the Dr. resigned his position in the Children's Court and is now in business for himself.",
+      "per_polygon": "\"Twenty-five minutes later the Judge phoned: 'I thought you would be pleased to hear; I brought the doctor right back to the Children's Hospital and in the vestibule we met the mother of the boy, his wife all smiling. \"At 1:30 he opened his eyes and smiled at me'. \"A week later (Sundad) he was brought home in perfect health.\" Dr. Klietzer told many people about this remarkable recovery. I learned later that his father was a Jewish rabbi. The last time I spoke with Judge Healy I asked about Dr. Kleizer. He regretted that, cwing to some political misunderstanding and exagerated report the Dr. resigned his position in the Children's Court and is now in business for himself.",
+      "min_conf": 0.225
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Coping that the above may not have been too boring for anyone and that if it be God's holy will your Jenny may give the doctors and all concerned a favorable surprise of somekind, I remain,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Coping that the above may not have been too boring for anyone and that if it be God's holy will your Jenny may give the doctors and all concerned a favorable surprise of somekind, I remain,",
+      "per_polygon": "Coping that the above may not have been too boring for anyone and that if it be God's holy will your Jenny may give the doctors and all concerned a favorable surprise of somekind, I remain,",
+      "min_conf": 0.624
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, December 14",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, December 14",
+      "per_polygon": "1946, December 14",
+      "min_conf": 0.956
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(not signed)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(not signed)",
+      "per_polygon": "(not signed)",
+      "min_conf": 0.814
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2.",
+      "per_polygon": "Page 2.",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mrs. Abraham Trabulsy",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Abraham Trabulsy",
+      "per_polygon": "Mrs. Abraham Trabulsy",
+      "min_conf": 0.959
+    }
+  ]
+}

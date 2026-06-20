@@ -1,0 +1,200 @@
+{
+  "page": "Volume_3/1_source_pages/page_136",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Baby Edgar Picard - 172 mo. - sick since Nov. - Flu - measles - double pneumonia - now seems to have abcesses on lungs - only child left of 3.",
+      "merged_text": "Baby Edgar Picard - 172 mo. - sick since Nov. - Flu - measles - double pneumonia - now seems to have abcesses on lungs - only child left of 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Anna Risco (Mrs.)- 67 - breast removed last Tuesday, getting along well, anxious ...",
+      "merged_text": "Anna Risco (Mrs.)- 67 - breast removed last Tuesday, getting along well, anxious ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Mary Bernies - 86 - 8 yrs. invalid complains not being able to die - cancer of intestines - son away ..... 30 yrs.",
+      "merged_text": "Mary Bernies - 86 - 8 yrs. invalid complains not being able to die - cancer of intestines - son away ..... 30 yrs.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Marie Colombo - 20 mo. - never spoke so far - mother not to Easter duty .. ...",
+      "merged_text": "Marie Colombo - 20 mo. - never spoke so far - mother not to Easter duty .. ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Jos. T. - 7 - losing sight in one eye.",
+      "merged_text": "Jos. T. - 7 - losing sight in one eye.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Carmen Borg - 42 - E. Malta - brain-tumor - weak after operation.",
+      "merged_text": "Carmen Borg - 42 - E. Malta - brain-tumor - weak after operation.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Ellen DeMaggi - 3 - Infantile paral's",
+      "merged_text": "Ellen DeMaggi - 3 - Infantile paral's",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Norman Laskowski - 9 - had \"flu\" now blind in one eye - Mother asks prayers for ....",
+      "merged_text": "Norman Laskowski - 9 - had \"flu\" now blind in one eye - Mother asks prayers for ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Sat. Mrs. Fr. LaBell - 24 - convert - blood-poison - hopeless - quite given up ...",
+      "merged_text": "Sat. Mrs. Fr. LaBell - 24 - convert - blood-poison - hopeless - quite given up ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Joseph Ciak - 7, a twin - like paralized - unable to sit up, talk or stand, improving.",
+      "merged_text": "Joseph Ciak - 7, a twin - like paralized - unable to sit up, talk or stand, improving.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Fr. LaBelle - 24 -",
+      "merged_text": "Mrs. Fr. LaBelle - 24 -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Henry Laethem - 57 - Enemic ... now home from Rochester ... improving.",
+      "merged_text": "Henry Laethem - 57 - Enemic ... now home from Rochester ... improving.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Robert Mross - 5 - Speechless, except \"Mama - Papa\".",
+      "merged_text": "Robert Mross - 5 - Speechless, except \"Mama - Papa\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Walter Kopydlowski - 26 - T.B. Weak, without finance, wandering a- way from home when ought to be in bed. Father atheist - mother broken hearted pleads for prayers.",
+      "merged_text": "Walter Kopydlowski - 26 - T.B. Weak, without finance, wandering a- way from home when ought to be in bed. Father atheist - mother broken hearted pleads for prayers.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.14",
+      "category": "src_content",
+      "cleaned_text": "C.J. Archambeau - 48 of near Cleveland, O. - hopelessly paralized since a yr. ago. Married out, non Cath. by a priest, Grandmother insisting on protestant baptism ... has not been to sacraments since ...",
+      "merged_text": "C.J. Archambeau - 48 of near Cleveland, 0. - hopelessly paralized since a yr. ago. Married out, non Cath. by a priest, Grandmother insisting on protestant baptism ... has not been to sacraments since ...",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.15",
+      "category": "src_content",
+      "cleaned_text": "Lucille Knopes - 14 - improving had 280 Bl.p. still in danger - kidney trouble serious.",
+      "merged_text": "Lucille Knopes - 14 - improving had 280 Bl.p. still in danger - kidney trouble serious.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Aug. 29th",
+      "merged_text": "Aug. 29th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Sept.",
+      "merged_text": "Sept.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "2nd",
+      "merged_text": "2nd",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "Blank Page",
+      "merged_text": "Blank Page",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1933, August",
+      "merged_text": "1933, August",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.1",
+      "category": "archv_date",
+      "cleaned_text": "1933, September",
+      "merged_text": "1933, September",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "merged_text": "FR. SOLANUS, NOTEBOOK NO. 5.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 137 Cont.",
+      "merged_text": "Page 137 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 138",
+      "merged_text": "Page 138",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 139",
+      "merged_text": "Page 139",
+      "edits": []
+    }
+  ]
+}

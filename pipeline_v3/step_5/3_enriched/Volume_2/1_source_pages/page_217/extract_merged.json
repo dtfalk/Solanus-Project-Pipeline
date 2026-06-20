@@ -1,0 +1,87 @@
+{
+  "page": "Volume_2/1_source_pages/page_217",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 7,
+  "n_agree": 2,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Thanks be to God for His uncountable mercies and to my neighbor for his patient charity: fifty years in the Order have slipped, scarcely noticed ahead of me, into eternal life.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Thanks be to God for His uncountable mercies - and to my neighbor for his patient charity: fifty years in the Order have slipped, scarcely noticed ahead of me, into eternal life.",
+      "per_polygon": "Thanks be to God for His uncountable mercies and to my neighbor for his patient charity: fifty years in the Order have slipped, scarcely noticed ahead of me, into eternal life.",
+      "min_conf": 0.779
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Jan. 14 - 1897 Jan. 14 - 1946",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Jan. 14 - 1897 - Jan. 14 - 1946",
+      "per_polygon": "Jan. 14 - 1897 Jan. 14 - 1946",
+      "min_conf": 0.905
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Blessed be God in t , - all His designs -",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Blessed be God in - all His designs :",
+      "per_polygon": "Blessed be God in t , - all His designs -",
+      "min_conf": 0.106
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.847
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original message composed by the Servant of God, Father Solanus Casey, O.F.M.Cap. for his Golden Jubilee.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original message composed by the Servant of God, Father Solanus Casey, O.F.M.Cap. for his Golden Jubilee.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original message composed by the Servant of God, Father Solanus Casey, O.F.M.Cap. for his Golden Jubilee.",
+      "min_conf": 0.685
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1945, January 14",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "1946, January 14",
+      "per_polygon": "1945, January 14",
+      "min_conf": 0.635
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Fr. Charles Repole, OFM.Cap. Sacred Heart Friary 110 Shonnard Place Yonkers, N. Y. 10703",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Original in possession of: Fr. Charles Repole, OFM.Cap. Sacred Heart Friary 110 Shonnard Place Yonkers, N.Y. 10703",
+      "per_polygon": "Original in possession of: Fr. Charles Repole, OFM.Cap. Sacred Heart Friary 110 Shonnard Place Yonkers, N. Y. 10703",
+      "min_conf": 0.875
+    }
+  ]
+}

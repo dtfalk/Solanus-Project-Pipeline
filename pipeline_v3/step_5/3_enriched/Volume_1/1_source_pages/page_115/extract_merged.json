@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_115",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 7,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for your favor - aye for you many favors, - that so seldom get time to acknowledge, Rev. Fr. Neil Mccluskey, S.J. had holy Mass her last Thursday and stayed till about 2 p.m. We are expecting M. Genevieve his dear Mother these days when she gets to Mildred's in Chicago. M. and Dean are figuering on bringing her down before joining Neil in N.Y. and going overseas for coure in Louvain. Love and God's grace to all, including each of your patients. .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Many thanks for your favor - aye for your many favors, - that so seldom get time to acknowledge, Rev. Fr. Neil Mccluskey, S.J. had holy Mass her last Thursday and stayed till about 2 p.m. ... We are expecting M. Genevieve his dear Mother these days when she gets to Mildred's in Chicago. M. and Dean are figuering on bringing her down before joining Neil in N. Y. and going overseas for coure in Louvain. .... Love and God's grace to all, including each of your patients.",
+      "per_polygon": "Many thanks for your favor - aye for you many favors, - that so seldom get time to acknowledge, Rev. Fr. Neil Mccluskey, S.J. had holy Mass her last Thursday and stayed till about 2 p.m. We are expecting M. Genevieve his dear Mother these days when she gets to Mildred's in Chicago. M. and Dean are figuering on bringing her down before joining Neil in N.Y. and going overseas for coure in Louvain. Love and God's grace to all, including each of your patients. .",
+      "min_conf": 0.411
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Martha Owen Casey",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Martha Owen Casey",
+      "per_polygon": "Mrs. Martha Owen Casey",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "516 Warren Ave. Seattle, Wash.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "516 Warren Ave. Seattle, Wash.",
+      "per_polygon": "516 Warren Ave. Seattle, Wash.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God Bless you Martha - you and yours",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God Bless you Martha - you and yours",
+      "per_polygon": "God Bless you Martha - you and yours",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.872
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.653
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "POST CARD",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "POST CARD",
+      "per_polygon": "POST CARD",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1952, June 25",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1952, June 25",
+      "per_polygon": "1952, June 25",
+      "min_conf": 0.992
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "page": "Volume_2/1_source_pages/page_216",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 3,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Just to quote one little saying from the prolific pen of one most outstanding and universally acknowledged of all philosophers and moralists: \"But if any man have not care of his own, and especially of those of his own house, he hath denied the faith, and is worse than an infidel.\" St. Paul (I Tim. V-8). Of course Doctor; I know that unless one be some way in the grace of God, this must be boring to read. Neither is the drilling of a hopeful tooth pleasant - for the poor doctor any more than for the agonizing patient. But, But? If you dear Doctor; will have patiently read the above, having prayed for light and a good will, there will be great hope for both of us in your regard. Not only a tooth, but a temporal life worth living as well as an immortal soul will be saved. In the name of Saint Francis, and through his most humble, therefore, most powerful intercession; may the Lord give you His peace - you and yours.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Just to quote one little saying from the prolific pen of one most outstanding and universally acknowledged of all philosophers and moralists: \"But if any man have not care of his own, and especially of those of his own house, he hath denied the faith, and is worse than an infidel.\" St. Paul (I Tim. V-8). Of course Doctor; I know that unless one be some way in the grace of God, this must be boring to read. \"either is the drilling of a hopeful tooth pleasant - for the poor doctor any more than for the agonizing patient. But, But? If you dear Doctor; will have patiently read the above, having prayed for light and a good will, there will be great hope for both of us in your regard. Not only a tooth, but a temporal life worth living as well as an immortal soul will be saved. In the name of Saint Francis, and through his most humble, therefore, most powerful intercession; may the Lord give you His peace - you and yours.",
+      "per_polygon": "Just to quote one little saying from the prolific pen of one most outstanding and universally acknowledged of all philosophers and moralists: \"But if any man have not care of his own, and especially of those of his own house, he hath denied the faith, and is worse than an infidel.\" St. Paul (I Tim. V-8). Of course Doctor; I know that unless one be some way in the grace of God, this must be boring to read. Neither is the drilling of a hopeful tooth pleasant - for the poor doctor any more than for the agonizing patient. But, But? If you dear Doctor; will have patiently read the above, having prayed for light and a good will, there will be great hope for both of us in your regard. Not only a tooth, but a temporal life worth living as well as an immortal soul will be saved. In the name of Saint Francis, and through his most humble, therefore, most powerful intercession; may the Lord give you His peace - you and yours.",
+      "min_conf": 0.268
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely - Ecpefully - Tratemally Yours,",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Sincerely - Hopefully - Fratemally Yours,",
+      "per_polygon": "Sincerely - Ecpefully - Tratemally Yours,",
+      "min_conf": 0.265
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, 0.F.K. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.K. Cap.",
+      "per_polygon": "Fr. Solanus, 0.F.K. Cap.",
+      "min_conf": 0.635
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, October 4.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, October 4.",
+      "per_polygon": "1947, October 4.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 4.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 4.",
+      "per_polygon": "Page 4.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Dr. J. P. Young",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dr. J. P. Young",
+      "per_polygon": "Dr. J. P. Young",
+      "min_conf": 0.935
+    }
+  ]
+}

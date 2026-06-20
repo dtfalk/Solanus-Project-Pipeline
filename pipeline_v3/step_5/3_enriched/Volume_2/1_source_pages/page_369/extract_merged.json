@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_369",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 9,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours these unsettled, though by the mercy of God, greately privileged days. I am sure we all here at the Monastery hope that things in general at least are going fairly well your way and with your business. I received notice from your establishment several years ago, anouncing your having taken over the publication of the divinely privileged - \"inspired\" Life of the Bl. Virgin Mary; the Mysti- cal City of God. I hardly remember the particulars of the situ- ation at the time but I've regretted since, my comparative in- activity in such a divinely privileged work.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you and yours these unsettled, though by the mercy of God, greately privileged days. I am sure we all here at the Monastery hope that things in general at least are going fairly well your way and with your business. I received notice from your establishment several years ago, anouncing your having taken over the publication of the divinely privileged - \"inspired\" Life of the Bl. Virgin Mary; the Mysti- cal City of God. I hardly remember the particulars of the situ- ation at the time but I've regretted since, my comparative in- activity in such a divinely privileged work.",
+      "per_polygon": "God bless you and yours these unsettled, though by the mercy of God, greately privileged days. I am sure we all here at the Monastery hope that things in general at least are going fairly well your way and with your business. I received notice from your establishment several years ago, anouncing your having taken over the publication of the divinely privileged - \"inspired\" Life of the Bl. Virgin Mary; the Mysti- cal City of God. I hardly remember the particulars of the situ- ation at the time but I've regretted since, my comparative in- activity in such a divinely privileged work.",
+      "min_conf": 0.73
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. BONAVENTURE MONASTERY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. BONAVENTURE MONASTERY",
+      "per_polygon": "ST. BONAVENTURE MONASTERY",
+      "min_conf": 0.929
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "The Corcoran Publishing Company",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The Corcoran Publishing Company",
+      "per_polygon": "The Corcoran Publishing Company",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "The Corcoran Publishing Company O.P. 174 Albuquerque, New Mexico",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "O.P. 174 Albuquerque, New Mexico",
+      "per_polygon": "The Corcoran Publishing Company O.P. 174 Albuquerque, New Mexico",
+      "min_conf": 0.539
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "1740 Mt. Elliott Avenue DETROIT 7, MICHIGAN",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1740 Mt. Elliott Avenue DETROIT 7, MICHIGAN",
+      "per_polygon": "1740 Mt. Elliott Avenue DETROIT 7, MICHIGAN",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "April 6th, 1957",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "April 6th, 1957",
+      "per_polygon": "April 6th, 1957",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in all His designs.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in all His designs.",
+      "per_polygon": "Blessed be God in all His designs.",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My dear Friends:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "My dear Friends:",
+      "per_polygon": "My dear Friends:",
+      "min_conf": 0.974
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.P.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.583
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1957, April 6",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1957, April 6",
+      "per_polygon": "1957, April 6",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished draft)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished draft)",
+      "per_polygon": "(Unfinished draft)",
+      "min_conf": 0.975
+    }
+  ]
+}

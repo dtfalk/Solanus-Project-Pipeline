@@ -1,0 +1,186 @@
+{
+  "page": "Volume_4/1_source_pages/page_222",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Emil Malinowski - 35 - drinks, neglects wife and three small chil- dren, sleeps and misses work.",
+      "merged_text": "Emil Malinowski - 35 - drinks, neglects wife and three small chil- dren, sleeps and misses work.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Margaret Peck - 47 - Threatened by man - a gangster - who never work - whom she hopes to convert.",
+      "merged_text": "Margaret Peck - 47 - Threatened by man - a gangster - who never work - whom she hopes to convert.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Paul Simkiss - 41 - away from home since last May. Till that time everything was ideal .... has wife and four living here in Detroit.",
+      "merged_text": "Paul Simkiss - 41 - away from home since last May. Till that time everything was ideal .... has wife and four living here in Detroit.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Irene Andette - 44 - Baptist - Serious Eye trouble - nervous - Enrolled To-day in Ser. Masses. ...",
+      "merged_text": "Mrs. Irene Andette - 44 - Baptist - Serious Eye trouble - nervous - Enrolled To-day in Ser. Masses. ...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Raymond Gallagher - 16 - Very serious bowel trouble - enrolled Today",
+      "merged_text": "Raymond Gallagher - 16 - Very serious bowel trouble - enrolled Today",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Eileen (Schmid) McGuire - married last Wednesday to a P.F.C. from the Alutian Isles; Very sick for some time - in Providence Hosp. since Xmas .",
+      "merged_text": "Eileen (Schmid) McGuire - married last Wednesday to a P.F.C. from the Alutian Isles; Very sick for some time - in Providence Hosp. since Xmas .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Lucile Menard - 43 - blind .... lives with her father and brother and wife. They ask for prayers that they find some one to help .... 2921 Sheridan - Olive 5780 after 4 P.M.",
+      "merged_text": "Lucile Menard - 43 - blind .... lives with her father and brother and wife. They ask for prayers that they find some one to help .... 2921 Sheridan - Olive 5780 after 4 P.M.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. M. Schonherr wants girl or Woman to help with 4 small children - not very well - 14276 Eastwood ... Ar. 0128 -",
+      "merged_text": "Mrs. M. Schonherr wants girl or Woman to help with 4 small children - not very well - 14276 Eastwood ... Ar. 0128 -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Howard Sheridan - 50 - unconscious from Sunday last week till Thurs. - four Drs. absolutely gave him up ... .Pray.",
+      "merged_text": "Howard Sheridan - 50 - unconscious from Sunday last week till Thurs. - four Drs. absolutely gave him up ... .Pray.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Pauline Gann - 21 - in Kiefer's - cured of spinal maningitis last Saturday after being unconscious in Oxigen tank from Monday Now Drs find spot on lung.",
+      "merged_text": "Pauline Gann - 21 - in Kiefer's - cured of spinal maningitis last Saturday after being unconscious in Oxigen tank from Monday Now Drs find spot on lung.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Michael Angelo Cassar - 59 - has wife and 3 at home (now in Ann Arbor Hosp.) tumor in left lung, very threatening.",
+      "merged_text": "Michael Angelo Cassar - 59 - has wife and 3 at home (now in Ann Arbor Hosp.) tumor in left lung, very threatening.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Victoria Moskal O 48 - fearful head-aches from tumor in ear - fears mastoid. Enrolled.",
+      "merged_text": "Victoria Moskal 0 48 - fearful head-aches from tumor in ear - fears mastoid. Enrolled.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Josephine Sancome - 65 - threatening condition of lungs. Mother of large family .. .. .",
+      "merged_text": "Mrs. Josephine Sancome - 65 - threatening condition of lungs. Mother of large family .. .. .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Marg. Caton",
+      "merged_text": "Mrs. Marg. Caton",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Feb. 10",
+      "merged_text": "Feb. 10",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Feb. 13",
+      "merged_text": "Feb. 13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "13",
+      "merged_text": "13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "14",
+      "merged_text": "14",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "Feb. 15",
+      "merged_text": "Feb. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "16",
+      "merged_text": "16",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "20",
+      "merged_text": "20",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 124 Cont.",
+      "merged_text": "Page 124 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 125",
+      "merged_text": "Page 125",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 126",
+      "merged_text": "Page 126",
+      "edits": []
+    }
+  ]
+}

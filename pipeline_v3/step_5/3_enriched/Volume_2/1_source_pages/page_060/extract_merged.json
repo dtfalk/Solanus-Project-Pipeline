@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_060",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 6,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for your kind letter and favors of Dec. 18. Rest assured that I will add my prayers to the Masses for the intentions you mentioned in your letter. The names and intentions have also been inscribed in the records of the Seraphic lass Assn.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Many thanks for your kind letter and favors of Dec. 16. Rest assured that I will add my prayers to the Masses for the intentions you mentioned in your letter. The names and intentions have also been inscribed in the records of the Seraphic lass Assn.",
+      "per_polygon": "Many thanks for your kind letter and favors of Dec. 18. Rest assured that I will add my prayers to the Masses for the intentions you mentioned in your letter. The names and intentions have also been inscribed in the records of the Seraphic lass Assn.",
+      "min_conf": 0.653
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Christmas, 1949.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Christmas, 1949.",
+      "per_polygon": "Christmas, 1949.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Mr. & Mrs. O'Donnell",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Dear Mr. & Mrs. 0'Donnell",
+      "per_polygon": "Dear Mr. & Mrs. O'Donnell",
+      "min_conf": 0.7
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "With sincere best wishes for a Holy and Happy Christmas, I remain Sincerely yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "With sincere best wishes for a Holy and Happy Christmas, I remain Sincerely yours in Christ,",
+      "per_polygon": "With sincere best wishes for a Holy and Happy Christmas, I remain Sincerely yours in Christ,",
+      "min_conf": 0.546
+    },
+    {
+      "rid": "doc_1.src_farewell.1",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Yes Joseph and Winifred: God bless you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Yes Joseph and Winifred: God bless you and yours.",
+      "per_polygon": "Yes Joseph and Winifred: God bless you and yours.",
+      "min_conf": 0.894
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.K., Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.K., Cap.",
+      "per_polygon": "Fr. Solanus, O.F.K., Cap.",
+      "min_conf": 0.65
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.P.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.P.M.Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.P.M.Cap.",
+      "min_conf": 0.597
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1949, December",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1949, December",
+      "per_polygon": "1949, December",
+      "min_conf": 0.992
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "page": "Volume_2/1_source_pages/page_202",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 5,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I do hope that something may be done to right some- thing of the flagrant injustices against which Dr. Kraus has been fighting. I am confident that sooner or later his idealism - so really Christian - will prevail; though it seems to me he is fifty years ahead of his generation. I feel that if he only persevere and cooperate with God's grace, never wanting to good wills, there will come great results from his so far, heroic warfare. So, too, do I hope that the good God whose ways are so unsearchable, have something ahead of poor, dear little Rickey Grix. All this, not withstanding scientific conclusions in the one case and, in the other, . . political atheism.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I do hope that something may be done to right some- thing of the flagrant injustices against which Dr. Kraus has been fighting. I am confident that sooner or later his idealism - so really Christian - will prevail; though it seems to me he is fifty years ahead of his generation. I feel that if he only persevere and cooperate with God's grace, never wanting to good wills, there will come great results from his so far, heroic warfare. So, too, do I hope that the good God whose ways are so unsearchable, have something ahead of poor, dear little Rickey Grix. All this, not withstanding scientific conclusions in the one case and, in the other, ... political atheism.",
+      "per_polygon": "I do hope that something may be done to right some- thing of the flagrant injustices against which Dr. Kraus has been fighting. I am confident that sooner or later his idealism - so really Christian - will prevail; though it seems to me he is fifty years ahead of his generation. I feel that if he only persevere and cooperate with God's grace, never wanting to good wills, there will come great results from his so far, heroic warfare. So, too, do I hope that the good God whose ways are so unsearchable, have something ahead of poor, dear little Rickey Grix. All this, not withstanding scientific conclusions in the one case and, in the other, . . political atheism.",
+      "min_conf": 0.389
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Trusting to have brighter reports and better results, I beg to remain Sincerely Yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Trusting to have brighter reports and better results, I beg to remain Sincerely Yours in Christ,",
+      "per_polygon": "Trusting to have brighter reports and better results, I beg to remain Sincerely Yours in Christ,",
+      "min_conf": 0.895
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.877
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, December 14",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, December 14",
+      "per_polygon": "1946, December 14",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page Two",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page Two",
+      "per_polygon": "Page Two",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mr Henry S. Morgan",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr Henry S. Morgan",
+      "per_polygon": "Mr Henry S. Morgan",
+      "min_conf": 0.986
+    }
+  ]
+}

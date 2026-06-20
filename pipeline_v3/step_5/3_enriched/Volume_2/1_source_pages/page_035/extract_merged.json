@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_035",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 7,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Incidently, I am not sure if I ever showed that photo. Ic case of neglect on my part heretofore, please remind me when you come the next time and I shall be pleased, as I am sure you will be. Please pardon if this is getting too drawn-out. I'll try and cach you before you leave for the North. God bless you again and I want you to bring me something about the conversion of that manager of yours down ther - or of one nearer the ideal.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Incidently, I am not sure if I ever showed that photo. Ic case of neglect on my part heretofore, please remind me when you come the next time and I shall be pleased, as I am sure you will be. Please pardon if this is getting too drawn-out. I'll try and cach you before you leave for the North. God bless you again and I want you to bring me something about the conversion of that manager of yours down ther - or of one nearer the ideal.",
+      "per_polygon": "Incidently, I am not sure if I ever showed that photo. Ic case of neglect on my part heretofore, please remind me when you come the next time and I shall be pleased, as I am sure you will be. Please pardon if this is getting too drawn-out. I'll try and cach you before you leave for the North. God bless you again and I want you to bring me something about the conversion of that manager of yours down ther - or of one nearer the ideal.",
+      "min_conf": 0.19
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely Your in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sincerely Your in Christ,",
+      "per_polygon": "Sincerely Your in Christ,",
+      "min_conf": 0.96
+    },
+    {
+      "rid": "doc_1.src_farewell.1",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised be Jesus and Our Blessed Mother Mary",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised be Jesus and Our Blessed Mother Mary",
+      "per_polygon": "Praised be Jesus and Our Blessed Mother Mary",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr.Solanus, O.F .M.Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr.Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr.Solanus, O.F .M.Cap.",
+      "min_conf": 0.725
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus",
+      "per_polygon": "Fr. Solanus",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, October 9th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, October 9th",
+      "per_polygon": "1946, October 9th",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mr. Joseph J. O'Donnell",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. Joseph J. O'Donnell",
+      "per_polygon": "Mr. Joseph J. O'Donnell",
+      "min_conf": 0.636
+    }
+  ]
+}

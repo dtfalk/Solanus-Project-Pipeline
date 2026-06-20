@@ -23,7 +23,8 @@ Usage:
   venv/bin/python extract_azure.py Volume_1 Volume_2 ...                    # (see --help)
 """
 from __future__ import annotations
-import os, io, json, argparse
+import os, io, json, time, argparse, threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from PIL import Image
@@ -39,26 +40,51 @@ load_dotenv(HERE / ".env")                       # step_5/.env (see .env.templat
 
 USD_PER_PAGE = 0.0015                             # Azure DI Read, S0 tier: $1.50 / 1000 pages
 USAGE_CSV    = HERE / "usage_azure.csv"
+_USAGE_LOCK  = threading.Lock()                  # serialize CSV appends across worker threads
 
 
 def log_usage(page, full_calls, poly_calls):
     """Azure DI bills per analyzed page (= per analyze call), flat rate. Append a row to
-    usage_azure.csv (step_4 convention) and return this page's cost in USD."""
+    usage_azure.csv (step_4 convention) and return this page's cost in USD. Thread-safe."""
     calls = full_calls + poly_calls
     cost  = calls * USD_PER_PAGE
-    new = not USAGE_CSV.exists()
-    with open(USAGE_CSV, "a") as f:
-        if new:
-            f.write("timestamp,page,full_page_calls,poly_calls,total_calls,cost_usd\n")
-        f.write(f"{datetime.now().isoformat(timespec='seconds')},{page},"
-                f"{full_calls},{poly_calls},{calls},{cost:.4f}\n")
+    with _USAGE_LOCK:
+        new = not USAGE_CSV.exists()
+        with open(USAGE_CSV, "a") as f:
+            if new:
+                f.write("timestamp,page,full_page_calls,poly_calls,total_calls,cost_usd\n")
+            f.write(f"{datetime.now().isoformat(timespec='seconds')},{page},"
+                    f"{full_calls},{poly_calls},{calls},{cost:.4f}\n")
     return cost
 
 
 def make_client():
     ep = os.environ["AZURE_DI_ENDPOINT"].rstrip("/")
     key = os.environ["AZURE_DI_KEY"]
-    return DocumentIntelligenceClient(ep, AzureKeyCredential(key))
+    # azure-core retries 429/5xx with exponential backoff and honors the Retry-After header.
+    # Bump the count + backoff so sustained throttling on a long parallel run self-heals instead
+    # of surfacing as a page error (and even if a page does exhaust retries, resume re-runs it).
+    return DocumentIntelligenceClient(ep, AzureKeyCredential(key),
+                                      retry_total=10, retry_backoff_factor=1.0)
+
+_TLS = threading.local()
+def get_client():
+    """One Azure client per worker thread (constructed lazily; no network until first call)."""
+    c = getattr(_TLS, "client", None)
+    if c is None:
+        c = _TLS.client = make_client()
+    return c
+
+def ocr_done(pd: Path) -> bool:
+    """Already OCR'd iff both outputs exist and the cleaned json parses — guards a half-written
+    file from a killed run, so resume never trusts a truncated extract."""
+    clean, raw = pd / "extract_azure.json", pd / "extract_azure.raw.json"
+    if not (clean.exists() and raw.exists()):
+        return False
+    try:
+        return "regions" in json.loads(clean.read_text())
+    except Exception:
+        return False
 
 def png_bytes(img: Image.Image) -> bytes:
     b = io.BytesIO(); img.save(b, "PNG"); return b.getvalue()
@@ -166,24 +192,56 @@ def run_page(client, page_dir):
     return out
 
 
+def worker(p: str, force: bool):
+    """One page: returns (status, info, cost). Runs in a pool thread with its own Azure client."""
+    pd = Path(p) if Path(p).is_absolute() else (ROOT / p)
+    if not pd.is_dir() or not list(pd.glob("page_*.masked.png")):
+        return ("nomask", p, 0.0)
+    if not force and ocr_done(pd):                         # resume: don't re-pay for finished pages
+        return ("skip", p, 0.0)
+    try:
+        return ("ok", p, run_page(get_client(), pd).get("cost_usd", 0.0))
+    except Exception as exc:
+        return ("err", f"{p}: {type(exc).__name__}: {exc}", 0.0)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("pages", nargs="+", help="page dirs (relative to --root or absolute)")
+    ap.add_argument("pages", nargs="*", help="page dirs to OCR (default: ALL pages under --root)")
     ap.add_argument("--root", default="3_enriched", help="dataset root to read from / write into (default: 3_enriched)")
+    ap.add_argument("--workers", type=int, default=8, help="parallel OCR workers (Azure calls are I/O-bound -> threads)")
+    ap.add_argument("--force", action="store_true", help="re-OCR pages that already have a complete extract_azure.json")
     a = ap.parse_args()
     global ROOT
     ROOT = (HERE / a.root).resolve()
-    client = make_client()
-    total = 0.0
-    for p in a.pages:
-        pd = Path(p) if Path(p).is_absolute() else (ROOT / p)
-        if not pd.is_dir() or not list(pd.glob("page_*.masked.png")):
-            print(f"  SKIP {p} (no masked page)"); continue
-        try:
-            total += run_page(client, pd).get("cost_usd", 0.0)
-        except Exception as exc:
-            print(f"  ERROR {p}: {type(exc).__name__}: {exc}")
-    print(f"\nthis run: ${total:.4f}  |  cumulative log: {USAGE_CSV.name}")
+
+    pages = a.pages or [str(p.relative_to(ROOT)) for p in sorted(ROOT.glob("*/*/page_*"))
+                        if p.is_dir() and ".backups" not in p.parts]
+    n = len(pages)
+    tally = {"ok": 0, "skip": 0, "nomask": 0, "err": 0}
+    total, errs = 0.0, []
+    print(f"{n} page(s), {a.workers} workers, root={ROOT.name}, "
+          f"{'FORCE re-OCR all' if a.force else 'resume (skip already-done)'}")
+    t0 = time.time()
+    with ThreadPoolExecutor(max_workers=a.workers) as ex:
+        futs = [ex.submit(worker, p, a.force) for p in pages]
+        for i, fut in enumerate(as_completed(futs), 1):
+            status, info, cost = fut.result()
+            tally[status] += 1; total += cost
+            if status == "err":
+                errs.append(info)
+            if i % 25 == 0 or i == n:
+                el = time.time() - t0; eta = el / i * (n - i)
+                print(f"  [{i}/{n}] ok={tally['ok']} skip={tally['skip']} err={tally['err']}  "
+                      f"${total:.2f}  {el:.0f}s elapsed  ~{eta/60:.0f}m left", flush=True)
+    el = time.time() - t0
+    print(f"\ndone in {el/60:.1f} min: {tally['ok']} OCR'd, {tally['skip']} skipped (already done), "
+          f"{tally['nomask']} no-mask, {tally['err']} errors")
+    print(f"this run: ${total:.4f}  |  cumulative log: {USAGE_CSV.name}")
+    if errs:
+        print("ERRORS (rerun the same command to retry — done pages are skipped):")
+        for e in errs[:50]:
+            print("  " + e)
 
 
 if __name__ == "__main__":

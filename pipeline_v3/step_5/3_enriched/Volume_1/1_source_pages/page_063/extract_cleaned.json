@@ -1,0 +1,60 @@
+{
+  "page": "Volume_1/1_source_pages/page_063",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "GRATITUDE - ACKNOWLEDGEMENT I will bless the Lord at all times. His praise shall be always in my mouth.\" Ps. 33, 1. My heart is ready, O God, my heart is ready: I will sing, and will give praise with my glory.\" I will praise thee, O Lord, among the people and I will sing unto thee among the nations. For thy mercy is great above the heavens and thy truth even unto the clouds. (Ps. 104) Blessed be the Lord God of Israel (Luk 1) Ps. 115 What shall I render to the Lord for all the things that he hath rendered to me? Ps. 115-12 ( because) 114-3 \"The sorrows of death have compassed me and the perils of hell have found me. I met with sorrow, trouble & sorrow and I called upon the name of the Lord . .. I was humbled and he delivered me. Ps. 89) O Lord, thou has been our refuge from generation to generation. 2 Before the mountains were made or the earth and the world was formed; from eternity to eternity thou art God. 4 For a thousand years in Thy sight are as yesterday, which is past.",
+      "merged_text": "GRATITUDE - ACKNOWLEDGEMENT I will bless the Lord at all times. His praise shall be always in my mouth.\" Ps. 33, 1. My heart is ready, O God, my heart is ready: I will sing, and will give praise with my glory.\" I will praise thee, 0 Lord, among the people and I will sing unto thee among the nations. For thy mercy is great above the heavens and thy truth even unto the clouds. (Ps. 104) Blessed be the Lord God of Israel (Luk 1) Ps. 115 What shall I render to the Lord for all the things that he hath rendered to me? Ps. 115-12 ( because) 114-3 \"The sorrows of death have compassed me and the perils of hell have found me. I met with sorrow, trouble & sorrow and I called upon the name of the Lord . .. I was humbled and he delivered me. Ps. 89) O Lord, thou has been our refuge from generation to generation. 2 Before the mountains were made or the earth and the world was formed; from eternity to eternity thou art God. 4 For a thousand years in Thy sight are as yesterday, which is past.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1918 -",
+      "merged_text": "c. 1918 -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "category": "archv_other",
+      "cleaned_text": "Blank",
+      "merged_text": "Blank",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK No. 3.",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK No. 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 11.",
+      "merged_text": "Pg. 11.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 12.",
+      "merged_text": "Pg. 12.",
+      "edits": []
+    }
+  ]
+}

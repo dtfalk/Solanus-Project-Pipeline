@@ -1,0 +1,32 @@
+{
+  "page": "Appendix_1/1_source_pages/page_014",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 2,
+  "n_agree": 1,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "P.S. The \"Song to St. Louis,\" was requested here about a week ago, by the Secretary General for the Tertiary National Convention. He asks that we get it to him if possible by September 15th. -- He asks also that it be accompanied by its music. This letter may be written by the post-self or by another? Have the children pray that God may send us something worthy of the great St. Louis (King of France) so simple at once and so prudently zealous. .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "P.S. The \"Song to St. Louis,\" was requested here about a week ago, by the Secretary General for the Tertiary National Convention. He asks that we get it to him if possible by September 15th. -- He asks also that it be accompanied by its music. This letter may be written by the post-self or by another? Have the children pray that God may send us something worthy of the great St. Louis (King of France) so simple at once and so prudently zealous.",
+      "per_polygon": "P.S. The \"Song to St. Louis,\" was requested here about a week ago, by the Secretary General for the Tertiary National Convention. He asks that we get it to him if possible by September 15th. -- He asks also that it be accompanied by its music. This letter may be written by the post-self or by another? Have the children pray that God may send us something worthy of the great St. Louis (King of France) so simple at once and so prudently zealous. .",
+      "min_conf": 0.934
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised Be Jesus Christ!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised Be Jesus Christ!",
+      "per_polygon": "Praised Be Jesus Christ!",
+      "min_conf": 0.992
+    }
+  ]
+}

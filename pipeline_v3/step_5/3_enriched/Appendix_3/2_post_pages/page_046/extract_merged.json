@@ -1,0 +1,43 @@
+{
+  "page": "Appendix_3/2_post_pages/page_046",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 3,
+  "n_agree": 2,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F. M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap. AND FAITHFULLY TRANSCRIBED",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F. M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "min_conf": 0.829
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "contains 19 typed pages from various letters, cards and autographs, plus 25 other pages to include Notebook Number 12, only discovered in August of 1987.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "contains 19 typed pages from various letters, cards and autographs, plus 25 other pages to include Notebook Number 12, only discovered in August of 1987.",
+      "per_polygon": "contains 19 typed pages from various letters, cards and autographs, plus 25 other pages to include Notebook Number 12, only discovered in August of 1987.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "APPENDIX III",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "APPENDIX III",
+      "per_polygon": "APPENDIX III",
+      "min_conf": 0.947
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "page": "Appendix_2/1_source_pages/page_012",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Indeed, \"God Sent Me To This Retreat\". Thanks be to God! Got to bed this a.m. about 12:15 ... Alarm went off at 5 O'cl. Angelus and Litany with the lay-brs. and novices, had privilege of helping Fr. Guardian with H. Communion at Convent Mass. Answered bell rung just as we finished. Had figured on \"nap\" after said C. Mass .... not sleepy! A walk in the garden instead ... Only withered flowers on our Bl. Mother's Shrine (too neglected), for 1st Sunday in October, and tomorrow FEAST of HOLY ROSARY. Found fresh ones. At 9:30 so drousey could have dropped down and slept in any quiet corner but ...! Third Order Convention about to start morning conference, delegates from East and West, etc, demanded attention. Besides, Choefer to take writer to St. Paul's for 10:30 and 12 o'cl. Masses was expected - must leave at first for hospital first to see \"dying wife and mother. Sent same - husband and father to see G. about \"City of God\" etc as a last remedy ..... Inclined to be drousey during Malese (Maltese) announcements; dropped head more than once. Said stations between Masses - Litany of SacredH and short thanks- giving after last Mass .... Disapointed .... Had sent word to \"Dick R. G's son-in-law (one of our converts) to pick me up at 1: o'cl. fig- uering on starting directly for Huntington .... Found Dick waiting Okay but without dinner. All expecting me to sit down to eat chicken; said vespers instead - having had light dinner at St. Pl's Finally left the Garland home - happy family - Raefel and Agnes parents of eleven, grand-parents of seven and Great-grand-father Geo. Garland active secretary and book-keeper at their \"City of God\" act- ivity. This was not at 1: o'clock p.m. but 2:30, we left for Hunting- ton - 180 miles South-west - The Tigers a few blocks away with their fortys of thousands enthused about the Victory - and defet - just ahead Resigned to the delay and wondering why the dear Lord designed - had designed the double disapointment, even so trifling in itself that no one was really conscious, seemingly, of any disapointment atal; We sped out Michigan Ave. - about ---. 100 miles. Only one stop was made - a visit to the original Architect of the \"Irish Hill\", the Lord of \"Beauty's Home Kilarney\" itself, the King of King's, whoes colors at every turn of the wheells had been waiving us invitations since we had left Detroit. Conclusion after Reateat.",
+      "merged_text": "Indeed, \"God Sent Me To This Retreat\". Thanks be to God! Got to bed this a.m. about 12:15 ... Alarm went off at 5 0'cl. Angelus and Litany with the lay-brs. and novices, had privilege of helping Fr. Guardian with H. Communion at Convent Mass. Answered bell rung just as we finished. Had figured on \"nap\" after said C. Mass .... not sleepy! A walk in the garden instead ... Only withered flowers on our Bl. Mother's Shrine (too neglected), for Ist Sunday in October, and tomorrow FEAST of HOLY ROSARY. Found fresh ones. At 9:30 so drousey could have dropped down and slept in any quiet corner but ...! Third Order Convention about to start morning conference, delegates from East and West, etc, demanded attention. Besides, Choefer to take writer to St. Paul's for 10:30 and 12 o'cl. Masses was expected - must leave at first for hospital first to see \"dying wife and mother. Sent same - husband and father to see G. about \"City of God\" etc as a last remedy ..... Inclined to be drousey during Malese (Maltese) announcements; dropped head more than once. Said stations between Masses - Litany of SacredH and short thanks- giving after last Mass .... Disapointed .... Had sent word to \"Dick R. G's son-in-law (one of our converts) to pick me up at 1: o'cl. fig- uering on starting directly for Huntington .... Found Dick waiting Okay but without dinner. All expecting me to sit down to eat chicken; said vespers instead - having had light dinner at St. Pl's Finally left the Garland home - happy family - Raefel and Agnes parents of eleven, grand-parents of seven and Great-grand-father Geo. Garland active secretary and book-keeper at their \"City of God\" act- ivity. This was not at 1: o'clock p.m. but 2:30, we left for Hunting- ton - 180 miles South-west - The Tigers a few blocks away with their fortys of thousands enthused about the Victory - and defet - just ahead Resigned to the delay and wondering why the dear Lord designed - had designed the double disapointment, even so trifling in itself that no one was really conscious, seemingly, of any disapointment atal; We sped out Michigan Ave. - about ---. 100 miles. Only one stop was made - a visit to the original Architect of the \"Irish Hill\", the Lord of \"Beauty's Home Kilarney\" itself, the King of King's, whoes colors at every turn of the wheells had been waiving us invitations since we had left Detroit. Conclusion after Reateat.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        },
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "Handwritten notes of Retreat Oct .. 6th 1940 at St. Felix.",
+      "merged_text": "Handwritten notes of Retreat Oct .. 6th 1940 at St. Felix.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 25.",
+      "merged_text": "Pg. 25.",
+      "edits": []
+    }
+  ]
+}

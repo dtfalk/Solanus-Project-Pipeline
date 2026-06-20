@@ -1,0 +1,65 @@
+{
+  "page": "Volume_2/1_source_pages/page_353",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Almighty and Eternal Father, God of Wisdom and mercy, Whose power exceeds all force of arms and Whose protection is the strong defense of all who trust in Thee; Enlighten and direct we beseech Thee those who bear the heavy responsi- bility of government throughout the world these days of stress and trial. Grant them the strength to stand firm for what is right and the skill to dispel the fears that discord; inspire them to be mindful of the horrors of atomic war for and vanquished alike, to seek conciliation in truth and patience. To see in every man a brother - that the people of all nations may, in this our day, enjoy the blessings of a just and lasting peace. Conscience of our own unworthiness, we emplore Thy mercy on a sinful world in the Name of Thy Divine Son, the Prince of Peace, and through the intercession of His Blessed Mother and all the Saints. Queen of All Saints, Pray for us. Queen of the Holy Rosary, Pray for us. Queen of Peace: pray for us.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Almighty and Eternal Father, God of Wisdom and mercy, Whose power exceeds all force of arms and Whose protection is the strong defense of all who trust in Thee; Enlighten and direct we beseech Thee those who bear the heavy responsi- bility of government throughout the world these days of stress and trial. Grant them the strength to stand firm for what is right and the skill to dispel the fears that discord; inspire them to be mindful of the horrors of atomic war for and vanquished alike, to seek conciliation in truth and patience. To see in every man a brother - that the people of all nations may, in this our day, enjoy the blessings of a just and lasting peace. Conscience of our own unworthiness, we emplore Thy mercy on a sinful world in the Name of Thy Divine Son, the Prince of Peace, and through the intercession of His Blessed Mother and all the Saints. Queen of All Saints, Pray for us. Queen of the Holy Rosary, Pray for us. Queen of Peace: pray for us.",
+      "per_polygon": "Almighty and Eternal Father, God of Wisdom and mercy, Whose power exceeds all force of arms and Whose protection is the strong defense of all who trust in Thee; Enlighten and direct we beseech Thee those who bear the heavy responsi- bility of government throughout the world these days of stress and trial. Grant them the strength to stand firm for what is right and the skill to dispel the fears that discord; inspire them to be mindful of the horrors of atomic war for and vanquished alike, to seek conciliation in truth and patience. To see in every man a brother - that the people of all nations may, in this our day, enjoy the blessings of a just and lasting peace. Conscience of our own unworthiness, we emplore Thy mercy on a sinful world in the Name of Thy Divine Son, the Prince of Peace, and through the intercession of His Blessed Mother and all the Saints. Queen of All Saints, Pray for us. Queen of the Holy Rosary, Pray for us. Queen of Peace: pray for us.",
+      "min_conf": 0.622
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, 0.2.x. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, 0.7.X. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed draft of the Servant of God, Father Solanus Casey, 0.2.x. Cap.",
+      "min_conf": 0.566
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1954",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1954",
+      "per_polygon": "C. 1954",
+      "min_conf": 0.083
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "Tay be a copy from other sources )",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(May be a copy from other sources.)",
+      "per_polygon": "Tay be a copy from other sources )",
+      "min_conf": 0.334
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "PRAYER FOR PEACE",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "PRAYER FOR PEACE",
+      "per_polygon": "PRAYER FOR PEACE",
+      "min_conf": 0.664
+    }
+  ]
+}

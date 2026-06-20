@@ -1,0 +1,51 @@
+{
+  "page": "Volume_1/1_source_pages/page_046",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "1st Friday, Jan. 5, 1917 \"I am come to cast fire --- it be kindled -- in the Sacred Heart\" (Fulfillment of \"The Desires of the Sacred Heart\") We are directed to begin the New Year by praying for the \"fulfillment of the desires of the Sacred Heart. Could we pray for a more appropriate object? Could we think of a more comprehensive or more salutary in- tention? This indeed is an intention salutary alike for the individual soul, for society in general, for every phase of science. \"The fulfillment of the de- sires of the Sacred Heart.\" What are these desires of the Sacred Heart? How do we know them? We may know the desires of any one's heart in various ways. There are two ways especially, however, whereby we may be certain as to what the heart of any one is and what it desires. 1st, the words that come from the heart tell unmistakeably what these desires are & for from the fullness of the heart ... speak. 2nd, the sacrifices made to realize such desires prove them plainer than words. We know the desires of the Sacred Heart of Jesus too, both by His words, always from His heart, and by the sacrifices He has made. Indeed His words and His sacrifices prove each other and together with His works proclaim the desires of His adorable Heart. The glory of His heavenly Father, the salvation of souls: the glory of His heavenly Father, the redemption of mankind from the slavery of Hell: the desires of His Sacred Heart, the happiness of mankind, the glory of His heavenly Father. To relate all His words would be out of the question as it would be impossible to de- tail all His sacrifices, aye as impossible as it would be to relate all His works and St. John con- cludes the holy Gospel itself in these words, \"But there are also many other things that Jesus did which if they were written every one the world itself I think would not be able to contain the books that should be written.\" A few details, however, we may mention both in regard to the words and sacrifices of Jesus whereby the desires of His Sacred Heart are mani - fest. We have been taught from childhood that as God He became man, that in a way He gave up His Heavenly glory to become one of our own number: that as man He was born in a desolate stable because there was no place for them in the inn, \" that He lived in poverty for 30 years",
+      "merged_text": "Ist Friday, Jan. 5, 1917 \"I am come to cast fire --- it be kindled -- in the Sacred Heart\" (Fulfillment of \"The Desires of the Sacred Heart\") We are directed to begin the New Year by praying for the \"fulfillment of the desires of the Sacred Heart. Could we pray for a more appropriate object? Could we think of a more comprehensive or more salutary in- tention? This indeed is an intention salutary alike for the individual soul, for society in general, for every phase of science. \"The fulfillment of the de- sires of the Sacred Heart.\" What are these desires of the Sacred Heart? How do we know them? We may know the desires of any one's heart in various ways. There are two ways especially, however, whereby we may be certain as to what the heart of any one is and what it desires. Ist, the words that come from the heart tell unmistakeably what these desires are & for from the fullness of the heart ... speak. 2nd, the sacrifices made to realize such desires prove them plainer than words. We know the desires of the Sacred Heart of Jesus too, both by His words, always from His heart, and by the sacrifices He has made. Indeed His words and His sacrifices prove each other and together with His works proclaim the desires of His adorable Heart. The glory of His heavenly Father, the salvation of souls: the glory of His heavenly Father, the redemption of mankind from the slavery of Hell: the desires of His Sacred Heart, the happiness of mankind, the glory of His heavenly Father. To relate all His words would be out of the question as it would be impossible to de- tail all His sacrifices, aye as impossible as it would be to relate all His works and St. John con- cludes the holy Gospel itself in these words, \"But there are also many other things that Jesus did which if they were written every one the world itself I think would not be able to contain the books that should be written.\" A few details, however, we may mention both in regard to the words and sacrifices of Jesus whereby the desires of His Sacred Heart are mani - fest. We have been taught from childhood that as God He became man, that in a way He gave up His Heavenly glory to become one of our own number: that as man He was born in a desolate stable because there was no place for them in the inn, \" that He lived in poverty for 30 years",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        },
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "C. 1917, January 5",
+      "merged_text": "C. 1917, January 5",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK NO. CJI",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK NO. CJI",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 38",
+      "merged_text": "Pg. 38",
+      "edits": []
+    }
+  ]
+}

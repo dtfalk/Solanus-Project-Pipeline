@@ -1,0 +1,43 @@
+{
+  "page": "Appendix_2/2_post_pages/page_076",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 3,
+  "n_agree": 1,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap. AND FAITHFULLY TRANSCRIBED",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "min_conf": 0.737
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "contains 70 typed pages from Notebook 11 and . various letters.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "contains 70 typed pages from Notebook 11 and various letters.",
+      "per_polygon": "contains 70 typed pages from Notebook 11 and . various letters.",
+      "min_conf": 0.853
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "APPENDIX II",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "APPENDIX II",
+      "per_polygon": "APPENDIX II",
+      "min_conf": 0.98
+    }
+  ]
+}

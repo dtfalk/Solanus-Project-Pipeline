@@ -1,0 +1,172 @@
+{
+  "page": "Volume_4/1_source_pages/page_123",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Mary Mecameracki - 34 - of Hamtram. - infantile paralysis since 8 - for six yrs. could not walk a step. Then was told a second time while sitting in back yard; \"Walk. Take sticks and walk.\" At first it was extremely difficult. Now has crutches and can get along ... works two weeks a month only bread-winner.",
+      "merged_text": "Mary Mecameracki - 34 - of Hamtram. - infantile paralysis since 8 - for six yrs. could not walk a step. Then was told a second time while sitting in back yard; \"Walk. Take sticks and walk.\" At first it was extremely difficult. Now has crutches and can get along ... works two weeks a month only bread-winner.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Anna Selinsky - middle aged looking for work in kitchen etc - day work.",
+      "merged_text": "Mrs. Anna Selinsky - middle aged looking for work in kitchen etc - day work.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Mary Ghyscls - 6 - peculiar - most unusual weakness in not able to speak now over two years.",
+      "merged_text": "Mary Ghyscls - 6 - peculiar - most unusual weakness in not able to speak now over two years.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Mrs. T. Bondie - 35 - of Willis, Mich. Route 1 - lost wife on Saturday, leaving 5 children - youngest three - asks for prayers that he may suc- ceed in finding some one to help him raise the children in the rever- ence and love of God.",
+      "merged_text": "Mrs. T. Bondie - 35 - of Willis, Mich. Route 1 - lost wife on Saturday, leaving 5 children - youngest three - asks for prayers that he may suc- ceed in finding some one to help him raise the children in the rever- ence and love of God.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Anton Maslan - 53 - Arthritis and seemly enemic for two years. Drs. baffled after 16 xrays. Goes to Holy Com. 3 times a year. Promises weekly Com. if better by end of week.",
+      "merged_text": "Anton Maslan - 53 - Arthritis and seemly enemic for two years. Drs. baffled after 16 xrays. Goes to Holy Com. 3 times a year. Promises weekly Com. if better by end of week.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Thanks - - Frank Gladish - 61 - baptist - in oxigen a week ago last night when poor wife came to monastery and Enrolled him perpetually - better before morning - Sleeping well ....",
+      "merged_text": "Thanks - - Frank Gladish - 61 - baptist - in oxigen a week ago last night when poor wife came to monastery and Enrolled him perpetually - better before morning - Sleeping well ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Miss Maude Cocklin - methodist - 37 - seven yrs almost deaf.",
+      "merged_text": "Miss Maude Cocklin - methodist - 37 - seven yrs almost deaf.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Gert Witham - 45 - nerveous break or a nun",
+      "merged_text": "Gert Witham - 45 - nerveous break or a nun",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "John Bolane - 54 - losing his sight",
+      "merged_text": "John Bolane - 54 - losing his sight",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Anthony Kouri - 58 - has family of 8 and very little work.",
+      "merged_text": "Anthony Kouri - 58 - has family of 8 and very little work.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Martin-Child - water on brain - very little better.",
+      "merged_text": "Martin-Child - water on brain - very little better.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Robert Horton - 19 - extremely nervous. Good lad but ?...",
+      "merged_text": "Robert Horton - 19 - extremely nervous. Good lad but ?...",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "Mary Burkett - 55 - non C. of Newark, O. - poor health - nerveous, etc. Her sister here asks for prayers. Same sister",
+      "merged_text": "Mary Burkett - 55 - non C. of Newark, 0. - poor health - nerveous, etc. Her sister here asks for prayers. Same sister",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Mary Phillips - 20 - working hard is promoted - now fears she may fall short of expectations.",
+      "merged_text": "Mary Phillips - 20 - working hard is promoted - now fears she may fall short of expectations.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Sep. 11",
+      "merged_text": "Sep. 11",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Sep. 12",
+      "merged_text": "Sep. 12",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "13",
+      "merged_text": "13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "Sep. 17",
+      "merged_text": "Sep. 17",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "19",
+      "merged_text": "19",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 233 Cont.",
+      "merged_text": "Page 233 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 234",
+      "merged_text": "Page 234",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 235",
+      "merged_text": "Page 235",
+      "edits": []
+    }
+  ]
+}

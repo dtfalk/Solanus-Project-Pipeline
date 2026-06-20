@@ -1,0 +1,54 @@
+{
+  "page": "Volume_1/1_source_pages/page_043",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 4,
+  "n_agree": 2,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "so that when the time comes to depart this life we may go - each one in his turn not into ex- terior darkness -- but even more as a spouse than as a simple guest of Jesus. Our salvation is in our own hands. Almighty God has done His part - the Lord of lords and King of K's. He will never fail to do His part. One thing we must remember - we must keep our wedding gar- ment. To do this we must cooperate with the grace of God - use the means of grace given us. Then we may be confident not only of escaping ... but ... the unspeakable joys where neither eye hath seen",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "so that when the time comes to depart this life we may go - each one in his turn not into ex- terior darkness -- but even more as a spouse than as a simple guest of Jesus. Our salvation is in our own hands. Almighty God has done His part - the Lord of lords and King of K's. He will never fail to do His part. One thing we must remember - we must keep our wedding gar- ment. To do this we must cooperate with the grace of God - use the means of grace given us. . Then we may be confident not only of escaping ... but ... the unspeakable joys where neither eye hath seen .",
+      "per_polygon": "so that when the time comes to depart this life we may go - each one in his turn not into ex- terior darkness -- but even more as a spouse than as a simple guest of Jesus. Our salvation is in our own hands. Almighty God has done His part - the Lord of lords and King of K's. He will never fail to do His part. One thing we must remember - we must keep our wedding gar- ment. To do this we must cooperate with the grace of God - use the means of grace given us. Then we may be confident not only of escaping ... but ... the unspeakable joys where neither eye hath seen",
+      "min_conf": 0.952
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1916 October",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1916 October",
+      "per_polygon": "c. 1916 October",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK NO. 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "FATHER SOLANUS, NOTEBOOK NO. 2",
+      "per_polygon": "FATHER SOLANUS, NOTEBOOK No. 2",
+      "min_conf": 0.75
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 35 (cont'd. )",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(cont'd. ) Pg. 35",
+      "per_polygon": "Pg. 35 (cont'd. )",
+      "min_conf": 0.856
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "page": "Volume_2/1_source_pages/page_279",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 4,
+  "n_agree": 3,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Only yesterday the writer's attention was called to \"press report\" headed: \"Non-Catholics Score Pope . Disaprove Bid for Union . · 11 Lamentable as such a \"Scoring\" would seem, to God-fearing people -- non-catholics as well as those in communion with Rome and the Mother Church, there is really nothing in the report at which thinking people at least should be scandalized. In fact St Bernard of Clarvoix reminds that: \"Since the scandal of the Crucifixion of Jesus Christ, it is never reasonable to take scandal.\" The objections as given in the report may in every case be perfectly well inten- ded. We hope they are. For even among Catholics how comparatively few there are",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Only yesterday the writer's attention was called to \"press report\" headed: \"Non-Catholics Score Pope . Disaprove Bid for Union · \"1 Lamentable as such a \"Scoring\" would seem, to God-fearing people -- non-catholics as well as those in communion with Rome and the Mother Church, there is really nothing in the report at which thinking people at least should be scandalized. In fact St Bernard of Clarvoix reminds that: \"Since the scandal of the Crucifixion of Jesus Christ, it is never reasonable to take scandal.\" The objections as given in the report may in every case be perfectly well inten- ded. We hope they are. For even among Catholics how comparatively few there are",
+      "per_polygon": "Only yesterday the writer's attention was called to \"press report\" headed: \"Non-Catholics Score Pope . Disaprove Bid for Union . · 11 Lamentable as such a \"Scoring\" would seem, to God-fearing people -- non-catholics as well as those in communion with Rome and the Mother Church, there is really nothing in the report at which thinking people at least should be scandalized. In fact St Bernard of Clarvoix reminds that: \"Since the scandal of the Crucifixion of Jesus Christ, it is never reasonable to take scandal.\" The objections as given in the report may in every case be perfectly well inten- ded. We hope they are. For even among Catholics how comparatively few there are",
+      "min_conf": 0.256
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed notes by the Servant of God., Father Solanus Casey, O. F. M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the typed notes by the Servant of God., Father Solanus Casey, O. F. M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed notes by the Servant of God., Father Solanus Casey, O. F. M. Cap.",
+      "min_conf": 0.558
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1949",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1949",
+      "per_polygon": "C. 1949",
+      "min_conf": 0.94
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(unfinished)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(unfinished)",
+      "per_polygon": "(unfinished)",
+      "min_conf": 0.977
+    }
+  ]
+}

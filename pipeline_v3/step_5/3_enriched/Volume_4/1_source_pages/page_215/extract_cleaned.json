@@ -1,0 +1,179 @@
+{
+  "page": "Volume_4/1_source_pages/page_215",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Dr. Wm. Koch calls up - concerning a cancer patient - fearfully threating ten days ago. Dr. hardly able to speak from emotion. We asked for your prayers for the patient Pat McCarthy two weeks ago.",
+      "merged_text": "Dr. Wm. Koch calls up - concerning a cancer patient - fearfully threating ten days ago. Dr. hardly able to speak from emotion. We asked for your prayers for the patient Pat McCarthy two weeks ago.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Ed' Angel -38- prayed for Oct 27 - 2 weeks ago - received everything before +",
+      "merged_text": "Ed' Angel -38- prayed for Oct 27 - 2 weeks ago - received everything before +",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "John J. Cronin - 32 -Acute appendicitis operation going on now - 9:40 p.m. - 10 appendix had",
+      "merged_text": "John J. Cronin - 32 -Acute appendicitis operation going on now - 9:40 p.m. - 10 appendix had",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "10:15 P.M. Sister and Mother phone from Toledo, O. Commander H. Bartley's Great Lakes Hospital Chicago - very low .... 11/26/43 Sister here Today from Toledo. \" ... still quite sick, but really pronounced out of danger.",
+      "merged_text": "10:15 P.M. Sister and Mother phone from Toledo, 0. Commander H. Bartley's Great Lakes Hospital Chicago - very low .... 11/26/43 Sister here Today from Toledo. \" ... still quite sick, but really pronounced out of danger.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Leland Lockridge - 19 - soldier - nervous break threatened.",
+      "merged_text": "Leland Lockridge - 19 - soldier - nervous break threatened.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Baby Roney Verble - 19 mo. - spinal maningitis - never baptized -",
+      "merged_text": "Baby Roney Verble - 19 mo. - spinal maningitis - never baptized -",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Dan Kissane - 36 - T.B. Battle Creek Hosp. Drs. want to remove 5 ribs - he hopes to put it off till after Xmas.",
+      "merged_text": "Dan Kissane - 36 - T.B. Battle Creek Hosp. Drs. want to remove 5 ribs - he hopes to put it off till after Xmas.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Gabriella Smith - 33 - Episcopelian has husband and son - once Catholic.",
+      "merged_text": "Mrs. Gabriella Smith - 33 - Episcopelian has husband and son - once Catholic.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Cath. Pollard - 58 - inward goiter - blood transfusions.",
+      "merged_text": "Mrs. Cath. Pollard - 58 - inward goiter - blood transfusions.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Donald Nash - 3 - hit by car and badly crippled - one leg quite short and sight defective.",
+      "merged_text": "Donald Nash - 3 - hit by car and badly crippled - one leg quite short and sight defective.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Nancy Wetherbee - 11 - serious condition of ears ..",
+      "merged_text": "Nancy Wetherbee - 11 - serious condition of ears ..",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Gary Hollihan - 5 - operated on day before yesterday, broken apend. - unconscious ever since.",
+      "merged_text": "Gary Hollihan - 5 - operated on day before yesterday, broken apend. - unconscious ever since.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "See April 7th, '49 - Phil Drimen - 45 of Bay City - broken back - was paralysed - now using only one crutch.",
+      "merged_text": "See April 7th, '49 - Phil Drimen - 45 of Bay City - broken back - was paralysed - now using only one crutch.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.13",
+      "category": "src_content",
+      "cleaned_text": "Thanks - Mrs. Ida Hourigan - 61 - was to have operation - very threat- ening Sept .... no operations found necessary - is here in perfect health",
+      "merged_text": "Thanks - Mrs. Ida Hourigan - 61 - was to have operation - very threat- ening Sept .... no operations found necessary - is here in perfect health",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Nov. 9",
+      "merged_text": "Nov. 9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "9",
+      "merged_text": "9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "11",
+      "merged_text": "11",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "14",
+      "merged_text": "14",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "5",
+      "merged_text": "5",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.5",
+      "category": "src_date",
+      "cleaned_text": "Nov. 15",
+      "merged_text": "Nov. 15",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.6",
+      "category": "src_date",
+      "cleaned_text": "19",
+      "merged_text": "19",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 110 Cont.",
+      "merged_text": "Page 110 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 111",
+      "merged_text": "Page 111",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "page": "Appendix_2/1_source_pages/page_035",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 3,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I wanted to call you Monday evening. But the first thing I knew it was so late that I was ashamed to call and the follow- ing ev. you were up to George's. I sure was pleased the your Mother so evidently enjoyed the trip and the little visit. I went out a couple of times after dark that night to find it not dark at all but beautiful moon-light. I was confident that you were having a pleasant moon-light return to Muskegon. Thanks be to God. ... . I was not surprized that you all liked the photo It always brings back to my mind a really beautiful and touch- celebration; and thanks be to God again the first half of the 16 to cross the border into eternity, have gone beautifully, in peace. Now Miss Doris: I would sure appreciate it if you would send that photo to Father M. Joachim Casey (my Brother to whom it belongs as I think I told you. Please God I'll let you know about the Chapter as soon as we learn the results, etc.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I wanted to call you Monday evening. But the first thing I knew it was so late that I was ashamed to call and the follow- ing ev. you were up to George's. I sure was pleased the your Mother so evidently enjoyed the trip and the little visit. I went out a couple of times after dark that night to find it not dark at all but beautiful moon-light. I was confident that you were having a pleasant moon-light return to Muskegon. Thanks be to God. ..... I was not surprized that you all liked the photo It always brings back to my mind a really beautiful and touch- celebration; and thanks be to God again the first half of the 16 to cross the border into eternity, have gone beautifully, in peace ..... Now Miss Doris: I would sure appreciate it if you would send that photo to Father M. Joachim Casey (my Brother to whom it belongs as I think I told you. Please God I'll let you know about the Chapter as soon as we learn the results, etc.",
+      "per_polygon": "I wanted to call you Monday evening. But the first thing I knew it was so late that I was ashamed to call and the follow- ing ev. you were up to George's. I sure was pleased the your Mother so evidently enjoyed the trip and the little visit. I went out a couple of times after dark that night to find it not dark at all but beautiful moon-light. I was confident that you were having a pleasant moon-light return to Muskegon. Thanks be to God. ... . I was not surprized that you all liked the photo It always brings back to my mind a really beautiful and touch- celebration; and thanks be to God again the first half of the 16 to cross the border into eternity, have gone beautifully, in peace. Now Miss Doris: I would sure appreciate it if you would send that photo to Father M. Joachim Casey (my Brother to whom it belongs as I think I told you. Please God I'll let you know about the Chapter as soon as we learn the results, etc.",
+      "min_conf": 0.653
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX CAPUCHIN FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX CAPUCHIN FRIARY",
+      "per_polygon": "ST. FELIX CAPUCHIN FRIARY",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "HUNTINGTON. IND.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "HUNTINGTON, IND.",
+      "per_polygon": "HUNTINGTON. IND.",
+      "min_conf": 0.635
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "July 10th 1946",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "July 10th 1946",
+      "per_polygon": "July 10th 1946",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "\"O all ye works ... praise the Lord.\"",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"0 all ye works ... praise the Lord.\"",
+      "per_polygon": "\"O all ye works ... praise the Lord.\"",
+      "min_conf": 0.643
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Miss Panyard - Doris and all in M.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Miss Panyard - Doris and all in M.",
+      "per_polygon": "God bless you Miss Panyard - Doris and all in M.",
+      "min_conf": 0.613
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised be Jesus! . .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Praised be Jesus!",
+      "per_polygon": "Praised be Jesus! . .",
+      "min_conf": 0.553
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O. F.M.Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus O. F.M.Cap.",
+      "min_conf": 0.836
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_335",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 6,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "We all hope this finds you well - which, for one ex- periencing what you have been going through these several months, must mean that you are keeping up courage and by the grace of God continuing to foster confidence in His merciful wisdom and goodness - all the better of course if the physical condition, at least does non get worse, till we see a decided im- provement and final recovery, God willing. The purpose of this card, since I cannot finish the letter I wanted to send you, is primarily, to just reassure you that we are keeping you in mind and please God will not forget you in our prayers.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "We all hope this finds you well - which, for one ex- periencing what you have been going through these several months, must mean that you are keeping up courage and by the grace of God continuing to foster confidence in His merciful wisdom and goodness - all the better of course if the physical condition, at least does non get worse, till we see a decided im- provement and final recovery, God willing. The purpose of this card, since I cannot finish the letter I wanted to send you, is primarily, to just reassure you that we are keeping you in mind and please God will not forget you in our prayers.",
+      "per_polygon": "We all hope this finds you well - which, for one ex- periencing what you have been going through these several months, must mean that you are keeping up courage and by the grace of God continuing to foster confidence in His merciful wisdom and goodness - all the better of course if the physical condition, at least does non get worse, till we see a decided im- provement and final recovery, God willing. The purpose of this card, since I cannot finish the letter I wanted to send you, is primarily, to just reassure you that we are keeping you in mind and please God will not forget you in our prayers.",
+      "min_conf": 0.656
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. FELIX FRIARY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. FELIX FRIARY",
+      "per_polygon": "ST. FELIX FRIARY",
+      "min_conf": 0.896
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mr. Philip M. O'Brien",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. Philip M. O'Brien",
+      "per_polygon": "Mr. Philip M. O'Brien",
+      "min_conf": 0.792
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "Bailey's 1 Harbor, Wis.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Bailey's Harbor, Wis.",
+      "per_polygon": "Bailey's 1 Harbor, Wis.",
+      "min_conf": 0.604
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "ROUTE HUNTINGTON, 3 INDIANA",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "ROUTE 8 HUNTINGTON, INDIANA",
+      "per_polygon": "ROUTE HUNTINGTON, 3 INDIANA",
+      "min_conf": 0.885
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "August 149 - Vigil of our dearest BL. Mother Mary's Assumption",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "August 14h -- Vigil of our dearest BL. Mother Mary's Assumption",
+      "per_polygon": "August 149 - Vigil of our dearest BL. Mother Mary's Assumption",
+      "min_conf": 0.553
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God In all His designs!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God In all His designs!",
+      "per_polygon": "Blessed be God In all His designs!",
+      "min_conf": 0.945
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Mr. Philip O' Brien - you and yours,",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Mr. Philip O'Brien - you and yours,",
+      "per_polygon": "God bless you Mr. Philip O' Brien - you and yours,",
+      "min_conf": 0.77
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.904
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1952, August 14",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1952, August 14",
+      "per_polygon": "c. 1952, August 14",
+      "min_conf": 0.957
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(No Signature )",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "(No Signature)",
+      "per_polygon": "(No Signature )",
+      "min_conf": 0.974
+    }
+  ]
+}

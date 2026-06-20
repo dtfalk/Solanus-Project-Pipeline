@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_140",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 8,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and all. Many thanks for the kind favor received in best of condition a few days ago. We got home that night just as they were starting supper. Deo Gr .!",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you and all. Many thanks for the kind favor received in best of condition a few days ago. . . . We got home that night just as they were starting supper . Deo Gr .!",
+      "per_polygon": "God bless you and all. Many thanks for the kind favor received in best of condition a few days ago. We got home that night just as they were starting supper. Deo Gr .!",
+      "min_conf": 0.913
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "October 31, Halloween 1946",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "October 31, Halloween 1946",
+      "per_polygon": "October 31, Halloween 1946",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Brother Leo:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Brother Leo:",
+      "per_polygon": "Dear Brother Leo:",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Love to all.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Love to all.",
+      "per_polygon": "Love to all.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.858
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "\"O all ye works of the Lord! Praise the Lord. .",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "\"O all ye works of the Lord! Praise the Lord. .",
+      "per_polygon": "\"O all ye works of the Lord! Praise the Lord. .",
+      "min_conf": 0.748
+    },
+    {
+      "rid": "doc_1.src_other.1",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Praised be Jesus Christ.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised be Jesus Christ.",
+      "per_polygon": "Praised be Jesus Christ.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.889
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, October 31",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, October 31",
+      "per_polygon": "1946, October 31",
+      "min_conf": 0.994
+    }
+  ]
+}

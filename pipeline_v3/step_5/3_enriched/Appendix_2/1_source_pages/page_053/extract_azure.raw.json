@@ -1,0 +1,5515 @@
+{
+  "engine": "azure-prebuilt-read",
+  "full_page": {
+    "apiVersion": "2024-11-30",
+    "modelId": "prebuilt-read",
+    "stringIndexType": "textElements",
+    "content": "St. Michael's Church 225 Jerome Street Brooklyn 7, N.Y. Febr. 14th, 1946\nMiss Grace Panyard 1705 Peck Ave. Muskegon, Mich.\nDear Miss Panyard:\nGod bless you and yours. I write your Brother Fred yester- day and now I come to your favor of Febr. 12. Many Thanks I've just noted your request for the Poor Holy Souls .... and hope that things brighten up soon.\nTell George I send him one of my good ear pulls. Tell him \"life\" that the world is so inclined to worship is too short to act discouraged about anything in it. Ha Ha!\nPraised be Jesus, Mary, and Joseph Yours Sincerely, Fr. Solanus, O.F.M.Cap.",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "angle": 0.30101078748703003,
+        "width": 5313,
+        "height": 6875,
+        "unit": "pixel",
+        "words": [
+          {
+            "content": "St.",
+            "polygon": [
+              2182,
+              1607,
+              2335,
+              1607,
+              2335,
+              1706,
+              2182,
+              1707
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 0,
+              "length": 3
+            }
+          },
+          {
+            "content": "Michael's",
+            "polygon": [
+              2401,
+              1607,
+              2861,
+              1609,
+              2860,
+              1706,
+              2400,
+              1706
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 4,
+              "length": 9
+            }
+          },
+          {
+            "content": "Church",
+            "polygon": [
+              2926,
+              1609,
+              3239,
+              1613,
+              3239,
+              1708,
+              2924,
+              1706
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 14,
+              "length": 6
+            }
+          },
+          {
+            "content": "225",
+            "polygon": [
+              2240,
+              1813,
+              2393,
+              1817,
+              2392,
+              1910,
+              2240,
+              1914
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 21,
+              "length": 3
+            }
+          },
+          {
+            "content": "Jerome",
+            "polygon": [
+              2454,
+              1819,
+              2761,
+              1823,
+              2760,
+              1907,
+              2453,
+              1909
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 25,
+              "length": 6
+            }
+          },
+          {
+            "content": "Street",
+            "polygon": [
+              2821,
+              1824,
+              3129,
+              1825,
+              3129,
+              1914,
+              2819,
+              1907
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 32,
+              "length": 6
+            }
+          },
+          {
+            "content": "Brooklyn",
+            "polygon": [
+              2289,
+              1970,
+              2709,
+              1972,
+              2708,
+              2070,
+              2289,
+              2070
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 39,
+              "length": 8
+            }
+          },
+          {
+            "content": "7,",
+            "polygon": [
+              2772,
+              1972,
+              2858,
+              1972,
+              2856,
+              2070,
+              2771,
+              2070
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 48,
+              "length": 2
+            }
+          },
+          {
+            "content": "N.Y.",
+            "polygon": [
+              2919,
+              1973,
+              3123,
+              1972,
+              3123,
+              2070,
+              2918,
+              2070
+            ],
+            "confidence": 0.987,
+            "span": {
+              "offset": 51,
+              "length": 4
+            }
+          },
+          {
+            "content": "Febr.",
+            "polygon": [
+              2290,
+              2172,
+              2542,
+              2176,
+              2541,
+              2277,
+              2290,
+              2276
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 56,
+              "length": 5
+            }
+          },
+          {
+            "content": "14th,",
+            "polygon": [
+              2629,
+              2177,
+              2859,
+              2180,
+              2858,
+              2279,
+              2628,
+              2277
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 62,
+              "length": 5
+            }
+          },
+          {
+            "content": "1946",
+            "polygon": [
+              2942,
+              2180,
+              3131,
+              2182,
+              3131,
+              2281,
+              2940,
+              2280
+            ],
+            "confidence": 0.991,
+            "span": {
+              "offset": 68,
+              "length": 4
+            }
+          },
+          {
+            "content": "Miss",
+            "polygon": [
+              1038,
+              2532,
+              1250,
+              2534,
+              1250,
+              2627,
+              1038,
+              2624
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 73,
+              "length": 4
+            }
+          },
+          {
+            "content": "Grace",
+            "polygon": [
+              1314,
+              2535,
+              1566,
+              2536,
+              1565,
+              2631,
+              1313,
+              2628
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 78,
+              "length": 5
+            }
+          },
+          {
+            "content": "Panyard",
+            "polygon": [
+              1624,
+              2537,
+              1991,
+              2538,
+              1991,
+              2631,
+              1623,
+              2631
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 84,
+              "length": 7
+            }
+          },
+          {
+            "content": "1705",
+            "polygon": [
+              1058,
+              2633,
+              1254,
+              2637,
+              1253,
+              2727,
+              1056,
+              2727
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 92,
+              "length": 4
+            }
+          },
+          {
+            "content": "Peck",
+            "polygon": [
+              1312,
+              2638,
+              1520,
+              2639,
+              1518,
+              2727,
+              1310,
+              2727
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 97,
+              "length": 4
+            }
+          },
+          {
+            "content": "Ave.",
+            "polygon": [
+              1569,
+              2639,
+              1768,
+              2638,
+              1768,
+              2727,
+              1567,
+              2727
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 102,
+              "length": 4
+            }
+          },
+          {
+            "content": "Muskegon,",
+            "polygon": [
+              1038,
+              2741,
+              1507,
+              2740,
+              1505,
+              2836,
+              1038,
+              2836
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 107,
+              "length": 9
+            }
+          },
+          {
+            "content": "Mich.",
+            "polygon": [
+              1569,
+              2740,
+              1831,
+              2738,
+              1831,
+              2836,
+              1567,
+              2836
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 117,
+              "length": 5
+            }
+          },
+          {
+            "content": "Dear",
+            "polygon": [
+              1045,
+              2943,
+              1256,
+              2944,
+              1255,
+              3044,
+              1045,
+              3040
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 123,
+              "length": 4
+            }
+          },
+          {
+            "content": "Miss",
+            "polygon": [
+              1308,
+              2945,
+              1511,
+              2946,
+              1510,
+              3047,
+              1308,
+              3045
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 128,
+              "length": 4
+            }
+          },
+          {
+            "content": "Panyard:",
+            "polygon": [
+              1572,
+              2946,
+              1985,
+              2949,
+              1985,
+              3049,
+              1571,
+              3048
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 133,
+              "length": 8
+            }
+          },
+          {
+            "content": "God",
+            "polygon": [
+              1305,
+              3155,
+              1461,
+              3155,
+              1461,
+              3251,
+              1305,
+              3251
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 142,
+              "length": 3
+            }
+          },
+          {
+            "content": "bless",
+            "polygon": [
+              1520,
+              3155,
+              1770,
+              3156,
+              1769,
+              3252,
+              1520,
+              3251
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 146,
+              "length": 5
+            }
+          },
+          {
+            "content": "you",
+            "polygon": [
+              1832,
+              3156,
+              1980,
+              3156,
+              1980,
+              3252,
+              1832,
+              3252
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 152,
+              "length": 3
+            }
+          },
+          {
+            "content": "and",
+            "polygon": [
+              2044,
+              3157,
+              2190,
+              3157,
+              2190,
+              3253,
+              2043,
+              3252
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 156,
+              "length": 3
+            }
+          },
+          {
+            "content": "yours.",
+            "polygon": [
+              2250,
+              3157,
+              2543,
+              3159,
+              2542,
+              3254,
+              2249,
+              3253
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 160,
+              "length": 6
+            }
+          },
+          {
+            "content": "I",
+            "polygon": [
+              2666,
+              3159,
+              2708,
+              3159,
+              2707,
+              3255,
+              2665,
+              3255
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 167,
+              "length": 1
+            }
+          },
+          {
+            "content": "write",
+            "polygon": [
+              2762,
+              3160,
+              3016,
+              3161,
+              3015,
+              3256,
+              2761,
+              3255
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 169,
+              "length": 5
+            }
+          },
+          {
+            "content": "your",
+            "polygon": [
+              3079,
+              3161,
+              3280,
+              3163,
+              3278,
+              3258,
+              3078,
+              3257
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 175,
+              "length": 4
+            }
+          },
+          {
+            "content": "Brother",
+            "polygon": [
+              3337,
+              3163,
+              3694,
+              3166,
+              3693,
+              3260,
+              3336,
+              3258
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 180,
+              "length": 7
+            }
+          },
+          {
+            "content": "Fred",
+            "polygon": [
+              3756,
+              3166,
+              3954,
+              3168,
+              3953,
+              3262,
+              3755,
+              3261
+            ],
+            "confidence": 0.988,
+            "span": {
+              "offset": 188,
+              "length": 4
+            }
+          },
+          {
+            "content": "yester-",
+            "polygon": [
+              4014,
+              3168,
+              4385,
+              3172,
+              4385,
+              3264,
+              4012,
+              3262
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 193,
+              "length": 7
+            }
+          },
+          {
+            "content": "day",
+            "polygon": [
+              1045,
+              3254,
+              1206,
+              3255,
+              1204,
+              3354,
+              1043,
+              3353
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 201,
+              "length": 3
+            }
+          },
+          {
+            "content": "and",
+            "polygon": [
+              1267,
+              3255,
+              1410,
+              3256,
+              1409,
+              3354,
+              1265,
+              3354
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 205,
+              "length": 3
+            }
+          },
+          {
+            "content": "now",
+            "polygon": [
+              1464,
+              3256,
+              1624,
+              3257,
+              1622,
+              3355,
+              1462,
+              3354
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 209,
+              "length": 3
+            }
+          },
+          {
+            "content": "I",
+            "polygon": [
+              1681,
+              3258,
+              1721,
+              3258,
+              1719,
+              3355,
+              1679,
+              3355
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 213,
+              "length": 1
+            }
+          },
+          {
+            "content": "come",
+            "polygon": [
+              1781,
+              3258,
+              1982,
+              3259,
+              1980,
+              3356,
+              1779,
+              3355
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 215,
+              "length": 4
+            }
+          },
+          {
+            "content": "to",
+            "polygon": [
+              2047,
+              3259,
+              2141,
+              3260,
+              2140,
+              3356,
+              2045,
+              3356
+            ],
+            "confidence": 0.999,
+            "span": {
+              "offset": 220,
+              "length": 2
+            }
+          },
+          {
+            "content": "your",
+            "polygon": [
+              2197,
+              3260,
+              2398,
+              3261,
+              2396,
+              3357,
+              2195,
+              3357
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 223,
+              "length": 4
+            }
+          },
+          {
+            "content": "favor",
+            "polygon": [
+              2463,
+              3261,
+              2708,
+              3263,
+              2706,
+              3359,
+              2461,
+              3358
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 228,
+              "length": 5
+            }
+          },
+          {
+            "content": "of",
+            "polygon": [
+              2771,
+              3263,
+              2866,
+              3263,
+              2864,
+              3359,
+              2769,
+              3359
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 234,
+              "length": 2
+            }
+          },
+          {
+            "content": "Febr.",
+            "polygon": [
+              2925,
+              3264,
+              3168,
+              3265,
+              3166,
+              3361,
+              2923,
+              3359
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 237,
+              "length": 5
+            }
+          },
+          {
+            "content": "12.",
+            "polygon": [
+              3252,
+              3265,
+              3374,
+              3266,
+              3372,
+              3361,
+              3250,
+              3361
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 243,
+              "length": 3
+            }
+          },
+          {
+            "content": "Many",
+            "polygon": [
+              3490,
+              3267,
+              3698,
+              3268,
+              3697,
+              3363,
+              3488,
+              3362
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 247,
+              "length": 4
+            }
+          },
+          {
+            "content": "Thanks",
+            "polygon": [
+              3757,
+              3268,
+              4056,
+              3269,
+              4054,
+              3365,
+              3755,
+              3363
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 252,
+              "length": 6
+            }
+          },
+          {
+            "content": "I've",
+            "polygon": [
+              4121,
+              3270,
+              4328,
+              3271,
+              4328,
+              3365,
+              4119,
+              3365
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 259,
+              "length": 4
+            }
+          },
+          {
+            "content": "just",
+            "polygon": [
+              1044,
+              3358,
+              1253,
+              3359,
+              1253,
+              3462,
+              1044,
+              3462
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 264,
+              "length": 4
+            }
+          },
+          {
+            "content": "noted",
+            "polygon": [
+              1308,
+              3360,
+              1565,
+              3361,
+              1565,
+              3463,
+              1308,
+              3462
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 269,
+              "length": 5
+            }
+          },
+          {
+            "content": "your",
+            "polygon": [
+              1627,
+              3361,
+              1826,
+              3362,
+              1826,
+              3463,
+              1627,
+              3463
+            ],
+            "confidence": 0.987,
+            "span": {
+              "offset": 275,
+              "length": 4
+            }
+          },
+          {
+            "content": "request",
+            "polygon": [
+              1886,
+              3363,
+              2242,
+              3364,
+              2242,
+              3465,
+              1886,
+              3464
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 280,
+              "length": 7
+            }
+          },
+          {
+            "content": "for",
+            "polygon": [
+              2306,
+              3365,
+              2449,
+              3366,
+              2449,
+              3466,
+              2306,
+              3465
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 288,
+              "length": 3
+            }
+          },
+          {
+            "content": "the",
+            "polygon": [
+              2512,
+              3366,
+              2652,
+              3367,
+              2652,
+              3467,
+              2512,
+              3466
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 292,
+              "length": 3
+            }
+          },
+          {
+            "content": "Poor",
+            "polygon": [
+              2712,
+              3367,
+              2916,
+              3368,
+              2916,
+              3468,
+              2712,
+              3467
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 296,
+              "length": 4
+            }
+          },
+          {
+            "content": "Holy",
+            "polygon": [
+              2971,
+              3368,
+              3178,
+              3369,
+              3178,
+              3470,
+              2971,
+              3469
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 301,
+              "length": 4
+            }
+          },
+          {
+            "content": "Souls",
+            "polygon": [
+              3235,
+              3370,
+              3482,
+              3371,
+              3482,
+              3472,
+              3235,
+              3470
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 306,
+              "length": 5
+            }
+          },
+          {
+            "content": "....",
+            "polygon": [
+              3506,
+              3371,
+              3685,
+              3372,
+              3685,
+              3473,
+              3506,
+              3472
+            ],
+            "confidence": 0.963,
+            "span": {
+              "offset": 312,
+              "length": 4
+            }
+          },
+          {
+            "content": "and",
+            "polygon": [
+              3707,
+              3372,
+              3851,
+              3373,
+              3851,
+              3475,
+              3707,
+              3473
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 317,
+              "length": 3
+            }
+          },
+          {
+            "content": "hope",
+            "polygon": [
+              3906,
+              3374,
+              4107,
+              3375,
+              4107,
+              3477,
+              3906,
+              3475
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 321,
+              "length": 4
+            }
+          },
+          {
+            "content": "that",
+            "polygon": [
+              4170,
+              3375,
+              4375,
+              3376,
+              4375,
+              3478,
+              4170,
+              3477
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 326,
+              "length": 4
+            }
+          },
+          {
+            "content": "things",
+            "polygon": [
+              1052,
+              3463,
+              1354,
+              3466,
+              1352,
+              3567,
+              1051,
+              3563
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 331,
+              "length": 6
+            }
+          },
+          {
+            "content": "brighten",
+            "polygon": [
+              1419,
+              3466,
+              1828,
+              3472,
+              1826,
+              3569,
+              1417,
+              3568
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 338,
+              "length": 8
+            }
+          },
+          {
+            "content": "up",
+            "polygon": [
+              1881,
+              3473,
+              1985,
+              3476,
+              1983,
+              3569,
+              1879,
+              3569
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 347,
+              "length": 2
+            }
+          },
+          {
+            "content": "soon.",
+            "polygon": [
+              2044,
+              3477,
+              2292,
+              3482,
+              2292,
+              3568,
+              2042,
+              3569
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 350,
+              "length": 5
+            }
+          },
+          {
+            "content": "Tell",
+            "polygon": [
+              1301,
+              3676,
+              1515,
+              3675,
+              1513,
+              3770,
+              1299,
+              3768
+            ],
+            "confidence": 0.952,
+            "span": {
+              "offset": 356,
+              "length": 4
+            }
+          },
+          {
+            "content": "George",
+            "polygon": [
+              1574,
+              3675,
+              1877,
+              3675,
+              1875,
+              3773,
+              1573,
+              3771
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 361,
+              "length": 6
+            }
+          },
+          {
+            "content": "I",
+            "polygon": [
+              1937,
+              3675,
+              1979,
+              3675,
+              1977,
+              3774,
+              1935,
+              3774
+            ],
+            "confidence": 0.985,
+            "span": {
+              "offset": 368,
+              "length": 1
+            }
+          },
+          {
+            "content": "send",
+            "polygon": [
+              2044,
+              3675,
+              2243,
+              3675,
+              2241,
+              3776,
+              2042,
+              3775
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 370,
+              "length": 4
+            }
+          },
+          {
+            "content": "him",
+            "polygon": [
+              2296,
+              3675,
+              2455,
+              3675,
+              2453,
+              3778,
+              2295,
+              3777
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 375,
+              "length": 3
+            }
+          },
+          {
+            "content": "one",
+            "polygon": [
+              2511,
+              3675,
+              2655,
+              3676,
+              2654,
+              3779,
+              2510,
+              3778
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 379,
+              "length": 3
+            }
+          },
+          {
+            "content": "of",
+            "polygon": [
+              2718,
+              3676,
+              2814,
+              3676,
+              2813,
+              3780,
+              2717,
+              3779
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 383,
+              "length": 2
+            }
+          },
+          {
+            "content": "my",
+            "polygon": [
+              2867,
+              3677,
+              2971,
+              3677,
+              2970,
+              3780,
+              2866,
+              3780
+            ],
+            "confidence": 0.999,
+            "span": {
+              "offset": 386,
+              "length": 2
+            }
+          },
+          {
+            "content": "good",
+            "polygon": [
+              3029,
+              3677,
+              3230,
+              3678,
+              3229,
+              3781,
+              3028,
+              3780
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 389,
+              "length": 4
+            }
+          },
+          {
+            "content": "ear",
+            "polygon": [
+              3276,
+              3679,
+              3435,
+              3680,
+              3434,
+              3781,
+              3276,
+              3781
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 394,
+              "length": 3
+            }
+          },
+          {
+            "content": "pulls.",
+            "polygon": [
+              3493,
+              3680,
+              3789,
+              3683,
+              3789,
+              3781,
+              3493,
+              3781
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 398,
+              "length": 6
+            }
+          },
+          {
+            "content": "Tell",
+            "polygon": [
+              3911,
+              3684,
+              4113,
+              3686,
+              4113,
+              3781,
+              3910,
+              3781
+            ],
+            "confidence": 0.896,
+            "span": {
+              "offset": 405,
+              "length": 4
+            }
+          },
+          {
+            "content": "him",
+            "polygon": [
+              4170,
+              3687,
+              4331,
+              3688,
+              4331,
+              3781,
+              4169,
+              3781
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 410,
+              "length": 3
+            }
+          },
+          {
+            "content": "\"life\"",
+            "polygon": [
+              1045,
+              3769,
+              1359,
+              3772,
+              1357,
+              3865,
+              1043,
+              3860
+            ],
+            "confidence": 0.855,
+            "span": {
+              "offset": 414,
+              "length": 6
+            }
+          },
+          {
+            "content": "that",
+            "polygon": [
+              1471,
+              3772,
+              1670,
+              3774,
+              1669,
+              3870,
+              1469,
+              3867
+            ],
+            "confidence": 0.989,
+            "span": {
+              "offset": 421,
+              "length": 4
+            }
+          },
+          {
+            "content": "the",
+            "polygon": [
+              1732,
+              3774,
+              1879,
+              3776,
+              1878,
+              3873,
+              1730,
+              3871
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 426,
+              "length": 3
+            }
+          },
+          {
+            "content": "world",
+            "polygon": [
+              1931,
+              3776,
+              2190,
+              3778,
+              2188,
+              3876,
+              1929,
+              3873
+            ],
+            "confidence": 0.978,
+            "span": {
+              "offset": 430,
+              "length": 5
+            }
+          },
+          {
+            "content": "is",
+            "polygon": [
+              2254,
+              3778,
+              2343,
+              3779,
+              2341,
+              3878,
+              2252,
+              3877
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 436,
+              "length": 2
+            }
+          },
+          {
+            "content": "so",
+            "polygon": [
+              2407,
+              3779,
+              2505,
+              3780,
+              2503,
+              3880,
+              2405,
+              3879
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 439,
+              "length": 2
+            }
+          },
+          {
+            "content": "inclined",
+            "polygon": [
+              2564,
+              3780,
+              2968,
+              3782,
+              2966,
+              3883,
+              2563,
+              3880
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 442,
+              "length": 8
+            }
+          },
+          {
+            "content": "to",
+            "polygon": [
+              3029,
+              3782,
+              3127,
+              3783,
+              3125,
+              3884,
+              3027,
+              3883
+            ],
+            "confidence": 0.999,
+            "span": {
+              "offset": 451,
+              "length": 2
+            }
+          },
+          {
+            "content": "worship",
+            "polygon": [
+              3180,
+              3783,
+              3540,
+              3785,
+              3539,
+              3885,
+              3178,
+              3884
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 454,
+              "length": 7
+            }
+          },
+          {
+            "content": "is",
+            "polygon": [
+              3605,
+              3785,
+              3693,
+              3785,
+              3691,
+              3885,
+              3603,
+              3885
+            ],
+            "confidence": 0.999,
+            "span": {
+              "offset": 462,
+              "length": 2
+            }
+          },
+          {
+            "content": "too",
+            "polygon": [
+              3758,
+              3786,
+              3906,
+              3786,
+              3904,
+              3885,
+              3756,
+              3885
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 465,
+              "length": 3
+            }
+          },
+          {
+            "content": "short",
+            "polygon": [
+              3967,
+              3786,
+              4221,
+              3787,
+              4220,
+              3885,
+              3965,
+              3885
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 469,
+              "length": 5
+            }
+          },
+          {
+            "content": "to",
+            "polygon": [
+              1046,
+              3879,
+              1154,
+              3878,
+              1154,
+              3973,
+              1046,
+              3971
+            ],
+            "confidence": 0.997,
+            "span": {
+              "offset": 475,
+              "length": 2
+            }
+          },
+          {
+            "content": "act",
+            "polygon": [
+              1211,
+              3878,
+              1357,
+              3878,
+              1357,
+              3976,
+              1211,
+              3974
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 478,
+              "length": 3
+            }
+          },
+          {
+            "content": "discouraged",
+            "polygon": [
+              1418,
+              3878,
+              1981,
+              3879,
+              1980,
+              3983,
+              1418,
+              3977
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 482,
+              "length": 11
+            }
+          },
+          {
+            "content": "about",
+            "polygon": [
+              2043,
+              3879,
+              2291,
+              3880,
+              2290,
+              3984,
+              2043,
+              3983
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 494,
+              "length": 5
+            }
+          },
+          {
+            "content": "anything",
+            "polygon": [
+              2357,
+              3880,
+              2759,
+              3882,
+              2758,
+              3984,
+              2356,
+              3984
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 500,
+              "length": 8
+            }
+          },
+          {
+            "content": "in",
+            "polygon": [
+              2826,
+              3882,
+              2915,
+              3883,
+              2913,
+              3984,
+              2825,
+              3984
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 509,
+              "length": 2
+            }
+          },
+          {
+            "content": "it.",
+            "polygon": [
+              2982,
+              3883,
+              3113,
+              3884,
+              3112,
+              3984,
+              2981,
+              3984
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 512,
+              "length": 3
+            }
+          },
+          {
+            "content": "Ha",
+            "polygon": [
+              3231,
+              3885,
+              3336,
+              3886,
+              3335,
+              3984,
+              3230,
+              3984
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 516,
+              "length": 2
+            }
+          },
+          {
+            "content": "Ha!",
+            "polygon": [
+              3386,
+              3886,
+              3547,
+              3888,
+              3547,
+              3982,
+              3384,
+              3983
+            ],
+            "confidence": 0.938,
+            "span": {
+              "offset": 519,
+              "length": 3
+            }
+          },
+          {
+            "content": "Praised",
+            "polygon": [
+              2133,
+              4086,
+              2504,
+              4088,
+              2499,
+              4194,
+              2128,
+              4190
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 523,
+              "length": 7
+            }
+          },
+          {
+            "content": "be",
+            "polygon": [
+              2559,
+              4088,
+              2657,
+              4089,
+              2653,
+              4195,
+              2554,
+              4194
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 531,
+              "length": 2
+            }
+          },
+          {
+            "content": "Jesus,",
+            "polygon": [
+              2714,
+              4089,
+              3014,
+              4092,
+              3010,
+              4198,
+              2710,
+              4196
+            ],
+            "confidence": 0.993,
+            "span": {
+              "offset": 534,
+              "length": 6
+            }
+          },
+          {
+            "content": "Mary,",
+            "polygon": [
+              3076,
+              4092,
+              3326,
+              4094,
+              3323,
+              4200,
+              3072,
+              4199
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 541,
+              "length": 5
+            }
+          },
+          {
+            "content": "and",
+            "polygon": [
+              3395,
+              4095,
+              3542,
+              4096,
+              3538,
+              4201,
+              3392,
+              4200
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 547,
+              "length": 3
+            }
+          },
+          {
+            "content": "Joseph",
+            "polygon": [
+              3595,
+              4097,
+              3914,
+              4100,
+              3914,
+              4201,
+              3592,
+              4201
+            ],
+            "confidence": 0.996,
+            "span": {
+              "offset": 551,
+              "length": 6
+            }
+          },
+          {
+            "content": "Yours",
+            "polygon": [
+              2648,
+              4300,
+              2911,
+              4300,
+              2911,
+              4402,
+              2650,
+              4396
+            ],
+            "confidence": 0.995,
+            "span": {
+              "offset": 558,
+              "length": 5
+            }
+          },
+          {
+            "content": "Sincerely,",
+            "polygon": [
+              2975,
+              4301,
+              3487,
+              4309,
+              3487,
+              4409,
+              2975,
+              4403
+            ],
+            "confidence": 0.992,
+            "span": {
+              "offset": 564,
+              "length": 10
+            }
+          },
+          {
+            "content": "Fr.",
+            "polygon": [
+              2649,
+              4500,
+              2801,
+              4500,
+              2799,
+              4598,
+              2647,
+              4596
+            ],
+            "confidence": 0.994,
+            "span": {
+              "offset": 575,
+              "length": 3
+            }
+          },
+          {
+            "content": "Solanus,",
+            "polygon": [
+              2873,
+              4500,
+              3274,
+              4503,
+              3272,
+              4606,
+              2871,
+              4600
+            ],
+            "confidence": 0.936,
+            "span": {
+              "offset": 579,
+              "length": 8
+            }
+          },
+          {
+            "content": "O.F.M.Cap.",
+            "polygon": [
+              3336,
+              4503,
+              3853,
+              4510,
+              3853,
+              4611,
+              3334,
+              4607
+            ],
+            "confidence": 0.953,
+            "span": {
+              "offset": 588,
+              "length": 10
+            }
+          }
+        ],
+        "lines": [
+          {
+            "content": "St. Michael's Church",
+            "polygon": [
+              2182,
+              1607,
+              3238,
+              1609,
+              3238,
+              1708,
+              2182,
+              1705
+            ],
+            "spans": [
+              {
+                "offset": 0,
+                "length": 20
+              }
+            ]
+          },
+          {
+            "content": "225 Jerome Street",
+            "polygon": [
+              2239,
+              1813,
+              3128,
+              1818,
+              3127,
+              1914,
+              2239,
+              1913
+            ],
+            "spans": [
+              {
+                "offset": 21,
+                "length": 17
+              }
+            ]
+          },
+          {
+            "content": "Brooklyn 7, N.Y.",
+            "polygon": [
+              2289,
+              1969,
+              3122,
+              1971,
+              3122,
+              2069,
+              2289,
+              2068
+            ],
+            "spans": [
+              {
+                "offset": 39,
+                "length": 16
+              }
+            ]
+          },
+          {
+            "content": "Febr. 14th, 1946",
+            "polygon": [
+              2290,
+              2171,
+              3130,
+              2179,
+              3129,
+              2281,
+              2290,
+              2274
+            ],
+            "spans": [
+              {
+                "offset": 56,
+                "length": 16
+              }
+            ]
+          },
+          {
+            "content": "Miss Grace Panyard",
+            "polygon": [
+              1038,
+              2532,
+              1990,
+              2537,
+              1989,
+              2631,
+              1038,
+              2625
+            ],
+            "spans": [
+              {
+                "offset": 73,
+                "length": 18
+              }
+            ]
+          },
+          {
+            "content": "1705 Peck Ave.",
+            "polygon": [
+              1056,
+              2633,
+              1767,
+              2635,
+              1766,
+              2727,
+              1056,
+              2726
+            ],
+            "spans": [
+              {
+                "offset": 92,
+                "length": 14
+              }
+            ]
+          },
+          {
+            "content": "Muskegon, Mich.",
+            "polygon": [
+              1037,
+              2740,
+              1830,
+              2738,
+              1830,
+              2834,
+              1037,
+              2836
+            ],
+            "spans": [
+              {
+                "offset": 107,
+                "length": 15
+              }
+            ]
+          },
+          {
+            "content": "Dear Miss Panyard:",
+            "polygon": [
+              1045,
+              2942,
+              1984,
+              2948,
+              1983,
+              3049,
+              1044,
+              3041
+            ],
+            "spans": [
+              {
+                "offset": 123,
+                "length": 18
+              }
+            ]
+          },
+          {
+            "content": "God bless you and yours. I write your Brother Fred yester-",
+            "polygon": [
+              1305,
+              3154,
+              4384,
+              3167,
+              4383,
+              3264,
+              1305,
+              3249
+            ],
+            "spans": [
+              {
+                "offset": 142,
+                "length": 58
+              }
+            ]
+          },
+          {
+            "content": "day and now I come to your favor of Febr. 12. Many Thanks I've",
+            "polygon": [
+              1043,
+              3254,
+              4327,
+              3268,
+              4326,
+              3365,
+              1043,
+              3351
+            ],
+            "spans": [
+              {
+                "offset": 201,
+                "length": 62
+              }
+            ]
+          },
+          {
+            "content": "just noted your request for the Poor Holy Souls .... and hope that",
+            "polygon": [
+              1043,
+              3358,
+              4374,
+              3375,
+              4374,
+              3477,
+              1043,
+              3459
+            ],
+            "spans": [
+              {
+                "offset": 264,
+                "length": 66
+              }
+            ]
+          },
+          {
+            "content": "things brighten up soon.",
+            "polygon": [
+              1051,
+              3462,
+              2292,
+              3474,
+              2291,
+              3569,
+              1050,
+              3562
+            ],
+            "spans": [
+              {
+                "offset": 331,
+                "length": 24
+              }
+            ]
+          },
+          {
+            "content": "Tell George I send him one of my good ear pulls. Tell him",
+            "polygon": [
+              1299,
+              3674,
+              4331,
+              3682,
+              4330,
+              3781,
+              1299,
+              3771
+            ],
+            "spans": [
+              {
+                "offset": 356,
+                "length": 57
+              }
+            ]
+          },
+          {
+            "content": "\"life\" that the world is so inclined to worship is too short",
+            "polygon": [
+              1043,
+              3768,
+              4220,
+              3786,
+              4219,
+              3885,
+              1043,
+              3868
+            ],
+            "spans": [
+              {
+                "offset": 414,
+                "length": 60
+              }
+            ]
+          },
+          {
+            "content": "to act discouraged about anything in it. Ha Ha!",
+            "polygon": [
+              1045,
+              3878,
+              3546,
+              3884,
+              3545,
+              3984,
+              1045,
+              3977
+            ],
+            "spans": [
+              {
+                "offset": 475,
+                "length": 47
+              }
+            ]
+          },
+          {
+            "content": "Praised be Jesus, Mary, and Joseph",
+            "polygon": [
+              2114,
+              4085,
+              3913,
+              4098,
+              3912,
+              4201,
+              2113,
+              4189
+            ],
+            "spans": [
+              {
+                "offset": 523,
+                "length": 34
+              }
+            ]
+          },
+          {
+            "content": "Yours Sincerely,",
+            "polygon": [
+              2647,
+              4299,
+              3486,
+              4307,
+              3484,
+              4408,
+              2647,
+              4397
+            ],
+            "spans": [
+              {
+                "offset": 558,
+                "length": 16
+              }
+            ]
+          },
+          {
+            "content": "Fr. Solanus, O.F.M.Cap.",
+            "polygon": [
+              2647,
+              4499,
+              3852,
+              4508,
+              3851,
+              4610,
+              2646,
+              4597
+            ],
+            "spans": [
+              {
+                "offset": 575,
+                "length": 23
+              }
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "offset": 0,
+            "length": 598
+          }
+        ]
+      }
+    ],
+    "paragraphs": [
+      {
+        "spans": [
+          {
+            "offset": 0,
+            "length": 72
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2182,
+              1607,
+              3238,
+              1609,
+              3237,
+              2281,
+              2181,
+              2279
+            ]
+          }
+        ],
+        "content": "St. Michael's Church 225 Jerome Street Brooklyn 7, N.Y. Febr. 14th, 1946"
+      },
+      {
+        "spans": [
+          {
+            "offset": 73,
+            "length": 49
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1038,
+              2532,
+              1990,
+              2537,
+              1988,
+              2841,
+              1036,
+              2836
+            ]
+          }
+        ],
+        "content": "Miss Grace Panyard 1705 Peck Ave. Muskegon, Mich."
+      },
+      {
+        "spans": [
+          {
+            "offset": 123,
+            "length": 18
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1045,
+              2940,
+              1984,
+              2948,
+              1983,
+              3049,
+              1044,
+              3041
+            ]
+          }
+        ],
+        "content": "Dear Miss Panyard:"
+      },
+      {
+        "spans": [
+          {
+            "offset": 142,
+            "length": 213
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1043,
+              3153,
+              4384,
+              3167,
+              4382,
+              3578,
+              1042,
+              3564
+            ]
+          }
+        ],
+        "content": "God bless you and yours. I write your Brother Fred yester- day and now I come to your favor of Febr. 12. Many Thanks I've just noted your request for the Poor Holy Souls .... and hope that things brighten up soon."
+      },
+      {
+        "spans": [
+          {
+            "offset": 356,
+            "length": 166
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              1043,
+              3673,
+              4331,
+              3682,
+              4330,
+              3986,
+              1042,
+              3977
+            ]
+          }
+        ],
+        "content": "Tell George I send him one of my good ear pulls. Tell him \"life\" that the world is so inclined to worship is too short to act discouraged about anything in it. Ha Ha!"
+      },
+      {
+        "spans": [
+          {
+            "offset": 523,
+            "length": 75
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2114,
+              4085,
+              3913,
+              4098,
+              3909,
+              4610,
+              2110,
+              4597
+            ]
+          }
+        ],
+        "content": "Praised be Jesus, Mary, and Joseph Yours Sincerely, Fr. Solanus, O.F.M.Cap."
+      }
+    ],
+    "styles": [],
+    "contentFormat": "text"
+  },
+  "per_polygon": {
+    "doc_1.src_content.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "God bless you and yours. I write your Brother Fred yester- day and now I come to your favor of Febr. 12. Many Thanks I've just noted your request for the Poor Holy Souls .... and hope that things brighten up soon.\nTell George I send him one of my good ear pulls. Tell him \"life\" that the world is so inclined to worship is too short to act discouraged about anything in it. Ha Hal",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.2517470121383667,
+          "width": 3423,
+          "height": 918,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "God",
+              "polygon": [
+                316,
+                46,
+                473,
+                47,
+                470,
+                132,
+                313,
+                131
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "bless",
+              "polygon": [
+                530,
+                47,
+                780,
+                48,
+                778,
+                134,
+                527,
+                133
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 4,
+                "length": 5
+              }
+            },
+            {
+              "content": "you",
+              "polygon": [
+                842,
+                48,
+                991,
+                49,
+                989,
+                135,
+                840,
+                134
+              ],
+              "confidence": 0.977,
+              "span": {
+                "offset": 10,
+                "length": 3
+              }
+            },
+            {
+              "content": "and",
+              "polygon": [
+                1054,
+                49,
+                1201,
+                49,
+                1199,
+                136,
+                1052,
+                135
+              ],
+              "confidence": 0.999,
+              "span": {
+                "offset": 14,
+                "length": 3
+              }
+            },
+            {
+              "content": "yours.",
+              "polygon": [
+                1259,
+                50,
+                1552,
+                51,
+                1550,
+                138,
+                1258,
+                136
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 18,
+                "length": 6
+              }
+            },
+            {
+              "content": "I",
+              "polygon": [
+                1676,
+                51,
+                1718,
+                51,
+                1717,
+                139,
+                1674,
+                139
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 25,
+                "length": 1
+              }
+            },
+            {
+              "content": "write",
+              "polygon": [
+                1771,
+                52,
+                2026,
+                53,
+                2025,
+                140,
+                1770,
+                139
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 27,
+                "length": 5
+              }
+            },
+            {
+              "content": "your",
+              "polygon": [
+                2088,
+                53,
+                2289,
+                54,
+                2288,
+                142,
+                2087,
+                141
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 33,
+                "length": 4
+              }
+            },
+            {
+              "content": "Brother",
+              "polygon": [
+                2346,
+                54,
+                2702,
+                56,
+                2701,
+                144,
+                2345,
+                142
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 38,
+                "length": 7
+              }
+            },
+            {
+              "content": "Fred",
+              "polygon": [
+                2765,
+                56,
+                2963,
+                57,
+                2963,
+                145,
+                2764,
+                144
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 46,
+                "length": 4
+              }
+            },
+            {
+              "content": "yester-",
+              "polygon": [
+                3021,
+                58,
+                3386,
+                60,
+                3386,
+                146,
+                3021,
+                145
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 51,
+                "length": 7
+              }
+            },
+            {
+              "content": "day",
+              "polygon": [
+                54,
+                143,
+                215,
+                145,
+                212,
+                236,
+                50,
+                236
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 59,
+                "length": 3
+              }
+            },
+            {
+              "content": "and",
+              "polygon": [
+                278,
+                145,
+                421,
+                147,
+                418,
+                237,
+                274,
+                236
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 63,
+                "length": 3
+              }
+            },
+            {
+              "content": "now",
+              "polygon": [
+                475,
+                147,
+                634,
+                148,
+                631,
+                237,
+                472,
+                237
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 67,
+                "length": 3
+              }
+            },
+            {
+              "content": "I",
+              "polygon": [
+                690,
+                149,
+                732,
+                149,
+                729,
+                237,
+                687,
+                237
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 71,
+                "length": 1
+              }
+            },
+            {
+              "content": "come",
+              "polygon": [
+                791,
+                150,
+                991,
+                151,
+                989,
+                238,
+                788,
+                237
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 73,
+                "length": 4
+              }
+            },
+            {
+              "content": "to",
+              "polygon": [
+                1055,
+                151,
+                1151,
+                152,
+                1149,
+                238,
+                1053,
+                238
+              ],
+              "confidence": 0.999,
+              "span": {
+                "offset": 78,
+                "length": 2
+              }
+            },
+            {
+              "content": "your",
+              "polygon": [
+                1206,
+                152,
+                1408,
+                153,
+                1406,
+                239,
+                1204,
+                239
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 81,
+                "length": 4
+              }
+            },
+            {
+              "content": "favor",
+              "polygon": [
+                1471,
+                154,
+                1718,
+                155,
+                1717,
+                241,
+                1470,
+                240
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 86,
+                "length": 5
+              }
+            },
+            {
+              "content": "of",
+              "polygon": [
+                1780,
+                155,
+                1875,
+                156,
+                1874,
+                241,
+                1779,
+                241
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 92,
+                "length": 2
+              }
+            },
+            {
+              "content": "Febr.",
+              "polygon": [
+                1934,
+                156,
+                2176,
+                157,
+                2176,
+                243,
+                1933,
+                242
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 95,
+                "length": 5
+              }
+            },
+            {
+              "content": "12.",
+              "polygon": [
+                2260,
+                157,
+                2382,
+                157,
+                2382,
+                244,
+                2260,
+                243
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 101,
+                "length": 3
+              }
+            },
+            {
+              "content": "Many",
+              "polygon": [
+                2497,
+                157,
+                2707,
+                158,
+                2707,
+                246,
+                2497,
+                245
+              ],
+              "confidence": 0.988,
+              "span": {
+                "offset": 105,
+                "length": 4
+              }
+            },
+            {
+              "content": "Thanks",
+              "polygon": [
+                2765,
+                158,
+                3063,
+                158,
+                3063,
+                248,
+                2766,
+                246
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 110,
+                "length": 6
+              }
+            },
+            {
+              "content": "I've",
+              "polygon": [
+                3129,
+                158,
+                3328,
+                158,
+                3328,
+                249,
+                3130,
+                249
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 117,
+                "length": 4
+              }
+            },
+            {
+              "content": "just",
+              "polygon": [
+                59,
+                246,
+                265,
+                248,
+                262,
+                346,
+                57,
+                346
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 122,
+                "length": 4
+              }
+            },
+            {
+              "content": "noted",
+              "polygon": [
+                317,
+                249,
+                576,
+                251,
+                573,
+                346,
+                314,
+                346
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 127,
+                "length": 5
+              }
+            },
+            {
+              "content": "your",
+              "polygon": [
+                635,
+                252,
+                836,
+                253,
+                834,
+                346,
+                633,
+                346
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 133,
+                "length": 4
+              }
+            },
+            {
+              "content": "request",
+              "polygon": [
+                896,
+                254,
+                1251,
+                256,
+                1250,
+                347,
+                894,
+                346
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 138,
+                "length": 7
+              }
+            },
+            {
+              "content": "for",
+              "polygon": [
+                1315,
+                257,
+                1459,
+                258,
+                1458,
+                348,
+                1314,
+                347
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 146,
+                "length": 3
+              }
+            },
+            {
+              "content": "the",
+              "polygon": [
+                1522,
+                258,
+                1661,
+                259,
+                1661,
+                349,
+                1521,
+                348
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 150,
+                "length": 3
+              }
+            },
+            {
+              "content": "Poor",
+              "polygon": [
+                1721,
+                259,
+                1925,
+                261,
+                1924,
+                350,
+                1720,
+                349
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 154,
+                "length": 4
+              }
+            },
+            {
+              "content": "Holy",
+              "polygon": [
+                1980,
+                261,
+                2188,
+                262,
+                2188,
+                352,
+                1979,
+                350
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 159,
+                "length": 4
+              }
+            },
+            {
+              "content": "Souls",
+              "polygon": [
+                2245,
+                262,
+                2491,
+                263,
+                2492,
+                354,
+                2245,
+                352
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 164,
+                "length": 5
+              }
+            },
+            {
+              "content": "....",
+              "polygon": [
+                2514,
+                263,
+                2693,
+                264,
+                2694,
+                356,
+                2515,
+                355
+              ],
+              "confidence": 0.949,
+              "span": {
+                "offset": 170,
+                "length": 4
+              }
+            },
+            {
+              "content": "and",
+              "polygon": [
+                2715,
+                264,
+                2860,
+                265,
+                2861,
+                358,
+                2715,
+                357
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 175,
+                "length": 3
+              }
+            },
+            {
+              "content": "hope",
+              "polygon": [
+                2914,
+                265,
+                3116,
+                265,
+                3117,
+                361,
+                2915,
+                358
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 179,
+                "length": 4
+              }
+            },
+            {
+              "content": "that",
+              "polygon": [
+                3179,
+                265,
+                3393,
+                266,
+                3393,
+                363,
+                3180,
+                362
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 184,
+                "length": 4
+              }
+            },
+            {
+              "content": "things",
+              "polygon": [
+                53,
+                357,
+                363,
+                358,
+                363,
+                453,
+                52,
+                448
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 189,
+                "length": 6
+              }
+            },
+            {
+              "content": "brighten",
+              "polygon": [
+                426,
+                358,
+                835,
+                364,
+                836,
+                455,
+                426,
+                454
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 196,
+                "length": 8
+              }
+            },
+            {
+              "content": "up",
+              "polygon": [
+                890,
+                365,
+                993,
+                368,
+                993,
+                455,
+                890,
+                455
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 205,
+                "length": 2
+              }
+            },
+            {
+              "content": "soon.",
+              "polygon": [
+                1051,
+                369,
+                1294,
+                377,
+                1294,
+                451,
+                1052,
+                454
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 208,
+                "length": 5
+              }
+            },
+            {
+              "content": "Tell",
+              "polygon": [
+                316,
+                568,
+                523,
+                567,
+                522,
+                650,
+                314,
+                647
+              ],
+              "confidence": 0.944,
+              "span": {
+                "offset": 214,
+                "length": 4
+              }
+            },
+            {
+              "content": "George",
+              "polygon": [
+                584,
+                567,
+                886,
+                567,
+                885,
+                655,
+                583,
+                651
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 219,
+                "length": 6
+              }
+            },
+            {
+              "content": "I",
+              "polygon": [
+                946,
+                567,
+                988,
+                567,
+                987,
+                656,
+                945,
+                655
+              ],
+              "confidence": 0.987,
+              "span": {
+                "offset": 226,
+                "length": 1
+              }
+            },
+            {
+              "content": "send",
+              "polygon": [
+                1053,
+                567,
+                1250,
+                567,
+                1250,
+                659,
+                1052,
+                657
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 228,
+                "length": 4
+              }
+            },
+            {
+              "content": "him",
+              "polygon": [
+                1304,
+                567,
+                1462,
+                568,
+                1462,
+                660,
+                1304,
+                659
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 233,
+                "length": 3
+              }
+            },
+            {
+              "content": "one",
+              "polygon": [
+                1519,
+                568,
+                1663,
+                568,
+                1663,
+                662,
+                1519,
+                661
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 237,
+                "length": 3
+              }
+            },
+            {
+              "content": "of",
+              "polygon": [
+                1728,
+                569,
+                1824,
+                569,
+                1824,
+                663,
+                1728,
+                662
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 241,
+                "length": 2
+              }
+            },
+            {
+              "content": "my",
+              "polygon": [
+                1876,
+                569,
+                1979,
+                570,
+                1979,
+                663,
+                1876,
+                663
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 244,
+                "length": 2
+              }
+            },
+            {
+              "content": "good",
+              "polygon": [
+                2039,
+                570,
+                2238,
+                571,
+                2238,
+                664,
+                2039,
+                664
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 247,
+                "length": 4
+              }
+            },
+            {
+              "content": "ear",
+              "polygon": [
+                2296,
+                571,
+                2444,
+                572,
+                2444,
+                664,
+                2296,
+                664
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 252,
+                "length": 3
+              }
+            },
+            {
+              "content": "pulls.",
+              "polygon": [
+                2503,
+                573,
+                2798,
+                575,
+                2799,
+                664,
+                2504,
+                664
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 256,
+                "length": 6
+              }
+            },
+            {
+              "content": "Tell",
+              "polygon": [
+                2920,
+                576,
+                3120,
+                578,
+                3121,
+                664,
+                2921,
+                664
+              ],
+              "confidence": 0.816,
+              "span": {
+                "offset": 263,
+                "length": 4
+              }
+            },
+            {
+              "content": "him",
+              "polygon": [
+                3178,
+                578,
+                3338,
+                580,
+                3338,
+                663,
+                3179,
+                664
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 268,
+                "length": 3
+              }
+            },
+            {
+              "content": "\"life\"",
+              "polygon": [
+                54,
+                663,
+                367,
+                665,
+                366,
+                747,
+                53,
+                742
+              ],
+              "confidence": 0.904,
+              "span": {
+                "offset": 272,
+                "length": 6
+              }
+            },
+            {
+              "content": "that",
+              "polygon": [
+                480,
+                665,
+                680,
+                666,
+                678,
+                751,
+                479,
+                748
+              ],
+              "confidence": 0.987,
+              "span": {
+                "offset": 279,
+                "length": 4
+              }
+            },
+            {
+              "content": "the",
+              "polygon": [
+                740,
+                667,
+                888,
+                668,
+                886,
+                754,
+                738,
+                752
+              ],
+              "confidence": 0.999,
+              "span": {
+                "offset": 284,
+                "length": 3
+              }
+            },
+            {
+              "content": "world",
+              "polygon": [
+                941,
+                668,
+                1199,
+                670,
+                1197,
+                757,
+                939,
+                754
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 288,
+                "length": 5
+              }
+            },
+            {
+              "content": "is",
+              "polygon": [
+                1263,
+                670,
+                1351,
+                670,
+                1350,
+                759,
+                1262,
+                758
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 294,
+                "length": 2
+              }
+            },
+            {
+              "content": "so",
+              "polygon": [
+                1415,
+                671,
+                1513,
+                672,
+                1511,
+                760,
+                1414,
+                759
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 297,
+                "length": 2
+              }
+            },
+            {
+              "content": "inclined",
+              "polygon": [
+                1574,
+                672,
+                1976,
+                675,
+                1975,
+                764,
+                1573,
+                761
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 300,
+                "length": 8
+              }
+            },
+            {
+              "content": "to",
+              "polygon": [
+                2038,
+                675,
+                2137,
+                676,
+                2135,
+                765,
+                2036,
+                764
+              ],
+              "confidence": 0.981,
+              "span": {
+                "offset": 309,
+                "length": 2
+              }
+            },
+            {
+              "content": "worship",
+              "polygon": [
+                2188,
+                677,
+                2548,
+                680,
+                2547,
+                766,
+                2187,
+                765
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 312,
+                "length": 7
+              }
+            },
+            {
+              "content": "is",
+              "polygon": [
+                2614,
+                680,
+                2701,
+                681,
+                2699,
+                767,
+                2613,
+                767
+              ],
+              "confidence": 0.999,
+              "span": {
+                "offset": 320,
+                "length": 2
+              }
+            },
+            {
+              "content": "too",
+              "polygon": [
+                2766,
+                681,
+                2914,
+                683,
+                2913,
+                767,
+                2765,
+                767
+              ],
+              "confidence": 0.999,
+              "span": {
+                "offset": 323,
+                "length": 3
+              }
+            },
+            {
+              "content": "short",
+              "polygon": [
+                2974,
+                683,
+                3223,
+                686,
+                3223,
+                767,
+                2973,
+                767
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 327,
+                "length": 5
+              }
+            },
+            {
+              "content": "to",
+              "polygon": [
+                60,
+                775,
+                162,
+                775,
+                161,
+                850,
+                58,
+                848
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 333,
+                "length": 2
+              }
+            },
+            {
+              "content": "act",
+              "polygon": [
+                222,
+                774,
+                367,
+                774,
+                366,
+                855,
+                221,
+                852
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 336,
+                "length": 3
+              }
+            },
+            {
+              "content": "discouraged",
+              "polygon": [
+                427,
+                773,
+                990,
+                773,
+                989,
+                866,
+                426,
+                857
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 340,
+                "length": 11
+              }
+            },
+            {
+              "content": "about",
+              "polygon": [
+                1052,
+                773,
+                1300,
+                773,
+                1300,
+                868,
+                1052,
+                866
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 352,
+                "length": 5
+              }
+            },
+            {
+              "content": "anything",
+              "polygon": [
+                1364,
+                773,
+                1767,
+                775,
+                1767,
+                868,
+                1364,
+                868
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 358,
+                "length": 8
+              }
+            },
+            {
+              "content": "in",
+              "polygon": [
+                1834,
+                775,
+                1923,
+                776,
+                1922,
+                867,
+                1834,
+                868
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 367,
+                "length": 2
+              }
+            },
+            {
+              "content": "it.",
+              "polygon": [
+                1990,
+                776,
+                2122,
+                777,
+                2122,
+                866,
+                1989,
+                867
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 370,
+                "length": 3
+              }
+            },
+            {
+              "content": "Ha",
+              "polygon": [
+                2240,
+                778,
+                2344,
+                779,
+                2344,
+                863,
+                2240,
+                864
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 374,
+                "length": 2
+              }
+            },
+            {
+              "content": "Hal",
+              "polygon": [
+                2394,
+                780,
+                2540,
+                781,
+                2540,
+                860,
+                2394,
+                862
+              ],
+              "confidence": 0.953,
+              "span": {
+                "offset": 377,
+                "length": 3
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "God bless you and yours. I write your Brother Fred yester-",
+              "polygon": [
+                313,
+                46,
+                3386,
+                59,
+                3385,
+                145,
+                313,
+                131
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 58
+                }
+              ]
+            },
+            {
+              "content": "day and now I come to your favor of Febr. 12. Many Thanks I've",
+              "polygon": [
+                50,
+                143,
+                3327,
+                157,
+                3327,
+                248,
+                50,
+                234
+              ],
+              "spans": [
+                {
+                  "offset": 59,
+                  "length": 62
+                }
+              ]
+            },
+            {
+              "content": "just noted your request for the Poor Holy Souls .... and hope that",
+              "polygon": [
+                57,
+                246,
+                3392,
+                265,
+                3392,
+                363,
+                56,
+                344
+              ],
+              "spans": [
+                {
+                  "offset": 122,
+                  "length": 66
+                }
+              ]
+            },
+            {
+              "content": "things brighten up soon.",
+              "polygon": [
+                52,
+                357,
+                1294,
+                365,
+                1293,
+                455,
+                51,
+                449
+              ],
+              "spans": [
+                {
+                  "offset": 189,
+                  "length": 24
+                }
+              ]
+            },
+            {
+              "content": "Tell George I send him one of my good ear pulls. Tell him",
+              "polygon": [
+                314,
+                566,
+                3337,
+                575,
+                3337,
+                664,
+                314,
+                654
+              ],
+              "spans": [
+                {
+                  "offset": 214,
+                  "length": 57
+                }
+              ]
+            },
+            {
+              "content": "\"life\" that the world is so inclined to worship is too short",
+              "polygon": [
+                53,
+                663,
+                3222,
+                684,
+                3221,
+                767,
+                52,
+                747
+              ],
+              "spans": [
+                {
+                  "offset": 272,
+                  "length": 60
+                }
+              ]
+            },
+            {
+              "content": "to act discouraged about anything in it. Ha Hal",
+              "polygon": [
+                58,
+                772,
+                2539,
+                777,
+                2539,
+                868,
+                58,
+                861
+              ],
+              "spans": [
+                {
+                  "offset": 333,
+                  "length": 47
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 380
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 213
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                50,
+                45,
+                3393,
+                59,
+                3392,
+                464,
+                49,
+                450
+              ]
+            }
+          ],
+          "content": "God bless you and yours. I write your Brother Fred yester- day and now I come to your favor of Febr. 12. Many Thanks I've just noted your request for the Poor Holy Souls .... and hope that things brighten up soon."
+        },
+        {
+          "spans": [
+            {
+              "offset": 214,
+              "length": 166
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                53,
+                565,
+                3337,
+                575,
+                3336,
+                870,
+                52,
+                861
+              ]
+            }
+          ],
+          "content": "Tell George I send him one of my good ear pulls. Tell him \"life\" that the world is so inclined to worship is too short to act discouraged about anything in it. Ha Hal"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_origin.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "St. Michael's Church",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.22079190611839294,
+          "width": 1155,
+          "height": 195,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "St.",
+              "polygon": [
+                58,
+                60,
+                200,
+                57,
+                200,
+                132,
+                58,
+                130
+              ],
+              "confidence": 0.994,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "Michael's",
+              "polygon": [
+                263,
+                56,
+                724,
+                56,
+                726,
+                136,
+                264,
+                133
+              ],
+              "confidence": 0.973,
+              "span": {
+                "offset": 4,
+                "length": 9
+              }
+            },
+            {
+              "content": "Church",
+              "polygon": [
+                787,
+                57,
+                1097,
+                66,
+                1097,
+                133,
+                790,
+                136
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 14,
+                "length": 6
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "St. Michael's Church",
+              "polygon": [
+                58,
+                53,
+                1096,
+                57,
+                1096,
+                136,
+                58,
+                132
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 20
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 20
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 20
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                58,
+                53,
+                1096,
+                57,
+                1096,
+                136,
+                58,
+                132
+              ]
+            }
+          ],
+          "content": "St. Michael's Church"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_recipient.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Miss Grace Panyard",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.7607290148735046,
+          "width": 1057,
+          "height": 189,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Miss",
+              "polygon": [
+                58,
+                53,
+                263,
+                55,
+                264,
+                128,
+                61,
+                125
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "Grace",
+              "polygon": [
+                326,
+                56,
+                578,
+                59,
+                579,
+                135,
+                328,
+                129
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 5,
+                "length": 5
+              }
+            },
+            {
+              "content": "Panyard",
+              "polygon": [
+                636,
+                59,
+                1000,
+                63,
+                1000,
+                144,
+                637,
+                136
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 11,
+                "length": 7
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Miss Grace Panyard",
+              "polygon": [
+                58,
+                53,
+                1000,
+                63,
+                999,
+                143,
+                58,
+                128
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 18
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                58,
+                53,
+                1000,
+                63,
+                999,
+                143,
+                57,
+                133
+              ]
+            }
+          ],
+          "content": "Miss Grace Panyard"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_location_recipient.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "11po Late fallya 1705 Peck Ave.\nMuskegon, Mich.",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.4470160901546478,
+          "width": 893,
+          "height": 315,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "11po",
+              "polygon": [
+                57,
+                2,
+                263,
+                2,
+                263,
+                28,
+                57,
+                25
+              ],
+              "confidence": 0.078,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "Late",
+              "polygon": [
+                384,
+                2,
+                577,
+                2,
+                579,
+                37,
+                385,
+                31
+              ],
+              "confidence": 0.32,
+              "span": {
+                "offset": 5,
+                "length": 4
+              }
+            },
+            {
+              "content": "fallya",
+              "polygon": [
+                636,
+                2,
+                890,
+                3,
+                890,
+                48,
+                637,
+                39
+              ],
+              "confidence": 0.407,
+              "span": {
+                "offset": 10,
+                "length": 6
+              }
+            },
+            {
+              "content": "1705",
+              "polygon": [
+                80,
+                60,
+                265,
+                61,
+                267,
+                134,
+                82,
+                133
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 17,
+                "length": 4
+              }
+            },
+            {
+              "content": "Peck",
+              "polygon": [
+                325,
+                61,
+                530,
+                63,
+                531,
+                136,
+                326,
+                135
+              ],
+              "confidence": 0.991,
+              "span": {
+                "offset": 22,
+                "length": 4
+              }
+            },
+            {
+              "content": "Ave.",
+              "polygon": [
+                580,
+                64,
+                785,
+                68,
+                785,
+                137,
+                581,
+                136
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 27,
+                "length": 4
+              }
+            },
+            {
+              "content": "Muskegon,",
+              "polygon": [
+                52,
+                161,
+                517,
+                164,
+                519,
+                252,
+                54,
+                234
+              ],
+              "confidence": 0.973,
+              "span": {
+                "offset": 32,
+                "length": 9
+              }
+            },
+            {
+              "content": "Mich.",
+              "polygon": [
+                579,
+                163,
+                830,
+                158,
+                830,
+                233,
+                581,
+                250
+              ],
+              "confidence": 0.885,
+              "span": {
+                "offset": 42,
+                "length": 5
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "11po Late fallya",
+              "polygon": [
+                56,
+                1,
+                890,
+                2,
+                889,
+                47,
+                56,
+                35
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 16
+                }
+              ]
+            },
+            {
+              "content": "1705 Peck Ave.",
+              "polygon": [
+                79,
+                59,
+                784,
+                65,
+                784,
+                137,
+                79,
+                131
+              ],
+              "spans": [
+                {
+                  "offset": 17,
+                  "length": 14
+                }
+              ]
+            },
+            {
+              "content": "Muskegon, Mich.",
+              "polygon": [
+                51,
+                160,
+                829,
+                158,
+                829,
+                250,
+                52,
+                252
+              ],
+              "spans": [
+                {
+                  "offset": 32,
+                  "length": 15
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 47
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 31
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                56,
+                1,
+                890,
+                2,
+                890,
+                137,
+                56,
+                136
+              ]
+            }
+          ],
+          "content": "11po Late fallya 1705 Peck Ave."
+        },
+        {
+          "spans": [
+            {
+              "offset": 32,
+              "length": 15
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                51,
+                160,
+                829,
+                158,
+                829,
+                250,
+                51,
+                252
+              ]
+            }
+          ],
+          "content": "Muskegon, Mich."
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_location_sender.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "225 Jerome Street\nBrooklyn 7, N.Y.",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.45368778705596924,
+          "width": 990,
+          "height": 349,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "225",
+              "polygon": [
+                49,
+                56,
+                202,
+                60,
+                202,
+                133,
+                49,
+                131
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "Jerome",
+              "polygon": [
+                263,
+                61,
+                570,
+                67,
+                570,
+                135,
+                263,
+                134
+              ],
+              "confidence": 0.993,
+              "span": {
+                "offset": 4,
+                "length": 6
+              }
+            },
+            {
+              "content": "Street",
+              "polygon": [
+                630,
+                68,
+                934,
+                70,
+                934,
+                134,
+                630,
+                135
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 11,
+                "length": 6
+              }
+            },
+            {
+              "content": "Brooklyn",
+              "polygon": [
+                105,
+                216,
+                518,
+                208,
+                517,
+                301,
+                103,
+                276
+              ],
+              "confidence": 0.935,
+              "span": {
+                "offset": 18,
+                "length": 8
+              }
+            },
+            {
+              "content": "7,",
+              "polygon": [
+                582,
+                208,
+                666,
+                210,
+                666,
+                299,
+                581,
+                301
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 27,
+                "length": 2
+              }
+            },
+            {
+              "content": "N.Y.",
+              "polygon": [
+                729,
+                213,
+                931,
+                222,
+                931,
+                279,
+                728,
+                296
+              ],
+              "confidence": 0.878,
+              "span": {
+                "offset": 30,
+                "length": 4
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "225 Jerome Street",
+              "polygon": [
+                49,
+                55,
+                933,
+                64,
+                933,
+                135,
+                49,
+                130
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 17
+                }
+              ]
+            },
+            {
+              "content": "Brooklyn 7, N.Y.",
+              "polygon": [
+                103,
+                207,
+                931,
+                210,
+                930,
+                301,
+                103,
+                297
+              ],
+              "spans": [
+                {
+                  "offset": 18,
+                  "length": 16
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 34
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 17
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                49,
+                55,
+                933,
+                60,
+                933,
+                135,
+                49,
+                130
+              ]
+            }
+          ],
+          "content": "225 Jerome Street"
+        },
+        {
+          "spans": [
+            {
+              "offset": 18,
+              "length": 16
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                103,
+                207,
+                931,
+                210,
+                931,
+                301,
+                103,
+                298
+              ]
+            }
+          ],
+          "content": "Brooklyn 7, N.Y."
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_date.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Febr. 14th, 1946",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.3466542065143585,
+          "width": 945,
+          "height": 199,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Febr.",
+              "polygon": [
+                58,
+                56,
+                303,
+                55,
+                302,
+                137,
+                58,
+                128
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 0,
+                "length": 5
+              }
+            },
+            {
+              "content": "14th,",
+              "polygon": [
+                390,
+                56,
+                620,
+                57,
+                619,
+                141,
+                389,
+                139
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 6,
+                "length": 5
+              }
+            },
+            {
+              "content": "1946",
+              "polygon": [
+                702,
+                58,
+                886,
+                60,
+                886,
+                139,
+                700,
+                141
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 12,
+                "length": 4
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Febr. 14th, 1946",
+              "polygon": [
+                58,
+                55,
+                885,
+                59,
+                884,
+                141,
+                58,
+                135
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 16
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 16
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 16
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                58,
+                55,
+                885,
+                59,
+                885,
+                141,
+                58,
+                137
+              ]
+            }
+          ],
+          "content": "Febr. 14th, 1946"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_greeting.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Dear Miss Panyard:",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.5580521821975708,
+          "width": 1045,
+          "height": 192,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Dear",
+              "polygon": [
+                61,
+                57,
+                265,
+                56,
+                263,
+                131,
+                59,
+                124
+              ],
+              "confidence": 0.987,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "Miss",
+              "polygon": [
+                317,
+                56,
+                518,
+                57,
+                517,
+                137,
+                316,
+                132
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 5,
+                "length": 4
+              }
+            },
+            {
+              "content": "Panyard:",
+              "polygon": [
+                581,
+                57,
+                983,
+                64,
+                983,
+                141,
+                580,
+                138
+              ],
+              "confidence": 0.977,
+              "span": {
+                "offset": 10,
+                "length": 8
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Dear Miss Panyard:",
+              "polygon": [
+                59,
+                56,
+                983,
+                62,
+                982,
+                141,
+                58,
+                129
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 18
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 18
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                59,
+                50,
+                983,
+                62,
+                982,
+                141,
+                58,
+                129
+              ]
+            }
+          ],
+          "content": "Dear Miss Panyard:"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_farewell.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": ".... Praised be Jesus, Mary, and Joseph",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.5857967138290405,
+          "width": 2131,
+          "height": 197,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "....",
+              "polygon": [
+                68,
+                46,
+                236,
+                49,
+                238,
+                135,
+                71,
+                134
+              ],
+              "confidence": 0.824,
+              "span": {
+                "offset": 0,
+                "length": 4
+              }
+            },
+            {
+              "content": "Praised",
+              "polygon": [
+                306,
+                50,
+                663,
+                55,
+                664,
+                136,
+                309,
+                135
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 5,
+                "length": 7
+              }
+            },
+            {
+              "content": "be",
+              "polygon": [
+                722,
+                55,
+                817,
+                57,
+                818,
+                138,
+                723,
+                137
+              ],
+              "confidence": 0.997,
+              "span": {
+                "offset": 13,
+                "length": 2
+              }
+            },
+            {
+              "content": "Jesus,",
+              "polygon": [
+                876,
+                57,
+                1175,
+                60,
+                1175,
+                141,
+                877,
+                138
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 16,
+                "length": 6
+              }
+            },
+            {
+              "content": "Mary,",
+              "polygon": [
+                1237,
+                61,
+                1488,
+                63,
+                1487,
+                145,
+                1237,
+                142
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 23,
+                "length": 5
+              }
+            },
+            {
+              "content": "and",
+              "polygon": [
+                1560,
+                63,
+                1704,
+                64,
+                1702,
+                149,
+                1558,
+                146
+              ],
+              "confidence": 0.998,
+              "span": {
+                "offset": 29,
+                "length": 3
+              }
+            },
+            {
+              "content": "Joseph",
+              "polygon": [
+                1759,
+                65,
+                2074,
+                66,
+                2074,
+                155,
+                1757,
+                150
+              ],
+              "confidence": 0.996,
+              "span": {
+                "offset": 33,
+                "length": 6
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": ".... Praised be Jesus, Mary, and Joseph",
+              "polygon": [
+                68,
+                46,
+                2073,
+                66,
+                2073,
+                154,
+                68,
+                133
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 39
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 39
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 39
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                68,
+                46,
+                2074,
+                66,
+                2073,
+                154,
+                67,
+                134
+              ]
+            }
+          ],
+          "content": ".... Praised be Jesus, Mary, and Joseph"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_farewell.1": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Yours Sincerely,",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.6557471752166748,
+          "width": 946,
+          "height": 195,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Yours",
+              "polygon": [
+                58,
+                65,
+                316,
+                60,
+                315,
+                133,
+                58,
+                129
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 0,
+                "length": 5
+              }
+            },
+            {
+              "content": "Sincerely,",
+              "polygon": [
+                380,
+                59,
+                889,
+                65,
+                886,
+                157,
+                379,
+                134
+              ],
+              "confidence": 0.992,
+              "span": {
+                "offset": 6,
+                "length": 10
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Yours Sincerely,",
+              "polygon": [
+                58,
+                58,
+                888,
+                63,
+                887,
+                156,
+                57,
+                142
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 16
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 16
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 16
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                58,
+                54,
+                888,
+                63,
+                887,
+                156,
+                57,
+                147
+              ]
+            }
+          ],
+          "content": "Yours Sincerely,"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    },
+    "doc_1.src_signature.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "Fr. Solanus, O.F.M.Cap.",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.6513640284538269,
+          "width": 1301,
+          "height": 196,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "Fr.",
+              "polygon": [
+                57,
+                59,
+                198,
+                60,
+                198,
+                132,
+                57,
+                131
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 0,
+                "length": 3
+              }
+            },
+            {
+              "content": "Solanus,",
+              "polygon": [
+                271,
+                60,
+                671,
+                64,
+                671,
+                138,
+                271,
+                133
+              ],
+              "confidence": 0.989,
+              "span": {
+                "offset": 4,
+                "length": 8
+              }
+            },
+            {
+              "content": "O.F.M.Cap.",
+              "polygon": [
+                733,
+                64,
+                1244,
+                71,
+                1244,
+                148,
+                733,
+                139
+              ],
+              "confidence": 0.893,
+              "span": {
+                "offset": 13,
+                "length": 10
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "Fr. Solanus, O.F.M.Cap.",
+              "polygon": [
+                56,
+                58,
+                1244,
+                70,
+                1243,
+                147,
+                56,
+                132
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 23
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 23
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 23
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                56,
+                58,
+                1244,
+                70,
+                1243,
+                147,
+                55,
+                135
+              ]
+            }
+          ],
+          "content": "Fr. Solanus, O.F.M.Cap."
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    }
+  }
+}

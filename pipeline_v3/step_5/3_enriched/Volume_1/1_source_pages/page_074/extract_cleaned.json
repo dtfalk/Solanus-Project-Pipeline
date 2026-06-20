@@ -1,0 +1,93 @@
+{
+  "page": "Volume_1/1_source_pages/page_074",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": ". (at 4:55 A.M. ) \"Behold this Heart that has loved men so much 9 A.M. \"And whosoever shall follow this rule, peace on them and mercy Gal. VI 16. Become a fool in the eyes of the world. \"Francis if thou wilt appease my anger .. avert my justice from the nations . . see that the rule be observed.\" 10: 45 A.M. Mortification - Progress in Christian perfection.",
+      "merged_text": ". (at 4:55 A.M. ) \"Behold this Heart that has loved men so much 9 A.M. \"And whosoever shall follow this rule, peace on them and mercy Gal. VI 16. Become a fool in the eyes of the world. \"Francis if thou wilt appease my anger .. avert my justice from the nations . . see that the rule be observed.\" 10: 45 A.M. Mortification - Progress in Christian perfection.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "2: 30 P.M. \"Keep the rule that the rule may keep you.\" \"If thou wilt keep them and perform acceptable fedelity forever, they shall preserve thee\". Eccl. XV 16. 7:30 P.M. The God of infinite majesty, power, wisdom, goodness. I. loves me. II. is infinitely desirous of my love! - proofs thereof. III. I will love Him. 1 › ) 1 2 2",
+      "merged_text": "2: 30 P.M. \"Keep the rule that the rule may keep you.\" \"If thou wilt keep them and perform acceptable fedelity forever, they shall preserve thee\". Eccl. XV 16. 7:30 P.M. The God of infinite majesty, power, wisdom, goodness. I. loves me. II. is infinitely desirous of my love! - proofs thereof. III. I will love Him. 1 › ) 1 2 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Remembrance of The Passion 9 A.M. ZEAL for SOULS. \"I am come to cast fire on the earth will I, but that it be kindled? (Luke XII 49) Motives (a) greatness of glory for immortal souls and to God. (b) Terrors of hell from which souls are saved. One's own reward ... \"if any of you err from the truth, and one convert him ... . he who causeth a sinner to be converted from the error of his way, shall save his soul from death, and shall cover a multitude of sins.\" St. Catherine of Sienna, \"O wonder! O wonder (waking out of ecstasy - sight of Heaven) How can I begin to describe the ineffab. the indescribable!\"? St. Teresa after a vision of Heaven was ready to give her life a thousand times to save even one sinner for such glory.",
+      "merged_text": "Remembrance of The Passion 9 A.M. ZEAL for SOULS. \"I am come to cast fire on the earth will I, but that it be kindled? (Luke XII 49) Motives (a) greatness of glory for immortal souls and to God. (b) Terrors of hell from which souls are saved. One's own reward ... \"if any of you err from the truth, and one convert him ... . he who causeth a sinner to be converted from the error of his way, shall save his soul from death, and shall cover a multitude of sins.\" St. Catherine of Sienna, \"0 wonder! 0 wonder (waking out of ecstasy - sight of Heaven) How can I begin to describe the ineffab. the indescribable!\"? St. Teresa after a vision of Heaven was ready to give her life a thousand times to save even one sinner for such glory.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        },
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "21st.",
+      "merged_text": "21st.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "22nd .",
+      "merged_text": "22nd .",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "4:55",
+      "merged_text": "4:55",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1919, August",
+      "merged_text": "c. 1919, August",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK No. 3.",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK No. 3.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 1b. Retreat ( con't)",
+      "merged_text": "Pg. 1b. Retreat ( con't)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 2b.",
+      "merged_text": "Pg. 2b.",
+      "edits": []
+    }
+  ]
+}

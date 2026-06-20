@@ -1,0 +1,76 @@
+{
+  "page": "Volume_2/1_source_pages/page_354",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 6,
+  "n_agree": 4,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you Ven. Sister Mary Dianne. God bless you and yours these unsettled days - as our beautiful diosesian Prayer for Peace notes - days of stress and trial. Indeed they are days at once of threatening forebodings and - not only days but decades too abounding in outstanding manifestions of God's merciful Goodness and Power and infinite Wisdom and",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Ven. Sister Mary Dianne. God bless you and yours these unsettled days - as our beautiful diosesian Prayer for Peace notes - days of stress and trial. Indeed they are days at once of threatening forebodings and - not only days but decades too abounding in outstanding manifestions of God's merciful Goodness and Power and infinite Wisdom and",
+      "per_polygon": "God bless you Ven. Sister Mary Dianne. God bless you and yours these unsettled days - as our beautiful diosesian Prayer for Peace notes - days of stress and trial. Indeed they are days at once of threatening forebodings and - not only days but decades too abounding in outstanding manifestions of God's merciful Goodness and Power and infinite Wisdom and",
+      "min_conf": 0.911
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Ven. Sister Mary Dianne.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Ven. Sister Mary Dianne.",
+      "per_polygon": "Ven. Sister Mary Dianne.",
+      "min_conf": 0.905
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "13200 Cak Fark Blive Oak Park, Mich.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "13200 Oak Park 31ve, Oak Park, Mich.",
+      "per_polygon": "13200 Cak Fark Blive Oak Park, Mich.",
+      "min_conf": 0.602
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a typed draft by the Servant of God, Father Solanus Casey, 0.7.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of e typed draft by the Servant of God, Father Solanus Casey, 0.7.K. Cap.",
+      "per_polygon": "The following is a faithful transcription of a typed draft by the Servant of God, Father Solanus Casey, 0.7.M. Cap.",
+      "min_conf": 0.544
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1954",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1954",
+      "per_polygon": "c. 1954",
+      "min_conf": 0.959
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished)",
+      "per_polygon": "(Unfinished)",
+      "min_conf": 0.905
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "page": "Appendix_3/1_source_pages/page_038",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "When all was over in the P.M. Aloysius Mccarthy to serve for 1st time arrived for duty and rang door-bell at 3.45 A.M. His brother John was his guardian. A. Dempsey, Wm Hays, and T. Fagan served almost the whole time. Packages were received after Vesp. and cribs.",
+      "merged_text": "When all was over in the P.M. Aloysius Mccarthy to serve for 1st time arrived for duty and rang door-bell at 3.45 A.M. His brother John was his guardian. A. Dempsey, Wm Hays, and T. Fagan served almost the whole time. Packages were received after Vesp. and cribs.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "First issue of Parish Monthly arrived To-day by express- owing to snow-storm late for Christmas-day-distributed Sun . 29th.",
+      "merged_text": "First issue of Parish Monthly arrived To-day by express- owing to snow-storm late for Christmas-day-distributed Sun . 29th.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Christmas Services and Servers B.V.M. Altar High Altar St. Joseph Celebrant Server Time Time Time 5} Rev. P. Jos. 45 Rev. P. Superio. A11 - 6 P. Superior A. Dempy · 7 P. Bruno W. Hayes 7 53 P. Superior McCrdy & Ahearn 6 P. Solanus O. Fagan 6 6% P. Berchman Dempsey & Mc Carthy",
+      "merged_text": "Christmas Services and Servers B.V.M. Altar High Altar St. Joseph Celebrant Server Time Time Time 5} Rev. P. Jos. 45 Rev. P. Superio. A11 - 6 P. Superior A. Dempy · 7 P. Bruno W. Hayes 7 53 P. Superior McCrdy & Ahearn 6 P. Solanus 0. Fagan 6 6% P. Berchman Dempsey & Mc Carthy",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Feast of St. Sylvester 1st Pope who was not martyred. (+about 320)",
+      "merged_text": "Feast of St. Sylvester 1st Pope who was not martyred. (+about 320)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Very good attendence at Evening devotions - over 400 present.",
+      "merged_text": "Very good attendence at Evening devotions - over 400 present.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Dec. 26",
+      "merged_text": "Dec. 26",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Dec. 31st",
+      "merged_text": "Dec. 31st",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "31",
+      "merged_text": "31",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1912",
+      "merged_text": "1912",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS NOTEBOOK NO. 12",
+      "merged_text": "FATHER SOLANUS NOTEBOOK NO. 12",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 17",
+      "merged_text": "Page 17",
+      "edits": []
+    }
+  ]
+}

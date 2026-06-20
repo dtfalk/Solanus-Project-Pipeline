@@ -1,0 +1,54 @@
+{
+  "page": "Volume_4/2_post_pages/page_272",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 4,
+  "n_agree": 3,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap. AND FAITHFULLY TRANSCRIBED",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "min_conf": 0.852
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Contains 270 typed pages comprising his Notebooks No.7, No. 8, and No. 10.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Contains 270 typed pages comprising his Notebooks No.7, No. 8, and No. 10.",
+      "per_polygon": "Contains 270 typed pages comprising his Notebooks No.7, No. 8, and No. 10.",
+      "min_conf": 0.991
+    },
+    {
+      "rid": "doc_1.archv_commentary.2",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Concordat cum originali",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Concordat cum originali",
+      "per_polygon": "Concordat cum originali",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "VOLUME IV",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "VOLUME IV",
+      "per_polygon": "VOLUME IV",
+      "min_conf": 0.992
+    }
+  ]
+}

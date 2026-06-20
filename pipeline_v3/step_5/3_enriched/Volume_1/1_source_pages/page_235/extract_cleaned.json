@@ -1,0 +1,74 @@
+{
+  "page": "Volume_1/1_source_pages/page_235",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Detroit - Royal Oak rather - on returning whic added about 375 miles or more of a trip. One of our convert Jews -- very clever who we hope will be a priest some day - drove me down from Detroit. We had quite a nice little visit yesterday and Saturday- evening. They all seemed to have enjoyed it. Fr. John had to be back this morning for his classes. So they left about 5 p. m. yesterday. I am sending you a couple of letters I think will interest you; as also a photo taken a little over a year ago. Of course its younger than the original. Anyhow I hope it may not disap- oint or scandalize",
+      "merged_text": "Detroit - Royal Oak rather - on returning whic added about 375 miles or more of a trip. One of our convert Jews -- very clever who we hope will be a priest some day - drove me down from Detroit. We had quite a nice little visit yesterday and Saturday- evening. They all seemed to have enjoyed it. Fr. John had to be back this morning for his classes. So they left about 5 p. m. yesterday. I am sending you a couple of letters I think will interest you; as also a photo taken a little over a year ago. Of course its younger than the original. Anyhow I hope it may not disap- oint or scandalize",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "With love to all I beg to remain, In the Sacred Heart of Jesus: Your Brother",
+      "merged_text": "With love to all I beg to remain, In the Sacred Heart of Jesus: Your Brother",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M. Cap.",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of a photo copy of a typed original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "merged_text": "The following is a faithful transcription of a photo copy of a typed original by the Servant of God, Father Solanus Casey, 0. F. M. Cap.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0.",
+          "after": "O."
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1947, August 4",
+      "merged_text": "1947, August 4",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "Original in possession of: Eileen Mccluskey Daly 1629 - 22nd Avenue Longview, Wa. 98632 (Mrs. James E. )",
+      "merged_text": "Original in possession of: Eileen Mccluskey Daly 1629 - 22nd Avenue Longview, Wa. 98632 (Mrs. James E. )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 2",
+      "merged_text": "Page 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "category": "struct_other",
+      "cleaned_text": "Mrs. John McCloskey",
+      "merged_text": "Mrs. John McCloskey",
+      "edits": []
+    }
+  ]
+}

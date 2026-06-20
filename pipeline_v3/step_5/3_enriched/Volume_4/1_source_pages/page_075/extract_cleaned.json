@@ -1,0 +1,165 @@
+{
+  "page": "Volume_4/1_source_pages/page_075",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Casimiera Kostecka - 23 - ear-trouble - mastoid operation when 7 yrs. old - hearing poor ever since. Promises more frequent Holy Com. - twice a yr .-",
+      "merged_text": "Casimiera Kostecka - 23 - ear-trouble - mastoid operation when 7 yrs. old - hearing poor ever since. Promises more frequent Holy Com. - twice a yr .-",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Robert Molloy - 25 - Dying a yr ago last February ... lingered on back. Enrolled June 21st and prayed for here at these devotions - August 10th last year was improving - in fact trying to learn to walk again. To- day is reported back home in Ireland from Glasgo Scotland practically, Okay - Expects to go back to work in September. Deo Gr.",
+      "merged_text": "Robert Molloy - 25 - Dying a yr ago last February ... lingered on back. Enrolled June 21st and prayed for here at these devotions - August 10th last year was improving - in fact trying to learn to walk again. To- day is reported back home in Ireland from Glasgo Scotland practically, Okay - Expects to go back to work in September. Deo Gr.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Eleanor Steffes - 35 - peculiar dizzy spells, in Mayo's now under observation.",
+      "merged_text": "Mrs. Eleanor Steffes - 35 - peculiar dizzy spells, in Mayo's now under observation.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Harry Baker - 50 - \"creeping\" or",
+      "merged_text": "Harry Baker - 50 - \"creeping\" or",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.4",
+      "category": "src_content",
+      "cleaned_text": "Douglas Allor - 52 - serious Stomach-ulcers ... suffering for ten yrs.",
+      "merged_text": "Douglas Allor - 52 - serious Stomach-ulcers ... suffering for ten yrs.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.5",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Eleanor Deguvera - 45 - of Romeo Mich. - Infection in leg - broken in 4 places .... can walk again ....",
+      "merged_text": "Mrs. Eleanor Deguvera - 45 - of Romeo Mich. - Infection in leg - broken in 4 places .... can walk again ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.6",
+      "category": "src_content",
+      "cleaned_text": "Loftus - Dying man fearing relative - heart - Fr. Cyr. gave Bl. - improved ....",
+      "merged_text": "Loftus - Dying man fearing relative - heart - Fr. Cyr. gave Bl. - improved ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.7",
+      "category": "src_content",
+      "cleaned_text": "R. Filipiok - 1 yrs. Brain maningitis",
+      "merged_text": "R. Filipiok - 1 yrs. Brain maningitis",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.8",
+      "category": "src_content",
+      "cleaned_text": "Pauline Searaiec - 28 - Asthma - 2 small baby",
+      "merged_text": "Pauline Searaiec - 28 - Asthma - 2 small baby",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.9",
+      "category": "src_content",
+      "cleaned_text": "Mary Ellen - 4 - of Chicago 3132 76th Ave. - sleeping sickness - \"brain tuomer irreparably scarred - since March 25, 1938 .... Scienti- fically hopeless. Parents here To-day, having driven all night to Enroll her - promising at same time to read \"City of God\".",
+      "merged_text": "Mary Ellen - 4 - of Chicago 3132 76th Ave. - sleeping sickness - \"brain tuomer irreparably scarred - since March 25, 1938 .... Scienti- fically hopeless. Parents here To-day, having driven all night to Enroll her - promising at same time to read \"City of God\".",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.10",
+      "category": "src_content",
+      "cleaned_text": "Maurice Christens - 50 - operated on for Cancer a year ago. . . Threa- tened now with same thing again ....",
+      "merged_text": "Maurice Christens - 50 - operated on for Cancer a year ago. . . Threa- tened now with same thing again ....",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.11",
+      "category": "src_content",
+      "cleaned_text": "Mrs. Genevieve Eatherly - 56 - small operation last May for tuomer - Xrayed again and again since - 24 - altogether. Now worse than ever - burned ... gives up treatments and Enrolled in Ser. Mass As.",
+      "merged_text": "Mrs. Genevieve Eatherly - 56 - small operation last May for tuomer - Xrayed again and again since - 24 - altogether. Now worse than ever - burned ... gives up treatments and Enrolled in Ser. Mass As.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.12",
+      "category": "src_content",
+      "cleaned_text": "John O\"Toole - 51 - intestinal cancer in Eloise. Operation on August 12 abandon'd as simply hopeless. Enrolled To-night.",
+      "merged_text": "John 0\"Toole - 51 - intestinal cancer in Eloise. Operation on August 12 abandon'd as simply hopeless. Enrolled To-night.",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Aug. 7th",
+      "merged_text": "Aug. 7th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "category": "src_date",
+      "cleaned_text": "Aug. 8th",
+      "merged_text": "Aug. 8th",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.2",
+      "category": "src_date",
+      "cleaned_text": "9",
+      "merged_text": "9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.3",
+      "category": "src_date",
+      "cleaned_text": "Aug. 17",
+      "merged_text": "Aug. 17",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.4",
+      "category": "src_date",
+      "cleaned_text": "18",
+      "merged_text": "18",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 146 Cont.",
+      "merged_text": "Page 146 Cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Page 147",
+      "merged_text": "Page 147",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Page 148",
+      "merged_text": "Page 148",
+      "edits": []
+    }
+  ]
+}

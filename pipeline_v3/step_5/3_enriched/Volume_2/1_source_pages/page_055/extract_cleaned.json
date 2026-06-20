@@ -1,0 +1,74 @@
+{
+  "page": "Volume_2/1_source_pages/page_055",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "He had never an incling of the knocks and dispointments still between him and the realization of his goal. Neverthe less, as his calmness of countenance attested while he waited for the undertaker, in exactly the position he had taken for his last long seep -- with his left foot on the stool, his hand under his head inclined to the same side and his rosary over his sholder. The Father who was to have the last holy Mass that morning tiptoed in and out, to see the special intention, never dreaming but that Father Guardian was just supplying, as usual, something of the sleep so much of which he was wont to miss during the nights. Surely his desire to \"die in the harness\", as he had so often expressed it -- and even about forty hours before, after his solm Mass in the morning and sermon at Brither Cook's final profession, -- was happily realized. Thanks be to the merciful God. How wonerful in His all ways! His long experience as superior and the difficulties metwith during his whole life, by the grace of God, had fitted him to be a really ideal Father Guardian. Much as I was with him - and I assisted him at his first and second holy Masses - I never but once saw him as really \"next to upset\"; and that was in connection with something that fell to my duty to execute. I was indignant myself at the very appearance of the situation, as I realized at once that it must appear to him. I surely sympathized with him as I saw him just ready to call me down and as I felt he would be fully justified if appearance had not deceived him. Less than ten words fully satisfied his demand without my even hanging up a long-distance call. The first chance he had afterward, he expressed regret at his manifestation of his weakness. May his dear soul rest with the saints!",
+      "merged_text": "He had never an incling of the knocks and dispointments still between him and the realization of his goal. Neverthe less, as his calmness of countenance attested while he waited for the undertaker, in exactly the position he had taken for his last long seep -- with his left foot on the stool, his hand under his head inclined to the same side and his rosary over his sholder. The Father who was to have the last holy Mass that morning tiptoed in and out, to see the special intention, never dreaming but that Father Guardian was just supplying, as usual, something of the sleep so much of which he was wont to miss during the nights. Surely his desire to \"die in the harness\", as he had so often expressed it -- and even about forty hours before, after his solm Mass in the morning and sermon at Brither Cook's final profession, -- was happily realized. Thanks be to the merciful God. How wonerful in His all ways! His long experience as superior and the difficulties metwith during his whole life, by the grace of God, had fitted him to be a really ideal Father Guardian. Much as I was with him - and I assisted him at his first and second holy Masses - I never but once saw him as really \"next to upset\"; and that was in connection with something that fell to my duty to execute. I was indignant myself at the very appearance of the situation, as I realized at once that it must appear to him. I surely sympathized with him as I saw him just ready to call me down and as I felt he would be fully justified if appearance had not deceived him. Less than ten words fully satisfied his demand without my even hanging up a long-distance call. The first chance he had afterward, he expressed regret at his manifestation of his weakness. May his dear soul rest with the saints!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "September 23rd 1948.",
+      "merged_text": "September 23rd 1948.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Sincerely Yours in +O,",
+      "merged_text": "Sincerely Yours in +0,",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.F.M.Cap.",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1948, September 23rd",
+      "merged_text": "1948, September 23rd",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Page 2",
+      "merged_text": "Page 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "category": "struct_other",
+      "cleaned_text": "Mr. Joseph J. O'Donnell",
+      "merged_text": "Mr. Joseph J. O'Donnell",
+      "edits": []
+    }
+  ]
+}

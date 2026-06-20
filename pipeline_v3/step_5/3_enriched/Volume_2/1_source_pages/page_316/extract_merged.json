@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_316",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 6,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Mrs. Philomena Discenna, for speedy sight improvement, God willing - -",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Mrs. Philomena Discenna, for speedy sight improvement, God willing - - -",
+      "per_polygon": "Mrs. Philomena Discenna, for speedy sight improvement, God willing - -",
+      "min_conf": 0.356
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Special",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Special",
+      "per_polygon": "Special",
+      "min_conf": 0.983
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mrs. Philomena Discenna,",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Mrs. Philomena Discenna,",
+      "min_conf": 0.972
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "November 11th, 1950",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "November 11th, 1950",
+      "per_polygon": "November 11th, 1950",
+      "min_conf": 0.656
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M., Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M., Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M., Cap.",
+      "min_conf": 0.857
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "(By request of) her Daughter Anne",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(By request of) her Daughter Anne",
+      "per_polygon": "(By request of) her Daughter Anne",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a photo copy of the handwritten message on a Seraphic Mass Association Certificate by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of a photo copy of the handwritten message on a Seraphic Mass Association Certificate by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of a photo copy of the handwritten message on a Seraphic Mass Association Certificate by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "min_conf": 0.813
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1950, November 11",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1950, November 11",
+      "per_polygon": "1950, November 11",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Miss Lee Discenna 12281 Wilshire Ave. Detroit, MI 48213",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Miss Lee Discenna 12281 Wilshire Ave. Detroit, MI 48213",
+      "per_polygon": "Original in possession of: Miss Lee Discenna 12281 Wilshire Ave. Detroit, MI 48213",
+      "min_conf": 0.9
+    }
+  ]
+}

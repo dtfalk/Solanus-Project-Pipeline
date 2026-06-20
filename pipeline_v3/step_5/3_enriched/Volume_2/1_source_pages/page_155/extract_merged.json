@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_155",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 5,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "You will be pleased to know that Dr. Turell -- formerly head of Detroit Police -- was at my (child- ren's ) Mass last Sunday with his son Jack. The latter received Holy Communion and seems to be a real practical and well anchored Catholic. He took us up next day to their home in the mountains. Both parents seem quite pleased at the step he took in the direction of religion. I am praying the good God for holy guidance of the Chapter. I only hope that nothing may be done to weaken discipline (notwithstanding my example ) and that worldliness and want of devotion to our Eucharistic King may get a check of some kind. For surely our appreciation in this latter regard is often manifestly wanting.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "You will be pleased to know that Dr. Turell -- formerly head of Detroit Police -- was at my (child- ren's) Mass last Sunday with his son Jack. The latter received Holy Communion and seems to be a real practical and well anchored Catholic. He took us up next day to their home in the mountains. Both parents seem quite pleased at the step he took in the direction of religion. I am praying the good God for holy guidance of the Chapter. I only hope that nothing may be done to weaken discipline (notwithstanding my example) and that worldliness and want of devotion to our Eucharistic King may get a check of some kind. For surely our appreciation in this latter regard is often manifestly wanting.",
+      "per_polygon": "You will be pleased to know that Dr. Turell -- formerly head of Detroit Police -- was at my (child- ren's ) Mass last Sunday with his son Jack. The latter received Holy Communion and seems to be a real practical and well anchored Catholic. He took us up next day to their home in the mountains. Both parents seem quite pleased at the step he took in the direction of religion. I am praying the good God for holy guidance of the Chapter. I only hope that nothing may be done to weaken discipline (notwithstanding my example ) and that worldliness and want of devotion to our Eucharistic King may get a check of some kind. For surely our appreciation in this latter regard is often manifestly wanting.",
+      "min_conf": 0.913
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "The inclosed card will help in straightening the intention books Brother Leo or Br. Rufin it to me. I have about half a dozen intents as yet.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The inclosed card will help in straightening the intention books Brother Leo or Br. Rufin it to me. I have about half a dozen intents as yet.",
+      "per_polygon": "The inclosed card will help in straightening the intention books Brother Leo or Br. Rufin it to me. I have about half a dozen intents as yet.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "July 119",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "July 11th",
+      "per_polygon": "July 119",
+      "min_conf": 0.287
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Oremus pro invicem,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Oremus pro invicem,",
+      "per_polygon": "Oremus pro invicem,",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Servus Tuus Solanus , O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Servus Tuus, Solanus, O.F.M. Cap.",
+      "per_polygon": "Servus Tuus Solanus , O.F.M. Cap.",
+      "min_conf": 0.832
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1945, July 9",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1945, July 9",
+      "per_polygon": "1945, July 9",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page Two",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page Two",
+      "per_polygon": "Page Two",
+      "min_conf": 0.953
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "V. Rev. Fr. Marion, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "V. Rev. Fr. Marion, O.F.M. Cap.",
+      "per_polygon": "V. Rev. Fr. Marion, O.F.M. Cap.",
+      "min_conf": 0.66
+    }
+  ]
+}

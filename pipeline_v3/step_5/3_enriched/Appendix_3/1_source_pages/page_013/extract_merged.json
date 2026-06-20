@@ -1,0 +1,131 @@
+{
+  "page": "Appendix_3/1_source_pages/page_013",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 8,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Its nearly a year now since your little visit the St. Felix Friary .. Many thanks for your kind favor of June 11th duly received and noted. I hope you proffit by your stay in Phoenix and that on your return home to Hamtramck you find mother and Sister better than ever. I hope to leave here and return to St. Felix shortly. How little we can appreciate our health until it fails us. So we really ought to thank God for trials and crosses as well as for joys and consolations.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Its nearly a year now since your little visit the St. Felix Friary .. Many thanks for your kind favor of June 11th duly received and noted. I hope you proffit by your stay in Phoenix and that on your return home to Hamtramck you find mother and Sister better than ever. I hope to leave here and return to St. Felix shortly. How little we can appreciate our health until it fails us. So we really ought to thank God for trials and crosses as well as for joys and consolations. . .",
+      "per_polygon": "Its nearly a year now since your little visit the St. Felix Friary .. Many thanks for your kind favor of June 11th duly received and noted. I hope you proffit by your stay in Phoenix and that on your return home to Hamtramck you find mother and Sister better than ever. I hope to leave here and return to St. Felix shortly. How little we can appreciate our health until it fails us. So we really ought to thank God for trials and crosses as well as for joys and consolations.",
+      "min_conf": 0.587
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. JOSEPH'S HOSPITAL",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. JOSEPH'S HOSPITAL",
+      "per_polygon": "ST. JOSEPH'S HOSPITAL",
+      "min_conf": 0.904
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": ". FORT WAYNE, INDIANA",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "FORT WAYNE, INDIANA",
+      "per_polygon": ". FORT WAYNE, INDIANA",
+      "min_conf": 0.684
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "June 26",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "June 26",
+      "per_polygon": "June 26",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God In all His designs.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God In all His designs.",
+      "per_polygon": "Blessed be God In all His designs.",
+      "min_conf": 0.823
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Constance Benecki,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Constance Benecki,",
+      "per_polygon": "God bless you Constance Benecki,",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely yours in Christ. .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Sincerely yours in Christ. ....",
+      "per_polygon": "Sincerely yours in Christ. .",
+      "min_conf": 0.822
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, OFM, Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, OFM, Cap.",
+      "per_polygon": "Fr. Solanus, OFM, Cap.",
+      "min_conf": 0.967
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is the faithful transcription of the hand written original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is the faithful transcription of the hand written original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is the faithful transcription of the hand written original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.841
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1949, June 26",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1949, June 26",
+      "per_polygon": "1949, June 26",
+      "min_conf": 0.991
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Mrs. Constance (Benecki) Gantz Box 589 Silver City, New Mexico 88062",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Mrs. Constance (Benecki) Gantz Box 589 Silver City, New Mexico 88062",
+      "per_polygon": "Original in possession of: Mrs. Constance (Benecki) Gantz Box 589 Silver City, New Mexico 88062",
+      "min_conf": 0.925
+    }
+  ]
+}

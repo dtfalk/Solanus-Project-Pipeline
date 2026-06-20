@@ -1,0 +1,65 @@
+{
+  "page": "Volume_2/1_source_pages/page_243",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 4,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "The son drowned in Chicago on their way to the Jubilee. It happened on his seventh birthday. They took the little corpse along and we buried it in her family plot a few paces from the graves of my two little sisters who died in one week when I was eight, 1878. Pardon such details. But you were considerate in the details of your letters to me and I hope these may be to good in one way or more, so just briefly, I am inclined to believe it difficult for anyone except a parent to realize what such a death must have meant to my in-law. The poor man just seemed to wonder. It certainly made him think more deeply about essentials. However, that was not the worst. Just six years later after a brief illness, his said Kathleen also was taken; leaving him three children to mother for himself as best he might. He wrote me at the time that at first he had just wondered like if the sun might shine again. This, however, seemed to be the turning-point. The greatest sermon he had ever witnessed -- her example of never failing Christian virtues -- had planted seeds of admiration for Christian faith in his",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The son drowned in Chicago on their way to the Jubilee. It happened on his seventh birthday. They took the little corpse along and we buried it in her family plot a few paces from the graves of my two little sisters who died in one week when I was eight, 1878. Pardon such details. But you were considerate in the details of your letters to me and I hope these may be to good in one way or more, so just briefly, I am inclined to believe it difficult for anyone except a parent to realize what such a death must have meant to my in-law. The poor man just seemed to wonder. It certainly made him think more deeply about essentials. However, that was not the worst. Just six years later after a brief illness, his said Kathleen also was taken; leaving him three children to mother for himself as best he might. He wrote me at the time that at first he had just wondered like if the sun might shine again. This, however, seemed to be the turning-point. The greatest sermon he had ever witnessed -- her example of never failing Christian virtues -- had planted seeds of admiration for Christian faith in his",
+      "per_polygon": "The son drowned in Chicago on their way to the Jubilee. It happened on his seventh birthday. They took the little corpse along and we buried it in her family plot a few paces from the graves of my two little sisters who died in one week when I was eight, 1878. Pardon such details. But you were considerate in the details of your letters to me and I hope these may be to good in one way or more, so just briefly, I am inclined to believe it difficult for anyone except a parent to realize what such a death must have meant to my in-law. The poor man just seemed to wonder. It certainly made him think more deeply about essentials. However, that was not the worst. Just six years later after a brief illness, his said Kathleen also was taken; leaving him three children to mother for himself as best he might. He wrote me at the time that at first he had just wondered like if the sun might shine again. This, however, seemed to be the turning-point. The greatest sermon he had ever witnessed -- her example of never failing Christian virtues -- had planted seeds of admiration for Christian faith in his",
+      "min_conf": 0.147
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, June 28.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, June 28.",
+      "per_polygon": "1947, June 28.",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished)",
+      "per_polygon": "(Unfinished)",
+      "min_conf": 0.908
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2.",
+      "per_polygon": "Page 2.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Kr. Merrick O'Loughlin",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Mr. Merrick O'Loughlin",
+      "per_polygon": "Kr. Merrick O'Loughlin",
+      "min_conf": 0.321
+    }
+  ]
+}

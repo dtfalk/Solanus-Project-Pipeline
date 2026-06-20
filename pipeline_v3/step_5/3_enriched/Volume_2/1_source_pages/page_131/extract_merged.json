@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_131",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 4,
+  "n_needs_review": 5,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours. I hope you keep well. Thanks be to God, I am here in this new assignment of privileged duty just a week. Tomorrow will be the forty-first anniversary of my first Holy Mass, Deo Gratias -and the next day the 21st of my ar- rival from Harlem, Our Lady of Angels, back to St. Bonaventures - 1924. How grateful we ought to be for so many graces and privileges. Praised be God in all His works and ways! Now I hope you have not found that middle cell that succored me so long in too hopeless disorder. I rather fear having left you a difficult job when I asked you to pack up and forward things hither, that would be of no use to any one else and might be of quite a little convenience to me. I am not certain if I brought a trunk with me from Harlem twenty years ago. If I did, it must have been worth next to nothing, so any old box you might find would do, perhaps better than a trunk. The \"Letters\" box on top of the \"wardrobe\" containing Fr. Edward's letters are good. The others are not important. Those few unfinished pieces in the cliper on the side next to the desk, I would like to have - if you've not thrown them away. Also that little prayer on modesty that we were figering on having in the office. I started over to bring it for Fr. Provincial's approval but he was not in and then it was neglected and I went off West. I hope to get a little more time for such things here at St. Michael's, although so far - getting aquainted, etc. - I've not had much surplus time. One thing, however, I've taken a little more sleep under the great archangel's wings this past week then perhaps in three weeks before my arrival.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you and yours. I hope you keep well. Thanks be to God, I am here in this new assignment of privileged duty just a week. Tomorrow will be the forty-first anniversary of my first Holy Mass, Deo Gratias -and the next day the 21st of my ar- rival from Harlem, Our Lady of Angels, back to St. Bonaventures - 1924. How grateful we ought to be for so many graces and privileges. Praised be God in all His works and ways! Now I hope you have not found that middle cell that succored me so long in too hopeless disorder. I rather fear having left you a difficult job when I asked you to pack up and forward things hither, that would be of no use to any one else and might be of quite a little convenience to me. I am not certain if I brought a trunk with me from Harlem twenty years ago. If I did, it must have been worth next to nothing, so any old box you might find would do, perhaps better than a trunk. The \"Letters\" box on top of the \"wardrobe\" containing Fr. Edward's letters are good. The others are not important. Those few unfinished pieces in the cliper on the side next to the desk, I would like to have - if you've not thrown them away. Also that little prayer on modesty that we were figering on having in the office. I started over to bring it for Fr. Provincial's approval but he was not in and then it was neglected and I went off West. I hope to get a little more time for such things here at St. Michael's, although so far - getting aquainted, etc. - I've not had much surplus time. One thing, however, I've taken a little more sleep under the great archangel's wings this past week then perhaps in three weeks before my arrival.",
+      "per_polygon": "God bless you and yours. I hope you keep well. Thanks be to God, I am here in this new assignment of privileged duty just a week. Tomorrow will be the forty-first anniversary of my first Holy Mass, Deo Gratias -and the next day the 21st of my ar- rival from Harlem, Our Lady of Angels, back to St. Bonaventures - 1924. How grateful we ought to be for so many graces and privileges. Praised be God in all His works and ways! Now I hope you have not found that middle cell that succored me so long in too hopeless disorder. I rather fear having left you a difficult job when I asked you to pack up and forward things hither, that would be of no use to any one else and might be of quite a little convenience to me. I am not certain if I brought a trunk with me from Harlem twenty years ago. If I did, it must have been worth next to nothing, so any old box you might find would do, perhaps better than a trunk. The \"Letters\" box on top of the \"wardrobe\" containing Fr. Edward's letters are good. The others are not important. Those few unfinished pieces in the cliper on the side next to the desk, I would like to have - if you've not thrown them away. Also that little prayer on modesty that we were figering on having in the office. I started over to bring it for Fr. Provincial's approval but he was not in and then it was neglected and I went off West. I hope to get a little more time for such things here at St. Michael's, although so far - getting aquainted, etc. - I've not had much surplus time. One thing, however, I've taken a little more sleep under the great archangel's wings this past week then perhaps in three weeks before my arrival.",
+      "min_conf": 0.743
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. MICHAEL'S CHURCH CAPUCHIN MONASTERY",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. MICHAEL'S CHURCH CAPUCHIN MONASTERY",
+      "per_polygon": "ST. MICHAEL'S CHURCH CAPUCHIN MONASTERY",
+      "min_conf": 0.631
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "V. Brother Leo O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "V. Brother Leo, O.F.M. Cap.",
+      "per_polygon": "V. Brother Leo O.F.M. Cap.",
+      "min_conf": 0.795
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "St. Bonaventures Detroit, Michigan",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "St. Bonaventure's Detroit, Michigan",
+      "per_polygon": "St. Bonaventures Detroit, Michigan",
+      "min_conf": 0.965
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "225 JEROME STREET BROOKLYN 7, N. Y.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "225 JEROME STREET BROOKLYN 7, N. Y.",
+      "per_polygon": "225 JEROME STREET BROOKLYN 7, N. Y.",
+      "min_conf": 0.447
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "July 30 1945",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "July 30# 1945",
+      "per_polygon": "July 30 1945",
+      "min_conf": 0.312
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Brother Leo :",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Dear Brother Leo:",
+      "per_polygon": "Dear Brother Leo :",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.815
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1945, July 30",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1945, July 30",
+      "per_polygon": "1945, July 30",
+      "min_conf": 0.989
+    }
+  ]
+}

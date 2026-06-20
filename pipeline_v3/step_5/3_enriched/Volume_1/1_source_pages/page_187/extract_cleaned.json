@@ -1,0 +1,67 @@
+{
+  "page": "Volume_1/1_source_pages/page_187",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Rev. Fr. Guardian, after a little consultation just noted -- tentatively -- that I could start June 1st or 2nd. Of course I think that would be rather early, unless there were a purpose for it. If we had a mission to do somewhere before the anniversary or possibly preferably after, we could arrange accordingly. They are having a meeting in Saint Bonaventure's these three or four days, of the Definitorium and I understand that right thereafter Father Provincial after many thousand miles travel is figuring on coming down here for a rest. -- a sort of private retreat for himself I presume. There is a possibility that I be sent back there to Detroit or elsewhere, though I hardly think it at all probable. I have not the least worry about whether I re- main here or be transferred. It is after all, essentially quite the same. It is such a surpassing privilege to know definitely that one is doing God's holy will by keeping the rule and obeying. Sorry to say, if we can use the word, it is so little possible for any of us to appreciate such privileges. Indeed, just herein seems to me to be humanity's great weakness, WANT OF APPRECIATION. But again how fortunate for us that God's mercy is above all His works -- and His patience is essentially one with His mercy.",
+      "merged_text": "Rev. Fr. Guardian, after a little consultation just noted -- tentatively -- that I could start June Ist or 2nd. Of course I think that would be rather early, unless there were a purpose for it. If we had a mission to do somewhere before the anniversary or possibly preferably after, we could arrange accordingly. They are having a meeting in Saint Bonaventure's these three or four days, of the Definitorium and I understand that right thereafter Father Provincial after many thousand miles travel is figuring on coming down here for a rest. -- a sort of private retreat for himself I presume. There is a possibility that I be sent back there to Detroit or elsewhere, though I hardly think it at all probable. I have not the least worry about whether I re- main here or be transferred. It is after all, essentially quite the same. It is such a surpassing privilege to know definitely that one is doing God's holy will by keeping the rule and obeying. Sorry to say, if we can use the word, it is so little possible for any of us to appreciate such privileges. Indeed, just herein seems to me to be humanity's great weakness, WANT OF APPRECIATION. But again how fortunate for us that God's mercy is above all His works -- and His patience is essentially one with His mercy.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "May 14th.",
+      "merged_text": "May 14th.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Blessed and praised be His Holy Name!",
+      "merged_text": "Blessed and praised be His Holy Name!",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, ut supra.",
+      "merged_text": "Fr. Solanus, ut supra.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "P. S. II.",
+      "merged_text": "P. S. II.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1947, May 14.",
+      "merged_text": "1947, May 14.",
+      "edits": []
+    }
+  ]
+}

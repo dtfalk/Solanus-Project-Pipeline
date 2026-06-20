@@ -1,0 +1,120 @@
+{
+  "page": "Volume_2/1_source_pages/page_223",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 7,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "\"God bless you Catherine. as Jesus offers it to us. Keep us courage He knows best. ... and kiss the cross just He can cure us too.\"",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"God bless you Catherine. Keep us courage ... and kiss the cross just as Jesus offers it to us. He knows best. He can cure us too.\"",
+      "per_polygon": "\"God bless you Catherine. as Jesus offers it to us. Keep us courage He knows best. ... and kiss the cross just He can cure us too.\"",
+      "min_conf": 0.798
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a message written by the Servant of God, Father Solanus Casey, O.P.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of a message written by the Servant of God, Father Solanus Casey, O.P.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of a message written by the Servant of God, Father Solanus Casey, O.P.M. Cap.",
+      "min_conf": 0.63
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "( on Seraphic Mass Association cards)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "( on Seraphic Mass Association cards)",
+      "per_polygon": "( on Seraphic Mass Association cards)",
+      "min_conf": 0.877
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1947",
+      "per_polygon": "c. 1947",
+      "min_conf": 0.93
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "(A note in the handwriting of Father Solanus Casey on card in possession of: ) Mrs. Francis Leonard 25584 Koontz Roseville, MI. 48066",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(A note in the handwriting of Father Solanus Casey on card in possession of: ) Mrs. Francis Leonard 25584 Koontz Roseville, MI. 48066",
+      "per_polygon": "(A note in the handwriting of Father Solanus Casey on card in possession of: ) Mrs. Francis Leonard 25584 Koontz Roseville, MI. 48066",
+      "min_conf": 0.887
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "doc": "doc_2",
+      "category": "src_content",
+      "merged_text": "God's holy grace and guidance - patience in all trials.\" Emergenct membership God bless you Mrs. Barnum. We will pray for you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God's holy grace and guidance - patience in all trials.\" Emergenct membership God bless you Mrs. Barnum. We will pray for you and yours.",
+      "per_polygon": "God's holy grace and guidance - patience in all trials.\" Emergenct membership God bless you Mrs. Barnum. We will pray for you and yours.",
+      "min_conf": 0.935
+    },
+    {
+      "rid": "doc_2.src_recipient.0",
+      "doc": "doc_2",
+      "category": "src_recipient",
+      "merged_text": "Mr. and Mrs. S.J.Barnum 1",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\" Mr. and Mrs. S.J.Barnum -",
+      "per_polygon": "Mr. and Mrs. S.J.Barnum 1",
+      "min_conf": 0.245
+    },
+    {
+      "rid": "doc_2.src_date.0",
+      "doc": "doc_2",
+      "category": "src_date",
+      "merged_text": "July 20, 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "July 20, 1947",
+      "per_polygon": "July 20, 1947",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "doc": "doc_2",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F. M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O. F. M. Cap.",
+      "min_conf": 0.647
+    },
+    {
+      "rid": "doc_2.archv_commentary.0",
+      "doc": "doc_2",
+      "category": "archv_commentary",
+      "merged_text": "Another Message:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Another Message:",
+      "per_polygon": "Another Message:",
+      "min_conf": 0.985
+    }
+  ]
+}

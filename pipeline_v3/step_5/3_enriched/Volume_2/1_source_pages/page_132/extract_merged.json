@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_132",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 7,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Any photos or pictures of Fr. Solanus or the others I hardly know what I should do with them: so you may burn them if you wish. However I , would like to have the one of our golden jubilee that is framed viz. the one with all the little grandchildren. Some of them are grandparents now themselves. Well I guess I'd better come to a conclusion. Otherwise -- ?? Best regards to Br. Rufin and to all. Hope Br. Gerard is improving and that he'll get out of any further operation.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Any photos or pictures of Fr. Solanus or the others I hardly know what I should do with them: so you may burn them if you wish. However, I would like to have the one of our golden jubilee that is framed viz. the one with all the little grandchildren. Some of them are grandparents now themselves. Well I guess I'd better come to a conclusion. Otherwise -- ?? Best regards to Br. Rufin and to all. Hope Br. Gerard is improving and that he'll get out of any further operation.",
+      "per_polygon": "Any photos or pictures of Fr. Solanus or the others I hardly know what I should do with them: so you may burn them if you wish. However I , would like to have the one of our golden jubilee that is framed viz. the one with all the little grandchildren. Some of them are grandparents now themselves. Well I guess I'd better come to a conclusion. Otherwise -- ?? Best regards to Br. Rufin and to all. Hope Br. Gerard is improving and that he'll get out of any further operation.",
+      "min_conf": 0.834
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "P.S. The overcoat and habit arrived okay. Many thanks.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "P.S. The overcoat and habit arrived okay. Many thanks.",
+      "per_polygon": "P.S. The overcoat and habit arrived okay. Many thanks.",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Best wishes to all our friends - inside and out who may be interested. Sincerely in the Sacred Heart",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Best wishes to all our friends - inside and out who may be interested. Sincerely in the Sacred Heart",
+      "per_polygon": "Best wishes to all our friends - inside and out who may be interested. Sincerely in the Sacred Heart",
+      "min_conf": 0.983
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.849
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1945, July 30",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1945, July 30",
+      "per_polygon": "1945, July 30",
+      "min_conf": 0.985
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "Page Two",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page Two",
+      "per_polygon": "Page Two",
+      "min_conf": 0.974
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.991
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "V. Brother Leo, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "V. Brother Leo, O.F.M. Cap.",
+      "per_polygon": "V. Brother Leo, O.F.M. Cap.",
+      "min_conf": 0.857
+    }
+  ]
+}

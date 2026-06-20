@@ -1,0 +1,43 @@
+{
+  "page": "Appendix_2/0_table_of_contents/page_001",
+  "engine": "azure-prebuilt-read",
+  "n_regions": 1,
+  "agree": 1,
+  "low_conf_words": 0,
+  "low_conf_regions": 0,
+  "azure_pages": 2,
+  "cost_usd": 0.003,
+  "regions": [
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "full_page": "APPENDIX II",
+      "per_polygon": "APPENDIX II",
+      "agree": true,
+      "min_conf": 0.963,
+      "words": [
+        {
+          "t": "APPENDIX",
+          "c": 0.998,
+          "box": [
+            2360.0,
+            2973.0,
+            2792.0,
+            3065.0
+          ]
+        },
+        {
+          "t": "II",
+          "c": 0.963,
+          "box": [
+            2845.0,
+            2978.0,
+            2947.0,
+            3065.0
+          ]
+        }
+      ]
+    }
+  ]
+}

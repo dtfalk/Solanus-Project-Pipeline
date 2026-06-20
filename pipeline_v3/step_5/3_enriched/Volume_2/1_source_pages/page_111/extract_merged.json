@@ -1,0 +1,120 @@
+{
+  "page": "Volume_2/1_source_pages/page_111",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 7,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I hope you keep well. Many thanks for kind remembrance for Oct. 25th. Thanks be to God for the quite excellent He gives me at 77. Naturally of course my steps are slowing down as to quite to be expected. Next week (10th) my Rev. Brother M. J. Ex- to celebrate his 80th birth-day. Please pray that we be guided so as to please God to the end. Edify - at least in our last days ...",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I hope you keep well. Many thanks for kind remembrance for Oct. 25th. Thanks be to God for the quite excellent He gives me at 77. Naturally of course my steps are slowing down as to quite to be expected. Next week (10th) my Rev. Brother M. J. Ex- to celebrate his 80th birth-day. Please pray that we be guided so as to please God to the end. Edify - at least in our last days.",
+      "per_polygon": "I hope you keep well. Many thanks for kind remembrance for Oct. 25th. Thanks be to God for the quite excellent He gives me at 77. Naturally of course my steps are slowing down as to quite to be expected. Next week (10th) my Rev. Brother M. J. Ex- to celebrate his 80th birth-day. Please pray that we be guided so as to please God to the end. Edify - at least in our last days ...",
+      "min_conf": 0.797
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Felix Monastery",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Felix Monastery",
+      "per_polygon": "St. Felix Monastery",
+      "min_conf": 0.933
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "Huntington, Indiana",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Huntington, Indiana",
+      "per_polygon": "Huntington, Indiana",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Feast of All Saints, 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Feast of All Saints, 1947",
+      "per_polygon": "Feast of All Saints, 1947",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Bles'd be God in all His designs:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Bles'd be God in all His designs:",
+      "per_polygon": "Bles'd be God in all His designs:",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Miss Krausman, - you and yours!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Miss Krausman, - you and yours!",
+      "per_polygon": "God bless you Miss Krausman, - you and yours!",
+      "min_conf": 0.749
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised be Jesus!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised be Jesus!",
+      "per_polygon": "Praised be Jesus!",
+      "min_conf": 0.96
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M.Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M.Cap.",
+      "min_conf": 0.678
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey , C. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey , O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey , C. F.M. Cap.",
+      "min_conf": 0.231
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, November 1",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, November 1",
+      "per_polygon": "1947, November 1",
+      "min_conf": 0.645
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "page": "Volume_2/1_source_pages/page_166",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "With love and with Christmas greetings to all Comes the Infant once more to free us from sorrow Whose smile and Whose power and Whose gentleness call To each heart and each soul for a Manger Tomorrow; Whose love and whose goodness -- Whose wonders proclaim Him, the Son of the Virgin, as Promised of yore. - may He estrange us from sin and its shame! - O! And reign in our Heart, as His crib evermore!",
+      "merged_text": "With love and with Christmas greetings to all Comes the Infant once more to free us from sorrow Whose smile and Whose power and Whose gentleness call To each heart and each soul for a Manger Tomorrow; Whose love and whose goodness -- Whose wonders proclaim Him, the Son of the Virgin, as Promised of yore. - may He estrange us from sin and its shame! - 0! And reign in our Heart, as His crib evermore!",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "\"Christ wrought Redemption from dispair and sin By His dear Cross the clouds of grief were riven 'Tis Bethlem and Calvary that win, from Pain and Sorrow the sweets of Heaven.",
+      "merged_text": "\"Christ wrought Redemption from dispair and sin By His dear Cross the clouds of grief were riven 'Tis Bethlem and Calvary that win, from Pain and Sorrow the sweets of Heaven.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "AND SHE BROUGHT FORTH HER FIRSTBORN SON, AND WRAPPED HIM IN SWADDLING CLOTHES, AND LAID HIM IN A MANGER. (Luke 2, 7)",
+      "merged_text": "AND SHE BROUGHT FORTH HER FIRSTBORN SON, AND WRAPPED HIM IN SWADDLING CLOTHES, AND LAID HIM IN A MANGER. (Luke 2, 7)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.3",
+      "category": "src_content",
+      "cleaned_text": "Ah! The rest of us, on Calvary -- Mary conceived under the Cross -- thirty-three years later. Glory to God! Peace to men of GOOD WILL.",
+      "merged_text": "Ah! The rest of us, on Calvary -- Mary conceived under the Cross -- thirty-three years later. Glory to God! Peace to men of GOOD WILL.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "/s/ Fr. Solanus, O.F.M. Cap.",
+      "merged_text": "/s/ Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.1",
+      "category": "src_signature",
+      "cleaned_text": "/s/ Fr. Solanus",
+      "merged_text": "/s/ Fr. Solanus",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "category": "archv_commentary",
+      "cleaned_text": "(above four lines quoted from: ) Rev. Fr. Edward Casey",
+      "merged_text": "(above four lines quoted from: ) Rev. Fr. Edward Casey",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "category": "archv_format_note",
+      "cleaned_text": "( typed on a Christmas card: )",
+      "merged_text": "( typed on a Christmas card: )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.1",
+      "category": "archv_format_note",
+      "cleaned_text": "(added in Fr. Solanus' hand : )",
+      "merged_text": "(added in Fr. Solanus' hand : )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.2",
+      "category": "archv_format_note",
+      "cleaned_text": "(printed verse on card: )",
+      "merged_text": "(printed verse on card: )",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.3",
+      "category": "archv_format_note",
+      "cleaned_text": "added verse by Fr. Solanus)",
+      "merged_text": "added verse by Fr. Solanus)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1945",
+      "merged_text": "c. 1945",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "ALWAYS CHRISTMAS EVE. Này - INFINITELY MORE, FOR DAILY COMMUNICANTS",
+      "merged_text": "ALWAYS CHRISTMAS EVE. Này - INFINITELY MORE, FOR DAILY COMMUNICANTS",
+      "edits": []
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "page": "Volume_2/1_source_pages/page_331",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 5,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless little Marty O'Hara and speed his health back to normality -- God willing -",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless little Marty O'Hara and speed his health back to normality --- God willing",
+      "per_polygon": "God bless little Marty O'Hara and speed his health back to normality -- God willing -",
+      "min_conf": 0.583
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "March 23, 1952",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "March 23, 1952",
+      "per_polygon": "March 23, 1952",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "(11 P. M.)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(11 P. M.)",
+      "per_polygon": "(11 P. M.)",
+      "min_conf": 0.897
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless all concerned",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless all concerned",
+      "per_polygon": "God bless all concerned",
+      "min_conf": 0.838
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F. M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, 0. F. M. Cap.",
+      "per_polygon": "Fr. Solanus, O. F. M. Cap.",
+      "min_conf": 0.642
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of a handwritten message on a holy card by the Servant of God, Father Solanus Casey, O. F. M. Cap. ( from the photo copy)",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of a handwritten message on a holy card by the Servant of God, Father Solanus Casey, 0. F. M. Cap. ( from the photo copy)",
+      "per_polygon": "The following is a faithful transcription of a handwritten message on a holy card by the Servant of God, Father Solanus Casey, O. F. M. Cap. ( from the photo copy)",
+      "min_conf": 0.587
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1952, March 23",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1952, March 23",
+      "per_polygon": "1952, March 23",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Orignial in possession of: Mrs. Florence O'Haver 36325 Grand River, Apt. 104 Farmington, Mi. 48024",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Orignial in possession of: Mrs. Florence O'Haver 36325 Grand River, Apt. 104 Farmington, Mi. 48024",
+      "per_polygon": "Orignial in possession of: Mrs. Florence O'Haver 36325 Grand River, Apt. 104 Farmington, Mi. 48024",
+      "min_conf": 0.831
+    }
+  ]
+}

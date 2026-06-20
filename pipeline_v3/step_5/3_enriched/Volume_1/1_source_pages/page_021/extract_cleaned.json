@@ -1,0 +1,74 @@
+{
+  "page": "Volume_1/1_source_pages/page_021",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Nov. 29 1st of Advent (N. Yr. ) Penance the primary end of the Minor Friar - therefore a vocation to same implies first of all - penance - and whatever is of pain or death must be received at least with resignation - better with gratitude. - what does well that for which it was in- tended will be valued - otherwise neglected. If the Creator desires or requires penance, what better can the creature do? Deo Gratias! Retreat Dec. 1903 Think of death every night after going to bed.",
+      "merged_text": "Nov. 29 Ist of Advent (N. Yr. ) Penance the primary end of the Minor Friar - therefore a vocation to same implies first of all - penance - and whatever is of pain or death must be received at least with resignation - better with gratitude. - what does well that for which it was in- tended will be valued - otherwise neglected. If the Creator desires or requires penance, what better can the creature do? Deo Gratias! Retreat Dec. 1903 Think of death every night after going to bed.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Retr. Before Ordination \"The lion-king of the forest excepting himself. The chaste man, king of this world & master of himself.\" St. Romoald's Vocation, by a 40 days penance for a murder by his Father in a duel. Feb. 1 St. Brigid bn. in (Ulster) Fochard 453 AD. Her prayer for deformity is heard until she receives her snow-white veil when her former beauty returns.",
+      "merged_text": "Retr. Before Ordination \"The lion-king of the forest excepting himself. The chaste man, king of this world & master of himself.\" St. Romoald's Vocation, by a 40 days penance for a murder by his Father in a duel. Feb. 1 St. Brigid bn. in (Ulster) Fochard 453 AD. Her prayer for deformity is heard until she receives her snow-white veil when her former beauty returns.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.2",
+      "category": "src_content",
+      "cleaned_text": "Communion for sick & children, Emmanual for Feb. 1907 Address of Br. Francis Commissariat of Holy Land Mt. St. Sepulchre Washington, D.C.",
+      "merged_text": "Communion for sick & children, Emmanual for Feb. 1907 Address of Br. Francis Commissariat of Holy Land Mt. St. Sepulchre Washington, D.C.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1903",
+      "merged_text": "c. 1903",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK NO. 9",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK NO. 9",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 22",
+      "merged_text": "Pg. 22",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 23",
+      "merged_text": "Pg. 23",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 24",
+      "merged_text": "Pg. 24",
+      "edits": []
+    }
+  ]
+}

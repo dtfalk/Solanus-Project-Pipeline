@@ -1,0 +1,131 @@
+{
+  "page": "Volume_3/1_source_pages/page_218",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 8,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Mrs. Martha Miller - in Mayo Brs. - blood poison ask prayers.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. Martha Miller - in Mayo Brs. - blood poison ask prayers.",
+      "per_polygon": "Mrs. Martha Miller - in Mayo Brs. - blood poison ask prayers.",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "John Sau - 34 - Partially cured rhumatism - in Florida - now home and able to walk - on back for 4 mo's.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "John Sau - 34 - Partially cured rhumatism - in Florida - now home and able to walk - on back for 4 mo's.",
+      "per_polygon": "John Sau - 34 - Partially cured rhumatism - in Florida - now home and able to walk - on back for 4 mo's.",
+      "min_conf": 0.853
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "May 28",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "May 28",
+      "per_polygon": "May 28",
+      "min_conf": 0.995
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Pages 354, 366 through 373, and 375 are just names and addresses for help wanted, etc.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pages 354, 366 through 373, and 375 are just names and addresses for help wanted, etc.",
+      "per_polygon": "Pages 354, 366 through 373, and 375 are just names and addresses for help wanted, etc.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Pages 355 through 365 and 374 are blank pages.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pages 355 through 365 and 374 are blank pages.",
+      "per_polygon": "Pages 355 through 365 and 374 are blank pages.",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1935, May",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1935, May",
+      "per_polygon": "1935, May",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "END OF FR. SOLANUS NOTEBOOK NO. 5.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "END OF FR. SOLANUS NOTEBOOK NO. 5.",
+      "per_polygon": "END OF FR. SOLANUS NOTEBOOK NO. 5.",
+      "min_conf": 0.976
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "FR. SOLANUS NOTEBOOK NO. 5.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "FR. SOLANUS NOTEBOOK NO. S.",
+      "per_polygon": "FR. SOLANUS NOTEBOOK NO. 5.",
+      "min_conf": 0.626
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 353 Cont.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 353 Cont.",
+      "per_polygon": "Page 353 Cont.",
+      "min_conf": 0.99
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pages 354, 366 through 373, and 375",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Pages 354, 366 through 373, and 375",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pages 355 through 365 and 374",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Pages 355 through 365 and 374",
+      "min_conf": 0.992
+    }
+  ]
+}

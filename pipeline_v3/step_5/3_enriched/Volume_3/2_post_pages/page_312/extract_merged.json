@@ -1,0 +1,120 @@
+{
+  "page": "Volume_3/2_post_pages/page_312",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 8,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "VOLUME III",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "VOLUME III",
+      "per_polygon": "VOLUME III",
+      "min_conf": 0.956
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M.Cap. AND FAITHFULLY TRANSCRIBED",
+      "per_polygon": "COLLECTED WRITINGS ATTRIBUTED TO THE SERVANT OF GOD FATHER SOLANUS CASEY, O.F.M. Cap. AND FAITHFULLY TRANSCRIBED",
+      "min_conf": 0.793
+    },
+    {
+      "rid": "doc_1.archv_commentary.2",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Contains 310 typed pages comprising his Notebooks No. 1, No. 4, No.5, and No. 6.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Contains 310 typed pages comprising his Notebooks No. 1, No. 4, No.5, and No. 6.",
+      "per_polygon": "Contains 310 typed pages comprising his Notebooks No. 1, No. 4, No.5, and No. 6.",
+      "min_conf": 0.913
+    },
+    {
+      "rid": "doc_1.other.0",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "Concordat cum originali",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Concordat cum originali",
+      "per_polygon": "Concordat cum originali",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.other.1",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "",
+      "per_polygon": "",
+      "min_conf": null
+    },
+    {
+      "rid": "doc_1.other.2",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "Rev. Charles Dillen, c.i.c.m.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Rev. Charles Dillen, c.i.c.m.",
+      "per_polygon": "Rev. Charles Dillen, c.i.c.m.",
+      "min_conf": 0.79
+    },
+    {
+      "rid": "doc_1.other.3",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "NOTARIUS",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "NOTARIUS",
+      "per_polygon": "NOTARIUS",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.other.4",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "DATE",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "DATE You 1. 140",
+      "per_polygon": "DATE",
+      "min_conf": 0.065
+    },
+    {
+      "rid": "doc_1.other.5",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "DETROIT, MICHIGAN",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "DETROIT, MICHIGAN",
+      "per_polygon": "DETROIT, MICHIGAN",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.other.6",
+      "doc": "doc_1",
+      "category": "other",
+      "merged_text": "SEAL",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "SEAL",
+      "per_polygon": "SEAL",
+      "min_conf": 0.987
+    }
+  ]
+}

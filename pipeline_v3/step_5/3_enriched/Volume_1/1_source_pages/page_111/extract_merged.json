@@ -1,0 +1,120 @@
+{
+  "page": "Volume_1/1_source_pages/page_111",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 10,
+  "n_agree": 7,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for favor of the 16th. Thanks be God! I am glad to know Bernard M. is feeling more contented. I enjoyed his visit as I think he did. I had very little time to really give him but tried at least in a general way, to impress him with the conviction that what ever our faculties be, the one primary purpose of every rational creature is to know God and by keeping the commandments - really just rules of health for body and soul - save our poor souls and gain the crown Eternal.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Many thanks for favor of the 16th. Thanks be God! I am glad to know Bernard M. is feeling more contented. I enjoyed his visit as I think he did. I had very little time to really give him but tried at least in a general way, to impress him with the conviction that what ever our faculties be, the one primary purpose of every rational creature is to know God and by keeping the commandments - really just rules of health for body and soul - save our poor souls and gain the crown Eternal.",
+      "per_polygon": "Many thanks for favor of the 16th. Thanks be God! I am glad to know Bernard M. is feeling more contented. I enjoyed his visit as I think he did. I had very little time to really give him but tried at least in a general way, to impress him with the conviction that what ever our faculties be, the one primary purpose of every rational creature is to know God and by keeping the commandments - really just rules of health for body and soul - save our poor souls and gain the crown Eternal.",
+      "min_conf": 0.951
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Sept. 22nd. 1947.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sept. 22nd. 1947.",
+      "per_polygon": "Sept. 22nd. 1947.",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God bless you Martha and all you hold dear.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you Martha and all you hold dear.",
+      "per_polygon": "God bless you Martha and all you hold dear.",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": ". With love to all - including your patients and God's blessing, .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "With love to all - including your patients and God's blessing, ....",
+      "per_polygon": ". With love to all - including your patients and God's blessing, .",
+      "min_conf": 0.254
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.881
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "To Know God primary purpose of rationals.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "To Know God primary purpose of rationals. -",
+      "per_polygon": "To Know God primary purpose of rationals.",
+      "min_conf": 0.795
+    },
+    {
+      "rid": "doc_1.src_other.1",
+      "doc": "doc_1",
+      "category": "src_other",
+      "merged_text": "Bles'd be God!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Bles'd be God!",
+      "per_polygon": "Bles'd be God!",
+      "min_conf": 0.973
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten orig- inal by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "min_conf": 0.343
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "doc": "doc_1",
+      "category": "archv_format_note",
+      "merged_text": "(POST CARD)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(POST CARD)",
+      "per_polygon": "(POST CARD)",
+      "min_conf": 0.959
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1947, September 22",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1947, September 22",
+      "per_polygon": "1947, September 22",
+      "min_conf": 0.984
+    }
+  ]
+}

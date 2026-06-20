@@ -1,0 +1,60 @@
+{
+  "page": "Volume_2/1_source_pages/page_267",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Missing Brother St. Andrews Convent. return home. D. V. of Sister Mary Dolores, O. P. of Flushing, L. Isl. N. Y. -- speedy emergency special membership. We'll pray for him too and will trust in God and our Bl. Mother Mary. \"Whom the Lord loveth, He chasteneth!\"",
+      "merged_text": "Missing Brother St. Andrews Convent. return home. D. V. of Sister Mary Dolores, O. P. of Flushing, L. Isl. N. Y. -- speedy emergency special membership. We'll pray for him too and will trust in God and our Bl. Mother Mary. \"Whom the Lord loveth, He chasteneth!\"",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "P. S. Tell your Br's. wife to ask Mrs. Euphasia Cunningham (a 1st cousin of mine) for her prayers. She is almost an invalid but likes to help. Lives at 323 e. Boone, Spokane, Wash'n.",
+      "merged_text": "P. S. Tell your Br's. wife to ask Mrs. Euphasia Cunningham (a Ist cousin of mine) for her prayers. She is almost an invalid but likes to help. Lives at 323 e. Boone, Spokane, Wash'n.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "April 29, 1948",
+      "merged_text": "April 29, 1948",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of the handwritten message on a Seraphic Mass Association card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "merged_text": "The following is a faithful transcription of the handwritten message on a Seraphic Mass Association card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1943, April 29",
+      "merged_text": "1943, April 29",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "Original in possession of : Sister M. Dolores, O. P. Northwest Catholic Convent Wampanoag Drive & North Main St. West Hartford, CO. 06177",
+      "merged_text": "Original in possession of : Sister M. Dolores, O. P. Northwest Catholic Convent Wampanoag Drive & North Main St. West Hartford, CO. 06177",
+      "edits": []
+    }
+  ]
+}

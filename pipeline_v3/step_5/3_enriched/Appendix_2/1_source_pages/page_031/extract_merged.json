@@ -1,0 +1,109 @@
+{
+  "page": "Appendix_2/1_source_pages/page_031",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and yours. I hope this finds you all well - and surviving your snow-wind storm of a week ago that reached us last Thursday and Friday. Thanks be to God for all. I am taking the liberty of asking a favor of you that I think you'll take as a compliment too. At all events I want to have you see the photo of one who in many quarters is considered a saint - some day please God to be cannonized, Fr. Pius the stignatic from Foligno. I would appreciate it very much if you would have a simple little frame put on it for us. Its the only one of the kind I have. The smaller one which is also the only one I have but which I think you will like for your prayer book is for Doris.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you and yours. I hope this finds you all well - and surviving your snow-wind storm of a week ago that reached us last Thursday and Friday. Thanks be to God for all. I am taking the liberty of asking a favor of you that I think you'll take as a compliment too. At all events I want to have you see the photo of one who in many quarters is considered a saint - some day please God to be cannonized, Fr. Pius the stignatic from Foligno. I would appreciate it very much if you would have a simple little frame put on it for us. Its the only one of the kind I have. The smaller one which is also the only one I have but which I think you will like for your prayer book is for Doris.",
+      "per_polygon": "God bless you and yours. I hope this finds you all well - and surviving your snow-wind storm of a week ago that reached us last Thursday and Friday. Thanks be to God for all. I am taking the liberty of asking a favor of you that I think you'll take as a compliment too. At all events I want to have you see the photo of one who in many quarters is considered a saint - some day please God to be cannonized, Fr. Pius the stignatic from Foligno. I would appreciate it very much if you would have a simple little frame put on it for us. Its the only one of the kind I have. The smaller one which is also the only one I have but which I think you will like for your prayer book is for Doris.",
+      "min_conf": 0.635
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "ST. MICHAEL'S CHURCH",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "ST. MICHAEL'S CHURCH",
+      "per_polygon": "ST. MICHAEL'S CHURCH",
+      "min_conf": 0.956
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Doris Panyard",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Miss Doris Panyard",
+      "per_polygon": "Miss Doris Panyard",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "11OO EVILo Ialyasu Muskegan, Michigan",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Muskegan, Michigan",
+      "per_polygon": "11OO EVILo Ialyasu Muskegan, Michigan",
+      "min_conf": 0.118
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "225 JEROME STREET BROOKLYN 7, N.Y.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "225 JEROME STREET BROOKLYN 7, N.Y.",
+      "per_polygon": "225 JEROME STREET BROOKLYN 7, N.Y.",
+      "min_conf": 0.9
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "December 2nd 1945",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "December 2nd 1945",
+      "per_polygon": "December 2nd 1945",
+      "min_conf": 0.984
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Miss Panyard:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Miss Panyard:",
+      "per_polygon": "Dear Miss Panyard:",
+      "min_conf": 0.987
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Hoping that all our friends in Muskegon an vicinity are coming along on the right way physically and spiritually, I beg to remain Sincerely yours in Christ",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Hoping that all our friends in Muskegon an vicinity are coming along on the right way physically and spiritually, I beg to remain Sincerely yours in Christ",
+      "per_polygon": "Hoping that all our friends in Muskegon an vicinity are coming along on the right way physically and spiritually, I beg to remain Sincerely yours in Christ",
+      "min_conf": 0.811
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O. F.M. Cap.",
+      "min_conf": 0.916
+    }
+  ]
+}

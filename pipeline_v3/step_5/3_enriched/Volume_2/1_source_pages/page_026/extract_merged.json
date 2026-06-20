@@ -1,0 +1,241 @@
+{
+  "page": "Volume_2/1_source_pages/page_026",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 21,
+  "n_agree": 13,
+  "n_needs_review": 8,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you and keep you well. - you and yours. I'd like to write you a real letter but this is just to thank you for crate of fine oranges received here in excellent condition a few days back. They are very good. - in fact I think the best yet. How wonderful is the dear Lord in all His works!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you and keep you well. - you and yours. I'd like to write you a real letter but this is just to thank you for crate of fine oranges received here in excellent condition a few days back. They are very good. - in fact I think the best yet. How wonderful is the dear Lord in all His works!",
+      "per_polygon": "God bless you and keep you well. - you and yours. I'd like to write you a real letter but this is just to thank you for crate of fine oranges received here in excellent condition a few days back. They are very good. - in fact I think the best yet. How wonderful is the dear Lord in all His works!",
+      "min_conf": 0.345
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Michael's Church",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Michael's Church",
+      "per_polygon": "St. Michael's Church",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Mr. J .J. O'Donnell",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. J .J. O'Donnell",
+      "per_polygon": "Mr. J .J. O'Donnell",
+      "min_conf": 0.634
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "1120 Lake Shore Drive Chicago, Illinois",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1120 Lake Shore Drive Chicago, Illinois",
+      "per_polygon": "1120 Lake Shore Drive Chicago, Illinois",
+      "min_conf": 0.962
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "225 Jerome Street Brooklyn 7, N.Y.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "225 Jerome Street Brooklyn 7, IT.Y.",
+      "per_polygon": "225 Jerome Street Brooklyn 7, N.Y.",
+      "min_conf": 0.62
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "March 2nd 1946",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Narch 2nd 1945",
+      "per_polygon": "March 2nd 1946",
+      "min_conf": 0.631
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My Dear Friends Joseph - Joseph and Winifred:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "My Dear Friends Joseph - Joseph and Winifred:",
+      "per_polygon": "My Dear Friends Joseph - Joseph and Winifred:",
+      "min_conf": 0.569
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Praised Be The Lord!",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Praised Be The Lord!",
+      "per_polygon": "Praised Be The Lord!",
+      "min_conf": 0.84
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "F1 . Solanus O.F .M. Cap",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Dr. Solanus O.F .M. Cap",
+      "per_polygon": "F1 . Solanus O.F .M. Cap",
+      "min_conf": 0.49
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Che following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.N. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.607
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1946, March 2nd",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, March 2nd",
+      "per_polygon": "1946, March 2nd",
+      "min_conf": 0.61
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "doc": "doc_2",
+      "category": "src_content",
+      "merged_text": "God bless you Josph O'Donnell - you and yours. I was in hopes to catch up with my correspondence and then write you, but it seems the letters come faster and faster so that I have to keep right on the job; and the longer I wait the more what's not too urgent gets snowed under. At all events I want to say at least thank you for the big crate of fine Grape-fruit. Nony thanks indeed. ^You can see for yourself. this is hardly an expert an underwood.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Josph O'Donnell - you and yours. I was in hopes to catch up with my correspondence and then write you, but it seems the letters come faster and faster so that I have to keep right on the job; and the longer I wait the core what's not too urgent gets snowed under. At all events I want to say at least thank you for the big crate of fine Grape-fruit. Nony thanks indeed. ^You can see for yourself. this is hardly an expert an underwood.",
+      "per_polygon": "God bless you Josph O'Donnell - you and yours. I was in hopes to catch up with my correspondence and then write you, but it seems the letters come faster and faster so that I have to keep right on the job; and the longer I wait the more what's not too urgent gets snowed under. At all events I want to say at least thank you for the big crate of fine Grape-fruit. Nony thanks indeed. ^You can see for yourself. this is hardly an expert an underwood.",
+      "min_conf": 0.277
+    },
+    {
+      "rid": "doc_2.src_origin.0",
+      "doc": "doc_2",
+      "category": "src_origin",
+      "merged_text": "St. Michael's Church",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Michael's Church",
+      "per_polygon": "St. Michael's Church",
+      "min_conf": 0.975
+    },
+    {
+      "rid": "doc_2.src_recipient.0",
+      "doc": "doc_2",
+      "category": "src_recipient",
+      "merged_text": "iir. Joseph ODonnell.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Mir. Joseph ODonnell.",
+      "per_polygon": "iir. Joseph ODonnell.",
+      "min_conf": 0.279
+    },
+    {
+      "rid": "doc_2.src_location_recipient.0",
+      "doc": "doc_2",
+      "category": "src_location_recipient",
+      "merged_text": "1120 Lake Shore Drive Chicago, Illinois.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1120 Lake Shore Drive Chicago, Illinois.",
+      "per_polygon": "1120 Lake Shore Drive Chicago, Illinois.",
+      "min_conf": 0.615
+    },
+    {
+      "rid": "doc_2.src_location_sender.0",
+      "doc": "doc_2",
+      "category": "src_location_sender",
+      "merged_text": "225 Jerome Street Brooklyn 7, N.Y.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "225 Jerome Street Brooklyn 7, N.Y.",
+      "per_polygon": "225 Jerome Street Brooklyn 7, N.Y.",
+      "min_conf": 0.552
+    },
+    {
+      "rid": "doc_2.src_date.0",
+      "doc": "doc_2",
+      "category": "src_date",
+      "merged_text": "March 15th 1946.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "March 15th 1946.",
+      "per_polygon": "March 15th 1946.",
+      "min_conf": 0.629
+    },
+    {
+      "rid": "doc_2.src_farewell.0",
+      "doc": "doc_2",
+      "category": "src_farewell",
+      "merged_text": "God bless and keep us all.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless and keep us all.",
+      "per_polygon": "God bless and keep us all.",
+      "min_conf": 0.655
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "doc": "doc_2",
+      "category": "src_signature",
+      "merged_text": "r. Solanus O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Fr. Solanus O.F.M. Cap.",
+      "per_polygon": "r. Solanus O.F.M. Cap.",
+      "min_conf": 0.538
+    },
+    {
+      "rid": "doc_2.archv_commentary.0",
+      "doc": "doc_2",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, C.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the typed original by the Servert of God, Father Solanus Casey, C.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the typed original by the Servant of God, Father Solanus Casey, C.F.M. Cap.",
+      "min_conf": 0.065
+    },
+    {
+      "rid": "doc_2.archv_date.0",
+      "doc": "doc_2",
+      "category": "archv_date",
+      "merged_text": "1946, March 15th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1946, March 15th",
+      "per_polygon": "1946, March 15th",
+      "min_conf": 0.877
+    }
+  ]
+}

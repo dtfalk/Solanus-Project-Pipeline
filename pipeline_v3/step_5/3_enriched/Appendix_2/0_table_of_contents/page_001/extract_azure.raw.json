@@ -1,0 +1,221 @@
+{
+  "engine": "azure-prebuilt-read",
+  "full_page": {
+    "apiVersion": "2024-11-30",
+    "modelId": "prebuilt-read",
+    "stringIndexType": "textElements",
+    "content": "APPENDIX II",
+    "pages": [
+      {
+        "pageNumber": 1,
+        "angle": 0.29332059621810913,
+        "width": 5313,
+        "height": 6875,
+        "unit": "pixel",
+        "words": [
+          {
+            "content": "APPENDIX",
+            "polygon": [
+              2360,
+              2973,
+              2792,
+              2977,
+              2791,
+              3065,
+              2360,
+              3064
+            ],
+            "confidence": 0.998,
+            "span": {
+              "offset": 0,
+              "length": 8
+            }
+          },
+          {
+            "content": "II",
+            "polygon": [
+              2846,
+              2978,
+              2947,
+              2979,
+              2947,
+              3065,
+              2845,
+              3065
+            ],
+            "confidence": 0.963,
+            "span": {
+              "offset": 9,
+              "length": 2
+            }
+          }
+        ],
+        "lines": [
+          {
+            "content": "APPENDIX II",
+            "polygon": [
+              2360,
+              2973,
+              2946,
+              2976,
+              2946,
+              3065,
+              2360,
+              3062
+            ],
+            "spans": [
+              {
+                "offset": 0,
+                "length": 11
+              }
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "offset": 0,
+            "length": 11
+          }
+        ]
+      }
+    ],
+    "paragraphs": [
+      {
+        "spans": [
+          {
+            "offset": 0,
+            "length": 11
+          }
+        ],
+        "boundingRegions": [
+          {
+            "pageNumber": 1,
+            "polygon": [
+              2360,
+              2973,
+              2946,
+              2976,
+              2946,
+              3065,
+              2360,
+              3062
+            ]
+          }
+        ],
+        "content": "APPENDIX II"
+      }
+    ],
+    "styles": [],
+    "contentFormat": "text"
+  },
+  "per_polygon": {
+    "doc_1.struct_id.0": {
+      "apiVersion": "2024-11-30",
+      "modelId": "prebuilt-read",
+      "stringIndexType": "textElements",
+      "content": "APPENDIX II",
+      "pages": [
+        {
+          "pageNumber": 1,
+          "angle": 0.35304808616638184,
+          "width": 695,
+          "height": 193,
+          "unit": "pixel",
+          "words": [
+            {
+              "content": "APPENDIX",
+              "polygon": [
+                65,
+                57,
+                483,
+                60,
+                483,
+                130,
+                65,
+                126
+              ],
+              "confidence": 0.995,
+              "span": {
+                "offset": 0,
+                "length": 8
+              }
+            },
+            {
+              "content": "II",
+              "polygon": [
+                537,
+                60,
+                634,
+                59,
+                634,
+                133,
+                537,
+                131
+              ],
+              "confidence": 0.963,
+              "span": {
+                "offset": 9,
+                "length": 2
+              }
+            }
+          ],
+          "lines": [
+            {
+              "content": "APPENDIX II",
+              "polygon": [
+                65,
+                57,
+                633,
+                59,
+                633,
+                132,
+                65,
+                127
+              ],
+              "spans": [
+                {
+                  "offset": 0,
+                  "length": 11
+                }
+              ]
+            }
+          ],
+          "spans": [
+            {
+              "offset": 0,
+              "length": 11
+            }
+          ]
+        }
+      ],
+      "paragraphs": [
+        {
+          "spans": [
+            {
+              "offset": 0,
+              "length": 11
+            }
+          ],
+          "boundingRegions": [
+            {
+              "pageNumber": 1,
+              "polygon": [
+                65,
+                57,
+                633,
+                59,
+                633,
+                132,
+                65,
+                130
+              ]
+            }
+          ],
+          "content": "APPENDIX II"
+        }
+      ],
+      "styles": [],
+      "contentFormat": "text"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_294",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you again. I intended to reach you with the above acknowledgement a day or two after its reception but was ashamed to send in so muddled a condition and am disapointed in my failure to have it rewritten. However you and your little Donald Jay have been on my mind and in my prayers continually since receiving your letter. I am confident You will understand something of what I wanted to write you. Had I a little more time or if I were a real typest I would run it all over. As it is however, I hope I am not too presumptious if I con- gratulate you on the answer to our combined prayers. I do hope you re- ceive a favorable report tomorrow. I am hoping, mailing this To-night. Hoping for good results.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you again. I intended to reach you with the above acknowledgement a day or two after its reception but was ashamed to send in so muddled a condition and am disapointed in my failure to have it rewritten. However you and your little Donald Jay have been on my mind and in my prayers continually since receiving your letter. I am confident You will understand something of what I wanted to write you. Had I a little more time or if I were a real typest I would run it all over. As it is however, I hope I am not too presumptious if I con- gratulate you on the answer to our combined prayers. I do hope you re- ceive a favorable report tomorrow. I am hoping, mailing this To-night. Hoping for good results.",
+      "per_polygon": "God bless you again. I intended to reach you with the above acknowledgement a day or two after its reception but was ashamed to send in so muddled a condition and am disapointed in my failure to have it rewritten. However you and your little Donald Jay have been on my mind and in my prayers continually since receiving your letter. I am confident You will understand something of what I wanted to write you. Had I a little more time or if I were a real typest I would run it all over. As it is however, I hope I am not too presumptious if I con- gratulate you on the answer to our combined prayers. I do hope you re- ceive a favorable report tomorrow. I am hoping, mailing this To-night. Hoping for good results.",
+      "min_conf": 0.704
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "P. S. October 30th, (Feast of Christ the King of Kings) .",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "P. S. October 30th, (Feast of Christ the King of Kings).",
+      "per_polygon": "P. S. October 30th, (Feast of Christ the King of Kings) .",
+      "min_conf": 0.912
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Mr. and Mrs. Holtz:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Mr. and Mrs. Holtz:",
+      "per_polygon": "Dear Mr. and Mrs. Holtz:",
+      "min_conf": 0.839
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Very Sincerely Yours,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Very Sincerely Yours,",
+      "per_polygon": "Very Sincerely Yours,",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Pr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.663
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1949, October 23 and 30.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1949, October 23 and 30.",
+      "per_polygon": "1949, October 23 and 30.",
+      "min_conf": 0.615
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "doc": "doc_1",
+      "category": "archv_possessor",
+      "merged_text": "Original in possession of: Mr. and Mrs. Alfred Holtz 19611 Cherry Hill Lane Southfield, MI. 48076",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Original in possession of: Mr. and Mrs. Alfred Holtz 19611 Cherry Hill Lane Southfield, MI. 48076",
+      "per_polygon": "Original in possession of: Mr. and Mrs. Alfred Holtz 19611 Cherry Hill Lane Southfield, MI. 48076",
+      "min_conf": 0.544
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2.",
+      "per_polygon": "Page 2.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mr. and Mrs. Alfred Holtz.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. and Mrs. Alfred Holtz.",
+      "per_polygon": "Mr. and Mrs. Alfred Holtz.",
+      "min_conf": 0.913
+    }
+  ]
+}

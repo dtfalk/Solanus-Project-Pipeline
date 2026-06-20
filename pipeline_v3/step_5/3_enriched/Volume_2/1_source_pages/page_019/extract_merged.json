@@ -1,0 +1,131 @@
+{
+  "page": "Volume_2/1_source_pages/page_019",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 11,
+  "n_agree": 8,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I just received your air favor and have inscribed you in the Seraphic Mass Association for your special Intent. Please God I hope things may brighten soon in regards to that same. However, and by all means shake off that anxiety of yours. Last year it was about something that now you smile about. To-day its about some thing that will not be serious if you raise your heart to God every time it comes to your mind and thank Him for whatever is to come.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "I just received your air favor and have inscribed you in the Seraphic Mass Association for your special Intent. Please God I hope things may brighten soon in regards to that same. However, and by all means shake off that anxiety of yours. Last year it was about something that now you smile about. To-day its about some thing that will not be serious if you raise your heart to God every time it comes to your mind and thank Him for whatever is to come.",
+      "per_polygon": "I just received your air favor and have inscribed you in the Seraphic Mass Association for your special Intent. Please God I hope things may brighten soon in regards to that same. However, and by all means shake off that anxiety of yours. Last year it was about something that now you smile about. To-day its about some thing that will not be serious if you raise your heart to God every time it comes to your mind and thank Him for whatever is to come.",
+      "min_conf": 0.613
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "doc": "doc_1",
+      "category": "src_origin",
+      "merged_text": "St. Bonaventure Monastery",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "St. Bonaventure Monastery",
+      "per_polygon": "St. Bonaventure Monastery",
+      "min_conf": 0.482
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Miss Winifred Goodwillie",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Kiss Winifred Goodwillie",
+      "per_polygon": "Miss Winifred Goodwillie",
+      "min_conf": 0.65
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "416 Barry Ave. Chicago, Ill.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "416 Barry Ave. Chicago, Ill.",
+      "per_polygon": "416 Barry Ave. Chicago, Ill.",
+      "min_conf": 0.821
+    },
+    {
+      "rid": "doc_1.src_location_sender.0",
+      "doc": "doc_1",
+      "category": "src_location_sender",
+      "merged_text": "1740 Mt. Elliott Ave Detroit, Mich",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "1740 Ht. Elliott Ave Detroit, Nich",
+      "per_polygon": "1740 Mt. Elliott Ave Detroit, Mich",
+      "min_conf": 0.467
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Aug 5 1939",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Aug 5 1939",
+      "per_polygon": "Aug 5 1939",
+      "min_conf": 0.962
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Dear Miss Goodwillie: - God bless you and yours.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Dear Miss Goodwillie: - God bless you and yours.",
+      "per_polygon": "Dear Miss Goodwillie: - God bless you and yours.",
+      "min_conf": 0.858
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Very Sincerely yours in Christ.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Very Sincerely yours in Christ.",
+      "per_polygon": "Very Sincerely yours in Christ.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, C.M.Cap",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, C.M.Cap",
+      "per_polygon": "Fr. Solanus, C.M.Cap",
+      "min_conf": 0.638
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a foithful transcription of the handwritten original by the Servant of God, Father Solanus Case , 0.7.1.Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solonus Case , 0.3.1.Cap.",
+      "per_polygon": "The following is a foithful transcription of the handwritten original by the Servant of God, Father Solanus Case , 0.7.1.Cap.",
+      "min_conf": 0.143
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1939, August 5",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1939, August 5",
+      "per_polygon": "1939, August 5",
+      "min_conf": 0.882
+    }
+  ]
+}

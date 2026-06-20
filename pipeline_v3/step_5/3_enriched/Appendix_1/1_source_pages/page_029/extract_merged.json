@@ -1,0 +1,43 @@
+{
+  "page": "Appendix_1/1_source_pages/page_029",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 3,
+  "n_agree": 2,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I wanted to tell you just briefly of F.F. Maurice and Edward's visit here two weeks ago. They came down from St. Paul with Joe O'Brien - Brother-in-law, Aunt Mary, Uncle Pat Murphy's Wife, having stopped over night with Dean and Mildred Conley in Chicago. Msgr. went on to Boston a day or two after. Fr. M.J. stayed ten days - seemingly enjoying where as a novice he put in about ten months fif- teen years ago. Thanks be to God, tho a little restless he seems doing pretty well, saying holy Mass every day. Helena was here a few days ahead of the Rev. Brothers. This is the end of a purpose I made yesterday a.m. of writing a card to each of my brothers and sisters in the West.\" .Man purposes but God disposes\"",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I wanted to tell you just briefly of F.F. Maurice and Edward's visit here two weeks ago. They came down from St. Paul with Joe O'Brien - Brother-in-law, Aunt Mary, Uncle Pat Murphy's Wife, having stopped over night with Dean and Mildred Conley in Chicago. Msgr. went on to Boston a day or two after. Fr. M.J. stayed ten days - seemingly enjoying where as a novice he put in about ten months fif- teen years ago. Thanks be to God, tho a little restless he seems doing pretty well, saying holy Mass every day. Helena was here a few days ahead of the Rev. Brothers. This is the end of a purpose I made yesterday a.m. of writing a card to each of my brothers and sisters in the West.\" ..... Man purposes but God disposes\"",
+      "per_polygon": "I wanted to tell you just briefly of F.F. Maurice and Edward's visit here two weeks ago. They came down from St. Paul with Joe O'Brien - Brother-in-law, Aunt Mary, Uncle Pat Murphy's Wife, having stopped over night with Dean and Mildred Conley in Chicago. Msgr. went on to Boston a day or two after. Fr. M.J. stayed ten days - seemingly enjoying where as a novice he put in about ten months fif- teen years ago. Thanks be to God, tho a little restless he seems doing pretty well, saying holy Mass every day. Helena was here a few days ahead of the Rev. Brothers. This is the end of a purpose I made yesterday a.m. of writing a card to each of my brothers and sisters in the West.\" .Man purposes but God disposes\"",
+      "min_conf": 0.662
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Love and God's blessing to all - to your own, to Grace and all the Brady-Clan and friends to the north and south. Praised be the Merciful God !...",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Love and God's blessing to all - to your own, to Grace and all the Brady-Clan and friends to the north and south. Praised be the Merciful God !...",
+      "per_polygon": "Love and God's blessing to all - to your own, to Grace and all the Brady-Clan and friends to the north and south. Praised be the Merciful God !...",
+      "min_conf": 0.852
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus O.F.M.Cap.",
+      "min_conf": 0.815
+    }
+  ]
+}

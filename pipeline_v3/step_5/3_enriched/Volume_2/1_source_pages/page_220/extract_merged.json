@@ -1,0 +1,87 @@
+{
+  "page": "Volume_2/1_source_pages/page_220",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 7,
+  "n_agree": 5,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "My dear friends: You asked me for a few words on my trip this morn- ing. As we raced down the Mississippi on the Hiawatha, with the zepher across - across the Mississippi - the words of the psalmist came to me - on science. And I thought, when shall we wake up to know that the great- est of any particular science, must depend on the gravity, the importance of the subject treated? Botony for instance or zoology, simple sciences, interesting in themselves. Music is beautiful, the flute, the piano, the harp, the violin, queen of them all - music on the cross - how sweet when properly mastered. Then the science of astronomy that treats of the in- numerable planets, their wonderful order, their speed, their inconceivable distances - the marvelous clock-work of the universe. They talk too, of a less attractive science, but oh how important, that of mathematics. But what are all these petty sciences when there is question of that one great science of all ages, all generations; the science of our relationship with God and our neighbor - religion! No other science in the end, amounts to the snap of ones finger. But for time and for eternity the science of religion fills the individual and society alike with hope, the very soul of happiness, this side of Heaven. Then the verse came to mind on the purpose of the rational creature - my purpose is this:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "My dear friends: You asked me for a few words on my trip this morn- ing. As we raced down the Mississippi on the Hiawatha, with the zepher across - across the Mississippi - the words of the psalmist came to me - on science. And I thought, when shall we wake up to know that the great- est of any particular science, must depend on the gravity, the importance of the subject treated? Botony for instance or zoology, simple sciences, interesting in themselves. Music is beautiful, the flute, the piano, the . harp, the violin, queen of them all - music on the cross - how sweet when properly mastered. Then the science of astronomy that treats of the in- numerable planets, their wonderful order, their speed, their inconceivable distances - the marvelous clock-work of the universe. They talk too, of a less attractive science, but oh how important, that of mathematics. But what are all these petty sciences when there is question of that one great science of all ages, all generations; the science of our relationship with God and our neighbor - religion! No other science in the end, amounts to the snap of ones finger. But for time and for eternity the science of religion fills the individual and society alike with hope, the very soul of happiness, this side of Heaven. Then the verse came to mind on the purpose of the rational creature - my purpose is this:",
+      "per_polygon": "My dear friends: You asked me for a few words on my trip this morn- ing. As we raced down the Mississippi on the Hiawatha, with the zepher across - across the Mississippi - the words of the psalmist came to me - on science. And I thought, when shall we wake up to know that the great- est of any particular science, must depend on the gravity, the importance of the subject treated? Botony for instance or zoology, simple sciences, interesting in themselves. Music is beautiful, the flute, the piano, the harp, the violin, queen of them all - music on the cross - how sweet when properly mastered. Then the science of astronomy that treats of the in- numerable planets, their wonderful order, their speed, their inconceivable distances - the marvelous clock-work of the universe. They talk too, of a less attractive science, but oh how important, that of mathematics. But what are all these petty sciences when there is question of that one great science of all ages, all generations; the science of our relationship with God and our neighbor - religion! No other science in the end, amounts to the snap of ones finger. But for time and for eternity the science of religion fills the individual and society alike with hope, the very soul of happiness, this side of Heaven. Then the verse came to mind on the purpose of the rational creature - my purpose is this:",
+      "min_conf": 0.823
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God made me to know Him, oh what a blessed aim, To love Him and serve Him sure rests in the same. It's Heaven begun, for the grateful on earth To treasure alright - highest Heaven it's worth.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God made me to know Him, oh what a blessed aim, To love Him and serve Him sure rests in the same. It's Heaven begun, for the grateful on earth To treasure alright - highest Heaven it's worth.",
+      "per_polygon": "God made me to know Him, oh what a blessed aim, To love Him and serve Him sure rests in the same. It's Heaven begun, for the grateful on earth To treasure alright - highest Heaven it's worth.",
+      "min_conf": 0.849
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "My dear friends:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "My dear friends:",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless you all.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you all.",
+      "per_polygon": "God bless you all.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the original recording.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the original recording.",
+      "per_polygon": "The following is a faithful transcription of the original recording.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Transcript of a short talk by Father Solanus Casey. Recorded on a 78 rpm record at the home of Joseph and Winifred O'Donnell in Chicago c. 1947.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Transcript of a short talk by Father Solanus Casey. Recorded on a 78 rpm record at the home of Joseph and Winifred O'Donnell in Chicago c. 1947.",
+      "per_polygon": "Transcript of a short talk by Father Solanus Casey. Recorded on a 78 rpm record at the home of Joseph and Winifred O'Donnell in Chicago c. 1947.",
+      "min_conf": 0.588
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1947",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1947",
+      "per_polygon": "c. 1947",
+      "min_conf": 0.989
+    }
+  ]
+}

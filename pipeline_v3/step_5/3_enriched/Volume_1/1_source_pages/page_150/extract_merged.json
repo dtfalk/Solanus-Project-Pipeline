@@ -1,0 +1,65 @@
+{
+  "page": "Volume_1/1_source_pages/page_150",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "said highway except to burn our barn. Two slight vallies joined at the foot of theN.E. corner of the garden and formed quite a ravine running nothword between the old and the new fields. This was joined by one or two others from the side in its course down to the \"Big Ravine\", a beautiful valley, that curved northword and then eastword among some of the most picturisque hills that I have ever seen -- off to loose itself in the bottoms of the Trimbelle. These hills and low- lands formed a great part of our pasture-lands where we boys, especial- ly Maurice and I till he leaft for Stillwater to study, used to watch the cattle and study our catechism. Sometimes we'd roll rocks down the hill-sids - great amusement for boys! - or pick perries or fish and swim till the cattle would stray away and get into mischief and then we would have our own anxieties finding them. Sometimes we got our medicine for carelessness; more frequently, perhaps, we es",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "said highway except to burn our barn ..... Two slight vallies joined at the foot of theN.E. corner of the garden and formed quite a ravine running nothword between the old and the new fields. This was joined by one or two others from the side in its course down to the \"Big Ravine\", a beautiful valley, that curved northword and then eastword among some of the most picturisque hills that I have ever seen -- off to loose itself in the bottoms of the Trimbelle. These hills and low- lands formed a great part of our pasture-lands where we boys, especial- ly Maurice and I till he leaft for Stillwater to study, used to watch the cattle and study our catechism. Sometimes we'd roll rocks down the hill-sids - great amusement for boys! - or pick perries or fish and swim till the cattle would stray away and get into mischief and then we would have our own anxieties finding them. Sometimes we got our medicine for carelessness; more frequently, perhaps, we es",
+      "per_polygon": "said highway except to burn our barn. Two slight vallies joined at the foot of theN.E. corner of the garden and formed quite a ravine running nothword between the old and the new fields. This was joined by one or two others from the side in its course down to the \"Big Ravine\", a beautiful valley, that curved northword and then eastword among some of the most picturisque hills that I have ever seen -- off to loose itself in the bottoms of the Trimbelle. These hills and low- lands formed a great part of our pasture-lands where we boys, especial- ly Maurice and I till he leaft for Stillwater to study, used to watch the cattle and study our catechism. Sometimes we'd roll rocks down the hill-sids - great amusement for boys! - or pick perries or fish and swim till the cattle would stray away and get into mischief and then we would have our own anxieties finding them. Sometimes we got our medicine for carelessness; more frequently, perhaps, we es",
+      "min_conf": 0.567
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1930, April",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1930, April",
+      "per_polygon": "c. 1930, April",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished draft)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished draft)",
+      "per_polygon": "(Unfinished draft)",
+      "min_conf": 0.842
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 4",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 4",
+      "per_polygon": "Page 4",
+      "min_conf": 0.991
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mrs. Margaret T. LeDeux",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Mrs. Margaret T. LeDoux",
+      "per_polygon": "Mrs. Margaret T. LeDeux",
+      "min_conf": 0.927
+    }
+  ]
+}

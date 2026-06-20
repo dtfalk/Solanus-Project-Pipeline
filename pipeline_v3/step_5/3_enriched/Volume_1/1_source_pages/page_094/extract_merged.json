@@ -1,0 +1,142 @@
+{
+  "page": "Volume_1/1_source_pages/page_094",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 12,
+  "n_agree": 8,
+  "n_needs_review": 4,
+  "regions": [
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Richard Werthman",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Richard Werthman",
+      "per_polygon": "Richard Werthman",
+      "min_conf": 0.995
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "doc": "doc_1",
+      "category": "src_location_recipient",
+      "merged_text": "5063 Baldwin Ave.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "5063 Baldwin Ave.",
+      "per_polygon": "5063 Baldwin Ave.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Apr. 19th, 1935",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Apr. 19th, 1935",
+      "per_polygon": "Apr. 19th, 1935",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.842
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O. F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of photo copies of handwritten messages on Seraphic Mass Association Cards by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.75
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1935, April 19th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1935, April 19th",
+      "per_polygon": "1935, April 19th",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_2.src_content.0",
+      "doc": "doc_2",
+      "category": "src_content",
+      "merged_text": "0 Course we are glad to include you in our prayers. Do not worry. Special God willing -- i I 1 ! I I 1 1 I 1 1 1 -- for speedy health-recovery -",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "-- for speedy health-recovery God willing -- Special -- 0 Course we are glad to include you in our prayers. Do not worry.",
+      "per_polygon": "0 Course we are glad to include you in our prayers. Do not worry. Special God willing -- i I 1 ! I I 1 1 I 1 1 1 -- for speedy health-recovery -",
+      "min_conf": 0.231
+    },
+    {
+      "rid": "doc_2.src_recipient.0",
+      "doc": "doc_2",
+      "category": "src_recipient",
+      "merged_text": "Mrs. E. J. Werthman",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mrs. E. J. Werthman",
+      "per_polygon": "Mrs. E. J. Werthman",
+      "min_conf": 0.981
+    },
+    {
+      "rid": "doc_2.src_date.0",
+      "doc": "doc_2",
+      "category": "src_date",
+      "merged_text": "October 7th I - 1948",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "October 7th --- 1948",
+      "per_polygon": "October 7th I - 1948",
+      "min_conf": 0.56
+    },
+    {
+      "rid": "doc_2.src_signature.0",
+      "doc": "doc_2",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M.Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M.Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M.Cap.",
+      "min_conf": 0.83
+    },
+    {
+      "rid": "doc_2.archv_date.0",
+      "doc": "doc_2",
+      "category": "archv_date",
+      "merged_text": "1948, October 7th",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1948, October 7th",
+      "per_polygon": "1948, October 7th",
+      "min_conf": 0.993
+    },
+    {
+      "rid": "doc_2.archv_possessor.0",
+      "doc": "doc_2",
+      "category": "archv_possessor",
+      "merged_text": "The original in possession of: Mrs. Marie Werthman 8305. Riverland Drive, Sterling Hts .Mich. 48078 Apt. 3",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "The original in possession of: Mrs. Marie Werthman 8305. Riverland Drive, Apt. 3 Sterling Hts .Mich. 48078",
+      "per_polygon": "The original in possession of: Mrs. Marie Werthman 8305. Riverland Drive, Sterling Hts .Mich. 48078 Apt. 3",
+      "min_conf": 0.836
+    }
+  ]
+}

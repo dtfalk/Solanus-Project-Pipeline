@@ -1,0 +1,109 @@
+{
+  "page": "Volume_2/1_source_pages/page_256",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 7,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for your favor of May 6th. It is rather hazey in my memory what your trouble was in December, since I get different cases often mixed. However, I feel you are taking a practil way for any and every \"hopeless\" -- so called. We'll pray for your intention and try as best we can to foster confidence in God - and in the intercession of our blessed Mother Mary.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Many thanks for your favor of May 6th. It is rather hazey in my memory what your trouble was in December, since I get different cases often mixed. However, I feel you are taking a practil way for any and every \"hopeless\" -- so called. We'll pray for your intention and try as best we can to foster confidence in God -- and in the intercession of our blessed Mother Mary.",
+      "per_polygon": "Many thanks for your favor of May 6th. It is rather hazey in my memory what your trouble was in December, since I get different cases often mixed. However, I feel you are taking a practil way for any and every \"hopeless\" -- so called. We'll pray for your intention and try as best we can to foster confidence in God - and in the intercession of our blessed Mother Mary.",
+      "min_conf": 0.753
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Murray J. Turner,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Murray J. Turner,",
+      "per_polygon": "Murray J. Turner,",
+      "min_conf": 0.927
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "1948, May 10",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1948, May 10",
+      "per_polygon": "1948, May 10",
+      "min_conf": 0.973
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "Blessed be God in All His works:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in All His works:",
+      "per_polygon": "Blessed be God in All His works:",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "God Bless you Mrs. Murray J. Turner, you and yours:",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God Bless you Mrs. you and yours:",
+      "per_polygon": "God Bless you Mrs. Murray J. Turner, you and yours:",
+      "min_conf": 0.941
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely yours in Christ,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Sincerely yours in Christ,",
+      "per_polygon": "Sincerely yours in Christ,",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O. F. M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O. F. M. Cap.",
+      "per_polygon": "Fr. Solanus, O. F. M. Cap.",
+      "min_conf": 0.805
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "min_conf": 0.649
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1948, May 10",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1948, May 10",
+      "per_polygon": "1948, May 10",
+      "min_conf": 0.992
+    }
+  ]
+}

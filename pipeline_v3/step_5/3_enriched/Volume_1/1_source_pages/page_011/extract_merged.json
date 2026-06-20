@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_011",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 5,
+  "n_needs_review": 3,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "\"Trust not in your own example or presence to keep others - nor to the gravity of your man- ners. It is the grace of God will keep them, whether you are present or not\" novitiate The bee and the ungrateful lie told out of un- reasonable fear. \"0 God come to my assistance\" etc. Dream about journey to monastery. Stille Nacht Dec. 24th '96 Temptation & Succor 1/13/'97 + Excelsus 4/4/'97 Summit With regards to Prasch \"God or pleasure at Weeks Ave 1891 Ut per gratiam Dei incepi, ita per eius misericordiam tantum continuam 7/24/19",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "\"Trust not in your own example or presence to keep others - nor to the gravity of your man- ners. It is the grace of God will keep them, whether you are present or not\" novitiate The bee and the ungrateful lie told out of un- reasonable fear. \"O God come to my assistance\" etc. Dream about journey to monastery. Stille Nacht Dec. 24th '96 Temptation & Succor 1/13/'97 + Excelsus 4/4/'97 Summit With regards to Prasch \"God or pleasure at Weeks Ave 1891 Ut per gratiam Dei incepi, ita per eius misericordiam tantum continuam 7/24/1900",
+      "per_polygon": "\"Trust not in your own example or presence to keep others - nor to the gravity of your man- ners. It is the grace of God will keep them, whether you are present or not\" novitiate The bee and the ungrateful lie told out of un- reasonable fear. \"0 God come to my assistance\" etc. Dream about journey to monastery. Stille Nacht Dec. 24th '96 Temptation & Succor 1/13/'97 + Excelsus 4/4/'97 Summit With regards to Prasch \"God or pleasure at Weeks Ave 1891 Ut per gratiam Dei incepi, ita per eius misericordiam tantum continuam 7/24/19",
+      "min_conf": 0.532
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Trap-door of Death & Queen of Rosary 5/31/90 Church-door opened '91 & carelessness Wakened to say rosary '92 To please Jesus & Mary - on st. - cars Easter sunday what gratitude requires '97",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Trap-door of Death & Queen of Rosary 5/31/90 Church-door opened '91 & carelessness Wakened to say rosary '92 To please Jesus & Mary - on st. - cars Easter sunday what gratitude requires '97",
+      "per_polygon": "Trap-door of Death & Queen of Rosary 5/31/90 Church-door opened '91 & carelessness Wakened to say rosary '92 To please Jesus & Mary - on st. - cars Easter sunday what gratitude requires '97",
+      "min_conf": 0.831
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "9/27",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "9/27",
+      "per_polygon": "9/27",
+      "min_conf": 0.986
+    },
+    {
+      "rid": "doc_1.src_date.1",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Lus 7/24/1900",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Lus 7/24/1900",
+      "min_conf": 0.651
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1897, September 27",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1897, September 27",
+      "per_polygon": "c. 1897, September 27",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "doc": "doc_1",
+      "category": "struct_id",
+      "merged_text": "FATHER SOLANUS NOTEBOOK No. 9",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "FATHER SOLANUS, NOTEBOOK NO. 9",
+      "per_polygon": "FATHER SOLANUS NOTEBOOK No. 9",
+      "min_conf": 0.692
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 8",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 8",
+      "per_polygon": "Pg. 8",
+      "min_conf": 0.851
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 9",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 9",
+      "per_polygon": "Pg. 9",
+      "min_conf": 0.977
+    }
+  ]
+}

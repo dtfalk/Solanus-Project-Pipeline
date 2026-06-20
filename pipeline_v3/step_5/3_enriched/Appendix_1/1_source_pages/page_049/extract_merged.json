@@ -1,0 +1,54 @@
+{
+  "page": "Appendix_1/1_source_pages/page_049",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 4,
+  "n_agree": 2,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "God bless you Margaret Lillie Hope this finds out- look brightening .... \"Whom the Lord loveth He chastenith ... \" In the crosses of life that come to us, Jesus offers us opportunities to help Him redeem the world. Let us profit by His Generosity. Father Solanus",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "God bless you Margaret Lillie Hope this finds out- look brightening .... \"Whom the Lord loveth He chastenith ... \" In the crosses of life that come to us, Jesus offers us opportunities to help Him redeem the world. Let us profit by His Generosity.",
+      "per_polygon": "God bless you Margaret Lillie Hope this finds out- look brightening .... \"Whom the Lord loveth He chastenith ... \" In the crosses of life that come to us, Jesus offers us opportunities to help Him redeem the world. Let us profit by His Generosity. Father Solanus",
+      "min_conf": 0.92
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "doc": "doc_1",
+      "category": "src_recipient",
+      "merged_text": "Margaret Lillie",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "",
+      "per_polygon": "Margaret Lillie",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "Jan. 16th., 1952",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Jan. 16th., 1952",
+      "per_polygon": "Jan. 16th., 1952",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Father Solanus O.F.M.C.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Father Solanus O.F.M.C.",
+      "per_polygon": "Father Solanus O.F.M.C.",
+      "min_conf": 0.834
+    }
+  ]
+}

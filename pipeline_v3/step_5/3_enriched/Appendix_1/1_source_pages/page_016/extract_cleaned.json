@@ -1,0 +1,81 @@
+{
+  "page": "Appendix_1/1_source_pages/page_016",
+  "source": "extract_cleaned.json(chained)",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "God bless you and yours. I hope you are all well -\"Granma\" Granpa\" and all. I started half a dozen times since January 1st to write a let- ter worth while ..... 19 letters broke my record To-day - with a few bunches untouched since last week. . I was for a week's retreat down with Fr. M.E. in Huntington early in Oct. He is well and was trans- ferred to 226 E. 113th St. , N.Y. City. leaving here 15th. Mary Casey was here last evening is well. Frances Malloy's are all well. Ed. Sampson and Noonans are all well.",
+      "merged_text": "God bless you and yours. I hope you are all well -\"Granma\" Granpa\" and all. I started half a dozen times since January Ist to write a let- ter worth while ..... 19 letters broke my record To-day - with a few bunches untouched since last week. . I was for a week's retreat down with Fr. M.E. in Huntington early in Oct. He is well and was trans- ferred to 226 E. 113th St. , N.Y. City. leaving here 15th. Mary Casey was here last evening is well. Frances Malloy's are all well. Ed. Sampson and Noonans are all well.",
+      "edits": [
+        {
+          "rule": "ist",
+          "before": "Ist",
+          "after": "1st"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Love and God's blessing to all.",
+      "merged_text": "Love and God's blessing to all.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_origin.0",
+      "category": "src_origin",
+      "cleaned_text": "St. Bonaventure Monastery 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "merged_text": "St. Bonaventure Monastery 1740 Mt. Elliott Ave. Detroit, Mich.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mrs. Margaret Casey LeDoux",
+      "merged_text": "Mrs. Margaret Casey LeDoux",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "St. Mary's Ave. S. (an) Leandro, Calif.",
+      "merged_text": "St. Mary's Ave. S. (an) Leandro, Calif.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "DEC. 22, 1930",
+      "merged_text": "DEC. 22, 1930",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "My Dear Sister Margaret :-",
+      "merged_text": "My Dear Sister Margaret :-",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus, O.M.Cap.",
+      "merged_text": "Fr. Solanus, O.M.Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Praised Be JesusChrist",
+      "merged_text": "Praised Be JesusChrist",
+      "edits": []
+    }
+  ]
+}

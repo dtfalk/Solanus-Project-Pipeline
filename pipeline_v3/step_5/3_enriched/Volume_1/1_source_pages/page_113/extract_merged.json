@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_113",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 7,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "JOY, PEACE AND GRACE BE YOURS - Better late than never.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "JOY, PEACE AND GRACE BE YOURS - Better late than never.",
+      "per_polygon": "JOY, PEACE AND GRACE BE YOURS - Better late than never.",
+      "min_conf": 0.951
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "Many thanks for your charitable favor. I succeeded To-day in getting Bernard's certificate off in the mail. By air this ought to fly over it .. Please tell Patrick our dear Brother I am not forgetting his letter - the one I Owe for his several weeks back. - just now \"snowed under.\"",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Many thanks for your charitable favor. I succeeded To-day in getting Bernard's certificate off in the mail. By air this ought to fly over it. Please tell Patrick our dear Brother I am not forgetting his letter - the one I owe for his several weeks back. - just now \"snowed under.\"",
+      "per_polygon": "Many thanks for your charitable favor. I succeeded To-day in getting Bernard's certificate off in the mail. By air this ought to fly over it .. Please tell Patrick our dear Brother I am not forgetting his letter - the one I Owe for his several weeks back. - just now \"snowed under.\"",
+      "min_conf": 0.301
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "doc": "doc_1",
+      "category": "src_date",
+      "merged_text": "January 10th 1950. - instead of Dec. 25.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "January 10th 1950. - instead of Dec. 25.",
+      "per_polygon": "January 10th 1950. - instead of Dec. 25.",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "doc": "doc_1",
+      "category": "src_greeting",
+      "merged_text": "To My Dear Brother Owen B.J. and to all your dear ones - our dear ones:",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "To My Dear Brother Owen B.J. and to all your dear ones - our dear ones:",
+      "per_polygon": "To My Dear Brother Owen B.J. and to all your dear ones - our dear ones:",
+      "min_conf": 0.755
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Blessed be God in all His designs. Sincerely your Brother,",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Blessed be God in all His designs. Sincerely your Brother,",
+      "per_polygon": "Blessed be God in all His designs. Sincerely your Brother,",
+      "min_conf": 0.929
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus, O.F.M. Cap.",
+      "per_polygon": "Fr. Solanus, O.F.M. Cap.",
+      "min_conf": 0.884
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "The following is a faithful transcription of the handwritten original message on a Christmas card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "The following is a faithful transcription of the handwritten original message on a Christmas card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "per_polygon": "The following is a faithful transcription of the handwritten original message on a Christmas card by the Servant of God, Father Solanus Casey, O.F.M. Cap.",
+      "min_conf": 0.799
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1950, January 10",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1950, January 10",
+      "per_polygon": "1950, January 10",
+      "min_conf": 0.99
+    }
+  ]
+}

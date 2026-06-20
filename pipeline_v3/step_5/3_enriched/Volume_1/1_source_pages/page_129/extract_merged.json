@@ -1,0 +1,98 @@
+{
+  "page": "Volume_1/1_source_pages/page_129",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 8,
+  "n_agree": 6,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "I am trying to get time to, kinda wake them up to renewed appreciation of the only science that in the end amounts to more that the snap of one's finger, Religion; The Science of our happy dependence on Almighty God and our neighbor. What a real vestibule to Heaven this world would be if everyone would just be convinced and try to live according to that simple definition! Fr. E'd was here with us a whole week in May. A letter from him in White Plains Y. He seems to keep well most of the time. Deo Gr.",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "I am trying to get time to, vinda wake them up to renewed appreciation of the only science that in the end amounts to more that the snap of one's finger, Religion; The Science of our happy dependence on Almighty God and our neighbor. What a real vestibule to Heaven this world would be if everyone would just be convinced and try to live according to that simple definition! Fr. E'd was here with us a whole week in May. A letter from him in White Plains Y. He seems to keep well most of the time. Deo Gr.",
+      "per_polygon": "I am trying to get time to, kinda wake them up to renewed appreciation of the only science that in the end amounts to more that the snap of one's finger, Religion; The Science of our happy dependence on Almighty God and our neighbor. What a real vestibule to Heaven this world would be if everyone would just be convinced and try to live according to that simple definition! Fr. E'd was here with us a whole week in May. A letter from him in White Plains Y. He seems to keep well most of the time. Deo Gr.",
+      "min_conf": 0.58
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "God bless you again. Keep well.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "God bless you again. Keep well.",
+      "per_polygon": "God bless you again. Keep well.",
+      "min_conf": 0.736
+    },
+    {
+      "rid": "doc_1.src_farewell.1",
+      "doc": "doc_1",
+      "category": "src_farewell",
+      "merged_text": "Sincerely - Your Brother (B.F. )",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Sincerely - Your Brother (B.F.)",
+      "per_polygon": "Sincerely - Your Brother (B.F. )",
+      "min_conf": 0.88
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "doc": "doc_1",
+      "category": "src_signature",
+      "merged_text": "Fr. Solanus",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Fr. Solanus",
+      "per_polygon": "Fr. Solanus",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1953, July 26",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1953, July 26",
+      "per_polygon": "1953, July 26",
+      "min_conf": 0.697
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.992
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page Two",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page Two",
+      "per_polygon": "Page Two",
+      "min_conf": 0.983
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Mr. Patrick Casey",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Mr. Patrick Casey",
+      "per_polygon": "Mr. Patrick Casey",
+      "min_conf": 0.963
+    }
+  ]
+}

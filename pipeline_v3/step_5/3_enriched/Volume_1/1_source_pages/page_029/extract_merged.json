@@ -1,0 +1,109 @@
+{
+  "page": "Volume_1/1_source_pages/page_029",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 9,
+  "n_agree": 8,
+  "n_needs_review": 1,
+  "regions": [
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Latin Notes as above on page 6. (such notes occur again on pages 25 to 30.)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Latin Notes as above on page 6. (such notes occur again on pages 25 to 30.)",
+      "per_polygon": "Latin Notes as above on page 6. (such notes occur again on pages 25 to 30.)",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_commentary.1",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "(Clipping pasted over Latin notes.) Article entitled, \"Prominent Minister and Editor Becomes A Catholic, and Explains Reason Why.\"",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Clipping pasted over Latin notes.) Article entitled, \"Prominent Minister and Editor Becomes A Catholic, and Explains Reason Why.\"",
+      "per_polygon": "(Clipping pasted over Latin notes.) Article entitled, \"Prominent Minister and Editor Becomes A Catholic, and Explains Reason Why.\"",
+      "min_conf": 0.878
+    },
+    {
+      "rid": "doc_1.archv_commentary.2",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Article on conversion of Minister continued. (pasted over Latin notes. )",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Article on conversion of Minister continued. (pasted over Latin notes. )",
+      "per_polygon": "Article on conversion of Minister continued. (pasted over Latin notes. )",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_commentary.3",
+      "doc": "doc_1",
+      "category": "archv_commentary",
+      "merged_text": "Article on conversion of Minister concluded. (pasted over Latin notes. )",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Article on conversion of Minister concluded. (pasted over Latin notes.)",
+      "per_polygon": "Article on conversion of Minister concluded. (pasted over Latin notes. )",
+      "min_conf": 0.977
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "c. 1903 et seq.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "c. 1903 et seq.",
+      "per_polygon": "c. 1903 et seq.",
+      "min_conf": 0.989
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 9.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 9.",
+      "per_polygon": "Pg. 9.",
+      "min_conf": 0.963
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 10.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 10.",
+      "per_polygon": "Pg. 10.",
+      "min_conf": 0.858
+    },
+    {
+      "rid": "doc_1.struct_doc.2",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 11.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 11.",
+      "per_polygon": "Pg. 11.",
+      "min_conf": 0.697
+    },
+    {
+      "rid": "doc_1.struct_doc.3",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Pg. 12.",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Pg. 12.",
+      "per_polygon": "Pg. 12.",
+      "min_conf": 0.977
+    }
+  ]
+}

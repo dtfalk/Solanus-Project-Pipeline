@@ -1,0 +1,67 @@
+{
+  "page": "Appendix_2/1_source_pages/page_061",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "I am enrolling you as an emergency member in the Seraphic Mass Association. I do hope it help you - and, God willing, that you be able again to sign your name. We'll pray for one another's con- version - physical and otherwise. In your case that it start - as would be perhaps best - with your hand and heart together ....?",
+      "merged_text": "I am enrolling you as an emergency member in the Seraphic Mass Association. I do hope it help you - and, God willing, that you be able again to sign your name. We'll pray for one another's con- version - physical and otherwise. In your case that it start - as would be perhaps best - with your hand and heart together ....?",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "Nov. 6th, 1946",
+      "merged_text": "Nov. 6th, 1946",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "O all ye works of the Lord! Bless the Lord .... 11",
+      "merged_text": "0 all ye works of the Lord! Bless the Lord .... 11",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Sister Thomas Edward - you and yours.",
+      "merged_text": "God bless you Sister Thomas Edward - you and yours.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Sincerely ... F",
+      "merged_text": "Sincerely ... F",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": ". Fr. Solanus, O.F.M. Cap.",
+      "merged_text": ". Fr. Solanus, O.F.M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Praised be Jesus Christ.",
+      "merged_text": "Praised be Jesus Christ.",
+      "edits": []
+    }
+  ]
+}

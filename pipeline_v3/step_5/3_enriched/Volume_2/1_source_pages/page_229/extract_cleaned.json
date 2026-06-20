@@ -1,0 +1,116 @@
+{
+  "page": "Volume_2/1_source_pages/page_229",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "Many thanks for kind rememberance. Haven't been here since April 25th. Sorry I missed you. I received word from Mr. Stanton wrote me of your flight to Europe - and shortly after came your cards. · I hope by this time he believes more in his Patron . - St. Anton. ! Best Wishes.",
+      "merged_text": "Many thanks for kind rememberance. Haven't been here since April 25th. Sorry I missed you. I received word from Mr. Stanton wrote me of your flight to Europe - and shortly after came your cards. · I hope by this time he believes more in his Patron . - St. Anton. ! Best Wishes.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "Clerical Novitiate (rear) -- looking S. E. to City down a mile and } on the Wabash. We have 18 promising novices pray for 40.",
+      "merged_text": "Clerical Novitiate (rear) -- looking S. E. to City down a mile and } on the Wabash. We have 18 promising novices pray for 40.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_recipient.0",
+      "category": "src_recipient",
+      "cleaned_text": "Mrs. Margaret Doyle",
+      "merged_text": "Mrs. Margaret Doyle",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_location_recipient.0",
+      "category": "src_location_recipient",
+      "cleaned_text": "866 Alter Road Detroit, Michigan",
+      "merged_text": "866 Alter Road Detroit, Michigan",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_date.0",
+      "category": "src_date",
+      "cleaned_text": "February 13, 1947",
+      "merged_text": "February 13, 1947",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.0",
+      "category": "src_greeting",
+      "cleaned_text": "Praise the Lord in all His works:",
+      "merged_text": "Praise the Lord in all His works:",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_greeting.1",
+      "category": "src_greeting",
+      "cleaned_text": "God bless you Mrs. M. Doyle:",
+      "merged_text": "God bless you Mrs. M. Doyle:",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_farewell.0",
+      "category": "src_farewell",
+      "cleaned_text": "Best Wishes. Sincerely yours in f O",
+      "merged_text": "Best Wishes. Sincerely yours in f 0",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.src_signature.0",
+      "category": "src_signature",
+      "cleaned_text": "Fr. Solanus.",
+      "merged_text": "Fr. Solanus.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_other.0",
+      "category": "src_other",
+      "cleaned_text": "Praised be Jesus the Messiah.",
+      "merged_text": "Praised be Jesus the Messiah.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_commentary.0",
+      "category": "archv_commentary",
+      "cleaned_text": "The following is a faithful transcription of a photo copy of a handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "merged_text": "The following is a faithful transcription of a photo copy of a handwritten original by the Servant of God, Father Solanus Casey, O. F. M. Cap.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_format_note.0",
+      "category": "archv_format_note",
+      "cleaned_text": "(on picture side of postcard Fr. Solanus has written:)",
+      "merged_text": "(on picture side of postcard Fr. Solanus has written:)",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "1947, February 13",
+      "merged_text": "1947, February 13",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.archv_possessor.0",
+      "category": "archv_possessor",
+      "cleaned_text": "Original in possession of: Joseph F. Doyle 954 Barrington Rd. Grosse Pointe, Mich. 48230",
+      "merged_text": "Original in possession of: Joseph F. Doyle 954 Barrington Rd. Grosse Pointe, Mich. 48230",
+      "edits": []
+    }
+  ]
+}

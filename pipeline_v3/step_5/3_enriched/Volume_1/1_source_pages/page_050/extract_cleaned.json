@@ -1,0 +1,60 @@
+{
+  "page": "Volume_1/1_source_pages/page_050",
+  "source": "extract_merged.json",
+  "rules_run": [
+    "ist",
+    "lone_o",
+    "zero_word"
+  ],
+  "n_edits": 1,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "category": "src_content",
+      "cleaned_text": "and thoroughly Catholic. \"I cannot love the Son, \" he replied \"without honoring the Mother.\" Indeed we cannot love Jesus as we ought to do - cannot be devoted to His Sacred Heart without devotion to Mary. As St. Charles Boromeo says, Mary was be- queathed to us for our mother by the Sacred Heart in agony on the cross and we cannot love her but by His grace. And in similar manner we may say Jesus was given to us through Mary and only through Mary can we go to Jesus. . Only through her and with her can we arrive at true devotion to the Sacred Heart of her divine Son - where the love of God is everything to the soul and --- the soul is everything to God. Besides, -- if God is so in- finitely great, and good and powerful and loving that even in Heaven no creature can as much as begin to comprehend His qualities, how can we ever in this world begin to realize such greatness, such power, such love, such holiness ?--- But as in nature the unclouded brilliancy of the sun which forbids theyeye to gaze boldly at it - and any one who would insist on doing so would soon be left in dark- ness, so in the order of grace, there is nothing in nature or in visible creation - however sublime it may be - but what is simply a shadow, a counterpart of the supernatural. Surely the effects of the sun itself, e.g. directly upon us is enough to convince us of the sun's importance - of its necessity to our existence. But besites this there is no ob- ject in nature but what, as far as we know) ,re- ceives its beauty from the sun. The violet, the rose, the lily as well as the moon and the count- less stars have their light from the sun. Indeed the sun may well be called",
+      "merged_text": "and thoroughly Catholic. \"I cannot love the Son, \" he replied \"without honoring the Mother.\" Indeed we cannot love Jesus as we ought to do - cannot be devoted to His Sacred Heart without devotion to Mary. As St. Charles Boromeo says, Mary was be- queathed to us for our mother by the Sacred Heart in agony on the cross and we cannot love her but by His grace. And in similar manner we may say Jesus was given to us through Mary and only through Mary can we go to Jesus. . Only through her and with her can we arrive at true devotion to the Sacred Heart of her divine Son - where the love of God is everything to the soul and --- the soul is everything to God. Besides, -- if God is so in- finitely great, and good and powerful and loving that even in Heaven no creature can as much as begin to comprehend His qualities, how can we ever in this world begin to realize such greatness, such power, such love, such holiness ?--- But as in nature the unclouded brilliancy of the sun which forbids theyeye to gaze boldly at it - and any one who would insist on doing so would soon be left in dark- ness, so in the order of grace, there is nothing in nature or in visible creation - however sublime it may be - but what is simply a shadow, a counterpart of the supernatural. Surely the effects of the sun itself, e.g. directly upon us is enough to convince us of the sun's importance - of its necessity to our existence. But besites this there is no ob- ject in nature but what, as far as we know) ,re- ceives its beauty from the sun. The violet, the rose, the lily as well as the moon and the count- less stars have their light from the sun. Indeed the sun may well be called",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.src_content.1",
+      "category": "src_content",
+      "cleaned_text": "ValeCh \"Material Lord of the visible creation.\" For it en- livens and beautifies everything it touches. It calls forth the little flowers and clothes the forest and field and river and mountain, clouds and rainbow. It reflects itself on all nature and in a manner makes everything to speak of the Creator, so that the Psalmist exclaims as in ecstasy \"O, all ye works of the Lord bless the Lord. Praise and exalt Him above all forever!\" and as if conscious of this praise a mountain traveler of our own day exclaims",
+      "merged_text": "ValeCh \"Material Lord of the visible creation.\" For it en- livens and beautifies everything it touches. It calls forth the little flowers and clothes the forest and field and river and mountain, clouds and rainbow. It reflects itself on all nature and in a manner makes everything to speak of the Creator, so that the Psalmist exclaims as in ecstasy \"0, all ye works of the Lord bless the Lord. Praise and exalt Him above all forever!\" and as if conscious of this praise a mountain traveler of our own day exclaims",
+      "edits": [
+        {
+          "rule": "lone_o",
+          "before": "0",
+          "after": "O"
+        }
+      ]
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "category": "archv_date",
+      "cleaned_text": "c. 1917 May",
+      "merged_text": "c. 1917 May",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_id.0",
+      "category": "struct_id",
+      "cleaned_text": "FATHER SOLANUS, NOTEBOOK No. 2",
+      "merged_text": "FATHER SOLANUS, NOTEBOOK No. 2",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "category": "struct_doc",
+      "cleaned_text": "Pg. 42 cont.",
+      "merged_text": "Pg. 42 cont.",
+      "edits": []
+    },
+    {
+      "rid": "doc_1.struct_doc.1",
+      "category": "struct_doc",
+      "cleaned_text": "Pg . 43",
+      "merged_text": "Pg . 43",
+      "edits": []
+    }
+  ]
+}

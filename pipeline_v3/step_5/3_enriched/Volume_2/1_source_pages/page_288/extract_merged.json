@@ -1,0 +1,65 @@
+{
+  "page": "Volume_2/1_source_pages/page_288",
+  "engine": "azure-prebuilt-read",
+  "merge_prefer": "per_polygon",
+  "n_regions": 5,
+  "n_agree": 3,
+  "n_needs_review": 2,
+  "regions": [
+    {
+      "rid": "doc_1.src_content.0",
+      "doc": "doc_1",
+      "category": "src_content",
+      "merged_text": "There is another very interested party, a certain Mrs. Gordon Thorne, quite a benefactor who without effort could donate the whole Prize ($1,000,000.) and possibly will do as much, if successful in her present efforts to break away from a trast-company that has been charging her $40,000. annually for their service. She is preparing for a battle in court on this score next Monday, 25th. She expects them to appeal the case if she win. .. She asks for prayers. A daily communicant and quite a \"live wire\" , with far-reaching views, she seems solicitous to make up for lost time while her non-catholic, though seemingly very charitable, Husband, Montgomery Ward Thorne, lived. Among other works of charity she is figuering on building an orphanage for His Eminence, Samual Cardinal Strich. She has been sending us his diocesan \"New World\" which recently received the gold medal as being the best all=round Catholic Newspaper, The Rev. editor, Father Daly, as it seems, wants to come over to learn about our \"essay proposition\". Now, since talking to your Paternity about this proposition, it has grown immensly in magnitude and possibility, as seems to me; so that instead of giving it over to the (Cowl) or any individual publication, there should someway be a convention (of) clerical and experienced lay editors - including even non-catholics who have shown",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "There is another very interested party, a certain Mrs. Gordon Thorne, quite a benefactor who without effort could donate the whole Prize ($1,000,000.) and possibly will do as much, if successful in her present efforts to break away from a trust-company that has been charging her $40,000. annually for their service. She is preparing for a battle in court on this score next Monday, 25th. She expects them to appeal the case if she win. .. . She asks for prayers. A daily communicant and quite a \"live wire\" , with far-reaching views, she seems solicitous to make up for lost time while her non-catholic, though seemingly very charitable, Husband, Montgomery Ward Thorne, lived. Among other works of charity she is figuering on building an orphanage for His Eminence, Samual Cardinal Strich. She has been sending us his diocesan \"New World\" which recently received the gold medal as being the best all=round Catholic Newspaper, The Rev. editor, Father Daly, as it seems, wants to come over to learn about our \"essay proposition\". Now, since talking to your Paternity about this proposition, it has grown immensly in magnitude and possibility, as seems to me; so that instead of giving it over to the (Cowl) or any individual publication, there should someway be a convention (of) clerical and experienced lay editors - including even non-catholics who have shown",
+      "per_polygon": "There is another very interested party, a certain Mrs. Gordon Thorne, quite a benefactor who without effort could donate the whole Prize ($1,000,000.) and possibly will do as much, if successful in her present efforts to break away from a trast-company that has been charging her $40,000. annually for their service. She is preparing for a battle in court on this score next Monday, 25th. She expects them to appeal the case if she win. .. She asks for prayers. A daily communicant and quite a \"live wire\" , with far-reaching views, she seems solicitous to make up for lost time while her non-catholic, though seemingly very charitable, Husband, Montgomery Ward Thorne, lived. Among other works of charity she is figuering on building an orphanage for His Eminence, Samual Cardinal Strich. She has been sending us his diocesan \"New World\" which recently received the gold medal as being the best all=round Catholic Newspaper, The Rev. editor, Father Daly, as it seems, wants to come over to learn about our \"essay proposition\". Now, since talking to your Paternity about this proposition, it has grown immensly in magnitude and possibility, as seems to me; so that instead of giving it over to the (Cowl) or any individual publication, there should someway be a convention (of) clerical and experienced lay editors - including even non-catholics who have shown",
+      "min_conf": 0.128
+    },
+    {
+      "rid": "doc_1.archv_date.0",
+      "doc": "doc_1",
+      "category": "archv_date",
+      "merged_text": "1949, July 18",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "1949, July 18",
+      "per_polygon": "1949, July 18",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.archv_other.0",
+      "doc": "doc_1",
+      "category": "archv_other",
+      "merged_text": "(Unfinished draft)",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "(Unfinished draft)",
+      "per_polygon": "(Unfinished draft)",
+      "min_conf": 0.569
+    },
+    {
+      "rid": "doc_1.struct_doc.0",
+      "doc": "doc_1",
+      "category": "struct_doc",
+      "merged_text": "Page 2",
+      "source": "agree",
+      "needs_review": false,
+      "full_page": "Page 2",
+      "per_polygon": "Page 2",
+      "min_conf": 0.988
+    },
+    {
+      "rid": "doc_1.struct_other.0",
+      "doc": "doc_1",
+      "category": "struct_other",
+      "merged_text": "Very Rev. Father Provincial, O. F.M. Cop. , Edmund",
+      "source": "per_polygon",
+      "needs_review": true,
+      "full_page": "Very Rev. Father Provincial, O. F.N. Cop. , Edmund",
+      "per_polygon": "Very Rev. Father Provincial, O. F.M. Cop. , Edmund",
+      "min_conf": 0.606
+    }
+  ]
+}
