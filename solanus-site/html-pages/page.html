@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- STATIC, no-cloud deploy: content/media served from this folder; dynamic data via the FastAPI backend. -->
+    <meta name="media-base" content="" />
+    <meta name="media-base-prod" content="" />
+    <meta name="content-base" content="" />
+    <meta name="content-base-prod" content="" />
+    <script src="/javascript/site-config.js"></script>
+    <script src="/javascript/media-base.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Generic shell: page.js sets the real title from the page data + the
+         site config's siteName as soon as the content loads. -->
+    <title>&#8230;</title>
+    <link rel="icon" href="/media-content/logo.svg" type="image/svg+xml" />
+
+    <!-- Shared chrome + layout. The page body itself is built entirely from the
+         page's sections[] by the zoo, so there is NO per-page CSS or JS here. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,800;1,600&family=Open+Sans:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/instance-theme.css" />
+    <style>
+      body {
+        font-family: 'Open Sans', system-ui, sans-serif; color: var(--site-ink, #2A262A);
+        background-color: var(--site-bg, #E5DFDE);
+        background-image: var(--site-bg-image, none);
+        background-size: cover; background-position: center; background-repeat: no-repeat;
+      }
+      @media (max-width: 760px) { body { background-image: var(--site-bg-image-mobile, var(--site-bg-image, none)); } }
+      body > main { max-width: 1100px; width: 100%; margin: 0 auto; padding: 6rem 1.2rem 3rem; box-sizing: border-box; background: var(--site-panel, transparent); border-radius: 16px; }
+    </style>
+
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- The zoo renders this page's sections[] into #engine-sections inside here. -->
+    <main></main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/javascript/load-fragments.js"></script>
+    <script src="/javascript/header.js"></script>
+    <script src="/javascript/footer.js"></script>
+    <script src="/javascript/page.js"></script>
+  </body>
+</html>

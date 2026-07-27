@@ -1,0 +1,29 @@
+# accelerate FSDP config for the 4×L40S "top"/"top16" runs (used by submit_job.sh).
+#   accelerate launch --config_file fsdp_config.yaml --num_processes 4 train_qlora.py --profile top
+# FULL_SHARD splits weights + grads + optimizer state across all 4 GPUs, so every card computes
+# (≈4× the naive model-parallel throughput). Works for both 4-bit QLoRA and 16-bit LoRA.
+compute_environment: LOCAL_MACHINE
+distributed_type: FSDP
+downcast_bf16: 'no'
+machine_rank: 0
+main_process_ip: null
+main_process_port: null
+main_training_function: main
+mixed_precision: bf16
+num_machines: 1
+num_processes: 4
+rdzv_backend: static
+same_network: true
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
+fsdp_config:
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP   # wraps each LlamaDecoderLayer (from model._no_split_modules)
+  fsdp_sharding_strategy: FULL_SHARD              # ZeRO-3: shard params, grads, and optimizer state
+  fsdp_state_dict_type: FULL_STATE_DICT
+  fsdp_cpu_ram_efficient_loading: true           # rank0 loads real weights, others meta, then sync
+  fsdp_sync_module_states: true
+  fsdp_use_orig_params: false                     # required for frozen-base + LoRA-trainable param mix
+  fsdp_offload_params: false                      # 192GB is plenty; no CPU offload needed
+  fsdp_backward_prefetch: BACKWARD_PRE
+  fsdp_forward_prefetch: false

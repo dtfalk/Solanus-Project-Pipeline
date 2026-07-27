@@ -1,0 +1,58 @@
+/* layout.css — global layout primitives shared by every page.
+   Loaded LAST in <head> so it overrides per-page body rules where needed.
+
+   Goals:
+   1. Sticky footer: footer always sits at bottom of viewport even when
+      the page content is shorter than the viewport.
+   2. Background images cover the whole viewport regardless of content
+      height (no more "running off top/bottom"). Uses background-attachment:
+      fixed on desktop; mobile keeps scroll-attachment because iOS Safari
+      ignores `fixed` and the per-page @media rules already swap to
+      portrait-friendly images at small widths.
+*/
+
+/* Global box-sizing reset. A hand-built page might declare this at the top of
+   its own per-page sheet, but builder pages (page.html → /p/*) load none of
+   those — so without it .site-header would fall back to content-box and its
+   right-aligned social icons could overflow past the viewport. Declaring it
+   here — the one sheet every page loads — covers every page, current and future. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The page structure on every HTML file is:
+     <body>
+       <div id="header-placeholder"></div>
+       <main>...</main>
+       <div id="footer-placeholder"></div>
+     </body>
+   Make <main> grow so the footer placeholder is pinned to the viewport bottom. */
+body > main {
+  flex: 1 0 auto;
+}
+body > #footer-placeholder,
+body > #header-placeholder {
+  flex: 0 0 auto;
+}
+
+/* Desktop: lock the body background to the viewport so it stays correctly
+   positioned regardless of content scroll. iOS Safari ignores `fixed` and
+   would awkwardly stretch/zoom the image, so scope this to non-touch widths. */
+@media (min-width: 1011px) {
+  body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

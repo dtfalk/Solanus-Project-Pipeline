@@ -1,0 +1,9 @@
+{
+  "title": "Walkthrough",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "wk-h", "type": "heading", "text": "Walkthrough" },
+    { "id": "wk-intro", "type": "text", "body": "How the archive was built, step by step — from scanned pages to a cited, graph-aware question answerer — and what is still being built." },
+    { "id": "wk-steps", "type": "step-cards", "endpoint": "/api/walkthrough", "todoHeading": "What's left to build" }
+  ]
+}

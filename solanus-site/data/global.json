@@ -1,0 +1,84 @@
+{
+  "logo": "/media-content/logo.svg",
+  "nav": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "Ask the archive",
+      "url": "/ask"
+    },
+    {
+      "label": "Knowledge graph",
+      "url": "/graph"
+    },
+    {
+      "label": "Map",
+      "url": "/map"
+    },
+    {
+      "label": "Live pipeline",
+      "url": "/flow"
+    },
+    {
+      "label": "Avatar",
+      "url": "/avatar"
+    },
+    {
+      "label": "Walkthrough",
+      "url": "/walkthrough"
+    },
+    {
+      "label": "How it works",
+      "url": "/how"
+    },
+    {
+      "label": "Tools & data",
+      "url": "/tools"
+    },
+    {
+      "label": "Explanations",
+      "url": "/explanations"
+    }
+  ],
+  "social": [],
+  "footer": {
+    "blurb": "The papers of Father Solanus Casey, OFM Cap. (1870–1957) — a digital research archive.",
+    "signupLabel": "",
+    "copyright": "© Capuchin Franciscan Province of St. Joseph"
+  },
+  "questionnaire": {
+    "confirm": {
+      "heading": "Thanks for signing up!",
+      "body": "Would you answer a couple of quick optional questions? It helps us understand who's visiting."
+    },
+    "submitLabel": "Submit",
+    "fields": [
+      {
+        "name": "location",
+        "label": "Where are you based?",
+        "type": "text",
+        "placeholder": "City, Country"
+      },
+      {
+        "name": "discoverySource",
+        "label": "How did you find us?",
+        "type": "select",
+        "options": [
+          "Search",
+          "Social media",
+          "A friend",
+          "Other"
+        ]
+      }
+    ]
+  },
+  "theme": {
+    "accent": "#3C1605"
+  },
+  "tracking": {
+    "metaPixelId": "",
+    "gaMeasurementId": ""
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in</title>
+    <link rel="icon" href="/media-content/logo.svg" type="image/svg+xml" />
+    <style>
+      /* Self-contained: this page is the front door of a PRIVATE draft site, so
+         it must render even before anyone is signed in (no engine, no chrome). */
+      :root { --accent: #4f7cff; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center;
+             font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+             background: #14141a; color: #f0f0f0; }
+      .card { max-width: 380px; width: calc(100% - 2rem); text-align: center;
+              background: #1c1c24; border: 1px solid rgba(255,255,255,.08);
+              border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+      .kicker { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; opacity: .6; }
+      h1 { margin: .4rem 0 .6rem; font-size: 1.5rem; }
+      p { opacity: .8; line-height: 1.6; margin: 0 0 1.6rem; }
+      a.btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+              font-weight: 600; padding: .8rem 1.6rem; border-radius: 10px; }
+      a.btn:hover { filter: brightness(1.08); }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="kicker">Pagesmith</div>
+      <h1>This site is private</h1>
+      <p>You need to sign in to view and edit this draft. Once signed in with an
+         editor account, the Edit toolbar appears automatically.</p>
+      <!-- SWA's built-in auth. Swap `aad` for your configured provider if needed. -->
+      <a class="btn" href="/.auth/login/aad?post_login_redirect_uri=/">Sign in</a>
+    </main>
+  </body>
+</html>

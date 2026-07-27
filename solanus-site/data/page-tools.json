@@ -1,0 +1,10 @@
+{
+  "title": "Tools & data",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "tl-h", "type": "heading", "text": "Tools & data" },
+    { "id": "tl-intro", "type": "text", "body": "Every retrieval technique the agent can use, what it costs, and the size of the corpus behind it." },
+    { "id": "tl-cat", "type": "tool-catalog", "endpoint": "/api/tools", "listField": "tools", "costEndpoint": "/api/cost", "costLabel": "session API cost (all stages)",
+      "stats": [["570", "letters"], ["8,657", "notebook entries"]] }
+  ]
+}

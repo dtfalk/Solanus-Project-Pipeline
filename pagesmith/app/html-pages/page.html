@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- Dev-only: route /media-content/* and /data/*.json to Azure Blob -->
+    <meta name="media-base" content="https://__STORAGE_ACCOUNT__.blob.core.windows.net/media-dev" />
+    <meta name="media-base-prod" content="https://__STORAGE_ACCOUNT__.blob.core.windows.net/media-prod" />
+    <meta name="content-base" content="https://__STORAGE_ACCOUNT__.blob.core.windows.net/content-dev" />
+    <meta name="content-base-prod" content="https://__STORAGE_ACCOUNT__.blob.core.windows.net/content-prod" />
+    <script src="/javascript/site-config.js"></script>
+    <script src="/javascript/media-base.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Generic shell: page.js sets the real title from the page data + the
+         site config's siteName as soon as the content loads. -->
+    <title>&#8230;</title>
+    <link rel="icon" href="/media-content/logo.webp" type="image/x-icon" />
+
+    <!-- Shared chrome + layout. The page body itself is built entirely from the
+         page's sections[] by the zoo, so there is NO per-page CSS or JS here. -->
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <style>
+      /* Optional full-bleed page background (theme.bgImage, set via theme.js) layered
+         under content, with --site-bg as the base colour. layout.css makes it cover +
+         fixed on desktop; mobile uses the lighter --site-bg-image-mobile variant. */
+      body {
+        font-family: 'Poppins', system-ui, sans-serif; color: var(--site-ink, #f0f0f0);
+        background-color: var(--site-bg, #141414);
+        background-image: var(--site-bg-image, none);
+        background-size: cover; background-position: center; background-repeat: no-repeat;
+      }
+      @media (max-width: 760px) { body { background-image: var(--site-bg-image-mobile, var(--site-bg-image, none)); } }
+      /* With a photo background, --site-panel gives the content a dark readable
+         panel (the photo frames it in the margins); transparent otherwise. */
+      body > main { max-width: 1000px; width: 100%; margin: 0 auto; padding: 7rem 1rem 3rem; box-sizing: border-box; background: var(--site-panel, transparent); border-radius: 16px; }
+      body > main h2 { color: #fff; }
+    </style>
+
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- The zoo renders this page's sections[] into #engine-sections inside here. -->
+    <main></main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/javascript/load-fragments.js"></script>
+    <script src="/javascript/header.js"></script>
+    <script src="/javascript/footer.js"></script>
+    <script src="/javascript/page.js"></script>
+  </body>
+</html>

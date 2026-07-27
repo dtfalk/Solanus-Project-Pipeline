@@ -1,0 +1,57 @@
+% =============================================================================
+% preamble.tex — shared LaTeX preamble for the Pagesmith guides.
+% \input this from each guide's .tex. Verified to compile with pdflatex (TeX Live).
+% =============================================================================
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,calc,fit,backgrounds}
+\usepackage{placeins}   % \FloatBarrier
+\usepackage{caption}
+\captionsetup{font=small,skip=8pt}
+
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black,citecolor=blue!55!black}
+
+% A bit of breathing room around floats.
+\setlength{\textfloatsep}{16pt plus 4pt minus 4pt}
+\setlength{\intextsep}{16pt plus 4pt minus 4pt}
+
+% ---- code listings ----------------------------------------------------------
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codecmt}{RGB}{0,128,0}
+\definecolor{codestr}{RGB}{170,55,0}
+\definecolor{codekw}{RGB}{0,0,180}
+% No fixed `language=` (so neither JS nor JSON trips listings' keyword parser);
+% code is shown as clean monospace in a framed, tinted box.
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  commentstyle=\color{codecmt}\itshape,
+  stringstyle=\color{codestr},
+  showstringspaces=false,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  frame=single,
+  framesep=4pt,
+  rulecolor=\color{black!20},
+  aboveskip=10pt,
+  belowskip=6pt
+}
+
+% ---- tikz diagram helpers (boxes + arrows) ----------------------------------
+\definecolor{boxblue}{RGB}{79,124,255}
+\definecolor{boxgray}{RGB}{90,98,112}
+\tikzset{
+  box/.style   = {draw, rounded corners, align=center, font=\small, inner sep=6pt, fill=boxblue!8, draw=boxblue!60},
+  gbox/.style  = {draw, rounded corners, align=center, font=\small, inner sep=6pt, fill=black!4, draw=black!35},
+  flow/.style  = {-{Stealth[length=2.4mm]}, thick, draw=boxgray},
+}
+
+% ---- convenience macros -----------------------------------------------------
+\newcommand{\code}[1]{\texttt{#1}}

@@ -15,3 +15,49 @@ pipeline_v3/step_4/reviewed/**/.backups/
 pipeline_v3/step_4/reviewed_backups/
 pipeline_v3/step_5/**/**.pdf
 pipeline_v3/step_5/**/**.png
+# mimicker: never commit model caches, trained adapters, or SLURM logs
+**/.hf_home
+pipeline_v3/mimicker/adapters/
+pipeline_v3/mimicker/logs/*.out
+pipeline_v3/mimicker/logs/*.err
+# heavy regenerable artifacts (keep the repo lean — regenerate via the pipeline)
+pipeline_v3/step_7/data/
+pipeline_v3/step_7/traces/
+pipeline_v3/public_media/
+
+# heavy avatar model binaries — kept local, swappable working assets (not versioned)
+app/static/vendor/avatar.glb
+pipeline_v3/avatar/solanus-glb/
+pipeline_v3/avatar/solanus-fbx/
+pipeline_v3/avatar/faceit_ready/*.glb
+pipeline_v3/avatar/faceit_ready/*.obj
+pipeline_v3/avatar/output/*.glb
+pipeline_v3/avatar/output/*.obj
+app/static/vendor/avatar_hires.glb
+app/static/vendor/avatar_tripo.glb
+
+# regenerable page assets — rebuild via pipeline_v3/step_7/stages/build_web_pages.py
+# (the .web.webp transport images REPLACE the OCR-grade masked scans for serving)
+**/*.web.webp
+**/*.web.json
+pipeline_v3/step_6/**/*.masked.png
+pipeline_v3/step_6/**/*.masked.pdf
+# runtime trace logs (written per query)
+app/traces/
+# Blender working files (heavy, hand-authored local assets)
+*.blend
+*.blend1
+
+# heavy pipeline DATA + outputs — code-only repo; regenerate via the pipeline or move separately
+pipeline_v3/step_6/3_enriched/
+pipeline_v3/step_6/documents.json
+pipeline_v3/step_6/notebooks.json
+pipeline_v3/step_6/merge_report.json
+searchable_pdfs/Volume_*/
+searchable_pdfs/Appendix_*/
+searchable_pdfs/iiif/
+pipeline_v3/voice/piper/*.onnx
+pipeline_v3/avatar/output/
+pipeline_v3/avatar/*.obj
+pipeline_v3/avatar/*.glb
+pipeline_v3/avatar/*.fbx

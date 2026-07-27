@@ -1,0 +1,32 @@
+{
+  "title": "Ask the archive",
+  "theme": {
+    "bg": "#E5DFDE",
+    "ink": "#2A262A",
+    "accent": "#3C1605"
+  },
+  "sections": [
+    {
+      "id": "ask-conv",
+      "type": "conversation",
+      "endpoint": "/api/ask",
+      "queryField": "query",
+      "answerField": "answer",
+      "citationsField": "citations",
+      "placeholder": "Ask a question about the archive…",
+      "intro": "Ask a question about Fr. Solanus Casey's letters and notebooks — e.g. “What favors were reported for cancer?” or “Who did Solanus write to about the Seraphic Mass Association?” Answers cite the exact scanned region.",
+      "voice": "server",
+      "ttsEndpoint": "/api/tts",
+      "sttEndpoint": "/api/stt",
+      "settings": true,
+      "configEndpoint": "/api/config",
+      "history": true,
+      "personas": true,
+      "personasEndpoint": "/api/personas",
+      "trace": true,
+      "streaming": true,
+      "streamEndpoint": "/api/ask_stream",
+      "regionEndpoint": "/api/region"
+    }
+  ]
+}

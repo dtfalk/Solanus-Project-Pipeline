@@ -1,0 +1,64 @@
+<!--
+  footer.html — the site footer MARKUP + the signup/survey modals (injected into
+  every page's #footer-placeholder by load-fragments.js; wired by footer.js).
+
+  As with the header, the visible copy here is a FALLBACK: global.js fills
+  #footer-blurb, #footer-copyright, the footer social row, and rebuilds the
+  questionnaire fields inside #fanForm from data/global.json. What this file
+  guarantees is the STRUCTURE footer.js needs:
+
+    #signup-btn            opens the email-capture modal
+    #email-modal           collects name + email (#emailForm)
+    #confirm-modal         "want to answer a few questions?" (#confirm-yes/-no)
+    #questionnaire-modal   the survey form (#fanForm + #questionnaire-submit-btn)
+
+  The whole flow is OPTIONAL — delete these modals (and #signup-btn) if your
+  site has no signup/survey. The survey questions live in global.json.
+-->
+<footer>
+  <p id="footer-blurb">A starter site built with Pagesmith.</p>
+  <button type="button" id="signup-btn" class="signup-btn">Sign up</button>
+  <div class="social-icons-footer" aria-label="Social media links"></div>
+  <p id="footer-copyright">© My Site</p>
+</footer>
+
+<!-- Step 1: capture name + email. -->
+<div id="email-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Sign up">
+  <div class="modal-card">
+    <button type="button" class="modal-close" aria-label="Close">&times;</button>
+    <h2>Sign up</h2>
+    <form id="emailForm">
+      <label for="su-name">First name</label>
+      <input id="su-name" name="firstName" type="text" autocomplete="given-name" />
+      <label for="su-email">Email</label>
+      <input id="su-email" name="email" type="email" required autocomplete="email" />
+      <div class="modal-actions"><button type="submit" class="signup-btn">Continue</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Step 2: ask whether they want to answer the optional survey.
+     (heading + body text are set from global.json by global.js). -->
+<div id="confirm-modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button type="button" class="modal-close" aria-label="Close">&times;</button>
+    <h2>Thanks!</h2>
+    <p>Would you answer a couple of quick optional questions?</p>
+    <div class="modal-actions">
+      <button type="button" id="confirm-yes" class="signup-btn">Sure</button>
+      <button type="button" id="confirm-no" class="signup-btn ghost">No thanks</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 3: the survey. global.js injects the question fields before the submit
+     button, from global.json.questionnaire.fields. -->
+<div id="questionnaire-modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button type="button" class="modal-close" aria-label="Close">&times;</button>
+    <h2>A few quick questions</h2>
+    <form id="fanForm">
+      <button type="button" id="questionnaire-submit-btn" class="signup-btn">Submit</button>
+    </form>
+  </div>
+</div>

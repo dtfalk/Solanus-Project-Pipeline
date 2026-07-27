@@ -1,0 +1,92 @@
+/* theme.css — Solanus archival tool brand theme.
+ * Source: Capuchin Franciscan Province of St. Joseph "Province Style Guide" (v1, Dec 2025)
+ * + tone of https://www.solanuscasey.org/ (reverent, traditional, warm, generous whitespace).
+ * Edit the tokens in :root; components below consume them. */
+
+@import url('/static/vendor/fonts.css');
+
+:root {
+  /* --- brand palette (exact hex from the style guide) --- */
+  --provincial:        #3C1605;  /* primary deep brown */
+  --provincial-dark:   #826962;
+  --provincial-mid:    #B3A29D;
+  --provincial-light:  #E5DFDE;  /* warm light background */
+  --white:             #FFFFFF;
+  --grey-black:        #2A262A;  /* body text */
+
+  /* --- semantic roles --- */
+  --bg:            var(--provincial-light);
+  --surface:       var(--white);
+  --text:          var(--grey-black);
+  --muted:         var(--provincial-dark);
+  --primary:       var(--provincial);
+  --primary-text:  var(--white);
+  --border:        var(--provincial-mid);
+  --accent:        var(--provincial-dark);
+
+  /* --- type --- */
+  --font-head: 'Raleway', system-ui, sans-serif;   /* Extra Bold 800 for headings */
+  --font-sub:  'Raleway', system-ui, sans-serif;   /* Semi Bold Italic 600i for subheads */
+  --font-body: 'Open Sans', system-ui, sans-serif;
+
+  /* --- rhythm --- */
+  --radius: 8px;
+  --space: 1rem;
+  --shadow: 0 1px 3px rgba(42, 38, 42, 0.12), 0 4px 16px rgba(60, 22, 5, 0.06);
+  --maxw: 1600px;   /* workspace frame — wide, but not a void around the reading column */
+
+  /* type scale (1.25 modular) — ALL rem so the A−/A+ enlarger scales the whole UI, chrome included */
+  --fs-2xs:.78rem; --fs-xs:.85rem; --fs-sm:.92rem; --fs-base:1rem; --fs-md:1.18rem;
+  --fs-lg:1.5rem; --fs-xl:1.9rem; --fs-2xl:clamp(2rem,3.6vw,3rem);
+  --measure:76ch;        /* prose line-length — comfortable for older readers */
+  --maxw-read:1040px;    /* centered conversation column */
+  /* spacing scale (0.5rem stepped) — calm, generous rhythm */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem; --s-6:2rem; --s-7:3rem;
+}
+
+* { box-sizing: border-box; }
+
+/* =======================================================================
+   ⬇⬇⬇  FONT SIZE KNOB — EDIT THIS ONE NUMBER TO MAKE THE WHOLE APP BIGGER/SMALLER  ⬇⬇⬇
+   Every text size in the app is in rem, so it all scales off this single value.
+   Bigger number = bigger everything (except the header, which is pinned on purpose).
+   Try 22px, 24px, 26px… go as big as you like.
+   ======================================================================= */
+:root { --ui-scale: 22px; }
+html { font-size: var(--ui-scale); }
+/* ======================================================================= */
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; color: var(--provincial); line-height: 1.2; margin: 0 0 .5em; }
+.subhead { font-family: var(--font-sub); font-weight: 600; font-style: italic; color: var(--muted); }
+
+a { color: var(--provincial); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--provincial-dark); }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space); box-shadow: var(--shadow); }
+
+button, .btn {
+  font-family: var(--font-head); font-weight: 600;
+  background: var(--primary); color: var(--primary-text);
+  border: 1px solid var(--provincial); border-radius: var(--radius);
+  padding: .5em 1em; cursor: pointer;
+}
+button.secondary, .btn.secondary { background: transparent; color: var(--provincial); }
+button:hover, .btn:hover { background: var(--provincial-dark); border-color: var(--provincial-dark); color: var(--white); }
+
+/* dev-tool bits the UI will use */
+.toggle-on  { background: var(--provincial); color: var(--white); }
+.toggle-off { background: var(--provincial-light); color: var(--provincial-dark); }
+.citation   { border-left: 3px solid var(--provincial); padding-left: .5em; }
+.trace      { font-family: ui-monospace, monospace; font-size: 12px; background: var(--provincial-light); border-radius: var(--radius); padding: .5em; }
+/* FILL THE SCREEN: no centered cap (the 1600px cap left big dead margins on wide monitors); a small
+   gutter only. Per-page reading widths are handled below, not by starving the whole layout. */
+.app-shell  { max-width: none; margin: 0; padding: var(--s-4) clamp(1rem, 2.4vw, 2.4rem); }

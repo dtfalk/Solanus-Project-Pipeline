@@ -1,0 +1,806 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{pifont}
+\usepackage{fitch,graphicx,showexpl}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\definecolor{boxgray}{RGB}{245,245,245}
+\definecolor{boxblue}{RGB}{235,245,255}
+\definecolor{boxgreen}{RGB}{235,250,235}
+\definecolor{boxred}{RGB}{255,235,235}
+\definecolor{boxyellow}{RGB}{255,250,225}
+
+\newtcolorbox{template}[1][]{
+    colback=boxgray,
+    colframe=black!50,
+    boxrule=0.5pt,
+    arc=2pt,
+    title={#1},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{example}[1][]{
+    colback=boxblue,
+    colframe=blue!40!black,
+    boxrule=0.5pt,
+    arc=2pt,
+    title={#1},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{goodbox}[1][]{
+    colback=boxgreen,
+    colframe=green!40!black,
+    boxrule=0.5pt,
+    arc=2pt,
+    title={#1},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{warnbox}[1][]{
+    colback=boxred,
+    colframe=red!40!black,
+    boxrule=0.5pt,
+    arc=2pt,
+    title={#1},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\newtcolorbox{notebox}[1][]{
+    colback=boxyellow,
+    colframe=orange!50!black,
+    boxrule=0.5pt,
+    arc=2pt,
+    title={#1},
+    fonttitle=\bfseries,
+    breakable
+}
+
+\title{Introduction to Logic: Problem-Structuring Guide\\Final Exam (Quantificational Logic)}
+\author{How to Write Clear, Rigorous Answers}
+\date{Exam Review Materials}
+
+\begin{document}
+
+\maketitle
+
+\begin{tcolorbox}[colback=boxgray, colframe=black!50, title={Key philosophy}]
+As always, there are two principal ingredients to understanding the new material:
+\begin{enumerate}
+    \item \textbf{Understanding the Concepts} --- What is a quantifier? What does a quantifier \textit{do}? What makes a variable \textit{free}? What counts as a counterexample? What does a relation need in order for it to be an equivalence relation?
+    \item \textbf{Translating that understanding into formal notation} --- How does your intuitive understanding of the concepts translate into the symbols on the piece of paper in front of you?
+\end{enumerate}
+
+As you know by now, you need to be fluent in (1) before (2) becomes relevant. If you are able to do (2), then you must already be adept at (1). Although this guide focuses on (2), it will place plenty of emphasis on (1) and, in particular, the ever frustrating endeavor of translating (1) into (2).
+\end{tcolorbox}
+
+\tableofcontents
+
+\newpage
+
+\section{General Principles}
+
+\subsection{The Three-Part Answer Structure}
+I have included some version of this in every guide for a reason. Those of you that use this tend to do better and have clearer responses on the exams! Use it where applicable and when possible!
+
+For most conceptual questions, use this structure:
+
+\begin{template}[{Three-Part Answer}]
+\begin{enumerate}
+    \item \textbf{State your claim} (Yes/No, valid/invalid, true/false, plus a one-sentence summary).
+    \item \textbf{Give the argument} (the formal reasoning, referencing definitions).
+    \item \textbf{Conclude} (restate what you've shown).
+\end{enumerate}
+\end{template}
+
+\begin{example}[{Is the formula $\forall x(Px \to Qx)$ a sentence?}]
+\textbf{Answer:}
+\begin{enumerate}
+    \item \textbf{Claim:} Yes, it is a sentence.
+    \item \textbf{Argument:} A formula is a sentence iff it has no free variables. In $\forall x(Px \to Qx)$, the only variable is $x$, and every occurrence of $x$ falls within the scope of the quantifier $\forall x$. So every occurrence of $x$ is bound, and thus the formula has no free variables.
+    \item \textbf{Conclusion:} Since the formula has no free variables, the formula is a sentence.
+\end{enumerate}
+\end{example}
+
+\subsection{Connect every claim to a definition}
+
+\begin{warnbox}[{Bad example}]
+``Yes, $\forall x(Px \to Qx)$ is a sentence because there are no free variables.''
+\end{warnbox}
+
+This is correct in substance but it misses the part where you show \emph{why} there are no free variables. The reader has to do that work for you and it is unclear if you understand how to manipulate/apply the target concepts. Instead of doing this, you should instead state the rule (``every $x$ falls within the scope of $\forall x$''), then apply it, and derive your conclusion from there.
+
+\begin{goodbox}[{Good example}]
+``Yes. A formula is a sentence iff it has no free occurrences of any variable. In this formula the only variable is $x$, and every occurrence of $x$ is within the scope of $\forall x$. Therefore, no occurrence of $x$ is free. Since $x$ is the only variable, and no occurrence is of $x$ is free, there are no free occurrences of any variable in this formula. Since a formula is a sentence iff it has no free occurrences of any variable, and we know that this formula has no free occurrences of any variable, we can conclude that this formula is a sentence.''
+\end{goodbox}
+
+\section{What is New in Quantificational Logic ($L_Q$)}
+
+In the previous section of the course you all were working with "propositional logic" ($LP$): a language of sentence letters $P, Q, R, \dots$ and connectives $\neg, \wedge, \vee, \to, \leftrightarrow$. So what is even the point of changing things up and moving to quantificational logic? What is propositional logic missing such that people felt the need to expand upon it?
+
+
+The answer is that propositional logic is not very expressive. It is coarse. It is easy to express things (e.g. ``It is raining'' is just $P$, ``Socrates is mortal'' is just $Q$). In fact, it is \textit{too easy} to express things. 
+
+
+The great thing about collapsing an entire sentence into a single variable is that you throw away the complications and the nuance. \textit{You don't have to talk or think about the details}. The bad thing about collapsing an entire sentence into a single variable is that you throw away the complications and the nuance. \textit{It is no longer possible to talk or think about the details, \textbf{even if you need to}}. You lose a whole lot of \textit{expressive power} in propositional logic, and as a result, the range of logical deductions you can make is limited. Quantificational logic gives us back some of that \textit{expressive power}. 
+
+It is fair to ask about what we \textit{\textbf{cannot}} talk about in propositional logic. Once we decide that `It is raining'' is just $P$ or that ``Socrates is mortal'' is just $Q$, we have lost the ability discuss \emph{who} is mortal, or \emph{which} things are raining.
+
+Quantificational logic ($L_Q$) cracks sentences open. It lets us talk about \emph{things} ("objects in a domain"), about \emph{properties} those things have, and about \emph{relations} between those things. It also gives us the ability to talk about \emph{some} things or \emph{every} thing without having to name which thing(s) we are specifically talking about.
+
+Here is what $L_Q$ adds to $LP$:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Predicate symbols}, written with capital letters: $P, Q, R, S$, and so on. A predicate is the part of a sentence that says \emph{what is true of the things you plug in}. The number of slots a predicate takes is called its \emph{arity}, and that number is a fixed property of the predicate itself. You can fill the slots with variables or with constants, but you can't change how many slots there are.
+    \begin{itemize}
+        \item A \emph{unary} (1-place) predicate is a \emph{property}: a yes-or-no question you can ask about one thing. If $Ex$ means ``$x$ is even,'' then $E2$ is true and $E3$ is false. That's the whole story. The predicate splits the domain (in this case, whole numbers) into two groups: things that have the property and things that don't. Other natural examples: ``$x$ is prime,'' ``$x$ is a triangle,'' ``$x$ is at least 6 feet tall.'' Every object you input either satisfies the property or it does not satisfy the property. You give $P$ an object, then it gives you back either a yes ($T$) or a no ($F$).
+        \item A \emph{binary} (2-place) predicate is a \emph{relation between two things}, taken in a specific order. If $Lxy$ means ``$x$ is less than $y$,'' then $L23$ is true (2 really is less than 3) but $L32$ is false. The two slots play different roles, so $Rxy$ and $Ryx$ are different claims about the world. Other natural binary predicates: ``$x$ teaches $y$,'' ``$x$ is a friend of $y$,'' ``$x$ owns $y$.'' Order matters because most relations are not symmetric. Teaching someone is not the same as being taught by them. Similarly, binary predicates partition the domain into two groups: ordered-pairs of objects that satisfy the stated relationship and ordered pairs of objects that \textbf{do not} satisfy the stated relationship. 
+        
+        \item A \emph{ternary} (3-place) predicate is a relation among \emph{three} things at once. The classic case is $Bxyz$: ``$x$ is between $y$ and $z$.'' Notice that you really do need all three. ``Between'' is not two binary claims stitched together. You have to look at $x$, $y$, and $z$ all at the same time to make this claim. Another example: $Gxyz$ for ``$x$ gives $y$ to $z$,'' where the three slots are the giver, the gift, and the recipient. Try to split that into binaries and you lose the structure. ``$x$ gives $y$'' on its own doesn't say who got the gift.
+    \end{itemize}
+
+    In general, I think of predicates as \textit{partial questions}. The only thing preventing a predicate from becoming a \textit{full question} is that you have not specified who or what the \textit{partial question} is asking about. 
+    \item \textbf{Constants}, written with lowercase letters from the start of the alphabet: $a, b, c, \dots$. These are \emph{names}. The constant $a$ might name a specific object in your domain (the number 7, the philosopher Socrates, whatever your interpretation says).
+    \item \textbf{Variables}, written with lowercase letters from the end of the alphabet: $x, y, z, \dots$. These are \emph{placeholders}. On their own they don't refer to anything. They get their meaning from a quantifier that binds them.
+    \item \textbf{Quantifiers}: the universal $\forall$ (``for all'') and the existential $\exists$ (``there exists''). These are what let you say things about \emph{every} object or about \emph{some} object without naming any of them.
+    \item Often, an \textbf{identity} predicate, written as ``$=$'' between terms (e.g.~$x = y$). This is just the binary relation that returns True when the two inputs are actually just the same thing.
+\end{itemize}
+
+So an $L_Q$-sentence might look like $\forall x(Px \to \exists y(Rxy \wedge Qy))$. Read aloud: ``for every object ($x$) that has the property $P$, there is (at least) one other object ($y$) such that:
+    1] $y$ relates to the first object ($Rxy$)
+    2] $y$ has the property $Q$.''
+Notice the layering. The sentence starts by considering all of the objects in the domain (''$\forall x$''), \textit{then} narrows the statement down to the ones with property $P$ (''$Px \to$''), and then makes the claim that some other object exists with two features at once: this other object is $R$-related to the first object, and this other object also satisfies $Q$.
+
+The challenge of $L_Q$ is that the language is more expressive than $LP$, and the rules for using it are more subtle. This guide walks through the new machinery. The good news is that most of the difficulty lives in three or four moves that show up over and over. Once you've got a feel for how those moves work, you will be ok.
+
+\section{Free Variables, Bound Variables, and Sentences}
+
+\subsection{The intuition}
+
+A quantifier like $\forall x$ is a \emph{binder}. It introduces a variable $x$ and says: \emph{within my scope, $x$ is a placeholder that ranges over all the objects in the domain.} The scope is whatever immediately follows the quantifier, usually a parenthesized formula.
+
+The word ``scope'' is doing a lot of work. The scope of a quantifier is its reach or its jurisdiction. Inside that jurisdiction, the variable it introduced has a meaning. Outside the reach, the same letter doesn't mean anything or it can be redefined.
+
+An occurrence of a variable is \textbf{bound} if it sits inside the scope of a quantifier that uses that same variable. An occurrence of a variable is bound if the variable has been specified by a quantifier and the occurrence is still in the scope/jurisdiction of that quantifier. Otherwise the occurrence is \textbf{free}. Free occurrences are occurrences of a variable where either of the two conditions I just mentioned are not true. If it is easier for you, you can just say that free occurrences of variables are occurrences that are \textbf{not bound}.
+
+A \textbf{sentence} is a formula with no free variable occurrences. Only sentences can be true or false on an interpretation. An open formula like $Px$ doesn't have a determinate truth value, because we don't know what $x$ refers to. It's a fragment. \textbf{It is not a complete claim (yet)}.
+
+\begin{notebox}[{The fill-in-the-blank picture}]
+Personally, I like to think of predicates as \emph{partial, incomplete questions or statements}. The only thing preventing a predicate from becoming a \emph{full question} is that you have not specified who or what the partial question is asking about. For example, ``\rule{1.5cm}{0.4pt} is mortal'' is not a complete statement. Similarly, \emph{is \rule{1.5cm}{0.4pt} mortal?} is not a complete question. If I told you to answer this ''question,'' you would (rightfully) as me who or what I am asking about. You cannot possibly answer the question or assign a truth value to the statement unless you know who/what fills in the blank.
+
+Plug ``Socrates'' into the blank and the partial question becomes a full, answerable question: \emph{is Socrates mortal?} \textbf{This actually has an answer: yes.} If you plug in ``the number 7'' to the statement version of the question, you get ``the number 7 is mortal.'' Whether this is true or false is hard to say, but you could in principle assign a truth value to this statement. You cannot assign a truth value if you leave it blank.
+
+This question of whether something is a complete statement vs an incomplete one is one clear way to understand the distinction between formulas and sentences and why we care about free occurrences and bound occurrences. A formula whose blanks have all been handled is a complete statement, and we call it a \textbf{sentence}: it has a real truth value. A formula with at least one blank still hanging open is incomplete, and we call it a \textbf{formula} (but not a sentence). The blanks that have been filled in correspond to \textbf{bound} occurrences of variables. The blanks that have not been filled in correspond to \textbf{free} occurrences.
+
+Plugging in a name like ``Socrates'' is one way to fill a blank, but it is not the only way. The other way is to attach a quantifier. A quantifier does not name a specific thing; instead it tells you how to think about every possible thing the blank could be. $\forall x$ says: \emph{the answer is yes no matter what you drop in the blank.} $\exists x$ says: \emph{the answer is yes for at least one thing you could drop in.} Either way, the quantifier takes responsibility for the blank, the incomplete question becomes a complete one, and the formula gets a definite truth value. 
+
+Let's apply this to our example and see why/how attaching a quantifier turns the fragment into a complete sentence. If we add a $\forall$ then we transform ``\rule{1.5cm}{0.4pt} is mortal'' and ``Is \rule{1.5cm}{0.4pt} mortal?'' into ``\textbf{Everything} is mortal'' and ``Is \textbf{everything} mortal?'', respectively. If we add an $\exists$ then we transform ``\rule{1.5cm}{0.4pt} is mortal'' and ``Is \rule{1.5cm}{0.4pt} mortal?'' into ``\textbf{Something} is mortal'' and ``Is \textbf{anything} mortal?'', respectively. 
+
+In order to turn a fragment into a complete statement/question, we have to get rid of the ''blanks''. One way to do this is to assign a specific value to the blank (e.g. ''Let $x = Socrates$''). Alternatively we can apply a quantifier, ''$\forall x$ it is true that $\dots$'' or ''$\exists x$ such that $\dots$'' 
+\end{notebox}
+
+\subsection{How to check whether a formula is a sentence}
+
+The procedure is mechanical. Walk through the formula and check each variable occurrence.
+
+\begin{template}[{Procedure for spotting free variables}]
+\begin{enumerate}
+    \item Go through each occurrence of each variable in the formula.
+    \item For each occurrence, look outward (toward the outermost parts of the formula) for a quantifier that uses \emph{that same variable name} and contains this occurrence in its scope.
+    \item If you find one, the occurrence is bound. If you don't, it's free.
+    \item The formula is a sentence iff every occurrence of every variable is bound.
+\end{enumerate}
+\end{template}
+
+\subsection{Worked example: a sentence with everything bound}
+
+Take $\forall x(Px \to \exists y(Rxy))$.
+
+\begin{itemize}[leftmargin=*]
+    \item The first $x$, the one in $Px$: scan outward. We are inside the scope of $\forall x$. Bound.
+    \item The second $x$, the one in $Rxy$: also inside the scope of $\forall x$. Bound.
+    \item The $y$ in $Rxy$: inside the scope of $\exists y$. Bound.
+\end{itemize}
+
+Every occurrence is bound. So the formula is a sentence.
+
+\subsection{Worked example: a formula with a free variable}
+
+Now take $\forall x(Pxy)$.
+
+\begin{itemize}[leftmargin=*]
+    \item The $x$ in $Pxy$: inside the scope of $\forall x$. Bound.
+    \item The $y$ in $Pxy$: there is no quantifier $\forall y$ or $\exists y$ anywhere in the formula. Free.
+\end{itemize}
+
+There is a free occurrence of $y$, so this is \emph{not} a sentence. We don't know what $y$ refers to, so the formula doesn't have a determinate truth value.
+
+\subsection{\textbf{Annoying Case That is Real: }Rebinding Variables}
+
+This is where people often get tripped up. Consider $\forall x(Px \to \exists x(Qx))$. The outer $\forall x$ binds $x$ inside its scope. But inside that scope there is another quantifier $\exists x$ that \emph{also} uses the name $x$. So what happens here?
+
+The answer: the inner quantifier ``shadows'' the outer one inside its own scope. Whichever quantifier is closest to a particular occurrence is the one that binds it. In other words, always listen to the most recent quantifier!
+
+\begin{itemize}[leftmargin=*]
+    \item The $x$ in $Px$: inside the scope of $\forall x$, and \emph{not} inside any inner $\exists x$. So it is bound by $\forall x$.
+    \item The $x$ in $Qx$: inside the scope of $\exists x$ (which is itself inside $\forall x$). The inner $\exists x$ is closer, so it wins. Bound by $\exists x$.
+\end{itemize}
+
+Both occurrences are bound, so the formula is a sentence. But notice something important. \textbf{The fact that both $x$'s appear in the same formula \emph{does not} mean they refer to the same thing}. The inner $\exists x$ starts a fresh use of the name. Inside the inner scope, $x$ has nothing to do with the $x$ from the outer quantifier. It is annoying, but it is real and can be important. Remember this.
+
+\begin{notebox}[{Why rebinding is legal but confusing}]
+Reusing a variable name like this is technically allowed, but it makes formulas hard to read and it is a steady source of errors (especially if you write/read code). In your own writing, you should use different variable names for nested quantifiers. Instead of $\forall x(Px \to \exists x(Qx))$, write $\forall x(Px \to \exists y(Qy))$. It means the same thing and you won't confuse both yourself and everyone else.
+\end{notebox}
+
+\subsection{Identifying free variables in your written answer}
+
+If you are asked to identify free occurrences, bound occurences, or whether a formula is a sentence then your written work should:
+
+\begin{enumerate}
+    \item State whether the formula \emph{is} a sentence or whether the variable is bound/not bound etc....
+    \item If some occurrence is free, and it is relevant to the problem that you identify free occurrences, then point to the free occurrence(s) and justify your claim(s).
+    \item If some occurrence is bound, and it is relevant to the problem that you identify bound occurrences, then point to the bound occurrence(s) and justify your claim(s).
+\end{enumerate}
+
+\begin{example}[{Worked answer}]
+\textbf{Question:} Is this formula a sentence? Identify all bound occurrences and all free occurrences.
+\textbf{Formula:} $\forall z(Rxyz \to Pz)$
+
+\textbf{Answer:} This is not a sentence. The occurrence of $x$ in $Rxyz$ is free, because no $\forall x$ or $\exists x$ contains it. The occurrence of $y$ in $Rxyz$ is also free, for the same reason: no $\forall y$ or $\exists y$ binds it. Only the $z$ in $Rxyz$ and $Pz$ is bound, and it is bound by $\forall z$.
+\end{example}
+
+\section{Translating English into $L_Q$}
+
+\subsection{The two patterns for translation}
+Here is a quick rule for how to translate english sentences into quantificational logic. 
+
+
+\begin{tcolorbox}[colback=boxyellow, colframe=orange!50!black, title={\textbf{The two patterns}}]
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Universal claims pair with the conditional.} ``All As are Bs'' translates as $\forall x(Ax \to Bx)$.
+    \item \textbf{Existential claims pair with the conjunction.} ``Some A is a B'' translates as $\exists x(Ax \wedge Bx)$.
+\end{itemize}
+\end{tcolorbox}
+
+These two patterns are going to be relevant to almost all translations you will do in quantificational logic. Memorizing them is a starting point. Obviously, it would be better to understand them. But if all you do is memorize these and know how to apply them, then you are not in a bad spot.
+
+\subsection{Why these pairings, and not others}
+
+\subsection*{Why does ''All As are Bs'' translate to $\forall x(Ax \to Bx)$?} 
+
+Why not $\forall x(Ax \wedge Bx)$? The second one looks tidier, but read it carefully. It says: ``for every $x$, $x$ is an A and $x$ is a B.'' That is the claim that \emph{everything in the universe} is both A and B. 
+
+For example, let's say that you want to translate ''All frogs are green'' into $L_Q$. Let's define $A$ as the property of being a frog and $B$ as the property of being green. Then $\forall x(Ax \wedge Bx)$ says that everything (you, me, Professor Vasudevan, this pdf, ... everything) is a green frog. That is much stronger than ``all frogs are green,'' and most importantly, \textbf{it is not the correct translation}. We first need to restrict to things that are frogs, and \textit{only then} can we start making claims about all frogs. 
+
+The conditional $Ax \to Bx$ has exactly the shape we want. When $x$ is not an A, the conditional is vacuously satisfied. When $x$ is an A, the conditional requires $x$ also to be a B. So $\forall x(Ax \to Bx)$ ends up saying ``Every $x$ that is an A is also a B, and if $x$ is not an A, then this case is not relevant``. This is what ``all As are Bs`` means!
+
+Going back to our example, we can see why $\forall x(Ax \to Bx)$ is the correct form of the statement. The truth or falsity ``All frogs are green`` should only be determined by frogs! If you check every frog and they are all green, then the statement is true! If you find a frog that isn't green, then the statement is false. Furthermore, things that are not frogs should have no effect on whether the statement is true or false. Why is that the case? Well... assume that you (the reader) = $x$. You are not a frog, so whether or not you are green does not have any relevance to whether all frogs are green or not. This is exactly the truth table we want when translating ``all frogs are green'' into quantificational logic.
+
+\subsection*{Why does ''Some A is a B'' translate to $\exists x(Ax \wedge Bx)$?}
+Why not $\exists x(Ax \to Bx)$? The conditional version is way too weak. It says: ``there is some $x$ for which the conditional $Ax \to Bx$ holds.'' But conditionals are vacuously true whenever the antecedent is false, so the existential gets satisfied by anything that just happens to not be an $A$.
+
+Going back to our example, let's say we want to translate ``Some frog is green'' into $L_Q$, with $A$ again as the property of being a frog and $B$ as the property of being green. Then $\exists x(Ax \to Bx)$ comes out true the moment any non-frog exists in the domain. Assume that you (the reader) $= x$. You are not a frog, so $Ax$ is false and thus $Ax \to Bx$ is true since the antecedent is false. The statement ``some frog is green'' would end up true just because you, a person who is not a frog, exist. That is obviously not what the English sentence means.
+
+The conjunction $Ax \wedge Bx$ has exactly the shape we want. It says: ``there is some $x$ that is an $A$ and is also a $B$.'' No vacuous loopholes, no non-frogs sneaking in to vouch for the claim. To make $\exists x(Ax \wedge Bx)$ true, you need a real witness: an actual, specific $x$ that is genuinely a frog \emph{and} genuinely green.
+
+Back to our example: this is exactly the right truth condition for ``some frog is green.'' The sentence should be true precisely when at least one green frog exists. Non-frogs shouldn't get a vote. If every frog in the world happens to be brown, the statement is false, and it stays false no matter what color any of the non-frogs are. That is the truth condition that $\exists x(Ax \wedge Bx)$ delivers.
+
+\subsection{The four syllogistic copulas}
+
+The standard translations from the older syllogistic language $L_S$ into $L_Q$ are:
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Syllogistic} & \textbf{English} & \textbf{$L_Q$ translation}\\
+\hline
+$AaB$ & All A's are B's & $\forall x(Ax \to Bx)$\\
+$AeB$ & No A is a B & $\neg \exists x(Ax \wedge Bx)$\\
+$AiB$ & Some A is a B & $\exists x(Ax \wedge Bx)$\\
+$AoB$ & Some A is not a B & $\neg \forall x(Ax \to Bx)$\\
+\hline
+\end{tabular}
+\end{center}
+
+Two of these have alternative forms worth knowing. $AeB$ is also equivalent to $\forall x(Ax \to \neg Bx)$, which says ``every A is a non-B.'' $AoB$ is equivalent to $\exists x(Ax \wedge \neg Bx)$, which says ``some A is a non-B.'' Either form is acceptable on the exam.
+
+\subsection{Handling predicates with multiple arguments/inputs and multiple/nested quantifiers}
+
+As sentences become more complicated you will need to take more care, because now you have to track which quantifier is doing what and what order they all come in. Here is a workflow that works if you are careful.
+
+\begin{template}[{Translation workflow}]
+\begin{enumerate}
+    \item \textbf{Identify the predicates.} What properties and relations are talked about? Assign each one a letter, and write out its meaning (e.g.~``$Pxy$: $x$ is a parent of $y$''). This is your dictionary.
+    \item \textbf{Identify the names.} If a specific individual is mentioned (say, ``Sarah''), use a constant ($s$). Note what it stands for.
+    \item \textbf{Decide the quantifier structure.} Each ``every,'' ``all,'' ``each'' suggests $\forall$. Each ``some,'' ``a,'' ``there is'' suggests $\exists$. The order of these quantifiers matters. ``Everyone loves someone'' is not the same as ``someone is loved by everyone.''
+    \item \textbf{Pair each quantifier with the right connective.} $\forall$ with $\to$, $\exists$ with $\wedge$, almost always.
+    \item \textbf{Sanity-check.} Pretend you haven't seen the original sentence. Translate your answer back into english. Compare it with the original sentence. Does it match the original sentence?
+\end{enumerate}
+\end{template}
+
+\subsection{Worked example: a single quantifier}
+
+\begin{example}[{English to $L_Q$}]
+\textbf{English:} ``Some students are athletes.''
+
+\textbf{Predicates:} $Sx$: $x$ is a student. $Ax$: $x$ is an athlete.
+
+\textbf{Translation:} $\exists x(Sx \wedge Ax)$.
+
+\textbf{Sanity-check:} ``There is something that is both a student and an athlete.'' Matches.
+\end{example}
+
+\subsection{Worked example: a relation with two quantifiers}
+
+\begin{example}[{English to $L_Q$}]
+\textbf{English:} ``Every teacher has a student.''
+
+\textbf{Predicates:} $Tx$: $x$ is a teacher. $Sx$: $x$ is a student. $Hxy$: $x$ has $y$ as a student (i.e.~$y$ is a student of $x$).
+
+\textbf{Translation:} $\forall x(Tx \to \exists y(Sy \wedge Hxy))$.
+
+\textbf{Reading it back:} ``For every $x$, if $x$ is a teacher, then there is some $y$ that is a student and that $x$ has as a student.'' Matches.
+\end{example}
+
+\subsection{Worked example: the order of quantifiers matters}
+
+These two sentences look almost the same but mean very different things:
+
+\begin{itemize}[leftmargin=*]
+    \item $\forall x \exists y (Lxy)$: ``For every $x$, there is some $y$ that $x$ loves.'' In other words, everyone loves somebody or other. The $y$ can be a different person depending on who $x$ is.
+    \item $\exists y \forall x (Lxy)$: ``There is some $y$ such that every $x$ loves $y$.'' That is: there is one specific person whom everyone loves.
+\end{itemize}
+
+The second is a much stronger claim than the first. For the first one to be true, everyone just needs to have somebody that they love. It is not important who each person loves, just that \textit{there is someone for everyone}. (Everyone has a favorite, and we don't care if it's the same favorite.) The second demands a universal heart-throb (Somebody that \textbf{everybody} loves).
+
+When you translate, listen for/think carefully about whether the English specifies \emph{the same one} or merely \emph{some one (perhaps different each time)}. The order of quantifiers is what tells you which reading is meant.
+
+\subsection{Common English phrases and their translations}
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{English} & \textbf{$L_Q$}\\
+\hline
+$x$ is loved by someone & $\exists y(Lyx)$\\
+Every $A$ is a $B$ & $\forall x(Ax \to Bx)$\\
+Only $A$s are $B$s & $\forall x(Bx \to Ax)$ (note the flip!)\\
+There is an $A$ that is a $B$ & $\exists x(Ax \wedge Bx)$\\
+No $A$ is a $B$ & $\neg \exists x(Ax \wedge Bx)$\\
+Some $A$ is not a $B$ & $\exists x(Ax \wedge \neg Bx)$\\
+Not every $A$ is a $B$ & $\neg \forall x(Ax \to Bx)$\\
+Everyone $R$s someone & $\forall x \exists y(Rxy)$\\
+Someone $R$s everyone & $\exists x \forall y(Rxy)$\\
+$x$ $R$s itself & $Rxx$\\
+\hline
+\end{tabular}
+\end{center}
+
+The ``Only As are Bs'' line catches a lot of people. It does \emph{not} mean ``all As are Bs.'' It means: the Bs come only from among the As. So if you are a B, you must also be an A. Formally, $\forall x(Bx \to Ax)$, not $\forall x(Ax \to Bx)$.
+
+\section{The Quantifier Rules in Fitch}
+
+There are four quantifier rules, and they form two pairs. Each quantifier ($\forall$ and $\exists$) has an introduction rule and an elimination rule. Two of these rules are easy: $\forall E$ and $\exists I$. The other two, $\forall I$ and $\exists E$, can be trickier.
+
+\subsection{The easy rules: $\forall E$ and $\exists I$}
+
+\begin{template}[{$\forall E$ (Universal Elimination)}]
+From $\forall x \varphi(x)$, infer $\varphi(t)$ for any term $t$ (constant or variable).
+\end{template}
+
+This one is intuitive. If everything has property $\varphi$, then any specific thing does too. ``Everyone is mortal'' lets you conclude that Socrates is mortal, that you are mortal, that the cat is mortal. If it is true for everything, then it is also true for whatever thing you are dealing with in this moment.
+
+\begin{template}[{$\exists I$ (Existential Introduction)}]
+From $\varphi(t)$ for any term $t$, infer $\exists x \varphi(x)$ (replacing some or all occurrences of $t$ with $x$).
+\end{template}
+
+Also intuitive. If you know that some specific thing has property $\varphi$, then \emph{something} has $\varphi$. ``Socrates is mortal'' lets you conclude that someone is mortal. You are forgetting which specific thing it was and just announcing the fact that there is at least one.
+
+\subsection{The subtle rules: $\forall I$ and $\exists E$}
+
+Here is where the careful work begins. Both rules use \emph{fresh names}, and there is a real reason.
+
+\begin{template}[{$\forall I$ (Universal Introduction)}]
+If you can prove $\varphi(c)$ where $c$ is a \emph{fresh, new, or unused} name (a name that does not appear in any premise, in any undischarged assumption, or in the conclusion $\forall x \varphi(x)$ itself), then you may infer $\forall x \varphi(x)$.
+\end{template}
+
+When you prove something about $c$ and then want to claim it for everything, your proof has to be \emph{general}. It cannot rely on $c$ being special. If $c$ already appears in a premise, then the premise might be telling you something specific about $c$ (that $c$ is a particular object, that $c$ has a particular property). And then you cannot turn around and say ``what I proved about $c$ works for every $x$.'' It worked for $c$ partly because $c$ was special.
+
+The fresh name $c$ is supposed to be a stand-in for an arbitrary object. If you don't assume anything about $c$ at the start, and you derive $\varphi(c)$ purely from premises that never mention $c$, then the same argument would have worked with any other object in $c$'s place. That is why $\forall I$ is allowed.
+
+\begin{template}[{$\exists E$ (Existential Elimination)}]
+From $\exists x \varphi(x)$ and a subproof in which $\varphi(c)$ is hypothesized for a \emph{fresh} name $c$ and the sentence $\psi$ is derived (where $c$ does not appear in $\psi$), infer $\psi$.
+\end{template}
+
+The freshness condition here is the same idea used a little differently. When you have $\exists x \varphi(x)$, you know \emph{something} satisfies $\varphi$. You don't know which thing. The proof technique is: ``call this unknown thing $c$, and see what you can derive.'' For this to make sense, $c$ has to be a fresh placeholder. If $c$ already named a specific object, you would be assuming the example is that particular object, and the existential doesn't promise you that.
+
+There is one extra clause. The conclusion $\psi$ cannot mention $c$. Why? Because $c$ was only a temporary name for an unknown example. If your final conclusion still mentions $c$, you are really claiming something about that specific (still unknown!) witness, not something you have earned about the world in general. So $\psi$ has to be free of $c$.
+
+\subsection{Why freshness matters: a bad ``proof''}
+
+Suppose someone wants to argue: ``We have $Pa$, so $\forall x(Px)$.'' From the fact that some specific thing $a$ has property $P$, they want to conclude that everything does. This is clearly wrong. ``Socrates is mortal'' does not entail ``everything is mortal.''
+
+A Fitch proof would block this attempted $\forall I$. The rule requires the name being generalized to be fresh, and $a$ appears in a premise. So $\forall I$ doesn't apply. 
+
+\subsection{Worked example: a clean $\forall I$ proof}
+
+\begin{example}[{Prove $\forall x(Px \to Qx), \forall x(Px) \vdash \forall x(Qx)$}]
+The English: if everything that is a $P$ is also a $Q$, and everything is a $P$, then everything is a $Q$. The whole point of $\forall I$ shows up in the last step.
+\begin{center}
+    $\begin{nd}
+       \have{1}{\forall x(Px \rightarrow Qx)} \by{Premise}{}
+       \have{2}{\forall x(Px)} \by{Premise}{}
+       \have{3}{Pa \rightarrow Qa} \Ae{1}
+       \have{4}{Pa} \Ae{2}
+       \have{5}{Qa} \by{$\rightarrow$E}{3,4}
+       \have{6}{\forall x(Qx)} \Ai{5}
+    \end{nd}$
+\end{center}
+
+
+\textbf{Why this is legal:} The name $a$ is one we picked when we applied $\forall$E in lines 3 and 4. It appears in no premise (the premises only contain quantified variables, not the specific name $a$), in no undischarged hypothesis (there are no open subproofs), and not in the conclusion $\forall x(Qx)$. So when we generalize $Qa$ to $\forall x(Qx)$ on line 6, the restriction on $\forall$I is satisfied.
+
+\textbf{The intuition:} we proved $Qa$ without ever assuming anything special about $a$. Our premises don't pick out $a$; they would have been just as useful with $b$ or $c$ or any other name. The proof would have gone through identically with a different name in $a$'s place. That is exactly the situation in which we are entitled to say ``it works for everything.''
+\end{example}
+
+\subsection{Worked example: a clean $\exists E$ proof}
+
+\begin{example}[{Prove $\forall x(Px \to Qx), \exists x(Px \wedge Rx) \vdash \exists x(Qx \wedge Rx)$}]
+The English: every $P$ is a $Q$, and something is both a $P$ and an $R$. So something is both a $Q$ and an $R$. The interesting move here is the $\exists$E subproof, where we name the unknown witness $a$ and reason as if we knew what it was.
+
+\begin{center}
+    $\begin{nd}
+        \have{1}{\exists x(Px \wedge Rx)} \by{Premise}{}
+        \have{2}{\forall x(Px \rightarrow Qx)} \by{Premise}{}
+        \open
+        \hypo{3}{Pa \wedge Ra} \by{Hypothesis (for $\exists$E)}{}
+        \have{4}{Pa \rightarrow Qa} \Ae{2}
+        \have{5}{Pa} \ae{3}
+        \have{6}{Qa} \by{$\rightarrow$E}{4,5}
+        \have{7}{Ra} \ae{3}
+        \have{8}{Qa \wedge Ra} \ai{6,7}
+        \have{9}{\exists x(Qx \wedge Rx)} \Ei{8}
+        \close
+        \have{10}{\exists x(Qx \wedge Rx)} \Ee{1,9}
+    \end{nd}$
+\end{center}
+
+
+\textbf{Why this is legal:} The name $a$ is new when we hypothesize $Pa \wedge Ra$ on line 3. It does not appear in either premise. The final line of the subproof (line 9) is $\exists x(Qx \wedge Rx)$, which does not mention $a$ at all. Both restrictions on $\exists$E are satisfied, so we can close the subproof and conclude $\exists x(Qx \wedge Rx)$ on line 10.
+
+\textbf{The intuition:} the existential premise on line 1 promises us that some specific thing is both a $P$ and an $R$, without telling us which one. Inside the subproof, we say ``okay, call that thing $a$ and see what we can figure out.'' We discover that whoever $a$ is, $a$ is both a $Q$ and an $R$, so something is both a $Q$ and an $R$. That last statement does not depend on which specific thing $a$ turned out to be, which is exactly why we are allowed to bring it out of the subproof.
+\end{example}
+
+\subsection{The strategy for quantified proofs}
+
+The general strategy is the same as in propositional logic. Look at the main connective of the goal, look at the main connectives of the premises, and pick a rule that fits. With quantifiers, the matchups are predictable. You can refer to the fitch proof intuition guide for a refresher.
+
+\begin{template}[{Strategy for quantified proofs}]
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Goal is $\forall x \varphi(x)$?} Pick a fresh name $c$, derive $\varphi(c)$ using whatever else you have, then apply $\forall I$.
+    \item \textbf{Goal is $\exists x \varphi(x)$?} Find some term $t$ that you can show $\varphi(t)$ for, then apply $\exists I$.
+    \item \textbf{Premise is $\forall x \varphi(x)$?} Use $\forall E$ to instantiate with whatever term is useful (often the very term that appears in your goal).
+    \item \textbf{Premise is $\exists x \varphi(x)$?} Open an $\exists E$ subproof, hypothesize $\varphi(c)$ for a fresh $c$, do the work inside, and conclude the goal (which must not mention $c$).
+\end{itemize}
+\end{template}
+
+These four moves cover the great majority of $L_Q$ proofs. The rest is the propositional machinery you already know.
+
+\section{Diagrammatic Counterexamples}
+
+As it has been for the entire course, you do not prove that arguments are invalid. You find counterexamples. This remains true in quantificational logic. Things have changed from the previous sections because you now have these diagrams you draw, but the underlying ideas are all the same. Your job is, as it has always been, to construct a tiny world in which all the premises are true but the conclusion is false. That tiny world is a \emph{counterexample}. For $L_Q$ it is natural to draw it.
+
+The standard conventions for drawing $L_Q$ counterexamples:
+
+\begin{itemize}[leftmargin=*]
+    \item Each object in the domain is a \textbf{point} (a dot on the page).
+    \item Unary predicates are shown by \textbf{marking} the relevant points. 
+    \item Binary relations like $R$ are shown by \textbf{arrows}. An arrow from point $x$ to point $y$ means $Rxy$. An arrow that loops back on itself means $Rxx$.
+    \item Identity is just ``same point.'' If two names refer to the same object, draw one point with both names on it.
+\end{itemize}
+
+A diagram is a model of the world you are describing. The whole point of drawing it is that if you set it up correctly then you can read truth values straight off the page.
+
+\subsection{Verifying a counterexample}
+
+A diagram is only useful if you write down what it makes true and what it makes false. After drawing, you need to do the following.
+
+\begin{template}[{How to present a diagrammatic counterexample}]
+\begin{enumerate}
+    \item Describe the diagram. List the domain, list which points have which properties, list which arrows are present.
+    \item Verify each premise is true in this interpretation. Do it explicitly. For each universally quantified premise, check every object. For each existentially quantified premise, name a witness (an example).
+    \item Verify the conclusion is false. This usually means finding a counter-witness. For a universal conclusion, find an object that breaks it. For an existential conclusion, show that no object satisfies it.
+    \item Conclude: ``Therefore the argument is invalid.''
+\end{enumerate}
+\end{template}
+
+\subsection{Worked example}
+
+\begin{example}[{Show $\forall x \exists y(Rxy) \not\vdash \exists y \forall x(Rxy)$}]
+\textbf{Counterexample:} Domain $\{1, 2\}$. The relation $R$ holds for the pairs $R(1,2)$ and $R(2,1)$, and for no other pairs. (Picture: two points, one arrow from 1 to 2, one arrow from 2 to 1.)
+
+\textbf{Premise $\forall x \exists y(Rxy)$:}
+\begin{itemize}[leftmargin=*]
+    \item For $x = 1$: is there a $y$ with $R(1,y)$? Yes, $y = 2$ works. \checkmark
+    \item For $x = 2$: is there a $y$ with $R(2,y)$? Yes, $y = 1$ works. \checkmark
+\end{itemize}
+Premise is true. Every object has some object it points to.
+
+\textbf{Conclusion $\exists y \forall x(Rxy)$:}
+\begin{itemize}[leftmargin=*]
+    \item For $y = 1$: is $R(x,1)$ for every $x$? We have $R(2,1)$, but $R(1,1)$ doesn't hold. No. \ding{55}
+    \item For $y = 2$: is $R(x,2)$ for every $x$? We have $R(1,2)$, but $R(2,2)$ doesn't hold. No. \ding{55}
+\end{itemize}
+Conclusion is false. There is no single object that everyone points to.
+
+\textbf{Therefore the argument is invalid.}
+\end{example}
+
+The premise asks for ``each thing points to something or other.'' The conclusion requires that ``one thing is pointed at by everyone.'' We satisfied the premise by having each object point to the \emph{other} one, which is satisfies the premise's requirement that every point has ``something,'' but it is not strong enough to satisfy the conclusion's requirement that there is an object pointed to by everyone.
+
+\subsection{Common mistakes with diagrams}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Drawing too much.} If a premise doesn't require a particular relation to hold, don't add it. Every extra arrow is one more thing that might accidentally make your conclusion true and ruin your counterexample. Keep the diagram minimal.
+    \item \textbf{Not verifying explicitly.} It is very tempting to glance at a diagram and think ``yeah, this works.'' Don't. Write out the verification step by step. The grader needs to see you check, and you will catch your own errors that way.
+    \item \textbf{Forgetting that the domain matters.} The truth of $\forall x \varphi$ and $\exists x \varphi$ depends on the whole domain. If your domain is $\{1, 2\}$ but you only checked $x = 1$ for some premise, your verification is incomplete.
+\end{itemize}
+
+\section{Relations and Their Properties}
+
+A two-place relation $R$ on a domain can have various properties. Each property captures something about how $R$ behaves across the domain. Here are the ones to know.
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Property} & \textbf{Definition} & \textbf{In $L_Q$}\\
+\hline
+Reflexive & every $x$ stands in $R$ to itself & $\forall x(Rxx)$\\
+Irreflexive & no $x$ stands in $R$ to itself & $\forall x(\neg Rxx)$\\
+Symmetric & if $Rxy$ then $Ryx$ & $\forall x \forall y(Rxy \to Ryx)$\\
+Asymmetric & if $Rxy$ then not $Ryx$ & $\forall x \forall y(Rxy \to \neg Ryx)$\\
+Antisymmetric & if $Rxy$ and $Ryx$ then $x = y$ & $\forall x \forall y((Rxy \wedge Ryx) \to x = y)$\\
+Transitive & if $Rxy$ and $Ryz$ then $Rxz$ & $\forall x \forall y \forall z((Rxy \wedge Ryz) \to Rxz)$\\
+\hline
+\end{tabular}
+\end{center}
+
+Reading the table is one thing. Developing a feel for what each property \emph{means} is another. Try these images.
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Reflexive:} every point in the diagram has a self-loop. Examples: ``equals,'' ``has the same age as,'' ``is at least as tall as.''
+    \item \textbf{Symmetric:} every arrow has a partner arrow going the other way. Examples: ``is a sibling of,'' ``is married to,'' ``shares a class with.''
+    \item \textbf{Transitive:} whenever you can hop from $x$ to $y$ and then $y$ to $z$, there is a direct arrow from $x$ to $z$. Examples: ``is less than,'' ``is an ancestor of,'' ``is taller than.''
+    \item \textbf{Antisymmetric:} arrows can go both ways only if the two endpoints are really the same point. The classic case is ``$\leq$.'' If $a \leq b$ and $b \leq a$, then $a = b$.
+    \item \textbf{Asymmetric:} no arrow ever has a return arrow. Examples: ``is strictly less than,'' ``is the parent of,'' ``is the boss of.''
+\end{itemize}
+
+If you find yourself trying to remember which is which, picture the arrows. The picture usually tells you faster than the definition does.
+
+\subsection{Equivalence relations}
+
+An \textbf{equivalence relation} is one that is reflexive, symmetric, and transitive. Equality is the obvious example. ``Has the same birthday as'' is another. ``Was born in the same country as.''
+
+Equivalence relations have a very helpful property as well. They partition ("split up") the domain into \emph{equivalence classes}: groups of objects all related to each other and to nothing outside the group. Think about how ``has the same birthday as'' splits people up. Everyone with a January 1 birthday in one group, everyone with January 2 in another, and so on. Inside each group, every pair is related. Between groups, nothing.
+
+That is what equivalence relations do. They slice the domain into clean, non-overlapping pieces.
+
+\subsection{Orders}
+
+Several different notions go by the name ``order,'' and they are related but not identical.
+
+A \textbf{partial order} is reflexive, antisymmetric, and transitive. The standard example is ``$\leq$'' on the numbers. It is reflexive ($a \leq a$ for any $a$), antisymmetric ($a \leq b$ and $b \leq a$ together force $a = b$), and transitive ($a \leq b$ and $b \leq c$ give $a \leq c$).
+
+A \textbf{strict order} is irreflexive and transitive (and so automatically asymmetric, since if $a < b$ and $b < a$, then by transitivity $a < a$, contradicting irreflexivity). The standard example is ``$<$.''
+
+The names give the idea. A partial order allows ties (you are equal to yourself). A strict order doesn't.
+
+\subsection{Checking whether a relation has a property}
+
+To check whether $R$ has a property like symmetry, you have two options.
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Prove it from the definition.} If $R$ is defined as some formula and you want to show it is symmetric, prove $\forall x \forall y(Rxy \to Ryx)$ formally. Suppose $Rxy$. Derive $Ryx$. Generalize.
+    \item \textbf{Give a counterexample.} If $R$ is \emph{not} symmetric, exhibit specific $a, b$ in some interpretation where $Rab$ holds but $Rba$ does not.
+\end{itemize}
+
+Same pattern for the other properties. Either prove the universal claim formally, or find an example that contradicts it.
+
+\subsection{Worked example}
+
+\begin{example}[{Is the relation $Sxy$ defined by $Pxy \wedge Pyx$ symmetric?}]
+\textbf{Claim:} Yes, $S$ is symmetric.
+
+\textbf{Argument:} Suppose $Sxy$ holds, for arbitrary $x$ and $y$. By the definition of $S$, this means $Pxy \wedge Pyx$. The order of the conjuncts doesn't matter, so $Pyx \wedge Pxy$ also holds. But that is exactly the definition of $Syx$. So $Sxy \to Syx$. Since $x$ and $y$ were arbitrary, $\forall x \forall y(Sxy \to Syx)$.
+
+\textbf{Conclusion:} $S$ is symmetric.
+\end{example}
+
+The pattern is worth noticing. Assume the relation in one direction, unpack the definition, repackage it in the other direction. For symmetry of a relation whose definition is already symmetric in its parts, the argument is usually quick.
+
+\subsection{Verifying claims about specific domain sizes}
+
+Sometimes you are asked whether a sentence can be true in a domain of a particular size, or whether it must be false. The strategy is straightforward.
+
+\begin{itemize}[leftmargin=*]
+    \item To show it \emph{can} be true: exhibit a specific interpretation of that size in which it is.
+    \item To show it \emph{cannot} be true: prove that, given the constraints, no such interpretation can exist.
+\end{itemize}
+
+\begin{example}[{Can $\forall x \forall y(Rxy \to Ryx) \wedge \exists x(\neg Rxx)$ hold in a domain of size 2?}]
+\textbf{Claim:} Yes.
+
+\textbf{Interpretation:} Domain $\{1, 2\}$, with $R(1,2)$ and $R(2,1)$ holding and no other pairs in $R$.
+
+\textbf{Check symmetry:} The only pairs in $R$ are $(1,2)$ and $(2,1)$. For each one, the reverse is also in $R$. So $R$ is symmetric. \checkmark
+
+\textbf{Check $\exists x(\neg Rxx)$:} $R(1,1)$ doesn't hold (it isn't in the list). So $\neg R(1,1)$ is true, which witnesses the existential. \checkmark
+
+\textbf{Conclusion:} Both conjuncts are true in this interpretation, so the sentence can hold in a domain of size 2.
+\end{example}
+
+\section{Defining Relations from Other Relations}
+
+A common task: you are given a relation $Rxy$, and you have to define some other relation in terms of it. The basic idea is that existential quantifiers let you ``walk'' along the given relation, and the identity predicate lets you encode constraints like ``different from'' or ``the same as.''
+
+Picture the domain as a graph with arrows for a relation $R$. You want to define a new relation $S$  using the existing relation $R$. To define a new relation $Sxy$ in terms of $R$, you describe a particular kind of path or pattern in that graph that should hold between $x$ and $y$. Once you have the picture, the formula writes itself.
+
+\subsection{Direct definitions}
+
+If the relation you want is just an immediate combination of the given one, the definition is straightforward.
+
+\begin{example}[{Defining ``$x$ is connected to $y$ by a two-step $R$-path''}]
+\textbf{Definition:} $Cxy \;\equiv\; \exists z(Rxz \wedge Rzy)$.
+
+\textbf{Reading:} ``There is some intermediate $z$ such that there is an R-arrow from $x$ to $z$, and there is also an R-arrow from $z$ to $y$.''
+
+The existential $\exists z$ is doing the work of saying ``some step in the middle exists.'' We don't care what $z$ is; we just need it to be there.
+\end{example}
+
+\subsection{When identity is needed}
+
+If your relation needs to exclude a trivial case (like ``$x$ is not its own match''), identity becomes essential. Otherwise the trivial case may sneak in and ruin the definition.
+
+\begin{example}[{Defining ``$x$ and $y$ are different objects with a common $R$-neighbor''}]
+\textbf{Definition:} $Nxy \;\equiv\; \exists z(Rxz \wedge Ryz) \wedge x \neq y$.
+
+\textbf{Reading:} ``$x$ and $y$ both stand in $R$ to some common $z$, and $x$ and $y$ are not the same object.''
+
+Without the $x \neq y$ clause, the trivial case $x = y$ would always satisfy the definition (because if $x = y$ then $\exists z(Rxz \wedge Ryz)$ becomes $\exists z(Rxz \wedge Rxz)$, which holds whenever $x$ stands in $R$ to anything). The identity clause filters that trivial case out.
+\end{example}
+
+The lesson: whenever you want to express ``different from'' or ``the same as,'' identity is the tool. There is no other way to encode it in $L_Q$.
+
+\subsection{Common patterns}
+
+These are the building blocks. Almost every relation defined from $R$ uses some combination of them.
+
+\begin{itemize}[leftmargin=*]
+    \item ``$x$ stands in $R$ to something that stands in $R$ to $y$'' becomes $\exists z(Rxz \wedge Rzy)$.
+    \item ``$x$ and $y$ both stand in $R$ to a common thing'' becomes $\exists z(Rxz \wedge Ryz)$.
+    \item ``$x$ and $y$ are both the target of $R$ from a common thing'' becomes $\exists z(Rzx \wedge Rzy)$.
+    \item ``$x$ is distinct from $y$'' becomes $x \neq y$, i.e.~$\neg(x = y)$.
+    \item ``$x$ is the only thing with property $A$'' becomes $Ax \wedge \forall y(Ay \to y = x)$.
+\end{itemize}
+
+The last pattern is uniqueness. It says: $x$ has the property, \emph{and} anything else that has the property must \emph{be} $x$ (In other words: ''nothing other than $x$ has the property''). This is the formal way to say ``there is exactly one.''
+
+\subsection{Sanity checks}
+
+After writing a definition, test it.
+
+\begin{itemize}[leftmargin=*]
+    \item Try a case where the relation \emph{should} hold. Does your formula come out true?
+    \item Try a case where it \emph{should not} hold. Does your formula come out false?
+    \item Try edge cases. What if $x = y$? What if some object has no $R$-neighbors at all? Do these behave the way you intended?
+\end{itemize}
+
+If a sanity check fails, your definition is missing something. Usually it is a missing identity clause or a missing existential.
+
+\section{Common Errors in Proofs}
+
+The quantifier rules $\forall$I and $\exists$E each carry restrictions on the names you're allowed to use, and almost every error in a quantified proof comes from violating one of those restrictions.
+
+ Here are common mistakes to watch for. When you are checking your own work then it is not a bad idea to run through these.
+
+\subsection{Premature $\forall$ introduction}
+
+\begin{warnbox}[{Bad proof}]
+\begin{center}
+    $\begin{nd}
+       \have{1}{Pa} \by{Premise}{}
+       \have{2}{\forall x(Px)} \Ai{1}
+    \end{nd}$
+\end{center}
+\end{warnbox}
+
+This is invalid. From one specific instance, you cannot generalize to all. The rule $\forall I$ requires the name being generalized to be \emph{fresh}: not appearing in any premise or undischarged hypothesis. Here $a$ appears in the premise, so it isn't fresh, and the rule does not apply.
+
+The intuition. The name $a$ is a particular object. The premise told us something about that particular object. That doesn't license a claim about every other object in the domain.
+
+\subsection{$\exists E$ with a name already in use}
+
+\begin{warnbox}[{Bad proof structure}]
+\begin{center}
+    $\begin{nd}
+        \have{1}{\exists x(Rxa)} \by{Premise}{}
+        \have{2}{Sba} \by{Premise}{}
+        \open
+        \hypo{3}{Rba} \by{Hypothesis (for $\exists$E)}{}
+        \close
+    \end{nd}$
+\end{center}
+\end{warnbox}
+
+When applying $\exists E$ to $\exists x(Rxa)$, the witness name must be fresh. Here $b$ is already in use (in premise 2), so it is not fresh. The fix is to pick a different name, say $c$, that has not been used anywhere.
+
+The deeper issue. By reusing $b$, the proof is implicitly claiming that the witness for $\exists x(Rxa)$ \emph{is} the same specific $b$ from premise 2. But the existential only promises that \emph{some} witness exists. It doesn't promise it is the same $b$ you already know about.
+
+\subsection{Citing the wrong line for $\exists I$}
+
+A small but common error. $\exists I$ has to be applied to a sentence that actually contains the witness term. Going from $A \to B$ straight to $\exists x(Bx)$ in one step doesn't work. You first have to derive $B$ (or $B(t)$ for some term $t$), and only then existentially generalize.
+
+The check: when you cite a line for $\exists I$, the cited line should contain a term that you are replacing with a variable. If there is no such term in the cited line, the rule does not apply.
+
+\subsection{Witness name appearing in the conclusion of $\exists E$}
+
+\begin{warnbox}[{Bad proof}]
+\begin{center}
+    $\begin{nd}
+        \have{1}{\exists x(Px)} \by{Premise}{}
+        \open
+        \hypo{2}{Pc} \by{Hypothesis (for $\exists$E)}{}
+        \have{3}{Pc} \by{Reiteration}{2}
+        \close
+        \have{4}{Pc} \Ee{1,3}
+    \end{nd}$
+\end{center}
+\end{warnbox}
+
+This violates the condition that the conclusion of $\exists E$ cannot contain the witness name. Line 4's conclusion $Pc$ still mentions $c$, the witness. That is illegal. The correct kind of conclusion would be something like $\exists x(Px)$, or any other sentence that doesn't mention $c$.
+
+The intuition. Inside the subproof, $c$ stood in for an unknown witness. Once the subproof closes, $c$ is no longer a meaningful name. So the final conclusion cannot refer to it.
+
+\subsection{How to diagnose a proof for these errors}
+
+When you suspect a proof has a quantifier-rule error, run through this checklist.
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{For every $\forall I$ step:} is the name being generalized fresh? Check every premise. Check every undischarged assumption. Check the conclusion of the $\forall I$ step (the name should not appear as a constant in the generalized sentence either).
+    \item \textbf{For every $\exists E$ step:} is the witness name fresh inside the subproof? Does the conclusion of the $\exists E$ (the line after the subproof) mention the witness name? It should not.
+    \item \textbf{For every $\forall E$ and $\exists I$ step:} are the substitutions valid? You should be replacing a variable with a term throughout, not just in some places, and not accidentally mixing up bound variables.
+    \item \textbf{For every line citing an earlier line:} does the cited line actually support the conclusion? It is easy to write down a justification without checking whether the rule really applies.
+\end{enumerate}
+
+\section{Checklist Before Submitting}
+
+\begin{enumerate}
+    \item \textbf{Did I state my answer clearly?} (Yes/No, valid/invalid, sentence/not-a-sentence, right at the start.)
+    \item \textbf{Did I connect to definitions?} Don't just say ``it follows.'' Explain why, based on what the relevant definition actually says.
+    \item \textbf{For sentence-vs-formula questions:} did I identify each free occurrence and explain why it is free?
+    \item \textbf{For translations:} did I state my dictionary (what each predicate means)? Did I sanity-check by reading the $L_Q$ formula back into English?
+    \item \textbf{For Fitch proofs:} is every line justified by a rule, premise, or hypothesis? For each $\forall I$ and $\exists E$ step, is the is the freshness requirement satisfied (and for $\exists$E does the conclusion avoid mentioning the witness name)?
+    \item \textbf{For invalidity:} did I give a specific interpretation (drawing the diagram or describing it precisely)? Did I verify each premise is true and the conclusion is false?
+    \item \textbf{For questions about relations:} did I cite the definition (reflexive, symmetric, etc.) and either prove the property holds or give a counterexample?
+    \item \textbf{For defining relations:} did I sanity-check the definition by trying cases where it should and shouldn't hold?
+    \item \textbf{Did I conclude?} Restate what you have shown.
+\end{enumerate}
+
+\end{document}

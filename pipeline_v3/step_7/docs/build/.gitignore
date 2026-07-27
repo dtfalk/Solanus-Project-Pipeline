@@ -1,0 +1,4 @@
+# LaTeX aux/intermediary files live here (latexmk -pdf -outdir=build).
+# Only ../ner_and_resolution.tex and the final ../*.pdf belong in the clean tree.
+*
+!.gitignore

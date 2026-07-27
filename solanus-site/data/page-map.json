@@ -1,0 +1,9 @@
+{
+  "title": "Map",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "m-h", "type": "heading", "text": "Where he wrote" },
+    { "id": "m-intro", "type": "text", "body": "Places named across the correspondence and notebooks — friaries, parishes, and the homes of his correspondents. Marker size reflects how often a place recurs; click one for its story." },
+    { "id": "m-x", "type": "marker-map", "endpoint": "/api/map", "entityEndpoint": "/api/entity", "connectionEndpoint": "/api/connection", "regionEndpoint": "/api/region", "listField": "places", "center": [41.5, -84.0], "zoom": 4, "height": "66vh" }
+  ]
+}

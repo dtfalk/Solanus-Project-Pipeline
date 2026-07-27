@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dossier — Solanus Casey Archive</title>
+<link rel="stylesheet" href="/static/theme.css" />
+<style>
+  /* Detached dossier window. Follows the main tab over a BroadcastChannel: click a marker/node there and
+     this re-renders here. Has its own back history. Movable to another monitor; the browser window resizes. */
+  html, body { margin: 0; height: 100%; background: var(--surface); }
+  .d-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: flex-start; gap: .5em;
+    padding: .9em 1em; border-bottom: 1px solid var(--border); background: var(--surface); }
+  .d-head .d-main { flex: 1 1 auto; min-width: 0; }
+  .d-head h1 { margin: 0; font-family: var(--font-head); font-size: 1.4rem; color: var(--provincial); line-height: 1.2; }
+  .d-sub { font-size: .9rem; color: var(--muted); margin-top: .2em; }
+  #back { display: inline-flex; align-items: center; gap: .35em; background: var(--provincial-light);
+    color: var(--provincial); border: 1px solid var(--border); border-radius: 7px; font-family: var(--font-head);
+    font-weight: 700; font-size: .9rem; line-height: 1; cursor: pointer; padding: .55em .8em; min-height: 2.4em;
+    white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
+  #back span[aria-hidden] { font-size: 1.05em; }
+  #back:hover { background: var(--provincial); color: #fff; border-color: var(--provincial); }
+  #back:focus-visible { outline: 2px solid var(--provincial); outline-offset: 2px; }
+  #back[hidden] { display: none; }
+  .d-body { padding: 1.1em 1.2em 3em; overflow-y: auto; }
+  .d-body h2 { font-family: var(--font-head); font-size: .92rem; text-transform: uppercase; letter-spacing: .03em;
+    color: var(--provincial); margin: 1.3em 0 .5em; }
+  .d-body p { font-size: 1rem; line-height: 1.55; color: var(--text); }
+  .d-place { border-left: 3px solid var(--provincial-mid); padding-left: .8em; margin: .3em 0 .5em; }
+  .d-place a, .d-src a { color: var(--provincial); }
+  .muted { color: var(--muted); font-size: .9rem; }
+  .d-rel { padding: .5em 0; border-bottom: 1px dotted var(--border); font-size: 1rem; cursor: pointer; }
+  .d-rel:hover { background: var(--provincial-light); }
+  .d-rel b { color: var(--provincial-dark); }
+  .d-rel .verb { color: var(--muted); }
+  .d-src { background: var(--provincial-light); border-radius: var(--radius); padding: .65em .8em; margin-bottom: .6em; font-size: 1rem; }
+  .d-src .meta { font-size: .8rem; color: var(--muted); font-family: var(--font-head); font-weight: 600; margin-bottom: .25em; }
+  .d-empty { color: var(--muted); padding: 2em 1em; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="d-head">
+    <button id="back" type="button" title="back to the previous entity" hidden><span aria-hidden="true">←</span> Back</button>
+    <div class="d-main"><h1 id="title">Dossier</h1><div class="d-sub" id="sub">click a place or node in the main window</div></div>
+  </div>
+  <div class="d-body" id="body"><div class="d-empty">Waiting for a selection in the main window…</div></div>
+<script>
+(function () {
+  const $ = (s) => document.querySelector(s);
+  let stack = [], pos = -1, curId = null;
+  const el = (t, cls, txt) => { const e = document.createElement(t); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+
+  async function render(id, fromHistory) {
+    if (!id) return;
+    curId = id;
+    if (!fromHistory) { stack = stack.slice(0, pos + 1); if (stack[pos] !== id) { stack.push(id); pos = stack.length - 1; } }
+    $("#back").hidden = !(pos > 0);
+    $("#title").textContent = "loading…"; $("#sub").textContent = ""; $("#body").innerHTML = "";
+    let d;
+    try { d = await (await fetch("/api/entity?id=" + encodeURIComponent(id))).json(); }
+    catch (e) { $("#title").textContent = "not found"; return; }
+    if (curId !== id) return;
+    $("#title").textContent = d.label || id;
+    const sc = d.source_count, mc = d.mention_count;
+    const cnt = sc != null ? (sc + (sc === 1 ? " source" : " sources") + (mc != null && mc !== sc ? " · " + mc + " mentions" : "")) : "";
+    $("#sub").textContent = [d.kind, d.location, cnt].filter(Boolean).join("  ·  ");
+    const body = $("#body");
+
+    const pe = d.place || {};
+    if (pe.what_it_was || pe.fate || pe.significance || pe.solanus_connection || (pe.scholarly_sources || []).length || pe.address) {
+      const box = el("div", "d-place");
+      if (pe.address) box.append(el("p", "muted", "\u{1F4CD} " + pe.address + (pe.precise ? "  (pin is on the building)" : "")));
+      const pp = (h, t) => { if (t) { box.append(el("h2", null, h)); box.append(el("p", null, t)); } };
+      pp("What it was", pe.what_it_was); pp("What happened to it", pe.fate);
+      pp("Significance", pe.significance); pp("Fr. Solanus & this place", pe.solanus_connection);
+      if ((pe.scholarly_sources || []).length) {
+        box.append(el("h2", null, "Scholarly sources"));
+        for (const s of pe.scholarly_sources) { if (!s || !(s.url || s.title)) continue;
+          const dv = el("div", "muted"); dv.style.margin = ".25em 0";
+          const a = el("a", null, s.title || s.url); a.href = s.url || "#"; a.target = "_blank"; a.rel = "noopener"; dv.append(a);
+          if (s.note) dv.append(document.createTextNode(" — " + s.note)); box.append(dv); }
+      }
+      body.append(box);
+    }
+    const summ = d.description || d.what_it_is;
+    if (summ && summ !== pe.solanus_connection) { body.append(el("h2", null, "From the archive")); body.append(el("p", null, summ)); }
+
+    const rels = d.relations || [];
+    if (rels.length) {
+      body.append(el("h2", null, "Connections (" + rels.length + ")"));
+      for (const r of rels) {
+        const row = el("div", "d-rel");
+        const b = el("b", null, r.other || r.other_id || "?");
+        row.append(b, el("span", "verb", "  " + (r.rel || r.relationship || "linked")));
+        if (r.other_id) row.addEventListener("click", () => render(r.other_id));
+        body.append(row);
+      }
+    }
+    const texts = d.texts || [];
+    if (texts.length) {
+      body.append(el("h2", null, "Sources (" + texts.length + ")"));
+      for (const t of texts) {
+        const c = el("div", "d-src");
+        c.append(el("div", "meta", (t.section || t.doc_id || "") + "  p." + (t.page != null ? t.page : "?") + (t.date ? "  (" + t.date + ")" : "")));
+        c.append(el("div", null, (t.text || t.surface || "").slice(0, 600)));
+        if (t.section && t.pdf_page) {
+          const a = el("a", null, "open the scan ↗"); a.href = "/api/pdf/" + t.section + "?page=" + t.pdf_page;
+          a.target = "_blank"; a.rel = "noopener"; const w = el("div"); w.style.marginTop = ".35em"; w.append(a); c.append(w);
+        }
+        body.append(c);
+      }
+    }
+    if (!body.children.length) body.append(el("div", "d-empty", "No details for this entity."));
+  }
+
+  $("#back").addEventListener("click", () => { if (pos > 0) { pos -= 1; render(stack[pos], true); } });
+
+  if ("BroadcastChannel" in window) {
+    const ch = new BroadcastChannel("solanus-dossier");
+    ch.onmessage = (e) => { if (e.data && e.data.type === "open" && e.data.id) render(e.data.id); };
+    ch.postMessage({ type: "hello" });   // ask the main tab for the current entity
+  }
+  const _u = new URLSearchParams(location.search);   // deep-link / shareable dossier: /dossier.html?id=...
+  if (_u.get("id")) render(_u.get("id"));
+})();
+</script>
+</body>
+</html>

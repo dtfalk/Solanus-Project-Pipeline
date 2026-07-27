@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+
+    <!-- STATIC, no-cloud deploy: content + media are served from this folder
+         (/data/*.json, /media-content/*). The dynamic data comes from the
+         project's FastAPI backend through the catalogue blocks, not blob storage. -->
+    <meta name="media-base" content="" />
+    <meta name="media-base-prod" content="" />
+    <meta name="content-base" content="" />
+    <meta name="content-base-prod" content="" />
+    <script src="/javascript/site-config.js"></script>
+    <script src="/javascript/media-base.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- This is the home page. `engine-page=home` tells page.js to load
+         page-home.json; its sections[] are rendered by the catalogue. -->
+    <meta name="engine-page" content="home" />
+
+    <!-- page.js overwrites this title from the page data + siteName once the
+         content loads; the placeholder just avoids a flash of the URL. -->
+    <title>&#8230;</title>
+    <link rel="icon" href="/media-content/logo.svg" type="image/svg+xml" />
+    <meta name="description" content="A starter site built with Pagesmith." />
+
+    <!-- Shared chrome + global reset/layout. The page body is built entirely
+         from page-home.json's sections[], so there is no per-page CSS/JS. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,800;1,600&family=Open+Sans:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/instance-theme.css" />
+    <style>
+      /* Optional full-bleed page background (theme.bgImage, set via theme.js),
+         with --site-bg as the base colour. */
+      body {
+        font-family: 'Open Sans', system-ui, sans-serif;
+        color: var(--site-ink, #2A262A);
+        background-color: var(--site-bg, #E5DFDE);
+        background-image: var(--site-bg-image, none);
+        background-size: cover; background-position: center; background-repeat: no-repeat;
+      }
+      @media (max-width: 760px) { body { background-image: var(--site-bg-image-mobile, var(--site-bg-image, none)); } }
+      /* With a photo background, --site-panel gives content a dark readable
+         panel; transparent (no panel) otherwise. */
+      body > main { max-width: 1000px; width: 100%; margin: 0 auto; padding: 7rem 1rem 3rem; box-sizing: border-box; background: var(--site-panel, transparent); border-radius: 16px; }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- The catalogue renders this page's sections[] into #engine-sections here. -->
+    <main></main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/javascript/load-fragments.js"></script>
+    <script src="/javascript/header.js"></script>
+    <script src="/javascript/footer.js"></script>
+    <script src="/javascript/page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+/* instance-theme.css — THIS SITE's brand (the Capuchin Province palette + type).
+   Instance-only: the engine + catalogue stay neutral; this skins them for the project. */
+:root {
+  --site-bg: #E5DFDE;          /* warm cream */
+  --site-ink: #2A262A;         /* grey-black body */
+  --site-accent: #3C1605;      /* provincial deep brown */
+  --site-panel: transparent;
+  --provincial: #3C1605;
+  --provincial-dark: #826962;
+  --provincial-mid: #B3A29D;
+  --provincial-light: #E5DFDE;
+  /* data-viz palette (stat numbers, charts) — brand browns instead of the default rainbow */
+  --cat-1: #3C1605; --cat-2: #826962; --cat-3: #9a7b5b; --cat-4: #5a3a22;
+  --cat-5: #B3A29D; --cat-6: #6b4a2e; --cat-7: #3C1605; --cat-8: #826962;
+}
+body { font-family: 'Open Sans', system-ui, sans-serif; color: var(--site-ink); }
+h1, h2, h3, h4, .engine-section-title {
+  font-family: 'Raleway', system-ui, sans-serif; font-weight: 800; color: var(--provincial);
+  letter-spacing: .02em; line-height: 1.15;
+}
+.engine-page-subhead, .catalog-subhead { font-family: 'Raleway', sans-serif; font-weight: 600; font-style: italic; color: var(--provincial-dark); }
+a { color: var(--provincial); text-underline-offset: 2px; }
+a:hover { color: var(--provincial-dark); }
+/* generic button/CTA */
+.catalog-button a, a.catalog-btn, .engine-button a {
+  background: var(--provincial); color: #fff; border-radius: 3px; padding: .7em 1.4em;
+  font-family: 'Raleway', sans-serif; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  font-size: 13px; text-decoration: none; display: inline-block;
+}
+.catalog-button a:hover, .engine-button a:hover { background: var(--provincial-dark); color: #fff; }
+/* spotlight / stat numbers in brand */
+.catalog-spotlight .value, .catalog-stat .value, .catalog-spotlight-value { color: var(--provincial); font-family: 'Raleway', sans-serif; font-weight: 800; }
+/* sections are clean editorial by default (no boxy card); interactive views get one white card */
+.engine-section, .catalog-card { background: transparent; border: 0; border-radius: 0; }
+.engine-section.catalog-conversation, .catalog-graph, .catalog-map, .catalog-flow, .catalog-avatar {
+  background: #fff; border: 1px solid var(--provincial-mid); border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(60, 22, 5, .06);
+}
+.engine-section.catalog-conversation { padding: 1.5em 1.8em; }
+
+/* ============ chrome: masthead header + light footer (override the engine's dark fixed bar) ============ */
+.site-header {
+  position: relative !important; background: transparent !important; box-shadow: none !important;
+  -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  display: flex; flex-direction: column; align-items: center; gap: .45em;
+  padding: 1.7rem 1rem 1.05rem; border-bottom: 2px solid var(--provincial);
+}
+/* Double-rule masthead decoration: a second hairline just below the main brown
+   rule (mirrors the OLD reading-room app's ::after second hairline). */
+.site-header::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -5px; height: 1px;
+  background: var(--provincial-mid);
+}
+/* Header-level Settings button — top-right, letterpressed, revealed by a page's
+   conversation block (matches the OLD app's header .settings-btn). */
+.header-settings-btn {
+  position: absolute; top: 1.4rem; right: 1.3rem; z-index: 3;
+  background: var(--provincial-light); color: var(--provincial-dark);
+  border: 1px solid var(--provincial-mid); border-radius: 999px;
+  padding: .42em 1.1em; cursor: pointer;
+  font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 11px;
+  letter-spacing: .13em; text-transform: uppercase; line-height: 1;
+}
+.header-settings-btn:hover, .header-settings-btn.active {
+  background: var(--provincial); color: #fff; border-color: var(--provincial);
+}
+.header-settings-btn[hidden] { display: none; }
+/* Health status dot + label in the header (backend connectivity), revealed and
+   driven by a page's interactive block. Mirrors the OLD app's #health-dot /
+   .dot.up (green) / .dot.down (red). */
+.header-health {
+  position: absolute; top: 1.55rem; left: 1.3rem; z-index: 3;
+  display: inline-flex; align-items: center; gap: .5em;
+  font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 11px;
+  letter-spacing: .04em; color: var(--provincial-dark);
+}
+.header-health[hidden] { display: none; }
+.header-health .dot {
+  width: .62em; height: .62em; border-radius: 50%;
+  background: var(--provincial-mid); flex: 0 0 auto;
+}
+.header-health .dot.up { background: #3f7d4e; }
+.header-health .dot.down { background: #9c3b2e; }
+@media (max-width: 640px) {
+  .header-settings-btn { top: .7rem; right: .7rem; }
+  .header-health { top: .8rem; left: .7rem; }
+}
+.site-header .logo-wrapper { order: 1; }       /* title first, nav beneath it */
+.site-header .main-nav { order: 2; width: 100%; }
+.site-header .logo img { height: 56px; }
+.main-nav .menu, .site-header .menu {
+  display: flex; gap: 1.9em; justify-content: center; align-items: center; list-style: none;
+  margin: .15em 0 0; padding: 0; flex-wrap: wrap;
+}
+.main-nav .menu a {
+  font-family: var(--font-head); font-weight: 700; font-size: 11.5px; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--provincial-dark); text-decoration: none;
+}
+.main-nav .menu a:hover, .main-nav .menu a.active { color: var(--provincial); }
+.menu-toggle { color: var(--provincial) !important; }
+/* the header WAS fixed (shells padded the top to clear it); it's static now */
+body > main { padding-top: 1.6rem !important; max-width: 1960px !important; }
+/* footer: drop the dark band, go light + quiet */
+footer { background: transparent !important; color: var(--provincial-dark) !important;
+  border-top: 1px solid var(--provincial-mid); padding: 1.3rem 1rem !important; margin-top: 2rem; }
+footer #footer-blurb { color: var(--provincial-dark); }
+footer #footer-copyright { color: var(--provincial-mid); }
+/* brand scrollbars — matches the OLD reading-room app (thumb in provincial-mid) */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: var(--provincial-mid); border-radius: 6px; }
+::-webkit-scrollbar-track { background: transparent; }

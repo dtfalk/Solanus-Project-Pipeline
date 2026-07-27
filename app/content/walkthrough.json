@@ -1,0 +1,81 @@
+{
+ "_editing_note": "EDIT THIS FILE FREELY — the app reads it live (no restart). Plain text fields. Reorder/add steps as you like. 'status' is shown as a chip; use done | in progress | todo.",
+ "title": "What this project did, step by step",
+ "intro": "Every scanned page of Fr. Solanus Casey's letters and prayer notebooks flows through seven steps, from raw scans to a searchable, citable knowledge tool. Each step is its own folder of reproducible scripts (pipeline_v3/step_N).",
+ "steps": [
+  {
+   "n": 1,
+   "title": "Clean the scans",
+   "folder": "step_1",
+   "status": "done",
+   "summary": "Prepare and clean the raw scanned PDFs of the letters and notebooks (pdf_cleaner) so later steps work from consistent page images.",
+   "next": ""
+  },
+  {
+   "n": 2,
+   "title": "Crop pages into regions",
+   "folder": "step_2",
+   "status": "done",
+   "summary": "Cut each page into its parts — recipient, greeting, body, signature, dates, etc. — as bounding-box regions, with a manual editor to fix the boxes.",
+   "next": ""
+  },
+  {
+   "n": 3,
+   "title": "Normalize & review",
+   "folder": "step_3",
+   "status": "done",
+   "summary": "Normalize the cropped regions to a common shape and review labeled examples before training the auto-labeler.",
+   "next": ""
+  },
+  {
+   "n": 4,
+   "title": "Auto-label every region",
+   "folder": "step_4",
+   "status": "done",
+   "summary": "Machine-label each region's category across the whole corpus, then apply hand corrections/relabels. David holds final labeling authority (gold is David-only).",
+   "next": "Spot-check any volumes flagged as drifted before re-running downstream steps."
+  },
+  {
+   "n": 5,
+   "title": "OCR & clean the text",
+   "folder": "step_5",
+   "status": "done",
+   "summary": "Read the text from each region with Azure OCR (both passes kept), then clean common OCR patterns and enrich each page. Nothing is thrown away.",
+   "next": "Continue curating the cleaning rules as new error patterns surface."
+  },
+  {
+   "n": 6,
+   "title": "Segment into documents",
+   "folder": "step_6",
+   "status": "done",
+   "summary": "Split the corpus into individual documents: correspondence as per-letter records (grouped via the tables of contents), notebooks as page-and-entry records. An audit guarantees every region is kept.",
+   "next": "Use the TOCs further as a name authority (see step 7 to-dos)."
+  },
+  {
+   "n": 7,
+   "title": "Build the archive tool (this app)",
+   "folder": "step_7",
+   "status": "in progress",
+   "summary": "Turn the documents into a research tool: extract named entities (people, places, conditions, favors, dates), then run a context-aware ENTITY ENGINE that reads each one in its source context, researches what it actually is, disambiguates it (e.g. 'Colorado' in a Detroit address is a street, not the state), and cautiously merges duplicates into canonical entities. Build a temporal knowledge graph, map the places, embed everything for hybrid search, and answer questions with a tool-using agent that cites the exact scanned region (and the Crosby biography).",
+   "next": "Entity engine has run (35.9k -> 31.7k canonical, noise dropped, places disambiguated). Graph + map + timeline are live with the viz upgrades (clusters layout, clickable legend, date-brush, confidence slider, Street View). Next: audit-driven merge/classification refinements, optional convergence passes, TOC/Wikidata name authority, and pushing the retrieval eval to target."
+  }
+ ],
+ "todo": [
+  {
+   "title": "Audit-driven refinements",
+   "detail": "Apply the entity-engine audit findings (recover any wrongly-dropped real entities, tighten merge normalization for honorific variants, fix any bad geocodes)."
+  },
+  {
+   "title": "TOC / Wikidata name authority",
+   "detail": "Use the tables of contents (curated recipient names) + Wikidata/VIAF as ground-truth spellings to confirm canonical names and link notable people/places."
+  },
+  {
+   "title": "Convergence / deeper passes",
+   "detail": "The engine is loop-capable (--passes, --max-cost): re-think merged entities for richer identities if desired."
+  },
+  {
+   "title": "Eval to target",
+   "detail": "Push retrieval precision/recall to the thresholds with more golden questions + tuning."
+  }
+ ]
+}

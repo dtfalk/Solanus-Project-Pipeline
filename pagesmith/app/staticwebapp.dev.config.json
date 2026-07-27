@@ -1,0 +1,35 @@
+{
+  "routes": [
+    { "route": "/.auth/login/github", "statusCode": 404 },
+
+    { "route": "/login.html", "allowedRoles": ["anonymous"] },
+    { "route": "/api/ping", "allowedRoles": ["anonymous"] },
+
+    { "route": "/api/save-content/*", "allowedRoles": ["editor"] },
+    { "route": "/api/media-upload", "allowedRoles": ["editor"] },
+    { "route": "/api/media", "allowedRoles": ["editor"] },
+    { "route": "/api/promote", "allowedRoles": ["editor"] },
+    { "route": "/api/revert", "allowedRoles": ["editor"] },
+    { "route": "/api/questionnaire-export", "allowedRoles": ["editor"] },
+    { "route": "/api/submit-questionnaire", "allowedRoles": ["authenticated"] },
+    { "route": "/api/stats-refresh", "allowedRoles": ["authenticated"] },
+
+    { "route": "/showcase", "rewrite": "/html-pages/page.html", "allowedRoles": ["authenticated"] },
+    { "route": "/p/*", "rewrite": "/html-pages/page.html", "allowedRoles": ["authenticated"] },
+
+    { "route": "/*", "allowedRoles": ["authenticated"] }
+  ],
+
+  "responseOverrides": {
+    "401": { "statusCode": 302, "redirect": "/login.html" }
+  },
+
+  "navigationFallback": {
+    "rewrite": "/html-pages/page.html",
+    "exclude": [
+      "/.auth/*", "/api/*", "/css/*", "/javascript/*", "/media-content/*",
+      "/data/*", "/html-pages/*", "/login.html",
+      "/*.{css,js,json,png,jpg,jpeg,webp,gif,svg,ico,mp4,webm,woff,woff2,txt,xml,map}"
+    ]
+  }
+}

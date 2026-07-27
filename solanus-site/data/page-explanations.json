@@ -1,0 +1,9 @@
+{
+  "title": "Explanations",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "ex-h", "type": "heading", "text": "Explanations" },
+    { "id": "ex-intro", "type": "text", "body": "Thorough write-ups of the architecture, retrieval, entity resolution, and the temporal knowledge graph. Pick a topic." },
+    { "id": "ex-docs", "type": "doc-explorer", "endpoint": "/api/explain", "listField": "docs" }
+  ]
+}

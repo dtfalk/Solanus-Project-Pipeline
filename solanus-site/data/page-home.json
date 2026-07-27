@@ -1,0 +1,18 @@
+{
+  "title": "Home",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "home-h", "type": "heading", "text": "Solanus Casey Archive" },
+    { "id": "home-intro", "type": "text", "title": "A research reading-room for the papers of Father Solanus Casey",
+      "body": "Ask the archive and get answers grounded in his ~570 letters and ~716 notebook pages — every claim cited to the exact scanned region. Explore the people, places, and connections as a knowledge graph; trace where he was as he wrote; and watch the retrieval pipeline light up as it works." },
+    { "id": "home-stats", "type": "stat-cards", "title": "What's inside", "items": [
+      { "value": "570", "label": "letters" },
+      { "value": "716", "label": "notebook pages" },
+      { "value": "9,500+", "label": "people & places" },
+      { "value": "1,087", "label": "rich book-grounded summaries" }
+    ] },
+    { "id": "home-spot", "type": "spotlight", "value": "Deo gratias", "label": "his constant refrain",
+      "caption": "Solanus Casey (1870–1957) was the Capuchin porter at St. Bonaventure Monastery in Detroit. Petitioners wrote from everywhere; he answered, enrolled them in the Seraphic Mass Association, and recorded the favors reported back." },
+    { "id": "home-cta", "type": "button", "label": "Enter the archive", "url": "/ask" }
+  ]
+}

@@ -1,0 +1,4 @@
+# app/ generated, ephemeral artifacts — regenerable at runtime; keep out of git.
+traces/            # per-request agent traces written by the JSON tracer (app/server.py)
+__pycache__/
+*.pyc

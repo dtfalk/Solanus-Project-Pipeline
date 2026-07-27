@@ -1,0 +1,2140 @@
+---
+title: "Final Project: A Bayesian multilevel-SDT analysis of the auditory superstitious-perception
+  task"
+author: "David Falk"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float: true
+  word_document:
+    toc: true
+    toc_depth: '3'
+  pdf_document:
+    latex_engine: xelatex
+---
+
+**Due**: Wednesday, May 27, 2026 at 11:59 pm
+
+**Points**: 120 possible points (weighted as 30% of grade)
+
+**AI disclosure:**
+
+
+
+I wrote out my models on paper, took pcitures of them, and then asked an AI (claude) to generate the LaTeX so things would be formatted nicely using all of the nice math symbols.
+AI was a very helpful sounding board for some questions I had about testing between hypotheses that predict the same data (not exactly doable but moreso a question about where I might find subtle clues that there is a difference in the data, especially for M4/M5). It helped me write the Stan code since rethinking HATES discrete mixture multilevel, margianalized models and I wanted to do that. Also super helpful with getting the parrallel model running going via the futures library  
+
+**Please submit both an HTML and RMD file.**
+
+*Important note: TAs will not answer questions 24 hours before the due date, so please ask your questions earlier. It will be better for everyone.*
+
+**Preamble**: Throughout the quarter you have been building up the skills to perform a Bayesian analysis of your own data. That is what we will be asking you to do here. Essentially we are going to have you conduct a Bayesian data analysis workflow on your own data. In addition, we will ask you for some background information on your project and have you interpret the results from your Bayesian data analysis. It is our hope that this project will be a natural extension of some of the homework questions that we have asked you throughout the quarter, particularly those focused on your own data/research and your final project from the previous quarter. Please start on this project early so that you are not scrambling at the end. We hope that this project can be used in your current research to form the basis of a publication or to add additional analyses to a current manuscript that you are working on. To this extent, please use this project in a way that will be most meaningful for you within the context of Bayesian data analysis.
+
+*Note: When you are asked to output a result (e.g. the mean of a column in a dataframe), you can do so by calling the object/result at the bottom of your code chunk. This will print the result directly in your R Markdown doc.*
+
+For ease of grading, please answer each question below the written questions in this template. Do not delete or remove the question or the guidelines in your submitted knitted file.
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.width = 16, fig.height = 10)
+
+library(tidyverse)
+library(rethinking)
+library(dagitty)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(cowplot)
+library(RColorBrewer)
+library(tidybayes)
+library(cmdstanr)
+library(loo)
+
+# Makes it so i can run each model in parrallel instead of waiting for one
+# block and then the next etc
+library(parallel)
+library(future)
+chains_to_use <- 4
+cores_to_use  <- 4
+plan(multisession, workers = 5)
+
+set.seed(1)
+theme_set(theme_minimal())
+```
+
+```{r data-loading}
+# ============================================================================
+# Trial-level data loading.
+# Walks raw_data/<Site>/<subject_id>/<block>/<block>_<subject>.csv
+# and stacks every trial from every subject into one long data frame.
+#
+# Location of the data with the UChicago & Oberlin data:
+RAW_DATA_PATH <- "raw_data"
+# ============================================================================
+
+# Loads one block of trials 
+# Each subject has 2 blocks (every subject did both blocks, but not necesarily in this order)
+#   1 - Full Sentence
+#   2- Imagined Sentence
+# Block CSV columns:
+#   Subject Number, Block Scheme, Stimulus Number, Stimulus Type, Subject Response,
+#   Play Count, Trial Start Timestamp, Play Button Clicked Timestamp,
+#   Audio Start Timestamp, Audio End Timestamp, Subject Response Timestamp
+# R's implementation of read.csv() turns the spaces in column names into dots/periods so 
+#   we can reference a column named "Stimulus Type" via "df$Stimulus.Type"
+load_subject_block <- function(site, subject_id, block_type) {
+
+  # Each subject has two trial-level CSVs, one per block, with 149 rows each
+  path <- file.path(RAW_DATA_PATH, site, subject_id, block_type,
+                    paste0(block_type, "_", subject_id, ".csv"))
+
+  # Read the csv into a df
+  df <- read.csv(path)
+
+  # Build a df with just the columns we care about
+  # subject is site-prefixed to ensure global-uniqueness across experimental sites
+  #   correct      = 1 iff subject's response matched the experimenter's label
+  #   said_target  = 1 iff subject pressed "target" on this trial
+  #   true_target  = 1 iff the experimenter labeled this trial a target
+  data.frame(
+    
+    # uchicago or oberlin
+    site = site, 
+    
+    # Subject number (here we prepend the experimental site for uniqueness)
+    subject = paste(site, subject_id, sep = "_"),
+    
+    # Which trial the subject was on (trial 1, trial 50, trial n, ...)
+    trial_num = seq_len(nrow(df)),
+    
+    # Which specific stimulus the subject heard on this trial
+    # I need this to join the per-stimulus Pearson r values onto trials later
+    stimulus_number = df$Stimulus.Number,
+    
+    # Which of the two block we are on (full sentence vs imagined sentence)
+    block_scheme = df$Block.Scheme,
+    
+    # regardless of whether it is a target or a distarctor, did the subject identify it correctly
+    correct = as.integer(df$Stimulus.Type == df$Subject.Response),
+    
+    # 1 if the subejct claimed it was a target, 0 if they claimed distractor 
+    said_target = as.integer(df$Subject.Response == "target"),
+    
+    # 1 if it was actually a target, 0 if it was actually a distractor
+    # ("actually" means that we, the experimenters, had labelled it as a target vs a distractor)
+    true_target = as.integer(df$Stimulus.Type  == "target")
+  )
+}
+
+# Loads the order in which the subject saw the blocks (full sentence and imagined sentence)
+# Summary CSV columns:
+#   Subject Number, Block 1, Block 1 D-Prime, Block 2, Block 2 D-Prime
+# After read.csv these become Block.1, Block.1.D.Prime, etc...
+load_block_order <- function(site, subject_id) {
+
+  # The summary_data file tells us which block ran first
+  path <- file.path(RAW_DATA_PATH, site, subject_id, paste0("summary_data_", subject_id, ".csv"))
+
+  # Read the summary data csv which contains the block order
+  summary_data <- read.csv(path)
+
+  # Construct a summary data dataframe with....
+  #   1) the subject number, site-prefixed so it's globally unique
+  #         (raw format is MMDDYYYYXXX where XXX is left filled with 0s
+  #         representing which subject of the day; e.g. 002 means the 2nd
+  #         subject of that day; same MMDDYYYYXXX could in principle appear
+  #         at both sites so we prepend the site)
+  #   2) the experimental site (UChicago vs Oberlin)
+  #   3) the block order (which block was 1st, which was 2nd)
+  data.frame(
+    subject                 = paste(site, subject_id, sep = "_"),
+    site                    = site,
+    full_sentence_order     = ifelse(summary_data$Block.1 == "full_sentence",     1L, 2L),
+    imagined_sentence_order = ifelse(summary_data$Block.1 == "imagined_sentence", 1L, 2L)
+    
+    # Note: "1L" means "set this to the number '1' but make sure it is an integer
+    #   because if we just wrote "1" then R would store it as a double, which could lead
+    #   to annoying floating point issues if we indeed just want an integer (also not memory efficient)
+  )
+}
+
+
+# Walk both sites, both blocks, and all subjects
+all_trials <- list()
+all_orders <- list()
+
+# Iterate over the experimental sites
+for (site in c("Oberlin", "UChicago")) {
+
+  # List all of the subject data folders
+  subj_dirs <- list.dirs(file.path(RAW_DATA_PATH, site), recursive = FALSE, full.names = FALSE)
+
+  # Iterate over each subject data folder
+  for (subject_id in subj_dirs) {
+
+    # Iterate over both blocks
+    for (block in c("full_sentence", "imagined_sentence")) {
+
+      # Add the subject's trials as a LIST to the list of all trials
+      all_trials[[length(all_trials) + 1]] <- load_subject_block(site, subject_id, block)
+    }
+
+    # Add the subject's block order/summary data as a LIST to the existing list of block orders
+    all_orders[[length(all_orders) + 1]] <- load_block_order(site, subject_id)
+  }
+}
+
+# Since each entry is a list, we flatten the lists to just be a single list of trials/block orders
+# The previous loop produced, for example, all_trials [[subject 1's trials], [subject 2's trials], ...]
+#   and this turns it from a list of lists into one flat list [subject, 1's, trials, subject, 2's, trials, ...]
+trials <- do.call(rbind, all_trials)
+orders <- do.call(rbind, all_orders)
+
+# Attach block_order_index to each trial (getting a little SQL with it)
+# Basically, just join the two lists based on subject number, which is present in every item in both lists
+# So every trial gets two new columns (full_sentence_order & imagined_sentence_order)
+# This is what the data looks like after this block:
+# subject              block_scheme         ...  full_sentence_order  imagined_sentence_order
+# Oberlin_03032025001  full_sentence        ...  2                    1
+# Oberlin_03032025001  full_sentence        ...  2                    1
+# Oberlin_03032025001  imagined_sentence    ...  2                    1
+#
+trials <- trials |>
+  left_join(orders, by = c("subject", "site")) |>
+  mutate(block_order_index = ifelse(block_scheme == "full_sentence", full_sentence_order, imagined_sentence_order)) |>
+  select(-full_sentence_order, -imagined_sentence_order)
+
+# Dummy / sum coding for predictors:
+#   block_dummy: 0 = imagined, 1 = full        (so bBlock = Full effect)
+#   site_dummy:  0 = UChicago, 1 = Oberlin     (so bSite  = Oberlin effect)
+#   order_dummy: 0 = first,    1 = second      (so bOrder = practice effect)
+#   true_target_centered: -0.5 = distractor, +0.5 = target
+#   We center this so that the slope on it IS d' in classical units when probit link 
+#     is used; the intercept becomes the criterion at the average trial.)
+trials <- trials |>
+  mutate(
+    block_dummy          = as.integer(block_scheme == "full_sentence"),
+    site_dummy           = as.integer(site == "Oberlin"),
+    order_dummy          = as.integer(block_order_index == 2),
+    true_target_centered = ifelse(true_target == 1, 0.5, -0.5)
+  )
+
+# Build a subject-level integer index for ulam (1..N_subjects)
+# subject is now globally unique (site-prefixed), so joining on subject alone is safe
+# Ehh it is experimental data so I am certain it is not safe. But whatever, c'est la vie
+subj_lookup <- trials |>
+  distinct(subject, site) |>
+  arrange(site, subject) |>
+  mutate(subject_idx = row_number())
+
+trials <- trials |> left_join(subj_lookup |> select(subject, subject_idx), by = "subject")
+
+cat(sprintf("Loaded %d trials across %d subjects (%d Oberlin, %d UChicago)\n",
+            nrow(trials),
+            n_distinct(trials$subject),
+            n_distinct(trials$subject[trials$site == "Oberlin"]),
+            n_distinct(trials$subject[trials$site == "UChicago"])))
+head(trials)
+tail(trials)
+```
+
+```{r pearson-r-loading}
+# ============================================================================
+# Per-stimulus Pearson r values (precomputed in the stimulus pipeline so not
+# much new computation here) and then join these values onto trials.
+# ============================================================================
+# Each noise clip was scored against the wall.wav template back when the
+# stimulus set was assembled, and the scalar r values live in two CSVs:
+#   high_correlation_stimuli.csv  -- 153 targets, r in [0.072, 0.090]  (3 are example targs)
+#   low_correlation_stimuli.csv   -- 153 distractors, |r| < 1.5e-6  (3 are example dists)
+# Joining these onto our trials by Stimulus.Number gives the continuous
+# per-trial r-to-target value (so far we have only the experimenter label binary
+# target/distractor label). This continuous similarity is what M4/M5 will
+# use to examine label-flipped subjects (negative slope on r) separately
+# from noise subjects (~zero slope on r) without the manual dprime flip that
+# I have tried before but often been bothered by.
+target_corr <- read.csv(file.path(RAW_DATA_PATH, "audio_stimuli", "correlation_csvs", "high_correlation_stimuli.csv"))
+distr_corr  <- read.csv(file.path(RAW_DATA_PATH, "audio_stimuli", "correlation_csvs", "low_correlation_stimuli.csv"))
+
+# Stack the two correlation tables into one lookup
+stim_r <- rbind(target_corr, distr_corr)
+
+# Join r_score onto every trial by stimulus_number
+trials <- trials |> left_join(stim_r, by = c("stimulus_number" = "stimulus_number"))
+
+# Make sure the join worked (targets avg should be ~0.08, distractors ~ 0, and no NAs)
+# To Future OCD David: PRESENT DAVID CAN CONFIRM THIS ACTUALLY RETURNS EXPECTED VALUES
+# DONT wASTE TIME WONDERING
+trials |>
+  group_by(true_target) |>
+  summarize(
+    mean_r = mean(r_score, na.rm = TRUE),
+    sd_r   = sd(r_score,   na.rm = TRUE),
+    min_r  = min(r_score,  na.rm = TRUE),
+    max_r  = max(r_score,  na.rm = TRUE),
+    n_na   = sum(is.na(r_score))
+  )
+
+# Center the pearson r score across all trials so the slope on it has the
+# interpretation "log-odds shift per unit deviation from average trial's r"
+# Targets end up around +0.04 and distractors around -0.04 after centering
+trials <- trials |> mutate(sim_to_target = r_score - mean(r_score, na.rm = TRUE))
+```
+
+```{r raw-dprime-and-flip}
+# ============================================================================
+# Pre-compute d' per (subject, block) and per subject (pooled
+# across blocks).
+# ============================================================================
+
+# z() with log-linear correction so subjects with Hit Rate = 1 or 
+# False Alarm Rate = 0 don't blow up since d' is a difference of their Z-Scores
+safe_z <- function(p, n) {
+  qnorm((p * n + 0.5) / (n + 1))
+}
+
+# ===================================================================================
+# ===================================================================================
+# Per (subject, block) d'
+# I've been working through some functional programming languages lately (OCaml & Haskell)
+# Been experimenting with this sort of notation (the pipe operator is also in OCaml, but slightly different)... 
+# so what is it? More or less we are just using postfix notation and doing a different method of applying arguments to functions.
+# Whereas in OCaml x |> f y curries to f(y, x), in R x |> f y curries to f(x, y). Not a big issue but don't get it switched!!
+# The imperative version of this is ....
+#   subj_block_dprime <- mutate(summarize(group_by(trials, site, subject, subject_idx, block_scheme), ...), ...)
+# The general approach is common to SQL type queries/transformations and follows a typical ETL (extract, transform, load to central location)
+# pipeline. In R terminology this translates to split (into groups), apply (transformations), combine (into a cleaned data object)
+# This is perfectly well reflected in the order of functions mentioned above. 
+#   1. We "group_by()" experimental site, subject number, subject index, block type (This is the "split")
+#   2. We "summarize()" to reduce each block to a single row so 2 rows per subject (This is the "apply")
+#   3. We "mutate()" to add a derived d' column. Ill admit this actually doesn't fit in to this schema but I wrote this entire pompous block already so im not rewriting it.
+subj_block_dprime <- trials |>
+  group_by(site, subject, subject_idx, block_scheme) |>
+  summarize(
+    n_target     = sum(true_target == 1),
+    n_distractor = sum(true_target == 0),
+    hit_rate     = mean(said_target[true_target == 1]),
+    fa_rate      = mean(said_target[true_target == 0]),
+    .groups      = "drop"
+  ) |>
+  mutate(dprime = safe_z(hit_rate, n_target) - safe_z(fa_rate, n_distractor)) |>
+  mutate(flip_block = as.integer(dprime < 0))
+
+# Print the table
+subj_block_dprime
+
+# ===================================================================================
+# ===================================================================================
+
+# ===================================================================================
+# ===================================================================================
+# Pooled d' per subject (across both blocks). This is the number that
+# decides whether the subject is "recognizing the difference between categories but got the labels flipped" for the M4 analysis.
+subj_dprime <- trials |>
+  group_by(site, subject, subject_idx) |>
+  summarize(
+    n_target     = sum(true_target == 1),
+    n_distractor = sum(true_target == 0),
+    hit_rate     = mean(said_target[true_target == 1]),
+    fa_rate      = mean(said_target[true_target == 0]),
+    .groups      = "drop"
+  ) |>
+  mutate(
+    dprime_pooled = safe_z(hit_rate, n_target) - safe_z(fa_rate, n_distractor),
+    flip_subject  = as.integer(dprime_pooled < 0)
+  )
+# ===================================================================================
+# ===================================================================================
+# Graphing for how many subjects we want to flip dprimes for
+# 1. Whole experiment
+overall_tab <- subj_dprime |>
+  count(flip_subject) |>
+  mutate(Block = "Overall")
+# 2. Full sentence block
+full_tab <- subj_block_dprime |>
+  filter(block_scheme == "full_sentence") |>
+  count(flip_block) |>
+  mutate(Block = "Full Sentence") |>
+  rename(flip_subject = flip_block)
+
+# 3. Imagined sentence block
+imagined_tab <- subj_block_dprime |>
+  filter(block_scheme == "imagined_sentence") |>
+  count(flip_block) |>
+  mutate(Block = "Imagined Sentence") |>
+  rename(flip_subject = flip_block)
+
+# Print the table of flips by overall dprim, and by block type
+overall_tab
+full_tab
+imagined_tab
+
+# Arranges from high to low on pooled dprime
+subj_dprime |> arrange(dprime_pooled)
+subj_dprime
+```
+
+```{r ulam-data-prep}
+# ============================================================================
+# Build the slim list of data for easy use in  ulam.
+# ============================================================================
+
+# Here we are reorganizing trials. We do the following....
+# left join the subject dprime on subject number and also blockscheme depending on circumstance
+#     (since we want to check this for each block and for the overall dprimes)
+trials <- trials |>
+  
+  #  left join on "subject" for experiment wide analysis
+  left_join(subj_dprime       |> select(subject, flip_subject), by = "subject") |>
+  
+  #  left join on "subject" and "block_scheme" for block-by-block analysis  
+  left_join(subj_block_dprime |> select(subject, block_scheme, flip_block), by = c("subject", "block_scheme")) |>
+  
+  # Generate new columns (one for experiment level flip, one for block level flip) evaluating to
+  #   the opposite values for subject response (target = 1, distractor = 0) if subject's dprime < 0 
+  #   Otherwise (subject dprime >= 0) we keep things exactly the same
+  mutate(
+    said_target_flipped       = ifelse(flip_subject == 1, 1L - said_target, said_target),
+    said_target_flipped_block = ifelse(flip_block   == 1, 1L - said_target, said_target)
+  )
+
+
+# Build the final "slim" list with the data for easy data operation
+slim <- list(
+  
+  # Num stimuli correctly identified (independent of whether target or distractor)
+  correct = as.integer(trials$correct),
+  
+  # Number of times the subject said that a stimulus was a target (indpendent of if they are correct)
+  said_target = as.integer(trials$said_target),
+  
+  # Number of times subject said a stimulus was a target and the stimulus was a target (accd to the experimenter)
+  true_target = as.numeric(trials$true_target_centered),
+  
+  # Centered per-trial Pearson r with wall.wav.
+  # Slope on this is beta_truetarget --- the alignment metric M4/M5 use to
+  # detect label-flipped subjects (negative slope = anti-aligned with target).
+  sim_to_target = as.numeric(trials$sim_to_target),
+  
+  # Name of the block (full sentence vs imagined sentence)
+  block = as.integer(trials$block_dummy),
+  
+  # experimental site (uchicago vs oberlin)
+  site = as.integer(trials$site_dummy),
+  
+  # Order in which the subject received this block 
+  order = as.integer(trials$order_dummy),
+  
+  # Less relevant, but whatever 1, ..., N_subjects index this subject received
+  #   I am ocd so i enjoy convergent checks on my data to ensure no funny business
+  subject_idx = as.integer(trials$subject_idx),
+  
+  # Total number of subjects
+  # Nice to have this in every trial row if we ever need easy access to this number
+  # Not the most efficient, but hey, let's live a little
+  N_sub = as.integer(max(trials$subject_idx))
+)
+
+```
+
+
+```{r m4-data-prep}
+# ============================================================================
+# Data prep for the full-sentence-only subset for M4 and M5
+# ----------------------------------------------------------------------------
+# Drop all imagined_sentence trials. No flipping. Per-trial sim_to_target
+# (centered Pearson r against wall.wav) carries the sign-preserving signal
+# instead of any manual flip operation.
+# 
+# we have the existing result about oberlin full sentence and at both experimental
+# sites we have either full sentence significance or trending in that direction
+#  (results consistent with the same effect but underpowered at uchicago)
+# so there is a reason to think that the addition of imagined sentence will be
+# polluting the analysis with noise.
+# The quesiton I am interested in here is whether the data is consistent with
+# "some subjects were able to recognize there were two groups of stimuli 
+# and discern between those two groups stimuli but they just got the labels flipped...
+# This would result in a negative dprime spike in a dprime/subject count histogram
+# which LOOKS LIKE A NORMAL DISTRIBUTION but is also consistent with the hypothesis 
+# I am testing here. 
+# In order to address this, we need to look at data where subjects were able to actually
+# do the task, because the hypothesis is not testable when no subjects successfully do the task.
+# In that case it is all noise and you can't ask about subjects who were doing the task (partially) correctly
+#   but made the mistake of flipping the labels". As a result, it is justified that we remove the 
+#   imagined sentence block's data since it does not seem that anybody could reliably do this block.
+trials_full <- trials |> filter(block_scheme == "full_sentence")
+
+
+# Build the slim list for the full-sentence-only models (M4 and M5).
+# Block dummy is omitted since block is constant in this subset.
+slim_full <- list(
+  
+  # raw said_target
+  said_target = as.integer(trials_full$said_target),
+  
+  # centered target label (+/- 0.5) slope on this is d'
+  true_target = as.numeric(trials_full$true_target_centered),
+  
+  # centered per-trial Pearson r with wall.wav.
+  # slope on this is beta_truetarget; sign tells flipped vs correct vs noise.
+  sim_to_target = as.numeric(trials_full$sim_to_target),
+  
+  # site dummy (Oberlin = 1, UChicago = 0)
+  site = as.integer(trials_full$site_dummy),
+  
+  # order dummy (2nd block = 1, 1st block = 0)
+  order = as.integer(trials_full$order_dummy),
+  
+  # subject index (still 1 thru N_subjects since every subject did the full_sentence block)
+  subject_idx = as.integer(trials_full$subject_idx),
+  
+  # total subjects
+  N_sub = as.integer(max(trials_full$subject_idx))
+)
+
+# sanity check the trial count
+cat(sprintf("Full-sentence-only subset: %d trials across %d subjects\n", length(slim_full$said_target), slim_full$N_sub))
+```
+
+# 1. Introduction
+
+**Write 2-3 paragraphs of introduction/background on your research question.**
+
+- Why is your research question interesting/important and how does it fit into the existing literature?
+
+- Please include parenthetical citations in the introduction and APA-style references at the end.
+
+____________________________
+
+Auditory hallucinations (AH) are defined as the perception of sound without a corresponding physical stimulus. Typically regarded as a symptom of psychosis,  auditory hallucinations also occur in psychiatrically healthy adults. The experiences of healthy and clinical voice-hearers differ enough that researchers have argued for a continuum running from everyday hallucination-proneness into clinical psychosis (Johns & Van Os, 2001; Hill & Linden, 2013). What distinguishes people who experience AH from those who don't? One candidate mechanism is top-down sensitivity in perception. Bayesian-brain accounts hold that the percept on any given trial is a posterior combining bottom-up sensory evidence with a top-down prior shaped by expectation, attention, and imagery (Friston, 2010; Powers, Mathys, & Corlett, 2017); when bottom-up evidence is weak (as in this experiment), the posterior is dominated by the prior, and listeners whose priors are more sharply tuned or whose attention more readily latches onto signal-like structure may be more likely to "hear" something in noise (Bentall & Slade, 1985; Aleman & Larøi, 2008). Several converging lines of evidence point this direction. Merckelbach and Van De Ven (2001) told 47 undergraduates that the song "White Christmas" might be embedded in white noise played through their headphones; the song wasn't there, but 32% reported hearing it, and the reporters scored higher on the Launay-Slade Hallucination Scale and on fantasy proneness. Luhrmann, Nusbaum, and Thisted (2010) found that voice-hearing in an Evangelical Christian sample was predicted by Tellegen Absorption Scale scores rather than by religiosity per se, suggesting that the propensity to be absorbed in mental imagery (this is NOT the motivation to hear voices) was what differentiated voice-hearers from non-voice-hearers. And Gosselin and Schyns (2003) showed that observers' classification images for letters they "saw" in pure visual noise aggregated to actual letter shapes, evidence that what they "saw" was being guided by an internal target template rather than by stimulus features. Across these results the pattern is consistent: top-down expectation can systematically shape what listeners perceive in noise, and individual differences in that susceptibility track hallucination-relevant traits.
+
+The dataset I'm analyzing was collected by researchers at the APEX Lab at UChicago and by Connor Daley at Oberlin, originally for Arwen Bare's senior honors thesis on this top-down hypothesis (IRB #24-1770). The paradigm is a forced-choice signal-detection task in noise. 26 undergraduates (16 Oberlin, 10 UChicago) listened to short white-noise clips on each trial and decided whether each clip "contained" the target word *wall*, extracted from a clean recording of the carrier sentence "The picture hung on the wall." The clips aren't truly featureless: roughly 2.8 million candidate white-noise clips were generated from quantum-random (ANU QRNG API) seeds and scored by Pearson correlation against the target waveform, with the experimentally-labeled targets drawn from the high-correlation tail (top 153 clips, $r \in [0.072, 0.090]$) and the distractors from the near-zero-correlation tail ($|r| < 1.5 \times 10^{-6}$). So the targets and distractors do differ, reliably above chance, but just barely. The highest rated target (according to pearson r) results in less than a 1/3rd of a percent of variance explained. 
+
+The full_sentence (perception) block supports the subject's prior with explicit perceptual input: subjects hear "The picture hung on the" in the original speaker's voice before each noise clip. The imagined_sentence (imagery) block strips that support, requiring subjects to imagine the carrier phrase themselves before clicking to play the noise. If top-down expectation is what drives detection in this paradigm, the perceptual scaffold should produce more reliable detection than imagery alone. A repeated-measures ANOVA on $d'$ found a significant main effect of Group (Oberlin > UChicago, $p = 0.03$) but no main effect of Block Type and no interaction, with a per-cell follow-up showing Oberlin above chance in the perception block ($p = 0.001$) and UChicago at chance. These results hold up to non-parametric statistical tests such as Wilcoxon vs chance, Mann–Whitney across sites, paired Wilcoxon for the within-subject Full–Imagined contrast. All statistical tests returned the same results: Oberlin full_sentence is robustly above chance ($d' = 0.137$, $p = 0.001$, Cohen's $d \approx 1.0$), every other cell is at or near chance, and the within-subject Full–Imagined comparison to Imagined-Sentence is in the predicted direction in every reporting group (UChicago, Oberlin, Unified) but reaches $p < 0.05$ in none.
+
+There are three things that subject-mean-level NHT analysis can't do that a Bayesian multilevel approach can. First, each subject contributes ~298 trials (off by one error in my code, twice!), and collapsing those to a single number throws away the within-subject trial variance that the multilevel framework can use to tighten estimates. Second, "trending only" comparisons ($p \in [0.05, 0.20]$, $d$ medium-to-large) deserve a continuous evidence read rather than a binary reject/fail-to-reject. Layered on top of $d'$, a two-component mixture (engaged trials vs. lapse-guessing trials, in the style of HW4's `m_ZI` model) lets me ask whether some apparent noise in the data is actually inattention rather than insensitivity. And the "are some subjects capable but label-flipped?" question is of importance. The cleanest way to ask it without the selection-on-outcome bias of pre-flipping responses is to give each subject a slope on the continuous per-trial r-to-target value alongside their d' on the binary label: a flipped subject has a negative slope, a noise subject's slope is ~0, and a correctly-responding subject's slope is positive. I run this on the full_sentence subset (where our previous analyses showed that genuine signal exists. We exclude the imagined block because it essentially noise for every subject) as M4. M5 then puts an explicit 3-component mixture prior on the subject-level (d, beta) pair. The 3 components are noise centered at (0,0), correct at (+mu, +mu), flipped at (-mu, -mu), reflecting the three hypothesized types of subjects (cant do task, can do task, can do task but got the labels flipped). and asks whether the data actually "wants" that discrete class structure or whether continuous noise around a simpler model is enough.
+
+____________________________
+
+# 2. Methods
+
+## 2A. Making your DAG(s)
+
+**Draw the DAG(s) of your research question using the daggity tool McElreath provides in rethinking (i.e., do not just write Y<-X<-Z->A<-B; instead, lay out your DAG in space with daggity). Any variables that are included in your statistical model should be included in your DAG (though multi-level model params may not). Your DAG may not be very complicated if your study is experimental.**
+
+```{r dag-build}
+# ============================================================================
+# DAG for the auditory superstitious perception task
+# ----------------------------------------------------------------------------
+# Three things are randomized in this paradigm:
+#     1 - Block (full sentence vs imagined sentence),
+#     2 - Block Order (the order in which the blocks are presented)
+#     3 - Stimulus Type (whether the stimulus is a target or distractor).
+# Experimental Site (UChicago vs Oberlin) is observational since the subejcts 
+#   were not randomly assigned to Oberlin vs UChicago
+
+# In this DAG U is a latent unobserved subject-level variable. 
+
+# U includes a bunch of, perhaps estimable via questionnaires, but we arent doing
+# questionnnaires in hthis analysis: 
+
+# This include but is not limited to:
+#     1 - Musical training (Oberlin has a famous conservatory)
+#     2 - Auditory imagery ability/propensity (BAIS C/V questionnaires)
+#     3 - dissociative tendencies (DES-II scale/questionnaire) 
+#     4 - hallucination-proneness traits (LSHS, TAS), attention on the day
+#     5 - Hearing acuity (related to 1)
+# 
+# (Experimental) Site --> U represents the possibility that the these two
+#   populations differ on these aspects
+# ============================================================================
+sp_dag <- dagitty("dag{
+    Block       -> Sensitivity
+    BlockOrder  -> Sensitivity
+    TrueTarget  -> SaidTarget
+    Sensitivity -> SaidTarget
+    Criterion   -> SaidTarget
+    Site        -> Sensitivity
+    U           -> Sensitivity
+    U           -> Criterion
+    Site        -> U
+}")
+
+# Follow a Left-Right axis format:
+#   - experimental knobs on the left
+#   - latent stuff on the right, 
+#   - observed trial outcome (SaidTarget) bottom-right
+#
+# At the end of the day, 3 variables hypothetically contribute to whether 
+# the subject claims that a given stimulus is a target or not...
+#   1) Was it labelled a target? (More signal present accd to Pearson R)
+#   2) Criterion/Resppnse Bias (Subejct predisposed to one response vs the other)
+#   3) Sensitivity (Can the subject hear a difference, pick up on signal, etc...)
+# 
+# Note: Flipping the labels for targets vs distractors is still a sign of sensitivity.
+#     since they can still tell the difference between the two categories. All stimuli
+#     sound like white noise and the idea/interesting thing is that anyone can pick up 
+#     on such little signal. You can decompose a successful subject (high d') into someone who... 
+# 
+#         1) knows the difference between the group of stimuli that we labelled
+#             "targets" and the group of stimuli that we labelled "distractors"
+# 
+#                                     AND
+# 
+#         2) Know which of these groups was meant to be "targets" and which of these
+#             groups was meant to be distractors.
+# 
+# 
+#   It is certainly possible that a subejct can do #1 ("hey there are two groups!")
+#   but not do #2 ("I know there is a difference, but they both sound like static, 
+#     so I am just going to guess about which one I should call 'target' and which one
+#     I should call 'distractor'")  
+#                                  ? ?
+#                                   ?
+#                                \__O__/
+#     The subject ----->            |         <----- The subject  
+#                                   |
+#                                  / \
+#                     
+# 
+#  OHHH my GOOOOD why wont these suckers just line up the way i want them
+coordinates(sp_dag) <- list(
+  x = c(Block = 0, BlockOrder = 0, Site = 2.5, U = 2.5,
+        Sensitivity = 1.5, Criterion = 1.5,
+        TrueTarget = 0, SaidTarget = 3),
+  y = c(Block = 0, BlockOrder = 1, Site = 0, U = 1,
+        Sensitivity = 0.4, Criterion = 1.3,
+        TrueTarget = 2, SaidTarget = 2)
+)
+drawdag(sp_dag)
+```
+
+## 2B. Interpreting your DAG(s)
+
+Please answer the following three questions:
+
+- Is your study experimental or observational?
+
+- Based on your DAG(s), do you think you will be able to make causal claims?
+
+- Are there any unobserved variables that you need to also consider?
+
+____________________________
+
+The study is has both experimental and behavorial components. Three things are randomly assigned and thus meet the criteria for "experimental": 
+  1 - Block: full vs imagined, within-subject, counterbalanced order
+  2 - BlockOrder: which block the subject sees first, between-subject randomized
+  3 - Stimulus Type ("TrueTarget"): The experimenter's per-trial label which is randomized within block. 
+  
+In principle we can make some causal claims because randomization breaks any incoming arrow from upstream variables, including the unobserved subject latent U. By contrast, Site (Oberlin vs UChicago) is observational since subjects self-selected through the recruitment process so its effect on Sensitivity is confounded by whatever U-style differences exist between the two undergraduate populations.
+
+I expect to be able to make causal claims about how the manipulation affects sensitivity (as measured by d'): does Block actually raise d'? does block-order affect d'? 
+
+For Site I'll be more cautious since I can only describe the *association* between site and sensitivity after partialling out BlockOrder, but I can't rule out U as a confounder. The most important unobserved variable is U: a latent subject-level traits that drive both Sensitivity (how well subjects can pick up on the very weak Pearson-r structure separating targets from distractors) and Criterion (their bias toward saying "target"). Our experimental design tried to identify and quantify several plausible components of U: musical training (Oberlin is partly a conservatory, and many of her Oberlin participants self reported playing instruments), auditory imagery vividness, ability for sustained attention, dissociative tendencies, and hallucination-proneness traits as measured by TAS / LSHS / DESII / BAIS / VHQ. None of these is observed in the present analysis (I'm not conditioning on questionnaires for analyses here because we already did one round of analyses and I am using this assignment to do some further analyses), so they will live in U  for this analysis. The "lapse" parameter in M3/M4/M5 is capturing the attentional component of U specifically.
+
+____________________________
+
+## 2C. Parameters that you are trying to estimate
+
+**What parameters are you trying to estimate?**
+
+____________________________
+
+The main parameters I am estimating, grouped by what they represent:
+
+**Population-level sensitivity:**
+
+- **$\bar d$ (population mean d$'$)**: how sensitive the average subject is against the reference cell (UChicago / imagined / first block). $\bar d = 0$ means no discrimination on average.
+- **$b_{BT}$ (Block $\times$ TrueTarget)**: how much $d'$ changes from imagined to full_sentence. Positive means full_sentence raises sensitivity.
+- **$b_{ST}$ (Site $\times$ TrueTarget)**: how much $d'$ shifts from UChicago to Oberlin. Observational, so I will be cautious about causal interpretation.
+- **$b_{OT}$ (Order $\times$ TrueTarget)**: practice effect on sensitivity (2nd block vs 1st block).
+- **$b_{BST}$ (Block $\times$ Site $\times$ TrueTarget)**: the three-way that is the Oberlin-and-full_sentence $d'$ bump on top of the additive Site and Block effects. This is the closest single coefficient to the "Oberlin full_sentence above chance" effect from the NHT that i want to revist in a bayesian contetxt.
+- **$b_{BOT}$ (Block $\times$ Order $\times$ TrueTarget)**: does the imagined sentence to full sentence performance improvement trend depend on whether full_sentence came first or second?
+
+**M1-specific log-odds parameters (M1 is estimating log odds of correct, not the $d'$/criterion, so these don't map exactly to the parameters above):**
+
+- **$a\_bar$ (grand-mean log-odds of being correct)**: average log-odds of a correct response in the reference cell (UChicago / imagined / first block). $a\_bar = 0$ means 50% accuracy on average; positive values mean above chance.
+- **$bB\_bar$ (population Block slope)**: log-odds shift from imagined to full_sentence. M1's analogue of $b_{BT}$ in M2--M5, but it mixes sensitivity and criterion because M1's DV is `correct` rather than `said_target`.
+- **$bSite$, $bOrder$ (Site, Order main effects)**: log-odds shifts for Oberlin vs UChicago and 2nd-block vs 1st-block.
+- **$bB\_site$, $bB\_order$ (Block $\times$ Site and Block $\times$ Order interactions)**: whether the Block effect on log-odds-correct depends on site or order. $bB\_site$ is the closest single coefficient in M1 to the "Oberlin full_sentence above chance" effect.
+- **$\sigma_a$, $\sigma_{bB}$ (between-subject SDs on intercept and Block slope)**: how much subjects vary in baseline accuracy and in the size of the Block effect.
+
+**M4-specific population-level alignment (sign-preserving flip metric):**
+
+- **$\bar\beta$ (population mean alignment with the true target)**: the average strength with which subjects' responses track the trial-by-trial Pearson $r$ between the noise clip and the wall template (`sim_to_target`). Sign-preserving: positive $\bar\beta$ means subjects on average say "target" more often on trials whose noise clip happens to look more like the actual `wall` waveform. Negative would mean they're anti-aligned with the target on average.
+- **$\sigma_\beta$ (between-subject SD on alignment)**: how much subjects differ in their alignment with the true target. Large $\sigma_\beta$ relative to $\bar\beta$ is hopefully a better test of the flip hypothesis. We have had crude measures of this before, and I am using this assignment to try to build out some other ways of testing this. Point is I think this will be a better at discerning that subjects can be substantially positive (correct), near zero (noise), or substantially negative (flipped) even if the population mean is small.
+
+**Population-level criterion / response bias:**
+
+- **$\bar c$ (population criterion)**: response bias of the average subject (positive = tendency to say "target", negative = tendency to say "distractor"). Block, Site, Order can shift criterion separately from $d'$.
+- **$b_B, b_S, b_O$ (Block, Site, Order main effects on criterion)**: how much criterion shifts across conditions, independent of sensitivity.
+- **$b_{BS}, b_{BO}$ (Block $\times$ Site and Block $\times$ Order criterion interactions)**: whether the criterion shifts above interact.
+
+**Between-subject variability:**
+
+- **$\sigma_c, \sigma_d$ (between-subject SDs on criterion and sensitivity)**: how much subjects vary in their underlying $c$ and $d'$.
+
+**Lapse:**
+
+- **$p_{\text{lapse}}$**: the fraction of trials on which a subject is guessing 50/50 rather than using their $d'$.
+
+**M5-specific mixture parameters (replacing the simple Normal partial pooling on $(d_s, \beta_s)$ with a three-component mirror-constrained mixture):**
+
+- **$\mu_d, \mu_\beta$ (correct-class means)**: the location of the "correct" class in $(d, \beta)$ space. By the mirror constraint the "flipped" class lives at $(-\mu_d, -\mu_\beta)$ and the "noise" class at $(0, 0)$.
+- **$\boldsymbol\pi = (\pi_{\text{noise}}, \pi_{\text{correct}}, \pi_{\text{flipped}})$ (mixing proportions)**: the population shares of each latent class. $\pi_{\text{flipped}}$ credibly above zero would be suggest evidence for the flip hypothesis.
+- **$\sigma_{d,\text{sig}}, \sigma_{\beta,\text{sig}}$ (within-class SDs on the signal classes)** and **$\sigma_{d,\text{noise}}, \sigma_{\beta,\text{noise}}$ (within-class SDs on the noise class)**: how tightly each class clusters in $(d, \beta)$.
+- **Per-subject latent class $z_s$ and the derived $P(z_s = k \mid \text{data})$**: which class each subject most likely belongs to (computed in the `generated quantities` block of M5's Stan code and surfaced as the `m5_class` table).
+
+____________________________
+
+**What statistical models will you be using and why?**
+
+In this section, please also address the following:
+
+- Please justify your dependent measure's distribution (i.e., your DV distribution/likelihood function) and your link function.
+
+- Please write out your full statistical models (at least two of them) with priors for your parameters (in the format below).
+
+- Please specify what will be different between your different models (e.g., different types of models or different priors, fixed effects vs. mixed effects, etc.).
+
+____________________________
+
+**Likelihood and link function.** The trial-level DV in M1 is `correct` $\in \{0,1\}$, and in M2--M5 it's `said_target` $\in \{0,1\}$. Both are Bernoulli at the trial level (no continuous DV), so the likelihood is `dbinom(1, p)`. For M1 I use the logit link (standard since effects on log-odds add linearly). For M2--M5 I use the **probit link**, which is the standard SDT parameterization. The useful property her is that with probit link and `true_target_centered` $\in \{-0.5, +0.5\}$, the slope on `true_target_centered` IS actually just $d'$. This means I can read d' directly off of the slope and compare  directly against the NHT $d'$ values.
+
+In the equations below I use the shorthand $T_i \equiv$ `true_target_centered`$_i \in \{-0.5, +0.5\}$ and $R_i \equiv$ `sim_to_target`$_i$ (the centered per-trial Pearson r with the `wall` template). $\text{Block}_i, \text{Site}_i, \text{Order}_i$ are the $\{0, 1\}$ dummies defined in the data-loading chunk (full=1, Oberlin=1, second-block=1).
+
+**Model 1 (`m1_acc`): multilevel logistic on accuracy.** Bayesian replication of the NHT logistic from the original thesis, but with proper partial pooling.
+
+$$
+\begin{aligned}
+\text{correct}_i &\sim \text{Bernoulli}(p_i) \\
+\text{logit}(p_i) &= a_{s[i]} + bB_{s[i]} \cdot \text{Block}_i + bSite \cdot \text{Site}_i + bOrder \cdot \text{Order}_i \\
+&\quad + bB\_site \cdot \text{Block}_i \cdot \text{Site}_i + bB\_order \cdot \text{Block}_i \cdot \text{Order}_i \\[3pt]
+a_{s} &\sim \text{Normal}(a\_bar, \sigma_a) \\
+bB_{s} &\sim \text{Normal}(bB\_bar, \sigma_{bB}) \\
+a\_bar &\sim \text{Normal}(0, 1.5) \\
+bB\_bar &\sim \text{Normal}(0, 0.5) \\
+bSite, bOrder &\sim \text{Normal}(0, 0.5) \\
+bB\_site, bB\_order &\sim \text{Normal}(0, 0.3) \\
+\sigma_a, \sigma_{bB} &\sim \text{Exponential}(1)
+\end{aligned}
+$$
+
+**Model 2 (`m2_sdt`): multilevel SDT, no lapse.** DV switches to `said_target` and the link to probit. Per-subject criterion $c_s$ and per-subject sensitivity $d_s$. Each of Block, Site, Order gets BOTH a $d'$-shift (via interaction with $T_i$) AND a criterion shift (main effect, no $T_i$). Same for Block $\times$ Site and Block $\times$ Order. $b_{BST}$ is the three-way Block $\times$ Site $\times$ TrueTarget interaction.
+
+$$
+\begin{aligned}
+\text{said\_target}_i &\sim \text{Bernoulli}(p_i) \\
+p_i &= \Phi\bigl(\,c_{s[i]} + d_{s[i]} \cdot T_i \\
+&\qquad\quad + b_{BT} \cdot \text{Block}_i \cdot T_i + b_{ST} \cdot \text{Site}_i \cdot T_i + b_{OT} \cdot \text{Order}_i \cdot T_i \\
+&\qquad\quad + b_{BST} \cdot \text{Block}_i \cdot \text{Site}_i \cdot T_i + b_{BOT} \cdot \text{Block}_i \cdot \text{Order}_i \cdot T_i \\
+&\qquad\quad + b_{B} \cdot \text{Block}_i + b_{S} \cdot \text{Site}_i + b_{O} \cdot \text{Order}_i \\
+&\qquad\quad + b_{BS} \cdot \text{Block}_i \cdot \text{Site}_i + b_{BO} \cdot \text{Block}_i \cdot \text{Order}_i\,\bigr) \\[3pt]
+c_{s} &\sim \text{Normal}(\bar c, \sigma_c) \\
+d_{s} &\sim \text{Normal}(\bar d, \sigma_d) \\
+\bar c, \bar d &\sim \text{Normal}(0, 0.5) \\
+b_{BT}, b_{ST}, b_{OT}, b_{BST}, b_{BOT} &\sim \text{Normal}(0, 0.3) \\
+b_{B}, b_{S}, b_{O}, b_{BS}, b_{BO} &\sim \text{Normal}(0, 0.3) \\
+\sigma_c, \sigma_d &\sim \text{Exponential}(1)
+\end{aligned}
+$$
+
+The Block $\times$ TrueTarget interaction $b_{BT}$ is a population-level $d'$ shift from imagined to full; the main effect $b_B$ is a criterion shift. SDT cleanly separates the two; the original NHT logistic on accuracy couldn't.
+
+**Model 3 (`m3_sdt_mix`): M2 + lapse mixture.** Same linear predictor as M2, wrapped in a two-component mixture (engaged trials follow $\Phi(\cdot)$; lapse trials are 50/50). HW4's `m_ZI` structure.
+
+$$
+\begin{aligned}
+\text{said\_target}_i &\sim \text{Bernoulli}(p_{\text{obs},i}) \\
+p_{\text{obs},i} &= (1 - p_{\text{lapse}}) \cdot \Phi(\text{linear predictor as in M2}) + p_{\text{lapse}} \cdot 0.5 \\
+p_{\text{lapse}} &\sim \text{Beta}(2, 20) \\
+\text{all other priors and structure as in M2}&
+\end{aligned}
+$$
+
+**Model 4 (`m4_full_beta`): M3 architecture restricted to full_sentence only, with a per-subject alignment slope.** Dropping the imagined_sentence trials (essentially noise for every subject in our previous analyses) leaves only the 3874 full_sentence observations. With $\text{Block}_i \equiv 1$ for every trial, the Block-related terms ($b_B, b_{BT}, b_{BS}, b_{BST}, b_{BO}, b_{BOT}$) drop out. The new piece is a per-subject slope $\beta_{s[i]}$ on $R_i = $ `sim_to_target`, which sign-preservingly measures alignment with the true target waveform. The sign of $\beta_s$ tells us whether subject $s$ is aligned ($+$), noise ($\approx 0$), or anti-aligned ($-$, i.e. capable but flipped the class labels).
+
+$$
+\begin{aligned}
+\text{said\_target}_i &\sim \text{Bernoulli}(p_{\text{obs},i}) \\
+p_{\text{obs},i} &= (1 - p_{\text{lapse}}) \cdot \Phi\bigl(\,c_{s[i]} + d_{s[i]} \cdot T_i + \beta_{s[i]} \cdot R_i \\
+&\qquad\qquad\qquad\quad + b_{ST} \cdot \text{Site}_i \cdot T_i + b_{OT} \cdot \text{Order}_i \cdot T_i \\
+&\qquad\qquad\qquad\quad + b_{S} \cdot \text{Site}_i + b_{O} \cdot \text{Order}_i\,\bigr) + p_{\text{lapse}} \cdot 0.5 \\[3pt]
+c_{s} &\sim \text{Normal}(\bar c, \sigma_c) \\
+d_{s} &\sim \text{Normal}(\bar d, \sigma_d) \\
+\beta_{s} &\sim \text{Normal}(\bar\beta, \sigma_\beta) \\
+\bar c, \bar d &\sim \text{Normal}(0, 0.5) \\
+\bar\beta &\sim \text{Normal}(0, 5) \\
+b_{ST}, b_{OT}, b_{S}, b_{O} &\sim \text{Normal}(0, 0.3) \\
+\sigma_c, \sigma_d &\sim \text{Exponential}(1) \\
+\sigma_\beta &\sim \text{Exponential}(0.2) \\
+p_{\text{lapse}} &\sim \text{Beta}(2, 20)
+\end{aligned}
+$$
+
+$\bar\beta$'s prior is wider than the $d'$-shift priors because $R_i$ lives on the raw centered-Pearson-r scale (typical magnitude $\sim 0.04$), so the slope itself can be much larger in absolute units.
+
+**Model 5 (`m5_mix`): M4 + 3-component mirror-constrained mixture prior on $(d_s, \beta_s)$.** Same trial-level likelihood and same 3874 full_sentence observations as M4. The only difference is that the per-subject random effects $(d_s, \beta_s)$, instead of being independent Normals as in M4, are drawn from a three-component bivariate mixture with mirror-constrained means.
+
+$$
+\begin{aligned}
+\text{said\_target}_i &\sim \text{Bernoulli}(p_{\text{obs},i}) \\
+p_{\text{obs},i} &= (1 - p_{\text{lapse}}) \cdot \Phi(\text{linear predictor as in M4}) + p_{\text{lapse}} \cdot 0.5 \\[6pt]
+z_s &\sim \text{Categorical}(\pi_{\text{noise}}, \pi_{\text{correct}}, \pi_{\text{flipped}}) \\
+(d_s, \beta_s) \mid z_s {=} \text{noise}   &\sim \mathcal{N}\bigl((0, 0),\ \text{diag}(\sigma_{d,\text{noise}}^2, \sigma_{\beta,\text{noise}}^2)\bigr) \\
+(d_s, \beta_s) \mid z_s {=} \text{correct} &\sim \mathcal{N}\bigl((+\mu_d, +\mu_\beta),\ \text{diag}(\sigma_{d,\text{sig}}^2, \sigma_{\beta,\text{sig}}^2)\bigr) \\
+(d_s, \beta_s) \mid z_s {=} \text{flipped} &\sim \mathcal{N}\bigl((-\mu_d, -\mu_\beta),\ \text{diag}(\sigma_{d,\text{sig}}^2, \sigma_{\beta,\text{sig}}^2)\bigr) \\[6pt]
+\boldsymbol\pi &\sim \text{Dirichlet}([2, 3, 1.5]) \\
+\mu_d &\sim \text{Normal}(0.15, 0.15),\ \mu_d > 0 \\
+\mu_\beta &\sim \text{Normal}(2, 3),\ \mu_\beta > 0 \\
+\sigma_{d,\text{sig}} &\sim \text{Exponential}(5),\quad \sigma_{\beta,\text{sig}} \sim \text{Exponential}(0.5) \\
+\sigma_{d,\text{noise}} &\sim \text{Exponential}(10),\quad \sigma_{\beta,\text{noise}} \sim \text{Exponential}(2) \\
+c_s &\sim \text{Normal}(\bar c, \sigma_c),\ \ \bar c \sim \text{Normal}(0, 0.5),\ \ \sigma_c \sim \text{Exponential}(1) \\
+b_{ST}, b_{OT}, b_{S}, b_{O} &\sim \text{Normal}(0, 0.3) \\
+p_{\text{lapse}} &\sim \text{Beta}(2, 20)
+\end{aligned}
+$$
+
+The mirror constraint (the correct and flipped class means are negatives of each other, sharing the same within-class covariance) is what makes the three-component mixture identifiable at our sample size of $n=26$. The latent class $z_s$ is marginalized in the likelihood, so per-subject $P(z_s = k \mid \text{data})$ falls out as a derived quantity in the `generated quantities` block. The question being asked: does the data prefer a discrete three-class structure (noise, correct, flipped) over continuous Normal partial pooling? The funny thing about this hypothesis is that, depending on parameter values, these very different data-generation stories can both produce roughly Gaussian-looking per-subject distributions of $d_s$ and $\beta_s$. This approach is meant to ask whether that Gaussian-looking data is coming from three discrete clusters or just one continuous spread. I wanted to do a Fourier-esque approach but don't have time and it has its own complications.
+
+**What differs across models.**
+
+- **M1 $\to$ M2**: change DV from `correct` to `said_target`, change link from logit to probit, and reparameterize so that the slope on $T_i$ IS the population $d'$. The Block $\times$ TrueTarget interaction $b_{BT}$ in M2 is a cleaner test of "does full_sentence raise sensitivity" than the Block main effect $bB\_bar$ in M1, because it separates sensitivity from criterion. M2 also explicitly tracks Block $\times$ Site and Block $\times$ Order shifts on BOTH $d'$ AND criterion via the dedicated interaction terms.
+- **M2 $\to$ M3**: add the lapse mixture. If subjects lapse meaningfully, $\bar d$ should rise in M3 because lapse-induced 50/50 noise is now absorbed by $p_{\text{lapse}}$ rather than dragging the engaged-trial $d'$ toward zero. In practice this depends on whether per-subject performance is far enough from chance for lapse trials to be distinguishable from real misses (given accuracy $\sim 0.52$ i would guess it wont have much effect).
+- **M3 $\to$ M4**: restrict to full_sentence trials (3874 of the original 7748), drop all Block-related terms (since Block is constant), and add a per-subject slope $\beta_s$ on $R_i$ = `sim_to_target`. The flip hypothesis can now be read directly off $\beta_s$: negative = anti-aligned with target, consistent with label-flipping; near zero = noise; positive = correctly aligned. No manual flip operation anywhere.
+- **M4 $\to$ M5**: linear predictor, observations, lapse, and covariate-shift terms all stay identical. The only difference is that the per-subject random effects $(d_s, \beta_s)$ come from a mirror-constrained three-component mixture instead of independent Normals. M5 fit in `cmdstanr` directly rather than via `ulam` because the discrete latent class $z_s$ has to be marginalized out by hand. M4-vs-M5 WAIC compare answers: "does the discrete class structure (noise / correct / flipped) win over continuous heterogeneity, or does a single continuous normal capture everything?".
+
+**Prior choices.**
+
+The location priors on $\bar c$ and $\bar d$ are $\text{Normal}(0, 0.5)$ so that they are centered on unbiased / chance, with $\sim 95\%$ prior mass within $\pm 1$ on the probit scale (which corresponds to mild bias up to $\sim 16\%/84\%$ response rates on the criterion side, and $d'$ within $\pm 1$ on the sensitivity side). The NHT approach gave the largest result Oberlin full sentence at $d' = 0.137$, so $\pm 1$ is plenty wide without baking direction in. Interaction and main-effect coefficients ($b_{BT}, b_{ST}, b_{OT}, b_{BST}, b_{BOT}, b_{B}, b_{S}, b_{O}, b_{BS}, b_{BO}$) get tighter $\text{Normal}(0, 0.3)$ priors to reflect that shifts in $d'$ or criterion across conditions should be smaller in magnitude than the population-level means themselves.
+
+$p_{\text{lapse}} \sim \text{Beta}(2, 20)$ matches the HW4 prior: prior mean $\sim 0.09$ with most mass below $0.25$, encoding "subjects mostly try, but some non-trivial fraction of trials may be lapses."
+
+M1 uses slightly different priors because it's on the log-odds scale rather than the probit: $a\_bar \sim \text{Normal}(0, 1.5)$ is the standard weakly-informative log-odds intercept ($\sim 95\%$ prior mass corresponds to probabilities in $[0.05, 0.95]$); $bB\_bar, bSite, bOrder \sim \text{Normal}(0, 0.5)$ for main effects; $bB\_site, bB\_order \sim \text{Normal}(0, 0.3)$ tighter for interactions. Per-subject SDs $\sigma_a, \sigma_{bB} \sim \text{Exponential}(1)$.
+
+For M4 and M5 the new alignment parameter $\bar\beta$ gets a much wider prior $\text{Normal}(0, 5)$ because $R_i$ = `sim_to_target` is on the raw centered-Pearson-r scale, with typical magnitude $\sim 0.04$. Correspondingly $\sigma_\beta \sim \text{Exponential}(0.2)$ allows substantial between-subject heterogeneity on alignment.
+
+The M5 mixture priors are weakly informative but locate the correct class somewhere reasonable: $\mu_d \sim \text{Normal}(0.15, 0.15)$ truncated to positive centers the correct-class mean d$'$ near the previously-reported Oberlin-full d$'$ from the NHT, and $\mu_\beta \sim \text{Normal}(2, 3)$ truncated to positive places the correct-class alignment in the same ballpark as $\bar\beta$ in M4. The within-class SDs are intentionally tight on the noise class ($\sigma_{d,\text{noise}} \sim \text{Exp}(10)$, $\sigma_{\beta,\text{noise}} \sim \text{Exp}(2)$ since this hypothesis suggests that the noise class should be a tight blob near the origin) and looser on the signal classes ($\sigma_{d,\text{sig}} \sim \text{Exp}(5)$, $\sigma_{\beta,\text{sig}} \sim \text{Exp}(0.5)$). The Dirichlet$([2, 3, 1.5])$ on $\boldsymbol\pi$ encodes mild prior preference for $\pi_{\text{correct}} > \pi_{\text{noise}} > \pi_{\text{flipped}}$ without being so informative that the data couldn't override it. The mirror constraint (the correct and flipped class means are exact negatives) is hard-coded into the model rather than enforced via prior. I may change this at some later pointbut for now I think it is fine.
+
+____________________________
+
+## 2D. Prior predictive simulation
+
+**Run prior predictive simulations using your assigned priors, but with no real data.**
+
+```{r prior-predictive}
+# ============================================================================
+# Prior predictive simulation for M3 architecture (SDT + lapse priors).
+# M4 adds beta_bar/sigma_beta on top of these and M5 adds mixture-class priors
+# (mu_d, mu_beta, pi, etc.). I'm not simulating separately here since
+# the probit + lapse + d' machinery is identical and the using this as a sanity
+# check to ensure that these priors are expressive enough such that it can actually
+# capture the values we saw in previous analyses. 
+#
+# sample directly from each prior, then push those samples through
+# the model equations to see what the priors imply before seeing the data.
+# ============================================================================
+set.seed(2027)
+N_sim <- 4000
+
+# Draw from the priors directly.
+# Each line is one prior, sampled N_sim times
+c_bar       <- rnorm(N_sim, 0, 0.5)   # population criterion
+d_bar       <- rnorm(N_sim, 0, 0.5)   # population d'
+sigma_c     <- rexp(N_sim, 1)         # between-subject criterion SD
+sigma_d     <- rexp(N_sim, 1)         # between-subject d' SD
+beta_BT     <- rnorm(N_sim, 0, 0.3)   # Block-induced d' shift
+beta_ST     <- rnorm(N_sim, 0, 0.3)   # Site-induced d' shift
+p_lapse     <- rbeta(N_sim, 2, 20)    # lapse rate
+
+# Run the data through the models
+# imagined uchicago (d_imag_UC) is the reference
+# the others add the relevant shift terms.
+d_imag_UC <- d_bar
+d_full_UC <- d_bar + beta_BT
+d_imag_Ob <- d_bar + beta_ST
+d_full_Ob <- d_bar + beta_BT + beta_ST
+
+# synthetic hit and FA rates in the reference cell (imagined/UChicago) in the mixture model
+#   - T = +0.5 for target trials
+#   - T = -0.5 for distractor trials
+#   - H_eng = engaged-state hit rate 
+#   - F_eng = engaged-state false alarm rate 
+#   - H_obs = observed hit rate after mixing in lapses
+#   - F_obs = observed false alarm rate after mixing in lapses
+H_eng <- pnorm(c_bar + d_bar * 0.5)
+F_eng <- pnorm(c_bar + d_bar * -0.5)
+H_obs <- (1 - p_lapse) * H_eng + p_lapse * 0.5
+F_obs <- (1 - p_lapse) * F_eng + p_lapse * 0.5
+acc_obs <- 0.5 * H_obs + 0.5 * (1 - F_obs)   # if trials are 50/50
+
+# Implied subject-level d's across 1000 draws of (d_bar, sigma_d)
+# For each prior draw, simulate 26 subjects, then pool them
+n_subj <- 26
+n_draws <- 1000
+
+sim_subj <- tibble(
+  draw = rep(1:n_draws, each = n_subj),
+  d = rnorm(n_draws * n_subj,
+            mean = rep(d_bar[1:n_draws], each = n_subj),
+            sd   = rep(sigma_d[1:n_draws], each = n_subj))
+)
+
+# Three draws of 26 subjects each plotted independently
+# ot get a sense of what some draws of 26 CAN look like given these priors
+sim_subj_d_1 <- rnorm(n_subj, d_bar[1], sigma_d[1])
+sim_subj_d_2 <- rnorm(n_subj, d_bar[1], sigma_d[1])
+sim_subj_d_3 <- rnorm(n_subj, d_bar[1], sigma_d[1])
+
+```
+
+**Visualize these simulations (using one or a few plots) to assess their reasonableness**
+
+```{r prior-predictive-viz}
+# ============================================================================
+# Here we do three plots:
+#   1. per-cell d'
+#   2. observed accuracy after mixture model for lapses
+#   3. subject-level d' from one (d_bar, sigma_d) draw
+# ============================================================================
+
+# Plot 1
+# =============================================================
+# per-cell d'. Centered on 0 with most data in +/- 1.
+prior_d_long <- tibble(
+  cell = rep(c("imag/UC", "full/UC", "imag/Ob", "full/Ob"), each = N_sim),
+  d    = c(d_imag_UC, d_full_UC, d_imag_Ob, d_full_Ob)
+)
+p_prior_d <- ggplot(prior_d_long, aes(x = d, fill = cell)) +
+  geom_histogram(bins = 50, alpha = 0.6, position = "identity") +
+  facet_wrap(~ cell) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  scale_fill_brewer(palette = "Set2") +
+  labs(title = "Prior predictive: d' by condition",
+       subtitle = "Red dashed line = 0 (chance). Each cell centered on 0.",
+       x = "Predicted d'", y = "Prior draws")
+# =============================================================
+
+
+# Plot 2
+# =============================================================
+# observed accuracy in the reference cell. peak near 0.5
+prior_acc <- tibble(acc = acc_obs)
+p_prior_acc <- ggplot(prior_acc, aes(x = acc)) +
+  geom_histogram(bins = 50, fill = "steelblue", color = "white") +
+  geom_vline(xintercept = 0.5, linetype = "dashed", color = "red") +
+  labs(title = "Prior predictive: observed accuracy, reference cell",
+       subtitle = "Lapse + engaged mixture. Should peak near 0.5.",
+       x = "Predicted accuracy", y = "Prior draws") +
+  xlim(0.1, 0.9)
+# =============================================================
+
+
+# Plot 3
+# =============================================================
+# implied subject-level d' for 1000 (d_bar, sigma_d) draws
+# Shows what the BETWEEN-subject variability looks like 
+p_prior_subj <- ggplot(sim_subj, aes(x = d)) +
+  geom_histogram(bins = 50, fill = "darkorange", color = "white") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  labs(title = "Prior predictive: implied subject-level d'",
+       subtitle = "1000 draws × 26 subjects each (pooled)",
+       x = "Subject d'", y = "Count")
+# plot_grid(p_prior_d, p_prior_acc, p_prior_subj, ncol = 1)
+# =============================================================
+
+
+# Plot 4
+# =============================================================
+# Take a few random draws of 26 to see what 26 subjects CAN look
+# like under these priors
+
+sim_subj_1 <- tibble(subj = 1:n_subj, d = sim_subj_d_1)
+p_prior_subj_1 <- ggplot(sim_subj_1, aes(x = d)) +
+  geom_histogram(bins = 12, fill = "maroon", color = "white") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  labs(title = "Prior predictive: implied subject-level d' #1",
+       subtitle = "26 synthetic subjects from one (d_bar, sigma_d) draw",
+       x = "Subject d'", y = "Number of synthetic subjects")
+
+sim_subj_2 <- tibble(subj = 1:n_subj, d = sim_subj_d_2)
+p_prior_subj_2 <- ggplot(sim_subj_2, aes(x = d)) +
+  geom_histogram(bins = 12, fill = "maroon", color = "white") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  labs(title = "Prior predictive: implied subject-level d' #2",
+       subtitle = "26 synthetic subjects from one (d_bar, sigma_d) draw",
+       x = "Subject d'", y = "Number of synthetic subjects")
+
+sim_subj_3 <- tibble(subj = 1:n_subj, d = sim_subj_d_3)
+p_prior_subj_3 <- ggplot(sim_subj_3, aes(x = d)) +
+  geom_histogram(bins = 12, fill = "maroon", color = "white") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  labs(title = "Prior predictive: subject-level d' #3",
+       subtitle = "26 synthetic subjects from one (d_bar, sigma_d) draw",
+       x = "Subject d'", y = "Number of synthetic subjects")
+# =============================================================
+
+plot_grid(p_prior_d, p_prior_acc, p_prior_subj, p_prior_subj_1, p_prior_subj_2, p_prior_subj_3, ncol = 2)
+```
+
+**Are your priors distributed in a way that makes sense and leads to a sensible range of parameter values?**
+
+____________________________
+
+Yes things make sense here.
+
+1 - Per cell prior on $d'$ is centered on 0 with most mass within $\pm 1$. Our earlier analyses showed Oberlin full at $d' = 0.137$ the priors are wide enough to accommodate the empirical signal without baking direction in. 
+
+2 - After adding the lapse mixture we can see that the observed accuracy in the reference cell peaks near 0.5 with very little mass outside $[0.35, 0.65]$ which mostly seems to reflect that most subjects in this paradigm hover near chance. Since above chance performance is typically close to 0.5, I don't expect the lapse term to have too much effect (like its effect on congruent vs incongruent trials in HW4).
+
+3/4 - Looking at both the pooled histogram (Plot 3) and the individual draws of 26 subjects (Plot 4), the priors imply reasonable between-subject variability. The pooled distribution is centered near 0 and mostly lies within about [-2, 2], indicating that extreme subject-level d' values are possible but uncommon.
+
+## 2E. Your data and experimental procedure
+
+**Please write out details regarding your participants and the specifics of your experimental design, including:**
+
+- Specify the number of participants in your study.
+
+- Specify relevant sample descriptive details regarding e.g., age ranges, education levels, species type, etc.
+
+- Describe your dependent variable(s) of interest.
+
+- Describe your independent variables.
+
+*If your data are experimental:*
+- List the number of trials per condition in your experiment.
+- Describe the procedures of your experiment.
+
+____________________________
+
+**Participants.** 26 native-English-speaking undergraduates (age range roughly 18–25): 16 at Oberlin, 10 at UChicago. UChicago data was collected by Arwen Bare for her senior honors thesis (Bare, 2025) under Dr. Howard Nusbaum's advising. Oberlin data was collected independently by Connor Daley at Oberlin. All participants gave written informed consent. The protocol was approved by the University of Chicago IRB (#24-1770). UChicago subjects were offered 1.5 course credits plus a raffle entry for a $50 gift card tied to performance. Oberlin recruitment was administered separately. We excluded one subject from Oberlin due to a technical issue resulting in their inability to complete the study. We also excluded a single subject from the University of Chicago as a trial-by-trial look at their data revelead they only pressed a single key for the entire experiment.
+
+**Stimuli.** The target signal is the word *wall*, extracted from a clean recording of the carrier sentence "The picture hung on the wall" produced by a male native-English-speaking speaker with a midwestern accent (age 55) in a sound-isolation booth (Bare, 2025). The full sentence was recorded with a studio-quality condenser microphone at 44.1 kHz / 16-bit stereo, converted to mono, downsampled to 8 kHz, and amplitude-normalized; the final word *wall* was segmented out as a 360 ms / 8 kHz / 16-bit mono clip to serve as the correlation template. The noise stimuli were generated from quantum-random seeds fetched from the ANU Quantum Random Number Generator, expanded via the ChaCha20 stream cipher into approximately 2.8 million candidate 360 ms white-noise clips at 8 kHz / 16-bit mono. Each candidate was scored by Pearson correlation against the *wall* template; the 153 highest-correlation clips became the labeled "targets" ($r \in [0.072, 0.090]$) and the 153 lowest-$|r|$ clips became the "distractors" ($|r| < 1.5 \times 10^{-6}$). 6 clips (3 target, 3 distractor) were held out for instruction examples, and the remainder were split into the two experimental blocks. Stimuli were RMS-normalized to –23 dBFS for presentation. Since Pearson $r$ is invariant to positive linear scaling, this normalization does not change the target/distractor correlation structure.
+
+**Dependent variables.** M1's DV is `correct` $\in \{0,1\}$ (subject's response matches the experimenter's label). M2-M5's DV is `said_target` $\in \{0,1\}$ (the subject's raw response, regardless of the experimenter's label). In the SDT formulation, `said_target` plus `true_target` jointly give us hits and false alarms, which give us $d'$ via the slope on `true_target_centered`. The reason we prefer the SDT version: $d'$ separates sensitivity (the thing the experiment is trying to measure) from criterion (response bias, a nuisance), and the per-subject d-prime numbers can be read directly against the Bayesian estimates (as explained earlier).
+
+**Independent variables.**
+
+- **Block** (within-subject, 2 levels: `imagined_sentence`, `full_sentence`). In `imagined_sentence` the subject imagines the beginning of the carrier phrase "The picture hung on the" silently before clicking to play each trial's noise clip (and is instructed not to subvocalize the phrase); in `full_sentence` they hear the beginning of the carrier phrase "The picture hung on the" in the original speaker's voice immediately before each noise clip plays.
+- **Site** (between-subject, 2 levels: `UChicago`, `Oberlin`). Observational.
+- **BlockOrder** (between-subject, 2 levels: full sentence is either first or second). Counterbalanced.
+- **TrueTarget** (trial-level, $\in \{-0.5, +0.5\}$ centered). The experimenter's label for the stimulus, determined by Pearson-r against the "wall" template. Randomized within each 149-trial block.
+
+**Number of trials per condition.** Each subject runs 149 trials × 2 blocks = 298 trials. Total trials in the dataset: $26 \times 298 = 7{,}748$. Within each block, target/distractor labels are roughly balanced (75/74 or 74/75).
+
+**Procedure.** Subjects ran the task in person in a quiet room with Sennheiser HD-280 headphones (Bare, 2025). They were instructed that on each trial they would hear a sound and would need to indicate whether the word *wall* was present (key 'y' for Yes, key 'n' for No), and they were given 6 example stimuli (3 target, 3 distractor) to familiarize themselves with the task before any experimental trials. They could replay these as many times as they wished and could also re-listen to the clean *wall* template and the full carrier sentence. The two blocks ran in counterbalanced order with a 5-minute break between them; the Stanford Sleepiness Scale was administered at the start of each block. Within each block, "refresher" periods every 15 trials replayed the full carrier sentence "The picture hung on the wall" five times to keep the prior active. No trial time limits were imposed and no per-trial feedback was given. The full session lasted 60–90 minutes including post-task questionnaires.
+
+A battery of pre/post-block questionnaires was collected: the Tellegen Absorption Scale (TAS; Tellegen & Atkinson, 1974), the Voice Hearing Questionnaire (VHQ; Posey & Losch, 1983), the Dissociative Experiences Scale II (DES-II), the Bucknell Auditory Imagery Scale (BAIS; vividness and control subscales), the Launay-Slade Hallucination Scale (LSHS; Launay & Slade, 1981), the Flow State Scale (9-item version), and the Stanford Sleepiness Scale. These were important for our original hypothesis that hallucination-proneness traits predict $d'$. The present project does not condition on them because our primary analysis found no questionnaire correlation surviving Bonferroni correction across a 24-test matrix, and the strongest single questionnaire result (an Oberlin full-sentence-block $d'$ × DES-II correlation at $p = 0.079$) wouldn't survive without correction. As a result, for this Bayesian analysis I have decided to leave questionnaires out of the model and focus on the within-subject Block × TrueTarget interaction plus the additional analyses targeting the flip hypothesis (M4, M5).
+
+____________________________
+
+## 2F. Data Visualization
+
+**Before you run any stats it is always a good idea to visualize your data.**
+
+Make a few (2-3) plots that will help you to interpret your data and your statistical model. This could involve bar plots, scatter plots, box plots, histograms, line graphs, etc.
+
+```{r data-viz, fig.height = 35}
+# ============================================================================
+#  plots stacked vertically
+# All of them re-use subj_block_dprime and subj_dprime computed in the
+#   raw-dprime-and-flip chunk above.
+#
+# Plot 1] per (subject, block) d' with chance line.
+# Plot 2] within-subject paired d' (Imagined -> Full), which is what the
+#           multilevel beta_BT slope will estimate.
+# Plot 3] pooled per-subject d' with the negative-pooled-d' subjects highlighted
+#           (these are the ones the flip hypothesis is asking about; M4/M5 test them
+#           directly via beta_truetarget and mixture class posteriors respectively).
+# Plot 4] hit rate vs false-alarm rate scatter by block. The SDT geometry
+#           behind d': diagonal = chance, above diagonal = positive d',
+#           below diagonal = negative d' (the flip-hypothesis subjects).
+# Plot 5] histogram of pooled per-subject d' colored by site. The marginal
+#           distribution the M5 mixture is trying to decompose into
+#           noise / correct / flipped clusters.
+# ============================================================================
+
+# Plot 1 
+# ============================================================================
+# per (subject, block) d' scatter plot that is sectioned by experimental site
+p_v1 <- ggplot(subj_block_dprime, aes(x = block_scheme, y = dprime, color = site)) +
+  geom_jitter(width = 0.15, height = 0, size = 2.4, alpha = 0.85) +    # one dot per subject
+  stat_summary(fun = mean, geom = "crossbar", width = 0.4,             # black bar = group mean
+               color = "black", fatten = 1.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +     # chance line
+  facet_wrap(~ site) +
+  scale_color_brewer(palette = "Set1") +
+  labs(title = "Per (subject, block) d'",
+       subtitle = "Red line = 0 (chance). Black bar = group mean. Oberlin full_sentence is the cell that's visibly above 0.",
+       x = "Block", y = "Classical d'")
+# ============================================================================
+
+
+# Plot 2
+# ============================================================================
+# within-subject paired lines, Full Sentence (left) --> Imagined Sentence (Right)
+# First step is reshaping the long subj_block_dprime (one row per (subj, block))
+# into wide format (one row per subject, with separate columns for each block).
+# pivot_wider() does this & names_from() says which column's values become the new
+# column names, values_from() says which column fills the new cells.
+# Plot 2
+# ============================================================================
+# Within-subject paired lines going Imagined Sentence (left) -> Full Sentence (right)
+
+# Reshape to wide (one row per subject)
+paired_d <- subj_block_dprime |>
+  select(site, subject, block_scheme, dprime) |>
+  pivot_wider(names_from = block_scheme, values_from = dprime)
+
+# Compute mean per site (so each facet gets its own average slope)
+mean_line <- paired_d |>
+  group_by(site) |>
+  summarize(
+    imagined_mean = mean(imagined_sentence, na.rm = TRUE),
+    full_mean     = mean(full_sentence, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+p_v2 <- ggplot() +
+  
+  # individual subject lines
+  geom_segment(data = paired_d,
+               aes(x = "imagined_sentence", xend = "full_sentence",
+                   y = imagined_sentence, yend = full_sentence,
+                   color = site),
+               alpha = 0.55) +
+
+  # endpoints (points)
+  geom_point(data = subj_block_dprime,
+             aes(x = block_scheme, y = dprime, color = site),
+             size = 2.3, alpha = 0.85) +
+
+  # mean slope per site (thicker, black)
+  geom_segment(data = mean_line,
+               aes(x = "imagined_sentence", xend = "full_sentence",
+                   y = imagined_mean, yend = full_mean),
+               color = "black", size = 1.5) +
+  # reference line at chance
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  facet_wrap(~ site) +
+  scale_color_brewer(palette = "Set1") +
+  labs(title = "Within-subject paired d' (Imagined -> Full)",
+       subtitle = "Thin lines = subjects. Thick black line = mean shift per site.",
+       x = "Block", y = "Subject d'")
+# ============================================================================
+# ============================================================================
+
+
+# Plot 3
+# ============================================================================
+# pooled per-subject d' with negative-pooled-d' subjects colored red.
+# These are the subjects the flip hypothesis is asking about --- whether
+# their negative d' is sampling noise or capable-but-flipped responding.
+# In the new M4/M5 framework we do not pre-flip them; instead M4's per-subject
+# beta_s[s] surfaces the sign, and M5's mixture model assigns each subject
+# a posterior P(z_s = flipped).
+# We just attach a label column to subj_dprime so we can color by it.
+subj_dprime$flip_label <- ifelse(subj_dprime$flip_subject == 1,
+                                 "neg pooled d'", "pos pooled d'")
+p_v3 <- ggplot(subj_dprime,
+               aes(x = reorder(subject, dprime_pooled),     # sort bars by d'
+                   y = dprime_pooled, fill = flip_label)) +
+  geom_col() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  facet_wrap(~ site, scales = "free_x") +
+  scale_fill_manual(values = c("neg pooled d'" = "tomato",
+                               "pos pooled d'" = "steelblue")) +
+  labs(title = "Pooled per-subject d' (across both blocks)",
+       subtitle = "Red bars are subjects with raw pooled d' < 0 (the ones the flip hypothesis is asking about).",
+       x = "Subject (ordered by d')", y = "Pooled d'") +
+  theme(axis.text.x = element_blank())
+# ============================================================================
+
+# Plot 4
+# ============================================================================
+# per (subject, block) hit rate vs false alarm rate scatter
+# This is the underlying SDT geometry that produces d'. Subjects on the
+# diagonal (HR = FAR) have d' = 0; subjects above the diagonal have d' > 0
+# (correctly discriminating); subjects below the diagonal have d' < 0
+# (anti-aligned with the experimenter's labels --- the flip hypothesis).
+p_v4 <- ggplot(subj_block_dprime, aes(x = fa_rate, y = hit_rate, color = site)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  geom_point(size = 2.4, alpha = 0.85) +
+  facet_wrap(~ block_scheme) +
+  scale_color_brewer(palette = "Set1") +
+  coord_fixed(xlim = c(0, 1), ylim = c(0, 1)) +
+  labs(title = "Hit rate vs false-alarm rate by block",
+       subtitle = "Red dashed = chance diagonal (d' = 0). Above = positive d'. Below = negative d' (potentially flipped).",
+       x = "False alarm rate", y = "Hit rate")
+# ============================================================================
+
+
+# Plot 5
+# ============================================================================
+# per-subject pooled d' histogram, colored by site
+# Shows the marginal distribution of subject-level d' across all subjects,
+# which is what the M5 mixture is trying to decompose into noise / correct /
+# flipped components.
+p_v5 <- ggplot(subj_dprime, aes(x = dprime_pooled, fill = site)) +
+  geom_histogram(bins = 15, alpha = 0.7, position = "identity", color = "white") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  scale_fill_brewer(palette = "Set1") +
+  labs(title = "Distribution of pooled per-subject d'",
+       subtitle = "Red line = 0 (chance). M5 mixture asks whether this is one Normal blob or three clusters.",
+       x = "Pooled d'", y = "Subjects")
+# ============================================================================
+
+# Plot everythang
+plot_grid(p_v1, p_v2, p_v3, p_v4, p_v5, ncol = 1)
+
+```
+
+**Explain what information the plot(s) provide.**
+
+____________________________
+
+Plot 1 shows the per (subject, block) $d'$ with a chance line at 0 and the cell mean as a black crossbar. You can see that Oberlin full_sentence cell is visibly above zero, with 13 out of 16 Oberlin subjects' $d'$ values above the chance line. The other three cells (UChicago full, UChicago imagined, Oberlin imagined) hover around zero with subjects largely symmetric on both sides.
+
+Plot 2 is the within-subject Imagined Sentence to Full Sentence slopes for each subject within in each site. This is what the multilevel $\beta_{BT}$ slope is going to estimate in a (hopefully) more informative way. The average slope across subjects is negative (full to imagined) in both sites but the spread of individual slopes is wide so some subjects slope downward (the manipulation hurt them) and some sharply upward. This is where partial pooling will help. A single population slope $\bar{\beta_{BT}}$ understates the variability, and $\sigma_{\beta_{BT}}$ is needed to quantify it.
+
+Plot 3 is the pooled across-blocks $d'$ per subject, with the negative-pooled-$d'$ subjects (raw pooled $d' < 0$) colored red. These are, to some extent, the subjects the flip hypothesis is asking about. If those red bars are real signal (substantially negative, big magnitude), the per-subject `beta_s` in M4 should come out negative for them and M5's mixture should assign them appreciable posterior mass in the flipped class. If they're just at-chance noise (near zero), both `beta_s` and `P(z_s = flipped)` should sit near zero for them. M5's `pi_flipped` posterior is the population-level answer to "are any subjects credibly flipped? Although we actually intend to use the full sentence block instead of block-pooled, this graph gives one a better sense of the type of transformations we are going to try to apply in a more technical manner via the M4 and M5 analyses.
+
+Plot 4 is the hit rate vs false-alarm rate scatter per (subject, block), with a red dashed line on the chance diagonal. This is the geometry that produces $d'$: a subject sitting on the diagonal has hit rate equal to false-alarm rate so $d' = 0$, a subject above the diagonal has $d' > 0$ (correctly discriminating), and a subject below the diagonal has $d' < 0$ (anti-aligned with the experimenter's labels which is the pattern we are testing under the flip hypothesis). Most subjects in the full_sentence facet sit slightly above the diagonal; the imagined_sentence facet shows subjects more evenly scattered around it. Subjects sitting clearly below the diagonal in either facet are the ones M4's per-subject $\beta_s$ and M5's flipped class are trying to pick out.
+
+Plot 5 is the histogram of pooled per-subject $d'$ colored by site. This is the marginal distribution that M5's mixture is trying to decompose: the question M5 asks is whether this distribution is better described as one Normal blob (continuous heterogeneity around a single population mean) or as three discrete clusters (a noise cluster at 0, a correct cluster at $+\mu$, and a flipped cluster at $-\mu$). At $n = 26$ a histogram this small is consistent with both stories visually. There is a concern that given the correct population proportions (most people are at chance, and correct/correct-but-flipped are equally likely) then the data generated by both hypotheses would be identical! However it is unlikely that the latter hypothesis would produce exactly a gaussian, so we will have to see if n = 26 is enough data to really test between these hypotheses.
+
+____________________________
+
+**Explain whether the plot(s) offer you any information regarding your effects of interest and what your anticipated results might be.**
+
+____________________________
+
+- **Population $\bar d$ in the reference cell (imagined/UC/first)**: very close to 0, narrow credible interval. The reference cell is just at chance.
+- **Block × TrueTarget interaction $\beta_{BT}$**: modestly positive. Credible interval will likely straddle 0 narrowly but with most posterior mass above 0. Bigger in Oberlin than in UChicago.
+- **Site × TrueTarget interaction $\beta_{ST}$**: positive (Oberlin > UChicago in $d'$), credible interval probably includes 0 given the small site samples but with most mass above 0.
+- **Order × TrueTarget $\beta_{OT}$**: near 0 across the board, with one possible exception. Our previous analysese found a trend in the Oberlin imagined block where second-block subjects had higher $d'$ than first-block ($d=1.03$, $p=0.078$). With $n_{B2}=5$ which is certainly a fragile result, but the multilevel framework will give us an interval for it.
+- **$\sigma_d$**: non-trivially above 0 which is consistent with the spread we see in Plot 1.
+- **$p_\text{lapse}$ (M3)**: probably small, in the 0.05–0.20 range. With 7,748 trials there's plenty of data to estimate this. However, even the best performers had accuracies <0.6 so at a 50% guess rate there is only so much needle that this parameter could move.
+- **M4/M5 ($\bar\beta$, $\sigma_\beta$, per-subject $\beta_s$)**: $\bar\beta$ should be cleanly positive if subjects on average track per-trial r (which the convergent evidence from our original analysis suggests). Per-subject $\beta_s$ is the interesting one Although not present in these plots, the idea is to give a clearer visual about the type of thing that we are going to do. Subjects with negative $d'$ should sit at $\beta_s$ near zero if they're noise, or substantially negative if they're capable-but-flipped. If a couple of negative-$d'$ subjects come out with credibly-negative $\beta_s$ that's first-pass evidence for the flip hypothesis. Once again that is not exactly what this graph shows, but this is just meant to give a flavor of the two hypotheses that we are testing.
+- **Hit/FA geometry (Plot 4)**: most subjects in full_sentence sit slightly above the chance diagonal which is consistent with a modestly positive $\beta_{BT}$ and a small positive $\beta_{ST}$. The subjects sitting clearly below the diagonal are the ones M4's per-subject $\beta_s$ should flag with negative posterior mass; if those subjects line up with the red bars from Plot 3, that's convergent first-pass evidence for the flip-hypothesis subpopulation that M5 is trying to estimate via $\pi_\text{flipped}$.
+- **Marginal d' distribution (Plot 5)**: with only 26 subjects, the histogram is too coarse to visually distinguish "one Normal blob" from "three discrete clusters at $-\mu$, $0$, $+\mu$." This is exactly the ambiguity the WAIC compare between M4 (continuous Normal partial pooling) and M5 (mixture prior) is designed to resolve. It will be hard to interpret these results given the limited data, but we will see.
+____________________________
+
+# 3. Results
+
+## 3A. Fit your models
+
+**Fit your statistical models using ulam.**
+
+```{r fit-m1-acc, results = "hide"}
+set.seed(2026)
+
+# ============================================================================
+# M1 Section
+# ----------------------------------------------------------------------------
+# multilevel logistic on accuracy
+# Varying intercept per subject (a[s]) and varying Block slope per subject
+# (bB[s]). Between-subject predictors (site, order) get fixed slopes.
+# Block x Site and Block x Order interactions added so we can see whether
+# the Block effect is concentrated in one site or one order condition.
+future_1 <- future({m1_acc <- ulam(
+  alist(
+    
+    # Estimate accuracy via binomial distribution
+    correct ~ dbinom(1, p),
+    
+    # logit link to cast into probability valued results
+    logit(p) <- 
+      
+      # per-subject baseline log-odds of being correct in the reference cell
+      # (imagined / UChicago / first block) and partial pooled toward a_bar
+      a[subject_idx] +
+      
+      # within-subject effect of block
+      # per-subject Block slope
+      # how much full_sentence shifts log-odds of being correct relative to imagined_sentence
+      bB[subject_idx] * block +
+      
+      # between-subject main effects
+      # site main effect (Oberlin = 1, UChicago = 0). This is observational so wont treat this as causal!!
+      bSite  * site +
+      
+      # order main effect (2nd block = 1, 1st block = 0). Captures any
+      # practice / fatigue across the two blocks 
+      # (vaguely measured by stanford sleepines questionnaire but tbh never understood that one)
+      bOrder * order +
+      
+      # INTERACTIONS
+      # Block x Site: does the Block bump look different at the two sites?
+      bB_site * block * site +
+      
+      # Block x Order: is the Block bump bigger when full comes 1st vs 2nd?
+      bB_order * block * order, 
+
+    # Varying parameters per subject
+    # per-subject intercept lives as a Gaussian around grand mean a_bar with
+    # between-subject SD sigma_a
+    a[subject_idx]  ~ dnorm(a_bar, sigma_a),
+    
+    # per-subject Block slope lives in a Gaussian around bB_bar w/ SD sigma_bB
+    bB[subject_idx] ~ dnorm(bB_bar, sigma_bB),
+
+    # Population-level priors
+    # wide prior on grand-mean log-odds; 1.5 SD covers ~0.05-0.95 on prob scale
+    a_bar    ~ dnorm(0, 1.5),
+    
+    # tighter prior on the population Block effect since we, empirically, dont expect a huge log-odds shift from this manipulation
+    bB_bar   ~ dnorm(0, 0.5),
+    
+    # interaction priors tighter still (barring particular circumstances it seems
+    # that interactions are usually smaller than main effects...
+    #   so we want to regularize them harder)
+    bB_site  ~ dnorm(0, 0.3),
+    bB_order ~ dnorm(0, 0.3),
+    
+    # exponential priors on the between-subject SDs
+    sigma_a  ~ dexp(1),
+    sigma_bB ~ dexp(1),
+
+    # Fixed effects
+    # site and order each get a moderate prior
+    bSite    ~ dnorm(0,   0.5),
+    bOrder   ~ dnorm(0,   0.5)
+  ),
+  data    = slim,
+  warmup  = 1500,
+  iter    = 5000,
+  refresh = 0,
+  chains  = chains_to_use,
+  cores   = cores_to_use,
+  # save log_lik so we can do WAIC / PSIS later 
+  # the hatred i have for the implementation of log lik...
+  # makes it impossible to do within-chain threading!!!!!!
+  # I have great respect for McElreath but whyyyy is the single most important
+  # function in the package built such that there is NO ADVANTAGE (!!??!?!?!?)
+  # WHATSOEVER FOR HAVING MORE CORES THAN CHAINS?!?!?! WHy would you kneecap your
+  # users like this. To be fair  I will admit  that the underlying challenges are tricky and I get it! 
+  # It is doable but a rea pain in the rearend.....
+  # But good lord I need people to know that there is no reason this code takes as long as it does
+  log_lik = TRUE,
+  control = list(adapt_delta = 0.95)
+)})
+```
+
+```{r fit-m2-sdt, results = "hide"}
+set.seed(2026)
+# ============================================================================
+# M2 Section
+# ----------------------------------------------------------------------------
+# multilevel signal detection theory (d'). DV is said_target.
+# Slope on true_target is d' (probit link + true_target centered to +/-0.5
+# which makes the slope Gaussian d' which is a neat little trick!)
+#
+# Per-subject c[s] (criterion) and d[s] (sensitivity) as parameters.
+# Block, Site, Order each get a criterion-shift (bB, bS, bO) AND a d'-shift
+# (bBT, bST, bOT). Block x Site and Block x Order get both a criterion-shift
+# interaction (bBS, bBO) and a d'-shift interaction (bBST, bBOT). bBST is
+# the Oberlin x full_sentence d' (the result that I want to get a bayesian perspective on)
+future_2 <- future({m2_sdt <- ulam(
+  alist(
+    
+    # Bernoulli trial-level likelihood on the subject's raw response
+    said_target ~ dbinom(1, p),
+    
+    # probit link
+    # Phi() is the std normal CDF. Combined with true_target centered at +/-0.5
+    # the slope on true_target IS classical Gaussian d'
+    p <- Phi(
+      
+      # per-subject criterion (intercept in probit space)
+      # response bias for the reference cell, partial pooled toward c_bar
+      c[subject_idx] +
+      
+      # per-subject sensitivity (d')
+      # this is the headline parameter of this entire analysis
+      d[subject_idx] * true_target +
+      
+      # D'-SHIFT INTERACTIONS (sensitivity shifts across conditions)
+      # Block x TrueTarget: full_sentence vs imagined_sentence d' shift
+      bBT  * block * true_target +
+      
+      # Site x TrueTarget: Oberlin vs UChicago d' shift (observational!)
+      bST  * site  * true_target +
+      
+      # Order x TrueTarget: 2nd-block vs 1st-block d' shift (practice effect)
+      bOT  * order * true_target +
+      
+      # Block x Site x TrueTarget: the headline three-way interaction
+      # does the full_sentence boost look different at Oberlin vs UChicago?
+      bBST * block * site  * true_target +
+      
+      # Block x Order x TrueTarget: does the full_sentence boost depend on
+      # whether full came 1st or 2nd?
+      bBOT * block * order * true_target +
+      
+      # CRITERION SHIFTS (response bias shifts, NOT sensitivity)
+      # Block main effect on criterion
+      bB  * block +
+      
+      # Site main effect on criterion
+      bS  * site  +
+      
+      # Order main effect on criterion
+      bO  * order +
+      
+      # Block x Site criterion interaction
+      bBS * block * site +
+      
+      # Block x Order criterion interaction
+      bBO * block * order
+    ),
+    
+    # Varying parameters per subject
+    # per-subject criterion lives in a Gaussian around c_bar with SD sigma_c
+    c[subject_idx] ~ dnorm(c_bar, sigma_c),
+    
+    # per-subject sensitivity lives in a Gaussian around d_bar with SD sigma_d
+    d[subject_idx] ~ dnorm(d_bar, sigma_d),
+    
+    # Population-level priors
+    # population criterion centered on 0 (unbiased). 0.5 SD allows mild bias
+    c_bar ~ dnorm(0, 0.5),
+    
+    # population d' centered on 0 (chance). 95% prior mass within +/-1
+    # plenty wide for this paradigm (biggest cell from thesis was Oberlin full at 0.137)
+    d_bar ~ dnorm(0, 0.5),
+    
+    # d'-shift priors (tighter than d_bar; shifts should be smaller than the mean)
+    bBT  ~ dnorm(0, 0.3),
+    bST  ~ dnorm(0, 0.3),
+    bOT  ~ dnorm(0, 0.3),
+    bBST ~ dnorm(0, 0.3),
+    bBOT ~ dnorm(0, 0.3),
+    
+    # criterion-shift priors (same tightness as d'-shifts)
+    bB  ~ dnorm(0, 0.3),
+    bS  ~ dnorm(0, 0.3),
+    bO  ~ dnorm(0, 0.3),
+    bBS ~ dnorm(0, 0.3),
+    bBO ~ dnorm(0, 0.3),
+    
+    # exponential priors on the between-subject SDs
+    sigma_c ~ dexp(1),
+    sigma_d ~ dexp(1)
+  ),
+  data    = slim,
+  refresh = 0,
+  warmup  = 1500,
+  iter    = 5000,
+  chains  = chains_to_use,
+  cores   = cores_to_use,
+  log_lik = TRUE,
+  control = list(adapt_delta = 0.95)
+)})
+```
+
+```{r fit-m3-sdt-mix, results = "hide"}
+set.seed(2026)
+# ============================================================================
+# M3 Section
+# ----------------------------------------------------------------------------
+# Basically just M2 with the p_lapse mixture model from hw4
+future_3 <- future({m3_sdt_mix <- ulam(
+  alist(
+    
+    # likelihood now on p_obs (observed response prob after mixing in lapses)
+    said_target ~ dbinom(1, p_obs),
+    
+    # here is that mixture we all love so much
+    # (1 - p_lapse) * Phi(SDT linear pred) for engaged trials
+    # plus p_lapse * 0.5 for lapse trials (50/50 guess)
+    # Even though subjects saw either 75 targets & 74 distractors or vice versa,
+    # taking this does not effect probability of a guess being correct....
+    # it only changes the expected counts for target & correct given a guess
+    # and distractor & correct given guess
+    p_obs <- (1 - p_lapse) * Phi(
+      
+      # all of this is identical to M2 (same linear predictor)
+      c[subject_idx] +
+      d[subject_idx] * true_target +
+      
+      # d'-shift interactions
+      bBT  * block * true_target +
+      bST  * site  * true_target +
+      bOT  * order * true_target +
+      bBST * block * site  * true_target +
+      bBOT * block * order * true_target +
+      
+      # criterion shifts
+      bB  * block +
+      bS  * site  +
+      bO  * order +
+      bBS * block * site +
+      bBO * block * order
+    ) + p_lapse * 0.5,
+    
+    # same partial pooling as M2
+    c[subject_idx] ~ dnorm(c_bar, sigma_c),
+    d[subject_idx] ~ dnorm(d_bar, sigma_d),
+    
+    # same population-level priors as M2
+    c_bar ~ dnorm(0, 0.5),
+    d_bar ~ dnorm(0, 0.5),
+    
+    # d'-shift priors
+    bBT  ~ dnorm(0, 0.3),
+    bST  ~ dnorm(0, 0.3),
+    bOT  ~ dnorm(0, 0.3),
+    bBST ~ dnorm(0, 0.3),
+    bBOT ~ dnorm(0, 0.3),
+    
+    # criterion-shift priors
+    bB  ~ dnorm(0, 0.3),
+    bS  ~ dnorm(0, 0.3),
+    bO  ~ dnorm(0, 0.3),
+    bBS ~ dnorm(0, 0.3),
+    bBO ~ dnorm(0, 0.3),
+    
+    # between-subject SDs
+    sigma_c ~ dexp(1),
+    sigma_d ~ dexp(1),
+    
+    # M2 Beta(2, 20) prior on lapse rate
+    # encodes the idea that subjects mostly try but it is a long boring task
+    #   (relative i suppose) and people likely loswe attention sometimes
+    p_lapse ~ dbeta(2, 20)
+  ),
+  data    = slim,
+  refresh = 0,
+  warmup  = 1500,
+  iter    = 5000,
+  chains  = chains_to_use,
+  cores   = cores_to_use,
+  log_lik = TRUE,
+  control = list(adapt_delta = 0.95)
+)})
+```
+
+```{r fit-m4-full-beta, results = "hide"}
+set.seed(2026)
+
+# ============================================================================
+# M4 Section (non-centered parameterization)
+# ----------------------------------------------------------------------------
+# Same general structure as M3 but just the full_sentence trials and with
+# a per-subject slope on sim_to_target (centered Pearson r).since block
+# is constant we drop terms with a `block` factor (i.e bB, bBT, bBS, bBST, bBO, bBOT).
+# This leaves us with criterion, d', beta_truetarget, Site/Order shifts on each, and the lapse rate.
+#
+# how to read beta_s[s]:
+#   - beta_s[s] > 0: subject's responses align with per-trial r-to-target (correct labels)
+#   - beta_s[s] ~ 0: subject's responses do not track r (noise)
+#   - beta_s[s] < 0: subject's responses are anti-aligned with r (signal detection with flipped labels)
+#
+#
+# NON-CENTERED parameterization on c, d, beta_s. With small sigma_d and sigma_beta
+# the centered version creates a Neal-style funnel (when sigma is small,
+# per-subject d[i] must hug d_bar; when sigma is large d[i] can be anywhere).
+# HMC handles that geometry poorly which shows up as low ESS and high rhat on
+# d_bar, sigma_d, beta_bar, sigma_beta in the centered fit. Non-centered just
+# samples raw N(0, 1) per-subject offsets and applies location/scale deterministically.
+#  Credit to claude for hleping me understand exactly why this kept diverging
+#    i spent so much time trying and failing to figure this out so very grateful
+future_4 <- future({m4_full_beta <- ulam(
+  alist(
+    
+    # Bernoulli likelihood on the raw response (no flipping)
+    said_target ~ dbinom(1, p_obs),
+    
+    # same lapse mixutre from M3
+    p_obs <- (1 - p_lapse) * Phi(
+      
+      # criterion (probit space) - per-subject, reconstructed below
+      c[subject_idx] +
+      
+      # per-subject sensitivity (as measured by d') on the binary target label
+      d[subject_idx] * true_target +
+      
+      # per-subject slope on the continuous per-trial r-to-target
+      # this is the sign-preserving alignment metric
+      beta_s[subject_idx] * sim_to_target +
+      
+      # interactions
+      # Site x TrueTarget: Oberlin vs UChicago d' shift within full_sentence
+      bST * site  * true_target +
+      
+      # Order x TrueTarget: 2nd-block vs 1st-block d' shift within full_sentence
+      bOT * order * true_target +
+      
+      # Criterion/bias 
+      bS * site +
+      bO * order
+    ) + p_lapse * 0.5,
+    
+    # NON-CENTERED reconstruction: per-subject params are bar + scale * raw
+    # where raw ~ N(0, 1). Deterministic (no priors on these).
+    transpars> vector[N_sub]:c      <<- c_bar    + sigma_c    * c_raw,
+    transpars> vector[N_sub]:d      <<- d_bar    + sigma_d    * d_raw,
+    transpars> vector[N_sub]:beta_s <<- beta_bar + sigma_beta * beta_raw,
+    
+    # the raws are what HMC actually samples: unit-variance standard normals
+    vector[N_sub]:c_raw    ~ dnorm(0, 1),
+    vector[N_sub]:d_raw    ~ dnorm(0, 1),
+    vector[N_sub]:beta_raw ~ dnorm(0, 1),
+    
+    # population-level priors as in M3 for c and d
+    c_bar    ~ dnorm(0, 0.5),
+    d_bar    ~ dnorm(0, 0.5),
+    
+    # beta is on a different scale (per-trial r is centered around 0 with magnitude ~0.04)
+    # so the slope itself can be much larger in absolute units. wider prior to match.
+    beta_bar ~ dnorm(0, 5),
+    
+    # d'-shift priors
+    bST ~ dnorm(0, 0.3),
+    bOT ~ dnorm(0, 0.3),
+    
+    # criterion-shift priors
+    bS ~ dnorm(0, 0.3),
+    bO ~ dnorm(0, 0.3),
+    
+    # between-subject SDs
+    sigma_c    ~ dexp(1),
+    sigma_d    ~ dexp(1),
+    sigma_beta ~ dexp(0.2),
+    
+    # lapse prior (same Beta(2, 20) as M3)
+    p_lapse ~ dbeta(2, 20)
+  ),
+  data    = slim_full,
+  refresh = 0,
+  warmup  = 1500,
+  iter    = 5000,
+  chains  = chains_to_use,
+  cores   = cores_to_use,
+  log_lik = TRUE,
+  control = list(adapt_delta = 0.99, max_treedepth = 12)
+)})
+```
+
+
+```{r fit-m5-mix, results = "hide"}
+# ============================================================================
+# M5 Section
+# ----------------------------------------------------------------------------
+# Same trial-level likelihood and same 3874 full_sentence observations as M4.
+# Only difference: instead of (d_s, beta_s) coming from independent Normals,
+# they come from a mirror-constrained 3-component bivariate mixture:
+#
+#   z_s ~ Categorical(pi_noise, pi_correct, pi_flipped)
+#   (d_s, beta_s) | z_s = noise   ~ N2((0, 0),         Sigma_noise)
+#   (d_s, beta_s) | z_s = correct ~ N2((+mu_d, +mu_b), Sigma_signal)
+#   (d_s, beta_s) | z_s = flipped ~ N2((-mu_d, -mu_b), Sigma_signal)
+#
+# Mirror constraint (correct/flipped means are negatives of each other) is what
+# makes the 3-component mixture (mayyybe) identifiable with only 26 subjects. The latent
+# z_s is marginalized in the likelihood. this gives per-subject P(z_s = flipped | data)
+# falling out as a derived quantity.
+#
+# Same observations as M4 so M4 vs M5 WAIC can hopefully give the flip-hypothesis test
+# (continuous random effects vs discrete mixture).
+#
+# Cannot do discrete mixture marginalization cleanly in ulam, so had to drop into
+# cmdstanr directly. log_lik is generated for WAIC compare against M4.
+
+# m5_data lives in the main process so that the
+# m5-summary chunk below can reference m5_data$S after the fit comes back.
+# Everything else (stan code, compile, sample) stays inside the future.
+#
+m5_data <- list(
+  N           = length(slim_full$said_target),
+  S           = slim_full$N_sub,
+  subj        = slim_full$subject_idx,
+  said_target = slim_full$said_target,
+  true_target = slim_full$true_target,
+  sim         = slim_full$sim_to_target,
+  site        = slim_full$site,
+  order       = slim_full$order
+)
+
+future_5 <- future({m5_stan_code <- "
+data {
+  int<lower=1> N;
+  int<lower=1> S;
+  array[N] int<lower=1, upper=S> subj;
+  array[N] int<lower=0, upper=1> said_target;
+  vector[N] true_target;
+  vector[N] sim;
+  vector[N] site;
+  vector[N] order;
+}
+
+parameters {
+  // Population criterion
+  real c_bar;
+  real<lower=0> sigma_c;
+  vector[S] c_raw;
+
+  // Mixture proportions over (noise, correct, flipped)
+  simplex[3] pi;
+
+  // Class means (positive by construction; flipped class is the mirror)
+  real<lower=0> mu_d;
+  real<lower=0> mu_beta;
+
+  // Within-class SDs (signal classes share; noise has its own)
+  real<lower=0> sigma_d_sig;
+  real<lower=0> sigma_b_sig;
+  real<lower=0> sigma_d_noise;
+  real<lower=0> sigma_b_noise;
+
+  // Per-subject d' and beta_truetarget (drawn from the mixture)
+  vector[S] d;
+  vector[S] beta_s;
+
+  // Covariate shifts (block dropped since full_sentence only)
+  real bST; real bOT;
+  real bS;  real bO;
+
+  real<lower=0, upper=1> p_lapse;
+}
+
+transformed parameters {
+  vector[S] c = c_bar + sigma_c * c_raw;
+}
+
+model {
+  // Priors
+  c_bar ~ normal(0, 0.5);
+  sigma_c ~ exponential(1);
+  c_raw ~ std_normal();
+
+  mu_d ~ normal(0.15, 0.15);
+  mu_beta ~ normal(2, 3);
+  sigma_d_sig ~ exponential(5);
+  sigma_b_sig ~ exponential(0.5);
+  sigma_d_noise ~ exponential(10);
+  sigma_b_noise ~ exponential(2);
+
+  // Mildly downweight flipped class relative to correct
+  pi ~ dirichlet([2, 3, 1.5]');
+
+  bST ~ normal(0, 0.3); bOT ~ normal(0, 0.3);
+  bS  ~ normal(0, 0.3); bO  ~ normal(0, 0.3);
+
+  p_lapse ~ beta(2, 20);
+
+  // Per-subject (d, beta) ~ marginalized 3-component mixture
+  for (s in 1:S) {
+    vector[3] log_class;
+    log_class[1] = log(pi[1])
+                 + normal_lpdf(d[s]      | 0, sigma_d_noise)
+                 + normal_lpdf(beta_s[s] | 0, sigma_b_noise);
+    log_class[2] = log(pi[2])
+                 + normal_lpdf(d[s]      |  mu_d,    sigma_d_sig)
+                 + normal_lpdf(beta_s[s] |  mu_beta, sigma_b_sig);
+    log_class[3] = log(pi[3])
+                 + normal_lpdf(d[s]      | -mu_d,    sigma_d_sig)
+                 + normal_lpdf(beta_s[s] | -mu_beta, sigma_b_sig);
+    target += log_sum_exp(log_class);
+  }
+
+  // Trial likelihood (same SDT + lapse structure as M4)
+  for (t in 1:N) {
+    real lp = c[subj[t]]
+            + d[subj[t]] * true_target[t]
+            + beta_s[subj[t]] * sim[t]
+            + bST * site[t]  * true_target[t]
+            + bOT * order[t] * true_target[t]
+            + bS  * site[t]
+            + bO  * order[t];
+    real p_eng = Phi(lp);
+    real p_obs = (1 - p_lapse) * p_eng + p_lapse * 0.5;
+    said_target[t] ~ bernoulli(p_obs);
+  }
+}
+
+generated quantities {
+  // Per-subject posterior class probabilities (for inspection)
+  matrix[S, 3] p_class;
+  vector[N] log_lik;
+
+  for (s in 1:S) {
+    vector[3] log_class;
+    log_class[1] = log(pi[1])
+                 + normal_lpdf(d[s]      | 0, sigma_d_noise)
+                 + normal_lpdf(beta_s[s] | 0, sigma_b_noise);
+    log_class[2] = log(pi[2])
+                 + normal_lpdf(d[s]      |  mu_d,    sigma_d_sig)
+                 + normal_lpdf(beta_s[s] |  mu_beta, sigma_b_sig);
+    log_class[3] = log(pi[3])
+                 + normal_lpdf(d[s]      | -mu_d,    sigma_d_sig)
+                 + normal_lpdf(beta_s[s] | -mu_beta, sigma_b_sig);
+    real lse = log_sum_exp(log_class);
+    for (k in 1:3) p_class[s, k] = exp(log_class[k] - lse);
+  }
+
+  for (t in 1:N) {
+    real lp = c[subj[t]]
+            + d[subj[t]] * true_target[t]
+            + beta_s[subj[t]] * sim[t]
+            + bST * site[t]  * true_target[t]
+            + bOT * order[t] * true_target[t]
+            + bS  * site[t]
+            + bO  * order[t];
+    real p_eng = Phi(lp);
+    real p_obs = (1 - p_lapse) * p_eng + p_lapse * 0.5;
+    log_lik[t] = bernoulli_lpmf(said_target[t] | p_obs);
+  }
+}
+"
+
+# Compile and fit
+m5_mod <- cmdstan_model(write_stan_file(m5_stan_code))
+
+m5_fit <- m5_mod$sample(
+  data            = m5_data,
+  chains          = chains_to_use,
+  parallel_chains = cores_to_use,
+  iter_warmup     = 1500,
+  iter_sampling   = 5000,
+  adapt_delta     = 0.95,
+  max_treedepth   = 12,
+  seed            = 2026
+)})
+```
+
+```{r m1-analysis-precis }
+# resolve the future kicked off above
+# code gets blocks here if m1_acc is still fitting
+# same for all futures and anlysis blocks below
+m1_acc <- value(future_1)
+precis(m1_acc, depth = 1)
+```
+
+```{r oberlin-fullsentbayesian }
+
+# Proportion of posterior samples where the effect is positive (interpretable as the probability that oberlin_full > 0) 
+post <- extract.samples(m1_acc)
+oberlin_full <- post$a_bar + post$bSite + post$bB_bar + post$bB_site
+quantile(oberlin_full, c(0.055, 0.5, 0.945))
+mean(oberlin_full > 0)
+```
+
+```{r m2-summary }
+# m2_sdt summary
+m2_sdt <- value(future_2)
+precis(m2_sdt, depth = 1)
+```
+
+```{r m3-summary }
+# m3 summary
+m3_sdt_mix <- value(future_3)
+precis(m3_sdt_mix, depth = 1) 
+```
+
+```{r m4-summary }
+# m4 summary 
+m4_full_beta <- value(future_4)
+precis(m4_full_beta, depth = 1)
+```
+
+```{r m5-summary }
+# resolve the future kicked off above; blocks here if m5_fit is still fitting
+m5_fit <- value(future_5)
+
+# population-level summary
+m5_fit$summary(c("pi", "mu_d", "mu_beta", "sigma_d_sig", "sigma_b_sig",
+                 "sigma_d_noise", "sigma_b_noise", "c_bar", "p_lapse",
+                 "bST", "bOT", "bS", "bO"))
+
+# per-subject posterior class probabilities (noise / correct / flipped)
+m5_class <- m5_fit$summary("p_class") |>
+  mutate(subject_idx = rep(1:m5_data$S, times = 3),
+               class = rep(c("noise", "correct", "flipped"), each = m5_data$S)) |>
+  select(subject_idx, class, mean, q5, q95) |> arrange(subject_idx, class)
+print(m5_class, n = Inf)
+
+```
+
+
+**Report your parameter estimates.**
+
+____________________________
+Reporting means here since medians will be more clearly seen in the CI table below.
+
+
+**M1 (logit on accuracy, Bayesian replication of the original NHT result).** $a\_bar = -0.07$ (89% CI $[-0.15, 0.04]$). $bB\_bar = 0.05$ $[-0.11, 0.18]$. $bSite = 0.08$ $[-0.02, 0.19]$. $bOrder = 0.06$ $[-0.04, 0.17]$. $bB\_site = 0.00$ $[-0.14, 0.16]$. $bB\_order = -0.02$ $[-0.18, 0.13]$. $\sigma_a = 0.03$ $[0.00, 0.08]$. $\sigma_{bB} = 0.05$ $[0.01, 0.12]$. The composite Oberlin-full estimate (median $0.08$, 89% CI $[-0.03, 0.18]$) has $86\%$ of posterior mass above zero. The CI does include zero, so the Bayesian framing is not showing quite as strong a result as the NHT approach ($p = 0.001$).
+
+**M2 (multilevel SDT, no lapse, 7748 trials).** $c\_bar = 0.03$ $[-0.07, 0.13]$. $d\_bar = -0.09$ $[-0.22, 0.02]$. $b_{BT} = 0.07$ $[-0.07, 0.24]$. $b_{ST} = 0.11$ $[-0.01, 0.23]$. $b_{OT} = 0.08$ $[-0.04, 0.24]$. $b_{BST} = 0.00$ $[-0.16, 0.17]$. $b_{BOT} = -0.03$ $[-0.24, 0.15]$. $b_B = 0.00$ $[-0.12, 0.11]$. **$b_S = -0.17$ $[-0.28, -0.04]$** (CI excludes zero). $b_O = -0.07$ $[-0.18, 0.06]$. **$b_{BS} = 0.11$ $[0.01, 0.19]$** (CI excludes zero). $b_{BO} = -0.01$ $[-0.24, 0.19]$. $\sigma_c = 0.17$ $[0.13, 0.22]$. $\sigma_d = 0.04$ $[0.01, 0.10]$ 
+
+**M3 (M2 + lapse, same 7748 trials).** $c\_bar = 0.05$ $[-0.09, 0.17]$. $d\_bar = -0.08$ $[-0.21, 0.04]$. $b_{BT} = 0.06$ $[-0.13, 0.25]$. $b_{ST} = 0.12$ $[-0.03, 0.26]$. $b_{OT} = 0.10$ $[-0.06, 0.24]$. $b_{BST} = 0.03$ $[-0.18, 0.22]$. $b_{BOT} = -0.05$ $[-0.23, 0.18]$. $b_B = -0.01$ $[-0.16, 0.13]$. **$b_S = -0.21$ $[-0.36, -0.06]$** (CI excludes zero). $b_O = -0.10$ $[-0.22, 0.04]$. **$b_{BS} = 0.13$ $[0.02, 0.23]$** (CI excludes zero). $b_{BO} = 0.01$ $[-0.24, 0.24]$. $\sigma_c = 0.21$ $[0.15, 0.30]$. $\sigma_d = 0.04$ $[0.01, 0.13]$ (rhat $1.20$, ESS $16$). $p_\text{lapse} = 0.17$ $[0.04, 0.34]$.
+
+**M4 (full_sentence only, +per-subject $\beta_s$, non-centered).** $c\_bar = 0.03$ $[-0.12, 0.18]$. $d\_bar = 0.05$ $[-0.38, 0.47]$. $\beta\_bar = -0.56$ $[-6.10, 4.93]$. $b_{ST} = 0.12$ $[-0.05, 0.28]$. $b_{OT} = 0.05$ $[-0.12, 0.22]$. $b_S = -0.08$ $[-0.23, 0.06]$. $b_O = -0.08$ $[-0.23, 0.08]$. $\sigma_c = 0.21$ $[0.14, 0.30]$. $\sigma_d = 0.06$ $[0.01, 0.16]$. $\sigma_\beta = 0.83$ $[0.06, 2.07]$. $p_\text{lapse} = 0.13$ $[0.03, 0.28]$. All rhats $\approx 1.00$, ESS in the thousands. $\beta\_bar$ CI is very large so it seems the data underdetermines population-level alignment. THis means M4 does not provide clear evidence in support of the label-flipping hypothesis. $\sigma_\beta$ has wide CIs as well which suggests that the model cannot confidently identify meaningful between-subject differences for the continuous-r alignment slope. The site-by-target effect $b_{ST}$ is more interpretable: its posterior median is positive and its interval is almost entirely above zero which is consistent with higher full-sentence sensitivity at Oberlin than UChicago. The lapse estimate still remains which suggests that some trial-level noise may be absorbed as lapse behavior.
+
+**M5 (mixture prior, same 3874 trials).** $c\_bar = 0.03$ $[-0.12, 0.17]$. $p_\text{lapse} = 0.14$ $[0.03, 0.30]$. $\pi_\text{noise} = 0.41$ $[0.10, 0.77]$. $\pi_\text{correct} = 0.38$ $[0.12, 0.74]$. **$\pi_\text{flipped} = 0.15$ $[0.02, 0.46]$** (CI excludes zero). $\mu_d = 0.08$ $[0.01, 0.21]$. $\mu_\beta = 1.03$ $[0.07, 2.87]$. $\sigma_{d,\text{sig}} = 0.08$ $[0.01, 0.24]$. $\sigma_{\beta,\text{sig}} = 0.98$ $[0.11, 2.66]$. $\sigma_{d,\text{noise}} = 0.06$ $[0.00, 0.18]$. $\sigma_{\beta,\text{noise}} = 0.46$ $[0.03, 1.33]$. $b_{ST} = 0.10$ $[-0.05, 0.26]$. $b_{OT} = 0.03$ $[-0.12, 0.18]$. $b_S = -0.09$ $[-0.23, 0.06]$. $b_O = -0.07$ $[-0.23, 0.07]$. Per-subject $P(z_s = k)$ is uninformative for every subject and every class.
+
+____________________________
+
+**Report 89% compatibility/credible intervals for all your parameter estimates.**
+
+```{r credible-intervals }
+# Pull 89% credible intervals for the population-level parameters from each model and stack them into one table. 
+# so we can eyeball M2 vs M3 vs M4 vs M5
+# Goal is to see size of d_bar / bBT / bBST differences relative to the credible intervals
+
+# Helper function
+# extract posterior samples for a list of params from one fit and get data frame with median and CIs
+ci_table <- function(fit, params, model_name) {
+  
+  # pulls the full posterior as a named list 
+  post <- extract.samples(fit)
+  
+  # lapply over the param names so we can handle missing ones
+  out <- lapply(params, function(p) {
+    x <- post[[p]]
+    
+    # skip params that arent in this model (e.g. p_lapse in M2)
+    if (is.null(x)) return(NULL)
+    
+    # 89% CI = central interval bounded by the 5.5th and 94.5th percentiles
+    q <- quantile(x, probs = c(0.055, 0.5, 0.945))
+    
+    # one row of the output table per param
+    data.frame(model = model_name, param = p,
+               median = round(q[2], 3),
+               lo89   = round(q[1], 3),
+               hi89   = round(q[3], 3),
+               row.names = NULL)
+  })
+  
+  # bind rows into a single df
+  do.call(rbind, out)
+}
+
+# same wrangling but for cmdstanr fits 
+# M5 uses cmdstanr because SUPRISE SUPRISE rethinking haaaattttessss discrete mixture + marginalization
+ci_table_cmdstan <- function(fit, params, model_name) {
+  out <- lapply(params, function(p) {
+    s <- tryCatch(fit$summary(p, ~quantile(.x, c(0.055, 0.5, 0.945))),
+                  error = function(e) NULL)
+    if (is.null(s) || nrow(s) == 0) return(NULL)
+    data.frame(model = model_name, param = p,
+               median = round(s$`50%`, 3),
+               lo89   = round(s$`5.5%`, 3),
+               hi89   = round(s$`94.5%`, 3),
+               row.names = NULL)
+  })
+  do.call(rbind, out)
+}
+
+
+# parameter lists
+# M1 is log odds and doesnt have an SDT parameterization
+m1_params <- c("a_bar", "bB_bar", "bSite", "bOrder", "bB_site", "bB_order",
+               "sigma_a", "sigma_bB")
+
+# M2 and M3 share the full set of block / site / order interaction terms (full dataset).
+# M2 has no p_lapse but ci_table skips missing params
+m2_m3_params <- c("c_bar", "d_bar",
+                  "bBT", "bST", "bOT", "bBST", "bBOT",
+                  "bB", "bS", "bO", "bBS", "bBO",
+                  "sigma_c", "sigma_d", "p_lapse")
+
+# M4 is full_sentence only with beta_truetarget.
+# beta_bar / sigma_beta added.
+m4_params <- c("c_bar", "d_bar", "beta_bar",
+               "bST", "bOT", "bS", "bO",
+               "sigma_c", "sigma_d", "sigma_beta", "p_lapse")
+
+# M5 is the mixture and reports the mixing proportions and the class-level means/SDs instead of d_bar/beta_bar.
+m5_params <- c("c_bar", "p_lapse",
+               "pi[1]", "pi[2]", "pi[3]",
+               "mu_d", "mu_beta",
+               "sigma_d_sig", "sigma_b_sig",
+               "sigma_d_noise", "sigma_b_noise",
+               "bST", "bOT", "bS", "bO")
+
+# Stack all models' CIs into a table
+# (model x param) rows so we can grep/filter/whatever we want after
+ci_all <- rbind(
+  ci_table(m1_acc,                   m1_params,    "m1_acc"),
+  ci_table(m2_sdt,                   m2_m3_params, "m2_sdt"),
+  ci_table(m3_sdt_mix,               m2_m3_params, "m3_sdt_mix"),
+  ci_table(m4_full_beta,             m4_params,    "m4_full_beta"),
+  ci_table_cmdstan(m5_fit,           m5_params,    "m5_mix")
+)
+ci_all
+```
+
+____________________________
+Check the table above. Much better than me writing them all out
+____________________________
+
+**Perform a model comparison where you compare different models to each other that may differ in predictors, priors, etc.**
+
+```{r model-compare }
+# valid comparisons across models:
+#   1. M2 vs M3 on the full dataset (same 7748 trials)
+#       Answers whether the p_lapse mixture helps
+#   2. M4 vs M5 on the full_sentence subset (same 3874 trials)
+#       Answers whether the mixture prior on (d, beta) random effects beats continuous Normal partial pooling
+#       (this is where (i try) to test the flip hypothesis)
+# M1 excluded (different DV, log-odds scale). Across-subset comparisons (e.g. M3 vs M4) 
+# are not valid via WAIC because the trial count differs
+# 
+# Have to do this weird thing beacuse of rethinking....
+# basically we do a direct drop into the underlying loo package
+# so that we can use loo::waic() on the log_lik matrices directly
+# instead of relying on rethinking's brittle implementation
+# I like rethinking but it is not optimized for speed (and there are many
+# ways in which one could do this). It also does not really allow you
+# to take advantage of the 
+m2_loglik <- m2_sdt@cstanfit$draws("log_lik", format = "matrix")
+m3_loglik <- m3_sdt_mix@cstanfit$draws("log_lik", format = "matrix")
+
+m2_waic <- loo::waic(m2_loglik)
+m3_waic <- loo::waic(m3_loglik)
+
+m2_waic
+m3_waic
+loo::loo_compare(list(m2 = m2_waic, m3 = m3_waic))
+```
+
+```{r model-compare-psis }
+# Compare again via Piss loo to feel confident if they converge or notice something
+# funky might be happening if not (extreme values or high leverage etc/psis/loo unstable in general)
+m2_loglik <- m2_sdt@cstanfit$draws("log_lik", format = "matrix")
+m3_loglik <- m3_sdt_mix@cstanfit$draws("log_lik", format = "matrix")
+
+m2_loo <- loo::loo(m2_loglik)
+m3_loo <- loo::loo(m3_loglik)
+
+m2_loo
+m3_loo
+loo::loo_compare(list(m2 = m2_loo, m3 = m3_loo))
+
+```
+
+```{r model-compare-m4-m5 }
+# M4 vs M5 WAIC on the full_sentence cell. Both fit to the same 3874 trials (full_sentence)
+# M4 is in rethinking format whereas M5 is in cmdstanr format so we pull log_lik out of each
+# and feed loo::waic the matrices directly. 
+# (do not recommend anyone ever trying this sh** again what a pain this was)
+# 
+# Note: extract.samples() from rethinking does NOT reliably return log_lik even when
+# log_lik = TRUE was passed to ulam (of course! bc why would the args i pass to a function have an effect on what it does). 
+# rethinking uses cmdstanr as the backend, so the underlying fit object lives at m4_full_beta@cstanfit and we can call $draws()
+# on it the same way as on m5_fit.
+
+
+m4_loglik <- m4_full_beta@cstanfit$draws("log_lik", format = "matrix")
+m5_loglik <- m5_fit$draws("log_lik", format = "matrix")
+
+m4_waic <- loo::waic(m4_loglik)
+m5_waic <- loo::waic(m5_loglik)
+
+loo::loo_compare(list(m4 = m4_waic, m5 = m5_waic))
+```
+
+
+```{r m1-standalone-waic }
+# M1's WAIC for reference (NOT comparable to M2-M5 since different DV)
+WAIC(m1_acc)
+```
+
+## 3B. Describe/interpret your results
+
+**What do you learn from comparing your models' coefficients?**
+
+____________________________
+The main thing I learn from comparing M1 to M2/M3 is that the original accuracy result survives in direction, but that the Bayesian model decomposes the results into the constiituent pieces. Te Oberlin-full composite has 86% posterior mass above zero with an 89% interval that just barely includes zero. So it does seem to be pointing the same way as the original NHT result, but the bayesian model is not quite as confident. Since accuracy is a mixture of sensitivity and criterion, and separating those two is exactly the point of doing SDT instead of just modeling correct/incorrect responses. In this task, target and distractor trials are balanced, so a criterion shift alone cannot generate above-chance accuracy because shifts in  criterion will just trade hits for false alarms. The sensitivity terms in M2/M3 should therefore be what is carrying the NHT accuracy interpretation. In M2, $b_{BT} = 0.07$ $[-0.07, 0.24]$ and $b_{ST} = 0.11$ $[-0.01, 0.23]$ are small and positive, while $b_{BST} = 0.00$ $[-0.16, 0.17]$ so we see that each term is below chance and that the Oberlin full_sentence $d'$ effect is not being driven by some unique Block, Site and TrueTarget interaction, but instead by the accumulation of small additive sensitivity shifts (Block and Site) that, when summed, produce a modestly positive $d'$ in that cell.M3 tells the same story: $b_{BT} = 0.06$ $[-0.13, 0.25]$, $b_{ST} = 0.12$ $[-0.03, 0.26]$, and $b_{BST} = 0.03$ $[-0.18, 0.22]$. So the accuracy result is not only “criterion” and its not attributable to any piece of that interaction in particular. It appears to be coming from some addition of these factors, and there is an interesting finding in seeing the criterion/bias shift. ALthough the criterion shift cannot effect accuracy (and it seems d prime still remains), we seem to see some sort of correlation between the Oberlin sensitivity patterns and genuine signal sensitivity. This matters theoretically because hallucination and perceptual-bias work often finds response bias effects without sensitivity effects, including Bentall and Slade’s auditory SDT study, but here it seems we get both. The  accuracy and dprime is not explained away by criterion/response bias, so there seems to be some sensitivity effect because of the balanced base rates (criterion/bias CANNOT affect accuracy).
+
+The separate criterion finding is does seem to hold up across models. In M2, $b_S = -0.17$ $[-0.28, -0.04]$ and $b_{BS} = 0.11$ $[0.01, 0.19]$ so both exclude zero. In M3, we see the same pattern with the parameter estimates of $b_S = -0.21$ $[-0.36, -0.06]$ and $b_{BS} = 0.13$ $[0.02, 0.23]$. This means Oberlin subjects are more conservative about saying “target” than UChicago subjects, and that site difference becomes smaller in the full_sentence block. The key point, though, is that this is a separate finding. It does not explain the accuracy or $d'$ result. Because target and distractor trials are balanced, criterion shifts cannot produce above-chance performance. So the bayesian approach was able to uncover that there are two things happening at once: there is a modest sensitivity signal (coming from the additive $b_{BT}$ and $b_{ST}$ terms), and there is a site-related difference in response bias.
+
+M2 to M3 shows that adding a lapse component does not change this story. M3 estimates $p_\text{lapse} = 0.17$ $[0.04, 0.34]$, so the model allows for a nontrivial proportion of lapse-like responding, which is plausible in a near-threshold task (i have piloted this thing like 4 times and i zoned out alot). However, the sensitivity and criterion coefficients are not very different from M2. This suggests that, even thought lapses are present, the results survive the idea that subjects may be zoning out on occasion. It is also suprising that the lapse coefficient is so high, given that performance is close to chance, so the model should only have a limited ability to distinguish guesses/attentional lapse from perceptual errors/signal insensitivity. The lapse term absorbs a bit of noise but neither reveals signal nor destroys the existing results.
+
+M3 to M4 is where the model we kind of go out on a limb. I would argue that restricting to the full_sentence block is justified because the flip hypothesis only makes sense when there is at least some usable signal. Adding the per-subject alignment slope $\beta_s$ is also theoretically motivated: if subjects are systematically tracking the stimulus signal in the wrong direction (if you heard these stimuli you would immediately understand that it would be easy to flip these labels), $\beta_s$ should be negative. But in practice, the data does not agree with this hypothesis. M4 yields $\beta_\text{bar} = -0.56$ $[-6.10, 4.93]$ which is very wide, and the sensitivity intercept also becomes much more uncertain ($d_\text{bar} = 0.05$ $[-0.38, 0.47]$). So while M4 better matches the theoretical question, it is not really returning any confident statement about what is going on here. It could be that this effect does not exist, and it could also be that this is underpowered in this dataset. Whatever it is, the posterior is not confident.
+
+M4 to M5 takes the same issue but tries to analyze it using a mixture model. M5 estimates $\pi_\text{flipped} = 0.15$ $[0.02, 0.46]$, so the population-level posterior is compatible with a nonzero proportion of flipped subjects. However, the individual-level class probabilities are diffuse, and model comparison shows no meaningful improvement over M4. This means the mixture prior is more confident than M4 but also does not have much to say. My takeaway is that the data are consistent with the existence of flipped subjects (and also consistent with not-flipped subjects), but we really do not provide have enough data for the model to latch onto such that it can identify them or strongly prefer the mixture model over the simpler alternative.
+____________________________
+
+**Based on model evaluation metrics, are you confident that your models are not overfitting or underfitting? Why? Consider comparing overfitting measures and also R-sqrd measures.**
+
+____________________________
+The model comparison results suggest that I am not overfitting, but also not gaining much by adding complexity. However it is certainly possible that I am underfitting given the complexity of these models and that we do not have large number of subjects. This is ok to me since I wanted to use this assignment as an opportuinity to flesh out some ideas and approaches. At a later point I will come back and try to refine these. Regardless, M2 and M3 are more or less the same, with $\Delta \text{elpd} = -0.1$ and SE $= 0.7$ under both WAIC and PSIS-LOO, and all Pareto-$k$ values are below 0.7. This suggests that the cross-validation estimates are stable and that neither model is overfitting in a way that harms prediction. The effective number of parameters is also modest relative to the number of trials ($p_{\text{waic}} \approx 33$ for $N = 7748$), which further suggests that the models are not overly flexible.
+
+Similarly, M4 and M5 are indistinguishable ($\Delta \text{elpd} = -0.2$, SE $= 0.5$), so the mixture model is not improving predictive performance despite adding structure. This reinforces the idea that M5 is not overfitting in a catastrophic way, but also not extracting additional signal from the data. Overall, the models appear to be doing ok in terms of the bias–variance tradeoff since they converge and are able to capture the structure of the data, but adding additional complexity did not translate into better model performance.
+
+I do not report Bayesian $R^2$ here because it is not particularly meaningful for this probit SDT setup. The primary question is not variance explained, but predictive accuracy on binary trial outcomes, which is better captured by WAIC and PSIS-LOO. The only caveat is the $\sigma_d$ funnel issue in M2/M3, which affects sampling efficiency but not the overall stability of the population-level estimates. For my final run before submitting I am upping the iterations and warmup runs to see if this helps bring down RHAT and achieve slightly more stable chains. M4 resolves this with a non-centered parameterization, so I am comfortable trusting the main inferences.
+____________________________
+
+**Interpret your parameter estimates along with their 89% credible intervals. What kind of inferences can you draw (e.g., causal or non-causal)?**
+
+____________________________
+
+The parameter estimates reinforce the decomposition described above. On the sensitivity side, all of the main coefficients ($b_{BT}$, $b_{ST}$, $b_{BST}$) have 89% credible intervals that include zero, so there is no single effect that can be cleanly labeled as “present” in isolation. However we can see that $b_{BT}$ and $b_{ST}$ are consistently positive across M2 and M3 which means that their sum produces a modest positive $d'$ in the Oberlin full_sentence cell. So the joint pattern matters more than any individual coefficient. In terms of inference, the Block × TrueTarget effect ($b_{BT}$) can be given a causal interpretation because Block is randomized within subject, but the Site-related terms ($b_{ST}$, $b_{BST}$) are observational and should be interpreted as associations rather than causal effects (unless grant money is on the line).
+
+On the criterion side there is more to say. Both $b_S$ and $b_{BS}$ exclude zero in M2 and M3 which suggests a reliable difference in response bias between sites and a moderation of that difference by Block. These effects involving Site are still non-causal, but they are clearly present in the data. The key takeaway is that sensitivity and criterion are behaving differently: sensitivity effects are weak and additive, while criterion effects are stronger and more clearly identified.
+
+In M4 and M5, the parameters associated with the flip hypothesis are highly uncertain with wide CIs. The wide interval on $\beta_{\text{bar}}$ and the diffuse mixture weights indicate that the data do not constrain these quantities. As a result, we can only make weak population-level statements (e.g., the data are compatible with some flipped subjects... and also the alternative) and cannot draw confident conclusions about individual-level behavior. Overall, the credible intervals show that the main sensitivity finding is subtle and distributed across parameters, while the criterion effect is more robust, and that more complex hypotheses (like flipping) are not able to be tested via this dataset.
+
+(TAs please do not read this parenthetical as it is meant for for potential grant givers..... Dear grant givers, please understand i am only saying the Site effects are non-causal because I have to. In fact, despite what those perched in their ivory towers might try to tell you, you and I both know good science when we see it. It is a gut thing, ya know? In fact, I think these might be the most important results in the world. I would study them more, but I would need exactly the amount of money that you are thinking of giving me in order to do it. I am not kidding. You might think it is a coincidence, but I like to see it as God's way of telling you to give us that exact amount of money. A funny, magical world it is indeed)
+____________________________
+
+# 4. Discussion
+
+**Write a brief discussion (2-3 paragraphs) that summarizes your findings and interprets the meaning of your findings. Please address:**
+
+- Can causal inference be drawn? Why or why not?
+
+- Discuss some limitations of your study.
+
+- Discuss what future directions you would like to take the work.
+
+____________________________
+The main takeaway from this project is that the original NHT result survives, albeit in a weakend form. It would probably be more fair to call it a trend. I am still unsure exactly what is driving it or how to interpret that. This Oberlin full_sentence effect certainly still points in the same direction, but instead of a clear interaction, it seems to decompose into small additive sensitivity shifts that coem together to produce above chance results (according to NHTs). However since criterion cannot actually drive accuracy or dprime in a balanced target/distractor paradigm, we see that there is an indepoendent criterion/bias effect. In particular, this criterion pattern seems to show most prominently across sites. Oberlin subejcts are more hesitant about responding "target", which could come from their student body having a disproportionate amount of musical training, thus enabling subjects to have better auditory timing and thus be able to follow the stimulus "envelope". Being able to follow the envelope would make them better able to know which part of the word "wall" they should be listening for at each timepoint while they are listening to the stimulus. This could then result in the ability to above-chance identify which stimuli are meant to be targets and which stimuli are meant to be targets. Under the (large) assumption that the mixture model from M5 is NOT just underpowered/model is underfit (i.e. the results of this model would be the same even with more subjects), we would also conclude that "anyone who can separate the targets from the distractors knows which group is meant to be the targets and which group is meant to be the distractors". This would rule out the idea that subjects with high accuracy or dprime are just forgetting the template "Wall" and dedicating their energy to trying to find any difference between the groups of stimuli, independent of label. This chain of analysis and assumptions would suggest that the ability to do this task well comes from the ability to find these tiny bits of correlation in the targets and notice their absence in the distractors! It is hard to explain if you don't know this background or haven't experienced the extent to which ALL of the stimuli sound like nothing (when you actually hear these stimuli it seems like it would be GENUINELY IMPOSSIBLE to discern between the two groups), but this has been an open question and this data does provide some genuinely helpful clues for next steps.
+
+So the data are not just showing response bias, and they are not just showing sensitivity either. They show both, but in different ways: a modest sensitivity signal that only becomes visible when terms are combined, and a clearer site-related difference in response bias. The flip hypothesis, which I thought was one of the more theoretically interesting questions, ends up being inconclusive, but as mentioned above there is a potenitally interesting story to tell if we had more data. The data are consistent with the existence of flipped subjects, but also consistent with the non existence of them. Both would tell an interesting story, even though I only expanded on the implications of the latter in the above analysis. As it stands, these models with this data cannot resolve this question or make any judgements about mixture vs simpler alternatives.
+
+In terms of causal inference, only the within-subject manipulated variables (Block, BlockOrder, and trial-level TrueTarget) can support causal interpretations. Effects involving these variables, like the Block × TrueTarget sensitivity shift, can reasonably be interpreted as causal because they were randomized. In contrast, Site is observational, so any Site-related effects (including the criterion shift and Site × TrueTarget sensitivity terms) should be interpreted as associations rather than causal effects. There is an unobserved confound $U$ here, which could include things like attention, auditory ability, absorption, or hallucination-proneness, and that backdoor path is not blocked in this analysis.
+
+There are several important limitations. First, the sample size is small ($N = 26$, 16 in oberlin full sentence which is where most of our signal was found), which makes it difficult to identify subject-level parameters, especially in a near-chance task. Second, the stimuli are extremely weak, so each trial carries very little information, which limits the model’s ability to distinguish between sensitivity, bias, and lapses. Third, the sample is restricted to undergraduates from two sites, which limits generalizability and makes the Site effect especially vulnerable to confounding. For future work, I would want a larger and more diverse sample, potentially including participants with higher listening experience/auditory expertise, hallucination-proneness, as well as stimuli with slightly stronger signal to improve identifiability. In further analyses and once I have thought through this extremely long data analysis, I would like to refine this approach so that the models are able to target the relevant questions more directly, and incorporate questionnaire analyses (reducing the scope of U). Furthermore, these and further analyses could result in having a better theoretical ground for the  external measures (e.g., questionnaires or neural data) that we choose, and thus help clarify the latent factors driving sensitivity,bias, and relationships between them. A moreso theoretically driven approach such as this (assuming the theory is correct) would make it possible to more directly test various hypotheses (such as the flip effect rather) than relying soley on weak behavioral signatures.
+
+____________________________
+
+# 6. References
+
+Please include your APA-style references (that relate to your parenthetical citations from your introduction) below.
+
+____________________________
+
+Aleman, A., & Larøi, F. (2008). *Hallucinations: The science of idiosyncratic perception*. American Psychological Association.
+
+Bare, A. N. (2025). *Assessing top-down control mechanisms in auditory hallucinations* [Honors thesis, The University of Chicago]. Department of Psychology.
+
+Bentall, R. P., & Slade, P. D. (1985). Reality testing and auditory hallucinations: A signal detection analysis. *British Journal of Clinical Psychology, 24*(3), 159–169.
+
+Friston, K. (2010). The free-energy principle: A unified brain theory? *Nature Reviews Neuroscience, 11*(2), 127–138.
+
+Gosselin, F., & Schyns, P. G. (2003). Superstitious perceptions reveal properties of internal representations. *Psychological Science, 14*(5), 505–509.
+
+Green, D. M., & Swets, J. A. (1966). *Signal detection theory and psychophysics*. Wiley.
+
+Hill, K., & Linden, D. E. J. (2013). Hallucinatory experiences in non-clinical populations. In R. Jardri, A. Cachia, P. Thomas, & D. Pins (Eds.), *The Neuroscience of Hallucinations* (pp. 21–41). Springer.
+
+Johns, L. C., & Van Os, J. (2001). The continuity of psychotic experiences in the general population. *Clinical Psychology Review, 21*(8), 1125–1141.
+
+Launay, G., & Slade, P. D. (1981). The measurement of hallucinatory predisposition in male and female prisoners. *Personality and Individual Differences, 2*, 221–234.
+
+Luhrmann, T. M., Nusbaum, H., & Thisted, R. (2010). The absorption hypothesis: Learning to hear God in Evangelical Christianity. *American Anthropologist, 112*(1), 66–78.
+
+Merckelbach, H., & Van De Ven, V. (2001). Another White Christmas: Fantasy proneness and reports of "hallucinatory experiences" in undergraduate students. *Journal of Behavior Therapy and Experimental Psychiatry, 32*(3), 137–144.
+
+Posey, T. B., & Losch, M. E. (1983). Auditory hallucinations of hearing voices in 375 normal subjects. *Imagination, Cognition and Personality, 3*(2), 99–113.
+
+Powers, A. R., Mathys, C., & Corlett, P. R. (2017). Pavlovian conditioning–induced hallucinations result from overweighting of perceptual priors. *Science, 357*(6351), 596–600.
+
+Tellegen, A., & Atkinson, G. (1974). Openness to absorbing and self-altering experiences ("absorption"), a trait related to hypnotic susceptibility. *Journal of Abnormal Psychology, 83*(3), 268–277.
+
+____________________________

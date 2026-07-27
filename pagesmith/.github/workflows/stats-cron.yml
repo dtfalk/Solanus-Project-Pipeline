@@ -1,0 +1,33 @@
+name: Stats refresh (hourly)
+
+# Hourly POST to the SWA's /api/stats-refresh with the shared secret. The function pulls REAL
+# data where a provider key is set (YouTube subscribers / Instagram followers) and is a no-op
+# otherwise — so this only does something once real keys exist. It never fabricates numbers.
+#
+# SWA managed functions can't self-schedule (HTTP triggers only), so the cadence comes from
+# outside. Leave this workflow disabled until you've actually set the provider keys.
+#
+# Repo → Settings → Secrets and variables → Actions:
+#   Variable  SWA_HOST             = <your swa host>   e.g. delightful-cliff-….azurestaticapps.net
+#   Secret    STATS_REFRESH_SECRET = <same value as the SWA app setting>
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # top of every hour (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST /api/stats-refresh
+        run: |
+          test -n "${{ vars.SWA_HOST }}" || { echo "Set repo variable SWA_HOST"; exit 1; }
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "x-stats-refresh-secret: ${{ secrets.STATS_REFRESH_SECRET }}" \
+            "https://${{ vars.SWA_HOST }}/api/stats-refresh")
+          echo "stats-refresh → HTTP $code"
+          test "$code" = "200" || test "$code" = "207"

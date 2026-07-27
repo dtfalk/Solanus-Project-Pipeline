@@ -1,0 +1,9 @@
+{
+  "title": "Knowledge graph",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "g-h", "type": "heading", "text": "Knowledge graph" },
+    { "id": "g-intro", "type": "text", "body": "The people, places, conditions, and favors named across his letters and notebooks, and how they connect. Search a name to focus; single-click a node for its dossier; double-click to expand its neighborhood; drag to explore and scroll to zoom." },
+    { "id": "g-x", "type": "graph-explorer", "endpoint": "/api/graph", "entityEndpoint": "/api/entity", "connectionEndpoint": "/api/connection", "entitiesEndpoint": "/api/entities", "regionEndpoint": "/api/region", "timelineEndpoint": "/api/timeline", "communitiesEndpoint": "/api/communities", "params": "limit=120&entities_only=true", "height": "82vh", "layout": "fcose", "entitiesOnly": true, "minCoOccurrence": 1, "timeline": true, "explore": true }
+  ]
+}

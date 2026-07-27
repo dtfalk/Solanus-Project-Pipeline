@@ -1,0 +1,25 @@
+# Solanus digital avatar — install on the GPU box (Midway3 L40S). Most stages = cloning research repos.
+torch>=2.4
+numpy
+opencv-python
+pillow
+# Stage 1 restoration / colorization:
+# CodeFormer        -> github.com/sczhou/CodeFormer
+# Selective-Guided Diffusion (old-photo) -> per arXiv:2510.12114
+# Time-Travel Rephotography -> github.com/Time-Travel-Rephotography
+# Stage 2 head geometry:
+# Pixel3DMM         -> simongiebenhain.github.io/pixel3dmm  (FLAME fit)
+# FLAME / smplx     -> github.com/vchoutas/smplx
+chumpy            # FLAME/SMPL-X deps
+trimesh
+# Stage 3 head appearance (3DGS):
+# Avat3r            -> tobias-kirschstein.github.io/avat3r   (sparse animatable Gaussian head)
+# FaceLift / HeadGAP / GAGAvatar (alternatives)
+# gsplat / diff-gaussian-rasterization for 3DGS
+# Stage 4 body + habit:
+# LHM               -> arXiv:2503.10625  (1 image -> animatable body)
+# SiTH (alt), ContourCraft (cloth sim), Dress-1-to-3 (image->sewing pattern)
+# Stage 5 motion + talking head:
+# AMASS (mocap), EMAGE (co-speech gesture, SMPL-X)
+# HunyuanVideo-Avatar (open photoreal) / Ditto + LivePortrait (open real-time) / Hallo2
+# Stage 6 runtime: Unreal Engine 5.7 + XScene-UEPlugin + NVIDIA ACE Audio2Face-3D (outside Python)

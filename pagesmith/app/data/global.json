@@ -1,0 +1,34 @@
+{
+  "logo": "/media-content/logo.svg",
+  "nav": [
+    { "label": "Home", "url": "/" },
+    { "label": "Showcase", "url": "/showcase" }
+  ],
+  "social": [
+    { "platform": "instagram", "url": "https://www.instagram.com/" },
+    { "platform": "youtube", "url": "https://www.youtube.com/" }
+  ],
+  "footer": {
+    "blurb": "A starter site built with Pagesmith. Edit this text from the editor's “Header & footer” page.",
+    "signupLabel": "Sign up",
+    "copyright": "© My Site"
+  },
+  "questionnaire": {
+    "confirm": {
+      "heading": "Thanks for signing up!",
+      "body": "Would you answer a couple of quick optional questions? It helps us understand who's visiting."
+    },
+    "submitLabel": "Submit",
+    "fields": [
+      { "name": "location", "label": "Where are you based?", "type": "text", "placeholder": "City, Country" },
+      { "name": "discoverySource", "label": "How did you find us?", "type": "select", "options": ["Search", "Social media", "A friend", "Other"] }
+    ]
+  },
+  "theme": {
+    "accent": "#4f7cff"
+  },
+  "tracking": {
+    "metaPixelId": "",
+    "gaMeasurementId": ""
+  }
+}

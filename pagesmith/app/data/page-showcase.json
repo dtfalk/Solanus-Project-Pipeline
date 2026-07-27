@@ -1,0 +1,31 @@
+{
+  "title": "Showcase",
+  "sections": [
+    { "id": "sc-h", "type": "heading", "text": "Component showcase" },
+    { "id": "sc-intro", "type": "text", "title": "The catalogue",
+      "body": "These are the building blocks Pagesmith ships with. Add more from “+ Add section”. The video, embed, and carousel parts are also available — they just need a media or share URL, so they're left out of this static demo." },
+    { "id": "sc-gal", "type": "gallery", "title": "Photo gallery",
+      "images": [
+        { "src": "/media-content/sample-1.svg", "alt": "Sample one" },
+        { "src": "/media-content/sample-2.svg", "alt": "Sample two" },
+        { "src": "/media-content/sample-3.svg", "alt": "Sample three" }
+      ] },
+    { "id": "sc-quote", "type": "quotes", "title": "Quotes",
+      "quotes": [ { "quote": "Pagesmith made it easy to ship a site in an afternoon.", "source": "A happy builder" } ] },
+    { "id": "sc-links", "type": "links", "title": "Link grid",
+      "links": [ { "title": "Documentation", "url": "#" }, { "title": "Source", "url": "#" }, { "title": "Contact", "url": "#" } ] },
+    { "id": "sc-chart", "type": "chart", "title": "Monthly visitors", "kind": "bar",
+      "series": [ { "label": "Jan", "value": 1200 }, { "label": "Feb", "value": 1800 }, { "label": "Mar", "value": 2600 }, { "label": "Apr", "value": 3100 } ] },
+    { "id": "sc-stats", "type": "stat-cards", "title": "At a glance",
+      "items": [ { "label": "Visitors", "value": "12.4k", "sub": "+18% this month" }, { "label": "Sign-ups", "value": "3.1k", "sub": "" }, { "label": "Pages", "value": "24", "sub": "and counting" } ] },
+    { "id": "sc-rank", "type": "ranking", "title": "Top pages",
+      "items": [ { "label": "Home", "value": 290000 }, { "label": "Showcase", "value": 210000 }, { "label": "About", "value": 150000 } ] },
+    { "id": "sc-group", "type": "group", "title": "A group (parts inside parts)",
+      "children": [
+        { "id": "g-h", "type": "heading", "text": "Grouped heading" },
+        { "id": "g-t", "type": "text", "title": "", "body": "Groups let you nest and reorder several parts together as one unit." },
+        { "id": "g-b", "type": "button", "label": "A button inside a group", "url": "#" }
+      ] },
+    { "id": "sc-cta", "type": "button", "label": "← Back home", "url": "/" }
+  ]
+}

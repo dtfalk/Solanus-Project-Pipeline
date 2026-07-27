@@ -1,0 +1,163 @@
+{
+  "_README": [
+    "Hand-written GOLDEN archival Q&A set for step_7/eval/eval.py (the RAG/answer evaluator).",
+    "These ~12 questions are the *trusted* yardstick: real questions a Solanus archivist or a",
+    "petitioner's descendant would actually ask. They were authored by reading the corpus, NOT by an",
+    "LLM. (eval.py ALSO ships a SYNTHETIC generator that can mint more questions in this exact shape,",
+    "but it is gated OFF — David's labels are the authority; a machine never silently grows the gold",
+    "set. See eval.py:synthesize_golden_questions.)",
+    "",
+    "SCHEMA per item (every field optional except 'id' + 'question'):",
+    "  id            stable id (so results join across runs).",
+    "  question      the natural-language query handed to retrieval + generation.",
+    "  category      what KIND of archival ask it is (lookup / aggregate / relational / temporal / ...).",
+    "  difficulty    simple | moderate | complex  (should roughly match retrieval.route_query).",
+    "  ground_truth  a short reference answer sketch. Used ONLY by answer_relevancy / similarity if an",
+    "                LLM judge is enabled; faithfulness/ctx-precision do NOT need it (they judge vs the",
+    "                retrieved context, RAGAS-style). Left honest + terse; the corpus is the authority.",
+    "  expected_where  a metadata pre-filter that SHOULD bound the relevant set (passed straight to",
+    "                  retrieval RetrievalConfig.where). Lets context-recall be estimated for free,",
+    "                  with no human-labeled passage ids, by asking 'did we retrieve from this slice?'.",
+    "  relevant_doc_ids  OPTIONAL hand-labeled list of source doc_ids that truly answer this. When",
+    "                    present, context precision/recall are computed EXACTLY against it (no LLM).",
+    "                    Empty by default — David fills these in as he verifies, turning the free",
+    "                    proxy metric into a hard one. (Per project rule: gold is David-only.)",
+    "  stresses      which metric this question is designed to exercise, so a low score is diagnostic.",
+    "  notes         why this question is here / what makes it hard."
+  ],
+
+  "questions": [
+    {
+      "id": "gq01_cancer_favors_1945",
+      "question": "What favors were reported for cancer around 1945?",
+      "category": "aggregate_condition_temporal",
+      "difficulty": "complex",
+      "ground_truth": "Notebook entries record petitioners enrolled in the Seraphic Mass Association for cancer; some report the condition improved or 'cured' after enrollment. The exact 1945 set must be read from the entries; year comes from the page archival date, not the entry.",
+      "expected_where": {"kind": "notebook_entry"},
+      "relevant_doc_ids": [],
+      "stresses": "context_recall",
+      "notes": "The canonical archival ask. Hard because 'cancer' is a CONDITION entity and '1945' lives in the page-level archv_date, not the entry text (see stages/normalize_dates.py A2). Tests whether temporal + condition retrieval find the right slice."
+    },
+    {
+      "id": "gq02_casey_family_correspondence",
+      "question": "Find all Casey-family correspondence in the archive.",
+      "category": "relational_entity_aggregate",
+      "difficulty": "complex",
+      "ground_truth": "Letters to/from members of the Casey family (Solanus's own relatives). Requires entity resolution to group surname + given-name variants into the Casey family cluster.",
+      "expected_where": {"kind": "letter"},
+      "relevant_doc_ids": [],
+      "stresses": "context_precision",
+      "notes": "Exercises entity grouping (RESEARCH_PLAN A3): 'Casey' as a family, not a string. A good answer should NOT pull every letter that merely mentions the word 'Casey'."
+    },
+    {
+      "id": "gq03_petitioners_from_detroit",
+      "question": "Which petitioners came from Detroit?",
+      "category": "relational_place_aggregate",
+      "difficulty": "moderate",
+      "ground_truth": "People whose location (sender location / origin / entry text) is Detroit, Michigan. Both letters (src_location_sender / src_origin) and notebook entries can carry the place.",
+      "expected_where": null,
+      "relevant_doc_ids": [],
+      "stresses": "context_precision",
+      "notes": "PLACE entity grounding. Detroit is the home city (St. Bonaventure Monastery), so it is common — precision matters more than recall here."
+    },
+    {
+      "id": "gq04_when_born",
+      "question": "When was Father Solanus Casey born?",
+      "category": "biographical_lookup",
+      "difficulty": "simple",
+      "ground_truth": "November 25, 1870 (Bernard Francis Casey, Oak Grove, Wisconsin). This is biography, not necessarily in the letters/notebooks; a faithful system may abstain if no source region supports it.",
+      "expected_where": null,
+      "relevant_doc_ids": [],
+      "stresses": "faithfulness",
+      "notes": "A 'simple' route. Deliberately tests ABSTENTION: if the corpus has no supporting region, the grounded answer is 'not found in the archive' — a faithful system must NOT confabulate the well-known date."
+    },
+    {
+      "id": "gq05_seraphic_mass_association",
+      "question": "What was the Seraphic Mass Association and how were people enrolled in it?",
+      "category": "concept_explanation",
+      "difficulty": "moderate",
+      "ground_truth": "A Capuchin mission-support association; Solanus enrolled petitioners (living and deceased) in it as the spiritual remedy he offered, recording enrollments and later outcomes in his notebooks.",
+      "expected_where": null,
+      "relevant_doc_ids": [],
+      "stresses": "answer_relevancy",
+      "notes": "Tests synthesis across many entries that mention enrollment. The phrase recurs constantly, so retrieval is easy; the test is whether the ANSWER stays grounded and on-topic."
+    },
+    {
+      "id": "gq06_cures_reported_1933",
+      "question": "List every cure or favor reported in 1933 and how each turned out.",
+      "category": "aggregate_temporal_outcome",
+      "difficulty": "complex",
+      "ground_truth": "Notebook entries dated to 1933 (year from the page archival date) that record a reported outcome ('Reports ... recovered/cured/improved'). Each has an enrollment date and a later report date (bitemporal).",
+      "expected_where": {"kind": "notebook_entry"},
+      "relevant_doc_ids": [],
+      "stresses": "context_recall",
+      "notes": "Aggregate + temporal + OUTCOME. The router should classify this 'complex' (markers: 'every', 'list'). Tests recall over a full year and the enrolled-vs-reported date pair."
+    },
+    {
+      "id": "gq07_grace_panyard",
+      "question": "What does the archive record about Grace Panyard?",
+      "category": "entity_lookup",
+      "difficulty": "moderate",
+      "ground_truth": "Mentions of Grace Panyard across entries/letters. Requires resolving 'Grace.' (abbreviated) and OCR variants of 'Panyard' to one person.",
+      "expected_where": null,
+      "relevant_doc_ids": [],
+      "stresses": "context_precision",
+      "notes": "Named-entity exact-match — a case where BM25 (lexical) should shine on the surname while entity resolution catches the abbreviated/variant given name (RESEARCH_PLAN A3)."
+    },
+    {
+      "id": "gq08_odonnell_mentions",
+      "question": "Find every mention of the O'Donnell family.",
+      "category": "relational_entity_aggregate",
+      "difficulty": "complex",
+      "ground_truth": "All O'Donnell mentions, accounting for OCR variants (ODonnell, O Donnell, O'Donnel). A family cluster, not a single person.",
+      "expected_where": null,
+      "relevant_doc_ids": [],
+      "stresses": "context_recall",
+      "notes": "Apostrophe + OCR-variant robustness. The tokenizer keeps apostrophes (O'Donnell) on purpose; this checks that variant spellings don't sink recall."
+    },
+    {
+      "id": "gq09_children_petitions",
+      "question": "Were there petitions on behalf of sick children?",
+      "category": "condition_relation",
+      "difficulty": "moderate",
+      "ground_truth": "Entries where a parent/relative enrolls a child (son, daughter, baby) for an illness. Tests the RELATION (advocate -> beneficiary) plus a CONDITION.",
+      "expected_where": {"kind": "notebook_entry"},
+      "relevant_doc_ids": [],
+      "stresses": "answer_relevancy",
+      "notes": "Semantic, not lexical: 'sick children' rarely appears verbatim; the system must match 'her little boy', 'infant', 'my daughter's fever'. Good HyDE / dense-retrieval test."
+    },
+    {
+      "id": "gq10_drinking_problem",
+      "question": "Did anyone ask Solanus for help with a drinking problem?",
+      "category": "condition_behavioral",
+      "difficulty": "moderate",
+      "ground_truth": "Behavioral-condition petitions (alcohol / 'drink' / intemperance). A faithful answer cites the specific entries or abstains.",
+      "expected_where": {"kind": "notebook_entry"},
+      "relevant_doc_ids": [],
+      "stresses": "faithfulness",
+      "notes": "A behavioral CONDITION (not medical). Tests whether the system stays grounded on a sensitive topic and doesn't over-generalize from one entry."
+    },
+    {
+      "id": "gq11_conversion_favors",
+      "question": "What conversions or returns to the faith were reported?",
+      "category": "aggregate_outcome",
+      "difficulty": "moderate",
+      "ground_truth": "Spiritual-favor entries: a lapsed person returning to the sacraments, a conversion, a reconciliation — distinct from medical cures.",
+      "expected_where": {"kind": "notebook_entry"},
+      "relevant_doc_ids": [],
+      "stresses": "context_precision",
+      "notes": "FAVOR/OUTCOME of the *spiritual* kind. Precision test: must separate spiritual favors from the far more numerous medical ones."
+    },
+    {
+      "id": "gq12_letters_to_capuchins",
+      "question": "Which letters were addressed to Capuchin priests or the monastery?",
+      "category": "relational_org",
+      "difficulty": "moderate",
+      "ground_truth": "Letters whose recipient is a Capuchin friar / the monastery (ORG = Capuchin order, parishes). Recipient is a structured field on each letter.",
+      "expected_where": {"kind": "letter"},
+      "relevant_doc_ids": [],
+      "stresses": "context_precision",
+      "notes": "ORG grounding using the structured 'recipient' field that already exists per letter (RESEARCH_PLAN B: structured fields are a free head-start)."
+    }
+  ]
+}

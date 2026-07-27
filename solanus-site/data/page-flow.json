@@ -1,0 +1,9 @@
+{
+  "title": "Live pipeline",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "f-h", "type": "heading", "text": "How a question flows" },
+    { "id": "f-intro", "type": "text", "body": "Every question travels this pipeline — routing, retrieval, grading, synthesis, and citation. These are the same tools you can toggle on the API." },
+    { "id": "f-x", "type": "flow-diagram", "endpoint": "/api/agent_graph", "height": "58vh" }
+  ]
+}

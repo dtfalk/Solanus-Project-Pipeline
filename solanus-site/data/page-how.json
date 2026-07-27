@@ -1,0 +1,19 @@
+{
+  "title": "How it works",
+  "theme": { "bg": "#E5DFDE", "ink": "#2A262A", "accent": "#3C1605" },
+  "sections": [
+    { "id": "how-h", "type": "heading", "text": "How it works" },
+    { "id": "how-intro", "type": "text", "body": "The life this archive documents, and the pipeline that turns his scanned papers into a searchable, cited knowledge base." },
+    { "id": "how-pipe", "type": "pipeline-overview", "narrativeEndpoint": "/api/his_life", "narrativeField": "markdown", "narrativeHeading": "The life this archive documents", "statsEndpoint": "/api/graph?limit=10",
+      "stages": [
+        ["Scanned pages", "OCR'd page images (step 5)"],
+        ["Documents", "segmented: letters + notebook entries (step 6)"],
+        ["NER", "people, places, conditions, favors, dates extracted"],
+        ["Resolve", "cautious merge → canonical entities (precision-first)"],
+        ["Knowledge graph", "RiC-O temporal graph: entities + records + dates"],
+        ["Embed + index", "hybrid BM25 + dense vectors; FTS; IIIF"],
+        ["Ask", "tool-using agent answers with cited sources"]
+      ],
+      "footnote": "This is a developer & evaluation harness: you can swap the LLM, embedding space, and reranker, toggle retrieval techniques, and watch the agent's trace + cost for every question. Every answer cites the exact scanned region." }
+  ]
+}

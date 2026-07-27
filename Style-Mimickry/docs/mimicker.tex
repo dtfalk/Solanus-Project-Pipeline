@@ -1,0 +1,315 @@
+% =============================================================================
+% The Style Mimicker: teaching a FROZEN model to write in David's voice.
+% Voice + packages follow examples/writing_examples/diffusion_explainer so this
+% reads as a clean, polished version of the same explanation in his own register.
+%
+% Build with:  pdflatex -output-directory=build mimicker.tex   (twice for TOC),
+%              then copy build/mimicker.pdf next to this .tex.
+% All aux/intermediary files (.aux/.log/.out/.toc) live in build/ per STYLE_GUIDE.
+% =============================================================================
+\documentclass[11pt]{article}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+
+% --- Packages ---------------------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\microtypesetup{expansion=false}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{placeins}   % \FloatBarrier to keep figures inside their section
+\usepackage{caption}
+\captionsetup{font=small,skip=8pt}
+
+% --- Listings (Python) ------------------------------------------------------
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{codekw}{RGB}{0,0,180}
+\definecolor{codecmt}{RGB}{0,128,0}
+\definecolor{codestr}{RGB}{170,55,0}
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  keywordstyle=\color{codekw}\bfseries,
+  commentstyle=\color{codecmt}\itshape,
+  stringstyle=\color{codestr},
+  showstringspaces=false,
+  language=Python,
+  breaklines=true,
+  columns=fullflexible,
+  frame=single,
+  framesep=4pt,
+  rulecolor=\color{black!20},
+}
+
+% --- Convenience macros -----------------------------------------------------
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\cossim}{\operatorname{cos}}
+
+\title{\bfseries The Style Mimicker\\[2pt]
+\large Teaching a \emph{frozen} model to write in David's voice (no fine-tuning)}
+\author{David Falk \\ Solanus Casey Archival Project}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document explains the \code{Style-Mimickry} toolkit: a small system that makes a
+\emph{frozen} large language model write in my voice and then \emph{measures} whether it
+succeeded. Because I have forbidden fine-tuning, none of the style can live in the model's
+weights; it must instead be \emph{carried into} the model at request time (retrieved real examples
+of my writing) and \emph{measured from outside} (an embedding ``center of mass'' of my prose plus
+an interpretable stylometry audit). The toolkit reuses the \code{step\_7} libraries wholesale, so
+every model call is cost-logged and the model itself is a swappable configuration variable. Nothing
+here trains, downloads a large model, or spends money until explicitly asked.
+\end{abstract}
+
+\tableofcontents
+
+% =============================================================================
+\section{The problem, and why ``no fine-tuning'' reshapes it}
+% =============================================================================
+
+I want a model to write the way I write. The usual answer is to fine-tune --- to nudge the weights
+until the model's default voice \emph{becomes} mine. I have ruled that out. That single constraint
+is clarifying rather than merely limiting: if the style cannot live in the weights, then it has to
+live somewhere I can \emph{see}, and the whole design becomes inspectable. There is no mysterious
+tensor that ``knows'' my voice; there is a folder of my actual sentences and a number that says how
+close a candidate is to them.
+
+So I split the word ``voice'' into two jobs:
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Carry} the voice into the model at request time, by retrieving real examples of my
+        writing and showing them to the model (few-shot prompting).
+  \item \textbf{Measure} the voice from the outside, with an embedding centroid of my prose and a
+        plain-English stylometry dashboard.
+\end{enumerate}
+
+One half makes the model \emph{sound} like me; the other half tells me, honestly, whether it did.
+The three Python files map one-to-one onto this: \code{data\_prep.py} builds the materials,
+\code{generate.py} carries the voice in, \code{evaluate.py} measures it.
+
+\paragraph{A note on what we deliberately omit.} The research report's strongest recommendation is
+a fine-tuned hybrid (synthetic neutral$\to$styled pairs, QLoRA, a reconstruction objective). All of
+that is gone, on purpose. What survives is exactly the subset that works on a frozen model:
+retrieved-exemplar prompting, a RAG index, a style centroid, a (prompt-proxy) StyleVector nudge, a
+gated Horikawa refinement loop, and the interpretable evaluation.
+
+% =============================================================================
+\section{Data preparation: the real product}
+% =============================================================================
+
+\code{data\_prep.py} reads my writings --- at present the \code{.tex} explainers in
+\code{examples/writing\_examples} --- and does three things.
+
+\paragraph{1) Strip the scaffolding.} My style lives in the sentences, not in
+\code{\textbackslash usepackage\{tikz\}}. So before anything else we remove the LaTeX preamble, the
+figure/\code{tikzpicture}/\code{lstlisting} environments, inline math, and stray commands, leaving a
+prose approximation. This is best-effort and regex-only; it does not need a real LaTeX parser,
+because the goal is just to clean the \emph{style signal}, not to render the document.
+
+\paragraph{2) Segment into exemplars.} We cut the prose into passages of roughly $40$--$180$ words.
+That band is not arbitrary. The stylometry literature warns that count-based features are essentially
+noise below $\sim$100 words and get diluted across too many ideas above $\sim$180, so a
+paragraph-sized window is the sweet spot. Each exemplar keeps a pointer back to the file it came
+from, so anything I later show the model --- or that the evaluator flags --- can be traced to my
+actual writing.
+
+\paragraph{3) Embed (only with \code{--embed}).} The one paid step. We embed every exemplar with the
+\code{step\_7} model-agnostic embedder, write them to a partitioned vector store under a
+\code{style::model@dim} space, and save the \textbf{style centroid}.
+
+\paragraph{What the centroid is, intuitively.} Imagine every passage I have written as a point in a
+high-dimensional space where ``near'' means ``stylistically similar.'' The centroid is the
+\emph{center of mass} of that cloud --- the single point that best summarizes ``the average of my
+voice.'' Because the embedder returns unit vectors, asking ``how close is this new text to the
+centroid?'' is just a cosine,
+\[
+  \cossim(\mathbf{v}_{\text{text}}, \mathbf{c})
+  \;=\; \mathbf{v}_{\text{text}} \cdot \mathbf{c}
+  \quad\in [-1, 1],
+\]
+where bigger means more like me. That one number is the target the refinement loop steers toward and
+the anchor the evaluator scores against.
+
+\begin{lstlisting}
+python data_prep.py            # FREE: segment + write exemplars.jsonl + profile
+python data_prep.py --embed    # PAID: also embed -> RAG index + style_centroid.npy
+\end{lstlisting}
+
+% =============================================================================
+\section{Generation in three layers}
+% =============================================================================
+
+The layers are ordered cheapest-and-most-reliable first, exactly as the research recommends.
+
+% -----------------------------------------------------------------------------
+\subsection{Layer 1 --- retrieved exemplars + few-shot (runs today)}
+% -----------------------------------------------------------------------------
+
+Given a prompt, we embed it, pull the $k$ exemplars nearest it from the index, and lay them in front
+of a \emph{frozen} model with a simple instruction: \emph{here is how David writes; answer in that
+voice; imitate the manner, not the content.} This is the workhorse and the honest baseline. Telling a
+model ``write like David'' is weak; showing it the three paragraphs of mine most relevant to
+\emph{this exact topic} is strong, because it anchors the model on my subject and my manner at once.
+
+\paragraph{Why ``manner, not content.''} A frozen model reproduces surface voice well but will
+cheerfully \emph{confabulate} opinions I never expressed --- this is documented and unavoidable
+without retrieval-grounded stance modelling. So the system instruction explicitly forbids inventing
+my views, and the evaluation measures \emph{style}, never belief.
+
+% -----------------------------------------------------------------------------
+\subsection{Layer 2 --- a StyleVector-style nudge (scaffolded)}
+% -----------------------------------------------------------------------------
+
+There is a lovely result (StyleVector) that a person's style is roughly a single \emph{direction} in
+a model's activation space, and that you can steer a frozen model along it with no training. The
+catch is that you must reach inside the model, and a closed API will not let you. The version I can
+run honestly today is therefore a \emph{described} direction: I write down the axes where my voice
+leans --- analogy first, explain the \emph{why}, vary the sentence rhythm --- and inject that
+description into the prompt. The genuine activation-space method is left as a clearly marked TODO that
+needs a small open model with hidden-state access; the steering equation it would implement is
+\[
+  \mathbf{h}' \;=\; \mathbf{h} \;+\; \alpha\,\mathbf{s},
+  \qquad
+  \mathbf{s} \;=\;
+  \overline{\mathbf{h}}_{\text{authentic}} - \overline{\mathbf{h}}_{\text{style-agnostic}},
+\]
+i.e.\ add a scaled style vector $\mathbf{s}$ (the contrast between activations on authentic vs.\
+style-agnostic completions) to the residual stream.
+
+% -----------------------------------------------------------------------------
+\subsection{Layer 3 --- Horikawa-style refinement (scaffolded and gated)}
+% -----------------------------------------------------------------------------
+
+This is the ambitious part. Horikawa's ``mind captioning'' evolves a sentence so that its
+meaning-vector matches a target \emph{decoded from a brain}. The transfer is almost too clean:
+replace ``brain-decoded target'' with ``my style centroid'' and you get a loop that repeatedly
+\textbf{masks} a few words, asks a masked language model to \textbf{propose} natural fillers, and
+\textbf{keeps} whichever candidate's style embedding is closest to my centroid --- while a length
+penalty stops the search from cheating by collapsing to something trivially short.
+
+I implemented the control flow and, importantly, the \emph{fitness function}, which I can compute
+right now because it is just cosine-to-centroid times a length penalty:
+\[
+  \text{fitness}(x)
+  \;=\;
+  \underbrace{\cossim\!\big(\mathbf{v}_x,\, \mathbf{c}\big)}_{\text{closeness to my voice}}
+  \;\times\;
+  \underbrace{\Big(\tfrac{\ell}{\ell_0}\Big)^{-\alpha}}_{\text{length penalty } (\alpha \approx 0.1)},
+\]
+where $\ell$ is the candidate's word count and $\ell_0$ the target length. The one missing piece is
+the masked-LM proposer, which needs RoBERTa-large locally --- a heavy download I have not approved
+--- so the loop is \code{enabled=False} by default. If you turn it on, it reports exactly what it
+would do and changes nothing; it is non-destructive by construction (it only ever returns a
+\emph{new} string).
+
+\begin{lstlisting}
+python generate.py "Explain entropy to a beginner."        # DRY RUN (no API calls)
+python generate.py "Explain entropy to a beginner." --run  # PAID: actually generate
+python generate.py "..." --run --steer --refine            # Layer 2 + (gated) Layer 3
+\end{lstlisting}
+
+% =============================================================================
+\section{Evaluation: three honest measurements}
+% =============================================================================
+
+A model that \emph{feels} like me on one example tells me nothing. The evaluator scores a candidate
+three ways, and the three together are far harder to fool than any one alone.
+
+\paragraph{1) Neural cosine (primary).} Cosine of the candidate's embedding to my centroid, in the
+spirit of LUAR / StyleDistance. We also report the cosine to the \emph{single nearest} exemplar,
+because a bland, generic output can drift toward the bland average and score deceptively well; it is
+much harder to also sit close to a real, specific passage of mine.
+
+\paragraph{2) Interpretable stylometry (the dashboard I actually read).} We profile my exemplars on a
+small, robust, dependency-free feature set --- function-word rates (pronouns, articles, prepositions:
+the famously involuntary, topic-independent tells), sentence-length mean and variance (rhythm and
+burstiness), punctuation habits, vocabulary richness, mean word length --- and report, per feature, a
+$z$-score: how many standard deviations the candidate sits from my range,
+\[
+  z_f \;=\; \frac{x_f - \mu_f}{\sigma_f}.
+\]
+The output reads like a teacher's margin notes: \emph{``sentences too long ($z=+1.2$), too few
+first-person pronouns ($z=-2.4$).''} Embeddings can tell you \emph{that} something is off; only this
+tells you \emph{what}, and it is the tripwire against a candidate that games the embedding.
+
+\paragraph{3) Authorship-attribution discriminator (the adversarial judge).} The strongest honest
+test of a clone is whether a classifier can separate it from the real thing. The proper version
+trains a small model on my writing versus the clone's and reports how easily it separates them ---
+closer to a coin flip is better. That needs scikit-learn, which is not yet in the environment, so for
+now there is a transparent nearest-centroid fallback that returns a ``clone-probability,'' and the
+trained classifier is a clearly marked TODO.
+
+\begin{lstlisting}
+python evaluate.py                       # FREE: sanity-check on a real exemplar
+python evaluate.py "some generated text" # FREE: stylometry + discriminator
+python evaluate.py "..." --neural        # PAID: also embed for the cosine metric
+\end{lstlisting}
+
+% =============================================================================
+\section{Why this is honest about its limits}
+% =============================================================================
+
+Two failure modes are worth saying out loud, because both are documented in the research.
+
+\paragraph{Embedding metrics can be gamed.} You can land near the centroid while sounding nothing
+like me. That is precisely why the stylometry dashboard exists as a second, independent check.
+
+\paragraph{Interpretable features can also be gamed.} You can hit my function-word rates while
+butchering the syntax. That is why the embedding cosine and (eventually) the discriminator sit beside
+the dashboard. No single number is trustworthy; the three together are much harder to fool, and a
+human who knows my writing remains the final judge.
+
+\medskip
+\noindent\textbf{Cost and safety.} Every model call routes through \code{lib.costlog}, so it lands in
+\code{step\_7/costs/usage.csv} like any archival run. The default runs are \emph{free}:
+\code{data\_prep.py} without \code{--embed}, \code{generate.py} without \code{--run}, and
+\code{evaluate.py} without \code{--neural} make zero API calls. Everything is written under
+\code{Style-Mimickry/data/}; my source writings are only ever read. No training, no fine-tuning, and
+no large downloads happen anywhere.
+
+% =============================================================================
+\section{Caveats}
+% =============================================================================
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Confabulated opinions are the real danger.} The model can invent stances I never
+        held. The guardrail is the ``manner, not content'' instruction plus the fact that the
+        evaluation only scores style. Faithful \emph{opinions} would be a different, harder system.
+  \item \textbf{Short text is unreliable.} Count-based features wobble on short inputs; judge on
+        paragraph-sized outputs and aggregate over several.
+  \item \textbf{The corpus is small for now.} Three explainers is enough to prototype, not to capture
+        the full range of my voice; the fix is to point \code{CORPUS\_DIRS} at more of my writing.
+  \item \textbf{The neuroscience analogy has a seam.} Horikawa optimizes toward a \emph{measured}
+        neural target; here the target is a corpus-derived embedding, itself a lossy proxy for ``my
+        voice.'' Promising, but a final polish, not the foundation.
+\end{itemize}
+
+\medskip
+\noindent\textbf{Summary.} The toolkit takes one idea seriously --- if I cannot put my voice in the
+weights, I will carry it in the prompt and measure it from the outside --- and follows it all the way
+down: real exemplars retrieved per request, a centroid that is the center of mass of my prose, and an
+evaluation that reports both \emph{how} David-like and \emph{which dimensions} are off. The advanced
+layers (StyleVector steering, Horikawa refinement) are scaffolded so the research path is visible,
+but gated so nothing heavy or paid runs until I say so.
+
+% =============================================================================
+\section*{Sources}
+% =============================================================================
+\addcontentsline{toc}{section}{Sources}
+\begin{itemize}[leftmargin=*]
+  \item \code{Style-Mimickry-Research/style-mimickry-report.md} --- architecture report (STRAP,
+        LUAR, StyleDistance, StyleVector, ASTRAPOP, Horikawa mind-captioning, proxy-tuning).
+  \item \code{Style-Mimickry-Research/LICW-incorporation.md} --- interpretable-stylometry report
+        (LIWC-22, Writeprints, MTLD, the composite-objective + dashboard design).
+  \item Reused infrastructure: \code{pipeline\_v3/step\_7} --- \code{config},
+        \code{lib/costlog}, \code{lib/providers/embed}, \code{lib/providers/llm},
+        \code{lib/vectorstore}.
+\end{itemize}
+
+\end{document}

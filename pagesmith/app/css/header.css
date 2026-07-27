@@ -1,0 +1,74 @@
+/* =============================================================================
+   header.css — styling for the shared site header (header.html).
+
+   Brand colours come from the theme CSS variables that theme.js sets from
+   global.json (--site-accent, --site-ink, --site-bg). Everything here falls
+   back to neutral defaults, so the header looks fine even before a theme loads.
+   ============================================================================= */
+
+/* The fixed top bar. The page shells reserve ~7rem of top padding to clear it. */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.55rem 1.2rem;
+  background: rgba(20, 20, 26, 0.82);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.25s ease;
+}
+/* header.js adds .solid once the page is scrolled a little. */
+.site-header.solid { background: rgba(18, 18, 24, 0.97); }
+
+/* ---- desktop navigation ---- */
+.main-nav { flex: 1 1 auto; }
+.main-nav .menu {
+  display: flex; flex-wrap: wrap; gap: 1.3rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.main-nav .menu a {
+  color: var(--site-ink, #eceaf2); text-decoration: none;
+  font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em;
+}
+.main-nav .menu a:hover,
+.main-nav .menu a[aria-current="page"] { color: var(--site-accent, #4f7cff); }
+
+/* ---- logo ---- */
+.logo-wrapper { flex: 0 0 auto; }
+.logo { display: inline-flex; }
+.logo img { height: 34px; width: auto; display: block; }
+
+/* ---- social icons ---- */
+.social-icons { display: flex; align-items: center; gap: 0.55rem; }
+.social-icons a {
+  color: var(--site-ink, #eceaf2); display: inline-flex;
+  width: 26px; height: 26px; transition: color 0.2s ease;
+}
+.social-icons a:hover { color: var(--site-accent, #4f7cff); }
+.social-icons svg { width: 24px; height: 24px; }
+
+/* ---- mobile menu (hidden on desktop) ---- */
+.menu-toggle, .close-menu {
+  display: none; background: none; border: 0; cursor: pointer;
+  color: var(--site-ink, #eceaf2); font-size: 1.7rem; line-height: 1;
+}
+.mobile-menu-overlay {
+  position: fixed; inset: 0; z-index: 1100;
+  background: rgba(12, 12, 16, 0.98);
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.4rem; padding: 2rem;
+}
+.mobile-menu-overlay.open { display: flex; }
+.close-menu { position: absolute; top: 1rem; right: 1.2rem; display: block; }
+.mobile-menu-links { list-style: none; margin: 0; padding: 0; text-align: center; }
+.mobile-menu-links li { margin: 0.8rem 0; }
+.mobile-menu-links a { color: var(--site-ink, #eceaf2); text-decoration: none; font-size: 1.3rem; font-weight: 600; }
+.mobile-menu-links a:hover { color: var(--site-accent, #4f7cff); }
+.mobile-social-icons .social-icons { justify-content: center; margin-top: 0.6rem; }
+
+/* On narrow screens, swap the desktop nav + social for the hamburger menu. */
+@media (max-width: 760px) {
+  .main-nav,
+  .site-header > .social-icons { display: none; }
+  .menu-toggle { display: block; }
+  .logo-wrapper { flex: 1 1 auto; text-align: center; }
+}

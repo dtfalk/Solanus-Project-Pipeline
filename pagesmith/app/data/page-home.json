@@ -1,0 +1,11 @@
+{
+  "title": "Home",
+  "sections": [
+    { "id": "home-h", "type": "heading", "text": "Welcome to your new site" },
+    { "id": "home-intro", "type": "text", "title": "You're looking at a Pagesmith starter",
+      "body": "This whole page is built from editable blocks. Sign in as an editor (see the README) and an Edit toolbar appears — click any text to change it, or use the “+ Add section” button to drop in new parts. When you're happy, hit Save, then Publish." },
+    { "id": "home-spot", "type": "spotlight", "value": "100%", "label": "yours to edit",
+      "caption": "Every word, colour, and block on this page can be changed from the browser — no code required." },
+    { "id": "home-cta", "type": "button", "label": "Explore the component showcase →", "url": "/showcase" }
+  ]
+}

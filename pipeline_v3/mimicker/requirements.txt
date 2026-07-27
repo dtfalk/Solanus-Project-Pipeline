@@ -1,0 +1,14 @@
+# Solanus mimicker — TRAINING deps (install on the GPU box, in a venv separate from step_7 if you like).
+# Data prep / RAG / eval reuse step_7's already-installed libs (google-genai, numpy, the vector store);
+# only the fine-tuning + local inference stack below is extra.
+
+torch>=2.4                 # match your CUDA build
+transformers>=4.46
+peft>=0.13                 # LoRA / QLoRA adapters
+trl>=0.12                  # SFTTrainer + SFTConfig
+bitsandbytes>=0.44         # 4-bit (QLoRA) quantization
+accelerate>=1.0            # multi-GPU / device_map="auto"
+datasets>=3.0              # training set + optional replay
+sentencepiece              # tokenizers for Llama/Qwen
+# optional, for stronger style metrics:
+# scikit-learn             # a real AA discriminator (TODO in evaluate.py)

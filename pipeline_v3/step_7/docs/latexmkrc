@@ -1,0 +1,8 @@
+# latexmkrc — keep ALL LaTeX aux/intermediary files in build/ so only the .tex
+# (and the generated build/<name>.pdf) live in docs/.  Build with:
+#     latexmk -pdf graph_and_dates.tex
+# (the -outdir is set here, so you don't even need to pass it).
+$pdf_mode  = 1;          # always produce a PDF via pdflatex
+$out_dir   = 'build';    # .pdf + .aux/.log/.fls/.fdb_latexmk/.toc/.out all land here
+$aux_dir   = 'build';
+$clean_ext = 'fls fdb_latexmk synctex.gz';   # extra files `latexmk -c` should sweep

@@ -1,0 +1,27 @@
+{
+  "title": "Avatar",
+  "theme": {
+    "bg": "#E5DFDE",
+    "ink": "#2A262A",
+    "accent": "#3C1605"
+  },
+  "sections": [
+    {
+      "id": "a-h",
+      "type": "heading",
+      "text": "Speaking avatar"
+    },
+    {
+      "id": "a-intro",
+      "type": "text",
+      "body": "A stage for the in-browser speaking avatar, ready to be wired to the voice backend."
+    },
+    {
+      "id": "a-x",
+      "type": "avatar-stage",
+      "ttsEndpoint": "/api/tts",
+      "placeholder": "Avatar stage — speaks with the server voice",
+      "voice": "server"
+    }
+  ]
+}

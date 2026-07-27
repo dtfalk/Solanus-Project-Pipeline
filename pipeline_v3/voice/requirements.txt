@@ -1,0 +1,20 @@
+# Solanus voice mimicker — install on the GPU/audio box.
+# Restoration (open-source; commercial iZotope RX / CEDAR are the archival standard and used outside Python):
+torch>=2.4
+deepfilternet>=0.5          # real-time 48kHz denoise (MIT/Apache)
+resemble-enhance           # denoise + enhancement (MIT)
+# (NVIDIA CleanUNet: clone its repo separately; AudioSR / VoiceFixer for OPTIONAL super-res, kept non-canonical)
+soundfile
+librosa
+numpy
+# Cloning (best-version-first):
+# CosyVoice 2/3  -> install from FunAudioLLM/CosyVoice (Apache-2.0)   [PRIMARY]
+# F5-TTS         -> pip install f5-tts            (weights CC-BY-NC)  [comparator]
+# Llasa-8B       -> HF transformers + XCodec2                         [comparator]
+# OpenAudio S1   -> fishaudio/openaudio-s1-mini   (style markers)
+# Seed-VC        -> Plachtaa/seed-vc (GPL-3.0)    (timbre conversion of an actor take, if needed)
+transformers>=4.46
+# Evaluation:
+# speechbrain (ECAPA speaker sim) + a Whisper ASR for intelligibility WER
+speechbrain
+openai-whisper
